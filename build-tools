@@ -13,7 +13,7 @@ usage()
 
 clean()
 {
-    find . -name "*.rpyc" -o -name "*.pyc" -delete
+    find . \( -name "*.rpyc" -o -name "*.pyc" \) -delete
 }
 
 recompile()
