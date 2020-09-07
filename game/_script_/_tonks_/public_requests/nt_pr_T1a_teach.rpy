@@ -4,7 +4,7 @@
 
 # Detention with Tonks
 # (Tonks gives students detention or lets them stay after class)
-# (Gets to see the boy's dicks, the girl's panties, punishs them,...)
+# (Gets to see the boy's dicks, the girl's panties, punishs them...)
 # (Gives hours points to each of the students)
 
 #TODO Add Tonks chibi to all her public request nightly reports
@@ -132,18 +132,18 @@ label nt_pr_teach_T1_E1: #Tier 1 - Event 1 - Slytherin boy
     call ton_main("\"I shall not stare at my teacher's big, beautiful breasts\"...", "soft", "base", "base", "ahegao")
     m "Was the \"big\" and \"beautiful\" part really necessary?"
     call ton_main("Oh, that's not the best bit...", "horny", "wide", "base", "mid")
-    call ton_main("I went on to lecture him just how \"naughty\" and \"wrong\" it is for a student to peek at his teacher's tits,......", "soft", "wink", "annoyed", "mid")
+    call ton_main("I went on to lecture him just how \"naughty\" and \"wrong\" it is for a student to peek at his teacher's tits......", "soft", "wink", "annoyed", "mid")
     call ton_main("Oh, and I made him pull down his trousers while he wrote his lines!", "silly", "narrow", "base", "mid")
     m "So you did see it!"
     call ton_main("He still had his underwear on...","open","base","base","R")
-    call ton_main("If I had pushed him any further,... he probably would've snapped!", "soft", "base", "base", "downR")
+    call ton_main("If I had pushed him any further... he probably would've snapped!", "soft", "base", "base", "downR")
     call ton_main("Besides, I could still see how {b}hard{/b} he was...", "base", "closed", "annoyed", "mid")
     call ton_main("It was crazy...", "silly", "base", "base", "stare")
-    call ton_main("I started to really tease him at the end,... while he wrote out the last of his lines...", "grin", "narrow", "shocked", "mid")
+    call ton_main("I started to really tease him at the end... while he wrote out the last of his lines...", "grin", "narrow", "shocked", "mid")
     m "That poor boy..."
     call ton_main("Don't worry, I just whispered in his ear a little...", "horny", "narrow", "base", "R")
     call ton_main("Told him what a naughty boy he'd been...", "horny", "base", "shocked", "mid")
-    call ton_main("While my boobs dug into him,... and my nipples poked into his back...", "soft", "narrow", "base", "stare")
+    call ton_main("While my boobs dug into him... and my nipples poked into his back...", "soft", "narrow", "base", "stare")
     call ton_main("His underwear was practically {b}soaked{/b} in pre-cum.", "horny", "narrow", "shocked", "stare")
     m "And do you think he'll spread the word about you?"
     call ton_main("I sure hope so...","base","base","base","down")
@@ -266,7 +266,7 @@ label nt_pr_teach_T1_E3: # Tier 1 - Event 3 - Two Gryffindor boys. Guess who...
     call ton_main("Yep... To be honest, they probably would have done it for free.", "crooked_smile", "happyCl", "base", "mid")
     call ton_main("Not that they turned down the offer of points, though...", "base", "base", "base", "mid")
     m "Care to elaborate?"
-    call ton_main("Alright then,... you old perv...", "base", "base", "shocked", "R")
+    call ton_main("Alright then... you old perv...", "base", "base", "shocked", "R")
     call ton_main("Normally I'd just have the cutest thing that takes my eye stay behind after class...","open","base","base","R")
     call ton_main("For a little one-on-one time...", "horny", "base", "base", "stare")
     call ton_main("But I actually had to punish these two idiots for real.", "upset", "closed", "annoyed", "mid")
@@ -625,11 +625,11 @@ label nt_pr_teach_T2_E3: # Tier 2 - Event 3 - Slytherin boy
                 jump end_tonks_event
 
     m "How'd your favour go today?"
-    call ton_main("It was all right,...","open","base","base","R")
+    call ton_main("It was all right...","open","base","base","R")
     call ton_main("I was able to kill two birds with one stone, though.", "base", "closed", "annoyed", "mid")
     m "I'm intrigued."
     call ton_main("So, I had some cocky little brat from Slytherin cause all sorts of trouble in class.", "open", "narrow", "annoyed", "downR")
-    call ton_main("Talking,... letting a chocolate frog loose,... forgetting to lock his \"Monster Book of Monsters\"...","open","closed","base","mid")
+    call ton_main("Talking... letting a chocolate frog loose... forgetting to lock his \"Monster Book of Monsters\"...","open","closed","base","mid")
     m "(His what?)"
     call ton_main("Just being a general pain in the ass.","open","base","angry","R")
     m "Sounds like a hassle."
@@ -652,7 +652,7 @@ label nt_pr_teach_T2_E3: # Tier 2 - Event 3 - Slytherin boy
     m "*Ahh*..."
     call ton_main("*Ha-ha-ha*... You should have seen his look on his face!", "silly", "happyCl", "base", "mid")
     call ton_main("That's what he gets, the little shit!", "mad", "base", "angry", "down")
-    call ton_main("Not only did I leave him blue balled,... I also left him pants down in the class.","base","base","angry","mid")
+    call ton_main("Not only did I leave him blue balled... I also left him pants down in the class.","base","base","angry","mid")
     m "Forever?"
     call ton_main("No, just until the spell wears off...","open","closed","base","mid")
     call ton_main("In an hour or so...","upset","base","angry","R")
@@ -705,7 +705,7 @@ label nt_pr_teach_T2_E4: # Tier 2 - Event 4 - Slytherin girl
     call ton_main("The one that's still coming to grips with her budding sexuality?","base","base","angry","mid")
     m "The girl that you're turning into a lesbian?"
     call ton_main("Well, I had her stay back after class today...", "horny", "closed", "base", "mid")
-    call ton_main("For someone who supposedly hates selling favours,... she was surprisingly keen today...", "base", "base", "shocked", "mid")
+    call ton_main("For someone who supposedly hates selling favours... she was surprisingly keen today...", "base", "base", "shocked", "mid")
     m "Maybe she's finally coming around..."
     call ton_main("I got her to give me a little peek under her skirt, for twenty house points...", "base", "narrow", "base", "down")
     call ton_main("And, after she'd pulled up her skirt, I did the old... \"offer more points for something else\" trick...", "grin", "base", "base", "mid")
@@ -716,7 +716,7 @@ label nt_pr_teach_T2_E4: # Tier 2 - Event 4 - Slytherin girl
     call ton_main("*Ugh*... It was so fucking hot...", "soft", "base", "base", "stare", hair="horny")
     g9 "And?... What did happen \"next?\""
     call ton_main("I had her play with herself...", "grin", "closed", "shocked", "mid")
-    call ton_main("But,... that cute face of hers... and all the teasing...", "open", "closed", "shocked", "R", cheeks="blush")
+    call ton_main("But... that cute face of hers... and all the teasing...", "open", "closed", "shocked", "R", cheeks="blush")
     call ton_main("I decided to take matters into my own hands...", "grin", "base", "base", "stare", cheeks="blush")
     call ton_main("Specifically her matter...","horny","base","base","mid")
     m "You couldn't help yourself, could you?"
@@ -725,7 +725,7 @@ label nt_pr_teach_T2_E4: # Tier 2 - Event 4 - Slytherin girl
     call ton_main("Tell me about it...", "horny", "narrow", "base", "up")
     m "What did she have to say about the whole thing?"
     call ton_main("Not much...", "soft", "narrow", "base", "R")
-    call ton_main("She just looked up at me, with those puppy-dog eyes,... whispering \"wow\" and \"don't stop\" to me...", "base", "narrow", "shocked", "up")
+    call ton_main("She just looked up at me, with those puppy-dog eyes... whispering \"wow\" and \"don't stop\" to me...", "base", "narrow", "shocked", "up")
     call ton_main("To think only a couple of days ago she tried pretending not to be into me...","open","closed","base","mid")
     m "Think she'll start talking now?"
     call ton_main("Not unless she's ready to out herself as bi...", "annoyed", "base", "base", "R")

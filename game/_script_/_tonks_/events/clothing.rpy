@@ -135,7 +135,7 @@ label tonks_summon_setup:
                 # m "I should make you the school's cum-dumpster instead. How would you like that position?"
                 # m "Boys lining up in front of the school toilets, waiting their turn to dump their cum into their teacher's mouth, day after day!"
                 # call ton_main("You're making me so wet, [ton_genie_name]!","base","base","base","ahegao")
-                # call ton_main("Maybe some day I'll get bored of my current position here at Hogwarts,... you never know...","horny","base","raised","mid")
+                # call ton_main("Maybe some day I'll get bored of my current position here at Hogwarts... you never know...","horny","base","raised","mid")
                 # m "I'm not done with your punishment, Miss [tonks_name]!"
                 if not tonks_strip_happened:
                     m "You went to this school, didn't you? Which house were you in?"

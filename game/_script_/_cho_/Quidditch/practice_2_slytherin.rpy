@@ -250,4 +250,6 @@ label cc_st_talk:
         call cho_main("I'm confident that we can win this, [cho_genie_name].","smile","base","base","mid")
         call cho_main("Slytherin has no blasted chance against us!","base","narrow","base","mid")
 
-    return
+    call cho_main(xpos="base", ypos="base", trans=fade)
+
+    jump cho_training.choices

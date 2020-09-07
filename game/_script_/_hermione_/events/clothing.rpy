@@ -86,7 +86,7 @@ label hermione_summon_setup:
                 # call ctc
 
                 # m "..."
-                # m "[hermione_name],..."
+                # m "[hermione_name]..."
                 # m "What's with all these clothes you are wearing?"
                 # call her_main("It's a bit cold outside, [genie_name]... and my...", "soft", "base", "base", "R", cheeks="blush")
 
@@ -99,7 +99,7 @@ label hermione_summon_setup:
 
                 # call her_main("", "soft", "base", "base", "mid")
                 # pause.2
-                # m "Alright,... It looks cute on you."
+                # m "Alright... It looks cute on you."
                 # m "You can keep it on for now."
                 # call her_main("Thank you, [genie_name].", "base", "base", "base", "mid")
 

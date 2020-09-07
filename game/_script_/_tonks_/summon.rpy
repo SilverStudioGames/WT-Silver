@@ -7,6 +7,7 @@ label summon_tonks:
     $ tonks_busy = True
 
     call update_ton_tier
+    call update_tonks
 
     call play_music("tonks")
     call play_sound("door")
@@ -407,7 +408,7 @@ label tonks_talk:
                     label .nymphadora:
                     call ton_main("*Ugh*--", "mad", "base", "angry", "R")
                     call ton_main("Really, [ton_genie_name]?","open","base","angry","mid")
-                    call ton_main("I hate that name,...","open","base","worried","R")
+                    call ton_main("I hate that name...","open","base","worried","R")
                     m "Well you better get used to hearing it then, [tonks_name]..."
                     call ton_main("................","upset","base","angry","R")
                     jump tonks_talk

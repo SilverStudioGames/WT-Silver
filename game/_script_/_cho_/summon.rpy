@@ -8,6 +8,14 @@ label summon_cho:
 
     $ cho_busy = True
     #call update_cho_tier
+    call update_cho
+
+    if has_cho_panties:
+        jump cho_panties_response_T2
+
+    # Slytherin Quidditch Intro.
+    if cho_tier == 2 and not cho_quid.E5_complete:
+        jump cho_quid_E5
 
     # Clothes Events
     call cho_summon_setup
@@ -226,11 +234,9 @@ label cho_talk:
 
         "-Discuss Quidditch Training-" (icon="interface/icons/small/quidditch.webp") if not cho_quid.lock_training:
             if cho_tier == 1:
-                call cc_ht_talk
+                jump cc_ht_talk
             elif cho_tier == 2:
-                call cc_st_talk
-
-            call cho_main(xpos="base", ypos="base", trans=fade)
+                jump cc_st_talk
 
             jump cho_talk
 
@@ -280,7 +286,7 @@ label cho_talk:
                 "\"Never mind\"":
                     jump cho_talk
 
-            call cho_main("Very well,...",face="neutral")
+            call cho_main("Very well...",face="neutral")
             jump cho_talk
 
         "\"Never mind\"":

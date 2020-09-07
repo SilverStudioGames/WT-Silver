@@ -142,7 +142,7 @@ label dark_room_main:
         jump enter_room_of_req
 
     #Jump next day
-    call nar(">Night gathers,...\nAnd a new day begins.")
+    call nar(">Night gathers...\nAnd a new day begins.")
     $ DRgame.day += 1
     jump dark_room_main
 
@@ -259,7 +259,7 @@ label update_DRgame_hunger:
                         DRgame.meals -= 1
 
     if DRgame.time in ["afternoon"]:
-        "A long day of work,... it was time to eat..."
+        "A long day of work... it was time to eat..."
     if DRgame.meals <= 0:
         "All food that was left got eaten..."
 
@@ -385,7 +385,7 @@ label DRgame_random_event:
                 call gen_chibi("stand","door","base",flip=False)
                 with d5
                 pause.8
-                "The cabin, its walls strong against the harsh winds,... but still as cold as the outside..."
+                "The cabin, its walls strong against the harsh winds... but still as cold as the outside..."
                 "You need to take action... Fast..."
                 $ DRgame.characters.append(DRplayer)
 

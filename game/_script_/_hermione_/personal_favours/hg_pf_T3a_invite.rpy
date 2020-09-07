@@ -19,7 +19,7 @@ label hg_pf_strip_T3_snape: # Fails
     call her_main("My striptease performance...?!!", "shock", "wide", "base", "stare")
     call her_main("Are you completely out of your mind, [genie_name]?", "angry", "base", "angry", "mid")
     call her_main("Wasn't it enough that I've had to embarrass myself in front my teacher once before?", "open", "base", "angry", "mid")
-    call her_main("And now you expect me to do it again,... but willingly?!", "scream", "closed", "angry", "mid")
+    call her_main("And now you expect me to do it again... but willingly?!", "scream", "closed", "angry", "mid")
     m "Short answer... yes."
     call her_main("I'm leaving!", "angry", "base", "angry", "mid")
 
@@ -248,7 +248,7 @@ label hg_pf_strip_T4_snape:
         "-Unleash your rage {size=-2}(Hardcore){/size}-" if game_difficulty >= 3: #Hardcore difficulty dialogue.
             $ her_mood += 18
             $ sna_friendship -= 10
-            m "Both of you,..."
+            m "Both of you..."
             stop music
             with hpunch
             g4 "Shut the fuck up!!!"
@@ -260,7 +260,7 @@ label hg_pf_strip_T4_snape:
             g4 "Shut your stupid mouth or I will send you flying out that bloody window!"
             g4 "That bitch is already stripping for you, so what more do you want?!"
             call her_main("That B-Bitc--", "shock", "wide", "base", "stare")
-            g4 "And you,... stripper-whore!"
+            g4 "And you... stripper-whore!"
             g4 "Do what you are paid for and start stripping already!!!"
             call her_main("......", "angry", "closed", "angry", "mid", emote="angry")
             call sna_main(".............","snape_05")
@@ -373,7 +373,7 @@ label hg_pf_strip_T4_snape_watch:
     call sna_main("*Ahem*! Acceptable performance, miss Granger.","snape_12")
     call her_main("....", "open", "closed", "base", "mid")
     m "Heh..."
-    m "So,... how would you grade her tits?"
+    m "So... how would you grade her tits?"
     call her_main("......", "annoyed", "closed", "base", "mid")
     call sna_main("*Hmm*......","snape_20")
     call her_main("........", "annoyed", "closed", "base", "mid")

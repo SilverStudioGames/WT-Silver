@@ -163,6 +163,7 @@ label ll_pf_blowjob_T1_E2:
     call lun_main("You don't even know how much better I'll feel once I get them {i}all{/i} out!","base","angry","angry","empty",cheeks="blush")
     m "I don't think you--"
 
+    # TODO Inline the script from this label in this one, since it's only called here (and it's not a menu-driven branch either)
     call ll_pf_blowjob_T1_marathon
 
     m "You don't intend to walk to your dorm like that do you?"
@@ -562,11 +563,9 @@ label ll_pf_blowjob_T1_marathon: # Call label
     pause 0.5
     stop music fadeout 1.5
 
-    # Next day
-    #TODO Check if this day transition works as expected in the game (daytime is normally only changed by common_start)
-    play bg_sounds "sounds/day.mp3" fadeout 5.0 fadein 6.0
+    # Next part of the day
+    call defer_daytime_change(not daytime)
     centered "{size=+7}{color=#cbcbcb}An eternity later...{/color}{/size}"
-    $ daytime=True
     pause 0.5
     stop bg_sounds fadeout 3.0
     hide screen blkfade

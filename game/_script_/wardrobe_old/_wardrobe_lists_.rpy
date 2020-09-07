@@ -78,7 +78,7 @@ label update_wr_head_list:
 ### Tops List ###
 label update_wr_tops_list:
 
-    $ wr_tops_uniform = [] #ADD school clothing and cheerleader tops,...
+    $ wr_tops_uniform = [] #ADD school clothing and cheerleader tops...
     $ wr_tops_cheerleader = []  #Cheerleader Tops
     $ wr_tops_normal = []  #ADD Pullovers, Sweaters, Shirts, Muggle Clothing
     $ wr_tops_wicked = []  #ADD kinky clothing items like leather, fishnet

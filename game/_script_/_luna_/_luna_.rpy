@@ -1,7 +1,4 @@
 
-
-### Luna Lovegood ###
-
 label lun_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None):
 
     #Flip
@@ -53,7 +50,6 @@ label lun_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=No
     return
 
 
-
 label luna_away:
     call reset_luna
     call reset_genie
@@ -70,7 +66,6 @@ label luna_away:
     $ luna_busy = True
 
     jump main_room
-
 
 
 label end_luna_event:
@@ -108,15 +103,12 @@ label reset_luna:
 label update_luna:
     $ luna_flip = 1
     $ use_luna_head = False
-    $ luna_l_arm             = 1
-    $ luna_r_arm             = 1
+    $ luna_l_arm = 1
+    $ luna_r_arm = 1
 
     call update_lun_uniform
 
     return
-
-
-
 
 
 label luna_no_money:
@@ -125,32 +117,16 @@ label luna_no_money:
     jump luna_away
 
 
-#LUNA PLOT
-#Turned into a bitchy Slytherin by the sorting hat. Willing to do anything for money/fame/status. Incredibly vain
+init python:
+    def changeLuna(
+        mouth=None,
+        eye=None,
+        brows=None,
+        pupils=None,
+        cheeks=None,
+        tears=None,
+        emote=None):
 
-#Don't forget to incorporate the quibbler
-###PLOT###--------------------------------------------------------
-#After the sex favour, Luna will either return to normal if you choose the sub route or she will become a slytherin dom if you go the dom route
-#All the private favours will then have a 4th level unlocked, tailored to either the sub or dom option
-
-
-
-
-
-
-
-
-
-init python: ###Method Definition for new characters
-    def changeLuna( mouth=None,
-                    eye=None,
-                    brows=None,
-                    pupils=None,
-                    cheeks=None,
-                    tears=None,
-                    emote=None):
-
-        ### DEFINE GLOBAL VARIABLES ###
         global luna_mouth
         global luna_eye
         global luna_eyebrow
@@ -159,7 +135,6 @@ init python: ###Method Definition for new characters
         global luna_tears
         global luna_emote
 
-        ### FACE CONTROL ###
         if mouth is not None:
             luna_mouth       = "characters/luna/face/mouth/"+str(mouth)+".webp"
         if eye is not None:

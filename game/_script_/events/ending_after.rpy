@@ -190,10 +190,8 @@ label ending_after:
                 call blkfade
 
                 # Next day
+                call defer_daytime_change(True)
                 centered "{size=+7}{color=#cbcbcb}The next morning...{/color}{/size}"
-
-                call common_start(True) #TODO We should probably have a special label for day/night advance during events
-                call music_block
                 call hide_blkfade
 
                 # Snape enters and walks up to desk
@@ -217,6 +215,7 @@ label ending_after:
                 m "Yes... I also have very important business to get on with..."
                 call sna_main("Sure you do...","snape_01",ypos="head")
                 call sna_walk(action="leave")
+
                 jump main_room
             else:
                 call play_music("ball") #How do I add fade in to this?/can we make the music a bit lower since they're outside the doors

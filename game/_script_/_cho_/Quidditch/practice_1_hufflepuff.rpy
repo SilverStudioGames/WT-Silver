@@ -169,4 +169,6 @@ label cc_ht_talk:
     else:
         call cho_main("I'm confident that we can win this, [cho_genie_name].", "smile", "base", "base", "mid")
 
-    return
+    call cho_main(xpos="base", ypos="base", trans=fade)
+
+    jump cho_training.choices

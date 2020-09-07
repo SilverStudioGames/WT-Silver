@@ -194,7 +194,7 @@ label use_luna_potion:
             # g9 "Just a small bit of fur, above your pussy, please."
         # call ton_main("Well, here goes nothing...","horny","base","worried","down")
         # call nar(">You watch Tonks swallow the potion and cum mixture in one go...","start")
-        # "Wait a second,... where did you even get that from?"
+        # "Wait a second... where did you even get that from?"
         # m "Does it matter?"
         # call nar(">I guess not... not really... Please, continue.","end")
         # m "(...)"

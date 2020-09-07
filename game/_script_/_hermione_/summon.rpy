@@ -106,7 +106,7 @@ label summon_hermione:
             call gift_menu
             jump hermione_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/wardrobe.webp") if gave_hermione_gift:
+        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/gift.webp") if gave_hermione_gift:
             m "I already gave her a gift today. Don't want to spoil her too much..."
             jump hermione_requests
 

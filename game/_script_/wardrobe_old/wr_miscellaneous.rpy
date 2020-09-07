@@ -117,7 +117,7 @@ label equip_misc_item:
                 # call her_main("You want me to use a butt plug? Again?", "angry", "wink", "base", "mid")
                 # call her_main("(...)", "annoyed", "narrow", "annoyed", "up")
                 # call her_main("(It's small enough. Shouldn't be too bad...)", "disgust", "narrow", "base", "down")
-                # call her_main("Alright,... Let me put it in real quick...", "base", "base", "base", "mid")
+                # call her_main("Alright... Let me put it in real quick...", "base", "base", "base", "mid")
                 # hide screen hermione_main
                 # with d5
                 # pause.2

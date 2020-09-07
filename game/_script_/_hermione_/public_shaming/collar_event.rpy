@@ -14,7 +14,7 @@ label collar_scene:
     m "Why is this Miss Bones calling you a slut?"
     call her_main("Because she found out what we are doing! She's telling everyone that I'm your slut!", "soft", "base", "base", "mid",tears="soft")
     call her_main("My reputation is ruined! What will people think when they find out what I've been doing with my ninety year old Professor?", "mad", "happyCl", "worried", "mid",tears="soft_blink")
-    call her_main("I'll be known as a slut for the the rest of my life!", "scream", "happyCl", "worried", "mid")
+    call her_main("I'll be known as a slut for the rest of my life!", "scream", "happyCl", "worried", "mid")
     her "I'll never be able to get a good job..."
     her "My friends will hate me..."
     call her_main("Please, You don't think I'm a slut do you [genie_name]?", "open", "base", "base", "mid")

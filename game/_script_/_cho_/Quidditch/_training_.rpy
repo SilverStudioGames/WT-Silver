@@ -45,16 +45,13 @@ label cho_training:
         "-Discuss Quidditch Training-":
             if cho_tier == 1:
                 # Hufflepuff
-                call cc_ht_talk
+                jump cc_ht_talk
             elif cho_tier == 2:
                 # Slytherin
-                call cc_st_talk
+                jump cc_st_talk
             #elif cho_tier == 3:
                 # Gryffindor
-                #call cc_gt_talk
-
-            hide screen cho_main
-            with fade
+                #jump cc_gt_talk
 
             jump cho_training.choices
 
@@ -392,36 +389,32 @@ label cho_tactics:
     menu:
         m "(What directions should I give her?)"
         "\"Fly in front of me.\"" if cho_quid.position != "front":
-            call cho_tactics.change("front")
+            jump cho_tactics.change_front
         "\"Fly in front of me.\" {size=-6}(selected){/size}" if cho_quid.position == "front":
             pass
 
         "\"Fly above me.\"" if cho_quid.position != "above":
-            call cho_tactics.change("above")
+            jump cho_tactics.change_above
         "\"Fly above me.\" {size=-6}(selected){/size}" if cho_quid.position == "above":
             pass
 
         "\"Fly close to me.\"" if cho_quid.position != "close":
-            call cho_tactics.change("close")
+            jump cho_tactics.change_close
         "\"Fly close to me.\" {size=-6}(selected){/size}" if cho_quid.position == "close":
             pass
 
+    m "(No, that probably won't work...)"
+
     jump cho_tactics.choices
 
-    #
     # Change Tactic
-    #
-
-    label .change(position=""):
-
-    $ cho_quid.position = position
     #TODO This plays once cho has agreed to the tactic/clothing and during the first intro
     # Once you pick the right option the practice match option unlocks (Maybe we should have it say Try out tactic?)
     # The various options should go away once you've tried it once
 
-
-    if position == "front":
+    label .change_front:
         # The *ASS* position!
+        $ cho_quid.position = "front"
 
         if cho_tier == 1:
             # Hufflepuff
@@ -491,8 +484,11 @@ label cho_tactics:
             call cho_main("Then where do you want me?", "annoyed", "base", "raised", "mid", xpos="base", ypos="head")
             m "Let's see..."
 
-    elif position == "above":
+        jump cho_tactics.choices
+
+    label .change_above:
         # The ~Panties~ position!
+        $ cho_quid.position = "above"
 
         if cho_tier == 1:
             # Hufflepuff
@@ -598,8 +594,11 @@ label cho_tactics:
             m "Sorry, I can't hear you from all the way up there."
             m "I think it might be better if you..."
 
-    elif position == "close":
+        jump cho_tactics.choices
+
+    label .change_close:
         # The ~intimate~ position!
+        $ cho_quid.position = "close"
 
         if cho_tier == 1:
             # Hufflepuff
@@ -677,4 +676,4 @@ label cho_tactics:
 
             jump end_cho_event
 
-    return
+        jump cho_tactics.choices

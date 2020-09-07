@@ -8,7 +8,7 @@ label nt_he_susan_E1:
     m "Education isn't meant to be enjoyable."
     call ton_main("It's not that, she's being bullied by the other students apparently...", "normal", "base", "worried", "R")
     m "Why is she being singled out?"
-    call ton_main("For being shy,... insecure,...","upset","closed","base","mid")
+    call ton_main("For being shy... insecure...","upset","closed","base","mid")
     m "About what?"
     call ton_main("About her massive tits!", "open", "wide", "base", "mid")
     g4 "!!!"

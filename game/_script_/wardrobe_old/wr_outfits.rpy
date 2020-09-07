@@ -41,7 +41,7 @@ label equip_outfit:
                     # call her_main("(Not that I approve of this horrible house-elf enslavement...)", "annoyed", "narrow", "angry", "R")
                     # call her_main("I have more important things to attend to. I have no time to clean up behind you...", "open", "closed", "base", "mid")
                     # call her_main("Unless... there are some points in it for me...", "soft", "base", "base", "R")
-                    # m "No points,..."
+                    # m "No points..."
                     # g9 "But I've got this cute outfit for you!"
                     # call her_main("No thank you, [genie_name]...", "open", "closed", "base", "mid")
                     # call her_main("Outfits don't win house cups...", "soft", "base", "angry", "mid")
@@ -103,7 +103,7 @@ label equip_outfit:
                     # call her_main("Am I on the naughty list, mister Santa?", "soft", "narrow", "base", "mid_soft",cheeks="blush")
                     # g4 "You are!"
                     # call her_main("Does that mean I'm not getting any presents?", "base", "narrow", "base", "mid_soft")
-                    # m "No [hermione_name],..."
+                    # m "No [hermione_name]..."
                     # g9 "Santa is gonna stuff your stockings real good!"
                     # m "But first, put on that outfit, would you..."
                     # call her_main("Of course.", "base", "narrow", "base", "mid_soft")
@@ -166,7 +166,7 @@ label equip_outfit:
                     # else:
                         # call her_main("Typical...", "open", "closed", "base", "mid")
                         # call her_main("I'm sorry, [genie_name]. But this just sounds like just another one of your silly ideas...", "open", "narrow", "annoyed", "mid")
-                    # m "But,... my birthday!"
+                    # m "But... my birthday!"
                     # if not birthday_happened:
                         # call her_main("Birthday or not, I would never do such a thing! For anyone!", "scream", "closed", "angry", "mid")
                     # else:
@@ -225,7 +225,7 @@ label equip_outfit:
                     # call her_main("Just let me put it on...", "smile", "narrow", "base", "mid_soft")
                 # else: #Fail
                     # call her_main("Of course!", "open", "base", "worried", "R")
-                    # call her_main("Rowena Ravenclaw, Helga Hufflepuff, Isolt Sayre, Joan of Arc,...", "open", "base", "worried", "R")
+                    # call her_main("Rowena Ravenclaw, Helga Hufflepuff, Isolt Sayre, Joan of Arc...", "open", "base", "worried", "R")
                     # call her_main("I can name you hundreds! All witches I admire and look up to!", "grin", "closed", "base", "mid")
                     # m "(Who?)"
                     # m "No no, I'm talking about Comic books! Superheroes!"
@@ -314,10 +314,10 @@ label equip_outfit:
             # if outfit_choice in [hg_witch_ITEM,hg_witch_skimpy_ITEM]:
                 # m "[hermione_name], have you ever heard about witches?"
                 # call her_main("[genie_name]? I am a witch?", "soft", "slit", "low", "stare")
-                # m "Oh right,..."
+                # m "Oh right..."
                 # m "To my defense, you don't look much like one..."
                 # call her_main("I don't? How are witches supposed to look?", "open", "base", "base", "mid")
-                # m "Well, normally they'd wear stuff like witch-hats,... frills,... and capes!"
+                # m "Well, normally they'd wear stuff like witch-hats... frills... and capes!"
                 # call her_main("Capes?", "disgust", "wink", "base", "mid")
                 # if her_whoring >= 17: #Success
                     # m "Here it is."
@@ -351,7 +351,7 @@ label equip_outfit:
                 # m "Yes. It's a character from a video-ga--"
                 # show screen blktone
                 # call her_main("...", "normal", "base", "angry", "mid")
-                # m "I mean... she's a famous, ugh,... witch?"
+                # m "I mean... she's a famous, ugh... witch?"
                 # hide screen blktone
                 # call her_main("...", "smile", "base", "base", "mid")
                 # m "(Phew, that was close...)"

@@ -12,7 +12,7 @@
 
             # m "[hermione_name]..."
             # m "Would you wear this--"
-            # call her_main("I'm sorry [genie_name],...", "open", "closed", "base", "mid")
+            # call her_main("I'm sorry [genie_name]...", "open", "closed", "base", "mid")
             # call her_main("But I don't feel like dressing up for you today.", "open", "base", "worried", "R")
             # m "Any chance I could convince you otherwise?"
             # call her_main("Hmm...", "annoyed", "base", "base", "mid") #very upset, default
@@ -21,7 +21,7 @@
 
             # menu:
                 # "-Give her the points-":
-                    # m "alright, [hermione_name],... here are your points..."
+                    # m "alright, [hermione_name]... here are your points..."
                     # m "ahe--hem..."
                     # m "Five points for Gryffindor!"
                     # m "Was that good enough for you?"
@@ -72,7 +72,7 @@
 
             # menu:
                 # "-Give her the points-":
-                    # m "alright, [hermione_name],... here are your points..."
+                    # m "alright, [hermione_name]... here are your points..."
                     # m "Fifteen points..."
                     # g4 "for Gryffindor!"
                     # m "Was that good enough for you?"

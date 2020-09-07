@@ -121,7 +121,7 @@ label tonks_chit_chat:
         call ton_main("Secretly I just wanted them to chase after me instead...", "normal", "base", "base", "L")
 
     elif random_number == 23:
-        call ton_main("I learned a lot being tutored by Alastor Moody,...", "soft", "base", "base", "mid")
+        call ton_main("I learned a lot being tutored by Alastor Moody...", "soft", "base", "base", "mid")
         call ton_main("Never thought I'd end up being a teacher myself...","open","base","raised","down")
         call ton_main("Though my methods are slightly different to his...", "soft", "base", "base", "downR")
 

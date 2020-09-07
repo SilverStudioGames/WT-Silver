@@ -214,7 +214,7 @@ label nt_he_firewhisky_E4:
 ### Events ###
 
 label nt_he_favors_E1:
-    call ton_main("So, [ton_genie_name],... what's the going rate around here then?", "open", "base", "raised", "mid", ypos="head")
+    call ton_main("So, [ton_genie_name]... what's the going rate around here then?", "open", "base", "raised", "mid", ypos="head")
     m "Going rate?"
     call ton_main("How much do you pay your students to fool around?", "base", "narrow", "annoyed", "mid")
     m "Oh... It depends on what you want them to do."
@@ -456,7 +456,7 @@ label nt_he_story_intro_E7:
     m "You brought up vampires last time without even saying hello."
     call ton_main("Vampires are interesting...", "soft", "base", "worried", "downR")
     m "..."
-    call ton_main("Fine, I didn't want to talk about some of Moody's teaching methods,...","open","closed","base","mid")
+    call ton_main("Fine, I didn't want to talk about some of Moody's teaching methods...","open","closed","base","mid")
     call ton_main("They tend to be quite... unconventional.", "clench", "base", "base", "R")
     m "Like how?"
     call ton_main("Well...", "upset", "base", "shocked", "down")
@@ -503,7 +503,7 @@ label nt_he_story_E8:
     m "I see."
     call ton_main("Dated him for a while...","horny","base","base","R")
     g4 "You did what?"
-    call ton_main("Saturated my need for a dominant male relationship for a couple of months, that's for sure...", "base", "narrow", "angry", "down")
+    call ton_main("Satiated my need for a dominant male relationship for a couple of months, that's for sure...", "base", "narrow", "angry", "down")
     m "(That explains a few things...)"
 
     jump end_tonks_hangout
@@ -670,9 +670,9 @@ label nt_he_story_centaur: # Not in use.
     call ton_main("Very well, Professor.{w} I think I can make an exception for you.","open","base","base","R")
     g9 "And spare no details."
     call ton_main("I have your word that you will not tell a soul about any of this?","open","base","base","mid")
-    g4 "Yes,... now tell me!"
+    g4 "Yes... now tell me!"
 
-    call ton_main("Very well,...","upset","base","worried","down")
+    call ton_main("Very well...","upset","base","worried","down")
     call ton_main("First you should know, there aren't many witches that could take on and calm a large group of wild centaurs...","open","base","worried","mid")
     call ton_main("Most would foolishly try to intimidate or threaten them, and rely on their wands and spells to keep them at bay, which would only make matters worse...","open","base","worried","R")
     call ton_main("But that's not how I handle \"conflict\" with those beastly creatures...","base","base","base","mid")

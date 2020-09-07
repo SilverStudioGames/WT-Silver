@@ -103,7 +103,7 @@ label hg_pr_flirt_teacher_intro:
     if hg_pr_flirt_teacher.is_tier_complete(): # If you have seen all events in this tier once, you get the choice to skip it.
         menu:
             "\"Great. Here are your points.\"":
-                jump end_hg_pr_flirt
+                jump end_hg_pr_flirt_teacher
 
             "\"Give me the details.\"":
                 pass

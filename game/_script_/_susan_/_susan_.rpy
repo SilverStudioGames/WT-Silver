@@ -1,7 +1,4 @@
 
-
-### Susan Bones ###
-
 label sus_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None):
 
     #Flip
@@ -77,7 +74,6 @@ label sus_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=No
     return
 
 
-
 label update_susan:
     $ susan_flip = 1
     $ use_susan_head = False
@@ -87,17 +83,16 @@ label update_susan:
     return
 
 
-
 init python:
-    def changeSusan(    mouth=None,
-                        eye=None,
-                        brows=None,
-                        pupils=None,
-                        cheeks=None,
-                        tears=None,
-                        emote=None):
+    def changeSusan(
+        mouth=None,
+        eye=None,
+        brows=None,
+        pupils=None,
+        cheeks=None,
+        tears=None,
+        emote=None):
 
-        ### GLOBAL VARIABLES ###
         global susan_mouth
         global susan_eye
         global susan_eyebrow
@@ -106,7 +101,6 @@ init python:
         global susan_tears
         global susan_emote
 
-        ### FACE CONTROL ###
         if mouth is not None:
             susan_mouth       = "characters/susan/face/mouth/"+mouth+".webp"
         if eye is not None:

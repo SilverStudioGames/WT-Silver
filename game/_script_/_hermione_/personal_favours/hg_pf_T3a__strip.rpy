@@ -67,7 +67,7 @@ label hg_pf_strip_fail:
 
     call her_main("... dance for you, [genie_name]?", "open", "wide", "base", "stare")
 
-    $ hg_pf_strip.counter -= 1
+    $ hg_pf_strip.fail()
 
     jump too_much
 
@@ -123,7 +123,7 @@ label hg_pf_strip_T2_fail_intro: # Hermione starts dancing, but it will fail any
     call her_walk(action="leave")
 
     $ her_mood += 5
-    $ hg_pf_strip.counter -= 1
+    $ hg_pf_strip.fail()
 
     jump end_hermione_event
 
@@ -142,7 +142,7 @@ label hg_pf_strip_T2_fail_repeat:
     call her_walk(action="leave")
 
     $ her_mood += 5
-    $ hg_pf_strip.counter -= 1
+    $ hg_pf_strip.fail()
 
     jump end_hermione_event
 

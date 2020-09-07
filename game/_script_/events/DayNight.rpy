@@ -1,10 +1,20 @@
 # Common logic for day/night cycle
 
+default defer_daytime_change = False
+
+label defer_daytime_change(set_daytime):
+    $ daytime = set_daytime
+    $ defer_daytime_change = True
+    call update_interface_color
+    call music_block
+    return
+
 label common_start(set_daytime):
     show screen blkfade
     with dissolve
 
     $ daytime = set_daytime
+    $ defer_daytime_change = False
 
     call update_interface_color
 

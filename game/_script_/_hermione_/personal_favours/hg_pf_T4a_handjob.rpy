@@ -77,7 +77,7 @@ label hg_pf_handjob_fail:
     call her_main("Yes, [genie_name]?", "base", "base", "base", "mid")
     m "Do you know what a \"handjob\" is?"
 
-    $ hg_pf_handjob.counter -= 1
+    $ hg_pf_handjob.fail()
 
     jump too_much
 

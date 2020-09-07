@@ -52,9 +52,14 @@ label tonks_wardrobe_check(section, arg=None):
                 return False
             return True
         elif section == "category":
-            #haircolour fix
+
+            # Haircolour Fix
             if arg[1] == "head":
                 $ tonks.get_equipped("hair").set_color(tonks_haircolor)
+            else:
+                if tonks_haircolor != tonks.get_equipped("hair").color:
+                    $ tonks_haircolor = tonks.get_equipped("hair").color
+
             # TODO: Simplify
             python:
                 _value = arg

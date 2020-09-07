@@ -67,7 +67,7 @@ label cho_panties_response_T2:
         g9 "Your panties, that's right!{w} I've got them right here..."
 
         $ renpy.sound.play("sounds/sniff.mp3")
-        call nar(">You take the panties to your nose and give them one last sniff.")
+        call nar(">You bring the panties to your nose and give them one last sniff.")
 
         g4 "*Aaahhh*!{w} Wonderful!"
         call cho_main("(...)", "annoyed", "narrow", "base", "mid")

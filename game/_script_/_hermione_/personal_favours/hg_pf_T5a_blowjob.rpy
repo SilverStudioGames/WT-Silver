@@ -87,7 +87,7 @@ label hg_pf_blowjob_fail:
     m "I plan to grant Gryffindor {number=current_payout} house points today..."
     m "If you suck me off..."
 
-    $ hg_pf_blowjob.counter -= 1
+    $ hg_pf_blowjob.fail()
 
     jump too_much
 
@@ -129,7 +129,7 @@ label hg_pf_blowjob_T4_fail_intro:
     m "Tough luck..."
 
     $ her_mood += 6
-    $ hg_pf_blowjob.counter -= 1
+    $ hg_pf_blowjob.fail()
 
     jump end_hermione_event
 
@@ -161,7 +161,7 @@ label hg_pf_blowjob_T4_fail_repeat:
     call her_walk(action="leave")
 
     $ her_mood += 6
-    $ hg_pf_blowjob.counter -= 1
+    $ hg_pf_blowjob.fail()
 
     jump end_hermione_event
 
@@ -846,7 +846,7 @@ label hg_hidden_blowjob_luna:
 
     call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
     g9 "Miss Lovegood! How can I help you?"
-    call lun_main("I have a message for you, [lun_genie_name],... from Professor Sprout.","open","base","base","R")
+    call lun_main("I have a message for you, [lun_genie_name]... from Professor Sprout.","open","base","base","R")
     m "Professor Sprout?"
     m "(Who was that again?)"
     call lun_main("Yes, she's sent me to inform you about the school's latest yield of {i}Venomous Tentacula{/i}.","open","base","raised","mid")
@@ -1113,7 +1113,7 @@ label hg_hidden_blowjob_tonks:
 
     m "You better not come any closer..."
     m "Or I fear she will bite me..."
-    g4 "Or worse,..."
+    g4 "Or worse..."
     m "She'll stop with the sucking..."
     call her_main("(Damn right I will...)", "open_wide_tongue", "narrow", "base", "up")
 

@@ -162,6 +162,8 @@ if [ -n "$(git status --porcelain)" ]; then
     fi
 fi
 
+export SDL_AUDIODRIVER="dummy"
+
 if [ "$SKIP_PACKAGE" = "true" ] || [ "$PACKAGE_PLATFORM" != "pc" -a -n "$PACKAGE_PLATFORM" ]; then
     echo "Skipped building PC packages."
 else
@@ -239,3 +241,5 @@ else
     sha256sum *.apk | tee /dev/tty > checksums.txt
     cd "$BUILD_SCRIPT_DIR"
 fi
+
+unset SDL_AUDIODRIVER

@@ -6,6 +6,8 @@ label summon_susan:
 
     $ susan_busy = True
 
+    call update_susan
+
     call play_music("susan")
     call play_sound("door")
 
@@ -112,7 +114,7 @@ label susan_talk:
                     call sus_main("That wouldn't be very polite, Professor.","open","closed","base","mid")
                     m "Don't worry, [susan_name]. I always tell my students to call me silly names."
                     g9 "It helps bonding with them!"
-                    call sus_main("If you say so,... *Uhm*, [sus_genie_name].","base","base","base","mid")
+                    call sus_main("If you say so... *Uhm*, [sus_genie_name].","base","base","base","mid")
                     g4 "And soon I'm going to bond with your tits!"
                     jump susan_talk
                 "-Genie-":
@@ -122,7 +124,7 @@ label susan_talk:
                     m "Yes-yes--, everybody!"
                     m "It's perfectly normal!"
                     call sus_main("(...)","upset","base","worried","down")
-                    call sus_main("O-okay then,... [sus_genie_name].","base","base","worried","R")
+                    call sus_main("O-okay then... [sus_genie_name].","base","base","worried","R")
                     jump susan_talk
                 "-Lord Voldemort-":
                     $ sus_genie_name = "Lord Voldemort"
@@ -144,7 +146,7 @@ label susan_talk:
                     g9 "There's no harm in calling me Daddy."
                     call sus_main("But that's!--","open","narrow","angry","mid")
                     call sus_main("(This is wrong, Susan!)","upset","narrow","worried","down")
-                    call sus_main("Alright,... Professor-- *Eeeeh*... D-Daddy.","base","closed","worried","mid")
+                    call sus_main("Alright... Professor-- *Eeeeh*... D-Daddy.","base","closed","worried","mid")
                     jump susan_talk
                 "-Master-":
                     $ sus_genie_name = "Master"

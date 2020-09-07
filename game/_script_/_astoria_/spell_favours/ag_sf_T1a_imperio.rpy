@@ -127,7 +127,7 @@ label ag_se_imperio_sb_E1:
     call ast_main("I thought we we're doing this so I could cast the spell more successfully","clench","narrow","angry","mid")
     call ast_main("(Please stop...)","annoyed","narrow","angry","R",cheeks="blush")
     m "Don't you think her breasts are pretty?"
-    call ast_main("{b}No!{/b} they're huge and soft and squishy and, and, and,... gross!","clench","closed","angry","mid")
+    call ast_main("{b}No!{/b} they're huge and soft and squishy and, and, and... gross!","clench","closed","angry","mid")
     g9 "You're right about them looking huge and soft..."
     call ast_main("Sir!","clench","narrow","angry","mid")
     call sus_main("Did I do something wrong?","upset","narrow","worried","R")
@@ -341,10 +341,10 @@ label ag_se_imperio_sb_E2:
     call sus_main("My uniform... You're right... Too many clothes...","open","narrow","worried","down")
     call sus_main("I need to take off my top...","open","base","worried","down")
     call ast_main("*Mhmm*, that's right, Suzy... Why don't you show the old man here your gross boobs... Don't you think he's old?","grin","base","angry","mid")
-    call sus_main("I... I suppose,...","upset","narrow","worried","L")
+    call sus_main("I... I suppose...","upset","narrow","worried","L")
     call ast_main("That's right... Only a nasty slut would show her boobs to such a wrinkly old man...","grin","narrow","angry","L")
     m "Hey!"
-    call ast_main("Quiet sir,... don't ruin my fun!","clench","narrow","angry","mid")
+    call ast_main("Quiet sir... don't ruin my fun!","clench","narrow","angry","mid")
     m "Fine..."
     call sus_main("I-I'm not a slut...","upset","narrow","worried","down")
     call ast_main("Well I'm sure you'll be able to keep your top on then, [ast_susan_name].","open","closed","base","mid")

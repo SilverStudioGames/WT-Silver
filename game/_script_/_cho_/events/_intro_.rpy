@@ -151,7 +151,7 @@ label cho_intro_E1:
     call cho_main("She believes it would put girls on an equal playing field against other girl teams.", "open", "closed", "worried", "mid")
     call cho_main("But what she's forgetting is that all the female players who made it into a team are already considered a valuable asset -- or they wouldn't be there!", "open", "narrow", "angry", "R")
     call cho_main("I worked hard to be at the same level as my fellow teammates...", "annoyed", "narrow", "worried", "downR")
-    call cho_main("Splitting us up into a male and female league would just bring on girls that are just there to flaunt their bodies, instead off taking the sport seriously...", "open", "narrow", "angry", "downR")
+    call cho_main("Splitting us up into a male and female league would just bring on girls that are just there to flaunt their bodies, instead of taking the sport seriously...", "open", "narrow", "angry", "downR")
     m "Doesn't sound like the worst idea honestly..."
     call cho_main("Sir... I've trained all my life to be where I'm at.", "clench", "narrow", "angry", "mid")
     call cho_main("Just as hard as all the other great female Quidditch players of history!", "scream", "closed", "angry", "mid")
@@ -537,7 +537,7 @@ label ss_he_cho_E1:
             call sna_main("I can't agree to that, Genie. As much as I'd like to see the Potter boy demoralised by losing to a girl...", "snape_10")
             call sna_main("Or Malfoy for that matter... He's been way too cocky lately.", "snape_08")
             m "Who?"
-            call sna_main("A student of mine... Rich parents, bought his way into our Quidditch team,... Spoiled beyond belief.", "snape_29")
+            call sna_main("A student of mine... Rich parents, bought his way into our Quidditch team... Spoiled beyond belief.", "snape_29")
             m "Didn't you say you don't care much about Quidditch?"
             call sna_main("Of course I don't. But a win is a win.", "snape_09")
             call sna_main("Besides, Ravenclaw doesn't have a chance against Slytherin.", "snape_03")

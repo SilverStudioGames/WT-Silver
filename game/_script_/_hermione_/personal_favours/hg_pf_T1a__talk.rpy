@@ -768,7 +768,7 @@ label hg_pf_talk_tonks:
                     call ton_main("Aren't you a sneaky one, *huh*? Almost tricked me with those doe-like eyes of yours - that you're an innocent girl.","horny","base","angry","L", hair="horny")
                     call ton_main("But, as it turns out, you're actually quite high on the list.","open","base","raised","L", hair="basic")
                     call her_main("(... there's a list...?)", "open", "happyCl", "worried", "mid", cheeks="blush")
-                    call ton_main("At the the very top!", "silly", "happyCl", "base", "mid")
+                    call ton_main("At the very top!", "silly", "happyCl", "base", "mid")
                     call her_main("...", "angry", "narrow", "base", "down", cheeks="blush")
                 else:
                     call ton_main("Wow! Who would have thought you're the girl from top of the list.", "silly", "happyCl", "base", "mid")

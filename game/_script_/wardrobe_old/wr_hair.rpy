@@ -129,7 +129,7 @@ label change_hair:
                         # call her_main("That barely even looks like blonde!", "annoyed", "narrow", "worried", "down")
                         # call her_main("Don't you have anything brighter?", "angry", "wink", "base", "mid")
                         # m "You going to wear it or not?"
-                        # call her_main("Fine,... Let me go change it.", "annoyed", "narrow", "annoyed", "mid")
+                        # call her_main("Fine... Let me go change it.", "annoyed", "narrow", "annoyed", "mid")
                 # else:
                     # call her_main("No thank you, [genie_name].", "open", "closed", "base", "mid")
                     # call her_main("I like my hair how it is.", "open", "base", "worried", "R")
@@ -158,7 +158,7 @@ label change_hair:
                     # elif her_whoring < 20:
                         # call her_main("Oh wow, it looks pretty. I really like it!", "soft", "base", "base", "mid")
                         # call her_main("It will make me look just like Ginny!", "smile", "happyCl", "base", "mid")
-                        # call her_main("(although she's a bit shorter than me,... and her hair isn't as curly.)", "annoyed", "base", "base", "mid")
+                        # call her_main("(although she's a bit shorter than me... and her hair isn't as curly.)", "annoyed", "base", "base", "mid")
                         # call her_main("(I wonder if the teachers will notice should we switch places in class...)", "grin", "narrow", "annoyed", "up")
                         # call her_main("(Only one way to find out!)", "smile", "narrow", "base", "mid_soft")
                         # call her_main("Let me go change it!", "base", "narrow", "base", "mid_soft")

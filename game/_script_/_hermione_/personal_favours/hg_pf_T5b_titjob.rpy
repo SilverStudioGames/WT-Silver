@@ -85,7 +85,7 @@ label hg_pf_titjob_fail:
     call her_main("Yes, [genie_name]?", "base", "base", "base", "mid")
     m "Have you ever given somebody a \"titjob\"?"
 
-    $ hg_pf_titjob.counter -= 1
+    $ hg_pf_titjob.fail()
 
     jump too_much
 
@@ -355,7 +355,7 @@ label hg_pf_titjob_1:
             g9 "*hmmm*... you little flaunter..."
             $ ccg1 = 9
             call her_main("By the third button, he couldn't take his eyes off me...", "base", "narrow", "worried", "down")
-            call her_main("And when I got to the fourth,... I saw him move his hands under the desk...")
+            call her_main("And when I got to the fourth... I saw him move his hands under the desk...")
             m "Really?"
             call her_main("Yes... I swear I could even hear him...{w=0.3}\"doing it\"...", "base", "narrow", "base", "up")
             $ ccg1 = 10

@@ -602,7 +602,7 @@ screen wardrobe_old():
                     hotspot ((75+(90*col)), (230+(92*row)), 83, 85) clicked [SetVariable("underwear_choice",wr_panties[i]), Jump("equip_panties")]
                     add "characters/"+str(active_girl)+"/clothes/panties/"+wr_panties[i]+".webp" xpos 15+(90*col) ypos (17+icon_ypos_offset+92+(92*row)) zoom 0.175
 
-            #Nighties & Onepieces #Needs art edits for large breasts, poses,...
+            #Nighties & Onepieces #Needs art edits for large breasts, poses...
             if wardrobe_underwear_category == 2:
                 hotspot (75+180, 139, 83, 85) clicked [SetVariable("wardrobe_underwear_category",0),Show("wardrobe_old")]
                 add "interface/wardrobe/old/icons/"+str(active_girl)+"/underwear_3.webp" xpos 75+180 ypos 139 zoom 0.2

@@ -24,7 +24,7 @@ label equip_bottom:
         # $ hide_transitions = True
         # hide screen hermione_main
         # with d3
-        # ">Hermione is currently posing,... naked.\nWould you like her to get dressed?"
+        # ">Hermione is currently posing... naked.\nWould you like her to get dressed?"
         # menu:
             # "-Make her get dressed-":
                 # call set_her_action("none","update")
@@ -466,7 +466,7 @@ label equip_bottom:
                         # call her_main("Let me go change.", "base", "base", "base", "mid")
                     # else: #20+
                         # call her_main("Alright, [genie_name].", "soft", "base", "base", "R")
-                        # call her_main("(They are sooo tight,... I can barely even fit my ass into them...)", "soft", "narrow", "annoyed", "up")
+                        # call her_main("(They are sooo tight... I can barely even fit my ass into them...)", "soft", "narrow", "annoyed", "up")
                         # call her_main("Let me put them on for you.", "base", "narrow", "base", "mid_soft")
                 # else:
                     # call her_main("I'm sorry, [genie_name].", "soft", "base", "base", "R")

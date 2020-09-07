@@ -6,6 +6,8 @@ label summon_luna:
 
     $ luna_busy = True
 
+    call update_luna
+
     call play_music("luna")
     call play_sound("door")
     call lun_chibi("stand","mid","base")

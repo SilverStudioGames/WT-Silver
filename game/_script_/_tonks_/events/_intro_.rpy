@@ -344,7 +344,7 @@ label ss_he_tonks_E1:
     call sna_main("And now we have an Auror breathing down our necks... All thanks to that mischievous little whore!","snape_15")
     m "................."
     call sna_main("....................","snape_31")
-    m "On the subject of that Auror,..."
+    m "On the subject of that Auror..."
     call sna_main("Nymphadora?","snape_39")
     m "Yes, the Nympho."
     m "She came by the other day..."
@@ -688,7 +688,7 @@ label tonks_intro_E3:
             call ton_main("Are all Genies this desperate?", "crooked_smile", "base", "raised", "mid", hair="happy")
             m "Desperate? Why Desperate? ..."
             call ton_main("Nothing...", "base", "base", "base", "down", hair="happy")
-            call ton_main("Very well,... \"Daddy\"! {heart}{heart}{heart}", "horny", "narrow", "base", "mid", hair="horny")
+            call ton_main("Very well... \"Daddy\"! {heart}{heart}{heart}", "horny", "narrow", "base", "mid", hair="horny")
             g9 "*He*-*He*-*He*-He*..."
 
     call ton_main("Call me to your office whenever you require my help, [ton_genie_name].","base","base","base","mid") #would it be better to have her call him by the requested name here, since later on we have the bit where Tonks submits to genie and calls him sir
@@ -877,7 +877,7 @@ label ss_he_tonks_E3:
     call sna_main("{size=+5}You did what?!{/size}","snape_33", trans=hpunch)
     m "\"Defence against... something-something\"..."
     call sna_main("You should have given me the \"defence against the dark arts\" position!","snape_34")
-    call sna_main("And she could've had something else,... like \"muggle studies\", or something.","snape_16")
+    call sna_main("And she could've had something else... like \"muggle studies\", or something.","snape_16")
     m "First come, first served, I suppose..."
     m "And I am not making her teach any \"smuggle studies\", who do you take me for?"
     call sna_main("Curse you...","snape_08")
@@ -898,7 +898,7 @@ label ss_he_tonks_E3:
     call blktone
 
     "You take some time to muse about the fetishes Tonks might have..."
-    "For blackmailing,... or to have some fun..."
+    "For blackmailing... or to have some fun..."
 
     $ ss_he.tonks_E3 = True
     $ ss_event_pause += 1

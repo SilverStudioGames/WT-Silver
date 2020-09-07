@@ -7,6 +7,7 @@ label summon_astoria:
     $ astoria_busy = True
 
     #call update_ast_tier
+    call update_astoria
 
     # Clothes Events
     call astoria_summon_setup
@@ -310,7 +311,7 @@ label astoria_talk:
                         call ast_main("That's a bit much, don't you think, [ast_genie_name]?", face="disgusted")
                         m "Not at all!"
                         m "I will only call you that when we are alone, promised!"
-                        call ast_main("Well,... Okay then...", face="neutral")
+                        call ast_main("Well... Okay then...", face="neutral")
                     jump astoria_talk
                 "-Never mind-":
                     jump astoria_talk

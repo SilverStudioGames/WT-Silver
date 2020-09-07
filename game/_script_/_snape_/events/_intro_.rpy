@@ -252,7 +252,7 @@ label snape_intro_E3:
             who2 "*Hmm*... Maybe I'm just being paranoid..."
 
     call sna_main("","snape_24")
-    who2 "The reason why I'm here today is the \"Potter Gang\""
+    who2 "The reason why I'm here today is the \"Potter Gang\"."
     call sna_main("","snape_01")
     who2 "There are only so many points I can subtract from the Gryffindor house, you know..."
     who2 "And the Granger girl became the worst of them lately..."
@@ -368,7 +368,7 @@ label snape_intro_E3:
         "\"I am not your enemy.\"" if not d_flag_01:
             $ d_flag_01 = True
             $ d_points +=1
-            call sna_main("That the first thing an enemy would say.","snape_01", wand=True)
+            call sna_main("That's the first thing an enemy would say.","snape_01", wand=True)
         "\"I'm just a tourist. I'll be leaving now.\"" if not d_flag_02:
             $ d_flag_02 = True
             $ d_points +=1
