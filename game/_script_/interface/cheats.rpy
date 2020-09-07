@@ -401,11 +401,10 @@ label .hermione_skip_intro:
     $ hermione_intro.E5_complete = True
     $ hermione_intro.E6_complete = True
 
-    $ letter_hg_1.read_letter()
-    $ letter_hg_2.read_letter()
-    $ letter_min_work.read_letter()
-    $ letter_min_report.read_letter()
-    $ letter_min_favors.read_letter()
+    $ letter_hg_1.open(silent=True)
+    $ letter_hg_2.open(silent=True)
+    $ letter_work_unlock.open(silent=True)
+    $ letter_favors.open(silent=True)
 
     $ snape_unlocked = True
     $ achievement.unlock("unlocksna", True)

@@ -310,13 +310,13 @@ label object_gift_block(item):
     $ cost4 = item.cost * 8
 
     menu:
-        "-Buy 1 for ([item.cost] galleons)-":
+        "-Buy 1 for ([item.cost] gold)-":
             call object_purchase_item(item, 1)
-        "-Buy 2 for ([cost2] galleons)-":
+        "-Buy 2 for ([cost2] gold)-":
             call object_purchase_item(item, 2)
-        "-Buy 4 for ([cost3] galleons)-":
+        "-Buy 4 for ([cost3] gold)-":
             call object_purchase_item(item, 4)
-        "-Buy 8 for ([cost4] galleons)-":
+        "-Buy 8 for ([cost4] gold)-":
             call object_purchase_item(item, 8)
         "-Never mind-":
             pass
@@ -331,10 +331,10 @@ label object_purchase_item(item, quantity):
     $ order_cost = item.cost*quantity
     if gold >= (order_cost):
         menu:
-            "-Add next day delivery (15 galleons)-" if gold >= order_cost + 15:
+            "-Add next day delivery (15 gold)-" if gold >= order_cost + 15:
                 $ gold -= 15
                 $ transit_time = 1
-            "{color=[menu_disabled]}-add next day delivery (15 galleons)-{/color}" if gold < order_cost + 15:
+            "{color=[menu_disabled]}-add next day delivery (15 gold)-{/color}" if gold < order_cost + 15:
                 pass
             "-No thanks-":
                 pass

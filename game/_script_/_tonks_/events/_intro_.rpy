@@ -20,7 +20,7 @@ label tonks_intro_E1:
     m "(Nympho...{w=0.6} what?)"
     ton "Ministry of Magic, Auror division.{w=0.8} May I come in, Sir?"
 
-    if letter_min_favors.read:
+    if letter_favors.read:
         g4 "(Oh shit, the fuzz!!!)"
         m "(I thought they would have forgotten about those damn letters by now...)"
         ton "Sir, I'm here to discuss an important matter with you regarding your students."
@@ -156,7 +156,7 @@ label tonks_intro_E1:
 
     call ton_main("Professor Dumbledore, are you aware of why the Ministry has sent me here?", "open", "wide", "raised", "mid", trans=dissolve)
 
-    if letter_min_favors.read:
+    if letter_favors.read:
         m "More or less..."
         call ton_main("We have received a letter from a Miss named \"Hermione Granger\", about the trading of... \"favours\" between staff and students at this school.", "open", "base", "base", "mid") #not sure if it's better to put miss in quotations or not. My logic is that the fact that she is a "miss" is a given, the name however is something the ministry may not know hence the quotations
         m "Yes she very much enjoys doing that..."

@@ -33,7 +33,7 @@ label room(room=None, hide_screens=True, stop_sound=True):
         else:
             hide screen phoenix_food
 
-        if letter_queue_list != [] and not owl_away:
+        if Letter.queue and not owl_away:
             show screen owl
         else:
             hide screen owl

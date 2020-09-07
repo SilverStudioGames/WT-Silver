@@ -445,7 +445,6 @@ default card_item_wine = Card( imagepath="images/cardgame/t1/other/wine_v1.webp"
                             description="That wine I keep finding in this cupboard. Not sure if the wine is magically infused or the cupboard.")
 
 default deck_unlocked = False
-default deck_mail_send = False
 default enemy_deck = []
 default duel_win_label = ""
 default duel_loss_label = ""

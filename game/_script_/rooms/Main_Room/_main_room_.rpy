@@ -277,8 +277,8 @@ screen owl():
         yanchor 1.0
         idle owl_OBJ.get_idle_image()
         hover owl_OBJ.get_hover_image()
-        tooltip "Check mail\n{{size=-4}}{} new message{}{{/size}}".format(num_to_word(len(letter_queue_list)), "s" if len(letter_queue_list) > 1 else "")
-        action Jump("read_letter")
+        tooltip "Check mail\n{{size=-4}}{} new message{}{{/size}}".format(num_to_word(len(Letter.queue)), "s" if len(Letter.queue) > 1 else "")
+        action Jump("letter_open_all")
         sensitive room_menu_active
     # add owl_OBJ.get_room_image() xpos owl_OBJ.xpos ypos owl_OBJ.ypos xanchor 0.5 yanchor 1.0
 

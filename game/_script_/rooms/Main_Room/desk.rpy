@@ -29,29 +29,11 @@ label desk:
                     g9 "Of course I will read it!"
 
             # First letter from Hermione
-            $ letter_hg_1.send_letter()
-            $ letter = letter_queue_list[0]
+            $ letter_hg_1.open()
 
-            $ menu_x = 0.5
-            $ menu_y = 0.9
-
-            show screen letter
-            hide screen letter_on_desk
-            with d5
-
-            menu:
-                "-Continue-":
-                    pass
-
-            call reset_menu_position
-
-            $ letter_hg_1.read_letter()
-            hide screen letter
-            with d5
-            pause.5
-
-            call bld
-            call letter_from_hermione_A
+            m "Ehm........."
+            m "What?"
+            m "................................."
 
         jump main_room_menu
 
@@ -223,7 +205,7 @@ screen desk_menu():
         action Return("jerk_off")
 
     #Work
-    if letter_min_work.read:
+    if letter_work_unlock.read:
         imagebutton:
             xpos -10
             ypos 0
@@ -236,7 +218,7 @@ screen desk_menu():
             action Return("paperwork")
 
     #Cards
-    if deck_unlocked: #Or letter_deck.read #Day 26+
+    if deck_unlocked: #Or letter_cards_unlock.read #Day 26+
         imagebutton:
             xpos 0
             ypos 600
@@ -315,7 +297,7 @@ screen watch():
         add "interface/desk/watch/night.webp" xpos watch_x+40 ypos watch_y+6 xanchor 0.5
 
 label paperwork:
-    if letter_min_report in letter_queue_list:
+    if letter_work_report in Letter.queue:
         m "I need to get paid first."
         jump main_room
 
@@ -364,7 +346,7 @@ label paperwork_report_check:
     if report_chapters >= 4:
         ">You've completed a report."
         $ report_chapters = 0
-        $ finished_report += 1
+        $ reports_finished += 1
         $ stat_reports_counter += 1
 
     return

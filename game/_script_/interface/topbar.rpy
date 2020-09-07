@@ -116,7 +116,7 @@ screen ui_top_bar():
                     action Jump("inventory")
 
             # Work button
-            if letter_min_work.read:
+            if letter_work_unlock.read:
                 imagebutton:
                     idle "interface/topbar/buttons/"+str(interface_color)+"/ui_work.webp"
                     if room_menu_active:

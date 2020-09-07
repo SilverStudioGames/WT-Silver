@@ -68,7 +68,6 @@ default ag_summon_pause = 0
 default sb_event_pause  = 0
 default sb_summon_pause = 0
 
-default always_read_letter = False
 default owl_away           = False
 default owl_away_counter   = 0
 
@@ -95,7 +94,7 @@ default phoenix_petted_counter = 0
 # Paperwork related flags
 default day_of_week          = 0 # Counts days of the week. Everyday +1. When day_of_week = = 7 resets to zero.
 default report_chapters      = 0 # Number of chapters of current report completed so far. Resets to zero when report is finished.
-default finished_report      = 0 # Number of completed reports.
+default reports_finished      = 0 # Number of completed reports.
 default stat_reports_counter = 0
 
 # Fireplace

@@ -22,7 +22,7 @@ label quests:
 
     if day >= 2:
         if not letter_hg_2.read:
-            $ letter_hg_2.send_letter()
+            $ letter_hg_2.send()
         if daytime:
             if not genie_intro.E3_complete:
                 jump genie_intro_E3
@@ -40,8 +40,8 @@ label quests:
                 jump snape_intro_E3
 
     if day >= 4:
-        if not letter_min_work.read:
-            $ letter_min_work.send_letter()
+        if not letter_work_unlock.read:
+            $ letter_work_unlock.send()
         if daytime:
             pass
         else:
@@ -62,8 +62,8 @@ label quests:
                 jump hermione_intro_E2
 
     if day >= 7:
-        if hermione_intro.E2_complete and not letter_min_favors.read:
-            $ letter_min_favors.send_letter()
+        if hermione_intro.E2_complete and not letter_favors.read:
+            $ letter_favors.send()
         if daytime:
             pass
         else:
@@ -117,7 +117,7 @@ label quests:
 
     if day >= 25:
         if not deck_unlocked:
-            $ letter_deck.send_letter()
+            $ letter_cards_unlock.send()
 
     #
     # CARDGAME - EVENTS
@@ -125,10 +125,10 @@ label quests:
 
     if day >= twins_cards_delay:
         if deck_unlocked and twins_first_win and not twins_cards_stocked:
-            $ letter_cards_store.send_letter()
+            $ letter_cards_store.send()
 
     if geniecard_level < 2 and snape_third_win and her_third_win and twins_second_win:
-        $ letter_cardgame_t2.send_letter()
+        $ letter_cards_tier2.send()
 
     #
     # CHO CHANG - EVENTS
@@ -239,7 +239,7 @@ label quests:
             python:
                 for i in tonks_mail_list:
                     if i == "poster_1_gift":
-                        letter_nt_1.send_letter()
+                        letter_nt_1.send()
                     if i == "poster_1_store":
                         poster_tonks_ITEM.hidden = False # Now available at the store.
                     tonks_mail_list.remove(i)

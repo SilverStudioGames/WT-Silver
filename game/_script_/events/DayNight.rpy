@@ -33,7 +33,7 @@ label common_start(set_daytime):
     #call stop_sound_effects
 
     # Play owl arrival sound once per day/night start
-    if letter_queue_list != [] and not owl_away:
+    if Letter.queue and not owl_away:
         call play_sound("owl")
 
     call room("main_room", stop_sound=False, hide_screens=True)
@@ -130,9 +130,8 @@ label update_day_values:
     # Count days of the week. Every day +1. When day_of_week = 7, reset to zero.
     if day_of_week == 7:
         $ day_of_week = 0
-        if finished_report >= 1:
-            call update_report_money
-            $ letter_min_report.send_letter()
+        if reports_finished >= 1:
+            $ letter_work_report.send()
         if not first_random_twins:
             $ twins_interest = True
 

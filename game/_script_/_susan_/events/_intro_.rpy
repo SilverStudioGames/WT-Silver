@@ -40,7 +40,7 @@ label nt_he_susan_E1:
     m "But don't tell him I said that."
     call ton_main("I shall talk to Miss Bones.","open","closed","base","mid")
 
-    if letter_min_favors.read:
+    if letter_favors.read:
         m "Bones... I think I've heard that name before..."
         call ton_main("Her Aunt works at the ministry.","open","base","base","mid")
         m "..."
