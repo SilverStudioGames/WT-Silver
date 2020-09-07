@@ -11,10 +11,11 @@ default wardrobe_requirements = False
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
-    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "robes": 5,
-    "earrings": 4, "sweaters": 4, "trousers": 4, "stockings": 4,
-    "neckwear": 3, "dresses": 3, "shorts": 3, "socks": 3,
-    "other": -1
+    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "robes": 5, "slot1": 5,
+    "earrings": 4, "sweaters": 4, "trousers": 4, "stockings": 4, "slot2": 4,
+    "neckwear": 3, "dresses": 3, "shorts": 3, "socks": 3, "slot3": 3,
+    "other": -1, "slot4": 2,
+    "slot5": 1,
 }
 
 label wardrobe(char_label):

@@ -24,14 +24,14 @@ default preferences.tutorials = True
 ################################################
 
 # Pre-Release related flags and variables
-define is_release = True
-define _experimental = "" if is_release else " EXPERIMENTAL"
+define is_release = False
+define _experimental = "" if is_release else " Preview"
 define config.autoreload = False
 define config.debug = not is_release
 define config.developer = "auto"
 
 # Game version and naming
-define config.version = "1.392"
+define config.version = "1.393"
 define compatible_version = 1.39
 define title_version = config.version if len(config.version) < 5 else (config.version[:4] + "." + config.version[4:6])
 define config.name = "WT Silver{}".format(_experimental)

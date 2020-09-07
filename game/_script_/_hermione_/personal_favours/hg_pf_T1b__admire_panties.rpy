@@ -436,7 +436,7 @@ label hg_pf_admire_panties_T3_E2:
                 with d3
                 call nar(">Hermione takes off her panties.")
 
-                $ hermione.strip("panties")
+                $ hermione.unequip("panties")
                 call her_chibi("lift_skirt")
 
                 call her_main("", "base", "narrow", "base", "mid_soft")
