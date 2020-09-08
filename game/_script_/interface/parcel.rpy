@@ -1,84 +1,24 @@
-default deliveries = DeliveryQueue()
-
-label get_package:
-    show screen blktone
-
-    if clothing_mail_item != None:
-        if clothing_mail_timer <= 0:
-            call unlock_clothing(text="You have received a new outfit.", item=clothing_mail_item)
-            $ clothing_mail_item = None
-            $ clothing_mail_timer = 0
-
-    python:
-        gift_list = []
-
-        # Append gift items
-        for item in deliveries.get_mail():
-            if item.type == 'Gift':
-                gift = item.item
-                gift.number += item.quantity
-                gift_list.append([gift.name, gift.get_image(), item.quantity])
-
-        if gift_list:
-            renpy.block_rollback()
-            renpy.call("give_reward", *parcel.get_caption())
-
-    hide screen package
-    hide screen blktone
-    with d3
-
-    $ package_is_here = False
-    $ renpy.block_rollback()
-
-    call tutorial("inventory")
-
-    jump main_room_menu
 
 init python:
-
-    class DeliveryItem(object):
-        def __init__(self, item, transit_time, quantity,type):
-            self.item = item
-            self.transit_time = transit_time
-            self.quantity = quantity
-            self.type = type
-
-    class DeliveryQueue(object):
-        max_wait = 15
-
-        def __init__(self):
-            self.queue = []
-
-        def send(self, item, transit_time, quantity, type):
-            if transit_time > self.max_wait:
-                transit_time = self.max_wait
-            self.queue.append(DeliveryItem(item, transit_time, quantity, type))
-
-        def got_mail(self):
-            for i in self.queue:
-                i.transit_time -= 1
-            for i in self.queue:
-                if i.transit_time <= 0:
-                    return True
-            return False
-
-        def get_mail(self):
-            delivery = []
-            for i in list(self.queue):
-                if i.transit_time <= 0:
-                    delivery.append(i)
-                    self.queue.remove(i)
-            return delivery
-
-    ### UNFINISHED, TBD IN NEXT COMMIT ###
     class Parcel(object):
-        queue = []
+        """
+        contents - Contents of the parcel, has to be a list of tuples
+                   containing an item object and integer quantity [ (lollipop_ITEM, 5) ].
+        wait - Wait time required for the item to be delivered.
+        label - Call label called after the parcel was opened.
+        func - A setup function called before the parcel contents is being shown to the player.
 
-        def __init__(self, contents=[], wait=1):
+        Queue is universal for all instanced objects.
+        """
+
+        def __init__(self, contents, wait=1, label=None, func=None):
             self.mailed = False
             self.delivered = False
             self.contents = contents
             self.wait = wait
+            self.label = label
+            self.func = func
+            self.queue = mailbox.parcels
 
         def send(self):
             self.mailed = True
@@ -86,24 +26,60 @@ init python:
             if not self in self.queue:
                 self.queue.append(self)
 
-        def open(self):
+        def open(self, silent=False):
+            self.mailed = True
             self.delivered = True
 
             if self in self.queue:
                 self.queue.remove(self)
 
+            if self.func:
+                self.func()
+
+            for i in self.contents:
+                item, quantity = i
+                item.number += quantity
+
+            if not silent:
+                renpy.call("parcel", self, self.label)
+
         def get_caption(self):
             if len(self.contents) == 1:
-                item = self.contents[0]
+                item, quantity = self.contents[0]
                 icon = item.get_image()
 
-                if item.quantity == 1:
+                if quantity == 1:
                     text = "You have received {}.".format(item.name)
                 else:
-                    text = "You have received {} pieces of {}.".format(num_to_word(item.quantity), item.name)
+                    text = "You have received {} pieces of {}.".format(num_to_word(quantity), item.name)
             else:
-                items = ", ".join( [" ".join( str(x.quantity), x.name ) for x in self.contents] )
+                items = ", ".join( [" ".join( str(x[1]), x[0].name ) for x in self.contents] )
                 icon = "interface/icons/box_brown_"+str(random.randint(1, 4))+".webp"
                 text = "You have received your ordered items:\n{size=-4}{}{/size}".format(items)
 
             return (text, icon)
+
+label parcel(parcel, label):
+    show screen bld1
+    show screen blktone5
+
+    $ renpy.checkpoint()
+    $ renpy.call("give_reward", *parcel.get_caption())
+
+    hide screen blktone5
+    hide screen bld1
+    with d3
+
+    if label:
+        $ renpy.call(label)
+
+    return
+
+label parcel_open_all:
+    while mailbox.get_parcels():
+        $ mailbox.get_parcels()[0].open()
+
+    hide screen package
+    call tutorial("inventory")
+
+    jump main_room_menu

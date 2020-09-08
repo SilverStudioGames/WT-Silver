@@ -277,7 +277,7 @@ screen owl():
         yanchor 1.0
         idle owl_OBJ.get_idle_image()
         hover owl_OBJ.get_hover_image()
-        tooltip "Check mail\n{{size=-4}}{} new message{}{{/size}}".format(num_to_word(len(Letter.queue)), "s" if len(Letter.queue) > 1 else "")
+        tooltip "Check mail\n{{size=-4}}{} new message{}{{/size}}".format(num_to_word(len(mailbox.get_letters())), "s" if len(mailbox.get_letters()) > 1 else "")
         action Jump("letter_open_all")
         sensitive room_menu_active
     # add owl_OBJ.get_room_image() xpos owl_OBJ.xpos ypos owl_OBJ.ypos xanchor 0.5 yanchor 1.0
@@ -297,6 +297,6 @@ screen package():
         idle package_OBJ.get_idle_image()
         hover package_OBJ.get_hover_image()
         tooltip "Open package"
-        action Jump("get_package")
+        action Jump("parcel_open_all")
         sensitive room_menu_active
     # add package_OBJ.get_room_image() xpos package_OBJ.xpos ypos package_OBJ.ypos xanchor 0.5 yanchor 1.0

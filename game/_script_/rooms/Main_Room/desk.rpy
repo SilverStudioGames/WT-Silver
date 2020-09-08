@@ -297,7 +297,7 @@ screen watch():
         add "interface/desk/watch/night.webp" xpos watch_x+40 ypos watch_y+6 xanchor 0.5
 
 label paperwork:
-    if letter_work_report in Letter.queue:
+    if letter_work_report in mailbox.get_letters():
         m "I need to get paid first."
         jump main_room
 

@@ -146,14 +146,15 @@ init python:
 
         Queue is universal for all instanced objects.
         """
-        queue = []
 
-        def __init__(self, text="Add Text", label=None, func=None):
+        def __init__(self, text="Add Text", wait=1, label=None, func=None):
             self.mailed = False
             self.read = False
             self.text = text
+            self.wait = wait
             self.label = label
             self.func = func
+            self.queue = mailbox.letters
 
         def send(self):
             self.mailed = True
@@ -211,8 +212,8 @@ screen letter(text):
         text text
 
 label letter_open_all:
-    while Letter.queue:
-        $ Letter.queue[0].open()
+    while mailbox.get_letters():
+        $ mailbox.get_letters()[0].open()
 
     jump main_room_menu
 

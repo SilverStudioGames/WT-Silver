@@ -43,7 +43,7 @@ label common_start(set_daytime):
     #call stop_sound_effects
 
     # Play owl arrival sound once per day/night start
-    if Letter.queue and not owl_away:
+    if mailbox.get_letters() and not owl_away:
         call play_sound("owl")
 
     call room("main_room", stop_sound=False, hide_screens=True)
@@ -164,14 +164,7 @@ label update_day_values:
     $ set_moon()
 
     # Package delivery
-    if deliveries.got_mail():
-        $ package_is_here = True
-
-    if clothing_mail_item != None:
-        $ clothing_mail_timer -= 1
-
-        if clothing_mail_timer <= 0:
-            $ package_is_here = True
+    $ mailbox.tick()
 
     return
 

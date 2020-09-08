@@ -71,7 +71,7 @@ label start_wt:
 
     if game_difficulty <= 2:
         menu:
-            "Cheats" ">Cheats can be found in the options menu at the top left of the screen."
+            "Cheats" "> Cheats can be found in the options menu at the top left of the screen.\nDisclaimer: Cheats may cause various bugs and instabilities."
             "-Activate Cheats-":
                 $ cheats_active = True
             "-Disable Cheats-":

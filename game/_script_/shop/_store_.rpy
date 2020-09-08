@@ -37,6 +37,7 @@ label open_weasley_store:
 
     $ store_category = 0 # Reset Button
     $ store_menu = True #Displays item's gold value.
+    $ store_cart = []
 
     jump gift_shop_menu
 
@@ -214,15 +215,12 @@ label close_weasley_store:
     hide screen gift
     with d1
 
-
-
     menu:
         ger "Are you finished professor?"
 
         "-Yes-":
             pass
         "-No-":
-
             jump gift_shop_menu
 
     fre "Goodbye then!"
@@ -230,7 +228,13 @@ label close_weasley_store:
     show screen blkfade
     with d5
 
-    $ store_menu = False #Displays item's gold value.
+    python:
+        store_menu = False #Displays item's gold value.
+
+        for i in store_cart:
+            Parcel(*i).send()
+
+        store_cart = []
 
     jump main_room
 
@@ -339,7 +343,8 @@ label object_purchase_item(item, quantity):
             "-No thanks-":
                 pass
         $ gold -= order_cost
-        $ deliveries.send(item, transit_time, quantity,'Gift')
+        $ store_cart.append( ( [(item, quantity)], transit_time ) )
+
         if transit_time ==  1:
             "Thank your for shopping at \"Weasley & Weasley\". Your order shall be delivered tomorrow."
         else:
