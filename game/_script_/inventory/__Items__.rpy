@@ -9,29 +9,29 @@ default sealed_scroll_quest_ITEM = Scroll(id="sealed_scroll", name="Forbidden Sc
 default forbidden_scroll_list = [sealed_scroll_quest_ITEM] # TODO: Replace with quest item list instead.
 
 # Gift items
-default lollipop_ITEM          = Item(id="lollipop", name="Lollipop Candy",              cost=20, type="candy", image="item_lollipop", description="A lollipop candy. An adult candy for kids or kids candy for adults?")
-default chocolate_ITEM         = Item(id="chocolate", name="Chocolate",                  cost=40, type="candy", image="item_chocolate", description="The recipe for this delicious milk chocolate is kept a secret. (Rumoured to contain dried faeries).")
-default plush_owl_ITEM         = Item(id="plush_owl", name="Plush owl",                  cost=35, type="toy", image="item_plush_owl", description="A Toy owl stuffed with feathers of an actual owl. It's so cuddly!")
-default butterbeer_ITEM        = Item(id="butterbeer", name="Butterbeer",                cost=50, type="drink", image="item_butterbeer", description="Girls can't resist this beverage's buttery texture. Therefore it's always in high demand among the boys.")
-default science_mag_ITEM       = Item(id="science_mag", name="Educational Magazines",    cost=30, type="mag", image="item_mag_science", description="Educational magazines. \nthe Trusty companions of every social outcast.")
-default girls_mag_ITEM         = Item(id="girls_mag", name="Girly Magazines",            cost=45, type="mag", image="item_mag_girls", description="Girly magazines. \nAll cool girls are reading these.")
-default adult_mag_ITEM         = Item(id="adult_mag", name="Adult magazines",            cost=60, type="mag", image="item_mag_adult", description="Your boyfriend is turning into a nice guy? \nYour husband won't abuse you anymore? \nAll you wanted to know about relationships, love and sex. Mostly about sex.")
-default porn_mag_ITEM          = Item(id="porn_mag", name="Porn magazines",              cost=80, type="mag", image="item_mag_porn", description="Give these to your girlfriend to test her, to your wife to shame her and to your daughter to avoid \"the talk\".")
-default krum_poster_ITEM       = Item(id="krum_poster", name="Viktor Krum Poster",       cost=25, type="mag", image="item_krum_poster", description="A skilled Quidditch Seeker, Viktor has been selected to play for the Bulgarian National Quidditch team despite still going to school, and is widely regarded as one of the best players in the world.")
-default sexy_lingerie_ITEM     = Item(id="sexy_lingerie", name="Sexy Lingerie",          cost=75, type="", image="item_sexy_lingerie", description="Sexy lingerie \"Fairy Godmother\". Charm your wizard in bed or empress your sisters at a Sabbath.")
-default sexy_stockings_ITEM    = Item(id="sexy_stockings", name="Sexy Stockings",        cost=50, type="", image="item_sexy_stockings", description="Somewhere between now and the dark-ages came the invention of stockings, when you want to show some skin but not too much.")
-default pink_condoms_ITEM      = Item(id="pink_condoms", name="A Pack Of Condoms",       cost=50, type="toy", image="item_condoms_pink", description="\"Pink unicorn condoms\". \nUnleash the one-horned beast!\n{size=-4}May contain traces of actual unicorn saliva.{/size}")
-default vibrator_ITEM          = Item(id="vibrator", name="Vibrator",                    cost=55, type="toy", image="item_vibrator", description="A magnificent, magically enhanced vibrator made of vine wood, with a dragon heartstring core.")
-default anal_lube_ITEM         = Item(id="anal_lube", name="Jar of anal lubricant",      cost=60, type="toy", image="item_anal_lube", description="A Jar of anal lube, Buy this for your loved one - show that you care.")
-default ballgag_and_cuffs_ITEM = Item(id="ballgag_and_cuffs", name="Ball gag and cuffs", cost=70, type="toy", image="item_ballgag_and_cuffs", description="Ball gag and cuffs, Turn your soulmate into your cellmate.")
-default anal_plugs_ITEM        = Item(id="anal_plugs", name="Anal plugs",                cost=85, type="toy", image="item_anal_plugs", description="Anal plugs decorated with actual tails. Sizes vary to satisfy expert practitioners and beginner alike.")
-default testral_strapon_ITEM   = Item(id="testral_strapon", name="Thestral Strap-on",    cost=200,type="toy", image="item_strap_on_testral", description="Thestral strap-on.\nWhen you see it, you'll shit bricks.")
-default broom_2000_ITEM        = Item(id="broom_2000", name="Lady Speed Stick-2000",     cost=500,type="toy", image="item_broom", description="{size=-2}The \"Lady Speed Stick-2000\", an elegant way of transportation for passionate witches. The trademarked saddle guarantees full satisfaction. Get one for your witch and she won't use her boring old broom ever again!{/size}")
-default sexdoll_ITEM           = Item(id="sexdoll", name="Sex doll \"Joanne\"",          cost=350,type="toy", image="item_sexdoll", description="Sex doll \"Joanne\"... It's so realistic. Almost looks like a real human under the influence of a spell of some sort.")
-default anal_beads_ITEM        = Item(id="anal_beads", name="Anal beads",                cost=65, type="toy", image="item_anal_beads", description="Anal beads engraved with a strange inscription \"Property of L.C.\".")
+default lollipop_ITEM          = Item(id="lollipop", name="Lollipop Candy",              cost=20, type="gift", image="item_lollipop", description="A lollipop candy. An adult candy for kids or kids candy for adults?")
+default chocolate_ITEM         = Item(id="chocolate", name="Chocolate",                  cost=40, type="gift", image="item_chocolate", description="The recipe for this delicious milk chocolate is kept a secret. (Rumoured to contain dried faeries).")
+default plush_owl_ITEM         = Item(id="plush_owl", name="Plush owl",                  cost=35, type="gift", image="item_plush_owl", description="A Toy owl stuffed with feathers of an actual owl. It's so cuddly!")
+default butterbeer_ITEM        = Item(id="butterbeer", name="Butterbeer",                cost=50, type="gift", image="item_butterbeer", description="Girls can't resist this beverage's buttery texture. Therefore it's always in high demand among the boys.")
+default science_mag_ITEM       = Item(id="science_mag", name="Educational Magazines",    cost=30, type="gift", image="item_mag_science", description="Educational magazines. \nthe Trusty companions of every social outcast.")
+default girls_mag_ITEM         = Item(id="girls_mag", name="Girly Magazines",            cost=45, type="gift", image="item_mag_girls", description="Girly magazines. \nAll cool girls are reading these.")
+default adult_mag_ITEM         = Item(id="adult_mag", name="Adult magazines",            cost=60, type="gift", image="item_mag_adult", description="Your boyfriend is turning into a nice guy? \nYour husband won't abuse you anymore? \nAll you wanted to know about relationships, love and sex. Mostly about sex.")
+default porn_mag_ITEM          = Item(id="porn_mag", name="Porn magazines",              cost=80, type="gift", image="item_mag_porn", description="Give these to your girlfriend to test her, to your wife to shame her and to your daughter to avoid \"the talk\".")
+default krum_poster_ITEM       = Item(id="krum_poster", name="Viktor Krum Poster",       cost=25, type="gift", image="item_krum_poster", description="A skilled Quidditch Seeker, Viktor has been selected to play for the Bulgarian National Quidditch team despite still going to school, and is widely regarded as one of the best players in the world.")
+default sexy_lingerie_ITEM     = Item(id="sexy_lingerie", name="Sexy Lingerie",          cost=75, type="gift", image="item_sexy_lingerie", description="Sexy lingerie \"Fairy Godmother\". Charm your wizard in bed or empress your sisters at a Sabbath.")
+default sexy_stockings_ITEM    = Item(id="sexy_stockings", name="Sexy Stockings",        cost=50, type="gift", image="item_sexy_stockings", description="Somewhere between now and the dark-ages came the invention of stockings, when you want to show some skin but not too much.")
+default pink_condoms_ITEM      = Item(id="pink_condoms", name="A Pack Of Condoms",       cost=50, type="gift", image="item_condoms_pink", description="\"Pink unicorn condoms\". \nUnleash the one-horned beast!\n{size=-4}May contain traces of actual unicorn saliva.{/size}")
+default vibrator_ITEM          = Item(id="vibrator", name="Vibrator",                    cost=55, type="gift", image="item_vibrator", description="A magnificent, magically enhanced vibrator made of vine wood, with a dragon heartstring core.")
+default anal_lube_ITEM         = Item(id="anal_lube", name="Jar of anal lubricant",      cost=60, type="gift", image="item_anal_lube", description="A Jar of anal lube, Buy this for your loved one - show that you care.")
+default ballgag_and_cuffs_ITEM = Item(id="ballgag_and_cuffs", name="Ball gag and cuffs", cost=70, type="gift", image="item_ballgag_and_cuffs", description="Ball gag and cuffs, Turn your soulmate into your cellmate.")
+default anal_plugs_ITEM        = Item(id="anal_plugs", name="Anal plugs",                cost=85, type="gift", image="item_anal_plugs", description="Anal plugs decorated with actual tails. Sizes vary to satisfy expert practitioners and beginner alike.")
+default testral_strapon_ITEM   = Item(id="testral_strapon", name="Thestral Strap-on",    cost=200,type="gift", image="item_strap_on_testral", description="Thestral strap-on.\nWhen you see it, you'll shit bricks.")
+default broom_2000_ITEM        = Item(id="broom_2000", name="Lady Speed Stick-2000",     cost=500,type="gift", image="item_broom", description="{size=-2}The \"Lady Speed Stick-2000\", an elegant way of transportation for passionate witches. The trademarked saddle guarantees full satisfaction. Get one for your witch and she won't use her boring old broom ever again!{/size}")
+default sexdoll_ITEM           = Item(id="sexdoll", name="Sex doll \"Joanne\"",          cost=350,type="gift", image="item_sexdoll", description="Sex doll \"Joanne\"... It's so realistic. Almost looks like a real human under the influence of a spell of some sort.")
+default anal_beads_ITEM        = Item(id="anal_beads", name="Anal beads",                cost=65, type="gift", image="item_anal_beads", description="Anal beads engraved with a strange inscription \"Property of L.C.\".")
 
-default wine_ITEM       = Item(id="wine", name="Wine",             cost=60, type="drink", image="item_wine", description="For the more refined palate.")
-default firewhisky_ITEM = Item(id="firewhisky", name="Firewhisky", cost=80, type="drink", image="item_whisky", description="Great taste with a fiery burn.", unlockable=True)
+default wine_ITEM       = Item(id="wine", name="Wine",             cost=60, type="gift", image="item_wine", description="For the more refined palate.")
+default firewhisky_ITEM = Item(id="firewhisky", name="Firewhisky", cost=80, type="gift", image="item_whisky", description="Great taste with a fiery burn.", unlockable=True)
 
 default candy_gift_list = [
     lollipop_ITEM,
@@ -198,107 +198,103 @@ default scroll_list_C = [
 
 # Hermione
 
-default hg_bikini1 = CostumeItem(
+default hg_bikini1 = Item(
     id="hg_bikini1", name="Rave Bikini", type="outfit", items=["bikini-bra","thong"],
     cost=her_outfit_bikini1.price, wait_time=2, image=her_outfit_bikini1, description="> A Bunch of straps for a bunch of gold!")
 
-default hg_bikini2 = CostumeItem(
+default hg_bikini2 = Item(
     id="hg_bikini2", name="Leather Bikini", type="outfit", items=["bikini-bra","thong"],
     cost=her_outfit_bikini2.price, wait_time=2, image=her_outfit_bikini2, description="> Emits a slight squeaking sound when rubbed.")
 
-default hg_maid = CostumeItem(
+default hg_maid = Item(
     id="hg_maid", name="French Maid Costume", type="outfit", items=["hat","choker","top","gloves","stockings"],
     cost=her_outfit_maid.price, wait_time=3, image=her_outfit_maid, description="> A classic Maids Outfit for a classy Witch.")
 
-default hg_bunny = CostumeItem(
+default hg_bunny = Item(
     id="hg_bunny", name="Sexy Bunny Costume", type="outfit", items=["hat","bowtie","onepiece-top","gloves","tattoo","stockings"],
     cost=her_outfit_bunny.price, wait_time=2, image=her_outfit_bunny, description="> A Bunny costume for a bouncy girl.")
 
-default hg_ball = CostumeItem(
+default hg_ball = Item(
     id="hg_ball", name="Classy Ball Dress", type="outfit", items=["earrings","necklace","onepiece-top","sash"],
     cost=her_outfit_ball.price, wait_time=7, image=her_outfit_ball, description="> A fancy dress for a fancy witch.")
 
-default hg_yennefer = CostumeItem(
+default hg_yennefer = Item(
     id="hg_yennefer", name="Yennefer Costume", type="outfit", items=["pendant","scarf","feathers","top","corset","gloves","bottoms","belt","sash","stockings"],
     cost=her_outfit_yennefer.price, wait_time=3, image=her_outfit_yennefer, description="> An outfit which smells like lilac and gooseberries.")
 
-default hg_bioshock = CostumeItem(
+default hg_bioshock = Item(
     id="hg_bioshock", name="Bioshock Costume", type="outfit", items=["choker","top","jacket","bottoms"],
     cost=her_outfit_bioshock.price, wait_time=3, image=her_outfit_bioshock, description="> Flick some coins for this shockingly inspirational outfit.")
 
-default hg_swimsuit = CostumeItem(
+default hg_swimsuit = Item(
     id="hg_swimsuit", name="Swimsuit", type="outfit", items=["onepiece-top"],
     cost=her_outfit_swimsuit.price, wait_time=2, image=her_outfit_swimsuit, description="> A swimsuit for witches who love getting wet.")
 
-default hg_egypt = CostumeItem(
+default hg_egypt = Item(
     id="hg_egypt", name="Egyptian", type="outfit", items=["neck-band","top","arm bands","onepiece-bottoms"],
     cost=her_outfit_egypt.price, wait_time=2, image=her_outfit_egypt, description="> An Egyptian themed outfit which is probably what Cleopatra once wore.")
 
-default hg_latex_dress = CostumeItem(
+default hg_latex_dress = Item(
     id="hg_latex_dress", name="Latex Dress", type="outfit", items=["onepiece-top"],
     cost=her_outfit_latex_dress.price, wait_time=2, image=her_outfit_latex_dress, description="> Tight fitting and something you wouldn't normally find in a regular clothing store.")
 
-default hg_nightie = CostumeItem(
+default hg_nightie = Item(
     id="hg_nightie", name="Nightie", type="outfit", items=["onepiece-top"],
     cost=her_outfit_nightie.price, wait_time=2, image=her_outfit_nightie, description="> Comfortable alternative for a pyjamas.")
 
-default hg_poker = CostumeItem(
+default hg_poker = Item(
     id="hg_poker", name="Poke-her-nips Outfit", type="outfit_token", items=["hat","earrings","bowtie","onepiece-bra","panties","stockings"],
     cost=10, wait_time=3, image=her_outfit_poker, description="> An outfit that doesn't leave much for the mind's desire, perfect for a lewd card loving girl.")
 
-default hg_tifa = CostumeItem(
+default hg_tifa = Item(
     id="hg_tifa", name="Tifa Cosplay", type="outfit", items=["top","gloves","suspenders","belt","bottoms"],
     cost=her_outfit_tifa.price, wait_time=3, image=her_outfit_tifa, description="> An outfit for when your sexual fantasies are just getting started.")
 
-default hg_msmarv = CostumeItem(
+default hg_msmarv = Item(
     id="hg_msmarv", name="Ms. Marvel Cosplay", type="outfit", items=["onepiece-top","gloves","sash","stockings"],
     cost=her_outfit_msmarv.price, wait_time=2, image=her_outfit_msmarv, description="> For the girl that likes the lightning bolt better on the chest than the forehead.")
 
-default hg_hslut = CostumeItem(
+default hg_hslut = Item(
     id="hg_hslut", name="Heart Slut", type="outfit", items=["earrings","necklace","top","tassel-bra","gloves","garter-belt","stockings"],
     cost=her_outfit_hslut.price, wait_time=2, image=her_outfit_hslut, description="> A sexy dancers outfit with heart shaped nipple tassels.")
 
-default hg_croft = CostumeItem(
+default hg_croft = Item(
     id="hg_croft", name="Lora Craft Cosplay", type="outfit", items=["top","shoulder-straps","bottoms","belt-holster"],
     cost=her_outfit_croft.price, wait_time=2, image=her_outfit_croft, description="> An outfit perfectly suited for exploring deep, dark and moist caverns.")
 
-default hg_witch = CostumeItem(
+default hg_witch = Item(
     id="hg_witch", name="Halloween Witch Cosplay", type="outfit", items=["onepiece-top","cape","stockings"],
     cost=her_outfit_witch.price, wait_time=2, image=her_outfit_witch, description="> Release your inner witch with this Halloween inspired outfit.")
 
-default hg_latex = CostumeItem(
+default hg_latex = Item(
     id="hg_latex", name="Latex Outfit", type="outfit", items=["choker","top","gloves","panties","stockings"],
     cost=her_outfit_latex.price, wait_time=2, image=her_outfit_latex, description="> A tight fitting outfit that takes about twenty minutes to put on properly.")
 
-default hg_slutty_schoolgirl = CostumeItem(
+default hg_slutty_schoolgirl = Item(
     id="hg_slutty_schoolgirl", name="Slutty Schoolgirl", type="outfit", items=["top","bottoms","stockings"],
     cost=her_outfit_slutty_schoolgirl.price, wait_time=2, image=her_outfit_slutty_schoolgirl, description="> A arguably better version of the regular school outfit")
 
-default hg_teddy = CostumeItem(
+default hg_teddy = Item(
     id="hg_teddy", name="Teddy Nightie", type="outfit", items=["top"],
     cost=her_outfit_teddy.price, wait_time=2, image=her_outfit_teddy, description="> A more airy nightdress leaving not much fabric between you and your bed.")
 
-default hg_fishnet = CostumeItem(
+default hg_fishnet = Item(
     id="hg_fishnet", name="Fishnet Outfit", type="outfit", items=["top","panties"],
     cost=her_outfit_fishnet.price, wait_time=2, image=her_outfit_fishnet, description="> An outfit for when fishnet stockings isn't enough. {size=-4}Dislaimer: Not effective for catching actual fish.{/size}")
 
-default hg_bikini3 = CostumeItem(
+default hg_bikini3 = Item(
     id="hg_bikini3", name="Sling Bikini Outfit", type="outfit", items=["bra","panties"],
     cost=her_outfit_bikini3.price, wait_time=2, image=her_outfit_bikini3, description="> An outfit providing some coverage.")
 
-default hg_cheerleader = CostumeItem(
+default hg_cheerleader = Item(
     id="hg_cheerleader", name="Gryffindor Cheerleader Outfit", type="outfit", items=["top", "bottoms", "gloves"],
     cost=her_outfit_cheerleader_1.price, wait_time=2, image=her_outfit_cheerleader_1, description="> So daring and bold, sporting red and gold!")
 
-default hg_cheerleader2 = CostumeItem(
+default hg_cheerleader2 = Item(
     id="hg_cheerleader2", name="Slutty Gryffindor Cheerleader Outfit", type="outfit", items=["top", "bottoms"],
     cost=her_outfit_cheerleader_2.price, wait_time=2, image=her_outfit_cheerleader_2, description="> So daring and bold, sporting red and gold!")
 
 default hermione_outfits_list = [hg_maid, hg_cheerleader, hg_bunny, hg_ball, hg_yennefer, hg_bioshock, hg_swimsuit, hg_egypt, hg_latex_dress, hg_nightie, hg_tifa, hg_msmarv, hg_hslut, hg_croft, hg_witch, hg_latex, hg_slutty_schoolgirl, hg_teddy, hg_fishnet, hg_bikini3, hg_bikini1, hg_bikini2, hg_cheerleader2]
-
-default hermione_costumes_list = [] # TODO: Remove
-default hermione_dresses_list = [] # TODO: Remove
-default hermione_clothing_sets_list=[] # TODO: Remove
 
 # Luna Outfits
 
@@ -332,10 +328,10 @@ default luna_dresses_list = [
 ]
 
 # Luna Sets
-default ll_cheer_r_ITEM       = Item(id="ll_cheer_r", name="Ravenclaw Cheerleader", type="set", items=["top","bottoms","stockings"], cost=80, wait_time=2, image="outfits/ll_cheer_r", description=">The Ravenclaw version of the Cheerleader attire.")
-default ll_lingerie_silk_ITEM = Item(id="ll_lingerie_silk", name="Silk Lingerie",   type="set", items=["bra","panties"], cost=80, wait_time=1, image="outfits/ll_lingerie_silk", description=">A smooth and comfortable silk bra and panty set.")
+default ll_cheer_r_ITEM       = Item(id="ll_cheer_r", name="Ravenclaw Cheerleader", type="outfit", items=["top","bottoms","stockings"], cost=80, wait_time=2, image="outfits/ll_cheer_r", description=">The Ravenclaw version of the Cheerleader attire.")
+default ll_lingerie_silk_ITEM = Item(id="ll_lingerie_silk", name="Silk Lingerie",   type="outfit", items=["bra","panties"], cost=80, wait_time=1, image="outfits/ll_lingerie_silk", description=">A smooth and comfortable silk bra and panty set.")
 
-default ll_quirky_muggle_ITEM = Item(id="ll_quirky_muggle", name="Quirky Muggle", type="set", items=["top","bottoms","stockings"], image="outfits/ll_muggle_1", unlockable=True)
+default ll_quirky_muggle_ITEM = Item(id="ll_quirky_muggle", name="Quirky Muggle", type="outfit", items=["top","bottoms","stockings"], image="outfits/ll_muggle_1", unlockable=True)
 
 default luna_clothing_sets_list = [
     ll_cheer_r_ITEM,
@@ -375,19 +371,19 @@ default susan_clothing_sets_list = []
 # Cho outfits
 init offset = 1
 
-default cc_dress_red_ITEM = CostumeItem(
+default cc_dress_red_ITEM = Item(
     id="cc_dress_red", name="Traditional Dress in Red", type="outfit", items=["onepiece-top"],
     cost=100, wait_time=3, image=cho_outfit_dress1, description="> A traditional dress inspired by Chinese culture.",
     # Layers
     outfit_layers = ["onepieces/onepiece_ball_dress"]
 )
 
-default cc_outfit_sailor_white_ITEM = CostumeItem(
+default cc_outfit_sailor_white_ITEM = Item(
     id="cc_outfit_sailor_white", name="White Sailor Outfit", type="outfit", items=["hat","top","bottoms","thong","stockings"],
     cost=240, wait_time=3, image=cho_outfit_sailor, description="> A slutty sailor outfit, perfect for the average cannon swabber."
 )
 
-default cc_costume_misty_ITEM = CostumeItem(
+default cc_costume_misty_ITEM = Item(
     id="cc_costume_misty", name="Misty Costume", type="outfit", items=["top","bottoms","suspenders"],
     cost=100, wait_time=2, image=cho_outfit_misty, description="> For trainers that want to be the very best! To train them is your cause!",
     # Layers
@@ -395,12 +391,12 @@ default cc_costume_misty_ITEM = CostumeItem(
 )
 
 # Cho Sets
-default cc_muggle_hot_ITEM = Item(id="cc_muggle_hot", name="Hot Weather Clothing", type="set", items=["top","bottoms","stockings"], image=cho_outfit_trainee, unlockable=True)
-default cc_party_slut_ITEM = Item(id="cc_party", name="Party Clothing", type="set", items=["bra","bottoms"], image=cho_outfit_party, unlockable=True)
+default cc_muggle_hot_ITEM = Item(id="cc_muggle_hot", name="Hot Weather Clothing", type="outfit", items=["top","bottoms","stockings"], image=cho_outfit_trainee, unlockable=True)
+default cc_party_slut_ITEM = Item(id="cc_party", name="Party Clothing", type="outfit", items=["bra","bottoms"], image=cho_outfit_party, unlockable=True)
 
-default cc_lingerie_lace_ITEM = Item(id="cc_lingerie_lace", name="Lace Lingerie", type="set", items=["earrings","choker","bra","garter-belt","panties","stockings"], image=cho_outfit_lacelingerie, cost=500, wait_time=2, description="> This lingerie set turns even the toughest tomboy into a cute and sexy princess!")
-default cc_bikini_micro_ITEM  = Item(id="cc_bikini_micro", name="Micro Bikini", type="set", items=["bra","panties"], image=cho_outfit_bikini, cost=69, wait_time=2, description="> The regular size bikinis are out of stock...")
-default cc_smurfette_ITEM = Item(id="cc_smurfette", name="Smurfette Cosplay Outfit", type="set", items=["top","hat","hairstyle"], image=cho_outfit_smurfette, cost=0, wait_time=1, description="> Unleash your inner blue!")
+default cc_lingerie_lace_ITEM = Item(id="cc_lingerie_lace", name="Lace Lingerie", type="outfit", items=["earrings","choker","bra","garter-belt","panties","stockings"], image=cho_outfit_lacelingerie, cost=500, wait_time=2, description="> This lingerie set turns even the toughest tomboy into a cute and sexy princess!")
+default cc_bikini_micro_ITEM  = Item(id="cc_bikini_micro", name="Micro Bikini", type="outfit", items=["bra","panties"], image=cho_outfit_bikini, cost=69, wait_time=2, description="> The regular size bikinis are out of stock...")
+default cc_smurfette_ITEM = Item(id="cc_smurfette", name="Smurfette Cosplay Outfit", type="outfit", items=["top","hat","hairstyle"], image=cho_outfit_smurfette, cost=0, wait_time=1, description="> Unleash your inner blue!")
 
 default cho_outfits_list = [
     cc_outfit_sailor_white_ITEM

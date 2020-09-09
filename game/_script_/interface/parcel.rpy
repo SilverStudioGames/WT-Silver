@@ -40,8 +40,15 @@ init python:
                 item, quantity = i
                 item.number += quantity
 
+            if self.type() == "outfit":
+                # TODO: Remove after conversion of all characters is done.
+                unlock_clothing_compat(item)
+
             if not silent:
                 renpy.call("parcel", self, self.label)
+
+        def type(self):
+            return self.contents[0][0].type
 
         def get_caption(self):
             if len(self.contents) == 1:
@@ -64,6 +71,7 @@ label parcel(parcel, label):
     show screen blktone5
 
     $ renpy.checkpoint()
+
     $ renpy.call("give_reward", *parcel.get_caption())
 
     hide screen blktone5

@@ -147,7 +147,7 @@ init python:
         Queue is universal for all instanced objects.
         """
 
-        def __init__(self, text="Add Text", wait=1, label=None, func=None):
+        def __init__(self, text="Add Text", wait=0, label=None, func=None):
             self.mailed = False
             self.read = False
             self.text = text

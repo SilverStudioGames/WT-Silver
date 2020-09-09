@@ -18,7 +18,7 @@ init python:
     # Used for prediction
     def all_clothes_images():
         lists = [
-            hermione_outfits_list, hermione_costumes_list, hermione_dresses_list, hermione_clothing_sets_list,
+            hermione_outfits_list,
             luna_outfits_list, luna_costumes_list, luna_dresses_list, luna_clothing_sets_list,
             astoria_outfits_list, astoria_costumes_list, astoria_dresses_list, astoria_clothing_sets_list,
             susan_outfits_list, susan_costumes_list, susan_dresses_list, susan_clothing_sets_list,
@@ -135,9 +135,6 @@ label clothing_shop_menu:
         item_list = []
         if character_choice == 1:
             item_list.extend(hermione_outfits_list)
-            item_list.extend(hermione_costumes_list)
-            item_list.extend(hermione_dresses_list)
-            item_list.extend(hermione_clothing_sets_list)
         elif character_choice == 2:
             item_list.extend(luna_outfits_list)
             item_list.extend(luna_costumes_list)
@@ -177,7 +174,7 @@ label clothing_shop_menu:
         call purchase_outfit(item_choice)
         $ item_choice = None
         $ current_page = 0
-        if clothing_mail_item != None:
+        if mailbox.type_in_parcels("outfit"):
             jump close_clothing_store
         else:
             jump clothing_shop_menu
@@ -209,9 +206,13 @@ label purchase_outfit(item):
     hide screen clothing_menu
     with d3
 
-    if clothing_mail_item != None:
+    if mailbox.type_in_parcels("outfit"):
         maf "I'm sorry luv, but I'm still quite busy working on your previous order."
         maf "Come back once you received my package."
+        return
+
+    if gold < item.cost:
+        m "(I don't have enough gold.)"
         return
 
     #
@@ -785,55 +786,50 @@ label purchase_outfit(item):
 
     # Purchase Outfit
 
-    if gold >= item.cost:
+    $ transit_time = item.wait_time
+    $ order_cost = item.cost
+    $ order_tip = int(item.cost * 0.20) # int() removes decimental
 
-        $ clothing_mail_item = item
-        $ clothing_mail_timer = item.wait_time
-        $ order_cost = item.cost
-        $ order_tip = int(item.cost * 0.20) # int() removes decimental
+    menu:
+        "-Add next day delivery (+[order_tip] gold)-" if gold >= order_cost + order_tip:
+            $ order_cost += order_tip
+            $ transit_time = 1
 
-        menu:
-            "-Add next day delivery (+[order_tip] gold)-" if gold >= order_cost + order_tip:
-                $ order_cost = order_cost + order_tip
-                $ clothing_mail_timer = 1
-                g9 "I'll tip you handsomely if you can get it done by tomorrow."
-                $ random_response = renpy.random.randint(1, 5)
+            g9 "I'll tip you handsomely if you can get it done by tomorrow."
+            $ random_response = renpy.random.randint(1, 5)
 
-                if random_response == 1:
-                    maf "Oh, Professor. I {b}do{/b} love a challenge."
-                    maf "I'll have to pull some strings but I'll get it done."
-                elif random_response == 2:
-                    maf "Well... since you're putting it that way..."
-                    maf "I'll start on it straight away."
-                elif random_response == 3:
-                    maf "I feel like I'd be neglecting my usual responsibilities a bit if I took this on immediately..."
-                    m "So, is that a no?"
-                    maf "You're the headmaster, your wish is my command."
-                elif random_response == 4:
-                    maf "I'll put everything else on hold in that case..."
-                else:
-                    maf "I might need an extra pair of hands to pull it off by then..."
-                    maf "Could I use one of the house elves?"
-                    m "Use anything that will get it done by tomorrow."
-                    maf "Certainly, sir."
-            "{color=[menu_disabled]}-Add next day delivery (+[order_tip] gold)-{/color}" if gold < order_cost + order_tip:
-                m "(I don't have enough money for that.)"
-            "-No thanks-":
-                pass
-
-    else:
-        m "(I don't have enough gold.)"
-        return
+            if random_response == 1:
+                maf "Oh, Professor. I {b}do{/b} love a challenge."
+                maf "I'll have to pull some strings but I'll get it done."
+            elif random_response == 2:
+                maf "Well... since you're putting it that way..."
+                maf "I'll start on it straight away."
+            elif random_response == 3:
+                maf "I feel like I'd be neglecting my usual responsibilities a bit if I took this on immediately..."
+                m "So, is that a no?"
+                maf "You're the headmaster, your wish is my command."
+            elif random_response == 4:
+                maf "I'll put everything else on hold in that case..."
+            else:
+                maf "I might need an extra pair of hands to pull it off by then..."
+                maf "Could I use one of the house elves?"
+                m "Use anything that will get it done by tomorrow."
+                maf "Certainly, sir."
+        "{color=[menu_disabled]}-Add next day delivery (+[order_tip] gold)-{/color}" if gold < order_cost + order_tip:
+            m "(I don't have enough money for that.)"
+        "-No thanks-":
+            pass
 
     $ item.unlockable = True #Hides it from the store menu.
     $ gold -= order_cost
+    $ Parcel(contents=[(item, 1)], wait=transit_time).send()
 
     m "Here is your gold."
     maf "Thank you.\nI'll start working on it right away, Professor!"
-    if clothing_mail_timer == 1:
+    if transit_time == 1:
         maf "You can expect a package with the outfit by tomorrow."
     else:
-        $ _tmp = "You can expect a package with the outfit in about "+num_to_word(clothing_mail_timer)+" days."
+        $ _tmp = "You can expect a package with the outfit in about "+num_to_word(transit_time)+" days."
         maf "[_tmp]"
 
     return
