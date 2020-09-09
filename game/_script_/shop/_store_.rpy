@@ -37,7 +37,8 @@ label open_weasley_store:
 
     $ store_category = 0 # Reset Button
     $ store_menu = True #Displays item's gold value.
-    $ store_cart = []
+    $ transit_time = renpy.random.randint(1, 5)
+    $ store_cart = {}
 
     jump gift_shop_menu
 
@@ -223,7 +224,28 @@ label close_weasley_store:
         "-No-":
             jump gift_shop_menu
 
-    fre "Goodbye then!"
+    if store_cart:
+        if transit_time > 1:
+            menu:
+                fre "Would you like to add a next-day delivery service?"
+                "\"Yes, please. (25 gold)\"" if gold >= 25:
+                    $ gold -= 25
+                    $ transit_time = 1
+                "{color=[menu_disabled]}\"Yes, please. (25 gold)\"{/color}" if gold < 25:
+                    ger "It would appear you have spend all your money, Professor."
+                    fre "I'm afraid you will have to wait a while longer for your delivery."
+                    m "(Greedy bastards...)"
+                "-No thanks-":
+                    pass
+
+        $ _tmp = "tomorrow" if transit_time == 1 else "in 1 to {} days.".format(str(transit_time))
+
+        fre "Thank your for shopping at \"Weasley & Weasley\". Your order shall be delivered [_tmp]"
+    else:
+        ger "We get new goods every week--"
+        fre "--maybe we'll have something you like next time."
+
+    twi "Goodbye!"
 
     show screen blkfade
     with d5
@@ -231,10 +253,9 @@ label close_weasley_store:
     python:
         store_menu = False #Displays item's gold value.
 
-        for i in store_cart:
-            Parcel(*i).send()
+        Parcel(contents=[(k, v) for k, v in store_cart.iteritems()], wait=transit_time).send()
 
-        store_cart = []
+        store_cart = {}
 
     jump main_room
 
@@ -331,25 +352,12 @@ label object_gift_block(item):
     return
 
 label object_purchase_item(item, quantity):
-    $ transit_time = renpy.random.randint(1, 5)
     $ order_cost = item.cost*quantity
     if gold >= (order_cost):
-        menu:
-            "-Add next day delivery (15 gold)-" if gold >= order_cost + 15:
-                $ gold -= 15
-                $ transit_time = 1
-            "{color=[menu_disabled]}-add next day delivery (15 gold)-{/color}" if gold < order_cost + 15:
-                pass
-            "-No thanks-":
-                pass
         $ gold -= order_cost
-        $ store_cart.append( ( [(item, quantity)], transit_time ) )
 
-        if transit_time ==  1:
-            "Thank your for shopping at \"Weasley & Weasley\". Your order shall be delivered tomorrow."
-        else:
-            "Thank your for shopping at \"Weasley & Weasley\". Your order shall be delivered in 1 to [transit_time] days."
-
+        $ store_cart.setdefault(item, 0)
+        $ store_cart[item] += quantity
     else:
         m "I don't have enough gold."
 

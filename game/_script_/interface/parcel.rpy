@@ -60,9 +60,9 @@ init python:
                 else:
                     text = "You have received {} pieces of {}.".format(num_to_word(quantity), item.name)
             else:
-                items = ", ".join( [" ".join( str(x[1]), x[0].name ) for x in self.contents] )
+                items = ", ".join( [" ".join( [str(x[1]), x[0].name] ) for x in self.contents] )
                 icon = "interface/icons/box_brown_"+str(random.randint(1, 4))+".webp"
-                text = "You have received your ordered items:\n{size=-4}{}{/size}".format(items)
+                text = "You have received your ordered items:\n{size=-4}"+items+"{/size}"
 
             return (text, icon)
 
