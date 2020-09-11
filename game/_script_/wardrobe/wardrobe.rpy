@@ -110,11 +110,15 @@ label wardrobe(char_label):
         else:
             $ renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
     elif _return == "addoutfit":
-        $ char_active.create_outfit()
+        $ _outfit = char_active.create_outfit()
+        if not _outfit.validate():
+            $ _outfit.delete()
+            $ renpy.notify("This outfit has already been saved!")
+
         $ menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
         $ menu_items_length = len(menu_items)
     elif _return[0] == "deloutfit":
-        $ char_active.outfits.remove(_return[1])
+        $ _return[1].delete()
         $ menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
         $ menu_items_length = len(menu_items)
     elif _return[0] == "tagoutfit":

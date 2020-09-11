@@ -8,6 +8,7 @@ init python:
             self.char = self.group[0].char
             self.unlocked = unlocked
             self.schedule = {"day": False, "night": False, "cloudy": False, "rainy": False, "snowy": False}
+            self.hash = self.generate_hash()
 
             if unlocked:
                 self.unlock()
@@ -16,6 +17,14 @@ init python:
             self.char.outfits.append(self)
 
             self.rebuild_image()
+
+        def __del__(self):
+            print("Outfit with hash: {} has been garbage collected.".format(self.hash))
+
+        def delete(self):
+            if self in self.char.outfits:
+                self.char.outfits.remove(self)
+            del self
 
         def build_image(self):
             masks = []
@@ -69,6 +78,16 @@ init python:
                     self.sprite = DollDisplayable(Composite(self.size, *sprites))
                     self.cached = True
             return self.sprite
+
+        def generate_hash(self):
+            salt = str( [(x.name, x.type, x.id, x.color) for x in self.group] )
+            return hash(salt)
+
+        def validate(self):
+            for i in self.char.outfits:
+                if i.unlocked and not i == self and i.hash == self.hash:
+                    return False
+            return True
 
         def export_data(self, tofile=True, filename="exported"):
             """Exports outfit to .png file or clipboard text."""

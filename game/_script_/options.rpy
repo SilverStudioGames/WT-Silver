@@ -88,7 +88,7 @@ define config.main_menu_music = "music/01 Prologue.mp3"
 # General
 define config.quit_action = Quit(True)
 define config.narrator_menu = True
-define config.hard_rollback_limit = 150
+define config.hard_rollback_limit = 90
 define config.mouse = {"default": [("interface/cursor.webp", 0, 0)]} if preferences.customcursor else None
 
 # Help (Not implemented)

@@ -238,7 +238,7 @@ label close_weasley_store:
                 "-No thanks-":
                     pass
 
-        $ _tmp = "tomorrow" if transit_time == 1 else "in 1 to {} days.".format(str(transit_time))
+        $ _tmp = "tomorrow." if transit_time == 1 else "in 1 to {} days.".format(str(transit_time))
 
         fre "Thank your for shopping at \"Weasley & Weasley\". Your order shall be delivered [_tmp]"
     else:
