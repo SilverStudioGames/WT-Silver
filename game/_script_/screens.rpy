@@ -65,8 +65,9 @@ screen choice(items):
     zorder 30
 
     # Dont add the fade if character or saybox is present (They have their own triggers for fading)
-    showif not any(itertools.imap(renpy.get_screen, ["say", "hermione_main", "cho_main", "luna_main", "snape_main", "astoria_main", "tonks_main", "susan_main", "letter"])):
+    if not any(itertools.imap(renpy.get_screen, ["say", "hermione_main", "cho_main", "luna_main", "snape_main", "astoria_main", "tonks_main", "susan_main", "letter"])):
         add "interface/bld.webp" at fade_hide(0.15)
+
     window at fade_show_hide(0.15):
         style "empty"
         xalign menu_x
@@ -90,14 +91,15 @@ screen choice(items):
                     fixed:
                         fit_first "height"
                         text entry.caption:
-                            xcenter choice_width/2
                             xsize choice_width-120 # Leave enough margin for number and icon
-                            text_align 0.5
+                            align (0.5, 0.5)
                         if i < 10 and entry.action:
                             text "{size=-2}[i].{/size}" xpos 5 yalign 0.5
+
                         $ icon = entry.kwargs.get("icon", None)
                         if icon:
                             add icon xcenter 40 yalign 0.5
+
                         $ progress = entry.kwargs.get("progress", None)
                         if progress:
                             hbox:
@@ -473,16 +475,6 @@ screen preferences():
                     Notify(("Autosave preference will take effect after restarting the game", left))
                 ]
                 textbutton _("Save Delete Warning") action ToggleVariable("preferences.savedelwarn", True, False)
-
-            if config.developer:
-                frame:
-                    has vbox
-
-                    label "Advanced"
-                    textbutton "Use drawable resolution" action [
-                        ToggleVariable("preferences.use_drawable_resolution", True, False),
-                        Function(set_use_drawable_resolution)
-                    ]
 
         if not renpy.android:
             vbox:

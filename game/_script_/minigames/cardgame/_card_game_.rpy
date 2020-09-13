@@ -257,90 +257,50 @@ transform cardrender_move(xpos_card, ypos_card, start_xy):
         pos start_xy
         linear 0.2 xpos absolute(xpos_card) ypos absolute(ypos_card)
 
+transform cardrender(pos, zoom):
+    pos pos
+    zoom zoom
+
 screen cardrender(card, xpos_card, ypos_card, interact=False, return_value=None, cardzoom=0.5, color=True, gallery=False, backside=False, animated=False):
     zorder 14
     if return_value == None:
         $ return_value = card
-    frame:
-        xpos xpos_card -4
-        ypos ypos_card -6
-        xsize card_width*cardzoom
-        ysize card_height*cardzoom
-        background None
 
-        if interact:
-            imagebutton:
-                if backside:
-                    idle card.get_back_image(zoom=cardzoom)
-                    hover card.get_back_hover(zoom=cardzoom)
-                elif not color and not gallery and card.copies <= -1:
-                    idle gray_tint(card.get_card_image(zoom=cardzoom))
-                    hover gray_tint(card.get_card_hover(zoom=cardzoom))
-                elif gallery and not card_exist(unlocked_cards, card):
-                    idle gray_tint(card.get_card_image(zoom=cardzoom))
-                    hover gray_tint(card.get_card_hover(zoom=cardzoom))
-                else:
-                    idle card.get_card_image(zoom=cardzoom)
-                    hover card.get_card_hover(zoom=cardzoom)
-                action Return(return_value)
-        else:
-            if backside:
-                add card.get_back_image(zoom=cardzoom)
-            elif not color and not gallery:
-                add gray_tint(card.get_card_image(zoom=cardzoom))
-            elif gallery and not card_exist(unlocked_cards, card):
-                add gray_tint(card.get_card_image(zoom=cardzoom))
+    default img = card.get_image(backside=backside)
+    default img_border = card.get_border()
+
+    fixed:
+        xysize card.sizes
+        at cardrender((xpos_card, ypos_card), cardzoom)
+
+        imagebutton:
+            style "empty"
+
+            if (gallery and not card_exist(unlocked_cards, card)) or (not color or card.copies <= -1):
+                idle gray_tint(img)
+                hover gray_tint(image_hover(img))
+                foreground gray_tint(img_border)
             else:
-                add card.get_card_image(zoom=cardzoom)
+                idle img
+                hover image_hover(img)
+                foreground img_border
+
+            if interact:
+                action Return(return_value)
 
         if not backside:
-            if gallery and not card_exist(unlocked_cards, card):
-                add gray_tint(playerborder) zoom cardzoom
-            elif card.playercard:
-                add playerborder zoom cardzoom
-            else:
-                add enemyborder zoom cardzoom
-
-            $ lefttext = "{color=#ffffff}"
-            $ righttext = "{/color}"
-
-            if cardzoom >= 0.5:
-                $ sizetext = 14
-                $ sizevalues = 18
-            else:
-                $ sizetext = 10
-                $ sizevalues = 12
-
-            hbox:
-                xsize card_width*cardzoom
-                ysize card_height*cardzoom
-                text lefttext+str(card.topvalue)+righttext xalign 0.5 yalign 0.03 size sizevalues
-
-            hbox:
-                xsize card_width*cardzoom
-                ysize card_height*cardzoom
-                text lefttext+str(card.bottomvalue)+righttext xalign 0.5 yalign 0.985 size sizevalues
-
-            hbox:
-                xsize card_width*cardzoom
-                ysize card_height*cardzoom
-                text lefttext+str(card.rightvalue)+righttext xalign 0.95 yalign 0.5 size sizevalues
-
-            hbox:
-                xsize card_width*cardzoom
-                ysize card_height*cardzoom
-                text lefttext+str(card.leftvalue)+righttext xalign 0.05 yalign 0.5 size sizevalues
+            text str(card.topvalue) style "cardrender_text" pos (160, 35)
+            text str(card.bottomvalue) style "cardrender_text" pos (160, 445)
+            text str(card.leftvalue) style "cardrender_text" pos (35, 240)
+            text str(card.rightvalue) style "cardrender_text" pos (285, 240)
 
             #Total Value
-            hbox:
-                xsize card_width*cardzoom
-                ysize card_height*cardzoom
-                # Set horizontal offset for single digit value
-                # I have no idea why it has to be >= 25 but it's the only value that works.
-                if len(str(card.get_totalvalue())) >= 25:
-                    text lefttext+str(card.get_totalvalue())+righttext xalign 0.15 yalign 0.1 size sizetext
-                else:
-                    text lefttext+str(card.get_totalvalue())+righttext xalign 0.15 yalign 0.1 size sizetext xoffset 5
+            text str(card.get_totalvalue()) style "cardrender_text" pos (60, 57)
+
+style cardrender_text:
+    color "#ffffff"
+    anchor (0.5, 0.5)
+    size 26
 
 screen start_deck():
     zorder 15

@@ -161,32 +161,27 @@ screen deck_builder_gallery():
 
     text "{size=+15}Gallery{/size}" ypos 15 xalign 0.5
 
-    for i in xrange(len(cards_all)):
-        if i <= 12:
-            use cardrender(cards_all[i], 18+80*i,67, False, cardzoom=0.25, gallery=True)
-        elif i > 12 and i < 26:
-            use cardrender(cards_all[i], 18+80*(i-13),189, False, cardzoom=0.25, gallery=True)
-        elif i > 25 and i < 39:
-            use cardrender(cards_all[i], 18+80*(i-26),312, False, cardzoom=0.25, gallery=True)
-        elif i > 38 and i < len(cards_all):
-            use cardrender(cards_all[i], 18+80*(i-39),434, False, cardzoom=0.25, gallery=True)
+    for i, card in enumerate(cards_all):
 
-    #Back button
+        $ col = (i // 4) % 13
+        $ row = i % 4
+
+        use cardrender(card, 18+80*col, 67+125*row, False, cardzoom=0.25, gallery=True)
+
     imagebutton:
-        xpos 930
-        ypos 480
+        anchor (1.0, 0.0)
+        ypos 18
+        xalign 0.98
+
         idle "images/cardgame/back.webp"
         hover "images/cardgame/back_hover.webp"
         action [Show("deck_builder_screen"), Hide("deck_builder_gallery")]
         keysym "game_menu"
 
 label color_change:
-
-    $ color_rgb = color_picker(playercolor_rgb, False, "Player border")
-    $ playerborder = player_tint("images/cardgame/border.webp")
-
-    $ color_rgb = color_picker(enemycolor_rgb, False, "Enemy border")
-    $ enemyborder = enemy_tint("images/cardgame/border.webp")
+    python:
+        playercolor_rgb = tuple(color_picker(list(playercolor_rgb), False, "Player border"))
+        enemycolor_rgb = tuple(color_picker(list(enemycolor_rgb), False, "Enemy border"))
 
     jump deck_builder
 

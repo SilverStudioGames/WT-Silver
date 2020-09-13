@@ -21,7 +21,7 @@ init python:
             sprites.extend((x, self.zorder_skin) for x in self.char.cum.get_skin()) # Cum skin
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable(((0,0), im.MatrixColor(x[0], im.matrix.hue(self.hue))) for x in sprites))
+            sprites = tuple(itertools.chain.from_iterable( ((0,0), Transform(x[0], matrixcolor=HueMatrix(self.hue)) ) for x in sprites))
             return sprites
 
         def build_mannequin(self, group=None):

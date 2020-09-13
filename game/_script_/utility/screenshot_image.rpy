@@ -12,7 +12,7 @@ init -1 python:
         def load(self):
             sw, sh = config.screen_width, config.screen_height
             render = renpy.display.render.render_screen(self.root, sw, sh)
-            shot = renpy.display.draw.screenshot(render, preferences.fullscreen)
+            shot = renpy.display.draw.screenshot(render)
             shot = renpy.display.scale.real_transform_scale(shot, (config.screen_width, config.screen_height))
             return shot
 

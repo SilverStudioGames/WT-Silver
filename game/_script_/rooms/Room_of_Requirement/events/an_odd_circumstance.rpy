@@ -1,4 +1,3 @@
-
 # Mirror story: An odd circumstance
 label an_odd_circumstance:
 
@@ -21,6 +20,7 @@ label an_odd_circumstance:
 
     call play_music("jazz")
     hide screen blkfade
+    show layer screens at sepia
     with d5
 
     "It was a normal night..."
@@ -50,6 +50,8 @@ label an_odd_circumstance:
     call her_main("...", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)
     "Her hazel coloured flowing hair reminded me of a leather bound book, filled to the brim with the secrets of the girl in front of me..."
     "I felt myself becoming lost in her mysterious brown eyes, which provoked a sense of great pain and suffering."
+    hide screen hermione_main
+    with d3
     her "I'm so glad I found you... I've been trying to locate you for ages, you're not an easy man to find..."
     "Lost in thought, my mouth seemed to move on its own as I replied to the girl..."
     m "Of course..."
@@ -193,5 +195,6 @@ label an_odd_circumstance:
     call update_interface_color
 
     $ hermione.equip(her_outfit_last)
+    show layer screens at None
 
     jump enter_room_of_req

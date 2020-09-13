@@ -3,16 +3,12 @@
 # Fullscreen - F11
 # Reload - shift+R
 init python:
-    config.keymap['screenshot'].remove('s')
-    config.keymap['screenshot'].append('K_PRINT')
-    config.keymap['toggle_fullscreen'].remove('f')
-    config.keymap['reload_game'].remove('R')
-    config.keymap['reload_game'].append('shift_R')
+    config.keymap['screenshot'] = ['K_PRINT']
+    config.keymap['toggle_fullscreen'] = ['K_F11']
+    config.keymap['reload_game'] = ['shift_K_r']
     config.keymap['console'].append('K_BACKQUOTE')
-    config.keymap['director'].remove('d')
-
-    config.keymap['hide_windows'].remove('mouseup_2')
-    config.keymap['hide_windows'].remove('h')
+    config.keymap['director'] = []
+    config.keymap['hide_windows'] = []
 
     if config.developer:
         config.keymap['expression_editor'] = ['K_F5']

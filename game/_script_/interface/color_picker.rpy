@@ -151,7 +151,7 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
             bar:
                 area (25, 290, 255, 30)
                 value ScreenVariableValue("_alpha", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
-                base_bar im.MatrixColor(alpha_gradient_image, im.matrix.colorize(rgba, rgba))
+                base_bar Transform(alpha_gradient_image, matrixcolor=ColorizeMatrix(rgba, rgba))
                 thumb Image("interface/color_picker/"+str(interface_color)+"/cursor_v.webp", xalign=0.5)
                 thumb_offset 0
                 top_gutter 0
@@ -362,7 +362,7 @@ init -1 python:
                 return self.cached_surf
             # Generate a vertical hue gradient
             height = self.size[1]
-            surf = renpy.display.pgrender.surface((1, height), False)
+            surf = renpy.display.pgrender.surface((1, height), True)
             for y in xrange(height):
                 hue = float(y) / height
                 (r, g, b) = colorsys.hsv_to_rgb(hue, 1, 1)

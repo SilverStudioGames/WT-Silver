@@ -12,29 +12,14 @@ default currentpage = 0
 # Rules(Shown Cards, Sudden Death, Reverse, Dobelt_number)
 default standard_rules = [0, False, False, False]
 
-default playercolor_rgb = [51.0, 92.0, 147.0, 255.0]
-default enemycolor_rgb = [116.0, 0, 0, 255.0]
+default playercolor_rgb = (51, 92, 147, 255)
+default enemycolor_rgb = (116, 0, 0, 255)
 
 default geniecard_level = 1
 default tokens = 0
 default cardgame_eoc = False # End of content flag
 
 default table_cards = [[None for x in xrange(0,3)] for y in xrange(0,3)]
-
-default card_width = 320 # get_width("images/cardgame/border.webp")
-default card_height = 480 # get_height("images/cardgame/border.webp")
-
-default playerborder = player_tint("images/cardgame/border.webp")
-default enemyborder = enemy_tint("images/cardgame/border.webp")
-
-# Used in deckbuilder, DONT DELETE!
-default card_empty = Card( imagepath="images/cardgame/border.webp",
-                            topvalue = 0,
-                            bottomvalue = 0,
-                            rightvalue = 0,
-                            leftvalue = 0,
-                            title="Dummy",
-                            description="Dummy")
 
 #Special Cards
 
@@ -571,11 +556,6 @@ init python:
             score += card.get_total_value()
         return score
 
-    def player_tint(image):
-        return im.MatrixColor(image, im.matrix.tint(playercolor_rgb[0]/255.0, playercolor_rgb[1]/255.0, playercolor_rgb[2]/255.0))
-    def enemy_tint(image):
-        return im.MatrixColor(image, im.matrix.tint(enemycolor_rgb[0]/255.0, enemycolor_rgb[1]/255.0, enemycolor_rgb[2]/255.0))
-
     def get_image_size(image):
         myDisplayable = im.Image(image)
         myRender = renpy.render(myDisplayable, 800, 600, 0, 0)
@@ -701,6 +681,8 @@ init python:
             self.__dict__.update(**kwargs)
 
     class Card(object):
+        sizes = (320, 480)
+
         def __init__(self, **kwargs):
             self.playercard = True
             self.textcolor = "{color=#ffffff}"
@@ -716,15 +698,13 @@ init python:
             self.leftvalue = 3
             self.__dict__.update(**kwargs)
 
-        def get_card_image(self, zoom=0.5):
-            return im.Scale(self.imagepath, card_width*zoom, card_height*zoom)
-        def get_card_hover(self, zoom=0.5):
-            return im.MatrixColor(im.Scale(self.imagepath, card_width*zoom, card_height*zoom),im.matrix.brightness(0.12))
+        def get_image(self, backside=False):
+            return self.backside if backside else self.imagepath
 
-        def get_back_image(self, zoom=0.5):
-            return im.Scale(self.backside, card_width*zoom, card_height*zoom)
-        def get_back_hover(self, zoom=0.5):
-            return im.MatrixColor(im.Scale(self.backside, card_width*zoom, card_height*zoom),im.matrix.brightness(0.12))
+        def get_border(self):
+            if self.playercard:
+                return Transform("images/cardgame/border.webp", matrixcolor=TintMatrix(playercolor_rgb))
+            return Transform("images/cardgame/border.webp", matrixcolor=TintMatrix(enemycolor_rgb))
 
         def get_title(self):
             return self.textcolor+self.title+"{/color}"

@@ -1,3 +1,8 @@
+
+init python early:
+    if renpy.version_tuple < (7,4,0,733):
+        raise RuntimeWarning("Your Ren'Py launcher is outdated, the current minimal requirement is 7.4.0.733+\nPlease perform an update and try launching the game again.")
+
 init python:
     if not config.developer:
         config.missing_image_callback = missing_image_func
@@ -10,9 +15,6 @@ init python:
         config.start_interact_callbacks.append(fix_intel_renderer)
 
 init -1 python:
-    if renpy.version_tuple < (7,3,5,606):
-        raise Exception("Your Ren'Py launcher is outdated, the current minimal requirement is 7.3.5+\nPlease perform an update and try launching the game again.")
-
 
     def missing_image_func(path):
         global systemerror

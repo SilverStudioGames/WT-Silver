@@ -107,9 +107,8 @@ init python:
 
         def apply_color(self, img, n):
             """Takes image and int layer number. Used internally."""
-            c = im.matrix.tint(self.color[n][0]/255.0, self.color[n][1]/255.0, self.color[n][2]/255.0)
-            a = im.matrix.opacity(self.color[n][3]/255.0)
-            return im.MatrixColor(img, c*a)
+            c = TintMatrix(tuple(self.color[n]))
+            return Transform(img, matrixcolor=c)
 
         def set_color(self, n):
             """Takes int layer number for manual color picking or a list to replace the cloth color in its entirety."""

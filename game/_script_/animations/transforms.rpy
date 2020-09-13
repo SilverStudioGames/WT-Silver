@@ -1,3 +1,5 @@
+transform sepia:
+    matrixcolor SepiaMatrix()
 
 transform move_in(x, t):
     xpos x

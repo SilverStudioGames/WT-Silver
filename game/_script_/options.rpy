@@ -12,7 +12,6 @@ default preferences.text_color_day = "#402313"
 default preferences.text_color_night = "#341c0f"
 default preferences.text_outline = "#00000000"
 default preferences.nightmode = False
-default preferences.use_drawable_resolution = False if renpy.android else True
 default preferences.tutorials = True
 
 # DO NOT MODIFY ANYTHING BELOW THIS LINE IF YOU DON'T KNOW WHAT YOU'RE DOING.
@@ -49,6 +48,7 @@ define config.layers = ["master", "transient", "screens", "interface", "overlay"
 define config.transparent_tile = False
 
 # Graphics and cache settings
+define config.gl2 = True
 define config.gl_enable = True
 define config.gl_resize = True
 define config.gl_clear_color = "#000"
@@ -60,8 +60,6 @@ define config.load_before_transition = True
 define config.imagemap_cache = True
 define config.optimize_texture_bounds = True
 define config.debug_image_cache = False
-define config.use_drawable_resolution = preferences.use_drawable_resolution
-define config.drawable_resolution_text = preferences.use_drawable_resolution
 
 # Disable automatic image scanning
 define config.automatic_images = None

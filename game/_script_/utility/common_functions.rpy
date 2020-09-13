@@ -62,24 +62,21 @@ init -1 python:
         return max(smallest, min(n, largest))
 
     def white_tint(image):
-        return im.MatrixColor(image, im.matrix.tint(1.1, 1.1, 1.1))
+        return Transform( image, matrixcolor=TintMatrix((1.1, 1.1, 1.1)) )
 
     def gray_tint(image):
-        return im.Grayscale(image)
+        return Transform( image, matrixcolor=SaturationMatrix(0.0) )
 
     def yellow_tint(image):
-        return im.MatrixColor(image,  im.matrix.tint(1.2, 1.1, 0.7))
+        return Transform( image, matrixcolor=TintMatrix((1.2, 1.1, 0.7)) )
 
-    def get_head_icon(name):
-        return "interface/icons/head/"+str(name)+".webp"
-
-    def image_hover(image):
+    def image_hover(image, brightness=0.12):
         """Returns slightly brighter image used during hover events"""
-        return im.MatrixColor(image, im.matrix.brightness(0.12))
+        return Transform( image, matrixcolor=BrightnessMatrix(brightness) )
 
     def image_alpha(image, alpha=0.5):
         """Returns an image with changed alpha 0 - fully transparent 1 - fully visible"""
-        return im.MatrixColor(image, im.matrix.opacity(alpha))
+        return Transform( image, matrixcolor=OpacityMatrix(alpha) )
 
     def set_clipboard(txt):
         txt = str(txt)
@@ -131,17 +128,6 @@ init -1 python:
         if hasattr(store, "_tmp_menu"):
             store._game_menu_screen = store._tmp_menu
             del store._tmp_menu
-
-    def set_use_drawable_resolution():
-        config.use_drawable_resolution = preferences.use_drawable_resolution
-        config.drawable_resolution_text = preferences.use_drawable_resolution
-        renpy.force_full_redraw()
-        if preferences.fullscreen:
-            renpy.reset_physical_size()
-            preferences.fullscreen = True
-        else:
-            s = renpy.get_physical_size()
-            renpy.set_physical_size(s)
 
     def make_revertable(obj):
         if isinstance(obj, _list):
