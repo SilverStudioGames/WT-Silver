@@ -1,0 +1,45 @@
+
+renpy:
+  registry: .cache/renpy/
+  version: 7.4.0
+
+build:
+  project: ../
+  output: output/
+  cache: .cache/build/
+  target: [pc, mac, android]
+  version: ~
+  quality: ~ # overrides target quality if set
+  branch: master # release branch
+
+  exclude:
+    - build/*
+
+  version_files:
+    - ['game/_script_/options.rpy', 'config.version = "{version}"']
+    - ['.android.json', '"version": "{version}"', '"numeric_version": {code}']
+
+  release_flags:
+    - ['game/_script_/options.rpy', ['is_release = True', 'is_release = False']]
+
+  targets:
+    pc:
+      source: ~ # default source
+      patch: ~ # patch source
+      quality: ~ # no compression
+      extended_memory: True
+
+    mac:
+      source: ~ # default source
+      patch: ~ # patch source
+      quality: ~ # no compression
+
+    android:
+      source: ~ # default source
+      patch: ~ # patch source
+      quality: 80
+
+  patch:
+    filename: 'patch-{version}-for-{reference}-{target}.zip' # filename format: {reference} {version} {target}
+    source: ~
+    reference: ~
