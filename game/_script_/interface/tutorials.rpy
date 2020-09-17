@@ -30,7 +30,8 @@ screen tutorial(entry):
     $ _style = ("day_button" if interface_color == "gold" else "night_button")
     $ _bg = ("#ac8d5a" if interface_color == "gold" else "#5d5151")
 
-    add im.Blur(screenshot_image, 2)
+    default bg = At(screenshot_image, gaussianblur(15.0))
+    add bg
 
     frame:
         background _bg

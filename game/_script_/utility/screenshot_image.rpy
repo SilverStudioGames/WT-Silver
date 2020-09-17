@@ -67,10 +67,3 @@ init -1 python:
         with open(fn, "wb") as f:
             f.write(sio.getvalue())
         sio.close()
-
-# Usage example
-
-screen screenshot_image():
-    zorder 100
-    if screenshot_image:
-        add im.Blur(screenshot_image, 2)

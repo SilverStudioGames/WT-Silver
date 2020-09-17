@@ -94,7 +94,8 @@ screen inventory_menu(xx, yy):
     zorder 30
     modal True
 
-    add im.Blur(screenshot_image, 2)
+    default bg = At(screenshot_image, gaussianblur(15.0))
+    add bg
 
     use invisible_button(action=Return("Close"))
     use close_button
