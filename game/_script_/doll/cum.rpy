@@ -12,7 +12,7 @@ init python:
             self.rebuild_image()
 
         def build_image(self):
-            sprites = tuple(itertools.chain.from_iterable(((0,0), "{}{}/{}.webp".format(self.imagepath, k, v)) for k, v in self.cum.iteritems() if v != None))
+            sprites = tuple("{}{}/{}.webp".format(self.imagepath, k, v) for k, v in self.cum.iteritems() if v != None)
             return sprites
 
         def get_skin(self):

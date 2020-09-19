@@ -25,13 +25,12 @@ init -1 python:
 
     class DollMethods(object):
         """Container class for commonly used methods and attributes"""
-        size = (1010, 1200)
         sprite = None
         cached = False
         override = False
 
         layers_extra = ("extra", "outline", "overlay")
-        layers_special = ("skin", "mask", "wet_mask")
+        layers_special = ("skin", "mask", "wind_mask")
         layers_additional = ("back", "front")
 
         blacklist_toggles = ("hair", "pubes", "piercing", "makeup", "tattoo", "accessory")
@@ -45,10 +44,10 @@ init -1 python:
             if not renpy.is_skipping() or self.sprite is None:
                 if self.override:
                     sprites = self.build_image()
-                    self.sprite = Composite(self.size, *sprites)
+                    self.sprite = Fixed(*sprites)
                 elif not self.cached:
                     sprites = self.build_image()
-                    self.sprite = Composite(self.size, *sprites)
+                    self.sprite = Fixed(*sprites)
                     self.cached = True
             return self.sprite
 

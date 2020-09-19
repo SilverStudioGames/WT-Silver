@@ -35,16 +35,16 @@ init python:
 
             for o in self.group:
                 sprites.append([o.get_image(), o.zorder])
+
                 if o.back:
-                    sprites.extend([x, -100+n+o.zorder] for n, x in enumerate(o.get_back()))
-                    if o.back_outline:
-                        sprites.append([o.back_outline, -100+o.zorder+o.layers])
+                        sprites.append([o.get_back(), -100+o.zorder])
+
                 if o.front:
-                    sprites.extend([x, 100+n+o.zorder] for n, x in enumerate(o.get_front()))
-                    if o.front_outline:
-                        sprites.append([o.front_outline, 100+o.zorder+o.layers])
+                    sprites.append([o.get_front(), 100+o.zorder])
+
                 if o.armfix:
-                    sprites.extend([[im.Grayscale("{}armleft/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armleft"))), o.zorder+0.5], [im.Grayscale("{}armright/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armright"))), o.zorder+0.5]])
+                    sprites.extend([[gray_tint("{}armleft/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armleft"))), o.zorder+0.5], [gray_tint("{}armright/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armright"))), o.zorder+0.5]])
+
                 if o.mask:
                     masks.append([o.mask, o.zorder-1])
 
@@ -58,24 +58,24 @@ init python:
                 for i, s in enumerate(sprites):
                     if m[1] <= s[1]:
                         if i > 0:
-                            masked = tuple(itertools.chain.from_iterable(((0,0), x[0]) for x in sprites[:i]))
-                            c = AlphaMask(Composite(self.size, *masked), m[0])
+                            masked = tuple(x[0] for x in sprites[:i])
+                            c = AlphaMask(Fixed(*masked), m[0])
                             sprites = sprites[i:]
                             sprites.insert(0, (c, m[1]-1))
                         break
 
             sprites = back_sprites + sprites
-            sprites = tuple(itertools.chain.from_iterable(((0,0), x[0]) for x in sprites))
+            sprites = tuple(x[0] for x in sprites)
             return sprites
 
         def get_image(self):
             if not renpy.is_skipping() or self.sprite is None:
                 if self.override:
                     sprites = self.build_image()
-                    self.sprite = DollDisplayable(Composite(self.size, *sprites))
+                    self.sprite = DollDisplayable(Fixed(*sprites))
                 elif not self.cached:
                     sprites = self.build_image()
-                    self.sprite = DollDisplayable(Composite(self.size, *sprites))
+                    self.sprite = DollDisplayable(Fixed(*sprites))
                     self.cached = True
             return self.sprite
 

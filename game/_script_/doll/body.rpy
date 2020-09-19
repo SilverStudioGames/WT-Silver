@@ -21,7 +21,7 @@ init python:
             sprites.extend((x, self.zorder_skin) for x in self.char.cum.get_skin()) # Cum skin
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable( ((0,0), Transform(x[0], matrixcolor=HueMatrix(self.hue)) ) for x in sprites))
+            sprites = tuple(Transform(x[0], matrixcolor=HueMatrix(self.hue)) for x in sprites)
             return sprites
 
         def build_mannequin(self, group=None):
@@ -33,12 +33,12 @@ init python:
                 sprites.extend((o.skin, self.zorder_skin) for o in group if o and o.skin)
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable(((0,0), im.Grayscale(x[0])) for x in sprites))
+            sprites = tuple(gray_tint(x[0]) for x in sprites)
             return sprites
 
         def get_mannequin(self, group=None):
             mannequin = self.build_mannequin(group)
-            return Composite(self.size, *mannequin)
+            return Fixed(*mannequin)
 
         def get_part(self, arg):
             return self.body[arg][0]

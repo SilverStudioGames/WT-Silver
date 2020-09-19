@@ -20,8 +20,7 @@ init python:
 
         def build_image(self):
             mouth = self.char.face.face["mouth"][0]
-            image = self.apply_color("{}{}.webp".format(self.imagepath, mouth), 0)
-            sprites = ((0,0), image)
+            sprites = ((self.apply_color("{}{}.webp".format(self.imagepath, mouth), 0)), )
             return sprites
 
         def build_icon(self):

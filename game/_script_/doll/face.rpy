@@ -26,7 +26,7 @@ init python:
                 sprites.append((AlphaMask("{}pupils/{}.webp".format(self.imagepath, self.face["pupils"][0]), "{}eyes/{}_mask.webp".format(self.imagepath, self.face["eyes"][0])), self.face["pupils"][1]))
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable(((0,0), x[0]) for x in sprites))
+            sprites = tuple(x[0] for x in sprites)
             return sprites
 
         def get_skin(self):

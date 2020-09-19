@@ -50,8 +50,6 @@ init python:
         return min(1.0, min(ysize / y, xsize / x))
 
     class CroppedImage(object):
-        size = (1010, 1200)
-
         def __init__(self, sprites, path):
             self.sprites = sprites
             self.path = path
@@ -59,10 +57,10 @@ init python:
             self.sprite = None
 
         def get_image(self):
-            if not self.cached:
+            if not renpy.is_skipping() or not self.cached:
                 self.cached = True
                 box = crop_whitespace(self.path)
-                self.sprite = Crop(box, Composite(self.size, *self.sprites))
+                self.sprite = Crop(box, Fixed(*self.sprites))
             return self.sprite
 
     config.after_load_callbacks.append(start_image_crop)

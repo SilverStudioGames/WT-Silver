@@ -69,7 +69,7 @@ init python:
                     sprites.append((path, self.layers+n))
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable(((0,0), x[0]) for x in sprites))
+            sprites = tuple(x[0] for x in sprites)
             return sprites
 
         def build_icon(self):
@@ -90,19 +90,23 @@ init python:
             bounds = "{}outline.webp".format(self.imagepath) if renpy.loadable("{}outline.webp".format(self.imagepath)) else "{}0.webp".format(self.imagepath)
 
             sprites.sort(key=lambda x: x[1], reverse=False)
-            sprites = tuple(itertools.chain.from_iterable(((0,0), x[0]) for x in sprites))
+            sprites = tuple(x[0] for x in sprites)
             self.ico = CroppedImage(sprites, bounds)
 
         def get_back(self):
             """Returns a list of layers displayed in the back of object/character"""
-            return [self.apply_color(x, n) for n, x in enumerate(self.back)]
+            back_outline = [self.back_outline] if self.back_outline else []
+            sprites = [self.apply_color(x, n) for n, x in enumerate(self.back)] + back_outline
+            return Fixed(*sprites)
 
         def get_front(self):
             """Returns a list of layers displayed in the front of object/character"""
-            return [self.apply_color(x, n) for n, x in enumerate(self.front)]
+            front_outline = [self.front_outline] if self.front_outline else []
+            sprites = [self.apply_color(x, n) for n, x in enumerate(self.front)] + front_outline
+            return Fixed(*sprites)
 
         def get_icon(self):
-            """Returns cropped Composite displayable"""
+            """Returns cropped Fixed displayable"""
             return self.ico.get_image()
 
         def apply_color(self, img, n):
