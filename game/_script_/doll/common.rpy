@@ -44,10 +44,10 @@ init -1 python:
             if not renpy.is_skipping() or self.sprite is None:
                 if self.override:
                     sprites = self.build_image()
-                    self.sprite = Fixed(*sprites)
+                    self.sprite = Fixed(*sprites, fit_first=True)
                 elif not self.cached:
                     sprites = self.build_image()
-                    self.sprite = Fixed(*sprites)
+                    self.sprite = Fixed(*sprites, fit_first=True)
                     self.cached = True
             return self.sprite
 

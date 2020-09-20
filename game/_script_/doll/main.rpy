@@ -61,7 +61,7 @@ init python:
                     if m[1] <= s[1]:
                         if i > 0:
                             masked = tuple(x[0] for x in sprites[:i])
-                            c = AlphaMask(Fixed(*masked), m[0])
+                            c = AlphaMask(Fixed(*masked, fit_first=True), m[0])
                             sprites = sprites[i:]
                             sprites.insert(0, (c, m[1]-1))
                             break
@@ -73,10 +73,10 @@ init python:
             if not renpy.is_skipping() or self.sprite is None:
                 if self.override:
                     sprites = self.build_image()
-                    self.sprite = DollDisplayable(Fixed(*sprites))
+                    self.sprite = DollDisplayable(Fixed(*sprites, fit_first=True))
                 elif not self.cached:
                     sprites = self.build_image()
-                    self.sprite = DollDisplayable(Fixed(*sprites))
+                    self.sprite = DollDisplayable(Fixed(*sprites, fit_first=True))
                     self.cached = True
             return self.sprite
 

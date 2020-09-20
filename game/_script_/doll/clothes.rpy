@@ -97,13 +97,13 @@ init python:
             """Returns a list of layers displayed in the back of object/character"""
             back_outline = [self.back_outline] if self.back_outline else []
             sprites = [self.apply_color(x, n) for n, x in enumerate(self.back)] + back_outline
-            return Fixed(*sprites)
+            return Fixed(*sprites, fit_first=True)
 
         def get_front(self):
             """Returns a list of layers displayed in the front of object/character"""
             front_outline = [self.front_outline] if self.front_outline else []
             sprites = [self.apply_color(x, n) for n, x in enumerate(self.front)] + front_outline
-            return Fixed(*sprites)
+            return Fixed(*sprites, fit_first=True)
 
         def get_icon(self):
             """Returns cropped Fixed displayable"""
