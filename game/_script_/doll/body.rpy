@@ -20,7 +20,7 @@ init python:
             sprites.extend((x, self.zorder_skin) for x in self.char.face.get_skin()) # Face skin
             sprites.extend((x, self.zorder_skin) for x in self.char.cum.get_skin()) # Cum skin
 
-            sprites.sort(key=lambda x: x[1], reverse=False)
+            sprites.sort(key=itemgetter(1))
             sprites = tuple(Transform(x[0], matrixcolor=HueMatrix(self.hue)) for x in sprites)
             return sprites
 
@@ -32,7 +32,7 @@ init python:
             if group:
                 sprites.extend((o.skin, self.zorder_skin) for o in group if o and o.skin)
 
-            sprites.sort(key=lambda x: x[1], reverse=False)
+            sprites.sort(key=itemgetter(1))
             sprites = tuple(gray_tint(x[0]) for x in sprites)
             return sprites
 

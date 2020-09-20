@@ -9,6 +9,7 @@ init -1 python:
     import os as system
     import fnmatch
     import posixpath
+    from operator import itemgetter
 
     get_volume_preference = renpy.game.preferences.get_volume
 
@@ -147,4 +148,9 @@ init -1 python:
             return (not zero(s[1:]) and s[1:].isdigit())
         return (not zero(s) and s.isdigit())
 
-
+    def timeit(func, loops=10000):
+        start = time.time()
+        for i in xrange(loops):
+            func()
+        end = time.time()
+        print("The task has taken {} seconds to finish".format(end-start))

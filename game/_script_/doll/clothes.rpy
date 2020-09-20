@@ -68,7 +68,7 @@ init python:
                 if renpy.loadable(path):
                     sprites.append((path, self.layers+n))
 
-            sprites.sort(key=lambda x: x[1], reverse=False)
+            sprites.sort(key=itemgetter(1))
             sprites = tuple(x[0] for x in sprites)
             return sprites
 
@@ -89,7 +89,7 @@ init python:
 
             bounds = "{}outline.webp".format(self.imagepath) if renpy.loadable("{}outline.webp".format(self.imagepath)) else "{}0.webp".format(self.imagepath)
 
-            sprites.sort(key=lambda x: x[1], reverse=False)
+            sprites.sort(key=itemgetter(1))
             sprites = tuple(x[0] for x in sprites)
             self.ico = CroppedImage(sprites, bounds)
 

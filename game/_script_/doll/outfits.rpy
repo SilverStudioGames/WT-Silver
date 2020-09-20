@@ -48,13 +48,13 @@ init python:
                 if o.mask:
                     masks.append([o.mask, o.zorder-1])
 
-            sprites.sort(key=lambda x: x[1])
+            sprites.sort(key=itemgetter(1))
 
             back_sprites = [x for x in sprites if x[1] < 0]
             sprites = [x for x in sprites if x[1] >= 0]
 
             # Apply alpha mask
-            for m in sorted(masks, key=lambda x: x[1]):
+            for m in sorted(masks, key=itemgetter(1)):
                 for i, s in enumerate(sprites):
                     if m[1] <= s[1]:
                         if i > 0:
