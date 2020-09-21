@@ -77,6 +77,7 @@ init 1 python: # Needs to be appended AFTER update_savefile
 
 label loading:
     call screen loading()
+    $ renpy.block_rollback()
     return
 
 screen loading():
@@ -85,7 +86,7 @@ screen loading():
     zorder 1000
 
     default step = 0
-    default step_max = 5
+    default step_max = 6
     default steps = tuple(random.choice(loading_step_list) for _ in xrange(step_max+1))
 
     frame style "empty" background "#000"
@@ -120,5 +121,8 @@ screen loading():
         add astoria.get_image() alpha 0
         timer 0.01 action SetScreenVariable("step", 5)
     elif step is 5:
+        add luna.get_image() alpha 0
+        timer 0.01 action SetScreenVariable("step", 6)
+    elif step is 6:
         if not renpy.predicting():
             timer 0.01 action Return()
