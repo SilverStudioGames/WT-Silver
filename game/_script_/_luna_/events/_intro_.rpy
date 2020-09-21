@@ -99,7 +99,7 @@ label hat_intro_2:
 # Luna introduces herself (choice between Slytherin and normal path)
 label hat_intro_3:
     $ lun_hair_style = "playful"
-    call update_lun_uniform
+    #call update_lun_uniform
 
     call play_sound("knocking")
     "*knock* *knock* *knock*"
@@ -195,7 +195,7 @@ label hat_intro_3:
 
     call lun_walk(action="leave")
 
-    $ luna_wear_accs = False
+    #$ luna_wear_accs = False
     $ lun_hair_style = "curly"
 
     ">You place the hat back on the cupboard."
@@ -218,8 +218,8 @@ label luna_reverted_greeting_1:
     $ ll_event_pause += renpy.random.randint(2, 5)
     $ lun_whoring = 0
 
-    call reset_luna_base
-    call reset_luna_clothing
+    #call reset_luna_base
+    #call reset_luna_clothing
 
     $ lun_hair_style = "playful"
     $ luna_pupil_color = "blue"
@@ -227,10 +227,10 @@ label luna_reverted_greeting_1:
     $ luna_r_arm = 2
 
     $ lun_glasses = "spectrespecs"
-    $ luna_wear_glasses = True
+    #$ luna_wear_glasses = True
     $ lun_request_wear_glasses = True
 
-    call reset_luna
+    call update_luna
 
     # Reset names
     $ reset_variables("lun_genie_name", "lun_name")

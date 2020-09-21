@@ -1,9 +1,6 @@
 #useful stuff: {w=0.9} {size=-2}text{/size} {b}text{/b} \"text\" \n
 
 label equip_top:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_top
     #Susan
     if active_girl == "susan":
         jump equip_sus_top
@@ -832,14 +829,6 @@ label equip_top:
             # call set_her_top(top_choice)
             # call her_main(xpos="wardrobe")
             # call screen wardrobe_old
-
-
-
-### Equip Luna's Top ###
-label equip_lun_top:
-    call set_lun_top(top_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Top ###
 label equip_sus_top:

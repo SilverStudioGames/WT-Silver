@@ -17,10 +17,7 @@ label reset_wardrobe_vars:
 
     $ wr_action_list = []
 
-    if active_girl == "luna":
-        $ wr_base_hair_style = "curly"
-        $ wr_base_hair_color = "blonde"
-    elif active_girl == "susan":
+    if active_girl == "susan":
         $ wr_base_hair_style = "braided"
         $ wr_base_hair_color = "red"
 
@@ -44,8 +41,6 @@ label reset_wardrobe_vars:
 
 label return_to_wardrobe:
     if not hide_transitions:
-        if active_girl == "luna":
-            call lun_main(eye="base", mouth='base',xpos="wardrobe",ypos="base",trans=fade)
         if active_girl == "susan":
             call sus_main(face="happy",xpos="wardrobe",ypos="base",trans=fade)
 
@@ -55,8 +50,6 @@ label return_to_wardrobe:
     else:
         $ hide_transitions = True
 
-        if active_girl == "luna":
-            call lun_main(eye="base", mouth='base',xpos="wardrobe",ypos="base")
         if active_girl == "susan":
             call sus_main(face="happy",xpos="wardrobe",ypos="base")
 
@@ -67,8 +60,6 @@ label return_to_wardrobe:
 
 label update_wardrobe_color:
 
-    if active_girl == "luna":
-        call lun_main(xpos="wardrobe",ypos="base")
     if active_girl == "susan":
         call sus_main(xpos="wardrobe",ypos="base")
 
@@ -122,32 +113,11 @@ label wardrobe_update:
             $ renpy.play('sounds/scroll.mp3') #opening wardrobe page
     $ add_wardrobe_sound = False
 
-    if active_girl == "luna":
-        call wr_lun_clothing_reset
-        call lun_main(xpos="wardrobe",ypos="base")
     if active_girl == "susan":
         call wr_sus_clothing_reset
         call sus_main(xpos="wardrobe",ypos="base")
 
     call screen wardrobe_old
-
-label wr_lun_clothing_reset:
-    #Reload Clothing
-    call load_luna_clothing_saves
-
-    #Qol stuff
-    if wardrobe_page != 6:
-        pass
-    #    if luna_action != "none":
-    #        $ luna_use_action = True
-    else: #Underwear page Qol
-        $ luna_wear_robe = False
-        $ luna_wear_top = False
-        $ luna_wear_bottom = False
-
-    call update_lun_uniform
-
-    return
 
 label wr_sus_clothing_reset:
     #Reload Clothing
@@ -180,11 +150,6 @@ label close_wardrobe:
         $ wardrobe_music = False
         call music_block
 
-    if active_girl == "luna":
-        call lun_main(xpos="base",ypos="base")
-        pause.2
-        call lun_chibi("stand","mid","base")
-        jump luna_requests
     if active_girl == "susan":
         call sus_main(xpos="base",ypos="base")
         jump susan_requests

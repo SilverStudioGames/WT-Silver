@@ -7,9 +7,6 @@
 
 label equip_makeup:
     pass
-    #Luna
-    #if active_girl == "luna":
-        #jump equip_lun_makeup
     #Susan
     #if active_girl == "susan":
         #jump equip_sus_makeup
@@ -169,9 +166,6 @@ label equip_makeup:
 
 
 label equip_head_accessory:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_head_accessory
     #Susan
     if active_girl == "astoria":
         jump equip_sus_head_accessory
@@ -393,20 +387,6 @@ label equip_head_accessory:
 
             # call her_main(xpos="wardrobe")
             # call screen wardrobe_old
-
-
-
-
-### Equip Luna's Accessory ###
-label equip_lun_head_accessory:
-    if head_accessory_choice in []: #Ears
-        call set_lun_ears(head_accessory_choice)
-    if head_accessory_choice in ["spectrespecs"]: #Glasses
-        call set_lun_glasses(head_accessory_choice)
-    if head_accessory_choice in ["hat_stewardess"]: #Hat
-        call set_lun_hat(head_accessory_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Accessory ###
 label equip_sus_head_accessory:

@@ -1,8 +1,7 @@
 
 ## Potions ##
 label use_potion:
-    if active_girl == "luna":
-        jump use_luna_potion
+    pass
 
 
 
@@ -109,31 +108,12 @@ label use_hermione_potion:
                 "This potion can only be used during the day."
                 jump return_to_wardrobe
 
-            "-Permanent Clothing Transparency-" if potion_inv.has("p_transparency"):
-                $ misc_item_choice = "transparency"
-                jump equip_misc_item
+            #"-Permanent Clothing Transparency-" if potion_inv.has("p_transparency"):
+                #$ misc_item_choice = "transparency"
+                #jump equip_misc_item
 
             "-Never mind-":
                 jump return_to_wardrobe
-
-
-
-### Luna ###
-
-label use_luna_potion:
-    hide screen wardrobe_old
-    call lun_main(xpos="base",ypos="base",trans=fade)
-
-    if potion_choice == "clothes_potion":
-        menu:
-            "-Permanent Clothing Transparency-" if potion_inv.has("p_transparency"):
-                $ misc_item_choice = "transparency"
-                jump equip_misc_item
-
-            "-Never mind-":
-                jump return_to_wardrobe
-
-
 
 ### Tonks ###
 

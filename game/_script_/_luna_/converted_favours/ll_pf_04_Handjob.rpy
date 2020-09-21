@@ -65,11 +65,11 @@ label luna_favour_4:
         call lun_main("well...","base","suspicious","mad","mid")
 
         hide screen luna_main
-        $ luna_wear_bottom = False
-        $ luna_wear_bra = False
-        $ luna_wear_panties = False
-        $ luna_wear_top = False
-        call update_lun_uniform
+        ##$ luna_wear_bottom = False
+        #$ luna_wear_bra = False
+        #$ luna_wear_panties = False
+        #$ luna_wear_top = False
+        #call update_lun_uniform
         show screen luna_main
         with d3
         call ctc
@@ -179,7 +179,7 @@ label luna_favour_4:
                 call gen_chibi("cum_close")
 
                 $ luna_cum = 11
-                $ luna_wear_cum = True
+                #$ luna_wear_cum = True
                 call cum_block
 
                 call lun_main("{heart}{heart}{heart}","silly","happyCl","sad","down")
@@ -210,7 +210,7 @@ label luna_favour_4:
                 $ luna_cum = 15
                 call lun_main("...","full","seductive","sad","empty")
                 call lun_main("{heart}{heart}{heart}","base","happyCl","sad","mid")
-                $ luna_wear_cum = False
+                #$ luna_wear_cum = False
                 call lun_main("...","full","seductive","sad","empty")
                 call lun_main("*gulp*","base","happyCl","sad","mid")
                 call lun_main("ah...","base","happyCl","sad","mid")
@@ -259,13 +259,13 @@ label luna_favour_4:
         hide screen luna_main
         with d3
 
-        call load_luna_clothing_saves
-        call update_lun_uniform
+        #call load_luna_clothing_saves
+        #call update_lun_uniform
 
         ">Luna quickly gets dressed before leaving your office, a streak of embarrassment across her face."
         m "(Weird...)"
 
-        jump luna_away
+        jump end_luna_event
 
     else:
         if lun_whoring <= 10:
@@ -374,8 +374,8 @@ label luna_favour_4:
                     ">Luna slowly removes her vest and starts to unbutton her top."
                     m "*Mmmm*"
                     hide screen luna_main
-                    $ luna_wear_top = False
-                    call update_lun_uniform
+                    #$ luna_wear_top = False
+                    #call update_lun_uniform
                     $ luna_r_arm = 2
                     show screen luna_main
                     with d3
@@ -446,8 +446,8 @@ label luna_favour_4:
             call lun_main("You're not trying to cum on me are you?","upset","mad","mad","mid")
             g4 "Ah, [lun_name], I'm almost there."
             call lun_main("Well...","upset","suspicious","mad","mid")
-            $ luna_wear_bottom = False
-            call update_lun_uniform
+            ##$ luna_wear_bottom = False
+            #call update_lun_uniform
             ">Luna quickly pulls down her skirt."
             g4 "!!!"
             call lun_main("You cum...","upset","mad","mad","mid")
@@ -459,7 +459,7 @@ label luna_favour_4:
             call lun_main("Now...","normal","mad","mad","mid")
             call lun_main("Cum...","base","seductive","angry","mid")
             call gen_chibi("cum_close")
-            $ luna_wear_cum_under = True
+            #$ luna_wear_cum_under = True
             $ luna_cum = 10
             call cum_block
 
@@ -591,8 +591,8 @@ label luna_favour_4:
                     ">Luna slowly removes her vest and starts to unbutton her top."
                     m "*Mmmm*"
                     hide screen luna_main
-                    $ luna_wear_top = False
-                    call update_lun_uniform
+                    #$ luna_wear_top = False
+                    #call update_lun_uniform
                     show screen luna_main
                     with d3
 
@@ -609,8 +609,8 @@ label luna_favour_4:
                     call lun_main("...","base","seductive","angry","mid")
                     call lun_main("well, seeing as how you're being such a good boy...","base","mad","angry","down")
                     hide screen luna_main
-                    $ luna_wear_bra = False
-                    call update_lun_uniform
+                    #$ luna_wear_bra = False
+                    #call update_lun_uniform
                     $ luna_r_arm = 2
                     $ luna_l_arm = 2
                     show screen luna_main
@@ -675,11 +675,11 @@ label luna_favour_4:
             call lun_main("*hmmm*... (I might as well make some more money from the old man...)","upset","suspicious","mad","mid")
 
             hide screen luna_main
-            $ luna_wear_bottom = False
-            $ luna_wear_bra = False
-            $ luna_wear_panties = False
-            $ luna_wear_top = False
-            call update_lun_uniform
+            ##$ luna_wear_bottom = False
+            #$ luna_wear_bra = False
+            #$ luna_wear_panties = False
+            #$ luna_wear_top = False
+            #call update_lun_uniform
             show screen luna_main
             with d3
 
@@ -703,7 +703,7 @@ label luna_favour_4:
                 "-boobs-":
                     $ current_payout += 100
                     $ luna_cum = 5
-                    $ luna_wear_cum = True
+                    #$ luna_wear_cum = True
                     call cum_block
                     call gen_chibi("cum_close")
                     ">You start shooting your load across her chest, coating her tits in cum."
@@ -711,7 +711,7 @@ label luna_favour_4:
                 "-thighs-":
                     $ current_payout += 50
                     $ luna_cum = 10
-                    $ luna_wear_cum = True
+                    #$ luna_wear_cum = True
                     call cum_block
                     call gen_chibi("cum_close")
                     ">You start spurting over Luna's soft thighs, coating her pussy in cum."
@@ -742,7 +742,7 @@ label luna_favour_4:
             call lun_main("{heart}{heart}{heart}","open_tongue","seductive","sad","mid")
             call ctc
 
-            $ luna_wear_cum = False
+            #$ luna_wear_cum = False
             call lun_main("...","full","seductive","sad","mid")
             call lun_main("{heart}{heart}{heart}","full","seductive","sad","mid")
 
@@ -755,8 +755,8 @@ label luna_favour_4:
             ">Luna quickly puts her clothes back on."
 
     hide screen luna_main
-    call load_luna_clothing_saves
-    call update_lun_uniform
+    #call load_luna_clothing_saves
+    #call update_lun_uniform
     show screen luna_main
     hide screen bld1
     call gen_chibi("stand")
@@ -769,7 +769,7 @@ label luna_favour_4:
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
     ">Luna leaves your office."
 
-    jump luna_away
+    jump end_luna_event
 
 # Luna becomes addicted to cum
 # Mo's note: I'm a bit undecided about the whole thing tbh, might ruin the dom path but idk, we can work it in, make her a dommy cumslut or whatever.
@@ -787,7 +787,7 @@ label luna_cum_addict_event:
     call gen_chibi("cum_close")
     call cum_block
 
-    $ luna_wear_cum = True
+    #$ luna_wear_cum = True
     ">You coat Luna's furious face in a wave of hot cum!"
     pause
     g4 "*Argh*! by the gods {size=+10}YES!{/size}"
@@ -843,7 +843,7 @@ label luna_cum_addict_event:
     $ luna_cum = 15
     call lun_main("...","full","seductive","sad","empty")
     call lun_main("{heart}{heart}{heart}","base","happyCl","sad","mid")
-    $ luna_wear_cum = False
+    #$ luna_wear_cum = False
     call lun_main("Ah...","base","happyCl","sad","mid")
     call lun_main("Amazing...","base","seductive","sad","mid")
     m "Seems like you enjoyed yourself..."
@@ -861,8 +861,8 @@ label luna_cum_addict_event:
     call lun_main("Fine! Be that way then, [lun_genie_name]...","pout","suspicious","angry","R")
     ">Luna gets dressed in front of you in a huff."
 
-    call load_luna_clothing_saves
-    call update_lun_uniform
+    #call load_luna_clothing_saves
+    #call update_lun_uniform
 
     call lun_main("Just don't expect me to let you get away with wasting that spunk anymore!","normal","mad","angry","mid")
 
@@ -872,4 +872,4 @@ label luna_cum_addict_event:
     ">You hand Luna {number=current_payout} gold."
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
 
-    jump luna_away
+    jump end_luna_event

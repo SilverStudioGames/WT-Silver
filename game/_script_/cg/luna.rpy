@@ -27,8 +27,8 @@ init python:###THANKS TO CLEANZO FOR WRITING THIS CODE
 
         lun_cg_eyewhite     = lun_cg_path+"eye_white.webp"
         lun_cg_eyewear      = lun_cg_path+"glasses.webp"
-        lun_cg_hair         = lun_cg_path+lun_hair_style+"_hair.webp"
-        lun_cg_hairtop      = lun_cg_path+lun_hair_style+"_hair_top.webp"
+        lun_cg_hair         = lun_cg_path+"playful_hair.webp"
+        lun_cg_hairtop      = lun_cg_path+"playful_hair_top.webp"
 
         if body:
             lun_cg_body     = lun_cg_path+"luna_base.webp"

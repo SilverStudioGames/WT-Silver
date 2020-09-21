@@ -62,8 +62,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_bottom = False
-                call update_lun_uniform
+                ##$ luna_wear_bottom = False
+                #call update_lun_uniform
                 ">Luna slowly starts to unzip her skirt..."
                 ">She seems very hesitant and takes her time..."
                 ">Finally the zipper is undone and she has no choice but to take the skirt off..."
@@ -79,8 +79,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">Luna starts to unbutton her shirt..."
                 ">She fumbles with the buttons until finally the last button is undone..."
                 ">Luna begrudgingly takes off her shirt and places it on top of her skirt."
@@ -100,8 +100,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">Luna starts to unbutton her shirt..."
                 ">She fumbles with the buttons until finally the last button is undone..."
                 ">Luna begrudgingly takes off her shirt and places it on top of your desk."
@@ -117,8 +117,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_bottom = False
-                call update_lun_uniform
+                ##$ luna_wear_bottom = False
+                #call update_lun_uniform
                 ">Luna slowly starts to unzip her skirt..."
                 ">She seems very hesitant and takes her time..."
                 ">Finally the zipper is undone and she has no choice but to take the skirt off..."
@@ -139,8 +139,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes being removed..."
                 ">You hear her softly place her shirt and vest on the table..."
                 m "..."
@@ -164,8 +164,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_bottom = False
-                call update_lun_uniform
+                ##$ luna_wear_bottom = False
+                #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes and zips..."
                 ">You hear her softly place her skirt on the table..."
                 m "..."
@@ -214,8 +214,8 @@ label luna_favour_3:
                     show screen blkfade
                     with d3
 
-                    $ luna_wear_bra = False
-                    call update_lun_uniform
+                    #$ luna_wear_bra = False
+                    #call update_lun_uniform
                     ">Luna slowly unlatches her bra and places it on your desk."
                     show screen luna_main
                     hide screen blkfade
@@ -228,8 +228,8 @@ label luna_favour_3:
                     show screen blkfade
                     with d3
 
-                    $ luna_wear_panties = False
-                    call update_lun_uniform
+                    #$ luna_wear_panties = False
+                    #call update_lun_uniform
                     ">Luna slightly turns to the side so you can't quite make out her crotch..."
                     ">She's very hesitant and takes her time pulling down her panties..."
                     ">Luna slowly steps out of her panties and places them on top of the pile of clothes on your desk."
@@ -314,8 +314,8 @@ label luna_favour_3:
             show screen blkfade
             with d3
 
-            call load_luna_clothing_saves
-            call update_lun_uniform
+            #call load_luna_clothing_saves
+            #call update_lun_uniform
             ">Luna quickly picks her clothes up off your desk and gets dressed."
             hide screen blkfade
 
@@ -351,12 +351,12 @@ label luna_favour_3:
             show screen blkfade
             with d3
 
-            if luna_wear_top:
-                $ luna_wear_panties = False
-            else:
-                $ luna_wear_bra = False
+            #if luna_wear_top:
+                #$ luna_wear_panties = False
+            #else:
+                #$ luna_wear_bra = False
 
-            call update_lun_uniform
+            #call update_lun_uniform
             call lun_chibi("stand","desk","base")
 
             ">you can hear the soft ruffle of clothes being taken off..."
@@ -374,10 +374,12 @@ label luna_favour_3:
             call lun_main("I'll take that as a yes...","base","mad","angry","mid")
             g9 "*Ah-a*... Yeah... This feels great..."
             call lun_main("good... just work up a nice big load for me...","base","suspicious","angry","mid")
-            if luna_wear_panties:
-                call lun_main("if you're a good boy, I might even let you shoot it all over my bra...","base","mad","angry","R")
-            else:
-                call lun_main("if you're a good boy, I might even let you shoot it all over my panties...","base","mad","angry","R")
+
+            #if luna_wear_panties:
+                #call lun_main("if you're a good boy, I might even let you shoot it all over my bra...","base","mad","angry","R")
+            #else:
+                #call lun_main("if you're a good boy, I might even let you shoot it all over my panties...","base","mad","angry","R")
+
             g9 "Yes, [lun_name]!"
             call lun_main("I bet you'd love that wouldn't you?","base","angry","angry","mid")
             m "yes..."
@@ -395,12 +397,12 @@ label luna_favour_3:
             show screen blkfade
             with d3
 
-            if luna_wear_panties:
-                $ luna_wear_bottom = False
-            else:
-                $ luna_wear_top = False
+            #if luna_wear_panties:
+                ##$ luna_wear_bottom = False
+            #else:
+                #$ luna_wear_top = False
 
-            call update_lun_uniform
+            #call update_lun_uniform
             call lun_chibi("stand","desk","base")
 
             ">you can once more hear the soft ruffle of clothes..."
@@ -462,16 +464,16 @@ label luna_favour_3:
             show screen blkfade
             with d3
 
-            call load_luna_clothing_saves
+            #call load_luna_clothing_saves
 
             if luna_wear_panties:
                 ">Luna quickly picks her clothes up off your desk and gets dressed, except for her cum covered bra."
-                $ luna_wear_bra = False
+                #$ luna_wear_bra = False
             else:
                 ">Luna quickly picks her clothes up off your desk and gets dressed, except for her cum covered panties."
-                $ luna_wear_panties = False
+                #$ luna_wear_panties = False
 
-            call update_lun_uniform
+            #call update_lun_uniform
             hide screen blkfade
 
             call lun_main("","base","closed","raised","mid",xpos="base",ypos="base")
@@ -538,8 +540,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_bottom = False
-                call update_lun_uniform
+                ##$ luna_wear_bottom = False
+                #call update_lun_uniform
                 ">Luna slowly starts to unzip her skirt..."
                 ">However, she doesn't hesitate, quickly placing the skirt on your desk..."
                 show screen luna_main
@@ -558,8 +560,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_panties = False
-                call update_lun_uniform
+                #$ luna_wear_panties = False
+                #call update_lun_uniform
                 ">You hear the soft rustle of clothes..."
                 ">Suddenly something is gently placed on your desk"
                 hide screen blkfade
@@ -589,8 +591,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">Luna starts to unbutton her shirt..."
                 ">She gently undoes the buttons, letting it slide off her shoulders before placing it on your desk."
                 show screen luna_main
@@ -610,8 +612,8 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_bra = False
-                call update_lun_uniform
+                #$ luna_wear_bra = False
+                #call update_lun_uniform
                 ">You hear the soft rustle of clothes..."
                 ">You can hear something being placed softly onto your desk"
                 show screen luna_main
@@ -635,11 +637,11 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_panties = False
-                $ luna_wear_bra = False
-                $ luna_wear_bottom = False
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_panties = False
+                #$ luna_wear_bra = False
+                ##$ luna_wear_bottom = False
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes being removed..."
                 m "..."
                 m "Can I open my eyes yet, [lun_name]?"
@@ -664,11 +666,11 @@ label luna_favour_3:
                 show screen blkfade
                 with d3
 
-                $ luna_wear_panties = False
-                $ luna_wear_bra = False
-                $ luna_wear_bottom = False
-                $ luna_wear_top = False
-                call update_lun_uniform
+                #$ luna_wear_panties = False
+                #$ luna_wear_bra = False
+                ##$ luna_wear_bottom = False
+                #$ luna_wear_top = False
+                #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes and zips..."
                 m "..."
                 m "Can I open my eyes yet, [lun_name]?"
@@ -710,11 +712,11 @@ label luna_favour_3:
             show screen blkfade
             with d3
 
-            $ luna_wear_panties = False
-            $ luna_wear_bra = False
-            $ luna_wear_bottom = False
-            $ luna_wear_top = False
-            call update_lun_uniform
+            #$ luna_wear_panties = False
+            #$ luna_wear_bra = False
+            ##$ luna_wear_bottom = False
+            #$ luna_wear_top = False
+            #call update_lun_uniform
             ">You hear the soft rustle of clothes..."
             ">Suddenly something is gently placed on your desk"
 
@@ -838,9 +840,9 @@ label luna_favour_3:
                     g4 "{size=+4}(YES! YES! YES!) *Argh!*{/size}"
 
                     call gen_chibi("cum_close")
-                    $ luna_wear_cum = True
+                    #$ luna_wear_cum = True
                     $ luna_cum = 5
-                    call update_lun_uniform
+                    #call update_lun_uniform
                     hide screen luna_main
                     with d3
                     call cum_block
@@ -867,10 +869,10 @@ label luna_favour_3:
 
             call gen_chibi("sit_behind_desk")
 
-            call load_luna_clothing_saves
+            #call load_luna_clothing_saves
 
             $ luna_cum = 2
-            call update_lun_uniform
+            #call update_lun_uniform
             if luna_wear_cum:
                 ">Luna quickly picks her clothes up off your desk and gets dressed, putting on her shirt over the cum."
             else:
@@ -971,12 +973,12 @@ label luna_favour_3:
             g4 "{size=+4}(YES! YES! YES!) *Argh*!{/size}"
 
             call gen_chibi("cum")
-            $ luna_wear_cum = True
+            #$ luna_wear_cum = True
             if luna_addicted:
                 $ luna_cum = 11
             else:
                 $ luna_cum = 5
-            call update_lun_uniform
+            #call update_lun_uniform
             hide screen luna_main
             with d3
             call cum_block
@@ -1022,8 +1024,8 @@ label luna_favour_3:
                 $ luna_cum = 15
                 call lun_main("...","full","seductive","sad","empty")
                 call lun_main("{heart}{heart}{heart}","base","seductive","sad","mid")
-                $ luna_wear_cum = False
-                call update_lun_uniform
+                #$ luna_wear_cum = False
+                #call update_lun_uniform
                 call lun_main("ah...","base","seductive","sad","mid")
                 call lun_main("amazing...","base","seductive","sad","L")
                 hide screen luna_main
@@ -1034,10 +1036,10 @@ label luna_favour_3:
 
                 ">Luna quickly picks her clothes up off your desk and gets dressed."
 
-                call load_luna_clothing_saves
+                #call load_luna_clothing_saves
 
-                $ luna_wear_cum = False
-                call update_lun_uniform
+                #$ luna_wear_cum = False
+                #call update_lun_uniform
                 call gen_chibi("sit_behind_desk")
                 show screen luna_main
                 hide screen blkfade
@@ -1068,10 +1070,10 @@ label luna_favour_3:
                 ">Luna quickly picks her clothes up off your desk and gets dressed, putting her shirt on over her cum covered chest."
                 hide screen luna_main
 
-                call load_luna_clothing_saves
+                #call load_luna_clothing_saves
 
                 $ luna_cum = 2
-                call update_lun_uniform
+                #call update_lun_uniform
                 call gen_chibi("sit_behind_desk")
                 show screen luna_main
                 hide screen blkfade
@@ -1113,7 +1115,7 @@ label luna_favour_3:
         call lun_main("Thank you, [lun_genie_name].","normal","suspicious","angry","R")
     else:
         call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
-    $ luna_wear_cum = False
-    call update_lun_uniform
+    #$ luna_wear_cum = False
+    #call update_lun_uniform
 
-    jump luna_away
+    jump end_luna_event

@@ -488,7 +488,7 @@ label ll_pf_sex_T1_lake_sex: # Call label
     call lun_main("So how does it work?","open","wink","sad","mid")
     m "You'll need to take your top off."
     call lun_main("Okay!","base","happyCl","base","mid")
-    $ luna_wear_top = False
+    #$ luna_wear_top = False
     ">Without even the slightest bit of hesitation, Luna rips off her top and throws it to the ground."
     call lun_main("What's next?","base","seductive","sad","mid")
     m "Bend over."
@@ -528,7 +528,7 @@ label ll_pf_sex_T1_lake_sex: # Call label
     $ lun_cg_ypos_abs     = 0
     $ lun_cg_xpos         = 0
     $ lun_cg_ypos         = 0
-    $ luna_wear_top       = True
+    #$ luna_wear_top       = True
     $ lunCG(pupil='up', eye='excited', mouth='open_tongue', eyebrow='sad', cheeks='blush', extra_1='blank', extra_2='blank', extra_3='blank', tears='blank', body='base')
     show screen luncg
 
@@ -1277,7 +1277,7 @@ label ll_pf_sex_T1_ton_1: # Call label
     call lun_chibi("stand","mid","base", flip=True)
     hide screen luncg
     $ luna_cum = 9
-    $ luna_wear_cum = True
+    #$ luna_wear_cum = True
     hide screen blkfade
     with d3
 

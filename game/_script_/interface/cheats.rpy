@@ -291,8 +291,6 @@ label cheats:
                 "-Read Hermione's Diary-" (icon="interface/icons/small/hermione.webp"):
                     call book_handle(book=hermione_diary)
                     jump cheats.devroom
-                "Gallery test":
-                    jump open_gallery
                 "Lootbox":
                     call card_lootbox
                     jump cheats.devroom

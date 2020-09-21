@@ -177,7 +177,7 @@ label ll_pf_blowjob_T1_E2:
 
     call lun_walk(action="leave")
 
-    $ luna_wear_cum = False
+    #$ luna_wear_cum = False
 
     call bld
     m "..."
@@ -242,7 +242,7 @@ label ll_pf_blowjob_T1_under_desk: # Call label
     $ lun_cg_ypos_abs     = 0
     $ lun_cg_xpos         = 0
     $ lun_cg_ypos         = 0
-    $ luna_wear_top       = True
+    #$ luna_wear_top       = True
     $ lunCG(pupil='left', eye='wide', mouth='open', eyebrow='base', cheeks='base', extra_1='blank', extra_2='blank', extra_3='blank', tears='blank', body='base')
 
     if ll_pf_blowjob.counter == 1:
@@ -621,7 +621,7 @@ label ll_pf_blowjob_T1_marathon: # Call label
     hide screen ccg
     $ luna_cum = 11
     $ genie_base = "characters/genie/base/base.webp"
-    $ luna_wear_cum = True
+    #$ luna_wear_cum = True
 
     hide screen blkfade
     with d5
@@ -872,7 +872,7 @@ label ll_pf_blowjob_T1_slapping: # Call label
     call lun_main("","base","happyCl","base","mid", cheeks="blush", xpos="mid", ypos="base")
 
     $ luna_cum = "12"
-    $ luna_wear_cum = True
+    #$ luna_wear_cum = True
     hide screen blkfade
     with d5
 

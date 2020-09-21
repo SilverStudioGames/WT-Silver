@@ -62,23 +62,25 @@ define luna_chibi_actions = {
 init python:
     def update_luna_chibi(chibi):
         if chibi.action == "walk":
-            if luna_wear_top and luna_wear_bottom:
-                chibi["base"] = "ch_lun walk_a"
-            elif luna_wear_bottom and not luna_wear_top:
-                chibi["base"] = "ch_lun walk_topless"
-            elif not luna_wear_top and not luna_wear_bottom:
-                chibi["base"] = "ch_lun walk_n"
-            elif luna_wear_robe:
+            if luna.is_worn("robe"):
                 chibi["base"] = "ch_lun walk_robe"
+            elif luna.is_worn("top") and luna.is_worn("bottom"):
+                chibi["base"] = "ch_lun walk_a"
+            elif luna.is_worn("bottom"):
+                chibi["base"] = "ch_lun walk_topless"
+            else:
+                chibi["base"] = "ch_lun walk_n"
+
         elif not chibi.action or chibi.action in ("stand", "lie", "float_move"):
-            if luna_wear_top and luna_wear_bottom:
-                chibi["base"] = "ch_lun blink_a"
-            elif luna_wear_bottom and not luna_wear_top:
-                chibi["base"] = "ch_lun blink_topless"
-            elif not luna_wear_top and not luna_wear_bottom:
-                chibi["base"] = "ch_lun blink_n"
-            elif luna_wear_robe:
+            if luna.is_worn("robe"):
                 chibi["base"] = "ch_lun blink_robe"
+            elif luna.is_worn("top") and luna.is_worn("bottom"):
+                chibi["base"] = "ch_lun blink_a"
+            elif luna.is_worn("bottom"):
+                chibi["base"] = "ch_lun blink_topless"
+            else:
+                chibi["base"] = "ch_lun blink_n"
+
         else:
             # Assume chibi action has a matching image definition
             chibi_image = "ch_lun {}".format(chibi.action or "stand")

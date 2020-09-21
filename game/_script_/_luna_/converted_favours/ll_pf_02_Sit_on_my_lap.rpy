@@ -397,8 +397,8 @@ label luna_favour_2:
 
                 show screen blkfade
                 with d3
-                $ luna_wear_bottom = False
-                call update_lun_uniform
+                ##$ luna_wear_bottom = False
+                #call update_lun_uniform
 
                 ">Luna slowly removes her skirt, revealing her black silk panties."
 
@@ -511,7 +511,7 @@ label luna_favour_2:
 
                         call lun_chibi_scene("reset", "desk", "base")
                         call lun_main(xpos="mid", ypos="base", flip=False)
-                        call load_luna_clothing_saves
+                        #call load_luna_clothing_saves
                         hide screen blkfade
                         with d3
 
@@ -563,7 +563,7 @@ label luna_favour_2:
 
                                 call lun_chibi_scene("reset", "desk", "base")
                                 call lun_main(xpos="mid", ypos="base", flip=False)
-                                call load_luna_clothing_saves
+                                #call load_luna_clothing_saves
                                 hide screen blkfade
                                 with d3
 
@@ -608,7 +608,7 @@ label luna_favour_2:
 
                                 call lun_chibi_scene("reset", "desk", "base")
                                 call lun_main(xpos="mid", ypos="base", flip=False)
-                                call load_luna_clothing_saves
+                                #call load_luna_clothing_saves
                                 hide screen blkfade
                                 with d3
 
@@ -1478,6 +1478,6 @@ label luna_favour_2:
 
     $ luna_busy = True
 
-    call reset_luna
+    call update_luna
 
     jump main_room

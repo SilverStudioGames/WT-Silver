@@ -67,7 +67,7 @@ label luna_favour_1:
                     call lun_main("Would you rather I stay and call the ministry of magic [lun_genie_name]?","upset","mad","mad","mid")
                     m "Fair enough."
                     call lun_main("I mean if you're going to try this on you could at least offer a little more than {number=current_payout} gold...","pout","suspicious","angry","mid")
-                    jump luna_away
+                    jump end_luna_event
                 call lun_main("...","normal","suspicious","base","R")
                 call lun_main("{size=-5}(Well I suppose he did offer fifty gold...){/size}","base","suspicious","base","R")
                 call lun_main("As I was saying, no one seems to even notice me.","normal","angry","angry","mid")
@@ -276,7 +276,7 @@ label luna_favour_1:
                                 with d3
 
                                 $ lun_top_level = 2
-                                call set_lun_top("top_2_r")
+                                #call set_lun_top("top_2_r")
 
                                 call lun_main("...","normal","suspicious","sad","down")
                                 m "Why don't you keep you're shirt like that from now on..."
@@ -488,7 +488,7 @@ label luna_favour_1:
                         with d3
 
                         $ lun_skirt_level = 2
-                        call set_lun_bottom("skirt_2")
+                        #call set_lun_bottom("skirt_2")
 
                         call lun_main("...","upset","suspicious","sad","down")
                         m "{size=-4}(*mmmm*... yes...){/size}"

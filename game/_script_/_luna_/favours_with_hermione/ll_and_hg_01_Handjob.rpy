@@ -341,7 +341,7 @@ label luna_favour_5:
 
             ">Luna quietly exits the room."
 
-            call reset_luna
+            call update_luna
             $ luna_busy = True
 
             ">Hermione quietly gets dressed, a shocked look on her face..."
@@ -384,7 +384,7 @@ label luna_favour_5:
 
             call lun_chibi("leave")
 
-            call reset_luna
+            call update_luna
             $ luna_busy = True
 
             call her_main("","cum","happyCl","worried","mid")
@@ -538,11 +538,11 @@ label luna_favour_5:
 
         $ hermione.strip("all")
 
-        $ luna_wear_top = False
-        $ luna_wear_bra = False
-        $ luna_wear_bottom = False
-        $ luna_wear_panties = False
-        call update_lun_uniform
+        #$ luna_wear_top = False
+        #$ luna_wear_bra = False
+        ##$ luna_wear_bottom = False
+        #$ luna_wear_panties = False
+        #call update_lun_uniform
 
         ">Luna and Hermione both strip in front of you."
         ">You can hardly believe your eyes as they slowly strip down in front of each other."
@@ -658,7 +658,7 @@ label luna_favour_5:
         call lun_main("...","normal","seductive","sad","R")
         call her_main("See, he likes it when you do this with your palm...", "base", "squint", "base", "mid")
         call cum_block
-        $ luna_wear_cum = True
+        #$ luna_wear_cum = True
 
         g4 "{size=+5}ARGH! by the gods YES!!!{/size}"
         g4 "{size=+5}WHAT ARE YOU DOING GIRL!?!?!{/size}"
@@ -689,7 +689,7 @@ label luna_favour_5:
         call lun_main("...","full","seductive","sad","empty")
         call her_main("*mmmm*...", "grin", "base", "base", "R")
         call lun_main("{heart}{heart}{heart}","base","happyCl","sad","mid")
-        $ luna_wear_cum = False
+        #$ luna_wear_cum = False
         call lun_main("...","full","seductive","sad","empty")
         call lun_main("*gulp*","base","happyCl","sad","mid")
         call lun_main("ah...","base","happyCl","sad","mid")
@@ -796,8 +796,8 @@ label luna_favour_5:
 
         ">Luna and hermione quickly get dressed before leaving the room together."
 
-        call load_luna_clothing_saves
-        call update_lun_uniform
+        #call load_luna_clothing_saves
+        #call update_lun_uniform
 
         $ hermione.wear("all")
 
@@ -895,11 +895,11 @@ label luna_favour_5:
 
         ">Luna slowly strips as well, carefully putting her clothes in a pile next to hermione's."
 
-        $ luna_wear_top = False
-        $ luna_wear_bra = False
-        $ luna_wear_bottom = False
-        $ luna_wear_panties = False
-        call update_lun_uniform
+        #$ luna_wear_top = False
+        #$ luna_wear_bra = False
+        ##$ luna_wear_bottom = False
+        #$ luna_wear_panties = False
+        #call update_lun_uniform
         call lun_main()
 
         hide screen blkfade
@@ -1104,8 +1104,8 @@ label luna_favour_5:
 
                     ">Luna quickly gets dressed before leaving."
 
-                    call load_luna_clothing_saves
-                    call update_lun_uniform
+                    #call load_luna_clothing_saves
+                    #call update_lun_uniform
 
                     call lun_walk(action="leave")
 
@@ -1149,8 +1149,8 @@ label luna_favour_5:
                     hide screen luna_main
                     hide screen hermione_main
 
-                    call load_luna_clothing_saves
-                    call update_lun_uniform
+                    #call load_luna_clothing_saves
+                    #call update_lun_uniform
 
                     $ hermione.wear("all")
 

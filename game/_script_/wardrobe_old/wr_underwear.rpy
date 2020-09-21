@@ -2,9 +2,6 @@
 
 ### Equip Bra ###
 label equip_bra:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_bra
     #Susan
     if active_girl == "susan":
         jump equip_sus_bra
@@ -287,15 +284,6 @@ label equip_bra:
             # hide screen wardrobe_old
             # call screen wardrobe_old
 
-
-
-
-### Equip Luna's Bra ###
-label equip_lun_bra:
-    call set_lun_bra(underwear_choice)
-
-    jump return_to_wardrobe
-
 ### Equip Susan's Bra ###
 label equip_sus_bra:
     call set_sus_bra(underwear_choice)
@@ -304,18 +292,9 @@ label equip_sus_bra:
 
 ### Equip Onepiece ###
 label equip_onepiece:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_onepiece
     #Susan
     if active_girl == "susan":
         jump equip_sus_onepiece
-
-### Equip Luna's OnePiece/Nighty ###
-label equip_lun_onepiece:
-    call set_lun_onepiece(underwear_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's OnePiece/Nighty ###
 label equip_sus_onepiece:
@@ -325,9 +304,6 @@ label equip_sus_onepiece:
 
 ### Equip Panties ###
 label equip_panties:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_panties
     #Susan
     if active_girl == "susan":
         jump equip_sus_panties
@@ -575,13 +551,6 @@ label equip_panties:
             # hide screen wardrobe_old
             # call screen wardrobe_old
 
-
-### Equip Luna's Panties ###
-label equip_lun_panties:
-    call set_lun_panties(underwear_choice)
-
-    jump return_to_wardrobe
-
 ### Equip Susan's Panties ###
 label equip_sus_panties:
     call set_sus_panties(underwear_choice)
@@ -590,18 +559,9 @@ label equip_sus_panties:
 
 ### Equip Garterbelt ###
 label equip_garterbelt:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_garterbelt
     #Susan
     if active_girl == "susan":
         jump equip_sus_garterbelt
-
-### Equip Luna's Garterbelt ###
-label equip_lun_garterbelt:
-    call set_lun_garterbelt(underwear_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Garterbelt ###
 label equip_sus_garterbelt:

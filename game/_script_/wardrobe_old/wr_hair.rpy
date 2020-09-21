@@ -5,9 +5,6 @@
 
 
 label change_hair:
-    #Luna
-    if active_girl == "luna":
-        jump change_lun_hair
     #Susan
     if active_girl == "susan":
         jump change_sus_hair
@@ -420,12 +417,6 @@ label change_hair:
             # call her_main("Maybe next time, [genie_name].", "smile", "base", "base", "R")
 
     # return
-
-
-label change_lun_hair:
-    call set_lun_hair(hair_style_choice, hair_color_choice)
-
-    jump return_to_wardrobe
 
 label change_sus_hair:
     call set_sus_hair(hair_style_choice, hair_color_choice)

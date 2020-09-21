@@ -461,11 +461,11 @@ label luna_favour_7: #Luna and Hermione Sex #DONE
             with d3
             ">It all proves too much for Luna, who passes out on your desk, coated in a thick layer of your cum."
 
-    $ luna_wear_top = False
-    $ luna_wear_bottom = False
-    $ luna_wear_bra = False
-    $ luna_wear_panties = False
-    call update_lun_uniform
+    #$ luna_wear_top = False
+    ##$ luna_wear_bottom = False
+    #$ luna_wear_bra = False
+    #$ luna_wear_panties = False
+    #call update_lun_uniform
 
     call gen_chibi("sit_behind_desk")
     call lun_chibi("lie","on_desk","on_desk")
@@ -484,11 +484,11 @@ label luna_favour_7: #Luna and Hermione Sex #DONE
     m "I'm sure that's the only reason why..."
     call her_main("I don't have any idea what you're talking about sir...", "base", "narrow", "base", "R_soft")
 
-    $ luna_wear_top = True
-    $ luna_wear_bottom = True
-    $ luna_wear_bra = True
-    $ luna_wear_panties = True
-    call update_lun_uniform
+    #$ luna_wear_top = True
+    ##$ luna_wear_bottom = True
+    #$ luna_wear_bra = True
+    #$ luna_wear_panties = True
+    #call update_lun_uniform
 
     ">With a flick of Hermione's wand, Luna's clothes slither back onto her naked form."
     call her_main("Wingardium Leviosaaaaa!", "open", "happyCl", "base", "mid")

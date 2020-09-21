@@ -2,9 +2,6 @@
 
 ### Equip Outfit ###
 label equip_outfit:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_outfit
     #Susan
     if active_girl == "susan":
         jump equip_sus_outfit
@@ -488,22 +485,6 @@ label equip_outfit:
 
             # call her_main(xpos="wardrobe")
             # call screen wardrobe_old
-
-
-
-### Equip Luna's Outfit ###
-label equip_lun_outfit:
-    if (outfit_choice != luna_outfit_GLBL) or (outfit_choice == luna_outfit_GLBL and not luna_wear_outfit):
-
-        call set_lun_outfit(outfit_choice)
-
-        jump return_to_wardrobe
-
-    else: # Unequip
-
-        call set_lun_outfit(None)
-
-        jump return_to_wardrobe
 
 ### Equip Susan's Outfit ###
 label equip_sus_outfit:

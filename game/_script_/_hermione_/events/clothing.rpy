@@ -320,7 +320,7 @@ label hermione_summon_setup:
                     $ tonks_outfits_schedule = False
                     $ cho_outfits_schedule = False
                     $ astoria_outfits_schedule = False
-                    # Luna
+                    $ luna_outfits_schedule = False
                     # Susan
 
                     "Outfit scheduling turned {b}Off{/b}."

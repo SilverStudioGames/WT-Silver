@@ -200,7 +200,7 @@ label luna_revert_1:
             call lun_main("...","upset","suspicious","sad","down")
             ">Luna slowly takes off her top, placing it on the floor."
             hide screen luna_main
-            $ luna_wear_top = False
+            #$ luna_wear_top = False
             call lun_chibi("stand")
             call lun_main("There...","normal","seductive","sad","mid")
             call lun_main("Is that enough, [lun_genie_name]?","upset","angry","angry","R")
@@ -265,7 +265,7 @@ label luna_revert_1:
             hide screen luna_main
             with d3
 
-            $ luna_wear_cum = True
+            #$ luna_wear_cum = True
             $ luna_cum = 7
             call gen_chibi("cum_close")
             call cum_block
@@ -288,7 +288,7 @@ label luna_revert_1:
             hide screen luna_main
             with d3
 
-            $ luna_wear_cum = True
+            #$ luna_wear_cum = True
             $ luna_cum = 3
             call gen_chibi("cum_close")
             call cum_block
@@ -486,7 +486,7 @@ label luna_revert_1:
     $ lun_whoring = 0
     $ ll_event_pause += 3
 
-    call reset_luna
+    call update_luna
 
     $ hermione_busy = True
 
@@ -545,7 +545,7 @@ label luna_revert_2:
             m "*Mmmm*"
             ">She takes her shirt off and places it onto the floor."
             hide screen luna_main
-            $ luna_wear_top = False
+            #$ luna_wear_top = False
             $ luna_choice = 1
             call lun_chibi("stand")
             call lun_main("There...","base","mad","sad","R")
@@ -612,7 +612,7 @@ label luna_revert_2:
     call lun_main("You're not trying to cum on me are you?","upset","mad","mad","mid")
     g9  "Ah, [lun_name], I'm almost there."
     call lun_main("Well...","upset","suspicious","mad","mid")
-    $ luna_wear_bottom = False
+    ##$ luna_wear_bottom = False
     call lun_chibi("stand")
     ">Luna quickly pulls down her skirt."
     g9  "!!!"
@@ -625,7 +625,7 @@ label luna_revert_2:
     call lun_main("Now...","normal","mad","mad","mid")
     call lun_main("Cum.","base","seductive","angry","mid")
 
-    $ luna_wear_cum_under = True
+    #$ luna_wear_cum_under = True
     $ luna_cum = 10
     call gen_chibi("cum_close")
     call cum_block
@@ -829,7 +829,7 @@ label luna_revert_2:
 
     if luna_wear_top:
         hide screen luna_main
-        $ luna_wear_top = False
+        #$ luna_wear_top = False
         show screen luna_main
         call lun_chibi("stand")
         with d3
@@ -844,7 +844,7 @@ label luna_revert_2:
     call her_main("...","normal","happyCl","worried","mid")
 
     hide screen luna_main
-    $ luna_wear_panties = False
+    #$ luna_wear_panties = False
     show screen luna_main
     with d3
 
@@ -1096,9 +1096,9 @@ label luna_revert_2:
 
     $ luna_flip = 1
 
-    call load_luna_clothing_saves
+    #call load_luna_clothing_saves
 
-    $ luna_wear_cum_under = False
+    #$ luna_wear_cum_under = False
 
     call gen_chibi("sit_behind_desk")
     call lun_chibi("stand")
@@ -1193,7 +1193,7 @@ label luna_revert_2:
     call her_main("ugh...", "disgust", "narrow", "base", "down")
     call her_main("(I could have sworn Luna was here...)", "annoyed", "base", "worried", "R")
     call her_main("(Wait, what was I doing here...)", "annoyed", "squint", "base", "mid")
-    call reset_luna
+    call update_luna
     call her_chibi("stand", ypos="base")
     with d3
     pause .5

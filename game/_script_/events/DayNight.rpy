@@ -31,7 +31,7 @@ label common_start(set_daytime):
     $ save_name = temp_name
 
     # Reset character appearances (chibis, clothing, etc.)
-    call reset_luna
+    call update_luna
     call update_astoria
     call update_hermione
     call update_susan

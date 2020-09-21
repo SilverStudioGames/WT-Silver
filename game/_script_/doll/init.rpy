@@ -5,4 +5,5 @@ label wardrobe_init:
         tonks.equip(ton_outfit_default)
         astoria.equip(ast_outfit_default)
         cho.equip(cho_outfit_default)
+        luna.equip(lun_outfit_default)
     return

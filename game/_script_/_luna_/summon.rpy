@@ -43,24 +43,16 @@ label summon_luna:
             jump luna_favor_menu
 
         # Wardrobe
-        "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp"): # if luna_wardrobe_unlocked:
-            $ ll_quirky_muggle_ITEM.unlocked = True #Temporary unlock. Will be a random clothing event eventually.
+        "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if luna_wardrobe_unlocked:
+            hide screen astoria_main with d1
+            $ screenshot_image = ScreenshotImage.capture()
+            $ renpy.call_in_new_context("wardrobe", "lun_main")
+            with d2
+            jump luna_requests
 
-            call load_luna_clothing_saves
-
-            call reset_wardrobe_vars
-            call update_wr_color_list
-
-            #call lun_chibi("stand","wardrobe","base")
-
-            $ hide_transitions = True
-            call lun_main(xpos="wardrobe",ypos="base")
-            call screen wardrobe_old
-
-        #"{color=[menu_disabled]}-Hidden-{/color}" if not luna_wardrobe_unlocked:
-        #    call nar(">You haven't unlocked this feature yet.")
-        #    jump luna_requests
-
+        "{color=[menu_disabled]}-Hidden-{/color}" if not luna_wardrobe_unlocked:
+            call nar(">You haven't unlocked this feature yet.")
+            jump luna_requests
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_luna_gift:

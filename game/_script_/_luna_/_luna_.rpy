@@ -1,41 +1,83 @@
 
-label lun_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None):
+# TODO: Replace values according to Luna's expressions list
+define lun_face = {
+    "mouth": {
+        "neutral":      ["base","open"],
+        "happy":        ["base","grin"],
+        "naughty":      ["soft","base"],
+        "horny":        ["horny","base"],
+        "annoyed":      ["upset","annoyed"],
+        "disgusted":    ["disgust","upset"],
+        "angry":        ["clench","mad","upset"]
+    },
 
-    #Flip
-    if flip == False:
-        $ luna_flip = 1 #Default
-    if flip == True:
-        $ luna_flip = -1
+    "eyes": {
+        "neutral":      ["base"],
+        "happy":        ["happyCl"],
+        "naughty":      ["narrow"],
+        "horny":        ["narrow"],
+        "annoyed":      ["narrow","base"],
+        "disgusted":    ["base"],
+        "angry":        ["base"]
+    },
 
-    #Reset
-    if cheeks == None:
-        $ cheeks = "blank"
-    if tears == None:
-        $ tears = "blank"
-    if emote == None:
-        $ emote = "blank"
+    "eyebrows": {
+        "neutral":      ["base"],
+        "happy":        ["base","raised"],
+        "naughty":      ["base","raised"],
+        "horny":        ["base","raised"],
+        "annoyed":      ["annoyed"],
+        "disgusted":    ["raised","worried"],
+        "angry":        ["angry"]
+    },
 
-    if xpos:
-        $ luna_xpos = int(sprite_pos["x"].get(xpos, xpos))
+    "pupils": {
+        "neutral":      ["mid"],
+        "happy":        ["mid"],
+        "naughty":      ["mid","up","downR"],
+        "horny":        ["mid","stare","down"],
+        "annoyed":      ["mid","downR","R"],
+        "disgusted":    ["mid","down"],
+        "angry":        ["mid"]
+    }
+}
 
-    if ypos:
-        $ use_luna_head = True if ypos == "head" else False
+label lun_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None, animation=False):
+    if renpy.predicting():
+        lun "predict"
 
-        $ luna_ypos = int(sprite_pos["y"].get(ypos, ypos))
+    python:
 
-    if face != None:
-        if mouth == None:
-            call set_lun_face(mouth = face)
-        if eye == None:
-            call set_lun_face(eyes = face)
-        if brows == None:
-            call set_lun_face(brows = face)
-        if pupils == None:
-            call set_lun_face(pupils = face)
+        if flip != None:
+            luna_flip = -1 if flip else 1
 
-    $ changeLuna(mouth, eye, brows, pupils, cheeks, tears, emote)
+        if animation != False:
+            luna_animation = animation
 
-    show screen luna_main
+        if xpos:
+            luna_xpos = int(sprite_pos["x"].get(xpos, xpos))
+
+        if ypos:
+            use_luna_head = True if ypos == "head" else False
+
+            luna_ypos = int(sprite_pos["y"].get(ypos, ypos))
+
+        luna.set_face(mouth=mouth, eyes=eyes, eyebrows=eyebrows, pupils=pupils, cheeks=cheeks, tears=tears)
+        luna_emote = get_character_emote("luna", emote)
+
+        if face:
+            if not mouth:
+                luna.set_face(mouth=renpy.random.choice(lun_face["mouth"].get(face, None)))
+            if not eyes:
+                luna.set_face(eyes=renpy.random.choice(lun_face["eyes"].get(face, None)))
+            if not eyebrows:
+                luna.set_face(eyebrows=renpy.random.choice(lun_face["eyebrows"].get(face, None)))
+            if not pupils:
+                luna.set_face(pupils=renpy.random.choice(lun_face["pupils"].get(face, None)))
+
+    if not renpy.get_screen("wardrobe_menu"):
+        hide screen luna_main
+        show screen luna_main()
     show screen bld1
 
     if trans:
@@ -46,106 +88,50 @@ label lun_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=No
 
     if use_luna_head:
         hide screen luna_main
-
     return
-
-
-label luna_away:
-    call reset_luna
-    call reset_genie
-    call gen_chibi("sit_behind_desk")
-
-    #TODO Check if Luna stands in the right place at the end of her events (when jumping to luna_away)
-    # call lun_chibi("stand", ypos="base")
-
-    hide screen blkfade
-    with d3
-
-    call lun_walk(action="leave")
-
-    $ luna_busy = True
-
-    jump main_room
-
 
 label end_luna_event:
 
-    call hide_characters
     call lun_chibi("hide")
-    call gen_chibi("sit_behind_desk")
-    hide screen blkfade
-    hide screen blktone
-    hide screen bld1
+    hide screen luna_main
     with d3
-
-    call reset_luna
-
-    $ luna_busy = True
-
-    jump main_room
-
-
-label reset_luna:
-
-    call load_luna_clothing_saves
-
-    $ luna_wear_cum = False
-    $ luna_wear_cum_under = False
-
-    $ luna_chibi.zorder = 3
-    $ luna_zorder = 15
+    pause.5
 
     call update_luna
 
-    return
+    $ active_girl = None
+    $ luna_busy = True
+    $ luna.wear("all")
 
+    $ renpy.stop_predict(luna.get_image())
+    $ renpy.stop_predict("characters/luna/face/*.webp")
+
+    call music_block
+    jump main_room
 
 label update_luna:
+    # Chibi Update
+    $ luna_chibi.update()
+    $ luna_chibi.position(flip=False)
     $ luna_flip = 1
-    $ use_luna_head = False
-    $ luna_l_arm = 1
-    $ luna_r_arm = 1
-
-    call update_lun_uniform
+    hide screen luna_cloth_pile
 
     return
 
+screen luna_main():
+    tag luna_main
+    zorder luna_zorder
+    sensitive False
 
-label luna_no_money:
-    call lun_main("You expect me to do it for free?", "angry", "mad", "mad", "R")
-    call lun_main("Hmph!", "angry", "mad", "mad", "R")
-    jump luna_away
+    # Get image and apply transition and set position
+    default luna_img = apply_doll_transition(luna.get_image(), "luna_main", use_luna_head)
+    default luna_pos = get_character_pos("luna")
+    default properties = {"zoom": 0.5, "xzoom": luna_flip}
 
+    fixed:
+        pos luna_pos
+        at luna_animation
 
-init python:
-    def changeLuna(
-        mouth=None,
-        eye=None,
-        brows=None,
-        pupils=None,
-        cheeks=None,
-        tears=None,
-        emote=None):
-
-        global luna_mouth
-        global luna_eye
-        global luna_eyebrow
-        global luna_pupil
-        global luna_cheeks
-        global luna_tears
-        global luna_emote
-
-        if mouth is not None:
-            luna_mouth       = "characters/luna/face/mouth/"+str(mouth)+".webp"
-        if eye is not None:
-            luna_eye         = "characters/luna/face/eyes/"+str(eye)+".webp"
-        if brows is not None:
-            luna_eyebrow     = "characters/luna/face/brow/"+str(brows)+".webp"
-        if pupils is not None:
-            luna_pupil       = "characters/luna/face/pupil/"+str(luna_pupil_color)+"/"+str(pupils)+".webp"
-        if cheeks is not None:
-            luna_cheeks      = "characters/luna/face/extras/cheeks_"+str(cheeks)+".webp"
-        if tears is not None:
-            luna_tears       = "characters/luna/face/extras/tears_"+str(tears)+".webp"
-        if emote is not None:
-            luna_emote       = "characters/luna/emotes/"+str(emote)+".webp"
+        add luna_img properties properties
+        if luna_emote:
+            add luna_emote properties properties

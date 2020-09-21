@@ -10,18 +10,9 @@
 
 ### Neckwear Equip ###
 label equip_neckwear:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_neckwear
     #Susan
     if active_girl == "susan":
         jump equip_sus_neckwear
-
-### Equip Luna's Neckwear ###
-label equip_lun_neckwear:
-    call set_lun_neckwear(neckwear_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Neckwear ###
 label equip_sus_neckwear:
@@ -31,18 +22,9 @@ label equip_sus_neckwear:
 
 ### Gloves Equip ###
 label equip_gloves:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_gloves
     #Susan
     if active_girl == "susan":
         jump equip_sus_gloves
-
-### Equip Luna's Gloves ###
-label equip_lun_gloves:
-    #call set_lun_gloves(gloves_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Gloves ###
 label equip_sus_gloves:
@@ -53,9 +35,7 @@ label equip_sus_gloves:
 ### Body Accs Equip ###
 label equip_body_accessory:
     pass
-    #Luna
-    #if active_girl == "luna":
-        #jump equip_lun_body_accessory
+
     #Susan
     #if active_girl == "susan":
         #jump equip_sus_body_accessory
@@ -169,24 +149,11 @@ label equip_body_accessory:
             # call her_main(xpos="wardrobe")
             # call screen wardrobe_old
 
-
-#Add Luna Body Accessory Texts
-#Add Astoria Body Accessory Texts
-
 ### Stockings Equip ###
 label equip_stockings:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_stockings
     #Susan
     if active_girl == "susan":
         jump equip_sus_stockings
-
-### Equip Luna's Stockings ###
-label equip_lun_stockings:
-    call set_lun_stockings(stockings_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Stockings ###
 label equip_sus_stockings:
@@ -197,18 +164,9 @@ label equip_sus_stockings:
 
 ### Robe Equip ###
 label equip_robe:
-    #Luna
-    if active_girl == "luna":
-        jump equip_lun_robe
     #Susan
     if active_girl == "susan":
         jump equip_sus_robe
-
-### Equip Luna's Robe ###
-label equip_lun_robe:
-    call set_lun_robe(robe_choice)
-
-    jump return_to_wardrobe
 
 ### Equip Susan's Robe ###
 label equip_sus_robe:

@@ -726,8 +726,8 @@ label potion_scene_1_2:
     hide screen luna_main
     with d3
 
-    $ luna_wear_top = False
-    $ luna_wear_bra = False
+    #$ luna_wear_top = False
+    #$ luna_wear_bra = False
     call lun_chibi("stand","base","base")
     pause.5
 
@@ -768,8 +768,8 @@ label potion_scene_1_2:
     hide screen luna_main
     with d3
 
-    $ luna_wear_top = True
-    $ luna_wear_bra = True
+    #$ luna_wear_top = True
+    #$ luna_wear_bra = True
     call lun_chibi("stand","desk","base")
     pause.5
 
