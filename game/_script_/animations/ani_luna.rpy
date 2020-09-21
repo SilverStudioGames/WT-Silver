@@ -1,4 +1,4 @@
-
+image spr_luna blink = sprite_blink("characters/luna/face/eyes/closed.webp")
 # Luna chibi
 
 #TODO Create clothing layers for Luna chibi
