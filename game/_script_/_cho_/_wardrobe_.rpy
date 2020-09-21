@@ -99,7 +99,7 @@ default cho_outfit_party = DollOutfit([cho_hair_ponytail1, cho_bottom_skirt2, ch
 
 default cho_bottom_skirt1 = DollCloth("cho", ("bottoms", "skirts"), "bottom", "skirt_short_1", [[89, 116, 194, 255]], level=18, armfix=True)
 default cho_top_sailor1 = DollCloth("cho", ("tops", "shirts"), "top", "top_sailor_1", [[252, 252, 253, 255], [89, 116, 194, 255]], level=14)
-default cho_stockings_sailor1 = DollCloth("cho", ("legwear", "stockings"), "stockings", "sailor", [[232, 232, 233, 255]])
+default cho_stockings_sailor1 = DollCloth("cho", ("legwear", "stockings"), "stockings", "sailor", [[232, 232, 233, 255]], armfix=True)
 default cho_panties_bikini2 = DollCloth("cho", ("panties", "bikini panties"), "panties", "bikini_bottom_2", [[213, 161, 13, 255]], level=18, armfix=True)
 
 default cho_outfit_sailor = DollOutfit([cho_hair_ponytail1, cho_top_sailor1, cho_bottom_skirt1, cho_stockings_sailor1, cho_panties_bikini2], price=500)
@@ -129,7 +129,7 @@ default cho_outfit_bikini = DollOutfit([cho_hair_ponytail1, cho_bra_bikini2, cho
 
 default cho_neckwear_lace1 = DollCloth("cho", ("head", "neckwear"), "neckwear", "choker_lace_1", [[100, 100, 255, 255], [220, 220, 221, 255]])
 default cho_garterbelt_lace1 = DollCloth("cho", ("legwear", "garterbelts"), "garterbelt", "lace_garter_1", [[220, 220, 221, 255], [100, 100, 255, 255], [220, 220, 221, 255], [89, 116, 194, 255]])
-default cho_stockings_lace1 = DollCloth("cho", ("legwear", "stockings"), "stockings", "lace_stockings_1", [[100, 100, 255, 255], [220, 220, 221, 255]], level=12)
+default cho_stockings_lace1 = DollCloth("cho", ("legwear", "stockings"), "stockings", "lace_stockings_1", [[100, 100, 255, 255], [220, 220, 221, 255]], armfix=True, level=12)
 default cho_bra_lace1 = DollCloth("cho", ("bras", "bras"), "bra", "lace_bra_1", [[100, 100, 255, 255], [220, 220, 221, 255], [89, 116, 194, 255]], level=14)
 default cho_panties_lace1 = DollCloth("cho", ("panties", "panties"), "panties", "lace_panties_1", [[100, 100, 255, 255], [220, 220, 221, 255], [89, 116, 194, 255]], level=12)
 default cho_earring_feather = DollCloth("cho", ("head", "earrings"), "earring", "feather", [[232, 232, 232, 255], [70, 90, 147, 255], [136, 91, 34, 255]])
@@ -165,7 +165,7 @@ default cho_outfit_cheerleader = DollOutfit([cho_hair_ponytail1, cho_earring_sni
 
 default cho_top_tank2 = DollCloth("cho", ("tops", "shirts"), "top", "top_tanktop_2", [[252, 192, 213, 255], [253, 221, 232, 255]], level=16)
 default cho_bottom_shorts1 = DollCloth("cho", ("bottoms", "shorts"), "bottom", "pants_short_1", [[230, 230, 231, 255]], level=8, armfix=True)
-default cho_stockings_pantyhose = DollCloth("cho", ("legwear", "pantyhose"), "stockings", "pantyhose", [[190, 146, 129, 255]])
+default cho_stockings_pantyhose = DollCloth("cho", ("legwear", "pantyhose"), "stockings", "pantyhose", [[190, 146, 129, 255]], armfix=True)
 default cho_earring_basic = DollCloth("cho", ("head", "earrings"), "earring", "basic", [[220, 220, 221, 255]])
 
 default cho_outfit_trainee = DollOutfit([cho_hair_ponytail1, cho_bra_basic1, cho_panties_basic1, cho_bottom_shorts1, cho_top_tank2, cho_stockings_pantyhose, cho_earring_basic], price=500)
@@ -187,7 +187,7 @@ default cho_accessory4_glasses1 = DollCloth("cho", ("head", "glasses"), "accesso
 default cho_hat_goggles = DollCloth("cho", ("head", "headgear"), "hat", "goggles", [[137, 150, 193, 255], [165, 165, 166, 255]], unlocked=True)
 default cho_neckwear_medallion = DollCloth("cho", ("head", "neckwear"), "neckwear", "choker_medallion", [[25, 25, 26, 255]], unlocked=True)
 default cho_neckwear_leather1 = DollCloth("cho", ("head", "neckwear"), "neckwear", "collar_leather_1", [[56, 56, 57, 255]], unlocked=True)
-default cho_stockings_fishnet = DollCloth("cho", ("legwear", "stockings"), "stockings", "fishnet", [[100, 100, 101, 255], [50, 50, 51, 255]], level=14, unlocked=True)
+default cho_stockings_fishnet = DollCloth("cho", ("legwear", "stockings"), "stockings", "fishnet", [[100, 100, 101, 255], [50, 50, 51, 255]], level=14, armfix=True, unlocked=True)
 default cho_top_sweater1 = DollCloth("cho", ("tops", "sweaters"), "top", "top_sweater_1", [[89, 116, 194, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
 default cho_top_sweater2 = DollCloth("cho", ("tops", "sweaters"), "top", "top_sweater_2", [[89, 116, 194, 255]], level=6, unlocked=True)
 default cho_top_tanktop1 = DollCloth("cho", ("tops", "shirts"), "top", "top_tanktop_1", [[230, 230, 231, 255]], level=14, unlocked=True)
