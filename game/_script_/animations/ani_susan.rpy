@@ -1,4 +1,4 @@
-
+image spr_susan blink = sprite_blink("characters/susan/face/eyes/closed.webp")
 # Susan chibi
 
 image ch_sus stand:

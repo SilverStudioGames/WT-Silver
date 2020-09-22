@@ -11,13 +11,6 @@ label summon_susan:
     call play_music("susan")
     call play_sound("door")
 
-    call load_susan_clothing_saves
-
-    ### RANDOM CLOTHING EVENTS ###
-    #call susan_door_event
-
-    call update_sus_uniform
-
     call sus_chibi("stand","mid","base")
     with d3
 
@@ -33,8 +26,8 @@ label summon_susan:
 
     label susan_requests:
 
+    call sus_main(xpos="base", ypos="base")
     $ hide_transitions = False
-    $ gave_susan_gift = True # Remove when adding gift texts!
 
     menu:
 
@@ -52,19 +45,15 @@ label summon_susan:
 
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if susan_wardrobe_unlocked:
-            call load_susan_clothing_saves
-
-            call reset_wardrobe_vars
-            call update_wr_color_list
-
-            $ hide_transitions = True
-            call sus_main(xpos="wardrobe",ypos="base")
-            call screen wardrobe_old
+            hide screen sus_main with d1
+            $ screenshot_image = ScreenshotImage.capture()
+            $ renpy.call_in_new_context("wardrobe", "sus_main")
+            with d2
+            jump susan_requests
 
         "{color=[menu_disabled]}-Hidden-{/color}" if not susan_wardrobe_unlocked:
             call nar(">You haven't unlocked this feature yet.")
             jump susan_requests
-
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_susan_gift:

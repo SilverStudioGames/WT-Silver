@@ -92,8 +92,7 @@ label ag_se_imperio_sb_E1:
     g4 "*Gulp!*"
 
     hide screen susan_main
-    $ susan_wear_top = False
-    call update_sus_uniform
+    $ susan.strip("top")
     call sus_main("","upset","closed","worried","mid")
     pause.5
 
@@ -116,8 +115,7 @@ label ag_se_imperio_sb_E1:
     call sus_main("Don't think less of me...","upset","closed","worried","mid")
 
     hide screen susan_main
-    $ susan_wear_bra = False
-    call update_sus_uniform
+    $ susan.strip("bra")
     call sus_main("","upset","closed","worried","mid")
     call ctc
 
@@ -168,15 +166,12 @@ label ag_se_imperio_sb_E1:
     call sus_main("...","upset","narrow","worried","mid")
 
     hide screen susan_main
-    $ susan_wear_bra = True
-    call update_sus_uniform
+    $ susan.wear("bra", "top")
     call sus_main("","upset","narrow","worried","mid")
     pause.5
     call nar(">Susan begins dressing herself in silence...")
 
     hide screen susan_main
-    $ susan_wear_top = True
-    call update_sus_uniform
     call sus_main("","upset","narrow","base","mid")
     pause.5
     call nar(">Her eyes unfocused, staring blankly into space.")
@@ -354,9 +349,7 @@ label ag_se_imperio_sb_E2:
     pause.2
 
     hide screen susan_main
-    $ susan_wear_top = False
-    $ susan_wear_bra = False
-    call update_sus_uniform
+    $ susan.strip("top", "bra")
     call sus_main("","upset","closed","worried","mid")
     call ctc
 
@@ -502,9 +495,7 @@ label ag_se_imperio_sb_E2:
     call nar(">Susan begins dressing herself in silence...")
 
     hide screen susan_main
-    $ susan_wear_top = True
-    $ susan_wear_bra = True
-    call update_sus_uniform
+    $ susan.wear("top", "bra")
     call sus_main("","base","narrow","base","mid")
     pause.5
 
@@ -596,8 +587,7 @@ label ag_se_imperio_sb_E3:
     g4 "!!!"
 
     hide screen susan_main
-    $ susan_wear_top = False
-    call update_sus_uniform
+    $ susan.strip("top")
     call sus_main("","upset","base","worried","mid")
     pause.5
 
@@ -609,8 +599,7 @@ label ag_se_imperio_sb_E3:
     call ast_main("Just get those milk bags out!","clench","narrow","angry","L")
 
     hide screen susan_main
-    $ susan_wear_bra = False
-    call update_sus_uniform
+    $ susan.strip("bra")
     call sus_main("","base","base","base","mid")
     pause.5
 
@@ -832,7 +821,7 @@ label ag_se_imperio_sb_E3:
 
     call sus_chibi("stand","desk","base")
     call ast_chibi("reset",530,"base")
-    $ susan_face_covered = True
+    $ susan.set_cum(face="heavy")
     hide screen blkfade
     call sus_main("","upset","narrow","worried","L",xpos="right",ypos="base",trans=fade)
     call ctc
@@ -850,12 +839,10 @@ label ag_se_imperio_sb_E3:
     call nar(">Susan slowly wipes the cum from her face as she gets dressed.")
 
     hide screen susan_main
-    $ susan_face_covered = False
+    $ susan.set_cum(None)
     call sus_main("I hope you two are happy...","upset","narrow","base","down")
 
-    $ susan_wear_top = True
-    $ susan_wear_bra = True
-    call update_sus_uniform
+    $ susan.wear("top", "bra")
 
     if daytime:
         call ast_main("We're going to be late for classes, Suzy!","annoyed","narrow","base","R")

@@ -26,7 +26,8 @@ label wardrobe(char_label):
             "tonks": (ton_friendship, ton_requirements["change_underwear"]),
             "astoria": (ast_whoring, ast_requirements["change_underwear"]),
             "cho": (cho_whoring, cho_requirements["change_underwear"]),
-            "luna": (lun_whoring, lun_requirements["change_underwear"])
+            "luna": (lun_whoring, lun_requirements["change_underwear"]),
+            "susan": (sus_whoring, sus_requirements["change_underwear"])
             }
 
         char_active = getattr(store, active_girl)

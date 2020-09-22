@@ -59,17 +59,17 @@ init python:
 
         # Determine clothing state
 
-        if susan_wear_bottom or susan_wear_stockings:
+        if susan.is_any_worn("bottom", "stockings"):
             if chibi.action == "walk":
                 chibi["shoes"] = "ch_sus walk_shoes"
             else:
                 chibi["shoes"] = "sb_walk_01_shoes.webp"
 
-        if susan_wear_top:
+        if susan.is_worn("top"):
             chibi["top"] = "sb_cloth_shirt_h.webp"
 
-        if susan_wear_bottom:
+        if susan.is_worn("bottom"):
             chibi["bottom"] = "sb_cloth_skirt.webp"
 
-        if susan_wear_robe:
+        if susan.is_worn("robe"):
             chibi["robe"] = "sb_cloth_robe_h.webp"

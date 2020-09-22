@@ -6,4 +6,5 @@ label wardrobe_init:
         astoria.equip(ast_outfit_default)
         cho.equip(cho_outfit_default)
         luna.equip(lun_outfit_default)
+        susan.equip(sus_outfit_default)
     return

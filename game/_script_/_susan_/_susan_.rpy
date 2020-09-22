@@ -1,117 +1,136 @@
 
-label sus_main(text="", mouth=None, eye=None, brows=None, pupils=None, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None):
+define sus_face = {
+    "mouth": {
+        "neutral":      ["base"],
+        "happy":        ["base","grin"],
+        "naughty":      ["base"],
+        "horny":        ["base"],
+        "annoyed":      ["upset"],
+        "disgusted":    ["open"],
+        "angry":        ["upset"]
+    },
 
-    #Flip
-    if flip == False:
-        $ susan_flip = 1 #Default
-    if flip == True:
-        $ susan_flip = -1
+    "eyes": {
+        "neutral":      ["base", "closed"],
+        "happy":        ["base", "eager"],
+        "naughty":      ["base", "suspicious"],
+        "horny":        ["suspicious"],
+        "annoyed":      ["narrow","base", "suspicious"],
+        "disgusted":    ["wide"],
+        "angry":        ["suspicious"]
+    },
 
-    #Reset
-    if cheeks == None:
-        $ cheeks = "blank"
-    if tears == None:
-        $ tears = "blank"
-    if emote == None:
-        $ emote = "blank"
+    "eyebrows": {
+        "neutral":      ["base"],
+        "happy":        ["base"],
+        "naughty":      ["base","worried"],
+        "horny":        ["base","worried"],
+        "annoyed":      ["angry"],
+        "disgusted":    ["worried"],
+        "angry":        ["angry"]
+    },
 
-    #Positioning
-    if xpos != None:
-        if xpos in ["base","default"]:     # All the way to the right.
-            $ susan_xpos = 640
-        elif xpos == "mid":                # Centered.
-            $ susan_xpos = 300
-        elif xpos == "right":              # Bit more to the right.
-            $ susan_xpos = 400
-        elif xpos in ["wardrobe","close"]:
-            $ susan_xpos = 540
-        else:
-            $ susan_xpos = int(xpos)
+    "pupils": {
+        "neutral":      ["mid"],
+        "happy":        ["mid","L","R"],
+        "naughty":      ["L","R","down"],
+        "horny":        ["L","R","down"],
+        "annoyed":      ["R","down"],
+        "disgusted":    ["R","wide"],
+        "angry":        ["mid"]
+    }
+}
 
-    if ypos != None:
-        if ypos in ["base","default"]:
-            $ susan_ypos = 0
-            $ susan_zorder = 15
-            $ use_susan_head = False
-        elif ypos in ["head"]:
-            # Use ypos="head" to activate her head position.
-            # Use ypos="base" to disable it.
-            # Use ypos="200" or any other number to move her head up or down.
-            $ use_susan_head = True
+label sus_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, cheeks=None, tears=None, emote=None, face=None, xpos=None, ypos=None, flip=None, trans=None, animation=False):
+    if renpy.predicting():
+        sus "predict"
 
-            if susan_flip == -1: #Flipped
-                $ susan_xpos = -80
-            else:
-                $ susan_xpos = 660
-            $ susan_ypos = 230
-            $ susan_zorder = 18
-        else:
-            $ susan_ypos = int(ypos)
+    python:
 
-    if face != None:
-        if mouth == None:
-            call set_sus_face(mouth = face)
-        if eye == None:
-            call set_sus_face(eyes = face)
-        if brows == None:
-            call set_sus_face(brows = face)
-        if pupils == None:
-            call set_sus_face(pupils = face)
+        if flip != None:
+            susan_flip = -1 if flip else 1
 
-    $ changeSusan(mouth, eye, brows, pupils, cheeks, tears, emote)
+        if animation != False:
+            susan_animation = animation
 
-    show screen susan_main
+        if xpos:
+            susan_xpos = int(sprite_pos["x"].get(xpos, xpos))
+
+        if ypos:
+            use_susan_head = True if ypos == "head" else False
+
+            susan_ypos = int(sprite_pos["y"].get(ypos, ypos))
+
+        susan.set_face(mouth=mouth, eyes=eyes, eyebrows=eyebrows, pupils=pupils, cheeks=cheeks, tears=tears)
+        susan_emote = get_character_emote("susan", emote)
+
+        if face:
+            if not mouth:
+                susan.set_face(mouth=renpy.random.choice(sus_face["mouth"].get(face, None)))
+            if not eyes:
+                susan.set_face(eyes=renpy.random.choice(sus_face["eyes"].get(face, None)))
+            if not eyebrows:
+                susan.set_face(eyebrows=renpy.random.choice(sus_face["eyebrows"].get(face, None)))
+            if not pupils:
+                susan.set_face(pupils=renpy.random.choice(sus_face["pupils"].get(face, None)))
+
+    if not renpy.get_screen("wardrobe_menu"):
+        hide screen susan_main
+        show screen susan_main
     show screen bld1
 
-    with trans
+    if trans:
+        with trans
 
     if text:
         $ renpy.say(sus, text)
 
     if use_susan_head:
         hide screen susan_main
-
     return
 
+label end_susan_event:
+
+    call sus_chibi("hide")
+    hide screen susan_main
+    with d3
+    pause.5
+
+    call update_susan
+
+    $ active_girl = None
+    $ susan_busy = True
+    $ susan.wear("all")
+
+    $ renpy.stop_predict(susan.get_image())
+    $ renpy.stop_predict("characters/susan/face/*.webp")
+
+    call music_block
+    jump main_room
 
 label update_susan:
+    # Chibi Update
+    $ susan_chibi.update()
+    $ susan_chibi.position(flip=False)
     $ susan_flip = 1
-    $ use_susan_head = False
-
-    call update_sus_uniform
+    hide screen susan_cloth_pile
 
     return
 
+screen susan_main():
+    tag susan_main
+    zorder susan_zorder
+    sensitive False
 
-init python:
-    def changeSusan(
-        mouth=None,
-        eye=None,
-        brows=None,
-        pupils=None,
-        cheeks=None,
-        tears=None,
-        emote=None):
+    # Get image and apply transition and set position
+    default susan_img = apply_doll_transition(susan.get_image(), "susan_main", use_susan_head)
+    default susan_pos = get_character_pos("susan")
+    default properties = {"zoom": 0.5, "xzoom": susan_flip}
 
-        global susan_mouth
-        global susan_eye
-        global susan_eyebrow
-        global susan_pupil
-        global susan_cheeks
-        global susan_tears
-        global susan_emote
+    fixed:
+        pos susan_pos
+        at susan_animation
 
-        if mouth is not None:
-            susan_mouth       = "characters/susan/face/mouth/"+mouth+".webp"
-        if eye is not None:
-            susan_eye         = "characters/susan/face/eyes/"+eye+".webp"
-        if brows is not None:
-            susan_eyebrow     = "characters/susan/face/brow/"+brows+".webp"
-        if pupils is not None:
-            susan_pupil       = "characters/susan/face/pupil/"+pupils+".webp"
-        if cheeks is not None:
-            susan_cheeks      = "characters/susan/face/extras/"+cheeks+".webp"
-        if tears is not None:
-            susan_tears       = "characters/susan/face/extras/"+tears+".webp"
-        if emote is not None:
-            susan_emote       = "characters/susan/emotes/"+str(emote)+".webp"
+        add susan_img properties properties
+        if susan_emote:
+            add susan_emote properties properties
