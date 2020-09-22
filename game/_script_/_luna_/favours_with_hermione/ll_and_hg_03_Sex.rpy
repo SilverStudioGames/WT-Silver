@@ -176,7 +176,7 @@ label luna_favour_7: #Luna and Hermione Sex #DONE
     ">You move away from Hermione's sweaty body and over to Luna's milky white form."
     $ ccg1 = "luna_10"
     ">You grab a hold of her legs, lining up your cock with her dripping cunt."
-    m "Are you ready, [lun_name]?"
+    m "Are you ready, [luna_name]?"
     $ ccg1 = "luna_11"
     lun "I... I think so..."
     $ ccg1 = "luna_12"

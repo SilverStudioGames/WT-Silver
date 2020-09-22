@@ -31,7 +31,7 @@ default luna_addicted = False
 
 # Names
 default lun_genie_name = "Professor"
-default lun_name = "Miss Lovegood"
+default luna_name = "Miss Lovegood"
 
 default gave_luna_gift = False
 
@@ -131,7 +131,7 @@ label reset_luna_progress:
         "luna_addicted",
 
         "lun_genie_name",
-        "lun_name",
+        "luna_name",
         "gave_luna_gift",
 
         # Event objects

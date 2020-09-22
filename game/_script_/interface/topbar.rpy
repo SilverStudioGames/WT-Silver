@@ -312,8 +312,6 @@ label options_menu:
 label bugfix_menu:
     menu:
         "-Reset Everyone's Appearance-":
-            call reset_susan_clothing
-
             $ hermione.wear("all")
             $ hermione.equip(her_outfit_default)
             $ hermione.rebuild()
@@ -327,9 +325,13 @@ label bugfix_menu:
             $ tonks.equip(ton_outfit_default)
             $ tonks.rebuild()
             $ luna.wear("all")
-            $ luna.equip(ton_outfit_default)
+            $ luna.equip(lun_outfit_default)
             $ luna.rebuild()
-            ">Appearance of each girl set back to default."
+            $ susan.wear("all")
+            $ susan.equip(sus_outfit_default)
+            $ susan.rebuild()
+
+            "> Appearance of each girl set back to default."
             jump bugfix_menu
         "-Reset Cho public and personal favours-" if cho_unlocked:
             python:

@@ -436,11 +436,11 @@ label astoria_intro_E3:
             pass
 
     with hpunch
-    who "Stop pulling me!"
+    femv "Stop pulling me!"
     her "Shut it already!"
-    who "Why did you drag me here?"
+    femv "Why did you drag me here?"
     her "You know very well why I brought you!"
-    who "Let me go you filthy mudblo--"
+    femv "Let me go you filthy mudblo--"
     call play_sound("thump")
 
     m "Who's there?"

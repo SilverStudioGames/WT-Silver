@@ -174,7 +174,10 @@ label enter_room_of_req:
         call bld
         m "..."
         m "Odd, it appears the source of the magic is emanating from this mirror..."
-        whom "So you've found the mirror of Erised..."
+
+        # Single line, doesn't deserve a defined character speaker.
+        "Male Voice" "So you've found the mirror of Erised..."
+
         $ renpy.sound.play( "sounds/MaleGasp.mp3")
         stop music fadeout 1.0
         g4 "Dumbledore!"

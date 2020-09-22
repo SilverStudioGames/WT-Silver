@@ -9,11 +9,11 @@ label luna_favour_1:
         $ lun_whoring += 1
         call play_music("chipper_doodle")
         m "Okay then..."
-        m "Tell me a little about yourself, [lun_name]."
+        m "Tell me a little about yourself, [luna_name]."
         call lun_main("*hmph* I assume you'll be paying me for this [lun_genie_name].","normal","angry","angry","mid")
         menu:
             "-Five gold-":
-                m "How does five gold sound [lun_name]?"
+                m "How does five gold sound [luna_name]?"
                 call lun_main("five gold! Who do you think I am!","pout","mad","angry","mid")
                 m "A student with no source of income."
                 call lun_main("I am Luna Lovegood! You should be paying a hundred gold just to look at me!","upset","suspicious","mad","R")
@@ -32,7 +32,7 @@ label luna_favour_1:
                 m "Scout's honour. Now..."
             "-Fifty gold-":
                 $ current_payout = 50
-                m "How does fifty gold sound [lun_name]?"
+                m "How does fifty gold sound [luna_name]?"
                 call lun_main("{size=+10}(FIFTY GOLD!){/size}","open_wide_tongue","wide","base","mid")
                 call lun_main("*Hmph* I suppose that's a fair amount.","base","happyCl","base","down")
                 call lun_main("Just don't think it buys you anything other than a conversation.","normal","angry","angry","mid")
@@ -137,7 +137,7 @@ label luna_favour_1:
         $ lun_whoring += 1
         call play_music("chipper_doodle")
         m "Alright then..."
-        m "How's school going, [lun_name]."
+        m "How's school going, [luna_name]."
         call lun_main("aren't we going to discuss how much you'll be paying me first, [lun_genie_name].","normal","angry","angry","mid")
         menu:
             "-Ten gold-": #just conversation (very short)
@@ -153,7 +153,7 @@ label luna_favour_1:
                 call lun_main("That's what you got. If you want more, pay more...","normal","base","mad","mid")
             "-Twenty gold-": #Slightly flirty, still short
                 $ current_payout = 20
-                m "Will twenty gold be enough for you, [lun_name]?"
+                m "Will twenty gold be enough for you, [luna_name]?"
                 call lun_main("I suppose so...","normal","suspicious","base","mid")
                 call lun_main("Just don't expect to get to touch yourself...","upset","angry","angry","R")
                 m "How much would that cost?"
@@ -354,7 +354,7 @@ label luna_favour_1:
         if lun_whoring <= 2:
             $ lun_whoring += 1
         call play_music("chipper_doodle")
-        m "Tell me [lun_name]..."
+        m "Tell me [luna_name]..."
         m "How's you're home life going?"
         call lun_main("My home life?","normal","angry","raised","R")
         call lun_main("In one word, [lun_genie_name], inadequate.","pout","angry","angry","mid")
@@ -443,7 +443,7 @@ label luna_favour_1:
                 call lun_main("Thank you...?","upset","suspicious","mad","mid")
                 m "Thank you princess..."
 
-                $ lun_name = "Princess"
+                $ luna_name = "Princess"
 
                 call lun_main("That's better [lun_genie_name]...","base","angry","angry","mid")
                 call lun_main("Now as a princess I expect a present for having to look at such a filthy act...","base","angry","angry","R")
@@ -458,7 +458,7 @@ label luna_favour_1:
                 call lun_main("Thank you so much [lun_genie_name]!","base","happyCl","base","mid")
                 m "I was thinking you could thank me for my generous offer another way..."
                 call lun_main("Oh...","upset","angry","mad","R")
-                m "That's not a problem is it [lun_name]?"
+                m "That's not a problem is it [luna_name]?"
                 call lun_main("Of course not... What did you have in mind?","normal","suspicious","sad","down")
                 m "well for starters..."
                 hide screen blktone
@@ -503,7 +503,7 @@ label luna_favour_1:
                         call lun_main("...","normal","angry","angry","R")
                         m "Is that clear?"
                         call lun_main("... Yes...{size=-8}sir{/size}","upset","suspicious","sad","down")
-                        m "Speak up [lun_name]..."
+                        m "Speak up [luna_name]..."
                         call lun_main("Yes sir...","upset","suspicious","sad","R")
                         m "{size=-4}(yes...){/size}"
 
@@ -511,7 +511,7 @@ label luna_favour_1:
                 call lun_main("You know this is wrong don't you?","upset","suspicious","sad","down")
                 call lun_main("What you're forcing me to do...","upset","suspicious","mad","mid")
                 m "{size=-4}(*mmmm*... yes...){/size}"
-                m "I don't recall forcing you into anything [lun_name]..."
+                m "I don't recall forcing you into anything [luna_name]..."
                 call lun_main("*hmph*...","normal","angry","angry","mid")
                 ">You start stroking faster."
                 call lun_main("well...","normal","angry","mad","down")
@@ -546,7 +546,7 @@ label luna_favour_1:
                 with d3
                 call lun_main("The floor...","normal","angry","angry","down")
                 call lun_main("it's covered...","normal","angry","angry","R")
-                m "Ah... you did good [lun_name]..."
+                m "Ah... you did good [luna_name]..."
                 call lun_main("*Hmph* well I expect to be paid now...","normal","mad","angry","mid")
 
 
@@ -562,7 +562,7 @@ label luna_favour_1:
     else:
         # Repeatable, Hermione joins in
         play music "music/Chipper Doodle v2.mp3" fadein 1 fadeout 1
-        m "Tell me [lun_name]..."
+        m "Tell me [luna_name]..."
         m "How's your tutoring with Miss Granger going?"
         call lun_main("my lessons with hermione?","normal","angry","angry","R")
         call lun_main("Honestly... they're fantastic.","base","base","base","down")

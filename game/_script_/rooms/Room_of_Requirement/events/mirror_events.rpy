@@ -38,50 +38,50 @@ label prev_at_hogwarts:
     call play_sound("knocking")
     pause.8
 
-    dum_[3] "Please, come in..."
+    dum3 "Please, come in..."
     pause.2
 
     call sna_walk(action="enter", xpos="mid", ypos="base")
     pause.5
 
-    dum_[1] "Ah, Severus..."
+    dum1 "Ah, Severus..."
     call sna_main("You called, sir?","snape_01",xpos="base",ypos="base")
-    dum_[2] "Indeed, I wanted to talk to you about last night."
+    dum2 "Indeed, I wanted to talk to you about last night."
     call sna_main("Last night, sir?","snape_03")
-    dum_[1] "Yes, last night... Don't think that I had forgotten already..."
+    dum1 "Yes, last night... Don't think that I had forgotten already..."
     call sna_main("...","snape_04")
     call sna_main("I might have had a few. I hope I didn't say something inappropriate...","snape_05")
-    dum_[2] "Quite... Do you remember why I hired you, Severus?"
+    dum2 "Quite... Do you remember why I hired you, Severus?"
     call sna_main("For my excellent potion making skills?","snape_25")
-    dum_[1] "For your excellent potion making skills..."
-    dum_[5] "{size=-6}And your piercing black eyes...{/size}"
+    dum1 "For your excellent potion making skills..."
+    dum5 "{size=-6}And your piercing black eyes...{/size}"
     call sna_main("What?","snape_05")
-    dum_[4] "What?"
-    dum_[2] "I said, you're fierce and wise."
+    dum4 "What?"
+    dum2 "I said, you're fierce and wise."
     call sna_main("...","snape_05")
     call sna_main("Why did you call me here again?","snape_03")
-    dum_[1] "Ah yes, my apologies.... I got distracted."
-    dum_[2] "How much do you remember from our previous discussion?"
+    dum1 "Ah yes, my apologies.... I got distracted."
+    dum2 "How much do you remember from our previous discussion?"
     call sna_main("Not a lot... it's all a bit of a haze...","snape_04")
-    dum_[1] "..."
+    dum1 "..."
     call sna_main("I think I mentioned a students spilling some flobberworm mucus down themselves which halted the whole lesson...","snape_01")
     call sna_main("And that Potter boy...","snape_08")
-    dum_[3] "There it is..."
+    dum3 "There it is..."
     call sna_main("The Potter boy?","snape_25")
-    dum_[1] "Yes, I've noticed you've been quite stressed lately about this... Potter situation of yours for the lack of a better term."
+    dum1 "Yes, I've noticed you've been quite stressed lately about this... Potter situation of yours for the lack of a better term."
     call sna_main("And your point?","snape_09")
-    dum_[2] "Ah yes... my point."
-    dum_[1] "Where was I again..."
-    dum_[2] "Ah yes, your stress situation..."
+    dum2 "Ah yes... my point."
+    dum1 "Where was I again..."
+    dum2 "Ah yes, your stress situation..."
     call sna_main("(You're not really helping old man...)","snape_08")
-    dum_[1] "Have you tried a draught of peace?"
+    dum1 "Have you tried a draught of peace?"
     call sna_main("What?","snape_03")
-    dum_[2] "A draught of peace, it's a potion you know..."
+    dum2 "A draught of peace, it's a potion you know..."
     call sna_main("Are you joking with me right now?","snape_04")
-    dum_[1] "I'm being quite serious... stress can be quite taxing on your body."
+    dum1 "I'm being quite serious... stress can be quite taxing on your body."
     call sna_main("I...","snape_01")
     call sna_main("I need a moment... I'll talk to you later Albus.","snape_06")
-    dum_[1] "I thought we were getting somewhere..."
+    dum1 "I thought we were getting somewhere..."
     call sna_main("...","snape_01")
     hide screen snape_main
     hide screen bld1
@@ -97,7 +97,7 @@ label prev_at_hogwarts:
 
     call play_music("stop")
 
-    dum_[2] "\"I don't think I'll ever understa--\""
+    dum2 "\"I don't think I'll ever understa--\""
 
     hide screen dumbledore
     call gen_chibi("sit_behind_desk")

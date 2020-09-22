@@ -2775,22 +2775,22 @@ label ball_ending_E2:
         pause.8
 
         call play_music("snape")
-        dum_[1] "Good morning, Severus."
+        dum1 "Good morning, Severus."
         call sna_main(".......................................","snape_09", xpos="base", ypos="base")
-        dum_[1] "I have the most extraordinary tale to share with you, old friend."
+        dum1 "I have the most extraordinary tale to share with you, old friend."
         sna "......................................"
-        dum_[1] "But before I do..."
+        dum1 "But before I do..."
         sna "........................................"
-        dum_[2] "*Ehm*... Severus?"
+        dum2 "*Ehm*... Severus?"
         sna "........................................."
         call sna_main("Who rules?","snape_06")
-        dum_[2] "I beg your pardon?"
+        dum2 "I beg your pardon?"
         call sna_main("Who rules?","snape_26")
-        dum_[2] "... who rules what?"
+        dum2 "... who rules what?"
         sna "R...?"
-        dum_[2] "R?"
+        dum2 "R?"
         call sna_main("Robin....?","snape_27")
-        dum_[2] "You don't make any sense, Severus."
+        dum2 "You don't make any sense, Severus."
         call sna_main("Ah, bloody hell.........","snape_29")
         pause.5
         call ctc
@@ -2860,22 +2860,22 @@ Farewell, my little [word_03].{/size}
         hide screen letter
 
         call her_main( "...........................................................................................................","disgust","wide","worried","shocked",cheeks="blush")
-        dum_[1] "I assume you were expecting to meet with that \"[word_04]\" fellow?"
-        dum_[1] "The one who has been impersonating me for the past several months?"
+        dum1 "I assume you were expecting to meet with that \"[word_04]\" fellow?"
+        dum1 "The one who has been impersonating me for the past several months?"
         call her_main( "...........................................................................................................","disgust","wide","worried","shocked",cheeks="blush")
-        dum_[1] "Well, now that I am back..."
-        dum_[1] "I will be putting an end to all that \"favour selling business\", of course."
+        dum1 "Well, now that I am back..."
+        dum1 "I will be putting an end to all that \"favour selling business\", of course."
         call her_main("", "scream", "base", "angry", "mid",emote="angry")
         pause.1
         with hpunch
         call play_music("hermione")
         her "{size=+7}What?!!{/size}"
         call her_main("How am I supposed to win any points then?", "disgust", "narrow", "base", "mid_soft")
-        dum_[1] "The same way you always did, miss Granger."
+        dum1 "The same way you always did, miss Granger."
         call her_main("Huh...?","open","narrow","annoyed","mid",cheeks="blush")
-        dum_[1] "With hard work."
+        dum1 "With hard work."
         call her_main("That's just stupid!", "angry", "base", "angry", "mid",cheeks="blush")
-        dum_[2] "Miss Granger, would you mind to guard your tongue when--"
+        dum2 "Miss Granger, would you mind to guard your tongue when--"
 
         ### TITS ###
         $ hermione.strip("robe", "accessory")
@@ -2884,7 +2884,7 @@ Farewell, my little [word_03].{/size}
         stop music
         call ctc
 
-        dum_[3] "{size=+4}!!!{/size}"
+        dum3 "{size=+4}!!!{/size}"
         call her_main("Or would you rather see my pussy, sir?", "scream", "base", "angry", "mid",emote="angry")
         call her_main("", "annoyed", "base", "angry", "mid")
 
@@ -2892,7 +2892,7 @@ Farewell, my little [word_03].{/size}
         call ctc
 
         with hpunch
-        dum_[5] "{size=+7}*GHT*!!!{/size}"
+        dum5 "{size=+7}*GHT*!!!{/size}"
         her "I am willing to do anything to get those points, sir!"
 
         call her_main("And I mean {size=+9}ANYTHING!!!{/size}", "scream", "base", "angry", "mid",emote="angry", trans=hpunch)
@@ -2902,7 +2902,7 @@ Farewell, my little [word_03].{/size}
         call play_sound("climb_desk")
         pause.7
 
-        dum_[4] "Oh, dear... {heart} "
+        dum4 "Oh, dear... {heart} "
         pause 1
 
 

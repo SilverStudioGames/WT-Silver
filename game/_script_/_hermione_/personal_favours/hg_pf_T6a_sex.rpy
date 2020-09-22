@@ -884,7 +884,7 @@ label hg_sex_luna:
     m "{size=-3}So just like you then?{/size}"
     call her_main("Yessss...{heart}", "silly", "base", "worried", "mid", cheeks="blush", tears="soft")
     lun "[lun_genie_name], are you listening?"
-    m "Sorry [lun_name], go on."
+    m "Sorry [luna_name], go on."
     lun "Thank you. As I was saying I think you need to enact several new policies regarding school uniform."
     lun "Everyone should strive to achieve the same level of perfection as Miss Granger."
     call her_main("{heart}", "silly", "base", "worried", "mid", cheeks="blush", tears="soft")

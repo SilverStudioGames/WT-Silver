@@ -31,7 +31,7 @@ label snape_intro_E1:
     call sna_main("","snape_01", xpos="base", ypos="base", trans=d3)
     call ctc
 
-    who2 "Albus... Do you have a moment?"
+    anon "Albus... Do you have a moment?"
     hide screen snape_main
     with d3
 
@@ -39,65 +39,65 @@ label snape_intro_E1:
         m "..."
         "\"Actually I'm a bit busy.\"":
             call sna_main("","snape_04", trans=d3)
-            who2 "Well, aren't you always, Albus?"
+            anon "Well, aren't you always, Albus?"
         "\"Of course. What is it?\"":
             call sna_main("","snape_06", trans=d3)
         "\"And Albus to you too.\"":
             call sna_main("","snape_05", trans=d3)
-            who2 "What?"
+            anon "What?"
             call sna_main("","snape_04")
-            who2 "Albus I'm not in the mood for your... shenanigans."
+            anon "Albus I'm not in the mood for your... shenanigans."
         "\"Take me to your leader.\"":
             call sna_main("","snape_01", trans=d3)
-            who2 "What?"
-            who2 "*Hmm*...?"
-            who2 "You mean the Minister for Magic?"
+            anon "What?"
+            anon "*Hmm*...?"
+            anon "You mean the Minister for Magic?"
             call sna_main("","snape_03")
-            who2 "I would rather avoid having to deal with that bureaucrat..."
+            anon "I would rather avoid having to deal with that bureaucrat..."
             m "Fine, never mind... How can I be of help?"
 
     call sna_main("","snape_06")
-    who2 "I have something important I need to discuss with you..."
-    who2 "I think we need to revise our admittance policy."
+    anon "I have something important I need to discuss with you..."
+    anon "I think we need to revise our admittance policy."
     m "................?"
     call sna_main("","snape_03")
-    who2 "Half of my... so-called \"pupils\" are nothing but annoying maggots that make my life miserable on a daily basis."
+    anon "Half of my... so-called \"pupils\" are nothing but annoying maggots that make my life miserable on a daily basis."
     m "................"
     call sna_main("","snape_06")
-    who2 "Most of them belong to your precious Gryffindor house of course..."
+    anon "Most of them belong to your precious Gryffindor house of course..."
     m "......?"
     call sna_main("","snape_03")
-    who2 "The wretched Weasley family, that noisy Granger girl and of course the hero of all the juvenile delinquents around the globe..."
+    anon "The wretched Weasley family, that noisy Granger girl and of course the hero of all the juvenile delinquents around the globe..."
     call sna_main("","snape_08")
-    who2 "{size=+3}The Potter boy!{/size}"
+    anon "{size=+3}The Potter boy!{/size}"
     call sna_main("","snape_01")
-    who2 "Mark my words, Albus. The Gryffindor house will become this school's undoing!"
+    anon "Mark my words, Albus. The Gryffindor house will become this school's undoing!"
     m "...................."
     call sna_main("","snape_01")
-    who2 "Nothing but annoying maggots, the lot of them!"
+    anon "Nothing but annoying maggots, the lot of them!"
     call sna_main("","snape_06")
-    who2 "And if that wasn't enough, now they spread all sorts of nasty rumours about the teachers!"
-    who2 "Particularly about yours truly..."
+    anon "And if that wasn't enough, now they spread all sorts of nasty rumours about the teachers!"
+    anon "Particularly about yours truly..."
     m "......................"
     call sna_main("","snape_05")
-    who2 "You don't believe those rumours, do you Albus?"
+    anon "You don't believe those rumours, do you Albus?"
 
     menu:
         m ".............."
         "\"Well, of course not!\"":
             call sna_main("","snape_09")
-            who2 "Good..."
-            who2 "You know me better than that. I wouldn't care for such things..."
+            anon "Good..."
+            anon "You know me better than that. I wouldn't care for such things..."
         "\"Where there's smoke, there's fire.\"":
             call sna_main("","snape_10")
-            who2 "Albus?! You can't be serious!"
-            who2 "Those are nothing but filthy lies, I'm telling you!"
+            anon "Albus?! You can't be serious!"
+            anon "Those are nothing but filthy lies, I'm telling you!"
 
     m "........................."
     call sna_main("","snape_04")
-    who2 "Well, those wretched brats left me completely exhausted. I think I will retire for today."
+    anon "Well, those wretched brats left me completely exhausted. I think I will retire for today."
     call sna_main("","snape_09")
-    who2 "................"
+    anon "................"
 
     stop music fadeout 5.0
 
@@ -130,77 +130,77 @@ label snape_intro_E2:
     call bld
     m "{size=-3}(That broody guy again...){/size}"
     call sna_main("","snape_01",xpos="base",ypos="base")
-    who2 "Albus!"
+    anon "Albus!"
     m "Hey.......... you..."
-    who2 "You need to do something about that Granger girl..."
+    anon "You need to do something about that Granger girl..."
     call sna_main("","snape_06")
-    who2 "Honestly... I'm running out of ways to punish that... that..."
+    anon "Honestly... I'm running out of ways to punish that... that..."
     call sna_main("","snape_04")
-    who2 "That little witch!"
+    anon "That little witch!"
 
     menu:
         m "..."
         "\"Granger? Hermione Granger, right?\"":
-            who2 "Yes, her..."
-            who2 " She also happens to be a part of the \"Potter gang\"."
+            anon "Yes, her..."
+            anon " She also happens to be a part of the \"Potter gang\"."
         "\"I got your back, Jack, witches be crazy!\"":
-            who2 "What...? Albus you behave oddly lately."
-            who2 "Is everything alright?"
+            anon "What...? Albus you behave oddly lately."
+            anon "Is everything alright?"
             menu:
                 m "..."
                 "\"Yes, I'm fine. Go on.\"":
-                    who2 "If you say so..."
+                    anon "If you say so..."
                 "\"You know me. I love my shenanigans.\"":
-                    who2 "*Hmm*....."
+                    anon "*Hmm*....."
 
         "\".....................................................\"":
             pass
 
-    who2 "Remember how back in the days they used to publicly flog the students?"
-    who2 "I swear if we could bring that back all of our problems would be solved..."
-    who2 "Yes... I would gladly tie that girl to a flogging pole in front of the entire school..."
+    anon "Remember how back in the days they used to publicly flog the students?"
+    anon "I swear if we could bring that back all of our problems would be solved..."
+    anon "Yes... I would gladly tie that girl to a flogging pole in front of the entire school..."
     call sna_main("","snape_20")
-    who2 "Then lift her skirt up, and..."
+    anon "Then lift her skirt up, and..."
     call sna_main("","snape_12")
-    who2 "*Khem*! Sadly, nowadays we teachers are severely limited in the disciplinary measures we have at our disposal..."
-    who2 "I know you are just as powerless as I am in this matter, but I'm telling you, that girl had better stop testing my patience."
+    anon "*Khem*! Sadly, nowadays we teachers are severely limited in the disciplinary measures we have at our disposal..."
+    anon "I know you are just as powerless as I am in this matter, but I'm telling you, that girl had better stop testing my patience."
 
     menu:
         m "..."
         "\"I'll take care of that little whore!\"":
             call sna_main("","snape_05")
-            who2 "...?!"
-            who2 "Albus..."
-            who2 "You are acting strange lately..."
+            anon "...?!"
+            anon "Albus..."
+            anon "You are acting strange lately..."
         "\"Nobody ever said this job would be easy.\"":
             call sna_main("","snape_06")
-            who2 "Sometimes I feel like I would rather deal with a classroom full of Dementors..."
+            anon "Sometimes I feel like I would rather deal with a classroom full of Dementors..."
         "\"You will feel better tomorrow.\"":
             call sna_main("","snape_06")
-            who2 "You are probably right..."
+            anon "You are probably right..."
 
-    who2 "*Hmm*..."
+    anon "*Hmm*..."
     call sna_main("","snape_06")
-    who2 "Perhaps I'd better go get some sleep."
-    who2 "I need to be in my top shape every morning..."
-    who2 "You can't show weakness to those brats or they will swallow you whole..."
+    anon "Perhaps I'd better go get some sleep."
+    anon "I need to be in my top shape every morning..."
+    anon "You can't show weakness to those brats or they will swallow you whole..."
     call sna_main("","snape_24")
-    who2 "Good night, Albus."
+    anon "Good night, Albus."
 
     call sna_walk("door", "base")
     pause.2
 
-    who2 "................."
+    anon "................."
 
     call sna_chibi("stand","door","base",flip=False)
     with d3
     pause.2
 
-    who2 "One more thing..."
+    anon "One more thing..."
     show screen bld1
     show screen snape_main
     with d3
-    who2 "You should ignore any lies you hear about me and those slytherin girls..."
+    anon "You should ignore any lies you hear about me and those slytherin girls..."
     hide screen snape_main
     with d3
     m "Got it."
@@ -230,68 +230,68 @@ label snape_intro_E3:
     call sna_main("","snape_01",xpos="base",ypos="base")
     call ctc
 
-    who2 "Good evening, Albus."
-    who2 "I want to talk to you about those damn brats again..."
-    who2 "But first I want to ask you something..."
+    anon "Good evening, Albus."
+    anon "I want to talk to you about those damn brats again..."
+    anon "But first I want to ask you something..."
     call sna_main("","snape_05")
-    who2 "Have you noticed anything strange going on around here lately?"
+    anon "Have you noticed anything strange going on around here lately?"
 
     menu:
         m "..."
         "{size=-2}\"Like you being especially whiny?\"{/size}":
-            who2 "What? B-but..."
+            anon "What? B-but..."
             call sna_main("","snape_06")
-            who2 "Well, perhaps you are right..."
+            anon "Well, perhaps you are right..."
         "{size=-2}\"That owl is fetching my mail, man!\"{/size}" if owl_away_counter != 0:
-            who2 "An owl? What about it?"
+            anon "An owl? What about it?"
             call sna_main("","snape_25")
-            who2 "That's not what I mean..."
+            anon "That's not what I mean..."
             call sna_main("","snape_29")
-            who2 "Well, never mind..."
+            anon "Well, never mind..."
         "{size=-2}\"No, not really. It's just business as usual.\"{/size}":
-            who2 "*Hmm*... Maybe I'm just being paranoid..."
+            anon "*Hmm*... Maybe I'm just being paranoid..."
 
     call sna_main("","snape_24")
-    who2 "The reason why I'm here today is the \"Potter Gang\"."
+    anon "The reason why I'm here today is the \"Potter Gang\"."
     call sna_main("","snape_01")
-    who2 "There are only so many points I can subtract from the Gryffindor house, you know..."
-    who2 "And the Granger girl became the worst of them lately..."
+    anon "There are only so many points I can subtract from the Gryffindor house, you know..."
+    anon "And the Granger girl became the worst of them lately..."
     call sna_main("","snape_06")
-    who2 "She practically leads the onslaught."
+    anon "She practically leads the onslaught."
     call sna_main("","snape_05")
-    who2 "Speaking of which, has she been sending you any letters lately?"
+    anon "Speaking of which, has she been sending you any letters lately?"
 
     menu:
         m "..."
         "\"Hermione Granger? No, Nothing from her.\"":
-            who2 "I see... So she's been bluffing then."
+            anon "I see... So she's been bluffing then."
             call sna_main("","snape_16")
-            who2 "What an annoying witch."
+            anon "What an annoying witch."
         "\"Yes... Every damn day...\"" if letter_hg_2.read:
-            who2 "Really now?"
-            who2 "Any lies about me in particular?"
-            who2 "I hope you know better than to listen to the likes of her..."
+            anon "Really now?"
+            anon "Any lies about me in particular?"
+            anon "I hope you know better than to listen to the likes of her..."
 
     call sna_main("","snape_03")
-    who2 "She would never admit it, but I know she's been spreading those nasty rumours about me around the school..."
+    anon "She would never admit it, but I know she's been spreading those nasty rumours about me around the school..."
     call sna_main("","snape_29")
-    who2 "*Tsk*... Noisy little...... witch."
+    anon "*Tsk*... Noisy little...... witch."
     call sna_main("","snape_09")
-    who2 "I would never stoop so low as to trade house points in exchange for sexual favours..."
-    who2 "I mean, sure, we use house points to motivate students, but that's completely different..."
-    who2 "I can't speak for the rest of the staff though..."
+    anon "I would never stoop so low as to trade house points in exchange for sexual favours..."
+    anon "I mean, sure, we use house points to motivate students, but that's completely different..."
+    anon "I can't speak for the rest of the staff though..."
     call sna_main("","snape_13")
-    who2 "The stories I hear about Minerva McGonagall and those poor Gryffindor freshmen may be true..."
+    anon "The stories I hear about Minerva McGonagall and those poor Gryffindor freshmen may be true..."
     call sna_main("","snape_01")
-    who2 "Well, I just wanted to make sure that you take those rumours about me for what they are..."
-    who2 "Nasty lies made up by a bunch of spoiled--"
+    anon "Well, I just wanted to make sure that you take those rumours about me for what they are..."
+    anon "Nasty lies made up by a bunch of spoiled--"
 
-    who2 "Oh.... Before I go..."
-    who2 "There is one thing I meant to ask you for a while now..."
+    anon "Oh.... Before I go..."
+    anon "There is one thing I meant to ask you for a while now..."
     call sna_main("","snape_09")
-    who2 "........................."
+    anon "........................."
     call sna_main("","snape_05")
-    who2 "What is my name?"
+    anon "What is my name?"
 
     $ d_points = 0
     $ d_flag_01 = False
@@ -302,33 +302,33 @@ label snape_intro_E3:
         m "..."
         "\"What? What kind of question is that?\"":
             call sna_main("","snape_06")
-            who2 "You are right..."
-            who2 "Forgive me... I'm just being paranoid I suppose..."
+            anon "You are right..."
+            anon "Forgive me... I'm just being paranoid I suppose..."
             call sna_main("","snape_05")
-            who2 "But you can never be too cautious with rumours about  \"you know who\" still being alive and all..."
+            anon "But you can never be too cautious with rumours about  \"you know who\" still being alive and all..."
         "\"Tall broody guy?\"":
             call sna_main("","snape_06")
-            who2 "Albus, lately you adopted a peculiar sense of humour, that I do not care for in a slightest..."
-            who2 "Maybe you should spend a little less time in the company of that big oaf Hagrid."
+            anon "Albus, lately you adopted a peculiar sense of humour, that I do not care for in a slightest..."
+            anon "Maybe you should spend a little less time in the company of that big oaf Hagrid."
         "-Use magic to get the right answer-":
             $ d_flag_01 = True
             hide screen snape_main
             with d3
             call nar(">You use your phenomenal cosmic powers to peek into the very fabric of the universe and get the correct answer.")
             call sna_main("","snape_03")
-            who2 "!!?"
+            anon "!!?"
             m "What kind of question is this, Severus?"
-            who2 "Forgive me... I'm just being paranoid I suppose..."
+            anon "Forgive me... I'm just being paranoid I suppose..."
 
     call sna_main("","snape_06")
-    who2 "Well, good night, Albus."
+    anon "Well, good night, Albus."
 
     call sna_walk("door", "base")
     pause.2
 
     stop music fadeout 1.0
     call bld
-    who2 "........................"
+    anon "........................"
 
     # Hide Snape chibi and fade to black
     hide screen snape_chibi

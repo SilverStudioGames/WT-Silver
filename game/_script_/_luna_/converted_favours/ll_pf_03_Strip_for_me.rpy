@@ -23,12 +23,12 @@ label luna_favour_3:
     if lun_whoring < 8:
         if lun_sub > lun_dom:
             if lun_whoring == 6: # First time
-                m "Have you ever been naked in front of another person [lun_name]?"
+                m "Have you ever been naked in front of another person [luna_name]?"
                 call lun_main("What?","normal","base","sad","down")
                 call lun_main("Well... um... not really, I suppose.","normal","base","sad","R")
                 m "Well then there's a first time for everything!"
             else:
-                m "How would you like to step out of those restrictive clothes, [lun_name]?"
+                m "How would you like to step out of those restrictive clothes, [luna_name]?"
                 call lun_main("...","normal","base","sad","down")
                 call lun_main("Well... {size=-3}they're{/size} {size=-4}not{/size} {size=-5}really{/size} {size=-6}that{/size} {size=-7}restrictive.{/size}","normal","base","sad","R")
                 m "..."
@@ -38,10 +38,10 @@ label luna_favour_3:
             call lun_walk("desk")
             call lun_main("...","upset","base","sad","R", xpos=270)
         else:
-            m "You don't mind taking some of your clothes off, do you [lun_name]?"
+            m "You don't mind taking some of your clothes off, do you [luna_name]?"
             call lun_main("I suppose not...","normal","base","angry","R")
             call lun_main("So long as you're prepared to show some {i}appreciation...{/i}","normal","angry","angry","mid")
-            m "Yes, [lun_name]..."
+            m "Yes, [luna_name]..."
             call lun_main("... pervert...","normal","angry","angry","R")
             hide screen luna_main
             with d3
@@ -91,7 +91,7 @@ label luna_favour_3:
             "\"Take off your shirt.\"" if lun_sub > lun_dom:
                 $ luna_choice = 2
                 call lun_main("my shirt?","normal","angry","sad","mid")
-                m "Did I stutter, [lun_name]?"
+                m "Did I stutter, [luna_name]?"
                 call lun_main("no...","normal","mad","sad","R")
                 m "Well, why don't you take it off then so we can take a look..."
                 call lun_main("...","upset","suspicious","sad","down")
@@ -132,7 +132,7 @@ label luna_favour_3:
                 call lun_main("...","base","seductive","base","R")
                 call lun_main("......","base","mad","angry","R")
                 call lun_main("well, seeing as how you said the magic word, I suppose it's only fair...","base","suspicious","base","R")
-                m "thank you, [lun_name]."
+                m "thank you, [luna_name]."
                 call lun_main("(Who'd have thought it'd be this easy...)","base","angry","base","R")
                 call lun_main("close your eyes...","normal","mad","angry","mid")
                 hide screen luna_main
@@ -144,7 +144,7 @@ label luna_favour_3:
                 ">you can hear the soft ruffle of clothes being removed..."
                 ">You hear her softly place her shirt and vest on the table..."
                 m "..."
-                m "Can I open my eyes yet, [lun_name]?"
+                m "Can I open my eyes yet, [luna_name]?"
                 lun "just a second..."
                 lun "Alright, go ahead."
                 show screen luna_main
@@ -152,12 +152,12 @@ label luna_favour_3:
                 with d3
                 call ctc
 
-            "\"Please take off your skirt [lun_name]...\"" if lun_dom >= 5:
+            "\"Please take off your skirt [luna_name]...\"" if lun_dom >= 5:
                 $ luna_choice = 4
                 call lun_main("...","base","seductive","base","R")
                 call lun_main("......","base","mad","angry","R")
                 call lun_main("well seeing as how you said the magic word I suppose it's only fair...","base","suspicious","base","R")
-                m "thank you, [lun_name]."
+                m "thank you, [luna_name]."
                 call lun_main("(Who'd have thought it'd be the easy...)","base","angry","base","R")
                 call lun_main("well... close your eyes...","normal","angry","angry","mid")
                 hide screen luna_main
@@ -169,7 +169,7 @@ label luna_favour_3:
                 ">you can hear the soft ruffle of clothes and zips..."
                 ">You hear her softly place her skirt on the table..."
                 m "..."
-                m "Can I open my eyes yet, [lun_name]?"
+                m "Can I open my eyes yet, [luna_name]?"
                 lun "just a second..."
                 lun "Alright, go ahead."
                 show screen luna_main
@@ -183,9 +183,9 @@ label luna_favour_3:
             m "Good... now your underwear..."
             call lun_main("!!!","normal","wide","sad","mid")
             call lun_main("You're not serious are you?","normal","angry","sad","R")
-            m "I am. And I expect you to do it now, [lun_name]."
+            m "I am. And I expect you to do it now, [luna_name]."
             call lun_main("[lun_genie_name]!","upset","mad","mad","mid")
-            m "don't you raise your voice at me, [lun_name]!"
+            m "don't you raise your voice at me, [luna_name]!"
             call lun_main(".....!!?","normal","angry","sad","R")
             m "Nobody is forcing you to do this."
             call lun_main("but--","normal","seductive","sad","R")
@@ -199,13 +199,13 @@ label luna_favour_3:
             menu:
                 "-Make her strip-" if luna_choice == 1:
                     $ current_payout = 40
-                    m "Take off your underwear now, [lun_name]..."
+                    m "Take off your underwear now, [luna_name]..."
                     call lun_main("{size=-5}(Should I really do this?){/size}","normal","suspicious","sad","down",tears="soft")
                     call lun_main("[lun_genie_name] I don't know about this... ","normal","mad","sad","mid",tears="soft")
                     if daytime:
-                        m "Come on, [lun_name], just a little peek and then you'll be off to class."
+                        m "Come on, [luna_name], just a little peek and then you'll be off to class."
                     else:
-                        m "Come on, [lun_name], just a little peek and then you'll be off to bed."
+                        m "Come on, [luna_name], just a little peek and then you'll be off to bed."
                     call lun_main("Alright, [lun_genie_name]... ","normal","suspicious","sad","down",tears="soft")
                     call lun_main("(Stripping for the headmaster...)","normal","suspicious","sad","R",tears="soft")
                     call lun_main("(imagine if daddy found out...)","normal","suspicious","sad","down",tears="soft")
@@ -221,7 +221,7 @@ label luna_favour_3:
                     hide screen blkfade
                     with d3
 
-                    m "*Mmmm*, very nice, [lun_name]."
+                    m "*Mmmm*, very nice, [luna_name]."
                     m "Now for your panties..."
                     call lun_main("yes, [lun_genie_name]... ","upset","mad","sad","R",tears="crying")
                     hide screen luna_main
@@ -258,7 +258,7 @@ label luna_favour_3:
                     with d3
                     call ctc
 
-                    m "Is this better, [lun_name]?"
+                    m "Is this better, [luna_name]?"
                     call lun_main("{size=-3}I suppose so...{/size}","upset","suspicious","sad","down",tears="soft")
                     m "Well, if it makes you happy..."
                     ">You start stroking faster."
@@ -308,7 +308,7 @@ label luna_favour_3:
                     with d3
 
                     call lun_main("......","normal","angry","sad","mid",tears="mascara")
-                    m "*Ah*... you did good, [lun_name]..."
+                    m "*Ah*... you did good, [luna_name]..."
 
             hide screen luna_main
             show screen blkfade
@@ -320,7 +320,7 @@ label luna_favour_3:
             hide screen blkfade
 
             call lun_main("I think I'd like to leave now, [lun_genie_name]...","normal","angry","sad","down",xpos="base",ypos="base",trans=fade)
-            m "You're free to leave whenever you like, [lun_name]."
+            m "You're free to leave whenever you like, [luna_name]."
             call lun_main("Well I'm certainly not leaving until you pay me!","upset","suspicious","angry","mid")
 
         else:
@@ -362,7 +362,7 @@ label luna_favour_3:
             ">you can hear the soft ruffle of clothes being taken off..."
             ">You feel something light get thrown against your chest..."
             m "???"
-            m "Can I open my eyes yet, [lun_name]?"
+            m "Can I open my eyes yet, [luna_name]?"
             lun "Go ahead, [lun_genie_name]..."
             hide screen blkfade
             call lun_main("","base","suspicious","sad","R")
@@ -380,7 +380,7 @@ label luna_favour_3:
             #else:
                 #call lun_main("if you're a good boy, I might even let you shoot it all over my panties...","base","mad","angry","R")
 
-            g9 "Yes, [lun_name]!"
+            g9 "Yes, [luna_name]!"
             call lun_main("I bet you'd love that wouldn't you?","base","angry","angry","mid")
             m "yes..."
             call lun_main("Shooting your filthy old cum all over my underwear...","base","mad","sad","down")
@@ -456,7 +456,7 @@ label luna_favour_3:
             m "ah... Thank you..."
             call lun_main("Thank you...?","upset","suspicious","raised","mid")
             m "Thank you princess..."
-            $ lun_name = "Princess"
+            $ luna_name = "Princess"
             call lun_main("*hmph*","normal","suspicious","angry","R")
             call lun_main("Well seeing as how you've... finished... I suppose I better get dressed.","normal","angry","angry","R")
 
@@ -497,12 +497,12 @@ label luna_favour_3:
             call lun_main("Three hundred gold sounds fair to me... {w=0.5}how about you?","base","suspicious","angry","mid")
             m "It sounds... fair..."
             call lun_main("I'm glad we could come to an agreement.","base","mad","sad","R")
-            m "yes, [lun_name]..."
+            m "yes, [luna_name]..."
             call lun_main("Good boy... now, speaking of payment...","normal","suspicious","angry","mid")
 
     else: ###THIRD TIME EVENT IS RUN
         if lun_sub > lun_dom :
-            m "You don't mind taking your clothes off again, do you, [lun_name]?"
+            m "You don't mind taking your clothes off again, do you, [luna_name]?"
             call lun_main("...","normal","base","sad","R")
             call lun_main("Well... {size=-3}I {size=-4}mean {size=-2}I {size=-2}do {size=-2}mind.","normal","base","sad","down")
             m "..."
@@ -518,7 +518,7 @@ label luna_favour_3:
             call lun_main("...","normal","base","angry","R")
             m "--Could you please take your clothes off?"
             call lun_main("*hmph* {w=0.5}Well, seeing as how you seemed to have learned some manners.","normal","angry","angry","mid")
-            m "yes, [lun_name]..."
+            m "yes, [luna_name]..."
             call lun_main("I suppose there's no harm in it...","base","seductive","angry","R")
             hide screen luna_main
             with d3
@@ -552,7 +552,7 @@ label luna_favour_3:
                 m "Not quite..."
                 call lun_main("(Surely he doesn't want me to take off my panties?)","upset","suspicious","angry","R")
                 call lun_main("[lun_genie_name] please...","normal","angry","sad","mid")
-                m "Now now, [lun_name], a deal's a deal..."
+                m "Now now, [luna_name], a deal's a deal..."
                 call lun_main("...","upset","suspicious","sad","R")
                 call lun_main("At least close your eyes...","normal","angry","sad","mid",tears="soft")
                 m "As you wi-- command..."
@@ -582,7 +582,7 @@ label luna_favour_3:
             "\"Take off your shirt.\"" if lun_sub > lun_dom:
                 $ luna_choice = 2
                 call lun_main("my shirt?","normal","angry","sad","mid")
-                m "That's not too much is it, [lun_name]?"
+                m "That's not too much is it, [luna_name]?"
                 call lun_main("no...","normal","mad","sad","R")
                 m "..."
                 call lun_main("...","upset","suspicious","sad","down")
@@ -603,7 +603,7 @@ label luna_favour_3:
                 call lun_main("There... is that all, [lun_genie_name]?","normal","suspicious","sad","mid")
                 m "Almost... take off your bra next."
                 call lun_main("[lun_genie_name], I really don't--","normal","angry","sad","R")
-                m "[lun_name]..."
+                m "[luna_name]..."
                 call lun_main("...{w=0.5} fine...","base","angry","sad","R")
                 call lun_main("But you have to close your eyes.","normal","angry","sad","mid")
                 m "done."
@@ -630,7 +630,7 @@ label luna_favour_3:
                 call lun_main("...","base","seductive","base","R")
                 call lun_main("......","base","mad","angry","R")
                 call lun_main("well seeing as how you asked so {i}nicely{/i}...","base","suspicious","base","mid")
-                m "thank you, [lun_name]."
+                m "thank you, [luna_name]."
                 call lun_main("(I can't believe people think that this is the greatest wizard ever...)","base","angry","base","R")
                 call lun_main("close your eyes...","base","mad","angry","mid")
                 hide screen luna_main
@@ -644,7 +644,7 @@ label luna_favour_3:
                 #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes being removed..."
                 m "..."
-                m "Can I open my eyes yet, [lun_name]?"
+                m "Can I open my eyes yet, [luna_name]?"
                 lun "you can open then when I tell you..."
                 ">You hear her softly place something on the table..."
                 lun "..."
@@ -654,12 +654,12 @@ label luna_favour_3:
                 hide screen blkfade
                 with d3
 
-            "\"Please take off your skirt, [lun_name]...\"" if lun_dom >= 5:
+            "\"Please take off your skirt, [luna_name]...\"" if lun_dom >= 5:
                 $ luna_choice = 4
                 call lun_main("...","base","seductive","base","R")
                 call lun_main("......","base","mad","angry","R")
                 call lun_main("well seeing as how you said the magic word I suppose it's only fair...","base","suspicious","base","mid")
-                m "thank you, [lun_name]."
+                m "thank you, [luna_name]."
                 call lun_main("(I've got him wrapped around my finger...)","base","angry","base","R")
                 call lun_main("well... close your eyes...","normal","angry","angry","mid")
                 hide screen luna_main
@@ -673,7 +673,7 @@ label luna_favour_3:
                 #call update_lun_uniform
                 ">you can hear the soft ruffle of clothes and zips..."
                 m "..."
-                m "Can I open my eyes yet, [lun_name]?"
+                m "Can I open my eyes yet, [luna_name]?"
                 lun "wait..."
                 m "..."
                 ">You hear her softly place something on the table..."
@@ -686,7 +686,7 @@ label luna_favour_3:
             if lun_sub <= 6:
                 $ lun_sub += 1
 
-            m "I am, and I expect you to do it now, [lun_name]."
+            m "I am, and I expect you to do it now, [luna_name]."
             call lun_main("[lun_genie_name]... please...","normal","seductive","sad","mid",tears="soft")
             m "*Hmmm*... well, seeing as how I'm in a generous mood, how about we make another deal?"
             call lun_main("...","normal","angry","sad","R",tears="soft")
@@ -726,7 +726,7 @@ label luna_favour_3:
             with d3
 
             call lun_main("......","normal","mad","sad","down",xpos="mid",ypos="base")
-            g9 "looking good, [lun_name]!"
+            g9 "looking good, [luna_name]!"
             g9 "So good, in fact, that I think I need a closer look!"
             hide screen luna_main
             show screen blkfade
@@ -748,7 +748,7 @@ label luna_favour_3:
             menu:
                 "-Grab her tits-":
                     $ current_payout = 40
-                    m "Come closer, [lun_name]."
+                    m "Come closer, [luna_name]."
                     call lun_main("Okay...","normal","mad","sad","R")
 
                     show screen blkfade
@@ -761,13 +761,13 @@ label luna_favour_3:
 
                     call lun_main("!!!","upset","wide","mad","mid")
                     ">YOu start gently kneading her breasts."
-                    m "*Mmmm*... that's it, [lun_name]..."
+                    m "*Mmmm*... that's it, [luna_name]..."
                     call lun_main("{size=-5}(What is he doing?){/size}","normal","suspicious","sad","R")
                     call lun_main("[lun_genie_name], you really have to stop... ","upset","mad","sad","mid")
                     if daytime:
-                        m "Come on, [lun_name], just a little more, then you'll be off to class."
+                        m "Come on, [luna_name], just a little more, then you'll be off to class."
                     else:
-                        m "Come on, [lun_name], just a little more, then you'll be off to bed."
+                        m "Come on, [luna_name], just a little more, then you'll be off to bed."
                     call lun_main("[lun_genie_name]... no...","normal","suspicious","sad","down",tears="crying")
                     call lun_main("(I should stop him...)","normal","suspicious","sad","R",tears="crying")
                     call lun_main("(before he gets too excited...)","normal","suspicious","sad","down",tears="crying")
@@ -811,7 +811,7 @@ label luna_favour_3:
                     call lun_main("(I can't just let him...)","upset","suspicious","sad","down")
                     m "Yes... Ah, yes, this is good..."
                     call lun_main("sir... please... don't...","upset","suspicious","sad","down",tears="crying")
-                    m "I said \"*shhhh*\", [lun_name]..."
+                    m "I said \"*shhhh*\", [luna_name]..."
                     call lun_main("Sir... I-I'll leave if y-you don't stop...","upset","suspicious","sad","R",tears="crying")
                     m "If you leave, you can say goodbye to the {i}Squibbler{/i}, or whatever it's called."
                     call lun_main("(I can't do that to daddy...)","upset","angry","sad","down",tears="crying")
@@ -823,7 +823,7 @@ label luna_favour_3:
                     ">Luna tosses her hair over her shoulder in frustration."
                     call lun_main("You're disgusting...","normal","angry","mad","down",tears="crying")
                     ">You keep on wanking while you gaze at Luna's milky tits..."
-                    m "*mmmm*... that's it, [lun_name]..."
+                    m "*mmmm*... that's it, [luna_name]..."
                     call lun_main("*hmph*... just hurry up and get it over with, [lun_genie_name]...","upset","suspicious","sad","down",tears="mascara")
                     call lun_main("I'm sick of looking at that... thing...","normal","angry","sad","R",tears="mascara")
                     m "{size=-4}ah...{/size}"
@@ -861,7 +861,7 @@ label luna_favour_3:
                     with d3
 
                     call lun_main("......","normal","angry","sad","mid",tears="mascara")
-                    m "*Ah*... you did good, [lun_name]..."
+                    m "*Ah*... you did good, [luna_name]..."
 
             hide screen luna_main
             show screen blkfade
@@ -880,7 +880,7 @@ label luna_favour_3:
             hide screen blkfade
 
             call lun_main("I think I'd like to leave now, [lun_genie_name]...","normal","angry","sad","down")
-            m "You're free to leave whenever you like, [lun_name]."
+            m "You're free to leave whenever you like, [luna_name]."
             call lun_main("Well I'm certainly not leaving until you pay me!","upset","suspicious","angry","mid")
 
 
@@ -1098,14 +1098,14 @@ label luna_favour_3:
                 call lun_main("Now forget about that, let's discuss payment. A hundred gold sounds fair to me... {w=0.5}how about you?","base","suspicious","angry","mid")
                 m "It sounds fair..."
                 call lun_main("I'm glad we could have a happy ending.","base","mad","sad","R")
-                m "yes, [lun_name]..."
+                m "yes, [luna_name]..."
                 call lun_main("Good boy... now, speaking of payment...","normal","suspicious","angry","mid")
 
     hide screen bld1
     if lun_dom >= lun_sub:
         m "Alright, alright. Here's your gold."
     else:
-        m "well then, Here's your payment, [lun_name]."
+        m "well then, Here's your payment, [luna_name]."
     $ gold -= current_payout
     $ luna_gold += current_payout
     $ renpy.play("sounds/coins.mp3")

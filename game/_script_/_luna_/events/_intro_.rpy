@@ -2,23 +2,23 @@
 # The Sorting Hat makes himself (and his intentions) known
 label hat_intro:
     $ hat_known = True
-    who2 "Hey."
+    anon "Hey."
     m "What? who said that?"
     menu:
         "-Look behind you-":
             ">You turn around and look in the general direction of the voice."
             m "There's no one there..."
-            who2 "..."
-            who2 "You're looking straight at me Dumbledore."
+            anon "..."
+            anon "You're looking straight at me Dumbledore."
 
         "-Look under the desk-":
             ">You take a quick look under your desk."
             m "There's no one there..."
-            who2 "......"
-            who2 "Behind you."
+            anon "......"
+            anon "Behind you."
             ">You turn around."
             g4 "Who's there?! {w=0.5} Show yourself!"
-            who2 "You're looking straight at me Dumbledore."
+            anon "You're looking straight at me Dumbledore."
 
     hat "Or should I say {i}Genie{/i}."
     g4 "(The hat is talking!)"
@@ -233,7 +233,7 @@ label luna_reverted_greeting_1:
     call update_luna
 
     # Reset names
-    $ reset_variables("lun_genie_name", "lun_name")
+    $ reset_variables("lun_genie_name", "luna_name")
 
     # Start the event
     call play_sound("knocking")
@@ -255,7 +255,7 @@ label luna_reverted_greeting_1:
     pause.5
 
     call lun_main("Hello...","base","base","sad","mid",xpos="mid",ypos="base")
-    m "Hello, [lun_name]."
+    m "Hello, [luna_name]."
 
     $ luna_l_arm = 1
     $ luna_r_arm = 1
@@ -280,7 +280,7 @@ label luna_reverted_greeting_1:
             $ luna_l_arm = 1
             m "I see... (This bitch really is crazy!)"
             m "(Maybe the hat did some good for her...)"
-            m "Well, [lun_name], what can we do about it?"
+            m "Well, [luna_name], what can we do about it?"
             call lun_main("I'm not sure, professor... Normally, thinking positive thoughts is enough to remove them, but I am having trouble with these. If my father, Xenophilius--","normal","angry","sad","R")
             g4 "Did you just cast a spell on me?!"
             $ luna_l_arm = 2
@@ -296,10 +296,10 @@ label luna_reverted_greeting_1:
             call lun_main("(A Secret spell?) Sir, your magic is the strongest there is and these wrackspurts are really getting to me.","upset","mad","sad","R")
             m "I see... do go on."
 
-        "\"I am afraid I can't help you [lun_name].\"":
+        "\"I am afraid I can't help you [luna_name].\"":
             call lun_main("Oh please, Sir! You're the only one powerful enough to help.","open","wide","sad","mid")
             ">You can see Luna is rocking her pelvis as if grinding the air."
-            m "[lun_name], I am afraid I don't know what a wrackspurt is, let alone how to cure it."
+            m "[luna_name], I am afraid I don't know what a wrackspurt is, let alone how to cure it."
             call lun_main("Well, professor, wrackspurts are detailed on page six of \"the Quibbler\"! Here!","normal","base","sad","mid")
             ">Luna hands you an issue of \"the Quibbler\"."
             m "*Hmmm*... \"Rotfang conspiracy... Three hundred ways to tie up a ghost...\" Ah! Wrackspurts..."
@@ -321,14 +321,14 @@ label luna_reverted_greeting_1:
 
     call lun_main("Yes, Sir, they're proving to be quite a pain.","normal","closed","sad","mid")
     ">You watch Luna, who is visibly rubbing her thighs together."
-    m "(Is she really?... *Ohhh*){w=0.5} [lun_name], how exactly do these {i}wickspurts{/i} make you feel?"
+    m "(Is she really?... *Ohhh*){w=0.5} [luna_name], how exactly do these {i}wickspurts{/i} make you feel?"
     call lun_main("They're Just like \"the Quibbler\" says sir, except...","normal","seductive","sad","R")
     m "Go on..."
     call lun_main("Well, it's not my brain they're making fuzzy.","soft","seductive","sad","down")
-    m "Where exactly is fuzzy, [lun_name]?"
+    m "Where exactly is fuzzy, [luna_name]?"
     call lun_main("*Umm*... I'm not sure if I can say...","normal","seductive","sad","R")
     m "(YES!)"
-    m "Now now, [lun_name], as your headmaster there shouldn't be anything that you can't discuss with me."
+    m "Now now, [luna_name], as your headmaster there shouldn't be anything that you can't discuss with me."
     call lun_main("Well, okay...","base","seductive","sad","down")
     call lun_main("the fuzziness is between my legs, sir...","base","seductive","sad","mid")
     m "Really? That seems quite strange..."
@@ -353,7 +353,7 @@ label luna_reverted_greeting_1:
     call lun_main("I can't wait!","base","seductive","sad","mid")
     call lun_main("Do you think you could possibly stop the nargles stealing my shoes as well?","base","base","sad","down")
     m "(The hell is a nargle?!)"
-    m "One step at a time, [lun_name]."
+    m "One step at a time, [luna_name]."
     call lun_main("Yes, you're right... the nargles wouldn't like it if we were multitasking...","normal","closed","sad","mid")
     m "..."
     call lun_main("Well, I'd best be off... goodbye professor!","base","happyCl","base","mid")

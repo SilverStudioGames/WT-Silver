@@ -96,11 +96,11 @@ label a_christmas_tale:
 
     show screen bld1
     with d3
-    san_[1] "Oh hello there my friend."
+    san1 "Oh hello there my friend."
     nar "Said the figure at last."
-    san_[1] "I thought you might be here, but where's that genie?"
+    san1 "I thought you might be here, but where's that genie?"
     call sna_main("...",face="snape_25")
-    san_[1] "Blast..."
+    san1 "Blast..."
 
     call sna_main("Genie...",face="snape_24")
     nar "Said the teacher."
@@ -108,16 +108,16 @@ label a_christmas_tale:
     call sna_main("Have you been drinking again?",face="snape_25")
     call sna_main("And I don't mean drinking tea.",face="snape_29")
 
-    san_[1] "I don't know what you mean."
+    san1 "I don't know what you mean."
     nar "Said the large bearded man..."
-    san_[2] "I'm santa of course."
-    san_[2] "I bring presents..."
-    san_[2] "That's the plan!"
+    san2 "I'm santa of course."
+    san2 "I bring presents..."
+    san2 "That's the plan!"
     pause.8
 
     nar "After silence and confusion then Severus said..."
     call sna_main("Well, just get it over with so I can go back to bed.",face="snape_09")
-    san_[1] "Now boy where's your spirit, it's Christmas is it not?"
+    san1 "Now boy where's your spirit, it's Christmas is it not?"
     call sna_main("Now genie, look here...",face="snape_24")
     nar "But then he froze on the spot."
 
@@ -183,7 +183,7 @@ label a_christmas_tale:
     with d5
     pause.8
 
-    san_[4] "Happy Holidays."
+    san4 "Happy Holidays."
 
     if not card_exist(unlocked_cards, card_santa):
         if deck_unlocked:

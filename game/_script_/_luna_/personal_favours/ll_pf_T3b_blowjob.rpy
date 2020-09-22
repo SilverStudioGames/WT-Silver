@@ -192,7 +192,7 @@ label ll_pf_blowjob_T1_E3:
     # Luna regular BJ for about 5 hours with Luna masturbating the whole time
 
     call lun_main("","base","base","base","mid", xpos="mid", ypos="base", trans=fade)
-    m "[lun_name], would you like to help me with those nasty {i}wackspurts{/i} again?"
+    m "[luna_name], would you like to help me with those nasty {i}wackspurts{/i} again?"
     call lun_main("I'd love to, [lun_genie_name]!","base","happyCl","base","mid",cheeks="blush")
     m "..."
     m "You're not going to paralyse me again are you?"

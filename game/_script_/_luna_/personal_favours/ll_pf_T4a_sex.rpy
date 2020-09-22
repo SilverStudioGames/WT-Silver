@@ -29,7 +29,7 @@ label ll_pf_sex_T1_intro:
     call lun_main("I found a cure, [lun_genie_name]!","base","happyCl","base","mid")
     call lun_main("A way for both of us to get rid of our wrackspurts at once!","base","wide","base","mid")
     g9 "You don't say!"
-    m "[lun_name], you weren't the only one thinking of something ingenious to get rid of those nasty beasts!"
+    m "[luna_name], you weren't the only one thinking of something ingenious to get rid of those nasty beasts!"
     g9 "I could teach you a thing or two!{w} After you've shown me your suggestion..."
     call lun_main("That's very exciting, don't you think? We can finally get rid of this scourge once and for all!","base","happyCl","base","mid")
     call lun_main("Everyone deserves to hear about it!","base","happyCl","base","mid")
@@ -97,7 +97,7 @@ label ll_pf_sex_T1_E2:
     # Luna and Genie have sex in the office when someone walks in
     # This event should be repeatable to see all variations
 
-    m "How are you feeling today, [lun_name]?"
+    m "How are you feeling today, [luna_name]?"
     call lun_main("Happier now that I'm in here!","base","happyCl","base","mid")
     m "Fantastic... Now, would you be interested in expelling a few more wookspoons together?"
     call lun_main("{b}Together{/b}? You mean...","base","seductive","sad","mid", cheeks="blush")
@@ -135,7 +135,7 @@ label ll_pf_sex_T1_E2:
     lun "{size=-4}{heart}wow...{heart}{/size}"
     $ lunCG('base', 'angry', 'base', 'up')
     ">She starts grinding her hips against you immediately, desperate for as much stimulation as she can get."
-    m "Ugh... steady on there, [lun_name], we've only just started!"
+    m "Ugh... steady on there, [luna_name], we've only just started!"
     $ lunCG('open', 'seductive', 'sad', 'dl')
     lun "{heart}a-ah... I can't... [lun_genie_name]... it's just... too... {heart}{b}goood{/b}...{heart}"
     $ lunCG('open_tongue', 'furious', '', 'up')
@@ -370,7 +370,7 @@ label ll_pf_sex_T1_E3:
             lun "Ugh... so good..."
             $ lunCG('talk', 'tired', 'sad', 'right')
             lun "I wish we could just stay like this all day, {b}everyday{/b}..."
-            m "Careful what you wish for, [lun_name]..."
+            m "Careful what you wish for, [luna_name]..."
             $ lunCG('base', 'wink', 'raised', 'dl')
             lun "Mmmm, why?"
             $ lunCG('talk', 'wink', 'sad', 'dl')
@@ -542,7 +542,7 @@ label ll_pf_sex_T1_lake_sex: # Call label
     lun "{size=-5}{heart}wow...{heart}{/size}"
     $ lunCG(pupil='left', eye='seductive', mouth='open')
     ">Even before you're able to start fucking the girl at a steady pace, her hips start violently slamming against you."
-    m "Ugh... steady on there, [lun_name], we've only just started!"
+    m "Ugh... steady on there, [luna_name], we've only just started!"
     $ lunCG(pupil='dr', eye='furious', mouth='open')
     lun "{heart}a-ah...{w=0.3} I can't...{w=0.3} [lun_genie_name]...{w=0.3} it's just...{w=0.3} too... {heart}{b}goood{/b}...{heart}"
     $ lunCG(pupil='up', eye='furious', mouth='open_tongue', extra_1='speed')

@@ -51,10 +51,9 @@ label genie_house_elf:
     hide screen snape_main
     hide screen bld1
     nar "After a flash of light and a small pop, a house elf appeared in the corner of the room."
-    call helf_main(" ")
+    helf "..."
     g5 "What the hell is that?"
     nar "The genie said, jumping onto the desk as if things appearing out of thin air was new to him."
-    call helf_main(remove=True)
 
     call sna_main("That... is a house elf.","snape_01", xpos="base", ypos="base")
     m "A house... elf?"
@@ -69,10 +68,9 @@ label genie_house_elf:
     nar "The genie said sheepishly."
     hide screen snape_main
     hide screen bld1
-    call helf_main("No sir...")
+    helf "No sir..."
     nar "Said the elf, trying its hardest to bite his tongue, but failing."
-    call helf_main("I see it all, I clean it all... every... last... bit of it.")
-    call helf_main(remove=True)
+    helf "I see it all, I clean it all... every... last... bit of it."
     call sna_main("...","snape_08", xpos="base", ypos="base")
 
     nar "After a few moments Snape turned around, started walking towards the door and said."
@@ -83,9 +81,8 @@ label genie_house_elf:
     call sna_walk(action="leave")
 
     nar "The door shut and silence spread across the room, only interrupted after a few minutes by the house elf."
-    call helf_main("So, should I turn invisible again sir?")
+    helf "So, should I turn invisible again sir?"
     m "Yes... yes that would be for the best."
-    call helf_main(remove=True)
 
     call blkfade
 

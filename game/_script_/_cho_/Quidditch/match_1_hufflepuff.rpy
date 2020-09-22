@@ -186,7 +186,7 @@ label hufflepuff_match:
 
     # Sound check
     if get_volume_preference('music') < 0.1 or get_volume_preference('sfx') < 0.1:
-        sil "This section of the game is best played with the sound turned on. Go to preferences to set the volume."
+        nar "This section of the game is best played with the sound turned on. Go to preferences to set the volume."
 
     pause 1
 

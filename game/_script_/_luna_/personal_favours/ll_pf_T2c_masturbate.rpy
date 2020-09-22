@@ -291,7 +291,7 @@ label ll_pf_masturbate_T1_E2:
     call lun_main("Ah... I was hoping that I could... Um...","normal","seductive","sad","mid")
     call lun_main("I know you must be very busy with school management...","normal","wide","sad","mid")
     call lun_main("And I promise that I wouldn't ask unless it was of the utmost importance!","soft","base","sad","R")
-    m "Get on with it, [lun_name]."
+    m "Get on with it, [luna_name]."
     call lun_main("Can I... get some more wrackspurts out? Please?","normal","wink","sad","mid")
     m "*Hmmm*, again? so soon?"
     call lun_main("If you think that it's too much for you to handle, we could slow down a bit...","normal","seductive","sad","R")
@@ -322,7 +322,7 @@ label ll_pf_masturbate_T1_E3:
     # Luna masturbates for Genie and then he cums on her face
 
     call lun_main("","base","closed","angry","mid", xpos="mid", ypos="base")
-    m "[lun_name], are those wrackspurts still causing you--"
+    m "[luna_name], are those wrackspurts still causing you--"
 
     call lun_walk("desk")
 

@@ -11,7 +11,7 @@ label luna_reversion_event:
 
     if lun_sub > lun_dom:
         # Sub intro
-        m "[lun_name]..."
+        m "[luna_name]..."
         call lun_main("yes, [lun_genie_name]...","normal","suspicious","sad","down")
         m "Do you know what a handjob is?"
         call lun_main("What?","upset","base","mad","mid")
@@ -22,7 +22,7 @@ label luna_reversion_event:
 
     else:
         # Dom intro
-        m "[lun_name]?"
+        m "[luna_name]?"
         call lun_main("yes, [lun_genie_name]...","normal","base","angry","R")
         m "Do you happen to know what a handjob is?"
         call lun_main("...","normal","angry","angry","mid")
@@ -44,7 +44,7 @@ label luna_reversion_event:
             call lun_main("But that's where I draw the line, [lun_genie_name]!","upset","suspicious","mad","mid")
             m "*Hmmm*..., well alright then, I'm not going to force you into anything."
             call lun_main("Thank you...","upset","suspicious","sad","R")
-            m "That will be all for today, [lun_name], you may leave now."
+            m "That will be all for today, [luna_name], you may leave now."
             call lun_main("Alright, [lun_genie_name]...","normal","suspicious","sad","mid")
             call lun_main("(Good work finally standing up to him!)","base","happyCl","sad","R")
             ">Luna turns around to leave your office."
@@ -58,7 +58,7 @@ label luna_reversion_event:
             call lun_main("......","normal","suspicious","sad","down")
             call lun_main(".........","upset","seductive","sad","mid",tears="soft")
             call lun_main("{size=-5}Fine{/size}...","normal","seductive","sad","down")
-            m "What was that, [lun_name]?"
+            m "What was that, [luna_name]?"
             call lun_main("{size=+5}Fine!{/size} I'll jerk that disgusting, old, filthy, wrinkly old cock of yours!","clench","wide","sad","mid")
             m "Fantastic! Let me just stand up."
             call lun_main("You're despicable...","upset","mad","angry","mid")
@@ -166,7 +166,7 @@ label luna_revert_1:
     call gen_main("!!!", "grin", "hard", xpos=300, ypos=0)
     call lun_main("It's so big...","base","seductive","sad","down")
     call lun_main("(I can't even fit my hand around it.)","base","seductive","sad","R")
-    m "Why don't you try grabbing it with both hands, [lun_name]..."
+    m "Why don't you try grabbing it with both hands, [luna_name]..."
     call lun_main("Alright...","base","suspicious","sad","down")
     ">Luna slowly wraps both hands around your cock."
     m "*Mmmm*, that's it. Now start moving your hands back and forth."
@@ -174,13 +174,13 @@ label luna_revert_1:
     ">Luna starts moving her hands back and forth along the length of your cock."
     m "Yes, that's it..."
     call lun_main("...","base","suspicious","sad","down")
-    m "*Mmmm*, yes... not bad, [lun_name], have you been practising?"
+    m "*Mmmm*, yes... not bad, [luna_name], have you been practising?"
     call lun_main("What? Of course not!","normal","wide","angry","mid")
     m "well, I expect you to start practising from now on!"
     call lun_main("on what?","normal","angry","raised","mid")
     m "My cock, of course!"
     call lun_main("[lun_genie_name]!","clench","mad","angry","mid")
-    m "I'm kidding, [lun_name]."
+    m "I'm kidding, [luna_name]."
     call lun_main("oh...","soft","suspicious","sad","R")
     m "But I do expect you to improve..."
     call lun_main("Doesn't this feel good?...","pout","mad","raised","mid")
@@ -204,7 +204,7 @@ label luna_revert_1:
             call lun_chibi("stand")
             call lun_main("There...","normal","seductive","sad","mid")
             call lun_main("Is that enough, [lun_genie_name]?","upset","angry","angry","R")
-            m "Almost... hands back on the cock, [lun_name]..."
+            m "Almost... hands back on the cock, [luna_name]..."
             call lun_main("...","base","seductive","sad","down")
             ">Luna slowly wraps her hands back around your cock and starts pumping."
 
@@ -221,7 +221,7 @@ label luna_revert_1:
             call lun_main("What?","normal","wide","base","mid")
             m "Well if you go that fast the friction's a little painful"
             call lun_main("Really? I'll slow down then...","upset","suspicious","sad","down")
-            m "No need for that, [lun_name], a little spit should solve the problem."
+            m "No need for that, [luna_name], a little spit should solve the problem."
             call lun_main("...","normal","mad","angry","mid")
             call lun_main("You want me to spit on your cock?","upset","suspicious","sad","R")
             m "Just a little bit."
@@ -230,7 +230,7 @@ label luna_revert_1:
             call lun_main("*Ptew*","open_tongue","annoyed","sad","down")
             ">Luna spits into her hand before placing it back on your cock."
 
-    call gen_main("*Mmmm*... yes that's it, [lun_name]...","grin")
+    call gen_main("*Mmmm*... yes that's it, [luna_name]...","grin")
     call lun_main("...","base","seductive","base","mid")
     g9 "Just keep pumping those hands up and down."
     call lun_main("......","base","seductive","sad","R")
@@ -240,7 +240,7 @@ label luna_revert_1:
         call lun_main("(A little shake won't hurt...)","base","closed","base","down")
         ">Luna gently starts shaking her boobs as she jerks you off."
     else:
-        g9 "*Mmmm*, yes... how about a little more spit, [lun_name]?"
+        g9 "*Mmmm*, yes... how about a little more spit, [luna_name]?"
         g9 "Just to make sure everything is nice and lubricated..."
         call lun_main("...","base","seductive","base","R")
         call lun_main("Alright...","base","seductive","base","down")
@@ -255,10 +255,10 @@ label luna_revert_1:
             ">You place your hand on top of Luna's head and slowly try to force it down to your crotch."
             ">Her slender hands don't stop sliding up and down your length."
             call lun_main("[lun_genie_name]!!!","clench","wide","sad","mid")
-            g9  "*Shhh*, [lun_name], I'm just giving you a closer look."
+            g9  "*Shhh*, [luna_name], I'm just giving you a closer look."
             call lun_main("...","normal","mad","sad","down")
             call lun_main("{size=-5}please sir...{/size}","upset","seductive","sad","R",tears="crying")
-            g9  "What, [lun_name]?"
+            g9  "What, [luna_name]?"
             call lun_main("Please don't...","upset","suspicious","sad","down",tears="crying")
             g9  "*mmmm*..."
             call lun_main("cum on my--","upset","seductive","sad","down",tears="crying")
@@ -278,10 +278,10 @@ label luna_revert_1:
             ">You place your hand on Luna's shoulder."
             ">Her slender hands don't stop sliding up and down your length."
             call lun_main("[lun_genie_name]...","clench","wide","sad","mid")
-            g9  "*Shhh* [lun_name], just keep stroking."
+            g9  "*Shhh* [luna_name], just keep stroking."
             call lun_main("...","normal","mad","sad","down")
             call lun_main("{size=-5}please sir...{/size}","upset","seductive","sad","R",tears="crying")
-            g9  "what, [lun_name]?"
+            g9  "what, [luna_name]?"
             call lun_main("Please don't...","upset","suspicious","sad","down",tears="crying")
             g9  "*mmmm*"
             call lun_main("cum on me--","upset","seductive","sad","down",tears="crying")
@@ -524,13 +524,13 @@ label luna_revert_2:
     call lun_main("*Hmmph* At least it isn't small...","base","seductive","angry","mid")
     call lun_main("(I can't even fit my hand around it.)","base","seductive","mad","down")
     ">Luna slowly starts stroking your cock with her hand, her movements are rough and inexperienced."
-    m "Why don't you try grabbing it with both hands, [lun_name]..."
+    m "Why don't you try grabbing it with both hands, [luna_name]..."
     call lun_main("*Hmph*... you wish!","base","mad","angry","mid")
     m "..."
     ">Luna starts moving her hand back and forth along the length of your cock."
     m "Yes, that's it..."
     call lun_main("(Men really are the worst)","upset","suspicious","mad","down")
-    m "*Mmmm*, yes... just like that, [lun_name]..."
+    m "*Mmmm*, yes... just like that, [luna_name]..."
     call lun_main("Is this good, [lun_genie_name]?","soft","annoyed","sad","mid")
     m "yes, yes, this is amazing..."
     call lun_main("good...","base","suspicious","sad","mid")
@@ -549,7 +549,7 @@ label luna_revert_2:
             $ luna_choice = 1
             call lun_chibi("stand")
             call lun_main("There...","base","mad","sad","R")
-            m "Very nice, [lun_name]!"
+            m "Very nice, [luna_name]!"
             call lun_main("...","normal","angry","sad","mid")
             call lun_main("Thank you sir...","base","angry","sad","mid")
             ">She places her hands back around your cock."
@@ -578,7 +578,7 @@ label luna_revert_2:
             ">Luna doesn't slow down. If anything she speeds up slightly."
             g4 "Ah!"
             call lun_main("...","base","suspicious","mad","mid")
-            g4 "[lun_name]..."
+            g4 "[luna_name]..."
             call lun_main("*Hmmm*, do You want me to spit on your cock then?","base","seductive","raised","mid")
             g4 "Just a little bit..."
             call lun_main("...","base","seductive","angry","mid")
@@ -588,7 +588,7 @@ label luna_revert_2:
             call lun_main("*Ptew*","open_tongue","seductive","angry","downL")
             ">Luna spits into her hand before placing it back on your cock."
 
-    call gen_main("*Mmmm*, yes that's it, [lun_name]...","grin")
+    call gen_main("*Mmmm*, yes that's it, [luna_name]...","grin")
     call lun_main("...","base","angry","angry","mid")
     g9  "Just keep pumping that hand up and down."
     call lun_main("......","base","mad","mad","mid")
@@ -610,7 +610,7 @@ label luna_revert_2:
 
     call lun_main("[lun_genie_name]!!!","clench","angry","mad","mid")
     call lun_main("You're not trying to cum on me are you?","upset","mad","mad","mid")
-    g9  "Ah, [lun_name], I'm almost there."
+    g9  "Ah, [luna_name], I'm almost there."
     call lun_main("Well...","upset","suspicious","mad","mid")
     ##$ luna_wear_bottom = False
     call lun_chibi("stand")
@@ -917,7 +917,7 @@ label luna_revert_2:
             m "Huh, she's just like a Barbie doll!"
             call her_main("*hro-hessor*!","angry","wink","base","mid")
             ">You bend her over your desk with her face pointing towards Luna."
-            m "There, I trust you're still able to administer your punishment [lun_name]?"
+            m "There, I trust you're still able to administer your punishment [luna_name]?"
             call lun_main("*Mmmm*, I think so...","base","seductive","base","down")
             ">Luna walks over to hermione and presses her pussy back onto the girl's open tongue."
             call lun_main("Ah... {heart}","base","seductive","base","down")
@@ -1118,7 +1118,7 @@ label luna_revert_2:
     m "Oh... um I'd say about 250?"
     call lun_main("Fantastic!","base","happyCl","base","mid")
     m "..."
-    m "Here's your payment, [lun_name]."
+    m "Here's your payment, [luna_name]."
     $ gold -= 250
     $ luna_gold += 250
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -1177,7 +1177,7 @@ label luna_revert_2:
 
     call lun_main("There...","normal","angry","angry","R")
     call lun_main("Will that be all [lun_genie_name]?","base","suspicious","angry","mid")
-    m "That will do for now, [lun_name]."
+    m "That will do for now, [luna_name]."
     ">Luna turns to leave your office with Hermione still in a heap on the floor."
     call lun_main("See you next time...","base","suspicious","mad","mid")
 

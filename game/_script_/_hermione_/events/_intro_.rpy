@@ -33,8 +33,8 @@ label hermione_intro_E1:
         "\"Who is it?\"":
             $ d_flag_01 = True
             call bld
-            who "It's me, professor..."
-            who "Hermione Granger. Can I come in?"
+            femv "It's me, professor..."
+            femv "Hermione Granger. Can I come in?"
             m "{size=-4}(It's that wretched woman who's been harassing me with her letters lately...){/size}"
 
             menu:
@@ -52,15 +52,15 @@ label hermione_intro_E1:
             pass
         "\"Go away!\"":
             call bld
-            who "But, professor, I really need to talk to you..."
+            femv "But, professor, I really need to talk to you..."
             m "..........................................."
-            who "Professor? I'm coming in!"
+            femv "Professor? I'm coming in!"
             m "{size=-4}(Crap...){/size}"
         "\"................\"":
             call bld
-            who "Professor, are you there?"
+            femv "Professor, are you there?"
             m "{size=-4}(Go away...){/size}"
-            who "Professor, I really need to talk to you..."
+            femv "Professor, I really need to talk to you..."
             m "..........................................."
             her "Professor? I'm coming in!"
             m "{size=-4}(Crap...){/size}"

@@ -4,7 +4,7 @@ label luna_favour_6:
 
     if lun_whoring == 14: #first time
         $ lun_whoring += 1
-        m "I have a new favour for you to complete today, [lun_name]!"
+        m "I have a new favour for you to complete today, [luna_name]!"
         call lun_main("...","normal","angry","angry","mid")
         m "If it's not too much trouble."
         call lun_main("save your begging [lun_genie_name]... I'm fairly certain I know what you want.","base","seductive","angry","R")

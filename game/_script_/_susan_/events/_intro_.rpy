@@ -70,8 +70,8 @@ label susan_intro_E1:
     call bld
     "*knock-knock-knock*"
 
-    who "*Uhm*... Professor Dumbledore, Sir?"
-    who "May I come in?"
+    femv "*Uhm*... Professor Dumbledore, Sir?"
+    femv "May I come in?"
     m "Another girl?"
 
     $ d_flag_01 = False
@@ -80,7 +80,7 @@ label susan_intro_E1:
     menu:
         m "..."
         "\"Come on in.\"":
-            who "Thank you, Sir."
+            femv "Thank you, Sir."
 
         "\"Who's there?\"":
             $ d_flag_01 = True # Knows name.
@@ -99,7 +99,7 @@ label susan_intro_E1:
 
         "\"Not now.\"":
             $ d_flag_02 = True # Susan walks in anyway.
-            who "Okay, Sir."
+            femv "Okay, Sir."
 
     call sus_walk(action="enter", xpos="mid", ypos="base")
 

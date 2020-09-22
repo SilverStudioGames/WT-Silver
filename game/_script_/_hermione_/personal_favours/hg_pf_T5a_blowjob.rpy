@@ -813,10 +813,10 @@ label hg_hidden_blowjob_luna:
 
     menu:
         m "..."
-        "\"Please, come on in, [lun_name].\"":
+        "\"Please, come on in, [luna_name].\"":
             pass
 
-        "\"I am busy right now, [lun_name].\"":
+        "\"I am busy right now, [luna_name].\"":
             call her_main("Thank you, [genie_name].", "angry", "base", "base", "mid")
             lun "Oh... well, I'll visit you later then, [lun_genie_name]."
             if daytime:
@@ -878,7 +878,7 @@ label hg_hidden_blowjob_luna:
     g4 "Those young...{w=0.4} sucking...{w=0.4} *UGH*!{w=0.2} Troublemakers!"
     g4 "Yes. I've got one right here!"
     call lun_main("Oh! Can I see it, [lun_genie_name]?","grin","wide","raised","mid")
-    m "I'm afraid not, [lun_name]."
+    m "I'm afraid not, [luna_name]."
     g9 "It's such a shy little thing. You'd better not get any closer!"
     call lun_main("*Aww*... Okay.","pout","base","sad","down")
     m "I know everything about those little devils..."
@@ -924,7 +924,7 @@ label hg_hidden_blowjob_luna:
 
     call lun_main("You seem so well versed with plants!","grin","wide","raised","mid")
     call lun_main("I need to tell Professor Sprout, she'll be overjoyed to hear about your training methods!","grin","happyCl","raised","mid")
-    m "Give her my thanks, [lun_name]. She's a smart lady, this Sprout!"
+    m "Give her my thanks, [luna_name]. She's a smart lady, this Sprout!"
     g9 "Full of great ideas!"
     call lun_main("I will, [lun_genie_name].","smile","seductive","base","mid")
 

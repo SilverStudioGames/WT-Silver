@@ -82,7 +82,7 @@ label forest_BJ_1: #BJ in the forest interrupted by moaning myrtle
     her "Alright then... Have it your way."
     $ ccg2 = 4
     ">Hermione leans forward and engulfs the head of your cock in her mouth."
-    who2 "{size=-4}Wow...{/size}"
+    anon "{size=-4}Wow...{/size}"
     $ ccg2 = 5
     her "!!!"
     her "Did you hear something?"
@@ -97,7 +97,7 @@ label forest_BJ_1: #BJ in the forest interrupted by moaning myrtle
     $ ccg2 = 8
     her "(Where?)"
     m "*Mmmmm*... Fuck yes..."
-    who2 "{size=-8}*te-he-he-he*...{/size}"
+    anon "{size=-8}*te-he-he-he*...{/size}"
     $ ccg2 = 5
     her "!!!"
     $ ccg2 = 9
