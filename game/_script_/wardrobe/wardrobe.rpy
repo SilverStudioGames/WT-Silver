@@ -101,7 +101,7 @@ label wardrobe(char_label):
             hide screen wardrobe_menuitem
     elif _return == "studio":
         $ renpy.play('sounds/click3.mp3')
-        $ renpy.call_in_new_context("studio", char_label)
+        $ renpy.call_in_new_context("studio", active_girl)
     elif _return[0] == "equip":
         # Lipstick Fix - Synchronize image with current mouth after equipping.
         if isinstance(_return[1], DollLipstick):
@@ -129,10 +129,11 @@ label wardrobe(char_label):
         menu:
             "-Export to PNG file-" if not renpy.android:
                 $ export_in_progress = True
-                $ getattr(renpy.store, active_girl[:3]+"_outfit_last").save()
+                $ last_outfit = char_active.create_outfit()
                 $ char_active.equip(_return[1])
                 $ item_to_export = _return[1]
-                $ renpy.call_in_new_context("studio", char_label)
+                $ renpy.call_in_new_context("studio", active_girl)
+                $ char_active.equip(last_outfit)
             "-Export to clipboard-":
                 $ _return[1].export_data(False)
             "-Back-":

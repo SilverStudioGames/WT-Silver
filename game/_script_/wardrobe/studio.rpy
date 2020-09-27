@@ -1,508 +1,213 @@
-default studio_room_bg = 0
-default studio_room_bg_hue = 0
-default studio_room_bg_saturation = 2.0
-default studio_room_bg_brightness = 1.0
-default studio_room_bg_blur = 0.0
-default studio_room_bg_flipx = 1
-default studio_room_bg_flipy = 1
-default studio_room_bg_xoffset = 1080
-default studio_room_bg_yoffset = 600
+default studio.bg = 0
+default studio.bg_hue = 0
+default studio.bg_saturation = 1.0
+default studio.bg_brightness = 0.0
+default studio.bg_blur = 0.0
+define studio.bg_list = ["wall_day", "castle", "forest", "highlight", "versus", "corridor", "custom"]
 
-default studio_room_overlay = 0
-default studio_room_overlay_alpha = 1.0
-default studio_room_overlay_hue = 0
-default studio_room_overlay_saturation = 2.0
-default studio_room_overlay_brightness = 1.0
-default studio_room_overlay_blur = 0.0
-default studio_room_overlay_flipx = 1
-default studio_room_overlay_flipy = 1
-default studio_room_overlay_xoffset = 1080
-default studio_room_overlay_yoffset = 600
+default studio.ov = 0
+default studio.ov_alpha = 1.0
+default studio.ov_hue = 0
+default studio.ov_saturation = 1.0
+default studio.ov_brightness = 0.0
+default studio.ov_blur = 0.0
+define studio.ov_list = [None, "curtains", "card", "g_bottom", "g_left", "g_circular"]
 
-default studio_room_overlay2 = 0
-default studio_room_overlay2_alpha = 1.0
-default studio_room_overlay2_hue = 0
-default studio_room_overlay2_saturation = 2.0
-default studio_room_overlay2_brightness = 1.0
-default studio_room_overlay2_blur = 0.0
-default studio_room_overlay2_flipx = 1
-default studio_room_overlay2_flipy = 1
-default studio_room_overlay2_xoffset = 1080
-default studio_room_overlay2_yoffset = 600
+default studio.eyebrows = 0
+default studio.eyes = 0
+default studio.pupils = 0
+default studio.mouth = 0
+default studio.cheeks = 0
+default studio.tears = 0
+default studio.zoom = 0.5
+default studio.flip = 1
+default studio.alpha = 1.0
 
-default studio_text = False
-default studio_text_input = "Witch Trainer: Silver"
-default studio_text_alpha = 1.0
-default studio_text_size = 24
-default studio_text_color = "#FFFFFF"
-default studio_text_outline = 4
-default studio_text_outline_color = "#000000"
+default studio.faces = None
 
-default studio_image_eyebrows = 0
-default studio_image_eyes = 0
-default studio_image_pupils = 0
-default studio_image_mouth = 0
-default studio_image_zoom = 0.5
-default studio_image_flip = 1
-default studio_image_alpha = 1.0
-default studio_image_rotation = 0.0
-default studio_image_body = True
+init python in studio:
+    def get_faces():
+        filters = ("_mask", "_skin")
+        d = {}
 
-default studio_image_xx = 1010
-default studio_image_yy = 1200
+        for i in ("hermione", "tonks", "cho", "luna", "astoria", "susan"):
+            d[i] = {}
+            for j in ("eyebrows", "eyes", "mouth", "pupils", "cheeks", "tears"):
+                path = "{}/characters/{}/face/{}/".format(renpy.config.gamedir, i, j)
+                d[i][j] = [x.rsplit(".webp")[0] for x in renpy.os.listdir(path) if x.endswith(".webp") and not any(f in x for f in filters)]
 
-label studio(studio_char):
+                if j in ("cheeks", "tears"):
+                    d[i][j].insert(0, None)
+
+        return d
+
+    def get_face(char):
+        d = {
+            "eyebrows": faces[char]["eyebrows"][eyebrows],
+            "eyes": faces[char]["eyes"][eyes],
+            "mouth": faces[char]["mouth"][mouth],
+            "pupils": faces[char]["pupils"][pupils],
+            "cheeks": faces[char]["cheeks"][cheeks],
+            "tears": faces[char]["tears"][tears],
+        }
+        return d
+
+label studio(char):
+
+    # TODO: Finish adding support for multiple characters
+    # Add presets saving.
+    # Add character drag offset based on zoom.
+
     python:
-        studio_eyebrows_list = [x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+active_girl+"/face/eyebrows/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x]
-        studio_eyes_list = [x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+active_girl+"/face/eyes/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x]
-        studio_mouth_list = [x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+active_girl+"/face/mouth/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x]
-        studio_pupils_list = [x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+active_girl+"/face/pupils/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x]
+        if not studio.faces:
+            studio.faces = studio.get_faces()
 
-        studio_bg_list = ["wall_day", "castle", "forest", "highlight", "versus", "main_room_day", "main_room_night", "corridor", "custom"]
-        studio_bg_overlay_list = [None, "curtains", "card", "g_bottom", "g_left", "g_circular"]
+            studio.eyebrows = studio.faces[char]["eyebrows"].index("base")
+            studio.eyes = studio.faces[char]["eyes"].index("base")
+            studio.mouth = studio.faces[char]["mouth"].index("base")
+            studio.pupils = studio.faces[char]["pupils"].index("mid")
+            studio.cheeks = studio.faces[char]["cheeks"].index(None)
+            studio.tears = studio.faces[char]["tears"].index(None)
 
-        studio_outfit_saves = {"cho": cho_outfit_last, "tonks": ton_outfit_last, "astoria": ast_outfit_last, "hermione": her_outfit_last}
+        last_char = char_active
+        last_face = last_char.get_face()
+        last_char.set_face(**studio.get_face(char))
 
-        if studio_image_eyebrows > len(studio_eyebrows_list):
-            studio_image_eyebrows = 0
-        if studio_image_eyes > len(studio_eyes_list):
-            studio_image_eyes = 0
-        if studio_image_pupils > len(studio_pupils_list):
-            studio_image_pupils = 0
-        if studio_image_mouth > len(studio_mouth_list):
-            studio_image_mouth = 0
+    call screen studio
 
-        previous_face = char_active.get_face()
-
-        char_active.set_face(eyebrows=studio_eyebrows_list[studio_image_eyebrows], eyes=studio_eyes_list[studio_image_eyes], pupils=studio_pupils_list[studio_image_pupils], mouth=studio_mouth_list[studio_image_mouth])
-
-        studio_hide = False
-
-        image_arrow = "interface/frames/"+interface_color+"/arrow2.webp"
-
-    label .after_init:
-
-    show screen studio
-
-    $ _return = ui.interact()
-
-    hide screen studio
-    if _return == "confirm":
-        show screen studio
-        $ txt_filename = "exported"
-        $ txt_filename = renpy.input("Filename", txt_filename, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#& ", length=64)
-        $ studio_hide = True
-        $ renpy.pause(0.1, hard=True)
-        $ item_to_export.export_data(True, txt_filename)
-        $ studio_hide = False
-        $ char_active.equip(studio_outfit_saves.get(active_girl))
-        hide screen studio
-        return
-    elif _return == "cancel":
-        $ char_active.equip(studio_outfit_saves.get(active_girl))
-        return
-    elif _return[0] == "body":
-        $ studio_outfit_saves.get(active_girl).save()
-        $ char_active.equip(studio_outfit_saves.get(active_girl))
-        $ studio_image_body = _return[1]
-    elif _return[0] == "eyebrows":
-        if _return[1] == "inc":
-            $ studio_image_eyebrows += 1
-        else:
-            $ studio_image_eyebrows -= 1
-        $ studio_image_eyebrows = clamp(studio_image_eyebrows, 0, len(studio_eyebrows_list)-1)
-        $ char_active.set_face(eyebrows=studio_eyebrows_list[studio_image_eyebrows])
-    elif _return[0] == "eyes":
-        if _return[1] == "inc":
-            $ studio_image_eyes += 1
-        else:
-            $ studio_image_eyes -= 1
-        $ studio_image_eyes = clamp(studio_image_eyes, 0, len(studio_eyes_list)-1)
-        $ char_active.set_face(eyes=studio_eyes_list[studio_image_eyes])
-    elif _return[0] == "pupils":
-        if _return[1] == "inc":
-            $ studio_image_pupils += 1
-        else:
-            $ studio_image_pupils -= 1
-        $ studio_image_pupils = clamp(studio_image_pupils, 0, len(studio_pupils_list)-1)
-        $ char_active.set_face(pupils=studio_pupils_list[studio_image_pupils])
-    elif _return[0] == "mouth":
-        if _return[1] == "inc":
-            $ studio_image_mouth += 1
-        else:
-            $ studio_image_mouth -= 1
-        $ studio_image_mouth = clamp(studio_image_mouth, 0, len(studio_mouth_list)-1)
-        $ char_active.set_face(mouth=studio_mouth_list[studio_image_mouth])
-    elif _return[0] == "bg":
-        if _return[1] == "inc":
-            $ studio_room_bg += 1
-        else:
-            $ studio_room_bg -= 1
-        $ studio_room_bg = clamp(studio_room_bg, 0, len(studio_bg_list)-1)
-    elif _return[0] == "overlay":
-        if _return[1] == "inc":
-            if _return[2] == 1:
-                $ studio_room_overlay += 1
-            else:
-                $ studio_room_overlay2 += 1
-        else:
-            if _return[2] == 1:
-                $ studio_room_overlay -= 1
-            else:
-                $ studio_room_overlay2 -= 1
-        $ studio_room_overlay = clamp(studio_room_overlay, 0, len(studio_bg_overlay_list)-1)
-        $ studio_room_overlay2 = clamp(studio_room_overlay2, 0, len(studio_bg_overlay_list)-1)
-    elif _return[0] == "reset":
-        if _return[1] == "character":
-            $ studio_image_zoom = 0.5
-            $ studio_image_flip = 1
-            $ studio_image_alpha = 1.0
-            $ studio_image_rotation = 0.0
-            $ studio_image_body = True
-        elif _return[1] == "background":
-            $ studio_room_bg_hue = 0
-            $ studio_room_bg_saturation = 2.0
-            $ studio_room_bg_brightness = 1.0
-            $ studio_room_bg_blur = 0.0
-            $ studio_room_bg_flipx = 1
-            $ studio_room_bg_flipy = 1
-            $ studio_room_bg_xoffset = 1080
-            $ studio_room_bg_yoffset = 600
-        elif _return[1] == "overlay":
-            if _return[2] == 1:
-                $ studio_room_overlay_alpha = 1.0
-                $ studio_room_overlay_hue = 0
-                $ studio_room_overlay_saturation = 2.0
-                $ studio_room_overlay_brightness = 1.0
-                $ studio_room_overlay_blur = 0.0
-                $ studio_room_overlay_flipx = 1
-                $ studio_room_overlay_flipy = 1
-                $ studio_room_overlay_xoffset = 1080
-                $ studio_room_overlay_yoffset = 600
-            else:
-                $ studio_room_overlay2_alpha = 1.0
-                $ studio_room_overlay2_hue = 0
-                $ studio_room_overlay2_saturation = 2.0
-                $ studio_room_overlay2_brightness = 1.0
-                $ studio_room_overlay2_blur = 0.0
-                $ studio_room_overlay2_flipx = 1
-                $ studio_room_overlay2_flipy = 1
-                $ studio_room_overlay2_xoffset = 1080
-                $ studio_room_overlay2_yoffset = 600
-        elif _return[1] == "text":
-            $ studio_text_size = 24
-            $ studio_text_color = "#FFFFFF"
-            $ studio_text_outline = 4
-            $ studio_text_outline_color = "#000000"
-    elif _return[0] == "input":
-        show screen studio
-        if _return[1] == "text":
-            $ studio_text_backup = studio_text_input
-            $ studio_text_input = renpy.input("Text", studio_text_input, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@,.&:;!?-\/* ", length=128)
-            if studio_text_input == "Close":
-                $ studio_text_input = studio_text_backup
-        elif _return[1] == "color":
-            $ studio_text_color = color_picker(get_rgb_list(studio_text_color), False, "Text Color", pos_xy=[200, 130])
-            $ studio_text_color = get_hex_string(studio_text_color[0]/255.0, studio_text_color[1]/255.0, studio_text_color[2]/255.0, studio_text_color[3]/255.0)
-        else:
-            $ studio_text_outline_color = color_picker(get_rgb_list(studio_text_outline_color), False, "Outline Color", pos_xy=[200, 130])
-            $ studio_text_outline_color = get_hex_string(studio_text_outline_color[0]/255.0, studio_text_outline_color[1]/255.0, studio_text_outline_color[2]/255.0, studio_text_outline_color[3]/255.0)
-    else:
-        $ char_active.set_face(**previous_face)
-        return
-
-    jump .after_init
+    python:
+        if _return == "confirm":
+            renpy.show_screen("studio")
+            _filename = renpy.input("Filename", "exported", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#& ", length=64)
+            renpy.pause(0.1, hard=True)
+            item_to_export.export_data(True, _filename)
+        else: # Close
+            char_active = last_char
+            char_active.set_face(**last_face)
+    return
 
 screen studio():
     tag studio
     zorder 30
 
-    key hkey_hide action ToggleVariable("studio_hide", True, False)
-    key hkey_mhide action ToggleVariable("studio_hide", True, False)
+    default visible = True
 
-    frame background "#000"
+    key hkey_hide action ToggleScreenVariable("visible", True, False)
+    key hkey_mhide action ToggleScreenVariable("visible", True, False)
 
-    if studio_bg_list[studio_room_bg] == "custom":
-        add Color(hsv=(studio_room_bg_hue/360.0, studio_room_bg_saturation/4.0, studio_room_bg_brightness/2.0))
-    elif studio_room_bg_blur > 0.0:
-        add im.Blur(im.MatrixColor("images/rooms/_bg_/"+studio_bg_list[studio_room_bg]+".webp", (im.matrix.hue(studio_room_bg_hue)*im.matrix.saturation(clamp(studio_room_bg_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_bg_brightness-1.0)), studio_room_bg_blur) ypos studio_room_bg_yoffset-300 xpos studio_room_bg_xoffset-540 xzoom studio_room_bg_flipx yzoom studio_room_bg_flipy xanchor 0.5 yanchor 0.5
-    else:
-        add im.MatrixColor("images/rooms/_bg_/"+studio_bg_list[studio_room_bg]+".webp", (im.matrix.hue(studio_room_bg_hue)*im.matrix.saturation(clamp(studio_room_bg_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_bg_brightness-1.0)) ypos studio_room_bg_yoffset-300 xpos studio_room_bg_xoffset-540 xzoom studio_room_bg_flipx yzoom studio_room_bg_flipy xanchor 0.5 yanchor 0.5
+    # TODO: Figure out why some values update live and some don't. (bg_image = works, hue, sat, bri = doesn't work)
+    # Note: Defaults don't update at all (static?)
 
-    if not studio_bg_overlay_list[studio_room_overlay] == None:
-        if studio_room_overlay_blur > 0.0:
-            add im.Blur(im.MatrixColor("images/rooms/overlays/"+studio_bg_overlay_list[studio_room_overlay]+".webp", (im.matrix.hue(studio_room_overlay_hue)*im.matrix.saturation(clamp(studio_room_overlay_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_overlay_brightness-1.0)), studio_room_overlay_blur) ypos studio_room_overlay_yoffset-300 xpos studio_room_overlay_xoffset-540 xzoom studio_room_overlay_flipx yzoom studio_room_overlay_flipy alpha studio_room_overlay_alpha xanchor 0.5 yanchor 0.5
-        else:
-            add im.MatrixColor("images/rooms/overlays/"+studio_bg_overlay_list[studio_room_overlay]+".webp", (im.matrix.hue(studio_room_overlay_hue)*im.matrix.saturation(clamp(studio_room_overlay_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_overlay_brightness-1.0)) ypos studio_room_overlay_yoffset-300 xpos studio_room_overlay_xoffset-540 xzoom studio_room_overlay_flipx yzoom studio_room_overlay_flipy alpha studio_room_overlay_alpha xanchor 0.5 yanchor 0.5
+    $ bg_hue = HueMatrix(studio.bg_hue)
+    $ bg_saturation = SaturationMatrix(studio.bg_saturation)
+    $ bg_brightness = BrightnessMatrix(studio.bg_brightness)
+    $ bg_image = "images/rooms/_bg_/{}.webp".format(studio.bg_list[studio.bg])
+    $ bg = Transform(bg_image, matrixcolor=bg_hue*bg_saturation*bg_brightness, blur=studio.bg_blur)
 
-    default char_img = (Flatten(char_active.get_image()) if studio_image_body else studio_outfit_saves.get(active_girl).get_image())
+    $ ov_hue = HueMatrix(studio.ov_hue)
+    $ ov_saturation = SaturationMatrix(studio.ov_saturation)
+    $ ov_brightness = BrightnessMatrix(studio.ov_brightness)
+    $ ov_blur = studio.ov_blur
+    $ ov_image = "images/rooms/overlays/{}.webp".format(studio.ov_list[studio.ov])
+    $ ov = Transform(ov_image, matrixcolor=ov_hue*ov_saturation*ov_brightness, blur=ov_blur, alpha=studio.ov_alpha) if studio.ov_list[studio.ov] else None
+
+    $ char_img = Flatten(char_active.get_image())
+    $ char = Transform(char_img, zoom=studio.zoom, xzoom=studio.flip, alpha=studio.alpha)
+
+    add bg
+
     drag:
-        draggable not studio_hide
+        draggable visible
         drag_offscreen True
-        pos(160, -75)
+        anchor (0.6, 1.0)
+        align (0.5, 1.0)
+        child char
 
-        add char_img:
-            around (0.6, 1.0)
-            anchor (0.6, 1.0)
-            transform_anchor True
-            events False
+    add ov
 
-            zoom studio_image_zoom
-            xzoom studio_image_flip
-            alpha studio_image_alpha
-            rotate studio_image_rotation
+    if visible:
+        use close_button
+        use studio_interface
 
-    if not studio_bg_overlay_list[studio_room_overlay2] == None:
-        if studio_room_overlay2_blur > 0.0:
-            add im.Blur(im.MatrixColor("images/rooms/overlays/"+studio_bg_overlay_list[studio_room_overlay2]+".webp", (im.matrix.hue(studio_room_overlay2_hue)*im.matrix.saturation(clamp(studio_room_overlay2_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_overlay2_brightness-1.0)), studio_room_overlay2_blur) ypos studio_room_overlay2_yoffset-300 xpos studio_room_overlay2_xoffset-540 xzoom studio_room_overlay2_flipx yzoom studio_room_overlay2_flipy alpha studio_room_overlay2_alpha xanchor 0.5 yanchor 0.5
-        else:
-            add im.MatrixColor("images/rooms/overlays/"+studio_bg_overlay_list[studio_room_overlay2]+".webp", (im.matrix.hue(studio_room_overlay2_hue)*im.matrix.saturation(clamp(studio_room_overlay2_saturation-1.0, 0.0, 2.0)))*im.matrix.brightness(studio_room_overlay2_brightness-1.0)) ypos studio_room_overlay2_yoffset-300 xpos studio_room_overlay2_xoffset-540 xzoom studio_room_overlay2_flipx yzoom studio_room_overlay2_flipy alpha studio_room_overlay2_alpha xanchor 0.5 yanchor 0.5
+screen studio_interface():
 
-    if studio_text:
-        drag:
-            drag_name "studio_text"
-            draggable not studio_hide
-            drag_offscreen False
-            xpos 540 ypos 300
-            xanchor 0.5 yanchor 0.5
-            frame:
-                style "empty"
-                if studio_text_outline > 0:
-                    text "[studio_text_input]" size studio_text_size color studio_text_color outlines [ (studio_text_outline, studio_text_outline_color, 0, 0)]:
-                        at transform:
-                            alpha studio_text_alpha
-                else:
-                    text "[studio_text_input]" size studio_text_size color studio_text_color:
-                        at transform:
-                            alpha studio_text_alpha
+    style_prefix "studio"
+
+    default eyebrows = studio.faces[active_girl]["eyebrows"]
+    default eyes = studio.faces[active_girl]["eyes"]
+    default pupils = studio.faces[active_girl]["pupils"]
+    default mouth = studio.faces[active_girl]["mouth"]
+    default cheeks = studio.faces[active_girl]["cheeks"]
+    default tears = studio.faces[active_girl]["tears"]
 
     if export_in_progress:
         add "images/rooms/overlays/card_sp.webp"
         hbox:
-            xalign 1.0
-            yalign 1.0
-            textbutton "confirm" action Return("confirm") xalign 1.0 yalign 1.0
-            textbutton "cancel" action Return("cancel") xalign 1.0 yalign 1.0
-        frame:
-            style "empty"
+            align (1.0, 1.0)
+            textbutton "Confirm" action Return("confirm")
+            textbutton "Cancel" action Return("cancel")
+        fixed:
+            style_prefix "studio_export"
             ypos 512
-            text "WT:S [title_version]" size 12 color "#FFFFFF" outlines [(1, "#000000", 0, 0)] xanchor 1.0 xpos 688
+
+            text "WT:S [title_version]"
             if item_to_export.is_modded():
                 text "Modded" size 12 color "#00b200" outlines [(1, "#000000", 0, 0)] xpos 392
 
-    if not studio_hide:
-        use character_studio
+    hbox:
+        pos (25, 25)
 
-screen character_studio():
-    tag character_studio
-    zorder 31
-
-    if not export_in_progress:
-        use close_button
-
-    if config.developer:
         vbox:
-            xpos 50 yalign 0.9
-            text "Eyebrows: {size=-4}{color=#93c763}"+studio_eyebrows_list[studio_image_eyebrows]+"{/color}{/size}" color "#fff" outlines [(1, "#000000", 0, 0)]
-            text "Eyes: {size=-4}{color=#93c763}"+studio_eyes_list[studio_image_eyes]+"{/color}{/size}" color "#fff" outlines [(1, "#000000", 0, 0)]
-            text "Pupils: {size=-4}{color=#93c763}"+studio_pupils_list[studio_image_pupils]+"{/color}{/size}" color "#fff" outlines [(1, "#000000", 0, 0)]
-            text "Mouth: {size=-4}{color=#93c763}"+studio_mouth_list[studio_image_mouth]+"{/color}{/size}" color "#fff" outlines [(1, "#000000", 0, 0)]
+            label "Character"
+            bar value FieldValue(studio, "eyebrows", len(eyebrows)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character eyebrows"
+            bar value FieldValue(studio, "eyes", len(eyes)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character eyes"
+            bar value FieldValue(studio, "pupils", len(pupils)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character pupils"
+            bar value FieldValue(studio, "mouth", len(mouth)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character mouth"
+            bar value FieldValue(studio, "cheeks", len(cheeks)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character cheeks"
+            bar value FieldValue(studio, "tears", len(tears)-1, False, step=1, force_step=True, action=Function(char_active.set_face, **studio.get_face(active_girl))) tooltip "Character tears"
+            bar value FieldValue(studio, "zoom", 1.0, False, step=0.1, force_step=True) tooltip "Character Scale [studio.zoom]"
+            bar value FieldValue(studio, "alpha", 1.0, False, step=0.1, force_step=True) tooltip "Character Opacity [studio.alpha]"
 
-    frame:
-        ypos 50
-        xpos 50
-        style "empty"
-        hbox:
-            spacing 50
-            vbox:
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["eyebrows", "dec"])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["eyebrows", "inc"])
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["eyes", "dec"])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["eyes", "inc"])
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["pupils", "dec"])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["pupils", "inc"])
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["mouth", "dec"])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["mouth", "inc"])
-                if config.developer:
-                    hbox:
-                        spacing 32
-                        imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["body", True])
-                        imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["body", False])
+            textbutton "Flip" action ToggleVariable("studio.flip", -1, 1)
 
-                frame:
-                    style "empty"
-                    xpos 50
-                    xanchor 0.5
-                    xsize 96
-                    vbox:
-                        bar value VariableValue("studio_image_zoom", 1.0, max_is_zero=False, style=u'bar', offset=0, step=0.1, force_step=True)
-                        bar value VariableValue("studio_image_alpha", 1.0, max_is_zero=False, style=u'bar', offset=0, step=0.05, force_step=True)
-                        bar value VariableValue("studio_image_rotation", 360.0, max_is_zero=False, style=u'bar', offset=0, step=1.0, force_step=True)
+        vbox:
+            label "Background"
+            bar value FieldValue(studio, "bg", len(studio.bg_list)-1, False, step=1, force_step=True) tooltip "Background Image"
+            bar value FieldValue(studio, "bg_hue", 360.0, False, step=1.0, force_step=True) tooltip "Background Hue [studio.bg_hue]"
+            bar value FieldValue(studio, "bg_saturation", 1.0, False, step=0.1, force_step=False) tooltip "Background Saturation [studio.bg_saturation]"
+            bar value FieldValue(studio, "bg_brightness", 1.0, False, step=0.1, force_step=False) tooltip "Background Brightness [studio.bg_brightness]"
+            bar value FieldValue(studio, "bg_blur", 50.0, False, step=1.0, force_step=True) tooltip "Background Blur [studio.bg_blur]"
 
-                textbutton "{size=11}{color=#FFF}Flip{/color}{/size}" action ToggleVariable("studio_image_flip", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                textbutton "{size=11}{color=#FFF}Reset{/color}{/size}" action Return(["reset", "character"]) xsize 94 xpos 50 xanchor 0.5
-            vbox:
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["bg", "dec"])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["bg", "inc"])
+        vbox:
+            label "Overlay"
+            bar value FieldValue(studio, "ov", len(studio.ov_list)-1, False, step=1, force_step=True) tooltip "Overlay Image"
+            bar value FieldValue(studio, "ov_hue", 360.0, False, step=1.0, force_step=True) tooltip "Overlay Hue [studio.ov_hue]"
+            bar value FieldValue(studio, "ov_saturation", 1.0, False, step=0.1, force_step=False) tooltip "Overlay Saturation [studio.ov_saturation]"
+            bar value FieldValue(studio, "ov_brightness", 1.0, False, step=0.1, force_step=False) tooltip "Overlay Brightness [studio.ov_brightness]"
+            bar value FieldValue(studio, "ov_blur", 50.0, False, step=1.0, force_step=True) tooltip "Overlay Blur [studio.ov_blur]"
+            bar value FieldValue(studio, "ov_alpha", 1.0, False, step=0.1, force_step=True) tooltip "Overlay Opacity [studio.ov_alpha]"
 
-                frame:
-                    style "empty"
-                    xpos 50
-                    xanchor 0.5
-                    xsize 96
-                    vbox:
-                        bar value VariableValue("studio_room_bg_hue", 360, max_is_zero=False, style=u'bar', offset=0, step=1)
-                        bar value VariableValue("studio_room_bg_saturation", 4.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                        bar value VariableValue("studio_room_bg_brightness", 2.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                        bar value VariableValue("studio_room_bg_blur", 5.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                        bar value VariableValue("studio_room_bg_xoffset", 2160, max_is_zero=False, style=u'bar', offset=0, step=1)
-                        bar value VariableValue("studio_room_bg_yoffset", 1200, max_is_zero=False, style=u'bar', offset=0, step=1)
+style studio_hbox:
+    spacing 25
 
-                textbutton "{size=11}{color=#FFF}Flip X{/color}{/size}" action ToggleVariable("studio_room_bg_flipx", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                textbutton "{size=11}{color=#FFF}Flip Y{/color}{/size}" action ToggleVariable("studio_room_bg_flipy", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                textbutton "{size=11}{color=#FFF}Reset{/color}{/size}" action Return(["reset", "background"]) xsize 94 xpos 50 xanchor 0.5
+style studio_label_text:
+    color "#f9d592"
+    outlines [ (2, "#00000080", 0, 0) ]
 
-            vbox:
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["overlay", "dec", 1])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["overlay", "inc", 1])
+style studio_bar:
+    xsize 112
+    xalign 0.5
 
-                if not studio_bg_overlay_list[studio_room_overlay] == None:
-                    frame:
-                        style "empty"
-                        xpos 50
-                        xanchor 0.5
-                        xsize 96
-                        vbox:
-                            bar value VariableValue("studio_room_overlay_alpha", 1.0, max_is_zero=False, style=u'bar', offset=0, step=0.01)
-                            bar value VariableValue("studio_room_overlay_hue", 360, max_is_zero=False, style=u'bar', offset=0, step=1)
-                            bar value VariableValue("studio_room_overlay_saturation", 4.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay_brightness", 2.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay_blur", 5.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay_xoffset", 2160, max_is_zero=False, style=u'bar', offset=0, step=1)
-                            bar value VariableValue("studio_room_overlay_yoffset", 1200, max_is_zero=False, style=u'bar', offset=0, step=1)
+style studio_button:
+    xsize 106
+    xalign 0.5
 
-                    textbutton "{size=11}{color=#FFF}Flip X{/color}{/size}" action ToggleVariable("studio_room_overlay_flipx", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                    textbutton "{size=11}{color=#FFF}Flip Y{/color}{/size}" action ToggleVariable("studio_room_overlay_flipy", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                    textbutton "{size=11}{color=#FFF}Reset{/color}{/size}" action Return(["reset", "overlay", 1]) xsize 94 xpos 50 xanchor 0.5
+style studio_button_text:
+    size 12
 
-            vbox:
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action Return(["overlay", "dec", 2])
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action Return(["overlay", "inc", 2])
-
-                if not studio_bg_overlay_list[studio_room_overlay2] == None:
-                    frame:
-                        style "empty"
-                        xpos 50
-                        xanchor 0.5
-                        xsize 96
-                        vbox:
-                            bar value VariableValue("studio_room_overlay2_alpha", 1.0, max_is_zero=False, style=u'bar', offset=0, step=0.01)
-                            bar value VariableValue("studio_room_overlay2_hue", 360, max_is_zero=False, style=u'bar', offset=0, step=1)
-                            bar value VariableValue("studio_room_overlay2_saturation", 4.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay2_brightness", 2.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay2_blur", 5.0, max_is_zero=False, style=u'bar', offset=0, step=0.1)
-                            bar value VariableValue("studio_room_overlay2_xoffset", 2160, max_is_zero=False, style=u'bar', offset=0, step=1)
-                            bar value VariableValue("studio_room_overlay2_yoffset", 1200, max_is_zero=False, style=u'bar', offset=0, step=1)
-
-                    textbutton "{size=11}{color=#FFF}Flip X{/color}{/size}" action ToggleVariable("studio_room_overlay2_flipx", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                    textbutton "{size=11}{color=#FFF}Flip Y{/color}{/size}" action ToggleVariable("studio_room_overlay2_flipy", -1, 1) xsize 94 xpos 50 xanchor 0.5
-                    textbutton "{size=11}{color=#FFF}Reset{/color}{/size}" action Return(["reset", "overlay", 2]) xsize 94 xpos 50 xanchor 0.5
-            vbox:
-                hbox:
-                    spacing 32
-                    imagebutton idle image_arrow hover image_hover(image_arrow) action ToggleVariable("studio_text", True, False)
-                    imagebutton idle im.Flip(image_arrow, horizontal=True) hover image_hover(im.Flip(image_arrow, horizontal=True)) action ToggleVariable("studio_text", True, False)
-
-                if studio_text:
-                    textbutton "{size=11}{color=#FFF}Input{/color}{/size}" action Return(["input", "text"]) xsize 94 xpos 50 xanchor 0.5
-                    frame:
-                        style "empty"
-                        xpos 50
-                        xanchor 0.5
-                        xsize 96
-                        vbox:
-                            bar value VariableValue("studio_text_alpha", 1.0, max_is_zero=False, style=u'bar', offset=0, step=0.01)
-                            bar value VariableValue("studio_text_size", 100, max_is_zero=False, style=u'bar', offset=0, step=1)
-                            bar value VariableValue("studio_text_outline", 20, max_is_zero=False, style=u'bar', offset=0, step=1)
-                    textbutton "{size=11}{color=#FFF}Colour{/color}{/size}" action Return(["input", "color"]) xsize 94 xpos 50 xanchor 0.5
-                    if studio_text_outline > 0:
-                        textbutton "{size=11}{color=#FFF}Outline colour{/color}{/size}" action Return(["input", "outline_color"]) xsize 94 xpos 50 xanchor 0.5
-                    textbutton "{size=11}{color=#FFF}Reset{/color}{/size}" action Return(["reset", "text"]) xsize 94 xpos 50 xanchor 0.5
-    frame:
-        ypos 24
-        xpos 100
-        style "empty"
-        hbox:
-            spacing 50
-            vbox:
-                text "Character" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-                vbox:
-                    xpos -2
-                    ypos 19
-                    spacing 28
-                    text "[studio_image_eyebrows]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-                    text "[studio_image_eyes]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-                    text "[studio_image_pupils]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-                    text "[studio_image_mouth]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-                    if config.developer:
-                        text "Body" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5
-            vbox:
-                text "Background" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -10
-                text "[studio_room_bg]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -10 ypos 19
-                vbox:
-                    xpos -10
-                    ypos 46
-                    spacing 13
-                    text "Hue" xanchor 0.5 size 11 color "#FFF"
-                    text "Saturation" xanchor 0.5 size 11 color "#FFF"
-                    text "Brightness" xanchor 0.5 size 11 color "#FFF"
-                    text "Blur" xanchor 0.5 size 11 color "#FFF"
-                    text "xoffset" xanchor 0.5 size 11 color "#FFF"
-                    text "yoffset" xanchor 0.5 size 11 color "#FFF"
-            vbox:
-                text "Underlay" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -36
-                text "[studio_room_overlay]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -36 ypos 19
-                if not studio_bg_overlay_list[studio_room_overlay] == None:
-                    vbox:
-                        xpos -36
-                        ypos 46
-                        spacing 13
-                        text "Alpha" xanchor 0.5 size 11 color "#FFF"
-                        text "Hue" xanchor 0.5 size 11 color "#FFF"
-                        text "Saturation" xanchor 0.5 size 11 color "#FFF"
-                        text "Brightness" xanchor 0.5 size 11 color "#FFF"
-                        text "Blur" xanchor 0.5 size 11 color "#FFF"
-                        text "xoffset" xanchor 0.5 size 11 color "#FFF"
-                        text "yoffset" xanchor 0.5 size 11 color "#FFF"
-            vbox:
-                text "Overlay" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -32
-                text "[studio_room_overlay2]" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -30 ypos 19
-                if not studio_bg_overlay_list[studio_room_overlay2] == None:
-                    vbox:
-                        xpos -36
-                        ypos 46
-                        spacing 13
-                        text "Alpha" xanchor 0.5 size 11 color "#FFF"
-                        text "Hue" xanchor 0.5 size 11 color "#FFF"
-                        text "Saturation" xanchor 0.5 size 11 color "#FFF"
-                        text "Brightness" xanchor 0.5 size 11 color "#FFF"
-                        text "Blur" xanchor 0.5 size 11 color "#FFF"
-                        text "xoffset" xanchor 0.5 size 11 color "#FFF"
-                        text "yoffset" xanchor 0.5 size 11 color "#FFF"
-            vbox:
-                text "Text" xanchor 0.5 color "#FFF" outlines [ (2, "#000", 0, 0) ] text_align 0.5 xpos -16
-                text "[studio_text]" xanchor 0.5 color "#FFF" size 12 outlines [ (1, "#000", 0, 0) ] text_align 0.5 xpos -16 ypos 19
+style studio_export_text:
+    size 12
+    color "#FFFFFF"
+    outlines [(1, "#000000", 0, 0)]
+    xanchor 1.0
+    xpos 688

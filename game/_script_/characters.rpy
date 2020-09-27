@@ -79,10 +79,10 @@ define dum4 = Character("Dumbledore", show_side_image=Image("characters/misc/dum
 define dum5 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_5.webp"))
 
 # Santa
-define san1 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_1.webp"))
-define san2 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_2.webp"))
-define san3 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_3.webp"))
-define san4 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_4.webp"))
-define san5 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_5.webp"))
-define san6 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_6.webp"))
-define san7 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/santa_7.webp"))
+define san1 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_1.webp"))
+define san2 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_2.webp"))
+define san3 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_3.webp"))
+define san4 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_4.webp"))
+define san5 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_5.webp"))
+define san6 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_6.webp"))
+define san7 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_7.webp"))
