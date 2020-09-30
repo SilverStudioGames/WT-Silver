@@ -906,7 +906,7 @@ label hg_ps_buttplug_complete:
             call her_main(".......", "base", "narrow", "worried", "down")
             m "So did you enjoy it?"
             call her_main("..........", "angry", "base", "base", "mid")
-            call her_main("Truthfully [genie_name].... It was the most one of the most pleasurable experiences of my life...", "grin", "narrow", "base", "dead")
+            call her_main("Truthfully [genie_name].... It was one of the most pleasurable experiences of my life...", "grin", "narrow", "base", "dead")
             call her_main("all their hands touching it...", "soft", "narrow", "annoyed", "up")
             call her_main("taking turns...", "grin", "narrow", "annoyed", "up")
             call her_main("all the while it was vibrating away...", "base", "narrow", "worried", "down")
@@ -958,8 +958,8 @@ label hg_ps_buttplug_complete:
             show screen blktone
             call her_main("Yes, I did [genie_name]...", "base", "squint", "base", "mid",xpos="right",ypos="base")
             m "Anything interesting happen?"
-            her "do you know that Patil twins [genie_name]?"
-            m "no but do continue."
+            her "Do you know the Patil twins [genie_name]?"
+            m "*Err*..."
             call her_main("well they were walking down the hall behind me...", "base", "narrow", "base", "mid_soft")
             her "I swear I could hear them whispering to each other..."
             call her_main("and I thought I may as well give them something to talk about...", "base", "squint", "base", "mid")
@@ -998,7 +998,7 @@ label hg_ps_buttplug_complete:
             call her_main(".......", "base", "narrow", "worried", "down")
             m "So did you enjoy it?"
             call her_main("..........", "angry", "base", "base", "mid")
-            call her_main("Truthfully [genie_name].... It was the most one of the most pleasurable experiences of my life...", "grin", "narrow", "base", "dead")
+            call her_main("Truthfully [genie_name].... It was one of the most pleasurable experiences of my life...", "grin", "narrow", "base", "dead")
             call her_main("all their hands touching it...", "soft", "narrow", "annoyed", "up")
             call her_main("taking turns...", "grin", "narrow", "annoyed", "up")
             call her_main("all the while it was vibrating away...", "base", "narrow", "worried", "down")
@@ -1049,8 +1049,8 @@ label hg_ps_buttplug_complete:
             show screen blktone
             call her_main("Yes, I did [genie_name]...", "base", "squint", "base", "mid",xpos="right",ypos="base")
             m "Anything interesting happen?"
-            her "do you know that Patil twins [genie_name]?"
-            m "no but do continue."
+            her "Do you know the Patil twins [genie_name]?"
+            m "*Err*..."
             call her_main("well they were walking down the hall behind me...", "base", "narrow", "base", "mid_soft")
             her "I swear I could hear them whispering to each other..."
             call her_main("and I thought I may as well give them something to talk about...", "base", "squint", "base", "mid")

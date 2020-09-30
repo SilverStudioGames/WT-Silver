@@ -256,7 +256,7 @@ label astoria_intro_E1:
     call ton_main("*Hmmm*... Good idea.", "normal", "base", "base", "R")
     m "Shall I ask Snape? Maybe even Miss Granger?"
     call ton_main("Yes. Professor Snape might prove himself useful for once...","open","base","base","down")
-    call ton_main("I don't know about Granger... She'd need to keep quiet at all cost!", "normal", "base", "raised", "down")
+    call ton_main("I don't know about Granger... She'd need to keep quiet at all costs!", "normal", "base", "raised", "down")
     call ton_main("The Ministry can't know about this!","open","base","angry","mid")
     m "Yes. Yes..."
     call ton_main("Well, I should get going... there are a couple of students I'd like to question.","open","base","worried","R")

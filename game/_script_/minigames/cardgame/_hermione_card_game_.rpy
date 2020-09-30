@@ -143,7 +143,7 @@ label hermione_second_duel:
 label hermione_third_duel:
     call her_main( "I'll make my house proud, you'll see.","grin","happy")
     call her_main("Wait, I should have asked for point for this.", "shock", "wide", "worried", "shocked")
-    g9 "To late, here we go."
+    g9 "Too late, here we go."
     hide screen hermione_main
     call play_music("cardgame")
     play sound "sounds/Genie_VS_Hermione4.mp3"

@@ -808,7 +808,7 @@ label hg_pf_handjob_2_continue:
             call her_main("That's disgusting.", "annoyed", "squint", "base", "mid")
             call her_main("Dogs carry {size=+5}STD{/size}s, [genie_name].", "open", "closed", "base", "mid")
             m "Actually, human and canine {size=+5}STD{/size}s are species specific..."
-            m "Means that they can only be spread to the same species."
+            m "Meaning... They can only be spread to the same species."
             call her_main("............{size=-6}I knew that{/size}", "open", "squint", "base", "mid")
             g9 "Heh. Of course you would."
             m "Also I hear that many women do enjoy getting \"knotted\" quite a bit."

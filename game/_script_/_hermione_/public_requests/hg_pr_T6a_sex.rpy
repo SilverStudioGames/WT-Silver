@@ -74,7 +74,7 @@ label end_hg_pr_sex:
         show screen blktone
         with d3
 
-        call her_main("(I did it, I have finally did it...)", "smile", "narrow", "base", "dead", flip=True, trans=d3)
+        call her_main("(I did it... finally did it.)", "smile", "narrow", "base", "dead", flip=True, trans=d3)
 
         hide screen blktone
         with d3

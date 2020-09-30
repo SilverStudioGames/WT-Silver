@@ -248,7 +248,7 @@ label nt_pr_grope_T1_E3: # Tier 1 - Event 3 - Two Gryffindor boys
                 call ton_walk(action="leave")
                 jump end_tonks_event
 
-    m "I didn't notice any extra point today..."
+    m "I didn't notice any extra points today..."
     m "Does that mean what I think it does?"
     call ton_main("Perhaps...", "soft", "closed", "raised", "mid")
     m "So... you went for one of the Gryffindor students?"
@@ -258,7 +258,7 @@ label nt_pr_grope_T1_E3: # Tier 1 - Event 3 - Two Gryffindor boys
     call ton_main("Well... it wasn't exactly two favours...", "mad", "base", "base", "down")
     m "Oh... Wait, Oh...{w} I see..."
     call ton_main("They're such good friends! I don't think I could manage splitting them apart...", "grin", "happyCl", "base", "mid")
-    call ton_main("Besides, I've already fooled around a little with them, so they were barely any convincing involved...", "base", "base", "annoyed", "down")
+    call ton_main("Besides, I've already fooled around a little with them, so there was barely any convincing involved...", "base", "base", "annoyed", "down")
     m "I'm sure there wasn't... so how was it?"
     call ton_main("Honestly? Pretty fucking hot...","horny","base","angry","mid")
     call ton_main("Having four hands grabbing at you at once is {b}intense{/b}...", "horny", "base", "annoyed", "up")
@@ -269,11 +269,11 @@ label nt_pr_grope_T1_E3: # Tier 1 - Event 3 - Two Gryffindor boys
     m "*Mmmm*... did you?"
     call ton_main("I don't think I would have been able to stop them at all if I didn't...","open","closed","base","mid")
     call ton_main("Or myself, for that matter...", "upset", "base", "base", "up")
-    call ton_main("Not that it would have been the worst-thing-in-the-world to let them touch my tits directly...", "base", "base", "base", "R")
+    call ton_main("Not that it would have been the worst thing in the world to let them touch my tits directly...", "base", "base", "base", "R")
     call ton_main("Anyhow, I offered them some house points for it... but to my surprise they both kindly refused...","open","closed","base","mid")
-    call ton_main("Said they'd much rather have a go-at-it again...","base","base","angry","mid")
+    call ton_main("Said they'd much rather have a \"go at it\" again...","base","base","angry","mid")
     m "Think they'll spread the word this time?"
-    call ton_main("They were both pitching a pretty-big-tent when they left class... that was noticeable to say the least...", "silly", "happyCl", "base", "mid")
+    call ton_main("They were both pitching a pretty big tent when they left class... that was noticeable to say the least...", "silly", "happyCl", "base", "mid")
     m "Very good, [tonks_name], very good..."
     call ton_main("Thank you, sir.","base","happyCl","base","mid")
     call ton_main("Now, if you don't mind... I think I better head to my room for some...{w} \"unwinding\"...", "mad", "narrow", "base", "R")

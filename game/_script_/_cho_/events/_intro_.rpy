@@ -244,7 +244,7 @@ label cho_intro_E1:
         call cho_main("I didn't need to get my teeth shortened so I wouldn't be confused for a rabbit!", "open", "narrow", "angry", "L")
         call her_main("...", "normal", "narrow", "angry", "down", cheeks="blush")
         call cho_main("Not that anyone would even see them through that horribly bushy hair of yours...", "smile", "narrow", "angry", "L")
-        call her_main("Well, I heard that you were caught snogging someone in one of the carriages, after the triwizard tournament.", "soft", "closed", "base", "mid", cheeks="blush")
+        call her_main("Well, I heard that you were caught snogging someone in one of the carriages after the triwizard tournament.", "soft", "closed", "base", "mid", cheeks="blush")
         call her_main("I'm sure that will go down in the Hogwarts book of history...", "grin", "narrow", "base", "mid", cheeks="blush")
         g9 "(How naughty, didn't expect such indecent behaviour from a girl with such a cute face...)"
         call cho_main("Yeah? You ever even kissed a boy before, Granger?", "soft", "narrow", "raised", "L")

@@ -174,7 +174,7 @@ label hermione_level_up(tier=None):
         ">You can move up {i}favour tiers{/i} by increasing her {i}whoring level{/i}, and by triggering {i}favour milestones{/i}."
         if game_difficulty >= 3: # Hardcore, books are required.
             ">In addition, it is also required of you to increase your {i}imagination level{/i} by reading {i}fictional books{/i}, to unlock Hermione's next tier of favours."
-        ">Each tier unlocks a new set of favours, but favours of the previous tier will no longer be availabe."
+        ">Each tier unlocks a new set of favours, but favours of the previous tier will no longer be available."
         hide screen blktone5
         with d3
         pause.5
@@ -481,7 +481,7 @@ label hermione_talk:
         ### Cho ###
         "{color=[menu_disabled]}-Solve the matter with Cho-{/color}" (icon="interface/icons/small/cho.webp") if cho_intro.E2_complete and not ss_he.cho_E1:
             # Before talking to Snape.
-            m "(I should ask Snape what to do about that Cho girl first. Just to be save.)"
+            m "(I should ask Snape what to do about that Cho girl first. Just to be safe.)"
             m "(Might as well have a drink with him...)"
             jump hermione_talk
 

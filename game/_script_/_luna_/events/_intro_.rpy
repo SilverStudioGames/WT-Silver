@@ -70,7 +70,7 @@ label hat_intro:
 label hat_intro_2:
     $ luna_known = True
     m "[hermione_name], I wanted to talk to you about something."
-    call her_main("What's that [genie_name]?", "open", "base", "base", "mid")
+    call her_main("Okay, what is it [genie_name]?", "open", "base", "base", "mid")
     m "Do you feel that any of your friends are in the wrong house?"
     call her_main("What do you mean \"In the wrong house\"?", "soft", "base", "base", "mid")
     m "well, do you know anyone who'd be better suited being in a different house?"

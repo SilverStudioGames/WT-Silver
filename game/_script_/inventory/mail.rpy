@@ -173,7 +173,7 @@ label letter_nt_1:
 
     m "Cute..."
     call play_sound("scroll")
-    call nar(">You roll out the poster completely - getting a good look of it.")
+    call nar(">You roll out the poster completely - getting a good look at it.")
     g9 "Nice!"
 
     call give_reward(text="{heart} {heart} {heart}", gift="interface/icons/posters/tonks.webp", sound=True)
