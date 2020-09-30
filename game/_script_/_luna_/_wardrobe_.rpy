@@ -43,8 +43,8 @@ default luna = Doll(name="luna",
                               "eyes":     ["base", 8, True],
                               "pupils":   ["mid", 9, True],
                               "mouth":    ["base", 13, True]},
-                        body={"armleft": ["down", 3],
-                              "armright":["down", 1],
+                        body={"armleft": ["up", 3],
+                              "armright":["up", 1],
                               "base":    ["front", 0],
                               "breasts": ["normal", 2]})
 
@@ -52,7 +52,8 @@ default luna = Doll(name="luna",
 ## Schoolgirl Outfit ##
 #######################
 
-default lun_hair_base = DollCloth("luna", ("head", "hair"), "hair", "base", [[255, 227, 165, 255], [97, 165, 245, 255], [90, 190, 100, 255]], unlocked=True)
+default lun_hair_base = DollCloth("luna", ("head", "hair"), "hair", "base", [[255, 228, 168, 255], [48, 144, 135, 255]], unlocked=True)
 
 default lun_outfit_default = DollOutfit([lun_hair_base], True)
 default lun_outfit_last = DollOutfit([lun_hair_base])
+
