@@ -140,7 +140,7 @@ default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, to
 
 default ton_hat_succubus = DollCloth("tonks", ("head", "headgear"), "hat", "horns", [[62, 51, 57, 255], [106, 63, 67, 255]])
 default ton_neckwear_succubus = DollCloth("tonks", ("head", "neckwear"), "neckwear", "succubus_colar", [[62, 51, 57, 255]])
-default ton_gloves_succubus = DollCloth("tonks", ("misc", "gloves"), "gloves", "succubus_gloves", [[62, 51, 57, 255]], armfix=True)
+default ton_gloves_succubus = DollCloth("tonks", ("misc", "gloves"), "gloves", "succubus_gloves", [[62, 51, 57, 255]])
 default ton_top_succubus = DollCloth("tonks", ("tops", "other"), "top", "succubus_corset",[[62, 51, 57, 255], [181, 86, 84, 255], [136, 134, 134, 255]], blacklist=["bra"])
 default ton_panties_succubus = DollCloth("tonks", ("panties", "bikini panties"), "panties", "succubus_panties", [[62, 51, 57, 255], [136, 134, 134, 255]])
 default ton_accessory0_succubus = DollCloth("tonks", ("misc", "accessory"), "accessory0", "succubus_wings", [[62, 51, 57, 255], [181, 86, 84, 255], [136, 134, 134, 255]], zorder=-160, blacklist=["robe"])
