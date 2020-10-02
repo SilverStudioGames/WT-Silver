@@ -108,6 +108,16 @@ default mr_ev_EFP = MirrorStory(
     content_characters = ["hermione"]
 )
 
+default mr_ev_SNR = MirrorStory(
+    name = "Suck & Run",
+    story_description = "Someone or {i}something{/i} is sucking out the life force out of the students.",
+    start_label = "suck_and_run",
+    authors = ["TeamSilver"],
+    categories= ["Spooky", "Blowjob", "Reverse Corruption"],
+    ach_desc = "",
+    content_characters = ["tonks", "snape"]
+)
+
 default mr_evs_list = [
     mr_ev_PaH,
     mr_ev_AXmasTale,
@@ -118,7 +128,8 @@ default mr_evs_list = [
     mr_ev_ABAS,
     mr_ev_PR,
     mr_ev_AOC,
-    mr_ev_EFP
+    mr_ev_EFP,
+    mr_ev_SNR
     ]
 
 default current_page = 0

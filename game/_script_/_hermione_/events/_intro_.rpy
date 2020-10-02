@@ -591,7 +591,7 @@ label ss_he_hermione_E2:
     call sna_main("But how? She's practically a saint--","snape_31")
     call sna_main("Even students who hate her secretly admire her.","snape_35")
     call sna_main("She hasn't failed a single test in her entire time here...--","snape_31")
-    call sna_main("She is always ahead of the schedule...","snape_31")
+    call sna_main("She is always way ahead of schedule...","snape_31")
     call sna_main("Damn, how I hate it when she corrects me during my classes...","snape_08")
     call sna_main("And thanks to her the Gryffindor house is way ahead of everybody else now...","snape_34")
     call sna_main("Even Slytherin is no match for them this year...","snape_35")

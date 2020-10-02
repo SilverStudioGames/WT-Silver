@@ -224,13 +224,13 @@ label hg_pf_blowjob_T5_intro_E2:
 
         "-Two can play that game...-":
             stop music fadeout 1.0
-            m "Oh nooooo... whatever I'm gonna do now."
+            m "Oh nooooo... what am I ever going to do now."
             call her_main("........?", "soft", "base", "base", "mid")
             m "A student caught me in the act and will report me to the ministry of magic."
             m "I guess I'll have to sign a resignation and step down being a headmaster."
             call her_main("[genie_name]?!", "open", "wide", "worried", "mid")
             call play_music("chipper_doodle") # HERMIONE'S THEME.
-            g9 "*he-he* If you have only seen your face."
+            g9 "*he-he* If you could only see your face."
             call her_main("what..", "soft", "wide", "worried", "mid")
             m "I got you."
             call her_main("........", "annoyed", "base", "angry", "R")

@@ -390,6 +390,13 @@ default cc_costume_misty_ITEM = Item(
     outfit_layers = ["tops/top_shirt_1","bottoms/pants_short_1","../body/arms/arm_down_l_overlay","accs/suspenders_1"]
 )
 
+default cc_japanese_school_uniform_ITEM = CostumeItem(
+    id="cc_japanese_school_uniform", name="Japanese School Uniform", type="outfit", items=["top","bottoms","stockings"],
+    cost=300, wait_time=3, image=cho_outfit_j_school, description="> A school girl uniform inspired by the land of culture.",
+    # Layers
+    outfit_layers = ["tops/top_j_school_1","bottoms/j_school_skirt_1","../body/arms/arm_down_l_overlay","stockings/kneehigh"]
+)
+
 # Cho Sets
 default cc_muggle_hot_ITEM = Item(id="cc_muggle_hot", name="Hot Weather Clothing", type="outfit", items=["top","bottoms","stockings"], image=cho_outfit_trainee, unlockable=True)
 default cc_party_slut_ITEM = Item(id="cc_party", name="Party Clothing", type="outfit", items=["bra","bottoms"], image=cho_outfit_party, unlockable=True)
@@ -399,7 +406,7 @@ default cc_bikini_micro_ITEM  = Item(id="cc_bikini_micro", name="Micro Bikini", 
 default cc_smurfette_ITEM = Item(id="cc_smurfette", name="Smurfette Cosplay Outfit", type="outfit", items=["top","hat","hairstyle"], image=cho_outfit_smurfette, cost=0, wait_time=1, description="> Unleash your inner blue!")
 
 default cho_outfits_list = [
-    cc_outfit_sailor_white_ITEM
+    cc_outfit_sailor_white_ITEM, cc_japanese_school_uniform_ITEM
 ]
 default cho_costumes_list = [
     cc_costume_misty_ITEM
@@ -452,6 +459,7 @@ default outfit_linking = {
     cc_muggle_hot_ITEM.id:          "cho_outfit_trainee",
     cc_outfit_sailor_white_ITEM.id: "cho_outfit_sailor",
     cc_costume_misty_ITEM.id:       "cho_outfit_misty",
+    cc_japanese_school_uniform_ITEM.id: "cho_outfit_j_school",
     cc_bikini_micro_ITEM.id:        "cho_outfit_bikini",
     cc_lingerie_lace_ITEM.id:       "cho_outfit_lacelingerie",
     cc_dress_red_ITEM.id:           "cho_outfit_dress1",

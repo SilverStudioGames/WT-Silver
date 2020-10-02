@@ -280,7 +280,7 @@ label tonks_talk:
                     m "That's part of the benefits of being immortal. Your body doesn't age..."
                     call ton_main("You're lucky then... I've had men that were a couple hundred years old, whose bodies were quite fragile...","open","base","base","R")
                     m "All mortals? How did they get that old?"
-                    call ton_main("Ever heard of the \"philosopher stone?\"", "base", "narrow", "base", "mid")
+                    call ton_main("Ever heard of the \"Philosopher's stone?\"", "base", "narrow", "base", "mid")
                     m "*Ah!* Is it a tiny, red, stone-looking gem, that lengthens the owner's life?"
                     m "It's called the \"sorcerer's stone\" in my world, however."
                     call ton_main("Really? Why is that?","open","base","raised","mid")

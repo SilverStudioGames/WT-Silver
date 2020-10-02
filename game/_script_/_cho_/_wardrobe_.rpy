@@ -104,6 +104,16 @@ default cho_panties_bikini2 = DollCloth("cho", ("panties", "bikini panties"), "p
 
 default cho_outfit_sailor = DollOutfit([cho_hair_ponytail1, cho_top_sailor1, cho_bottom_skirt1, cho_stockings_sailor1, cho_panties_bikini2], price=500)
 
+############################
+## Japanese School Outfit ##
+############################
+
+default cho_top_j_school1 = DollCloth("cho", ("tops", "shirts"), "top", "top_j_school_1", [[255, 248, 223, 255], [95, 110, 142, 255], [161, 161, 164, 255], [253, 254, 250, 255]], level=4, armfix=True)
+default cho_bottom_j_skirt1 = DollCloth("cho", ("bottoms", "skirts"), "bottom", "j_school_skirt_1", [[161, 161, 164, 255]], level=4, armfix=True)
+default cho_stockings_j_kneehigh1 = DollCloth("cho", ("legwear", "socks"), "stockings", "kneehigh", [[253, 254, 250, 255]], level=0)
+
+default cho_outfit_j_school = DollOutfit([cho_hair_ponytail1, cho_top_j_school1, cho_bottom_j_skirt1, cho_stockings_j_kneehigh1], price=300)
+
 ###################
 ## Bikini Outfit ##
 ###################

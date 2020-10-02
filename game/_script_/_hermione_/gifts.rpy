@@ -588,7 +588,7 @@ label give_her_gift(gift_item):
 
     elif gift_item == wine_ITEM or gift_item == firewhisky_ITEM:
         if her_whoring <= 6  and her_whoring <= 11:
-            call her_main("[genie_name]?! Drinking alcohol at school grounds is forbidden..","open", "base", "angry", "mid")
+            call her_main("[genie_name]?! Drinking alcohol on school grounds is forbidden..","open", "base", "angry", "mid")
             call her_main("And you as a headmaster should know it!", "upset", "base", "angry", "mid")
             call her_mood(10)
         elif her_whoring <= 12 and her_whoring <= 17:

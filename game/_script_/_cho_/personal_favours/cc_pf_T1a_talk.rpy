@@ -721,7 +721,7 @@ label cc_pf_talk_T2_intro_E1:
     if masturbating:
         call cho_main("They should be scared of me, [cho_genie_name]!", "soft", "narrow", "angry", "mid")
         g4 "{size=-4}(Yes! Show them, you slut!){/size}"
-        call cho_main("Of what {b}I'm{/b} capable off!", "clench", "base", "angry", "mid")
+        call cho_main("Of what {b}I'm{/b} capable of!", "clench", "base", "angry", "mid")
         g4 "*Argh*! (I'm getting close!)"
         call cho_main("Scared of what's about to come!", "soft", "narrow", "angry", "mid")
 

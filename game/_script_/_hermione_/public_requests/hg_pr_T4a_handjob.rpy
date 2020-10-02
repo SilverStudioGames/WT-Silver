@@ -385,14 +385,14 @@ label hg_pr_handjob_T5_E2:
     call play_music("hermione") # Music
     call her_main("I did, [genie_name]...", "open", "closed", "base", "mid")
     call her_main("Although I am still not sure how I feel about all of this...", "annoyed", "base", "worried", "R")
-    m "You personal feelings are of no concern to me, [hermione_name]."
+    m "Your personal feelings are of no concern to me, [hermione_name]."
     m "Just tell me how it went."
     call her_main("Well, there is not much to tell. [genie_name]...", "open", "base", "base", "mid")
     call play_music("playful_tension") # Music
     her "Today I gave another handjob to one of my classmates..."
     call her_main("Me, Hermione Granger...", "open", "narrow", "worried", "down")
     call her_main("Giving free handjobs in the school's restroom...", "angry", "narrow", "base", "down")
-    m "Wait. What do you mean with \"free\"?"
+    m "Wait. What do you mean by \"free\"?"
     call her_main("Oh, of course... I get paid with house points for this...", "angry", "base", "base", "mid")
     her "But nobody knows about that..."
     her "And to everyone else this just looks like some harlot who does this for fun..."

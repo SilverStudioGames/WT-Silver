@@ -480,7 +480,7 @@ label ss_he_story_intro_E10:
     g9 "He-he..."
     call sna_main("Are you pulling my leg?","snape_25")
     g9 "You should've seen your face."
-    call sna_main("You really got me worried there, you bloody non-human bastard!","snape_15")
+    call sna_main("You really had me worried there, you bloody non-human bastard!","snape_15")
     g9 "I know! It was hard to resist..."
     call blktone
 
@@ -534,7 +534,7 @@ label ss_he_story_intro_E12:
     m "The heart of the human civilization if you will."
     call sna_main("I am relieved to hear that...","snape_23")
     m "Sure..."
-    m "Although if your Albus friend really materialised in exactly the same spot I occupied before I casted the spell..."
+    m "Although if your Albus friend really materialised in exactly the same spot I occupied before I cast the spell..."
     m "I suppose the princess could have him beheaded..."
     call sna_main("WHAT?!","snape_01")
     m "But the probability of that happening is very slim..."

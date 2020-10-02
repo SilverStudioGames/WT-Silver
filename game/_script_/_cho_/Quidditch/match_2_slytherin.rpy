@@ -1060,7 +1060,7 @@ label slytherin_match:
     pause 1.0
 
     call her_main("{size=-4}That's better.{/size}", "base", "base", "base", "down", cheeks="blush")
-    call her_main("So, after that short... intermission and removing that... streaker of the pitch...", "open", "base", "base", "L")
+    call her_main("So, after that short... intermission and removing that... streaker from the pitch...", "open", "base", "base", "L")
     #TODO Crowd !!!
     g4 "There was a streaker on the pitch? WHEN!?!"
     call sna_main("She's deflecting the attention from the podium...", "snape_09")

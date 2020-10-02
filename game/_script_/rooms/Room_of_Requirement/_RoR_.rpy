@@ -42,7 +42,7 @@ screen room_of_requirement_menu():
         ypos 180
         idle "images/rooms/room_of_requirement/mirror.webp"
         hover "images/rooms/room_of_requirement/mirror_hover.webp"
-        tooltip "Look into mirror"
+        tooltip "Look into the mirror"
 
         action [Hide("room_of_requirement_menu"), Jump("mirror_menu")]
 
