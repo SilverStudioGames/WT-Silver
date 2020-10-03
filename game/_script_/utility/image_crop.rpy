@@ -42,12 +42,12 @@ init python:
 
     def get_zoom(image, xsize, ysize):
         if isinstance(image, basestring):
-            image = im.Image(image)
+            image = Image(image)
 
         r = renpy.render(image, 800, 800, 0, 0)
         x, y = r.get_size()
 
-        return min(1.0, min(ysize / y, xsize / x))
+        return min(ysize / y, xsize / x)
 
     class CroppedImage(object):
         def __init__(self, sprites, path):
@@ -59,8 +59,12 @@ init python:
         def get_image(self):
             if not renpy.is_skipping() or not self.cached:
                 self.cached = True
-                box = crop_whitespace(self.path)
+                # TODO: add an offset for the displayable so the item always fits the wardrobe box
+
+                x, y, w, h = crop_whitespace(self.path)
+                h = max(h, w)
+                w = max(w, h/2)
+
+                box = (x, y, w, h)
                 self.sprite = Crop(box, Fixed(*self.sprites))
             return self.sprite
-
-    config.after_load_callbacks.append(start_image_crop)

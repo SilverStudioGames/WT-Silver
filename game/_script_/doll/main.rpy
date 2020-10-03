@@ -33,22 +33,21 @@ init python:
 
             for o in self.clothes.itervalues():
                 if o[0] and o[2]:
-                    sprites.append([o[0].get_image(), o[0].zorder])
+                    zorder = o[0].zorder
+
+                    sprites.append([o[0].get_image(), zorder])
 
                     if o[0].back:
-                        sprites.append([o[0].get_back(), -100+o[0].zorder])
+                        sprites.append([o[0].get_back(), -100+zorder])
 
                     if o[0].front:
-                        sprites.append([o[0].get_front(), 100+o[0].zorder])
+                        sprites.append([o[0].get_front(), 100+zorder])
 
                     if o[0].armfix:
-                        armleft = Transform("{}armleft/{}_fix.webp".format(self.body.imagepath, self.body.get_part("armleft")), matrixcolor=HueMatrix(self.body.hue))
-                        armright = Transform("{}armright/{}_fix.webp".format(self.body.imagepath, self.body.get_part("armright")), matrixcolor=HueMatrix(self.body.hue))
-
-                        sprites.extend([[armleft, o[0].zorder+0.5], [armright, o[0].zorder+0.5]])
+                        sprites.append([o[0].get_armfix(), zorder+0.5])
 
                     if o[0].mask:
-                        masks.append([o[0].mask, o[0].zorder-1])
+                        masks.append([o[0].mask, zorder-1])
 
             sprites.sort(key=itemgetter(1))
 

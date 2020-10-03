@@ -19,7 +19,6 @@ label game_init:
     call wardrobe_init
     $ save_internal_version = config.version
     $ achievement_fix()
-    $ start_image_crop()
     if not renpy.android:
         show screen mouse_tooltip
     return

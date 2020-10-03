@@ -73,19 +73,15 @@ init python:
             return sprites
 
         def build_icon(self):
-            sprites = []
-            sprites.extend((self.apply_color("{}{}.webp".format(self.imagepath, x), x), x) for x in xrange(self.layers))
-            sprites.extend((self.apply_color(x, n), n-50) for n, x in enumerate(self.back))
-            sprites.extend((self.apply_color(x, n), 50+n) for n, x in enumerate(self.front))
-            if self.back_outline:
-                sprites.append([self.back_outline, -50+self.zorder+self.layers])
-            if self.front_outline:
-                sprites.append([self.front_outline, 50+self.zorder+self.layers])
+            sprites = [
+                [self.get_back(), -100+self.zorder],
+                [self.char.body.get_mannequin([self]), 0],
+                [self.get_front(), 100+self.zorder],
+                [self.get_image(), self.zorder]
+            ]
 
-            for n, x in enumerate(self.layers_extra):
-                path = "{}{}.webp".format(self.imagepath, x)
-                if renpy.loadable(path):
-                    sprites.append((path, self.layers+n))
+            if self.armfix:
+                sprites.append([self.get_armfix(mannequin=True), self.zorder+0.5])
 
             bounds = "{}outline.webp".format(self.imagepath) if renpy.loadable("{}outline.webp".format(self.imagepath)) else "{}0.webp".format(self.imagepath)
 
@@ -104,6 +100,15 @@ init python:
             front_outline = [self.front_outline] if self.front_outline else []
             sprites = [self.apply_color(x, n) for n, x in enumerate(self.front)] + front_outline
             return Fixed(*sprites, fit_first=True)
+
+        def get_armfix(self, mannequin=False):
+            if mannequin:
+                armleft = gray_tint("{}armleft/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armleft")))
+                armright = gray_tint("{}armright/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armright")))
+            else:
+                armleft = Transform("{}armleft/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armleft")), matrixcolor=HueMatrix(self.char.body.hue))
+                armright = Transform("{}armright/{}_fix.webp".format(self.char.body.imagepath, self.char.body.get_part("armright")), matrixcolor=HueMatrix(self.char.body.hue))
+            return Fixed(armleft, armright, fit_first=True)
 
         def get_icon(self):
             """Returns cropped Fixed displayable"""

@@ -490,7 +490,7 @@ screen wardrobe_menuitem(xx, yy):
                     pos (12+90*col, 180+92*row)
                     xysize (83, 85)
 
-                    add menu_items[i].get_icon() zoom image_zoom xalign 0.5 yalign 0.5 events False
+                    add menu_items[i].get_icon() zoom image_zoom align (0.5, 0.5) events False
                 if char_active.clothes[menu_items[i].type][0] and menu_items[i].id == char_active.clothes[menu_items[i].type][0].id:
                     button:
                         style "empty"
