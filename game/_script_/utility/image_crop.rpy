@@ -48,12 +48,25 @@ init python:
         def get_image(self):
             if not renpy.is_skipping() or not self.cached:
                 self.cached = True
-                # TODO: Centre the cropped displayable if it's taller than wider, without cropping artifacts.
+                # TODO: Fix the math, not every sprite is centred correctly and some margins are too big.
 
                 x, y, w, h = crop_whitespace(self.path)
 
-                w = max(w, max(h, 83))
-                h = max(h, max(w, 85))
+                xoffset = w/4
+                yoffset = h/4
+
+                w = max(w, max(h, 84))
+                h = max(h, max(w, 84))
+
+                x = clamp( (x - w/2) + xoffset, 0, 1010)
+                w = max(84, w + w/2)
+
+                y = clamp( (y - h/2) + yoffset, 0, 1200)
+                h = max(84, h + h/2)
+
+                # Forbid exceeding the image height.
+                if y+h > 1200:
+                    y = 1200-h
 
                 box = (x, y, w, h)
                 self.sprite = Crop(box, Fixed(*self.sprites))
