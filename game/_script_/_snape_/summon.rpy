@@ -87,7 +87,7 @@ label summon_snape:
 
 
         # Cardgame
-        "-Let's Duel-" (icon="interface/cards.webp") if deck_unlocked:
+        "-Let's Duel-" (icon="interface/icons/small/cards.webp") if deck_unlocked:
             jump snape_duel_menu
 
         # Dismiss

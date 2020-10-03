@@ -2,14 +2,14 @@
 label nar(text="", action=""):
 
     if action != "end": #Narration ended, blktone was already active.
-        show screen blktone5
+        show screen blktone
         with d3
 
     if text != "":
         "[text]"
 
     if action != "start": #Narration just started, blktone won't get hidden.
-        hide screen blktone5
+        hide screen blktone
         with d3
 
     return

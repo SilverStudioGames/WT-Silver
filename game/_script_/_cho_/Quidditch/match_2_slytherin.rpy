@@ -618,10 +618,10 @@ label slytherin_match:
     m "Err..."
     call sna_main("Firewhisky? For such a special day as today I've brought some of my finest wine.", "snape_20")
 
-    show screen blktone5
+    show screen blktone
     with d5
     m "(Yeah right, it's probably one of mine...)"
-    hide screen blktone5
+    hide screen blktone
     with d5
 
     call sna_main("Now, if I may, Miss Tonks?", "snape_13")
@@ -860,7 +860,7 @@ label slytherin_match:
     call gen_main("I've got this...") # Genie gets into character for his speech
 
     $ renpy.sound.play("sounds/microphone_feedback.mp3")
-    hide screen blktone5
+    hide screen blktone
     with d3
     pause .2
     call gen_main("Ladies and gentlemen...", face="open")
@@ -1144,24 +1144,24 @@ label slytherin_match:
     g9 "(And it will be getting even wetter in a minute...)"
     call her_chibi_scene("grope_on_podium_horny")
     hide screen hermione_main
-    show screen blktone5
+    show screen blktone
     with d5
     pause .2
 
     ">You move your hands gently up and down underneath Hermione's skirt, massaging her butt and thighs."
-    hide screen blktone5
+    hide screen blktone
     with d5
     pause .2
 
     call her_main("*Hmm*{w=0.3} Those boys are going...{w=0.5} *Ahh* going way too fast!{w} This game might be over before we know it.", "soft", "narrow", "base", "up", cheeks="blush", trans=d3)
     g9 "(Let's slow down a bit then, shall we...)"
     hide screen hermione_main
-    show screen blktone5
+    show screen blktone
     with d5
     pause .2
 
     ">As you continue touching Hermione, she's finding it more and more difficult to focus on the game."
-    hide screen blktone5
+    hide screen blktone
     with d5
     pause .2
 
@@ -1171,13 +1171,13 @@ label slytherin_match:
     call her_main("I've never...{w=0.3} *Hnngh*{w=0.5} experienced such a...{w=0.5} such a...{w=0.6} {b}thrill{/b} before!", "base", "narrow", "base", "up")
     g9 "(Time to get some of my own liquid luck!)"
     hide screen hermione_main
-    show screen blktone5
+    show screen blktone
     with d5
     pause .2
 
     ">You keep touching Hermione, moving your hand further and further underneath her skirt."
     ">And as you begin rubbing her vagina with increased pressure you feel a bit of a wet spot forming across her panties."
-    hide screen blktone5
+    hide screen blktone
     with d5
     pause .2
 
@@ -1190,12 +1190,12 @@ label slytherin_match:
 
     call her_main("*Ahh*...{w=0.3} One of the Slytherin beaters just went head on and smashed their elbow into an opposing player...", "grin", "narrow", "base", "L", cheeks="blush")
     hide screen hermione_main
-    show screen blktone5
+    show screen blktone
     with d5
     pause .2
 
     ">Noticing Hermione's breathing becoming more and more erratic, you pick up the pace, moving your middle finger back and forth across the underside of her wet panties."
-    hide screen blktone5
+    hide screen blktone
     with d5
     pause .2
 
@@ -1205,12 +1205,12 @@ label slytherin_match:
 
     call her_chibi_scene("grope_on_podium_close")
     hide screen hermione_main
-    show screen blktone5
+    show screen blktone
     with d5
     pause .2
 
     ">As the quaffle is thrown towards one of the hoops, you give Hermione one last rub across her panties, bringing her over the edge."
-    hide screen blktone5
+    hide screen blktone
     $ renpy.sound.play("sounds/crowd_applause.mp3")
     call quidditch_stands(crowd_react=["emo8", "emo7", "emo8"])
     with d3
@@ -1224,10 +1224,10 @@ label slytherin_match:
     call her_chibi_scene("grope_on_podium_cum")
     pause 0.7
 
-    show screen blktone5
+    show screen blktone
     with d5
     ">Hermione's legs tremble as her knees buckle, the words of her orgasm drowned out by the cheers of the crowd."
-    hide screen blktone5
+    hide screen blktone
     with d5
     call ctc
 
@@ -1242,16 +1242,16 @@ label slytherin_match:
 
     ">As Hermione collapses to the ground, you give her a last quick look before swiftly heading back to your seat."
 
-    hide screen blktone5
+    hide screen blktone
     call gen_chibi("stand", flip=True, 20, 365)
     call quidditch_stands(crowd_react=[None, None, None])
     with fade
     pause .6
 
-    show screen blktone5
+    show screen blktone
     with d5
     ">With her legs still shaking slightly, she tries fruitlessly to stand up and compose herself."
-    hide screen blktone5
+    hide screen blktone
     with d5
 
     call her_main("*Ahh*...{w=0.3} *Ahh*...{w=0.5} Sir...{w=0.6} that was...{w=0.6} *Ahh*...", "open_tongue", "narrow", "worried", "up", cheeks="blush", flip=False, xpos="base", ypos="head")

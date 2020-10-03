@@ -103,7 +103,7 @@ label give_sus_gift(gift_item):
     return
 
 label sus_mood(value=0):
-    show screen blktone5
+    show screen blktone
     with d3
 
     if value > 0:
@@ -124,5 +124,5 @@ label sus_mood(value=0):
 
     call describe_mood_after_gift(was_negative, sus_mood, value)
 
-    hide screen blktone5
+    hide screen blktone
     return

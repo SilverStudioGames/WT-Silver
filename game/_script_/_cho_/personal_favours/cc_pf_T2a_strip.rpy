@@ -2107,12 +2107,12 @@ label cc_pf_strip_T3_intro_E2:
     g9 "!!!"
     call ton_main("*Hmmm*... Or is that snitch of yours going to dart off after all?", "soft", "narrow", "base", "down", hair="horny")
     call cho_main("", "angry", "happyCl", "worried", "mid", cheeks="blush")
-    show screen blktone5
+    show screen blktone
     with d3
     m "(I sure hope the desk is sturdy enough...)"
     call hide_characters
     hide screen bld1
-    hide screen blktone5
+    hide screen blktone
     show screen blkfade
     with d5
 
@@ -2290,9 +2290,9 @@ label cc_pf_strip_T3_intro_E2:
                 pass
 
     call sna_main("As much as I'd like to watch you make a fool of yourself for us, Miss Chang, I have more important things to do.", "snape_13")
-    show screen blktone5
+    show screen blktone
     m "(More important than this?...)"
-    hide screen blktone5
+    hide screen blktone
     call sna_main("I merely came here to discuss a private matter with our headmaster.", "snape_24")
     call sna_main("About this... Misunderstanding that occurred during the last Quidditch game.", "snape_09")
 

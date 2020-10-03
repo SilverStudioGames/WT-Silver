@@ -68,13 +68,13 @@ init python:
 
 label parcel(parcel, label):
     show screen bld1
-    show screen blktone5
+    show screen blktone
 
     $ renpy.checkpoint()
 
     $ renpy.call("give_reward", *parcel.get_caption())
 
-    hide screen blktone5
+    hide screen blktone
     hide screen bld1
     with d3
 

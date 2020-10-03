@@ -98,7 +98,7 @@ label summon_hermione:
             jump hermione_requests
 
         # Card game
-        "-Let's Duel-" (icon="interface/cards.webp") if snape_second_win:
+        "-Let's Duel-" (icon="interface/icons/small/cards.webp") if snape_second_win:
             jump hermione_cardgame_menu
 
         # Gifts
@@ -168,14 +168,14 @@ label hermione_level_up(tier=None):
 
     call bld
     if tier == 1:
-        show screen blktone5
+        show screen blktone
         with d3
         ">Hermione's second {i}favour tier{/i} is now available."
         ">You can move up {i}favour tiers{/i} by increasing her {i}whoring level{/i}, and by triggering {i}favour milestones{/i}."
         if game_difficulty >= 3: # Hardcore, books are required.
             ">In addition, it is also required of you to increase your {i}imagination level{/i} by reading {i}fictional books{/i}, to unlock Hermione's next tier of favours."
         ">Each tier unlocks a new set of favours, but favours of the previous tier will no longer be available."
-        hide screen blktone5
+        hide screen blktone
         with d3
         pause.5
         menu:

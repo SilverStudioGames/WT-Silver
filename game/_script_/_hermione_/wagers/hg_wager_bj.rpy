@@ -381,7 +381,7 @@ label hg_wager_bj:
                                 call her_main("Good night.", "open", "base", "base", "mid")
                                 m "Good night, [hermione_name]"
                             $ uni_sperm = False
-                        "-Try something crazy- {image=interface/cards.webp}":
+                        "-Try something crazy- {image=interface/icons/small/cards.webp}":
                             m "Oh yes, I'm...{w=0.3} ugh...{w=0.3} fine."
                             m "But for some reason I feel like playing some cards."
                             call sna_main("In a moment like this?", face="snape_02")
@@ -401,7 +401,7 @@ label hg_wager_bj:
                     #
                     #
                     menu:
-                        "\"*Hmm*.. Actually..\" {image=interface/cards.webp}":
+                        "\"*Hmm*.. Actually..\" {image=interface/icons/small/cards.webp}":
                             g9 "I don't see why not... I don't have anything else going on at the moment..."
                             label bj_duel_game:
                             call her_main("...", "open_wide_tongue", "narrow", "annoyed", "mid")

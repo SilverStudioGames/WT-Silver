@@ -24,7 +24,7 @@ label give_reward(text=None, gift=None, sound=True):
         $ the_gift = "interface/icons/box_blue_2.webp"
 
     show screen gift(sound)
-    show screen blktone5
+    show screen blktone
     with d3
 
     if text:
@@ -33,7 +33,7 @@ label give_reward(text=None, gift=None, sound=True):
         call ctc
 
     hide screen gift
-    hide screen blktone5
+    hide screen blktone
     with d3
 
     return

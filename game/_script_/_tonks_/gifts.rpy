@@ -159,7 +159,7 @@ label give_ton_gift(gift_item):
     return
 
 label ton_friendship(value=0):
-    show screen blktone5
+    show screen blktone
     with d3
 
     if value > 0:
@@ -176,5 +176,5 @@ label ton_friendship(value=0):
         "Tonks' friendship towards you hasn't changed much."
 
     $ ton_friendship = max(min(ton_friendship+value, 100), 0)
-    hide screen blktone5
+    hide screen blktone
     return

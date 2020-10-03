@@ -98,9 +98,9 @@ init python:
         word = word_list[active_girl]
 
         if cheats_active or game_difficulty <= 2:
-            renpy.show_screen("blktone5")
+            renpy.show_screen("blktone")
             renpy.with_statement(d3)
             renpy.say(None, "{size=+6}> Try again at "+word+" level {color=#7a0000}"+str(value)+"{/color}.{/size}")
-            renpy.hide_screen("blktone5")
+            renpy.hide_screen("blktone")
             renpy.with_statement(d3)
         return

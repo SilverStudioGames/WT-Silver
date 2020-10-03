@@ -400,7 +400,7 @@ label ball_ending_E2:
     call update_interface_color
 
     hide screen bld1
-    hide screen blktone5
+    hide screen blktone
     call her_chibi("hide")
 
     $ dynamic_cg("ball", "background")
@@ -416,7 +416,7 @@ label ball_ending_E2:
     pause.1
 
     hide screen bld1
-    hide screen blktone5
+    hide screen blktone
     call hide_blkfade
     call ctc
 
@@ -1086,20 +1086,20 @@ label ball_ending_E2:
         her "Hello, everyone!"
         her "Thank you for making me your ball queen for two years in a row!"
 
-        show screen blktone5
+        show screen blktone
         m "!!!"
         m "Her hairdo looks perfect!"
         m "I suppose I was wrong and--"
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_closed", "cum0", "overlay")
         g4 "Nope, there it is!"
         g4 "Dripping down behind her ear!"
-        hide screen blktone5
+        hide screen blktone
 
         her "I would like to dedicate my speech to every girl in this room..."
 
-        show screen blktone5
+        show screen blktone
         g4 "What was she thinking pulling a stunt like that?"
-        hide screen blktone5
+        hide screen blktone
 
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_squint", "cum1", "overlay")
         her "I shall not go as far as to say that I do not deserve this honour..."
@@ -1107,25 +1107,25 @@ label ball_ending_E2:
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "cum2", "overlay")
         her "But I am still very grateful to stand here before all of you tonight..."
 
-        show screen blktone5
+        show screen blktone
         mal "{size=-4}*huh*?{/size}"
         mal "{size=-4}What's that stuff on her forehead you wager?{/size}"
         mal2 "{size=-4}Sweat...?{/size}"
         mal "{size=-4}*Hmm*... Probably...{/size}"
-        hide screen blktone5
+        hide screen blktone
 
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_squint", "cum3", "overlay")
         her "I would especially like to thank our esteemed teachers for their hard work."
 
-        show screen blktone5
+        show screen blktone
         g4 "Doesn't she feel it by now?!"
         g4 "She'd better cut her speech short!"
-        hide screen blktone5
+        hide screen blktone
 
         her "Hogwarts truly did become a second home for all of us..."
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_squint", "cum4", "overlay")
         her "I know that I speak for every student in this building when I say this."
-        show screen blktone5
+        show screen blktone
 
         mal "{size=-4}That doesn't look like sweat though...{/size}"
         mal2 "{size=-4}Yeah...{/size}"
@@ -1154,28 +1154,28 @@ label ball_ending_E2:
         mal2 "{size=-4}What he said!{/size}"
         fem "{size=-4}you guys are...{/size}"
         fem "Such Idiots!!!"
-        hide screen blktone5
+        hide screen blktone
 
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_closed", "cum4", "overlay")
         her "I remember when I was just a little girl..."
 
-        show screen blktone5
+        show screen blktone
         m "*Huh*?"
-        hide screen blktone5
+        hide screen blktone
 
         her "Frightened of my power... confused..."
 
-        show screen blktone5
+        show screen blktone
         m "*Hmm*..."
         m "There... She did it again..."
-        hide screen blktone5
+        hide screen blktone
 
         her "Who knows what would have become of me if not for Hogwarts!"
 
-        show screen blktone5
+        show screen blktone
         m "And again..."
         m "Why does she keep on jerking her shoulder in that awkward manner...?"
-        hide screen blktone5
+        hide screen blktone
 
         her "I am so lucky to be a student here..."
         call ctc
@@ -1186,11 +1186,11 @@ label ball_ending_E2:
         $ renpy.sound.play("sounds/boing02.mp3")
         call ctc
 
-        show screen blktone5
+        show screen blktone
         with hpunch
         g4 "!!!"
         call sna_main("!!!","snape_11")
-        hide screen blktone5
+        hide screen blktone
 
         call play_music("ball")
         her "Thank you, everyone..."
@@ -2713,7 +2713,7 @@ label ball_ending_E2:
     $ ccg(layer2="blank")
     call ctc
 
-    show screen blktone5
+    show screen blktone
     with d7
 
     $ achievement.unlock("ending")
@@ -2742,7 +2742,7 @@ label ball_ending_E2:
     call reset_hermione
 
     hide screen ccg
-    hide screen blktone5
+    hide screen blktone
     stop bg_sounds
     stop weather
     hide screen notes

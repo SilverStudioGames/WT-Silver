@@ -345,7 +345,7 @@ screen wardrobe_menu(xx, yy):
                 tooltip "Open Studio"
                 action Return("studio")
 
-        add "interface/panels/{}/wardrobe_panel.webp".format(interface_color)
+        add "interface/frames/{}/wardrobe.webp".format(interface_color)
 
         #Easter Egg (Headpats, boobs, pussy)
         button style "empty" xysize (120, 80) xalign 0.525 ypos 60 action Return(["erozone", "head"])
@@ -424,7 +424,7 @@ screen wardrobe_menuitem(xx, yy):
 
         use invisible_button()
 
-        add "interface/panels/{}/icon_panel.webp".format(interface_color)
+        add "interface/frames/{}/item_square.webp".format(interface_color)
 
         hbox:
             pos (24, 44)
@@ -581,7 +581,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
 
         use invisible_button()
 
-        add "interface/panels/"+interface_color+"/icon_panel2.webp"
+        add "interface/frames/"+interface_color+"/item_rectangle.webp"
 
         hbox:
             pos (24, 44)

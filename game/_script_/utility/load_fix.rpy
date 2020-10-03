@@ -22,7 +22,7 @@ init -1 python:
                 # Clean up similar to RollbackLog.load_failed
                 while renpy.exports.call_stack_depth():
                     renpy.exports.pop_call()
-                
+
                 renpy.game.contexts[0].force_checkpoint = True
                 renpy.game.contexts[0].goto_label(renpy.config.load_failed_label)
 
@@ -37,9 +37,9 @@ label load_failed:
             renpy.music.stop(c, 0.5)
         active_girl = None
     $ renpy.block_rollback() # Prevent rollback to broken past
-    show screen blktone5
+    show screen blktone
     "Something went wrong while loading your save, but all is not lost! You will be back in the office with the same progress as when you saved the game. However, you can't rollback to a time before that moment."
-    hide screen blktone5
+    hide screen blktone
     with d5
     $ renpy.block_rollback() # Prevent rollback to this message
     jump main_room

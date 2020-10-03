@@ -4,12 +4,6 @@
 image blank:
     Null()
 
-image heart_00 = "interface/heart_00.webp"
-image heart_01 = "interface/heart_01.webp"
-image heart_02 = "interface/heart_02.webp"
-image heart_03 = "interface/heart_03.webp"
-image heart_04 = "interface/heart_04.webp"
-
 image heal:
     "magic/heal01.webp"
     pause.06

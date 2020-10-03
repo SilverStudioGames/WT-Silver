@@ -177,7 +177,7 @@ init python:
 
 label letter(text, label):
     show screen bld1
-    show screen blktone5
+    show screen blktone
     show screen letter(text)
     with d3
 
@@ -191,7 +191,7 @@ label letter(text, label):
     call reset_menu_position
 
     hide screen letter
-    hide screen blktone5
+    hide screen blktone
     hide screen bld1
     with d3
 
@@ -204,7 +204,7 @@ screen letter(text):
     zorder 20
     tag letter
 
-    add "interface/letter.webp" align (0.5, 0.2)
+    add "interface/letter.webp" align (0.5, 0.2) zoom 0.5
     hbox:
         spacing 40
         pos (410, 80)

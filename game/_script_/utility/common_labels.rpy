@@ -75,13 +75,13 @@ label hide_blktone:
 
 label blktone_top:
     show screen bld1 # blktone looks stupid without bld1
-    show screen blktone5 # Has higher zorder than normal blktone
+    show screen blktone # Has higher zorder than normal blktone
     with d5
 
     return
 
 label hide_blktone_top:
-    hide screen blktone5
+    hide screen blktone
     with d5
 
     return
@@ -317,7 +317,7 @@ label unlock_clothing(text="", item="interface/icons/box_blue_1.webp"):
     $ menu_y = 0.75 #makes the menu lower so it isn't writing over the image.
 
     show screen clothing_unlock(item)
-    show screen blktone5
+    show screen blktone
     with d3
 
     menu:
@@ -326,7 +326,7 @@ label unlock_clothing(text="", item="interface/icons/box_blue_1.webp"):
             pass
 
     hide screen clothing_unlock
-    hide screen blktone5
+    hide screen blktone
     with d3
 
     $ unlock_clothing_compat(item)

@@ -192,7 +192,7 @@ label store_chit_chat:
             menu:
                 "-Buy something-":
                     pass
-                "-Let's duel- {image=interface/cards.webp}":
+                "-Let's duel- {image=interface/icons/small/cards.webp}":
                     label twins_duel_menu:
                     if geniecard_level < 2:
                         menu:

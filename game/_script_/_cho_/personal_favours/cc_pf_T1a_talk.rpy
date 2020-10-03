@@ -674,7 +674,7 @@ label cc_pf_talk_T2_intro_E1:
             with d3
             pause .8
 
-            show screen blktone5 # Gets removed by `call nar()`
+            show screen blktone # Gets removed by `call nar()`
             show screen bld1
             with d3
             m "(Just to make this clear, I'm not getting off because I like the thought that she's getting bullied...)"

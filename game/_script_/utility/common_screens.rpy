@@ -13,7 +13,7 @@ screen blktone(alpha=0.5):
     zorder 10
     add Color("#000", alpha=alpha)
 
-screen blktone5(): #For narrator. (label nar) #Don't add tag blktone!
+screen blktone(): #For narrator. (label nar) #Don't add tag blktone!
     zorder 20
     add Color("#000", alpha=0.5)
 
@@ -54,7 +54,7 @@ screen clothing_unlock(item):
         ypos 100
         xysize (197, 325)
 
-        add "interface/panels/"+str(interface_color)+"/clothing_panel.webp"
+        add "interface/frames/"+str(interface_color)+"/outfit.webp"
 
         if isinstance(item, DollCloth):
             add item.get_icon() align (0.5, 0.5) zoom 0.5

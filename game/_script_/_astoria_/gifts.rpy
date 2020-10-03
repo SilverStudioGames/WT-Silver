@@ -513,7 +513,7 @@ label give_ast_gift(gift_item):
 
 
 label ast_mood(value=0):
-    show screen blktone5
+    show screen blktone
     with d3
 
     if value > 0:
@@ -534,5 +534,5 @@ label ast_mood(value=0):
 
     call describe_mood_after_gift(was_negative, ast_mood, value)
 
-    hide screen blktone5
+    hide screen blktone
     return

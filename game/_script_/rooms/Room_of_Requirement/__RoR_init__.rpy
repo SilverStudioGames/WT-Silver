@@ -176,8 +176,6 @@ init python:
                     ret_str += "{image=interface/room_of_req/cho_icon.webp}"
                 elif c == "tonks":
                     ret_str += "{image=interface/room_of_req/tonks_icon.webp}"
-                else:
-                    ret_str += "{image=heart_00}"
 
             return ret_str
 
