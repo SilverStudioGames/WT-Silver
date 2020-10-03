@@ -98,23 +98,23 @@ init -1 python:
         if args.refresh or refresh:
             whitespace_dict = {}
 
-        path = posixpath.join(config.basedir, "game")
-        imgs = []
-        for root, dirs, files in system.walk(path):
+        path = os.path.normpath(config.gamedir)
+        images = []
+        for root, dirs, files in os.walk(path):
             for file in fnmatch.filter(files, "*.webp"):
-                img = posixpath.join(root, file).split("/game/")[1]
-                imgs.append(img)
+                img = os.path.join(root, file).replace("\\", "/").split("/game/")[1]
+                images.append(img)
 
-        c = len(imgs)
-        for i, img in enumerate(imgs):
+        c = len(images)
+        for i, img in enumerate(images):
             sys.stdout.write("\rCalculating whitespace... {:3.0f}%".format(i / float(c - 1) * 100.0))
             sys.stdout.flush()
             crop_whitespace(img)
 
-        file = config.basedir + "/game/images.whitespace"
+        file = os.path.normpath(config.gamedir + "/images.whitespace")
         with open(file, "w") as f:
             for img, box in sorted(whitespace_dict.iteritems()):
-                f.write("{}:{},{},{},{}\n".format(img, *box))
+                f.write(u"{}:{},{},{},{}\n".format(img, *box))
 
         print "\rCalculating whitespace... Done!"
         return False

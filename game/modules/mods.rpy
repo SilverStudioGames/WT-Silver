@@ -13,10 +13,10 @@ init python:
 
         mods_enabled = True
 
-        for dp, dn, fn in system.walk(config.basedir+"/game/mods/"):
+        for dp, dn, fn in os.walk(config.gamedir+"/mods/"):
             for i, mod in enumerate([f for f in fn if f.endswith(".rpym")]):
                 _count += 1
-                _path = system.path.join(dp, mod).replace("\\", "/").split("/game/")[1][:-5]
+                _path = os.path.join(dp, mod).replace("\\", "/").split("/game/")[1][:-5]
                 _manifest = _path.split(mod[:-5])[0]+"manifest.json"
 
                 if renpy.loadable(_manifest):

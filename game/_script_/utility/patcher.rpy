@@ -3,7 +3,7 @@ init python:
     import re
 
     if not renpy.android:
-        patchfn = system.path.join(config.basedir, "patch.zip")
+        patchfn = os.path.join(config.basedir, "patch.zip")
 
     def semver(flat):
         vs = flat.split(".")
@@ -11,7 +11,7 @@ init python:
         return tuple(map(int, [major, minor, patch]))
 
     def check_for_patch():
-        if system.path.isfile(patchfn):
+        if os.path.isfile(patchfn):
             versionr = re.compile(r'define config\.version = "([\d\.]+)"')
             with zipfile.ZipFile(patchfn, "r") as patchf:
                 if "game/_script_/options.rpy" in patchf.namelist():

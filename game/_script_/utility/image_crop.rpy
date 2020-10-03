@@ -1,6 +1,4 @@
 init python:
-    import threading
-
     whitespace_dict = {}
     with renpy.file("images.whitespace") as fp:
         line = fp.readline()
@@ -8,15 +6,6 @@ init python:
             path, area = line.strip("\r\n").split(':')
             whitespace_dict[path] = map(int, area.split(','))
             line = fp.readline()
-
-    def start_image_crop():
-        # Start loop in worker thread
-        threading.Thread(target=image_crop_loop).start()
-
-    def image_crop_loop():
-        for cloth in hermione.wardrobe_list:
-            # Call to ensure whitespace is calculated
-            crop_whitespace(cloth.ico.path)
 
     def crop_whitespace(path):
         # Return box from whitespace_dict, or calculate and store it
@@ -59,11 +48,12 @@ init python:
         def get_image(self):
             if not renpy.is_skipping() or not self.cached:
                 self.cached = True
-                # TODO: add an offset for the displayable so the item always fits the wardrobe box
+                # TODO: Centre the cropped displayable if it's taller than wider, without cropping artifacts.
 
                 x, y, w, h = crop_whitespace(self.path)
-                h = max(h, w)
-                w = max(w, h/2)
+
+                w = max(w, max(h, 83))
+                h = max(h, max(w, 85))
 
                 box = (x, y, w, h)
                 self.sprite = Crop(box, Fixed(*self.sprites))

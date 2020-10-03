@@ -252,17 +252,17 @@ init python:
 
         def define_expressions(self):
             def scan_files(char):
-                mouths = tuple(x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/mouth/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
-                eyes = tuple(x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/eyes/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
-                eyebrows = tuple(x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/eyebrows/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
-                pupils = tuple(x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/pupils/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
+                mouths = tuple(x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/mouth/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
+                eyes = tuple(x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/eyes/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
+                eyebrows = tuple(x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/eyebrows/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
+                pupils = tuple(x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/pupils/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x)
 
                 cheeks = ["(No change)"]
                 tears = ["(No change)"]
                 hair = ["(No change)", "neutral", "angry", "upset", "happy", "disgusted", "sad", "purple", "scared", "horny"]
 
-                cheeks.extend([x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/cheeks/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x])
-                tears.extend([x.rsplit(".webp")[0] for x in system.listdir(config.basedir+"/game/characters/"+char+"/face/tears/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x])
+                cheeks.extend([x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/cheeks/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x])
+                tears.extend([x.rsplit(".webp")[0] for x in os.listdir(config.basedir+"/game/characters/"+char+"/face/tears/") if x.endswith(".webp") and not "_mask" in x and not "_skin" in x])
 
                 return _dict([("mouths", mouths), ("eyes", eyes), ("eyebrows", eyebrows), ("pupils", pupils), ("cheeks", cheeks), ("tears", tears), ("hair", hair)])
 

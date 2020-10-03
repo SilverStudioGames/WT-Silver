@@ -5,7 +5,7 @@ init python:
         global active_girl
 
         path = "{}/game/outfits/".format(config.basedir)
-        return ["/outfits/{}".format(f) for f in system.listdir(path) if system.path.isfile(system.path.join(path, f)) and f.endswith(".webp")]
+        return ["/outfits/{}".format(f) for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) and f.endswith(".webp")]
 
 label file_explorer():
     $ files=list_outfit_files()
