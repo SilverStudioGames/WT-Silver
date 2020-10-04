@@ -33,8 +33,8 @@ screen close_button(xoffset=0, yoffset=0, close_var="Close", close_action=None):
         xalign 1.0
         xanchor 1.0
         offset (xoffset, yoffset)
-        idle "interface/topbar/buttons/"+interface_color+"/ui_close.webp"
-        hover image_hover("interface/topbar/buttons/"+interface_color+"/ui_close.webp")
+        idle gui.format("interface/topbar/buttons/{}/ui_close.webp")
+        hover image_hover(gui.format("interface/topbar/buttons/{}/ui_close.webp"))
         if close_action:
             action close_action
         else:

@@ -33,16 +33,16 @@ screen list_menu(menu_id, title, toggle_names=tuple(), menu_groups=[]):
     imagebutton:
         xpos 825
         ypos 240
-        idle "interface/general/"+interface_color+"/button_arrow_up.webp"
-        hover "interface/general/"+interface_color+"/button_arrow_up_hover.webp"
+        idle gui.format("interface/general/{}/button_arrow_up.webp")
+        hover gui.format("interface/general/{}/button_arrow_up_hover.webp")
         action SetScreenVariable("current_page", max(0, current_page-1))
 
     # Page down
     imagebutton:
         xpos 825
         ypos 292
-        idle "interface/general/"+interface_color+"/button_arrow_down.webp"
-        hover "interface/general/"+interface_color+"/button_arrow_down_hover.webp"
+        idle gui.format("interface/general/{}/button_arrow_down.webp")
+        hover gui.format("interface/general/{}/button_arrow_down_hover.webp")
         action SetScreenVariable("current_page", min(max_page, current_page+1))
 
     # Main window
@@ -54,8 +54,8 @@ screen list_menu(menu_id, title, toggle_names=tuple(), menu_groups=[]):
 
         use invisible_button()
 
-        ground "interface/panels/"+interface_color+"/items_panel.webp"
-        hover "interface/panels/"+interface_color+"/items_panel_hover.webp"
+        ground gui.format("interface/panels/{}/items_panel.webp")
+        hover gui.format("interface/panels/{}/items_panel_hover.webp")
 
         # Header
         hbox:
@@ -70,9 +70,9 @@ screen list_menu(menu_id, title, toggle_names=tuple(), menu_groups=[]):
                 if i < len(toggle_names):
                     $ toggle_names[i]
                     if i in toggles:
-                        $ toggle_image = "interface/general/"+interface_color+"/check_true.webp"
+                        $ toggle_image = gui.format("interface/general/{}/check_true.webp")
                     else:
-                        $ toggle_image = "interface/general/"+interface_color+"/check_false.webp"
+                        $ toggle_image = gui.format("interface/general/{}/check_false.webp")
                     button:
                         style "empty"
                         xysize (110,22)
@@ -157,12 +157,12 @@ screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
 
         use invisible_button()
 
-        ground "interface/panels/"+interface_color+"/bottom_panel.webp"
-        hover "interface/panels/"+interface_color+"/bottom_panel_hover.webp"
+        ground gui.format("interface/panels/{}/bottom_panel.webp")
+        hover gui.format("interface/panels/{}/bottom_panel_hover.webp")
 
         # Menu name
         $ title = group_names[current_group][0]
-        add "interface/general/"+interface_color+"/button_wide.webp" xpos 130 ypos 0
+        add gui.format("interface/general/{}/button_wide.webp") xpos 130 ypos 0
         text title xalign 0.5 yalign 0.5 xpos 130+70 ypos 0+18 size 12
 
         # Categories
@@ -171,8 +171,8 @@ screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
             imagebutton:
                 xpos 300+(33*i)
                 ypos 0
-                idle "interface/topbar/buttons/"+interface_color+"/"+group_icon+".webp"
-                hover image_hover("interface/topbar/buttons/" +interface_color+ "/" +group_icon+".webp")
+                idle gui.format("interface/topbar/buttons/{}/")+group_icon+".webp"
+                hover image_hover(gui.format("interface/topbar/buttons/{}/")+group_icon+".webp")
                 sensitive current_group != i
                 action [SetScreenVariable("current_group", i), SetScreenVariable("current_page", 0)]
 
@@ -180,8 +180,8 @@ screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
             imagebutton:
                 xpos 300+(33*(len(menu_groups)+1))
                 ypos 0
-                idle "interface/topbar/buttons/"+interface_color+"/"+func_btn+".webp"
-                hover image_hover("interface/topbar/buttons/"+interface_color+"/"+func_btn+".webp")
+                idle gui.format("interface/topbar/buttons/{}/")+func_btn+".webp"
+                hover image_hover(gui.format("interface/topbar/buttons/{}/")+func_btn+".webp")
                 action Return("func")
 
         # Items
@@ -197,8 +197,8 @@ screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
     imagebutton:
         xpos 80
         ypos 475+50
-        idle "interface/general/"+interface_color+"/button_arrow_left.webp"
-        hover "interface/general/"+interface_color+"/button_arrow_left_hover.webp"
+        idle gui.format("interface/general/{}/button_arrow_left.webp")
+        hover gui.format("interface/general/{}/button_arrow_left_hover.webp")
         sensitive current_page > 0
         action SetScreenVariable("current_page", max(0, current_page-1))
 
@@ -206,8 +206,8 @@ screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
     imagebutton:
         xpos 880+80
         ypos 475+50
-        idle "interface/general/"+interface_color+"/button_arrow_right.webp"
-        hover "interface/general/"+interface_color+"/button_arrow_right_hover.webp"
+        idle gui.format("interface/general/{}/button_arrow_right.webp")
+        hover gui.format("interface/general/{}/button_arrow_right_hover.webp")
         sensitive current_page <= max_page
         action SetScreenVariable("current_page", min(max_page, current_page+1))
 
@@ -251,36 +251,36 @@ screen clothing_menu(menu_items, character, preview):
     imagebutton:
         xpos 725
         ypos 240
-        idle "interface/general/"+interface_color+"/button_arrow_up.webp"
+        idle gui.format("interface/general/{}/button_arrow_up.webp")
         if not current_page <= 0:
-            hover "interface/general/"+interface_color+"/button_arrow_up_hover.webp"
+            hover gui.format("interface/general/{}/button_arrow_up_hover.webp")
             action Return("dec")
 
     #Down Button.
     imagebutton:
         xpos 725
         ypos 292
-        idle "interface/general/"+interface_color+"/button_arrow_down.webp"
+        idle gui.format("interface/general/{}/button_arrow_down.webp")
         if current_page < math.ceil((len(menu_items)-1)/items_shown):
-            hover "interface/general/"+interface_color+"/button_arrow_down_hover.webp"
+            hover gui.format("interface/general/{}/button_arrow_down_hover.webp")
             action Return("inc")
 
     #Left Button (Bottom right of screen).
     imagebutton:
         xpos 977
         ypos 544
-        idle "interface/general/"+interface_color+"/button_arrow_left.webp"
+        idle gui.format("interface/general/{}/button_arrow_left.webp")
         if character >= character_choice_list[1]:
-            hover "interface/general/"+interface_color+"/button_arrow_left_hover.webp"
+            hover gui.format("interface/general/{}/button_arrow_left_hover.webp")
             action Return("left")
 
     #Right Button (Bottom right of screen).
     imagebutton:
         xpos 1029
         ypos 544
-        idle "interface/general/"+interface_color+"/button_arrow_right.webp"
+        idle gui.format("interface/general/{}/button_arrow_right.webp")
         if character < character_choice_list[-1]:
-            hover "interface/general/"+interface_color+"/button_arrow_right_hover.webp"
+            hover gui.format("interface/general/{}/button_arrow_right_hover.webp")
             action Return("right")
 
     #Bag of Gold Icon
@@ -303,11 +303,11 @@ screen clothing_menu(menu_items, character, preview):
         ypos 0
 
         if preview == None:
-            ground "interface/panels/"+str(interface_color)+"/clothing_panel_main.webp"
-            hover "interface/panels/"+str(interface_color)+"/clothing_panel_main_hover.webp"
+            ground gui.format("interface/panels/{}/clothing_panel_main.webp")
+            hover gui.format("interface/panels/{}/clothing_panel_main_hover.webp")
         else:
-            ground "interface/panels/"+str(interface_color)+"/clothing_panel_full.webp"
-            hover "interface/panels/"+str(interface_color)+"/clothing_panel_full_hover.webp"
+            ground gui.format("interface/panels/{}/clothing_panel_full.webp")
+            hover gui.format("interface/panels/{}/clothing_panel_full_hover.webp")
 
             #Item Information Display Panel.
             text preview.get_name() xpos 83 ypos 458 size 16

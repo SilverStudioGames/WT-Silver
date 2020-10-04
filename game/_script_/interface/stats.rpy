@@ -86,8 +86,7 @@ label update_stats:
     return
 
 label stats:
-    $ screenshot_image = ScreenshotImage.capture()
-    $ renpy.call_in_new_context("stats_menu")
+    $ gui.in_context("stats_menu")
     jump main_room_menu
 
 label stats_menu(xx=150, yy=90):
@@ -157,8 +156,7 @@ screen stats_menu(xx, yy):
     zorder 30
     modal True
 
-    default bg = At(screenshot_image, gaussianblur(15.0))
-    add bg
+    add "gui_fade"
 
     use invisible_button(action=Return("Close"))
     use close_button
@@ -171,15 +169,20 @@ screen stats_menu(xx, yy):
 
         use invisible_button()
 
-        add "interface/achievements/"+interface_color+"/panel_left.webp"
+        add gui.format("interface/achievements/{}/panel_left.webp")
 
         vbox:
             pos (6, 384)
             button action NullAction() style "empty" xsize 195 ysize 32
             frame:
                 style "empty"
-                textbutton "Show locked:" style "empty" xsize 195 ysize 32 text_align (0.4, 0.5) text_size 12 hover_background btn_hover action ToggleVariable("stats_show_locked", True, False)
-                add "interface/frames/"+str(interface_color)+"/check_"+str(stats_show_locked).lower()+".webp" xalign 0.8 ypos 4
+                textbutton "Show locked:":
+                    style gui.theme("overlay_button")
+                    xsize 195 ysize 32
+                    text_align (0.4, 0.5)
+                    text_size 12
+                    action ToggleVariable("stats_show_locked", True, False)
+                add gui.format("interface/frames/{}/check_")+str(stats_show_locked).lower()+".webp" xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
             for category in stats_categories_sorted:
@@ -197,13 +200,13 @@ screen stats_menu(xx, yy):
                                 text_xanchor 0.5
                                 text_size 20
                                 if current_category == category:
-                                    background "interface/achievements/"+interface_color+"/highlight_left_b.webp"
+                                    background gui.format("interface/achievements/{}/highlight_left_b.webp")
                                 else:
-                                    hover_background "interface/achievements/"+interface_color+"/highlight_left_b.webp"
+                                    hover_background gui.format("interface/achievements/{}/highlight_left_b.webp")
                                     action Return(["category", category])
 
-                            add "interface/achievements/"+interface_color+"/spacer_left.webp"
-                        add "interface/achievements/"+interface_color+"/iconbox.webp" yoffset 1
+                            add gui.format("interface/achievements/{}/spacer_left.webp")
+                        add gui.format("interface/achievements/{}/iconbox.webp") yoffset 1
                         if stats_dict[category]["flag"]:
                             $ image_zoom = crop_image_zoom("interface/icons/head/"+stats_dict.get(category).get("ico")+".webp", 42, 42)
                         else:
@@ -223,14 +226,14 @@ screen stats_menuitem(xx, yy):
     zorder 30
     frame:
         style "empty"
-        style_prefix interface_style
+        style_prefix gui.theme()
         pos (xx+217, yy-53)
         xysize (560, 507)
 
         use invisible_button()
 
         #add "interface/achievements/inventory.webp"
-        add "interface/achievements/"+interface_color+"/panel.webp"
+        add gui.format("interface/achievements/{}/panel.webp")
         add "interface/achievements/markup.webp"
 
         text "Characters" size 22 xalign 0.5 ypos 65
@@ -483,8 +486,8 @@ screen stat_bar(steps, top_text, bottom_text, stat_number, top_padding=20):
         xalign 0.5
         ysize 30
         xsize 360
-        add Crop((0, 0, steps*36, 600), "interface/stats/"+str(interface_color)+"/bar_full.webp")
-        add "interface/stats/"+str(interface_color)+"/bar_empty.webp"
+        add Crop((0, 0, steps*36, 600), gui.format("interface/stats/{}/bar_full.webp"))
+        add gui.format("interface/stats/{}/bar_empty.webp")
 
     text bottom_text+" (lvl " +str(stat_number)+ ")" xalign 0.5 size 20
 

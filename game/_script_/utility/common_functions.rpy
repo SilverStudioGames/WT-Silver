@@ -7,6 +7,8 @@ init -1 python:
     import colorsys
     import itertools
     import fnmatch
+    import posixpath
+    import re
     from operator import itemgetter
 
     get_volume_preference = renpy.game.preferences.get_volume
@@ -89,21 +91,6 @@ init -1 python:
 
     def evaluate(txt):
         return __import__('ast').literal_eval(txt)
-
-    def set_text_color(day=True):
-        # This function must be invoked in a new context by preferences screen
-        renpy.show_screen("preferences")
-        # Temporarily change interface color
-        tmp_color = renpy.store.interface_color
-        renpy.call_in_new_context("update_interface_color", "gray")
-        if day:
-            preferences.text_color_day = color_picker(get_rgb_list(preferences.text_color_day), False, "Day Text Colour")
-            preferences.text_color_day = get_hex_string(preferences.text_color_day[0]/255.0, preferences.text_color_day[1]/255.0, preferences.text_color_day[2]/255.0)
-        else:
-            preferences.text_color_night = color_picker(get_rgb_list(preferences.text_color_night), False, "Night Text Colour")
-            preferences.text_color_night = get_hex_string(preferences.text_color_night[0]/255.0, preferences.text_color_night[1]/255.0, preferences.text_color_night[2]/255.0)
-        # Reset interface color
-        renpy.call_in_new_context("update_interface_color", tmp_color)
 
     def reset_variables(*args):
         """Resets the given variables to their default values."""

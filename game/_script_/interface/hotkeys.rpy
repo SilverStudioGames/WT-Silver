@@ -7,6 +7,7 @@ init python:
     config.keymap['toggle_fullscreen'] = ['K_F11']
     config.keymap['reload_game'] = ['shift_K_r']
     config.keymap['console'].append('K_BACKQUOTE')
+    config.keymap['self_voicing'] = []
     config.keymap['director'] = []
     config.keymap['hide_windows'] = []
 

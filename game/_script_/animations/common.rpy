@@ -409,6 +409,10 @@ define d7 = Dissolve(0.7)
 define d8 = Dissolve(0.8)
 define d9 = Dissolve(0.9)
 
+define f1 = Fade(0.1, 0.0, 0.1)
+define f2 = Fade(0.2, 0.0, 0.2)
+define f3 = Fade(0.3, 0.0, 0.3)
+
 define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 define flashbulb = Fade(0.2, 0.0, 0.8, color='#fff')
 define flashbb = Fade(0.2, 0.0, 0.8, color='#000')

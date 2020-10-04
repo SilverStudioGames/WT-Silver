@@ -38,19 +38,18 @@ label summon_astoria:
             else:
                 jump astoria_spells
 
-        "{color=[menu_disabled]}-Sexual favours-{/color}" (icon="interface/icons/small/condom.webp") if cho_favors_unlocked:
+        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if cho_favors_unlocked:
             $ TBA_message()
             jump astoria_requests
 
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if astoria_wardrobe_unlocked:
             hide screen astoria_main with d1
-            $ screenshot_image = ScreenshotImage.capture()
-            $ renpy.call_in_new_context("wardrobe", "ast_main")
+            $ gui.in_context("wardrobe", "ast_main")
             with d2
             jump astoria_requests
 
-        "{color=[menu_disabled]}-Hidden-{/color}" if not astoria_wardrobe_unlocked:
+        "-Hidden-" (style="disabled") if not astoria_wardrobe_unlocked:
             call nar(">You haven't unlocked this feature yet.")
             jump astoria_requests
 
@@ -60,7 +59,7 @@ label summon_astoria:
             call gift_menu
             jump astoria_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/gift.webp") if gave_astoria_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if gave_astoria_gift:
             m "I already gave her a gift today. Don't want to spoil her too much..."
             jump astoria_requests
 
@@ -206,7 +205,7 @@ label astoria_talk:
                     call ast_main("Hmpf...", face="angry")
                     call ast_main("Alright, why not. Nobody knows about it anyways.", face="neutral")
                     jump astoria_talk
-                "{color=[menu_disabled]}-Master-{/color}" if ast_whoring < 18:
+                "-Master-" (style="disabled") if ast_whoring < 18:
                     label .master_fail:
                     $ ast_genie_name = "Dumby" # Tricked
                     call ast_main("*Ha-ha-ha-ha*-- you want me to call you master?", face="happy")
@@ -231,7 +230,7 @@ label astoria_talk:
                     g4 "Shut it... or there will be consequences!"
                     call ast_main("I'm sorry... It won't happen again, master...", face="neutral")
                     jump astoria_talk
-                "{color=[menu_disabled]}-Custom Input-{/color}" if ast_whoring < 18:
+                "-Custom Input-" (style="disabled") if ast_whoring < 18:
                     m "(I don't think she's yet ready for that)"
                     jump astoria_talk
 
@@ -276,7 +275,7 @@ label astoria_talk:
                     $ astoria_name = "Cutie"
                     call ast_main("Fine... If you really have to, [ast_genie_name].", face="disgusted")
                     jump astoria_talk
-                "{color=[menu_disabled]}-Slave-{/color}" if ast_whoring < 18:
+                "-Slave-" (style="disabled") if ast_whoring < 18:
                     label .slave_fail:
                     call ast_main("I'm not your slave, [ast_genie_name]!", face="angry")
                     m "Of course you aren't! We are just playing a game, that's all..."
@@ -292,7 +291,7 @@ label astoria_talk:
                     call ast_main("Alrighty then!", face="happy")
                     jump astoria_talk
 
-                "{color=[menu_disabled]}-Custom Input-{/color}" if ast_whoring < 18:
+                "-Custom Input-" (style="disabled") if ast_whoring < 18:
                     m "(I don't think she's yet ready for that)"
                     jump astoria_talk
 

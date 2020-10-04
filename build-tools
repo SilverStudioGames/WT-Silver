@@ -14,6 +14,7 @@ usage()
 clean()
 {
     find . \( -name "*.rpyc" -o -name "*.pyc" \) -delete
+    rm game/cache/*
 }
 
 recompile()

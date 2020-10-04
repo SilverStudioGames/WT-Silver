@@ -73,7 +73,7 @@ label hg_pf_facefuck_1: # Bondage facefuck scene (NOT IMPLEMENTED)
     her "Ahhhh..."
     m "Perfect."
     $ her_cg_path           = "images/CG/herm_deep/"
-    $ her_cg_genie          = her_cg_path+"genie.png"
+    $ her_cg_genie          = her_cg_path+"genie.webp"
     $ her_cg_xpos_abs       = 0
     $ her_cg_ypos_abs       = 0
     $ her_cg_xpos           = 0

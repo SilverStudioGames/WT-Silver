@@ -21,7 +21,7 @@ screen exp_o_meter(fill, opacity, alt, alt_text):
         xpos 50
         ypos 570
 
-        add "interface/meter/"+interface_color+"/meter.webp" yanchor 1.0 alpha opacity
+        add gui.format("interface/meter/{}/meter.webp") yanchor 1.0 alpha opacity
         add "interface/meter/fill.webp" at crop_meter(fill, opacity)
         add "interface/meter/glass.webp" yanchor 1.0 alpha opacity
 
@@ -30,7 +30,7 @@ screen exp_o_meter(fill, opacity, alt, alt_text):
             style "empty"
             xpos 150
             ypos 70
-            add "interface/meter/"+interface_color+"/circle.webp" alpha opacity
+            add gui.format("interface/meter/{}/circle.webp") alpha opacity
             if fill >= 90:
                 add "interface/meter/100.webp" alpha opacity
             elif fill >= 50:

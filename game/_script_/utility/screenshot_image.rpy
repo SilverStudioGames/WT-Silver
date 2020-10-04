@@ -1,7 +1,7 @@
 
 default screenshot_image = None
 
-init -1 python:
+init -10 python:
     class ScreenshotImage(im.ImageBase):
         def __init__(self, root, **properties):
             super(ScreenshotImage, self).__init__(root, **properties)
@@ -18,20 +18,12 @@ init -1 python:
 
         @staticmethod
         def capture(retain=True):
-            if renpy.display.interface.surftree:
-                if retain:
-                    # Prevent the image from being recaptured after load
-                    renpy.retain_after_load()
-                # Grab the most recently rendered displayables
-                try:
-                    root = renpy.display.interface.surftree.render_of[0].children[-1].layers["screens"]
-                except:
-                    root = renpy.display.interface.surftree.render_of[0]
-                return ScreenshotImage(root)
-            elif config.developer:
-                raise Exception("Root surface tree is not available.")
-            else:
-                return None
+            if retain:
+                # Prevent the image from being recaptured after load
+                renpy.retain_after_load()
+
+            root = renpy.display.core.scene_lists().make_layer("screens", {})
+            return ScreenshotImage(root)
 
     def displayable_to_file(d, fn="output.webp", w=2048, h=2048):
         import cStringIO

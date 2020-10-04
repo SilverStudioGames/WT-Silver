@@ -387,7 +387,7 @@ label hg_ps_buttplug:
                     call her_main(".............", "disgust", "narrow", "worried", "down",cheeks="blush")
                     call nar(">Hermione slowly leaves your office, barely able to walk in a straight line.")
 
-                "{color=[menu_disabled]}-Use anal lube-{/color}" if anal_lube_ITEM.number == 0:
+                "-Use anal lube-" (style="disabled") if anal_lube_ITEM.number == 0:
                     m "I'm afraid I do not have that..."
                     call her_main("well then i think I better be off to class then.", "open", "closed", "base", "mid")
                     call her_main("{size=-2}unless {size=-2}you {size=-2}have {size=-2}the {size=-2}smaller {size=-2}one?{/size}{heart}", "soft", "narrow", "base", "R_soft",cheeks="blush")

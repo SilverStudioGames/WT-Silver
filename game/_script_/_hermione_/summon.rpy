@@ -57,7 +57,7 @@ label summon_hermione:
             else:
                 jump hg_tutor_start
 
-        "{color=[menu_disabled]}-Tutoring-{/color}" (icon="interface/icons/small/book.webp") if daytime and her_tutoring < 15:
+        "-Tutoring-" (icon="interface/icons/small/book.webp", style="disabled") if daytime and her_tutoring < 15:
             call nar("> Tutoring is available during the night only.")
             jump hermione_requests
 
@@ -92,8 +92,7 @@ label summon_hermione:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if hermione_wardrobe_unlocked: # Unlocks after first summoning her.
             hide screen hermione_main with d1
-            $ screenshot_image = ScreenshotImage.capture()
-            $ renpy.call_in_new_context("wardrobe", "her_main")
+            $ gui.in_context("wardrobe", "her_main")
             with d2
             jump hermione_requests
 
@@ -106,7 +105,7 @@ label summon_hermione:
             call gift_menu
             jump hermione_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/gift.webp") if gave_hermione_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if gave_hermione_gift:
             m "I already gave her a gift today. Don't want to spoil her too much..."
             jump hermione_requests
 
@@ -228,9 +227,9 @@ label hermione_favor_menu:
                     menu_choices = []
                     for i in hg_favor_list:
                         if i in []: # Not in the game yet.
-                            menu_choices.append(("{color=[menu_disabled]}-Not Available-{/color}","na"))
+                            menu_choices.append(gui.menu_item("-Not available-", "na", style="disabled"))
                         elif i.start_tier > her_tier:
-                            menu_choices.append(("{color=[menu_disabled]}-Vague idea-{/color}","vague"))
+                            menu_choices.append(gui.menu_item("-Vague idea-", "vague", style="disabled"))
                         else:
                             menu_choices.append(i.get_menu_item())
 
@@ -248,7 +247,7 @@ label hermione_favor_menu:
                 else:
                     $ renpy.jump(result)
 
-            "{color=[menu_disabled]}-Public requests-{/color}" (icon="interface/icons/small/star_yellow.webp") if not daytime:
+            "-Public requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not daytime:
                 call nar(">Public requests are available during the day only.")
                 jump silver_requests_root
 
@@ -272,9 +271,9 @@ label hermione_favor_menu:
                     menu_choices = []
                     for i in hg_requests_list:
                         if i in []: # Not in the game yet.
-                            menu_choices.append(("{color=[menu_disabled]}-Not Available-{/color}","na"))
+                            menu_choices.append(gui.menu_item("-Not available-", "na", style="disabled"))
                         elif i.start_tier > her_tier:
-                            menu_choices.append(("{color=[menu_disabled]}-Vague idea-{/color}","vague"))
+                            menu_choices.append(gui.menu_item("-Vague idea-", "vague", style="disabled"))
                         else:
                             menu_choices.append(i.get_menu_item())
 
@@ -292,7 +291,7 @@ label hermione_favor_menu:
                 else:
                     $ renpy.jump(result)
 
-            "{color=[menu_disabled]}-Public Shaming-{/color}" (icon="interface/icons/small/star_pink.webp") if not daytime:
+            "-Public Shaming-" (icon="interface/icons/small/star_pink.webp", style="disabled") if not daytime:
                 call nar(">Public Shaming events are available during the day only.")
                 jump silver_requests_root
 
@@ -302,7 +301,7 @@ label hermione_favor_menu:
                     menu_choices = []
                     for i in hg_ps_list:
                         if i.tier > her_tier:
-                            menu_choices.append(("{color=[menu_disabled]}-Vague idea-{/color}","vague"))
+                            menu_choices.append(gui.menu_item("-Vague idea-", "vague", style="disabled"))
                         else:
                             menu_choices.append(i.get_menu_item())
                     menu_choices.append(("-Never mind-", "nvm"))
@@ -411,11 +410,11 @@ label hermione_talk:
                 "-Work as a maid-" if daytime and hg_maid.unlocked:
                     jump job_1
 
-                "{color=[menu_disabled]}-Work as a maid-{/color}" if daytime and not hg_maid.unlocked:
+                "-Work as a maid-" (style="disabled") if daytime and not hg_maid.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     jump working_menu
 
-                "{color=[menu_disabled]}-Work as a maid-{/color}" if not daytime:
+                "-Work as a maid-" (style="disabled") if not daytime:
                     "This job is only available during the day."
                     jump working_menu
 
@@ -426,7 +425,7 @@ label hermione_talk:
                     #m "(I'll need an outfit for hermione if I want her to work.)"
                     #jump working_menu
 
-                #"{color=[menu_disabled]}-Work as a cheerleader for Gryffindor-{/color}" if not daytime:
+                #"-Work as a cheerleader for Gryffindor-" (style="disabled") if not daytime:
                     #"This job is only available during the day."
                     #jump working_menu
 
@@ -437,22 +436,22 @@ label hermione_talk:
                     #m "(I'll need a slytherin cheerleader outfit for hermione if I want her to work.)"
                     #jump working_menu
 
-                #"{color=[menu_disabled]}-Work as a cheerleader for Slytherin-{/color}" if not daytime:
+                #"-Work as a cheerleader for Slytherin-" (style="disabled") if not daytime:
                     #"This job is only available during the day."
                     #jump working_menu
 
-                "{color=[menu_disabled]}-Hidden-{/color}" if daytime and not cardgame_work and not hg_poker.unlocked:
+                "-Hidden-" (style="disabled") if daytime and not cardgame_work and not hg_poker.unlocked:
                     "You haven't unlocked this job opportunity yet."
                     jump working_menu
 
                 "-Work by advertising the card game-" if daytime and cardgame_work and hg_poker.unlocked:
                     jump job_5
-                "{color=[menu_disabled]}-Work by advertising the card game-{/color}" if daytime and cardgame_work and not hg_poker.unlocked:
+                "-Work by advertising the card game-" (style="disabled") if daytime and cardgame_work and not hg_poker.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     m "(Maybe the twins have something fitting for her in their stock.)"
                     jump working_menu
 
-                "{color=[menu_disabled]}-Work by advertising the card game-{/color}" if not daytime and cardgame_work:
+                "-Work by advertising the card game-" (style="disabled") if not daytime and cardgame_work:
                     "This job is only available during the day."
                     jump working_menu
 
@@ -479,7 +478,7 @@ label hermione_talk:
 
 
         ### Cho ###
-        "{color=[menu_disabled]}-Solve the matter with Cho-{/color}" (icon="interface/icons/small/cho.webp") if cho_intro.E2_complete and not ss_he.cho_E1:
+        "-Solve the matter with Cho-" (icon="interface/icons/small/cho.webp", style="disabled") if cho_intro.E2_complete and not ss_he.cho_E1:
             # Before talking to Snape.
             m "(I should ask Snape what to do about that Cho girl first. Just to be safe.)"
             m "(Might as well have a drink with him...)"

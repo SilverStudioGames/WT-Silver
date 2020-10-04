@@ -213,10 +213,10 @@ screen map_buttons():
     imagebutton:
         xpos 700
         ypos 530
-        idle "interface/general/"+str(interface_color)+"/check_false_hidden.webp"
-        hover "interface/general/"+str(interface_color)+"/check_true.webp"
-        selected_idle "interface/general/"+str(interface_color)+"/check_true_hidden.webp"
-        selected_hover "interface/general/"+str(interface_color)+"/check_false.webp"
+        idle gui.format("interface/general/{}/check_false_hidden.webp")
+        hover gui.format("interface/general/{}/check_true.webp")
+        selected_idle gui.format("interface/general/{}/check_true_hidden.webp")
+        selected_hover gui.format("interface/general/{}/check_false.webp")
         tooltip "Toggles map folding animation"
         action ToggleVariable("map_animated", True, False)
 

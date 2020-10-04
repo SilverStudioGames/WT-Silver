@@ -39,7 +39,7 @@ label summon_susan:
             else:
                 jump susan_talk
 
-        "{color=[menu_disabled]}-Sexual favours-{/color}" (icon="interface/icons/small/condom.webp") if False:
+        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if False:
             $ TBA_message()
             jump susan_requests
 
@@ -51,7 +51,7 @@ label summon_susan:
             with d2
             jump susan_requests
 
-        "{color=[menu_disabled]}-Hidden-{/color}" if not susan_wardrobe_unlocked:
+        "-Hidden-" (style="disabled") if not susan_wardrobe_unlocked:
             call nar(">You haven't unlocked this feature yet.")
             jump susan_requests
 
@@ -60,7 +60,7 @@ label summon_susan:
             call gift_menu
             jump susan_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/gift.webp") if gave_susan_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if gave_susan_gift:
             $ TBA_message()
             #m "I already gave her a gift today. Don't want to spoil her too much..."
             jump susan_requests

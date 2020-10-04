@@ -325,7 +325,7 @@ label cho_training:
 
                     jump end_cho_event
 
-        "{color=[menu_disabled]}-Discuss tactics-{/color}" if not cc_pf_talk.is_tier_complete() or cho_quid.lock_tactic:
+        "-Discuss tactics-" (style="disabled") if not cc_pf_talk.is_tier_complete() or cho_quid.lock_tactic:
             if cho_quid.lock_tactic:
                 m "(We've already established a tactic for the next match)"
             else:
@@ -345,7 +345,7 @@ label cho_training:
                 # Gryffindor
                 #jump cc_gt_start
 
-        "{color=[menu_disabled]}-Start Practice Match-{/color}" if not daytime or cho_quid.lock_practice:
+        "-Start Practice Match-" (style="disabled") if not daytime or cho_quid.lock_practice:
             if cho_quid.lock_practice:
                 if (cho_tier == 1 and cho_quid.hufflepuff_training) or (cho_tier == 2 and cho_quid.slytherin_training):
                     m "(She doesn't need any more practice.)"

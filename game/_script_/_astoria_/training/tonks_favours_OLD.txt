@@ -162,7 +162,7 @@ label astoria_tonks_3:
     m "I will try..."
     call ast_main("Great! Now let's get started!","grin","narrow","angry","mid")
 
-    call popup("You can now access Susan & Astoria's wardrobe and change their appearance!", "Congratulations!", "interface/icons/head/astoria.png")
+    call popup("You can now access Susan & Astoria's wardrobe and change their appearance!", "Congratulations!", "interface/icons/head/astoria.webp")
 
     "Developer note:" ">We have made both Susan's and Astoria's wardrobe available.\nAll available clothing has also been unlocked."
     "Developer note:" ">Susan's wardrobe as well as Astoria's clothings will unlock with future events instead in later patches."

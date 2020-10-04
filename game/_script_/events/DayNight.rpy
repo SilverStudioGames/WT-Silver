@@ -24,7 +24,7 @@ label common_start(set_daytime):
     call update_day_and_night_values
 
     call points_changes # Calculates points
-    call house_points   # Updates points
+    call update_ui_points
 
     # Set save filename
     $ temp_name = "Day - "+str(day)+"\nWhoring - "+str(her_whoring)

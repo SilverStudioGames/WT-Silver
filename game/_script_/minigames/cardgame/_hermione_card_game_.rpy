@@ -69,11 +69,11 @@ label hermione_cardgame_menu:
                     jump hermione_first_duel
                 "-Second Duel-" if her_first_win:
                     jump hermione_second_duel
-                "{color=[menu_disabled]}-You need to beat the first duel-{/color}" if not her_first_win:
+                "-You need to beat the first duel-" (style="disabled") if not her_first_win:
                     jump hermione_duel_menu
                 "-Challenge-" if her_second_win:
                     jump hermione_third_duel
-                "{color=[menu_disabled]}-You need to beat the second duel-{/color}" if not her_second_win:
+                "-You need to beat the second duel-" (style="disabled") if not her_second_win:
                     jump hermione_duel_menu
                 "-Never mind-":
                     jump hermione_requests

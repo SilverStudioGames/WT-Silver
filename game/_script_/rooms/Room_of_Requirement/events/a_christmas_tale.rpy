@@ -3,7 +3,6 @@ label a_christmas_tale:
     $ temp_date = day
     $ temp_gold = gold
     $ temp_day = daytime
-    $ temp_color = interface_color
     $ temp_weather = weather
 
     call play_music("stop")

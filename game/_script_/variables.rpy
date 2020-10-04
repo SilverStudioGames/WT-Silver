@@ -14,8 +14,6 @@ default commentaries = False
 
 # GUI color scheme
 default interface_color = "gold"
-default interface_style = "night"
-default btn_hover = "#7d75aa40"
 
 default gallery_active = False
 default ball_ending_2  = False

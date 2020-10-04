@@ -21,7 +21,7 @@ init -1 python:
 
             self.__dict__.update(**kwargs)
 
-        def get_menu_item(self, disabled=False, return_value=None):
+        def get_menu_item(self, disabled=False):
             menu_text = ""
 
             if self.hint:
@@ -31,11 +31,6 @@ init -1 python:
                 menu_text += "\"{}\"".format(self.title)
 
             if disabled:
-                menu_text = "{color=[menu_disabled]}" + menu_text + "{/color}"
-
-            if return_value is None:
-                return_value = "block" if disabled else self.start_label
-
-            action = renpy.ui.ChoiceReturn(None, return_value, kwargs={})
-
-            return (menu_text, action)
+                return gui.menu_item(menu_text, "block")
+            else:
+                return gui.menu_item(menu_text, self.start_label)

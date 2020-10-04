@@ -42,7 +42,7 @@ label room(room=None, hide_screens=True, stop_sound=True):
         call gen_chibi("sit_behind_desk")
 
         # User interface
-        call house_points
+        call update_ui_points
         show screen ui_top_bar
 
     if room == "weasley_store":

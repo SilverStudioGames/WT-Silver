@@ -16,7 +16,7 @@ label jerk_off:
             $ jerk_off_choice = "hermione"
             $ her_panties_soaked = True
 
-        "{color=[menu_disabled]}-LOCKED-{/color}" if not hg_ps_get_panties.inProgress:
+        "-LOCKED-" (style="disabled") if not hg_ps_get_panties.inProgress:
             ">You lack the item required for this option."
             jump how_to_finish
 
@@ -24,7 +24,7 @@ label jerk_off:
             $ jerk_off_choice = "cho"
             $ cho_panties_soaked = True
 
-        "{color=[menu_disabled]}-LOCKED-{/color}" if not has_cho_panties:
+        "-LOCKED-" (style="disabled") if not has_cho_panties:
             ">You lack the item required for this option."
             jump how_to_finish
 

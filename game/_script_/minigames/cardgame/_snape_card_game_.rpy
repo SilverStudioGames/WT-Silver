@@ -33,11 +33,11 @@ label snape_duel_menu:
                 jump snape_first_duel
             "-Second Duel-" if snape_first_win:
                 jump snape_second_duel
-            "{color=[menu_disabled]}-You need to beat the first duel-{/color}" if not snape_first_win:
+            "-You need to beat the first duel-" (style="disabled") if not snape_first_win:
                 jump snape_duel_menu
             "-Challenge-" if snape_second_win:
                 jump snape_third_duel
-            "{color=[menu_disabled]}-You need to beat the second duel-{/color}" if not snape_second_win:
+            "-You need to beat the second duel-" (style="disabled") if not snape_second_win:
                 jump snape_duel_menu
             "-Never mind-":
                 jump snape_ready

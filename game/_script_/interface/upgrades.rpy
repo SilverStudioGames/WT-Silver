@@ -42,8 +42,7 @@ label upgrades:
         her3_upgrade_school3.price = 100
         her3_upgrade_school4.price = 100
 
-    $ screenshot_image = ScreenshotImage.capture()
-    $ renpy.call_in_new_context("upgrades_menu")
+    $ gui.in_context("upgrades_menu")
     return item_bought
 
 label upgrades_menu(xx=150, yy=90):
@@ -133,15 +132,20 @@ screen upgrades_menu(xx, yy):
         xsize 207
         ysize 454
 
-        add "interface/achievements/"+interface_color+"/panel_left.webp"
+        add gui.format("interface/achievements/{}/panel_left.webp")
 
         vbox:
             pos (6, 384)
             button action NullAction() style "empty" xsize 195 ysize 32
             frame:
                 style "empty"
-                textbutton "Show locked:" style "empty" xsize 195 ysize 32 text_align (0.4, 0.5) text_size 12 hover_background btn_hover action ToggleVariable("upgrades_show_locked", True, False)
-                add "interface/frames/"+str(interface_color)+"/check_"+str(upgrades_show_locked).lower()+".webp" xalign 0.8 ypos 4
+                textbutton "Show locked:":
+                    style gui.theme("overlay_button")
+                    xsize 195 ysize 32
+                    text_align (0.4, 0.5)
+                    text_size 12
+                    action ToggleVariable("upgrades_show_locked", True, False)
+                add gui.format("interface/frames/{}/check_")+str(upgrades_show_locked).lower()+".webp" xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
             for category in upgrades_categories_sorted:
@@ -157,13 +161,13 @@ screen upgrades_menu(xx, yy):
                                 text_xanchor 0.5
                                 text_size 20
                                 if current_category == category:
-                                    background "interface/achievements/"+interface_color+"/highlight_left_b.webp"
+                                    background gui.format("interface/achievements/{}/highlight_left_b.webp")
                                 else:
-                                    hover_background "interface/achievements/"+interface_color+"/highlight_left_b.webp"
+                                    hover_background gui.format("interface/achievements/{}/highlight_left_b.webp")
                                     action Return(["category", category])
 
-                            add "interface/achievements/"+interface_color+"/spacer_left.webp"
-                        add "interface/achievements/"+interface_color+"/iconbox.webp" yoffset 1
+                            add gui.format("interface/achievements/{}/spacer_left.webp")
+                        add gui.format("interface/achievements/{}/iconbox.webp") yoffset 1
                         $ image_zoom = crop_image_zoom("interface/icons/head/"+upgrades_dict.get(category).get("ico")+".webp", 42, 42)
 
                         frame:
@@ -179,11 +183,11 @@ screen upgrades_menuitem(xx, yy):
 
     frame:
         style "empty"
-        style_prefix interface_style
+        style_prefix gui.theme()
         pos (xx+217, yy-53)
         xysize (560, 507)
 
-        add "interface/achievements/"+interface_color+"/panel.webp"
+        add gui.format("interface/achievements/{}/panel.webp")
 
         text "Outfit Upgrades" size 22 xalign 0.5 ypos 65
 
@@ -233,9 +237,8 @@ screen upgrades_menuitem(xx, yy):
                                             add "interface/topbar/icon_check.webp" zoom 0.75 align (0.85, 1.0)
                                         else:
                                             button:
-                                                style "empty"
+                                                style gui.theme("overlay_button")
                                                 xysize (76, 130)
-                                                hover_background btn_hover
                                                 action Return(["buy", actual_price, i, x, favor_req])
                                 if x < len(i)-1:
                                     frame:
@@ -245,4 +248,4 @@ screen upgrades_menuitem(xx, yy):
                                         text ("" if (linear_price <= 0) else str(favor_req+25)+"{unicode}\u2764{/unicode}") color ("#b20000" if (ton_friendship < favor_req+25) else "#402313") size 14 align (0.5, 0.25)
                                         text (str(linear_price)+"g" if linear_price > 0 else "Sold!") color ("#b20000" if (0 < linear_price > gold) else "#402313") size 14 align (0.5, 0.7)
                                         text "{unicode}\u0362{/unicode}" size 65 align (1.0, 0.5) xoffset 5
-                        add "interface/achievements/"+interface_color+"/spacer.webp" yalign 1.0 xpos 274 xanchor 0.5
+                        add gui.format("interface/achievements/{}/spacer.webp") yalign 1.0 xpos 274 xanchor 0.5

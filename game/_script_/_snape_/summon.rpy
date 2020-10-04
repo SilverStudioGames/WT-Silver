@@ -73,7 +73,7 @@ label summon_snape:
         "-Let's hang-" (icon="interface/icons/small/toast.webp") if wine_ITEM.number >= 1 and not daytime:
             jump snape_hangout
 
-        "{color=[menu_disabled]}-Let's hang-{/color}" (icon="interface/icons/small/toast.webp") if wine_ITEM.number < 1 or daytime:
+        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if wine_ITEM.number < 1 or daytime:
             if daytime:
                 m "(I'm not sharing my booze with Snape while he still has to teach classes...)"
                 m "(I better ask him during the evening to get drunk...)"

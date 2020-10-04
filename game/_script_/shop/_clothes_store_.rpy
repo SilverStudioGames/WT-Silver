@@ -838,7 +838,7 @@ label purchase_outfit(item):
                 maf "Could I use one of the house elves?"
                 m "Use anything that will get it done by tomorrow."
                 maf "Certainly, sir."
-        "{color=[menu_disabled]}-Add next day delivery (+[order_tip] gold)-{/color}" if gold < order_cost + order_tip:
+        "-Add next day delivery (+[order_tip] gold)-" (style="disabled") if gold < order_cost + order_tip:
             m "(I don't have enough money for that.)"
         "-No thanks-":
             pass

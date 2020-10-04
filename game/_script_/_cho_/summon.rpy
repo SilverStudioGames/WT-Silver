@@ -84,7 +84,7 @@ label summon_cho:
 
             jump cho_training
 
-        "{color=[menu_disabled]}-Training-{/color}" (icon="interface/icons/small/quidditch.webp") if cho_tier < 3 and cho_quid.lock_training:
+        "-Training-" (icon="interface/icons/small/quidditch.webp", style="disabled") if cho_tier < 3 and cho_quid.lock_training:
             m "(She's as ready as one can be.)"
             jump cho_requests
 
@@ -95,7 +95,7 @@ label summon_cho:
             else:
                 jump cho_favor_menu
 
-        "{color=[menu_disabled]}-Sexual favours-{/color}" (icon="interface/icons/small/condom.webp") if not cho_favors_unlocked:
+        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if not cho_favors_unlocked:
             if cho_tier == 1:
                 m "(I need to help her with her Quidditch training, before I can ask for something like this.)"
             else:
@@ -104,12 +104,11 @@ label summon_cho:
 
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if cho_wardrobe_unlocked:
             hide screen cho_main with d1
-            $ screenshot_image = ScreenshotImage.capture()
-            $ renpy.call_in_new_context("wardrobe", "cho_main")
+            $ gui.in_context("wardrobe", "cho_main")
             with d2
             jump cho_requests
 
-        "{color=[menu_disabled]}-Hidden-{/color}" if not cho_wardrobe_unlocked:
+        "-Hidden-" (style="disabled") if not cho_wardrobe_unlocked:
             call nar(">You haven't unlocked this feature yet.")
             jump cho_requests
 
@@ -117,7 +116,7 @@ label summon_cho:
             call gift_menu
             jump cho_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" if gave_cho_gift:
+        "-Gifts-" (style="disabled") if gave_cho_gift:
             m "I already gave her a gift today. Don't want to spoil her too much..."
             jump cho_requests
 
@@ -147,9 +146,9 @@ label cho_favor_menu:
                 menu_choices = []
                 for i in cc_favor_list:
                     if i in []: # Not in the game yet.
-                        menu_choices.append(("{color=[menu_disabled]}-Not Available-{/color}","na"))
+                        menu_choices.append(gui.menu_item("-Not available-", "na", style="disabled"))
                     elif i.start_tier > cho_tier:
-                        menu_choices.append(("{color=[menu_disabled]}-Not ready-{/color}","vague"))
+                        menu_choices.append(gui.menu_item("-Not ready-", "na", style="disabled"))
                     else:
                         menu_choices.append(i.get_menu_item())
 
@@ -167,7 +166,7 @@ label cho_favor_menu:
             else:
                 $ renpy.jump(result)
 
-        "{color=[menu_disabled]}-Public Requests-{/color}" (icon="interface/icons/small/star_yellow.webp") if not daytime or not cho_requests_unlocked:
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not daytime or not cho_requests_unlocked:
             if not cho_requests_unlocked:
                 call nar(">You haven't unlocked this feature yet.")
             elif not daytime:
@@ -193,9 +192,10 @@ label cho_requests_menu:
         menu_choices = []
         for i in cc_requests_list:
             if i in []: # Not in the game yet.
-                menu_choices.append(("{color=[menu_disabled]}-Not Available-{/color}","na"))
+                menu_choices.append(gui.menu_item("-Not available-", "na", style="disabled"))
+                menu_choices.append(gui.menu_item())
             elif i.start_tier > cho_tier:
-                menu_choices.append(("{color=[menu_disabled]}-Not ready-{/color}","vague"))
+                menu_choices.append(gui.menu_item("-Not ready-", "na", style="disabled"))
             else:
                 menu_choices.append(i.get_menu_item())
         menu_choices.append(("-Never mind-", "nvm"))

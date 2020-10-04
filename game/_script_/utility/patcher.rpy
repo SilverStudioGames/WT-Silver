@@ -1,6 +1,5 @@
 init python:
     import zipfile
-    import re
 
     if not renpy.android:
         patchfn = os.path.join(config.basedir, "patch.zip")

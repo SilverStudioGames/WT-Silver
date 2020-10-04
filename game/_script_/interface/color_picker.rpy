@@ -18,199 +18,216 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
     # Set HSVA variables based on RGBA when screen shows
     on "show" action Function(color_picker_update_hsva)
 
-    # Colour favourites (Swatches)
+    if not renpy.get_screen("wardrobe_menu"):
+        add "confirm_fade"
+
     frame:
-        style_prefix interface_style
-        area (pos_xy[0], pos_xy[1], 500, 108)
-        padding (6, 6)
-        if interface_color == "gold":
-            background "#e9ca7f"
+        style_prefix gui.theme()
+        if pos_xy and False:
+            pos pos_xy
         else:
-            background "#7c716a"
+            align (0.5, 0.5)
+        #xsize 500
+        # xysize (500, 450)
+        padding (12 + 6, 12 + 6)
 
-        text "Colour Swatches" xalign 0.38
-        textbutton "Edit":
-            xalign 0.8
-            text_size 12
-            tooltip "Toggle edit mode allowing you to\nremove or add favourite colours"
-            action [SelectedIf(edit_mode), ToggleLocalVariable("edit_mode", True, False)]
-
-
-        if color_history:
-            side "c r":
-                area (410, 10, 80, 80)
-
-                viewport id "history":
-                    draggable False
-                    mousewheel True
-
-                    vbox:
-                        for c in color_history[::-1]:
-                            textbutton rgba_to_hex(c):
-                                style "empty"
-                                xysize (70, 16)
-                                text_size 8
-                                text_color "#000"
-                                text_hover_color "#fff"
-                                text_align (0.5, 0.5)
-                                background Solid(tuple(c))
-                                action Return(["history", c])
-
-                vbar value YScrollValue("history") xsize 10
-
-        text "History" xpos 418 size 12 yoffset -5
-        hbox:
-            pos (8, 47)
-            spacing 7
-            for i in xrange(10):
-                frame:
-                    style "empty"
-                    xysize (32, 33)
-                    if i < len(color_favorites):
-                        add Frame("interface/color_picker/checker.webp", tile=True, ysize=31, xsize=31)
-                        if not edit_mode:
-                            button:
-                                background Solid(tuple(color_favorites[i]))
-                                tooltip "Apply this colour"
-                                action Return(["use_swatch", color_favorites[i]])
-                        else:
-                            textbutton "X":
-                                xysize (32, 33)
-                                background Solid(tuple(color_favorites[i]))
-                                text_color "#b20000"
-                                text_align (0.5, 0.5)
-                                tooltip "Remove from favourites"
-                                action Return(["rem_swatch", i])
-                    else:
-                        if edit_mode:
-                            button:
-                                style "empty"
-                                margin (6, 6, 6, 6)
-                                align (0.5, 0.5)
-                                background "interface/icons/small/star_yellow.webp"
-                                tooltip "Add to favourites"
-                                action Return(["add_swatch", list(rgba)])
-
-        add "interface/color_picker/"+str(interface_color)+"/frame_swatches.webp" pos (-10, -10)
-
-
-
-    # Colour picker
-    frame:
-        style_prefix interface_style
-        area (pos_xy[0], pos_xy[1]+108, 500, 350)
-        padding (6, 6)
-        #TODO Move background style to day_frame/night_frame definition
-        if interface_color == "gold":
-            background "#e9ca7f"
-        else:
-            background "#7c716a"
-
-        add "interface/color_picker/"+str(interface_color)+"/frame.webp" pos (-10, -10)
-
-        text title xalign 0.5 text_align 0.5
-
-        # 2D color map
-        frame:
-            area (25, 25, 255, 255)
-            background Solid(tuple([x * 255 for x in colorsys.hsv_to_rgb(1 - hue, 1, 1)]))
-        imagebutton:
-            area (25, 25, 255, 255)
-            #idle im.MatrixColor(SVGradientImage(size=(255,255)), color_matrix.hue((1- hue) * 360))
-            idle Frame("interface/color_picker/saturation_value_gradient.webp")
-            focus_mask None
-            keyboard_focus False
-            key_events False
-            # Offset is frame position + padding + image position, size is image size
-            action Function(color_picker_clicked, offset=(pos_xy[0]+25+6, pos_xy[1]+108+25+6), size=(255, 255))
-        draggroup:
-            # Allow cursor to extend 8 pixels outside map
-            area (25 - 8, 25 - 8, 255 + 16,  255 + 16)
-            drag:
-                pos (int(saturation * 253), int((1 - value) * 253))
-                anchor (0, 0)
-                child "interface/color_picker/"+str(interface_color)+"/cursor_sq.webp"
-                focus_mask None
-                activated color_picker_dragged
-                dragged color_picker_dragged
-
-        # Hue slider
-        vbar:
-            area (290, 25, 30, 255)
-            value ScreenVariableValue("hue", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
-            base_bar hue_gradient_image
-            thumb Image("interface/color_picker/"+str(interface_color)+"/cursor_h.webp", xalign=0.5)
-            thumb_offset 0
-            top_gutter 0
-            bottom_gutter 0
-
-        if alpha:
-            # Alpha slider
-            add "interface/color_picker/"+str(interface_color)+"/alpha.webp" xpos 22 ypos 287
-            add Frame("interface/color_picker/checker.webp", tile=True, ysize=30, xsize=255) xpos 25 ypos 290
-            bar:
-                area (25, 290, 255, 30)
-                value ScreenVariableValue("_alpha", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
-                base_bar Transform(alpha_gradient_image, matrixcolor=ColorizeMatrix(rgba, rgba))
-                thumb Image("interface/color_picker/"+str(interface_color)+"/cursor_v.webp", xalign=0.5)
-                thumb_offset 0
-                top_gutter 0
-                bottom_gutter 0
-
-        # Selected color
-        add Frame("interface/color_picker/checker.webp", tile=True, ysize=100, xsize=100) xpos 360 ypos 180
-        frame:
-            area (360, 180, 50, 100)
-            background Solid(rgba)
-            text "New" xalign 0.5 color "#fff" outlines [(1, "#00000080", 1, 0)]
-        frame:
-            area (410, 180, 50, 100)
-            background Solid(rgba_old)
-            text "Old" xalign 0.5 color "#fff" outlines [(1, "#00000080", 1, 0)]
-
-        # Text input
         vbox:
-            pos (355, 25)
-            spacing 0
-            textbutton "Red: " + str(int(rgba[0])):
-                size_group "rgba"
-                xsize 110
-                text_size 12
-                clicked Return(["input", 0])
-            textbutton "Green: " + str(int(rgba[1])):
-                size_group "rgba"
-                xsize 110
-                text_size 12
-                clicked Return(["input", 1])
-            textbutton "Blue: " + str(int(rgba[2])):
-                size_group "rgba"
-                xsize 110
-                text_size 12
-                clicked Return(["input", 2])
-            if alpha:
-                textbutton "Alpha: " + str(int(rgba[3])):
-                    size_group "rgba"
-                    xsize 110
-                    text_size 12
-                    clicked Return(["input", 3])
-            if color_default:
-                textbutton "Reset":
-                    size_group "rgba"
-                    xsize 110
-                    text_size 12
-                    text_xalign 0.5
-                    tooltip "Reset colour to default"
-                    clicked Return("reset")
+            spacing 12
 
-        # Window buttons
-        hbox:
-            align (1.0, 1.0)
-            xoffset -3
-            spacing 6
-            textbutton "Cancel":
-                clicked Return("cancel")
-            textbutton "Apply":
-                clicked Return(["apply", rgba])
+            # Colour swatches
+            hbox:
+                ysize 80
+                spacing 12
+                vbox:
+                    spacing 12
+                    #pos (0,0)
+
+                    hbox:
+                        spacing 12
+                        text "Colour swatches"
+                        textbutton "Edit":
+                            yoffset -4
+                            text_size 12
+                            tooltip "Remove or add colour swatches"
+                            action [SelectedIf(edit_mode),ToggleScreenVariable("edit_mode", True, False)]
+                    hbox:
+                        spacing 7
+                        for i in xrange(8):
+                            frame:
+                                style "empty"
+                                xysize (32, 33)
+                                if i < len(color_favorites):
+                                    add Frame("interface/color_picker/checker.webp", tile=True, ysize=31, xsize=31)
+                                    if not edit_mode:
+                                        button:
+                                            background Solid(tuple(color_favorites[i]))
+                                            tooltip "Apply this colour"
+                                            action Return(["use_swatch", color_favorites[i]])
+                                    else:
+                                        textbutton "X":
+                                            xysize (32, 33)
+                                            background Solid(tuple(color_favorites[i]))
+                                            text_color "#b20000"
+                                            text_align (0.5, 0.5)
+                                            tooltip "Remove from favourites"
+                                            action Return(["rem_swatch", i])
+                                else:
+                                    if edit_mode:
+                                        button:
+                                            style "empty"
+                                            margin (6, 6, 6, 6)
+                                            align (0.5, 0.5)
+                                            background "interface/icons/small/star_yellow.webp"
+                                            tooltip "Add to favourites"
+                                            action Return(["add_swatch", list(rgba)])
+                vbox:
+                    xsize 100
+                    text "History"
+                    if color_history:
+                        viewport id "history":
+                            # yinitial yinitial
+                            scrollbars "vertical"
+                            mousewheel True
+                            draggable False
+                            pagekeys True
+                            side_yfill True
+                            vbox:
+                                for c in color_history[::-1]:
+                                    textbutton rgba_to_hex(c):
+                                        style "empty"
+                                        xfill True
+                                        ysize 16
+                                        text_size 8
+                                        text_color "#000"
+                                        text_hover_color "#fff"
+                                        text_align (0.5, 0.5)
+                                        background Solid(tuple(c))
+                                        action Return(["history", c])
+
+            # Colour picker
+            text title xalign 0.5 text_align 0.5
+
+            hbox:
+                spacing 12
+
+                # 2D color map
+                # frame:
+                #     xysize (255, 255)
+                #     margin (-6, -6)
+                fixed:
+                    fit_first True
+                    add SVGradientButton(
+                        color_picker_clicked,
+                        Fixed(
+                            Solid(tuple([x * 255 for x in colorsys.hsv_to_rgb(1 - hue, 1, 1)])),
+                            Frame("interface/color_picker/saturation_value_gradient.webp")
+                        ),
+                        xysize=(255, 255),
+                        #area=(25, 25, 255, 255),
+                        focus_mask=None,
+                        keyboard_focus=False,
+                        key_events=False
+                    )
+                    draggroup:
+                        # Allow cursor to extend 8 pixels outside map
+                        area (-8, -8, 255 + 16,  255 + 16)
+                        drag:
+                            pos (int(saturation * 253), int((1 - value) * 253))
+                            anchor (0, 0)
+                            child gui.format("interface/color_picker/{}/cursor_sq.webp")
+                            focus_mask None
+                            activated color_picker_dragged
+                            dragged color_picker_dragged
+
+                # Hue slider
+                # frame:
+                #     margin (-6, -6)
+                vbar:
+                    # area (290, 25,
+                    xysize (30, 255)
+                    value ScreenVariableValue("hue", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
+                    base_bar hue_gradient_image
+                    thumb Image(gui.format("interface/color_picker/{}/cursor_h.webp"), xalign=0.5)
+                    thumb_offset 0
+                    top_gutter 0
+                    bottom_gutter 0
+
+                fixed:
+                    #xfit True
+                    xsize 110
+                    ysize 255
+                    vbox:
+                        #xalign 0.5
+                        # Text input
+                        textbutton "Red: " + str(int(rgba[0])):
+                            size_group "rgba"
+                            xsize 110
+                            text_size 12
+                            clicked Return(["input", 0])
+                        textbutton "Green: " + str(int(rgba[1])):
+                            size_group "rgba"
+                            xsize 110
+                            text_size 12
+                            clicked Return(["input", 1])
+                        textbutton "Blue: " + str(int(rgba[2])):
+                            size_group "rgba"
+                            xsize 110
+                            text_size 12
+                            clicked Return(["input", 2])
+                        if alpha:
+                            textbutton "Alpha: " + str(int(rgba[3])):
+                                size_group "rgba"
+                                xsize 110
+                                text_size 12
+                                clicked Return(["input", 3])
+                        if color_default:
+                            textbutton "Reset":
+                                size_group "rgba"
+                                xsize 110
+                                text_size 12
+                                text_xalign 0.5
+                                tooltip "Reset colour to default"
+                                clicked Return("reset")
+
+                    # Selected color
+                    fixed:
+                        fit_first True
+                        #xalign 0.5
+                        yalign 1.0
+                        add Frame("interface/color_picker/checker.webp", tile=True, ysize=110, xsize=110)
+                        frame:
+                            area (0, 0, 55, 110)
+                            background Solid(rgba)
+                            text "New" xalign 0.5 color "#fff" outlines [(1, "#00000080", 1, 0)]
+                        frame:
+                            area (55, 0, 55, 110)
+                            background Solid(rgba_old)
+                            text "Old" xalign 0.5 color "#fff" outlines [(1, "#00000080", 1, 0)]
+
+            if alpha or True:
+                # Alpha slider
+                # frame:
+                bar:
+                    # area (25, 290,
+                    xysize (255, 30)
+                    value ScreenVariableValue("_alpha", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
+                    base_bar Fixed(
+                        Frame("interface/color_picker/checker.webp", tile=True, ysize=30, xsize=255),
+                        Transform(alpha_gradient_image, matrixcolor=ColorizeMatrix(rgba, rgba))
+                    )
+                    thumb Image(gui.format("interface/color_picker/{}/cursor_v.webp"), xalign=0.5)
+                    thumb_offset 0
+                    top_gutter 0
+                    bottom_gutter 0
+
+            # Window buttons
+            hbox:
+                align (1.0, 1.0)
+                spacing 6
+                textbutton "Cancel":
+                    clicked Return("cancel")
+                textbutton "Apply":
+                    clicked Return(["apply", rgba])
 
 default picking_color = None
 
@@ -229,34 +246,46 @@ init -1 python:
 
             if _return[0] == "input":
                 color_picker_input(_return[1])
+
             elif _return == "reset":
                 scope = renpy.get_screen("color_picker").scope
                 scope["rgba"] = tuple(color_default)
                 color_picker_update_hsva()
                 update_picking_color(color_default)
+
             elif _return[0] == "use_swatch":
                 scope = renpy.get_screen("color_picker").scope
                 scope["rgba"] = tuple(_return[1])
                 color_picker_update_hsva()
                 update_picking_color(_return[1])
+
             elif _return[0] == "add_swatch":
                 color_picker_add(_return[1])
+
             elif _return[0] == "rem_swatch":
                 color_picker_rem(_return[1])
+
             elif _return[0] == "history":
                 scope = renpy.get_screen("color_picker").scope
                 scope["rgba"] = tuple(_return[1])
                 color_picker_update_hsva()
                 update_picking_color(_return[1])
+
             elif _return == "cancel":
-                renpy.hide_screen("color_picker")
+                hide_color_picker()
                 update_picking_color(start_color) # Reset live color object
                 picking_color = None
                 return start_color
+
             elif _return[0] == "apply":
-                renpy.hide_screen("color_picker")
+                hide_color_picker()
                 picking_color = None
                 return color # Return live color object instead of _return tuple
+
+    def hide_color_picker():
+        renpy.hide_screen("color_picker")
+        if renpy.context_nesting_level() > 0:
+            renpy.pause(0.3)
 
     def update_picking_color(rgba):
         global picking_color
@@ -293,11 +322,12 @@ init -1 python:
         update_picking_color(scope["rgba"])
         renpy.restart_interaction()
 
-    def color_picker_clicked(offset, size):
+    #def color_picker_clicked(offset, size):
+    def color_picker_clicked(x, y, size):
         # Mouse screen position to local position
-        (x, y) = renpy.get_mouse_pos()
-        x = max(0, min(x - offset[0], size[0]))
-        y = max(0, min(y - offset[1], size[1]))
+        # (x, y) = renpy.get_mouse_pos()
+        # x = max(0, min(x - offset[0], size[0]))
+        # y = max(0, min(y - offset[1], size[1]))
         # Update screen variables
         scope = renpy.get_screen("color_picker").scope
         scope["saturation"] = float(x) / size[0]
@@ -372,19 +402,23 @@ init -1 python:
             self.cached_surf = surf
             return surf
 
-    class SVGradientImage(GradientImageBase):
-        def load(self):
-            if self.cached_surf != None:
-                return self.cached_surf
-            # Generate a 2D saturation-value gradient
-            (width, height) = self.size
-            surf = renpy.display.pgrender.surface(self.size, True)
-            for y in xrange(height):
-                val = 1 - float(y) / height
-                for x in xrange(width):
-                    sat = float(x) / width
-                    (r, g, b) = colorsys.hsv_to_rgb(0, sat, val)
-                    color = (r * 255, g * 255, b * 255)
-                    surf.set_at((x, y), color)
-            self.cached_surf = surf
-            return surf
+    class SVGradientButton(ImageButton):
+
+        def __init__(self, on_click, idle_image, *args, **kwargs):
+            kwargs['sensitive'] = True
+            kwargs['action'] = NullAction()
+            super(SVGradientButton, self).__init__(idle_image, *args, **kwargs)
+            self.width = 0
+            self.height = 0
+            self.on_click = on_click
+
+        def render(self, width, height, st, at):
+            rv = super(SVGradientButton, self).render(width, height, st, at)
+            self.width, self.height = rv.get_size()
+            return rv
+
+        def event(self, ev, x, y, st):
+            if ev.type == pygame.MOUSEBUTTONUP and 0 <= x <= self.width and 0 <= y <= self.height:
+                self.on_click(x, y, (self.width, self.height))
+
+            return super(SVGradientButton, self).event(ev, x, y, st)

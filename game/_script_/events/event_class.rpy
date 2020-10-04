@@ -117,7 +117,7 @@ init python:
                 if icon[1] == a:
                     icon[1] = b
 
-        def get_menu_item(self, disabled=False, return_value=None):
+        def get_menu_item(self, disabled=False):
             menu_text = ""
 
             if self.hint:
@@ -125,9 +125,6 @@ init python:
 
             if self.title:
                 menu_text += "\"{}\"".format(self.title)
-
-            if disabled:
-                menu_text = "{color=[menu_disabled]}" + menu_text + "{/color}"
 
             imagepath = "interface/icons/small/"
 
@@ -142,12 +139,10 @@ init python:
                 else:
                     progress.append(imagepath + self.iconset[self._tier][0] + ".webp")
 
-            if return_value is None:
-                return_value = "block" if disabled else self.start_label
-
-            action = renpy.ui.ChoiceReturn(None, return_value, kwargs={ "icon": icon, "progress": progress })
-
-            return (menu_text, action)
+            if disabled:
+                return gui.menu_item(menu_text, "block", icon=icon, progress=progress, style="disabled")
+            else:
+                return gui.menu_item(menu_text, self.start_label, icon=icon, progress=progress)
 
         def fail(self):
             self.counter = max(0, self.counter-1)

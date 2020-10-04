@@ -3,6 +3,7 @@
 # https://www.renpy.org/doc/html/custom_text_tags.html
 
 init python:
+    @renpy.pure
     def text_tag_unicode(tag, argument, contents):
         """Render contents using a font that supports all/most Unicode characters. Usage {unicode}☺{/unicode}"""
         # DejaVuSans is included by default in Ren'py
@@ -14,7 +15,8 @@ init python:
         name = getattr(renpy.store, name_var, None)
         #TODO Contextual name logic
         return [(renpy.TEXT_TEXT, name)]
-    
+
+    @renpy.pure
     def text_tag_heart(tag, argument):
         """Insert a unicode heart symbol. Usage {heart}"""
         return [
@@ -22,7 +24,8 @@ init python:
             (renpy.TEXT_TEXT, "❤"),
             (renpy.TEXT_TAG, "/size"), (renpy.TEXT_TAG, "/unicode")
         ]
-    
+
+    @renpy.pure
     def text_tag_number(tag, argument):
         """Convert a number to words if lower than 100 or a multiple of 100. Usage {number=expression}"""
         num = int(renpy.store.eval(argument))

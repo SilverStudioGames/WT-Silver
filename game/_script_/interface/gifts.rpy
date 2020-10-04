@@ -14,7 +14,6 @@ label gift_menu:
     if isinstance(_return, tuple):
         if _return[0] == 0:
             hide screen bottom_menu
-            with d3
             # Give gift
             if _return[1].number > 0:
                 $ renpy.call("give_"+active_girl[:3]+"_gift", _return[1])
@@ -25,7 +24,6 @@ label gift_menu:
 
         elif _return[0] == 1:
             hide screen bottom_menu
-            with d3
             # Give quest item
             $ renpy.call("give_"+active_girl[:3]+"_quest_item", _return[1])
 
@@ -33,7 +31,6 @@ label gift_menu:
 
     elif _return == "Close":
         hide screen bottom_menu
-        with d3
         return
 
     jump .interact

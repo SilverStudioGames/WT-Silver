@@ -256,7 +256,7 @@ label hg_anal_sex_1:
             $ ccg1 = 30
             call her_main("No, I'm scared! *SOB*!", "scream", "happyCl", "worried", "mid",cheeks="blush",tears="messy")
 
-        "{color=[menu_disabled]}\"Let's use some lubrication.\"{size=-2}(Item){/size}{/color}" if anal_lube_ITEM.number <= 0:
+        "\"Let's use some lubrication.\"{size=-2}(Item){/size}" (style="disabled") if anal_lube_ITEM.number <= 0:
             m "(I don't have any lube left. I'm gonna have to be more creative.)"
             jump hg_anal_sex_1.choices
 

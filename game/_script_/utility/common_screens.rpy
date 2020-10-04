@@ -54,7 +54,7 @@ screen clothing_unlock(item):
         ypos 100
         xysize (197, 325)
 
-        add "interface/frames/"+str(interface_color)+"/outfit.webp"
+        add gui.format("interface/frames/{}/outfit.webp")
 
         if isinstance(item, DollCloth):
             add item.get_icon() align (0.5, 0.5) zoom 0.5

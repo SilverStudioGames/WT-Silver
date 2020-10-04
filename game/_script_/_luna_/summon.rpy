@@ -31,7 +31,7 @@ label summon_luna:
     menu:
 
         # Talk
-        "{color=[menu_disabled]}-Talk-{/color}" (icon="interface/icons/small/talk.webp"):
+        "-Talk-" (icon="interface/icons/small/talk.webp", style="disabled"):
             call not_available
             jump luna_requests
         # call luna_chitchat
@@ -45,12 +45,11 @@ label summon_luna:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if luna_wardrobe_unlocked:
             hide screen astoria_main with d1
-            $ screenshot_image = ScreenshotImage.capture()
-            $ renpy.call_in_new_context("wardrobe", "lun_main")
+            $ gui.in_context("wardrobe", "lun_main")
             with d2
             jump luna_requests
 
-        "{color=[menu_disabled]}-Hidden-{/color}" if not luna_wardrobe_unlocked:
+        "-Hidden-" (style="disabled") if not luna_wardrobe_unlocked:
             call nar(">You haven't unlocked this feature yet.")
             jump luna_requests
 
@@ -59,7 +58,7 @@ label summon_luna:
             call gift_menu
             jump luna_requests
 
-        "{color=[menu_disabled]}-Gifts-{/color}" (icon="interface/icons/small/gift.webp") if gave_luna_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if gave_luna_gift:
             $ TBA_message()
             #m "I already gave her a gift today. Don't want to spoil her too much..."
             jump luna_requests
@@ -109,9 +108,9 @@ label luna_favor_menu:
                 menu_choices = []
                 for i in ll_favor_list:
                     if i in []: # Not in the game yet.
-                        menu_choices.append(("{color=[menu_disabled]}-Not Available-{/color}","na"))
+                        menu_choices.append(gui.menu_item("-Not available-", "na", style="disabled"))
                     #elif i.tier > lun_whoring:
-                    #    menu_choices.append(("{color=[menu_disabled]}-Not ready-{/color}","vague"))
+                    #    menu_choices.append(gui.menu_item("-Not ready-", "vague", style="disabled"))
                     else:
                         menu_choices.append(i.get_menu_item())
                 menu_choices.append(("-Never mind-", "nvm"))
@@ -128,7 +127,7 @@ label luna_favor_menu:
             else:
                 $ renpy.jump(result)
 
-        "{color=[menu_disabled]}-Public Requests-{/color}" (icon="interface/icons/small/star_yellow.webp"):
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled"):
             call not_available
             jump luna_favor_menu
 

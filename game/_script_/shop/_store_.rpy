@@ -200,7 +200,7 @@ label store_chit_chat:
                                 jump twins_first_duel
                             "-Challenge-" if twins_first_win:
                                 jump twins_second_duel
-                            "{color=[menu_disabled]}-You need to beat the first duel-{/color}" if not twins_first_win:
+                            "-You need to beat the first duel-" (style="disabled") if not twins_first_win:
                                 jump twins_duel_menu
                             "-Never mind-":
                                 twi "Your loss professor."
@@ -231,7 +231,7 @@ label close_weasley_store:
                 "\"Yes, please. (25 gold)\"" if gold >= 25:
                     $ gold -= 25
                     $ transit_time = 1
-                "{color=[menu_disabled]}\"Yes, please. (25 gold)\"{/color}" if gold < 25:
+                "\"Yes, please. (25 gold)\"" (style="disabled") if gold < 25:
                     ger "It would appear you have spend all your money, Professor."
                     fre "I'm afraid you will have to wait a while longer for your delivery."
                     m "(Greedy bastards...)"
@@ -269,24 +269,24 @@ screen weasley_store_menu():
 
         button:
             xysize (84, 34)
-            idle_background "interface/general/"+interface_color+"/button_select.webp"
-            hover_background "interface/general/"+interface_color+"/button_select_hover.webp"
+            idle_background gui.format("interface/general/{}/button_select.webp")
+            hover_background gui.format("interface/general/{}/button_select_hover.webp")
 
             text "Gifts" align (0.5, 0.5) size 16
             action [SetVariable("store_category", 0), Jump("gift_shop_menu")]
 
         button:
             xysize (84, 34)
-            idle_background "interface/general/"+interface_color+"/button_select.webp"
-            hover_background "interface/general/"+interface_color+"/button_select_hover.webp"
+            idle_background gui.format("interface/general/{}/button_select.webp")
+            hover_background gui.format("interface/general/{}/button_select_hover.webp")
 
             text "Books" align (0.5, 0.5) size 16
             action [SetVariable("store_category", 1), Jump("book_shop_menu")]
 
         #button:
             #xysize (84, 34)
-            #idle_background "interface/general/"+interface_color+"/button_select.webp"
-            #hover_background "interface/general/"+interface_color+"/button_select_hover.webp"
+            #idle_background gui.format("interface/general/{}/button_select.webp")
+            #hover_background gui.format("interface/general/{}/button_select_hover.webp")
 
             #text "Potions" align (0.5, 0.5) size 16
             #action [SetVariable("store_category", 2), Jump("shop_potion_menu")]
@@ -294,8 +294,8 @@ screen weasley_store_menu():
         if twins_cards_stocked:
             button:
                 xysize (84, 34)
-                idle_background "interface/general/"+interface_color+"/button_select.webp"
-                hover_background "interface/general/"+interface_color+"/button_select_hover.webp"
+                idle_background gui.format("interface/general/{}/button_select.webp")
+                hover_background gui.format("interface/general/{}/button_select_hover.webp")
 
                 text "Tokens" align (0.5, 0.5) size 16
                 action [SetVariable("store_category", 3), Jump("token_shop_menu")]
@@ -528,7 +528,7 @@ label shop_potion_menu:
         potion_menu.append(("-Questions acquiring items-", "questions"))
         for potion in potion_lib.get_buyables():
             if her_whoring < potion.whoring_rec:
-                potion_menu.append(("{color=[menu_disabled]}-"+potion.name+"-{/color}","her_whoring"))
+                potion_menu.append(gui.menu_item(potion.name, "her_whoring", style="disabled"))
             else:
                 potion_menu.append(("-"+potion.name+"-",potion))
         potion_menu.append(("-Never mind-", "nvm"))

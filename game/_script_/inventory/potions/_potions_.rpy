@@ -254,11 +254,13 @@ label potions_menu:
         items_menu = []
         for potion in potion_lib.get_craftables():
             if potion_inv.can_craft(potion):
-                items_menu.append((potion.get_craft_menu_text(),potion))
+                items_menu.append(potion.get_craft_menu_item())
             else:
-                items_menu.append((potion.get_craft_disabled_menu_text(),potion.ingredients))
+                items_menu.append(potion.get_craft_menu_item(True))
+
         items_menu.append(("-Never mind-", "nvm"))
         potion_choice = renpy.display_menu(items_menu)
+
     if potion_choice == "nvm":
         jump return_office
     elif isinstance(potion_choice, Potion):
@@ -327,17 +329,21 @@ init -1 python:
         whoring_rec = 0
         start_label = None
 
-        def get_store_menu_text(self):
-            return "-"+self.name+"- ("+self.cost+" g.)"
-        def get_store_disabled_menu_text(self):
-            return "{color=[menu_disabled]}-"+self.name+"- ("+self.cost+" g.){/color}"
-        def get_craft_disabled_menu_text(self):
-            return "{color=[menu_disabled]}-craft: \""+self.name+"\"-{/color}"
-        def get_craft_menu_text(self):
-            return "-craft: \""+self.name+"\"-"
+        def get_store_menu_item(self, disabled=False):
+            if disabled:
+                return gui.menu_item('-{}-'.format(self.name), None, style="disabled")
+            else:
+                return gui.menu_item('-{}-'.format(self.name), self)
+
+        def get_craft_menu_item(self, disabled=False):
+            if disabled:
+                return gui.menu_item('-Craft: "{}"-'.format(self.name), self.ingredients, style="disabled")
+            else:
+                return gui.menu_item('-Craft: "{}"-'.format(self.name), self.id)
+
         def get_mix_text(self):
-            global potion_lib
-            return ">You mix the {i}"+potion_lib.get_name_by_id(self.ingredients[0])+"{/i} with the {i}"+potion_lib.get_name_by_id(self.ingredients[1])+"{/i}"
+            return ">You mix the {i}" + potion_lib.get_name_by_id(self.ingredients[0]) \
+                + "{/i} with the {i}" + potion_lib.get_name_by_id(self.ingredients[1]) + "{/i}"
 
 
     class PotionIngredient(PotionBase):

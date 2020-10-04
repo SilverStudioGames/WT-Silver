@@ -446,7 +446,7 @@ label hg_wager_bj:
                                 call sna_main("Sure I didn't, how about you hand me a bottle of that fine wine to celebrate the occasion...", face="snape_20")
                                 label bj_duel_game_menu:
                                 menu:
-                                    "{color=[menu_disabled]}-Give him the bottle-{/color}" if wine_ITEM.number <= 0:
+                                    "-Give him the bottle-" (style="disabled") if wine_ITEM.number <= 0:
                                         "> You don't have any bottles of wine left"
                                         jump bj_duel_game_menu
                                     "-Give him the bottle-" if wine_ITEM.number > 0:

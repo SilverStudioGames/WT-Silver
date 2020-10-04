@@ -15,8 +15,7 @@ init python:
 ####################################
 
 label inventory:
-    $ screenshot_image = ScreenshotImage.capture()
-    $ renpy.call_in_new_context("inventory_menu")
+    $ gui.in_context("inventory_menu")
     jump main_room_menu
 
 label inventory_menu(xx=150, yy=90):
@@ -42,8 +41,7 @@ label inventory_menu(xx=150, yy=90):
     if not renpy.android:
         show screen mouse_tooltip
 
-    show screen inventory_menu(xx, yy)
-    show screen inventory_menuitem(xx, yy)
+    show screen inventory(xx, yy)
     with d3
 
     label .after_init:
@@ -83,23 +81,25 @@ label inventory_menu(xx=150, yy=90):
         $ current_page = 0
         $ current_item = None
     else:
-        hide screen inventory_menu
-        hide screen inventory_menuitem
+        hide screen inventory
         return
 
     jump .after_init
 
-screen inventory_menu(xx, yy):
-    tag inventory_menu
+screen inventory(xx, yy):
+    tag inventory
     zorder 30
     modal True
 
-    default bg = At(screenshot_image, gaussianblur(15.0))
-    add bg
+    add "gui_fade"
 
     use invisible_button(action=Return("Close"))
     use close_button
 
+    use inventory_menu(xx, yy)
+    use inventory_menuitem(xx, yy)
+
+screen inventory_menu(xx, yy):
     frame:
         style "empty"
         pos (xx, yy)
@@ -107,7 +107,7 @@ screen inventory_menu(xx, yy):
 
         use invisible_button()
 
-        add "interface/achievements/"+interface_color+"/panel_left.webp"
+        add gui.format("interface/achievements/{}/panel_left.webp")
 
         vbox:
             pos (6, 41)
@@ -118,36 +118,32 @@ screen inventory_menu(xx, yy):
                         xsize 195 ysize 16
                         text_xalign 0.5
                         if current_category == category:
-                            background "interface/achievements/"+interface_color+"/highlight_left.webp"
+                            background gui.format("interface/achievements/{}/highlight_left.webp")
                         else:
-                            hover_background "interface/achievements/"+interface_color+"/highlight_left.webp"
+                            hover_background gui.format("interface/achievements/{}/highlight_left.webp")
                             action Return(["category", category])
-                    add "interface/achievements/"+interface_color+"/spacer_left.webp"
+                    add gui.format("interface/achievements/{}/spacer_left.webp")
         vbox:
             pos (6, 384)
             button action NullAction() style "empty" xsize 195 ysize 32
             textbutton "Sort by: [current_sorting]":
-                style "empty"
+                style gui.theme("overlay_button")
                 xsize 195 ysize 32
                 text_align (0.5, 0.5)
                 text_size 12
-                hover_background btn_hover
                 action Return("sort")
 
 screen inventory_menuitem(xx, yy):
-    tag inventory_menuitem
-    zorder 30
-
     frame:
         style "empty"
-        style_prefix interface_style
+        style_prefix gui.theme()
         pos (xx+217, yy-53)
         xysize (560, 507)
 
         use invisible_button()
 
         add "interface/achievements/inventory.webp"
-        add "interface/achievements/"+interface_color+"/panel.webp"
+        add gui.format("interface/achievements/{}/panel.webp")
 
         #Western Egg
         button xsize 90 ysize 60 action Function(renpy.play, "sounds/plushie.mp3") xalign 0.5 style "empty"
@@ -169,15 +165,15 @@ screen inventory_menuitem(xx, yy):
                 spacing 10
 
                 imagebutton:
-                    idle "interface/frames/"+interface_color+"/arrow_up.webp"
+                    idle gui.format("interface/frames/{}/arrow_up.webp")
                     if not current_page <= 0:
-                        hover image_hover("interface/frames/"+interface_color+"/arrow_up.webp")
+                        hover image_hover(gui.format("interface/frames/{}/arrow_up.webp"))
                         action Return("dec")
 
                 imagebutton:
-                    idle im.Flip("interface/frames/"+interface_color+"/arrow_up.webp", vertical=True)
+                    idle im.Flip(gui.format("interface/frames/{}/arrow_up.webp"), vertical=True)
                     if current_page < math.ceil((menu_items_length-1)/items_shown):
-                        hover im.Flip(image_hover("interface/frames/"+interface_color+"/arrow_up.webp"), vertical=True)
+                        hover im.Flip(image_hover(gui.format("interface/frames/{}/arrow_up.webp")), vertical=True)
                         action Return("inc")
 
         # Add items
@@ -190,7 +186,7 @@ screen inventory_menuitem(xx, yy):
                     xsize 48
                     ysize 48
                     pos (24+58*(col), 113+58*(row))
-                    add "interface/achievements/"+interface_color+"/iconbox.webp"
+                    add gui.format("interface/achievements/{}/iconbox.webp")
                     if not current_item == None and current_item.id == menu_items[i].id:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
                     if menu_items[i].number > 0:
@@ -205,9 +201,8 @@ screen inventory_menuitem(xx, yy):
                         #else:
                             #text str(menu_items[i].number) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
                     button:
-                        style "empty"
+                        style gui.theme("overlay_button")
                         xsize 46 ysize 46
-                        hover_background btn_hover
                         action Return(["select", menu_items[i]])
                         tooltip menu_items[i].name
 
@@ -226,7 +221,7 @@ screen inventory_menuitem(xx, yy):
                 xsize 96
                 ysize 96
                 pos (24, 375)
-                add "interface/achievements/"+interface_color+"/icon_selected.webp"
+                add gui.format("interface/achievements/{}/icon_selected.webp")
                 if current_item.number > 0:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84)
                 else:
@@ -235,8 +230,8 @@ screen inventory_menuitem(xx, yy):
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
                 text str(current_item.number) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
-            add "interface/achievements/"+interface_color+"/highlight.webp" pos (112, 375)
-            add "interface/achievements/"+interface_color+"/spacer.webp" pos (120, 398)
+            add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
+            add gui.format("interface/achievements/{}/spacer.webp") pos (120, 398)
             hbox:
                 spacing 5
                 xalign 0.5

@@ -9,7 +9,7 @@ init python:
         else:
             return  str(round(points/1000.0, 1))+"{size=-2}k{/size}"
 
-label house_points:
+label update_ui_points:
     # Debug
     #if config.debug:
         #$ total_points = slytherin+gryffindor+ravenclaw+hufflepuff
@@ -44,7 +44,6 @@ label house_points:
 
     return
 
-#Top Bar UI
 screen ui_top_bar():
     tag ui
     zorder 2
@@ -52,7 +51,7 @@ screen ui_top_bar():
     if toggle_menu:
         use ui_menu
 
-    add "interface/topbar/"+str(interface_color)+"/bar.webp" zoom 0.5
+    add gui.format("interface/topbar/{}/bar.webp") zoom 0.5
     use ui_stats
     use ui_points
 
@@ -61,9 +60,9 @@ screen ui_top_bar():
         # Menu button
         imagebutton:
             xpos 0
-            idle "interface/topbar/buttons/"+str(interface_color)+"/ui_menu.webp"
+            idle gui.format("interface/topbar/buttons/{}/ui_menu.webp")
             if room_menu_active:
-                hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_menu.webp")
+                hover image_hover(gui.format("interface/topbar/buttons/{}/ui_menu.webp"))
                 if toggle_menu:
                     tooltip "Close menu"
                 else:
@@ -74,9 +73,9 @@ screen ui_top_bar():
         imagebutton:
             xpos 1080
             xanchor 1.0
-            idle "interface/topbar/buttons/"+str(interface_color)+"/ui_sleep.webp"
+            idle gui.format("interface/topbar/buttons/{}/ui_sleep.webp")
             if room_menu_active:
-                hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_sleep.webp")
+                hover image_hover(gui.format("interface/topbar/buttons/{}/ui_sleep.webp"))
                 if daytime:
                     action Jump("night_start")
                     tooltip "Doze Off (s)"
@@ -93,42 +92,42 @@ screen ui_top_bar():
 
             # Achievements button
             imagebutton:
-                idle "interface/topbar/buttons/"+str(interface_color)+"/ui_achievements.webp"
+                idle gui.format("interface/topbar/buttons/{}/ui_achievements.webp")
                 if room_menu_active:
-                    hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_achievements.webp")
+                    hover image_hover(gui.format("interface/topbar/buttons/{}/ui_achievements.webp"))
                     tooltip "Achievements"
                     action Jump("achievement")
 
             # Stats button
             imagebutton:
-                idle "interface/topbar/buttons/"+str(interface_color)+"/ui_stats.webp"
+                idle gui.format("interface/topbar/buttons/{}/ui_stats.webp")
                 if room_menu_active:
-                    hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_stats.webp")
+                    hover image_hover(gui.format("interface/topbar/buttons/{}/ui_stats.webp"))
                     tooltip "Characters (c)"
                     action Jump("stats")
 
             # Inventory button
             imagebutton:
-                idle "interface/topbar/buttons/"+str(interface_color)+"/ui_inv.webp"
+                idle gui.format("interface/topbar/buttons/{}/ui_inv.webp")
                 if room_menu_active:
-                    hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_inv.webp")
+                    hover image_hover(gui.format("interface/topbar/buttons/{}/ui_inv.webp"))
                     tooltip "Inventory (i)"
                     action Jump("inventory")
 
             # Work button
             if letter_work_unlock.read:
                 imagebutton:
-                    idle "interface/topbar/buttons/"+str(interface_color)+"/ui_work.webp"
+                    idle gui.format("interface/topbar/buttons/{}/ui_work.webp")
                     if room_menu_active:
-                        hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_work.webp")
+                        hover image_hover(gui.format("interface/topbar/buttons/{}/ui_work.webp"))
                         tooltip "Work (w)"
                         action Jump("paperwork")
 
         ## Toggle UI lock button
         #imagebutton:
         #    xpos 1047
-        #    idle "interface/topbar/buttons/"+str(interface_color)+"/ui_%s.webp" % toggle_ui_lock
-        #    hover image_hover("interface/topbar/buttons/"+str(interface_color)+"/ui_%s.webp" % toggle_ui_lock)
+        #    idle gui.format("interface/topbar/buttons/{}/ui_%s.webp") % toggle_ui_lock
+        #    hover image_hover(gui.format("interface/topbar/buttons/{}/ui_%s.webp") % toggle_ui_lock)
         #    action ToggleVariable("toggle_ui_lock", False, True)
 
         #Debug
@@ -194,10 +193,11 @@ screen ui_stats():
         xpos 200
         frame:
             style "empty"
+            style_prefix gui.theme("ui_stats")
             xsize 217
             ysize 26
 
-            add "interface/topbar/"+str(interface_color)+"/stats.webp" xalign 0.5 yalign 1.0
+            add gui.format("interface/topbar/{}/stats.webp") xalign 0.5 yalign 1.0
 
             # Add overlay token icon if needed
             if renpy.get_screen("weasley_store_room") and store_category == 3:
@@ -205,14 +205,22 @@ screen ui_stats():
 
             hbox:
                 xpos 40 ypos 11
-                text "{size=-4}[daygold_colour][day]{/color}{/size}" outlines daygold_outline
+                text "{size=-4}[day]{/size}"
             hbox:
                 xpos 140 ypos 11
                 # Display tokens in token shop
                 if renpy.get_screen("weasley_store_room") and store_category == 3:
-                    text "{size=-4}[daygold_colour][tokens]{/color}{/size}" outlines daygold_outline
+                    text "{size=-4}[tokens]{/size}"
                 else:
-                    text "{size=-4}[daygold_colour][gold]{/color}{/size}" outlines daygold_outline
+                    text "{size=-4}[gold]{/size}"
+
+style light_ui_stats_text:
+    color "#000"
+    outlines [(1, "#e4ba7080", 0, 0)]
+
+style dark_ui_stats_text:
+    color "#fff"
+    outlines [(1, "#00000080", 0, 0)]
 
 screen ui_menu():
     tag ui
@@ -227,12 +235,12 @@ screen ui_menu():
         style "empty"
     frame:
         style "empty"
-        style_prefix interface_style
+        style_prefix gui.theme()
         ypos 34
         xsize 102
         ysize 204
 
-        add "interface/topbar/"+str(interface_color)+"/menu.webp"
+        add gui.format("interface/topbar/{}/menu.webp")
 
         vbox:
             xanchor 0.5

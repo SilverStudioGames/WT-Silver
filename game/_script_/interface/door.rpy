@@ -68,7 +68,7 @@ screen door_menu(xx, yy):
         xsize 207
         ysize 454
 
-        add "interface/achievements/"+interface_color+"/panel_left.webp"
+        add gui.format("interface/achievements/{}/panel_left.webp")
 
         use invisible_button # Nullifies buttons below
 
@@ -79,8 +79,13 @@ screen door_menu(xx, yy):
             null
             frame:
                 style "empty"
-                textbutton "Show Busy:" style "empty" xsize 195 ysize 32 text_align (0.4, 0.5) text_size 12 hover_background btn_hover action ToggleVariable("door_show_busy", True, False)
-                add "interface/frames/"+str(interface_color)+"/check_"+str(door_show_busy).lower()+".webp" xalign 0.8 ypos 4
+                textbutton "Show Busy:":
+                    style gui.theme("overlay_button")
+                    xsize 195 ysize 32
+                    text_align (0.4, 0.5)
+                    text_size 12
+                    action ToggleVariable("door_show_busy", True, False)
+                add gui.format("interface/frames/{}/check_")+str(door_show_busy).lower()+".webp" xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
             $ tmp_x = 0
@@ -99,12 +104,12 @@ screen door_menu(xx, yy):
                             vbox:
                                 vbox:
                                     if not door_dict[char]["busy"]:
-                                        textbutton char xsize 195 ysize 48 style "empty" hover_background "interface/achievements/"+interface_color+"/highlight_left_b.webp" text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 action Return(["summon", char, False])
+                                        textbutton char xsize 195 ysize 48 style "empty" hover_background gui.format("interface/achievements/{}/highlight_left_b.webp") text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 action Return(["summon", char, False])
                                     else:
-                                        textbutton char xsize 195 ysize 48 style "empty" hover_background "interface/achievements/"+interface_color+"/highlight_left_b.webp" text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 text_color "#8C8C70" action Return(["summon", char, True])
+                                        textbutton char xsize 195 ysize 48 style "empty" hover_background gui.format("interface/achievements/{}/highlight_left_b.webp") text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 text_color "#8C8C70" action Return(["summon", char, True])
 
-                                add "interface/achievements/"+interface_color+"/spacer_left.webp"
-                            add "interface/achievements/"+interface_color+"/iconbox.webp" yoffset 1
+                                add gui.format("interface/achievements/{}/spacer_left.webp")
+                            add gui.format("interface/achievements/{}/iconbox.webp") yoffset 1
                             $ image_zoom = crop_image_zoom("interface/icons/head/"+door_dict[char]["ico"]+".webp", 42, 42, door_dict[char]["busy"])
                             frame:
                                 style "empty"

@@ -19,23 +19,11 @@ label hide_screens:
 label update_interface_color(color=None):
     if color in ["gold", "gray"]:
         $ interface_color = color
-    elif not preferences.nightmode and daytime:
+    elif daytime:
         $ interface_color = "gold"
     else:
         $ interface_color = "gray"
 
-    if interface_color == "gold":
-        $ btn_hover = "#e3ba7140"
-        $ interface_style = "day"
-        $ menu_disabled = "#ae9566"
-        $ daygold_colour = "{color=#000}"
-        $ daygold_outline = [ (1, "#e4ba7080", 0, 0) ]
-    else:
-        $ btn_hover = "#7d75aa40"
-        $ interface_style = "night"
-        $ menu_disabled = "#6c625c"
-        $ daygold_colour = "{color=#FFF}"
-        $ daygold_outline = [ (1, "#00000080", 0, 0) ]
     return
 
 label stop_sound_effects:

@@ -9,7 +9,6 @@ label prev_at_hogwarts:
     $ temp_date = day
     $ temp_gold = gold
     $ temp_day = daytime
-    $ temp_color = interface_color
     $ temp_weather = weather
 
     stop weather
@@ -130,7 +129,6 @@ label a_spaced_out_conversation:
     $ temp_date = day
     $ temp_gold = gold
     $ temp_day = daytime
-    $ temp_color = interface_color
     $ temp_weather = weather
 
     stop weather

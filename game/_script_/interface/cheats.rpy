@@ -165,7 +165,7 @@ label cheats:
 
         "-Add Slytherin Points-" (icon="interface/icons/small/slyt.webp"):
             $ slytherin += 200
-            call house_points
+            call update_ui_points
             "Two hundred points to Slytherin!"
             jump cheats
 
