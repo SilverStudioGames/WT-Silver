@@ -3,9 +3,10 @@
 ###############
 
 default astoria = Doll(name="astoria",
-                        clothes={"hat":        [None, 15, True],
+                        clothes={"headgear":   [None, 15, True],
                                  "hair":       [None, 4, True],
-                                 "earring":    [None, 14, True],
+                                 "glasses":    [None, 12, True],
+                                 "earrings":   [None, 14, True],
                                  "neckwear":   [None, 11, True],
                                  "robe":       [None, 28, True],
                                  "gloves":     [None, 21, True],
@@ -55,22 +56,22 @@ default astoria = Doll(name="astoria",
 default ast_hair_base = DollCloth("astoria", ("head", "hair"), "hair", "base", [[229, 198, 129, 255], [163, 125, 80, 255]], unlocked=True)
 default ast_hair_short = DollCloth("astoria", ("head", "hair"), "hair", "short", [[229, 198, 129, 255], [163, 125, 80, 255]], unlocked=True)
 
-default ast_top_school1 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_1", [[183, 183, 184, 255], [109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], armfix=True, unlocked=True)
-default ast_top_school2 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_2", [[183, 183, 184, 255], [109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=4, armfix=True, unlocked=True)
-default ast_top_school3 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_3", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=8, armfix=True, unlocked=True)
-default ast_top_school4 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_4", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=8, armfix=True, unlocked=True)
-default ast_top_school5 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_5", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=12, armfix=True, unlocked=True)
-default ast_top_school6 = DollCloth("astoria", ("tops", "shirts"), "top", "top_school_6", [[109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=12, armfix=True, unlocked=True)
+default ast_top_school1 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_1", [[183, 183, 184, 255], [109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], armfix=True, unlocked=True)
+default ast_top_school2 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_2", [[183, 183, 184, 255], [109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=4, armfix=True, unlocked=True)
+default ast_top_school3 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_3", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=8, armfix=True, unlocked=True)
+default ast_top_school4 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_4", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=8, armfix=True, unlocked=True)
+default ast_top_school5 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_5", [[183, 183, 184, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=12, armfix=True, unlocked=True)
+default ast_top_school6 = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", [[109, 105, 121, 255], [58, 115, 75, 255], [205, 205, 206, 255]], level=12, armfix=True, unlocked=True)
 
-default ast_bottom_skirt1 = DollCloth("astoria", ("bottoms", "skirts"), "bottom", "school_skirt_1", [[103, 90, 108, 255], [232, 177, 13, 255]], armfix=True, unlocked=True)
-default ast_bottom_skirt2 = DollCloth("astoria", ("bottoms", "skirts"), "bottom", "school_skirt_2", [[103, 90, 108, 255], [232, 177, 13, 255]], level=4, armfix=True, unlocked=True)
-default ast_bottom_skirt3 = DollCloth("astoria", ("bottoms", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], level=8, armfix=True, unlocked=True)
-default ast_bottom_skirt4 = DollCloth("astoria", ("bottoms", "skirts"), "bottom", "school_skirt_4", [[103, 90, 108, 255], [232, 177, 13, 255]], level=12, armfix=True, unlocked=True)
+default ast_bottom_skirt1 = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_1", [[103, 90, 108, 255], [232, 177, 13, 255]], armfix=True, unlocked=True)
+default ast_bottom_skirt2 = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_2", [[103, 90, 108, 255], [232, 177, 13, 255]], level=4, armfix=True, unlocked=True)
+default ast_bottom_skirt3 = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], level=8, armfix=True, unlocked=True)
+default ast_bottom_skirt4 = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_4", [[103, 90, 108, 255], [232, 177, 13, 255]], level=12, armfix=True, unlocked=True)
 
-default ast_bra_basic1 = DollCloth("astoria", ("bras", "bras"), "bra", "basic_bra_1", [[213, 62, 65, 255], [234, 236, 234, 255]], unlocked=True)
-default ast_bra_basic2 = DollCloth("astoria", ("bras", "bras"), "bra", "basic_bra_2", [[213, 62, 65, 255]], unlocked=True)
-default ast_panties_basic1 = DollCloth("astoria", ("panties", "panties"), "panties", "basic_panties_1", [[213, 62, 65, 255], [234, 236, 234, 255]], armfix=True, unlocked=True)
-default ast_panties_basic2 = DollCloth("astoria", ("panties", "panties"), "panties", "basic_panties_2", [[213, 62, 65, 255]], armfix=True, unlocked=True)
+default ast_bra_basic1 = DollCloth("astoria", ("upper undergarment", "bras"), "bra", "basic_bra_1", [[213, 62, 65, 255], [234, 236, 234, 255]], unlocked=True)
+default ast_bra_basic2 = DollCloth("astoria", ("upper undergarment", "bras"), "bra", "basic_bra_2", [[213, 62, 65, 255]], unlocked=True)
+default ast_panties_basic1 = DollCloth("astoria", ("lower undergarment", "panties"), "panties", "basic_panties_1", [[213, 62, 65, 255], [234, 236, 234, 255]], armfix=True, unlocked=True)
+default ast_panties_basic2 = DollCloth("astoria", ("lower undergarment", "panties"), "panties", "basic_panties_2", [[213, 62, 65, 255]], armfix=True, unlocked=True)
 
 default ast_outfit_default = DollOutfit([ast_hair_base, ast_top_school1, ast_bottom_skirt1, ast_bra_basic1, ast_panties_basic1], True)
 default ast_outfit_last = DollOutfit([ast_hair_base])
@@ -80,11 +81,11 @@ default ast_outfit_last = DollOutfit([ast_hair_base])
 ################
 
 default ast_hair_ann = DollCloth("astoria", ("head", "hair"), "hair", "ann_takamaki", [[229, 198, 129, 255], [163, 125, 80, 255], [255, 209, 105, 255]])
-default ast_hat_ann = DollCloth("astoria", ("head", "headgear"), "hat", "ann_takamaki", [[173, 18, 18, 255], [238, 188, 187, 255]], level=14)
-default ast_top_ann = DollCloth("astoria", ("tops", "other"), "top", "ann_takamaki", [[173, 18, 18, 255], [232, 232, 232, 255], [238, 188, 187, 255]], level=14, blacklist=("bottom", "bra", "garterbelt"), armfix=True)
+default ast_hat_ann = DollCloth("astoria", ("head", "headgear"), "headgear", "ann_takamaki", [[173, 18, 18, 255], [238, 188, 187, 255]], level=14)
+default ast_top_ann = DollCloth("astoria", ("upper body", "other"), "top", "ann_takamaki", [[173, 18, 18, 255], [232, 232, 232, 255], [238, 188, 187, 255]], level=14, blacklist=("bottom", "bra", "garterbelt"), armfix=True)
 default ast_stockings_ann = DollCloth("astoria", ("legwear", "stockings"), "stockings", "ann_takamaki", [[99, 42, 42, 255], [181, 135, 135, 255]], level=14, blacklist=["bottom"], armfix=True)
-default ast_gloves_ann = DollCloth("astoria", ("misc", "gloves"), "gloves", "ann_takamaki", [[249, 139, 225, 255]], armfix=True)
-default ast_buttplug_ann = DollCloth("astoria", ("misc", "accessory"), "buttplug", "ann_takamaki", [[99, 42, 42, 255], [181, 135, 135, 255]], level=14)
+default ast_gloves_ann = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", [[249, 139, 225, 255]], armfix=True)
+default ast_buttplug_ann = DollCloth("astoria", ("misc", "accessory"), "accessory0", "ann_takamaki", [[99, 42, 42, 255], [181, 135, 135, 255]], level=14)
 
 default ast_outfit_ann = DollOutfit([ast_hair_ann, ast_hat_ann, ast_top_ann, ast_stockings_ann, ast_gloves_ann, ast_buttplug_ann], price=500)
 
@@ -92,18 +93,18 @@ default ast_outfit_ann = DollOutfit([ast_hair_ann, ast_hat_ann, ast_top_ann, ast
 ## Misc ##
 ##########
 
-default ast_cloth_pants1 = DollCloth("astoria", ("bottoms", "trousers"), "bottom", "pants_1", [[180, 180, 180, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
-default ast_cloth_shorts1 = DollCloth("astoria", ("bottoms", "shorts"), "bottom", "pants_1_short", [[180, 180, 180, 255], [213, 161, 13, 255]], level=8, armfix=True, unlocked=True)
+default ast_cloth_pants1 = DollCloth("astoria", ("lower body", "trousers"), "bottom", "pants_1", [[180, 180, 180, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
+default ast_cloth_shorts1 = DollCloth("astoria", ("lower body", "shorts"), "bottom", "pants_1_short", [[180, 180, 180, 255], [213, 161, 13, 255]], level=8, armfix=True, unlocked=True)
 default ast_cloth_pantyhose1 = DollCloth("astoria", ("legwear", "pantyhose"), "stockings", "pantyhose", [[190, 146, 129, 255]], armfix=True, unlocked=True)
 
 ################
 ## Pubic Hair ##
 ################
 
-default ast_pubes_arrow = DollCloth("astoria", ("pelvis", "pubes"), "pubes", "arrow", [[229, 198, 129, 255]], unlocked=True)
-default ast_pubes_beaver = DollCloth("astoria", ("pelvis", "pubes"), "pubes", "beaver", [[229, 198, 129, 255]], unlocked=True)
-default ast_pubes_stuble = DollCloth("astoria", ("pelvis", "pubes"), "pubes", "stuble", [[139, 107, 69, 255]], unlocked=True)
-default ast_pubes_unshaved = DollCloth("astoria", ("pelvis", "pubes"), "pubes", "unshaved", [[139, 107, 69, 255]], unlocked=True)
+default ast_pubes_arrow = DollCloth("astoria", ("lower undergarment", "pubes"), "pubes", "arrow", [[229, 198, 129, 255]], unlocked=True)
+default ast_pubes_beaver = DollCloth("astoria", ("lower undergarment", "pubes"), "pubes", "beaver", [[229, 198, 129, 255]], unlocked=True)
+default ast_pubes_stuble = DollCloth("astoria", ("lower undergarment", "pubes"), "pubes", "stuble", [[139, 107, 69, 255]], unlocked=True)
+default ast_pubes_unshaved = DollCloth("astoria", ("lower undergarment", "pubes"), "pubes", "unshaved", [[139, 107, 69, 255]], unlocked=True)
 
 # Lipstick (DollLipstick)
-default ast_makeup4_lipstick = DollLipstick("astoria", ("makeup", "slot5"), "makeup4", "lipstick", [[255, 70, 70, 255]], unlocked=True)
+default ast_makeup4_lipstick = DollLipstick("astoria", ("head", "makeup"), "makeup4", "lipstick", [[255, 70, 70, 255]], unlocked=True)

@@ -39,7 +39,7 @@ screen gift(win=False):
     if win:
         use notes
         on "show" action Play("sound", "sounds/win2.mp3")
-    add the_gift align (0.5, 0.4) zoom get_zoom(the_gift, 320,320)
+    add the_gift align (0.5, 0.4) zoom get_zoom(the_gift, (320, 320))
 
 screen clothing_unlock(item):
     zorder 30

@@ -3,9 +3,10 @@
 ###############
 
 default luna = Doll(name="luna",
-                        clothes={"hat":        [None, 15, True],
+                        clothes={"headgear":   [None, 15, True],
                                  "hair":       [None, 4, True],
-                                 "earring":    [None, 14, True],
+                                 "glasses":    [None, 12, True],
+                                 "earrings":   [None, 14, True],
                                  "neckwear":   [None, 11, True],
                                  "robe":       [None, 28, True],
                                  "gloves":     [None, 21, True],

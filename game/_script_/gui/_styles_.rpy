@@ -120,10 +120,10 @@ style light_button_text:
     color "#f9d592"
 
 style dark_overlay_button is empty:
-    hover_background "#7d75aa40"
+    hover_foreground "#7d75aa40"
 
 style light_overlay_button is empty:
-    hover_background "#e3ba7140"
+    hover_foreground "#e3ba7140"
 
 style dark_overlay_button_text is dark_button_text
 style light_overlay_button_text is light_button_text

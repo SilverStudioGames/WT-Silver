@@ -1,4 +1,4 @@
-﻿
+
 # Preferences
 # https://www.renpy.org/doc/html/preferences.html
 
@@ -116,10 +116,10 @@ define config.exit_replay_transition = None
 define config.say_attribute_transition = d3
 
 # Garbage Collector
-define config.manage_gc = True
-define config.gc_thresholds = (30000, 10, 10)
-define config.idle_gc_count = 3000
-define config.gc_print_unreachable = False
+#define config.manage_gc = True
+#define config.gc_thresholds = (30000, 10, 10)
+#define config.idle_gc_count = 3000
+#define config.gc_print_unreachable = False
 
 ################################################
 ##           Build configuration              ##

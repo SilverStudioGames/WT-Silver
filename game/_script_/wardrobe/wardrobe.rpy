@@ -7,15 +7,15 @@ default wardrobe_background_night = "#7d756e"
 default wardrobe_toggles = False
 default wardrobe_music = False
 default wardrobe_chitchats = True
-default wardrobe_requirements = False
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
-    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "robes": 5, "slot1": 5,
+    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "slot1": 5,
     "earrings": 4, "sweaters": 4, "trousers": 4, "stockings": 4, "slot2": 4,
     "neckwear": 3, "dresses": 3, "shorts": 3, "socks": 3, "slot3": 3,
-    "other": -1, "slot4": 2,
-    "slot5": 1,
+    "other": -1, "slot4": 2, "one-piece suits": 2,
+    "slot5": 1, "robes": 1,
+    "gloves": 0,
 }
 
 label wardrobe(char_label):
@@ -42,12 +42,11 @@ label wardrobe(char_label):
 
         wardrobe_background = wardrobe_background_night if gui.is_dark() else wardrobe_background_day
 
-        items_shown = 20
         current_page = 0
         current_category = ""
         current_subcategory = ""
         current_item = None
-        wardrobe_categories = ("head", "tops", "bottoms", "legwear", "makeup", "bras", "panties", "misc")
+        wardrobe_categories = ("head", "makeup", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc")
         wardrobe_subcategories = char_active.wardrobe
         export_in_progress = False
         item_to_export = None
@@ -63,15 +62,15 @@ label wardrobe(char_label):
         call play_music("wardrobe")
 
     if not renpy.android:
-        show screen mouse_tooltip
+        show screen tooltip
 
-    show screen wardrobe_menu(550, 50)
+    show screen wardrobe_menu(650, 50)
     with d2
 
 
     label .after_init:
 
-    show screen wardrobe_menu(550, 50)
+    show screen wardrobe_menu(650, 50)
 
     if current_category:
         if current_category == "outfits":
@@ -90,12 +89,12 @@ label wardrobe(char_label):
             $ current_item = None
             $ renpy.play('sounds/click3.mp3')
             if "head" in wardrobe_categories:
-                $ wardrobe_categories = ("face", "torso", "hips", "legs", "makeup", "breasts", "pelvis", "misc")
+                $ wardrobe_categories = ("face", "makeup", "torso", "breasts", "hips", "pelvis", "legs", "misc")
                 $ char_active.strip("all")
                 $ char_active.strip("accessory")
 
             else:
-                $ wardrobe_categories = ("head", "tops", "bottoms", "legwear", "makeup", "bras", "panties", "misc")
+                $ wardrobe_categories = ("head", "makeup", "tops", "bras", "bottoms", "panties", "legwear", "misc")
                 $ char_active.wear("all")
                 $ char_active.wear("accessory")
             hide screen wardrobe_menuitem
@@ -160,15 +159,6 @@ label wardrobe(char_label):
         $ active_layer = None
     elif _return == "item_reset":
         $ current_item.reset_color()
-    elif _return == "bg_color":
-        $ active_layer = None
-        hide screen wardrobe_menuitem
-        $ wardrobe_background = color_picker(get_rgb_list(wardrobe_background), False, "Wardrobe Background Color", pos_xy=[40, 85])
-        $ wardrobe_background = get_hex_string(wardrobe_background[0]/255.0, wardrobe_background[1]/255.0, wardrobe_background[2]/255.0, wardrobe_background[3]/255.0)
-    elif _return == "inc":
-        $ current_page += 1
-    elif _return == "dec":
-        $ current_page += -1
     elif _return[0] == "category":
         $ current_page = 0
         if current_category == _return[1]:
@@ -215,7 +205,7 @@ label wardrobe(char_label):
                     $ current_item = None
                     python:
                         for item in menu_items:
-                            if char_active.clothes[item.type][0] and item.id == char_active.clothes[item.type][0].id:
+                            if char_active.is_worn(item.type) and char_active.get_equipped(item.type) == item:
                                 current_item = item
                                 break
     elif _return[0] == "subcategory":
@@ -263,50 +253,52 @@ label wardrobe(char_label):
 screen wardrobe_menu(xx, yy):
     tag wardrobe
     zorder 15
+    style_prefix "wardrobe"
+
+    default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)
+    default panel = gui.format("interface/frames/{}/wardrobe.webp")
 
     add "gui_fade"
 
     use invisible_button(action=Return("Close"))
     use close_button
 
-    frame:
-        style "empty"
+    window:
         pos (xx, yy)
-        xysize (540, 548)
+        xysize (344, 507)
+        background panel
 
         use invisible_button()
 
         # Main Categories
-        for i, category in enumerate(wardrobe_categories):
-            $ cat_row = (i // 4) % 2
-            $ cat_col = i % 4
-            if current_category == category:
-                add gui.format("interface/wardrobe/{}/frame.webp") xpos 14+411*cat_row ypos 80+110*cat_col zoom 0.5
-                add "interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category) xpos 14+411*cat_row ypos 80+110*cat_col zoom 0.5
-                button:
-                    style gui.theme("overlay_button")
-                    pos (14+411*cat_row, 80+110*cat_col)
-                    xysize (90, 96)
-                    action Return(["category", category])
-            else:
-                add gui.format("interface/wardrobe/{}/frame.webp") xpos 61+329*cat_row ypos 80+110*cat_col zoom 0.5
-                # Underwear disabled check
-                if category in ("bras", "panties") and not char_underwear_allowed:
-                    add gray_tint("interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category)) xpos 61+329*cat_row ypos 80+110*cat_col zoom 0.5
-                else:
-                    add "interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category) xpos 61+329*cat_row ypos 80+110*cat_col zoom 0.5
-                button:
-                    style gui.theme("overlay_button")
-                    pos (61+377*cat_row, 80+110*cat_col)
-                    xysize (44, 96)
-                    tooltip category
-                    action Return(["category", wardrobe_categories[i]])
+        grid 2 4:
+            ypos 72
+            xoffset -36
+            xspacing 200 + 72
+            yspacing 18
 
-        # Background
-        frame xysize (340, 548) xpos 100 style "empty" background wardrobe_background
+            for i, category in enumerate(wardrobe_categories):
+                $ icon = Fixed(Transform("interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category), zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5)), icon_frame)
+                $ icon_zoom = 0.5
+                $ icon_offset = -18 if (i % 2) == 0 else 18
+
+                button:
+                    xysize (72, 72)
+                    background icon
+                    tooltip category
+                    action Return(["category", category])
+                    if current_category == category:
+                        xoffset icon_offset
 
         # Character
-        add char_active.get_image() yoffset -12 corner1 (238, 200) corner2 (872, 1200) zoom 0.5 align (0.5, 1.0) events False
+        add char_active.get_image():
+            yoffset -6
+            corner1 (238, 200)
+            corner2 (872, 1200)
+            zoom 0.45
+            anchor (0.5, 1.0)
+            align (0.5, 1.0)
+            events False
 
         # Switch to body modifications tab
         add gui.format("interface/frames/{}/circle.webp") pos (373, 62)
@@ -342,8 +334,6 @@ screen wardrobe_menu(xx, yy):
                 tooltip "Open Studio"
                 action Return("studio")
 
-        add gui.format("interface/frames/{}/wardrobe.webp")
-
         # Easter Egg (Headpats, boobs, pussy)
         button style "empty" xysize (120, 80) xalign 0.525 ypos 60 action Return(["erozone", "head"])
         button style "empty" xysize (120, 60) xalign 0.525 ypos 238 action Return(["erozone", "boobs"])
@@ -370,183 +360,132 @@ screen wardrobe_menu(xx, yy):
                 tooltip "Toggle music"
                 selected wardrobe_music
                 action Return("music")
-            textbutton "Background":
-                style gui.theme("dropdown")
-                tooltip "Change background colour"
-                action Return("bg_color")
             textbutton "Chit-chats":
                 style gui.theme("dropdown")
                 tooltip "Toggle character chit-chats"
                 action ToggleVariable("wardrobe_chitchats", True, False)
-            textbutton "Requirements":
-                style gui.theme("dropdown")
-                tooltip "Toggle level requirements display"
-                action ToggleVariable("wardrobe_requirements", True, False)
-
-        # Zoom slider
-        # bar:
-            # area (25, 290, 255, 30)
-            # value VariableValue("char_scale", range=1.0, step=0.01, style=u'bar')
-            # top_gutter 0
-            # bottom_gutter 0
-
-        add gui.format("interface/general/{}/button_wide.webp") pos (200, -4)
-        text char_nickname xalign 0.5 ypos 4 size 16
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
     zorder 16
+    style_prefix "wardrobe"
 
-    # Navigational Buttons Up/Down
-    if menu_items_length > items_shown:
-        imagebutton:
-            pos (xx+480, yy+190)
-            idle gui.format("interface/general/{}/button_arrow_up.webp")
-            if not current_page <= 0:
-                hover gui.format("interface/general/{}/button_arrow_up_hover.webp")
-                action Return("dec")
+    default icon_size = (72, 72)
+    default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)
+    default panel = gui.format("interface/frames/{}/panel.webp")
 
-        imagebutton:
-            pos (xx+480, yy+245)
-            idle gui.format("interface/general/{}/button_arrow_down.webp")
-            if current_page < math.ceil((menu_items_length-1)/items_shown):
-                hover gui.format("interface/general/{}/button_arrow_down_hover.webp")
-                action Return("inc")
-
-    frame:
-        style "empty"
+    window:
         pos (xx, yy)
-        xysize (467, 548)
-        background wardrobe_background
+        xysize (560, 454)
+        background panel
 
         use invisible_button()
 
-        add gui.format("interface/frames/{}/item_square.webp")
-
-        hbox:
-            pos (24, 44)
-            spacing 3
-            text "[current_category]:" size 18
-            text "[current_subcategory]" size 12 yalign 0.5
-
-        # Page Counter
-        if menu_items_length > items_shown:
-            textbutton str(current_page+1)+"/"+str(int(math.ceil(menu_items_length/items_shown)+1)):
-                style "empty"
-                ysize 32
-                pos (270, 37)
-                xanchor 1.0
-                background "interface/page.webp"
-                text_yalign 0.5
-                text_first_indent 26
-                action NullAction()
+        text "[current_category]" size 22 xalign 0.5 ypos 65
 
         # Colours
         if current_item:
             hbox:
-                pos (283, 31)
                 spacing 2
+                xanchor 1.0
+                pos (552, 61)
 
                 for i in xrange(current_item.layers):
                     button:
-                        xysize (32, 44)
-                        background Color(tuple(current_item.color[i]))
+                        xysize (32, 32)
+                        background Fixed(Frame("interface/color_picker/checker.webp", tile=True), Color(tuple(current_item.color[i])))
                         tooltip "Change colour ("+str(i+1)+")"
                         action Return(["item_color", i])
-            # Reset Button
-            textbutton "R":
-                pos (422, 31)
-                xysize (32, 44)
-                background "#d3d3d3"
-                tooltip "Reset all colours"
-                action Return("item_reset")
-
-        # Add subcategory list and sort them based on custom order
-        if len(category_items) > 0:
-            for i, subcategory in enumerate(category_items.keys()):
-                if current_subcategory == subcategory:
-                    add "interface/wardrobe/icons/{}.webp".format(subcategory) ypos 95 xpos 19+(90*i) zoom 0.8
-                else:
-                    add image_alpha("interface/wardrobe/icons/{}.webp".format(subcategory), 0.65) ypos 95 xpos 19+(90*i) zoom 0.8
+                        add icon_frame
+                # Reset Button
                 button:
-                    style gui.theme("overlay_button")
-                    pos (10+90*i, 86)
-                    xysize (86, 86)
+                    xysize (32, 32)
+                    background "#d3d3d3"
+                    tooltip "Reset all colours"
+                    action Return("item_reset")
+                    text "R" align (0.5, 0.5)
+                    add icon_frame
+
+        # Subcategory icons
+        hbox:
+            spacing 5
+            pos (8, 108)
+
+            for subcategory in category_items.keys():
+                $ icon = "interface/wardrobe/icons/{}.webp".format(subcategory)
+                $ icon_zoom = get_zoom(icon, icon_size)
+
+                button:
+                    xysize icon_size
+                    background Transform(icon, zoom=icon_zoom, alpha=0.65)
+                    selected_background Transform(icon, zoom=icon_zoom)
+                    selected (subcategory == current_subcategory)
                     tooltip subcategory
                     action Return(["subcategory", subcategory])
 
-        # Add Clothing Items
-        for i in xrange(current_page*items_shown, (current_page*items_shown)+items_shown):
-            if i < menu_items_length:
-                $ row = (i // 5) % 4
-                $ col = i % 5
-                $ image_zoom = get_zoom(menu_items[i].get_icon(), 83, 85)
-                frame:
-                    style "empty"
-                    pos (12+90*col, 180+92*row)
-                    xysize (83, 85)
+        # Item icons
+        vpgrid:
+            cols 7
+            spacing 5
+            draggable True
+            mousewheel True
+            scrollbars "vertical"
+            pos (8, 192)
+            ysize 308
 
-                    add menu_items[i].get_icon() zoom image_zoom align (0.5, 0.5) events False
-                if char_active.clothes[menu_items[i].type][0] and menu_items[i].id == char_active.clothes[menu_items[i].type][0].id:
-                    button:
-                        style gui.theme("overlay_button")
-                        pos (12+90*col, 180+92*row)
-                        xysize (83, 85)
-                        tooltip "Take off"
-                        action Return(["equip", menu_items[i]])
+            for item in menu_items:
+                $ icon = item.get_icon()
+                $ icon_zoom = get_zoom(icon, (icon_size))
+                $ is_equipped = bool(char_active.get_equipped(item.type) == item)
+                $ is_modded = bool(item.modpath)
+                $ is_blacklisted = char_active.is_blacklisted(item.type)
+                $ is_allowed = bool(get_progression(active_girl) >= item.level)
+                $ has_blacklist = bool(item.blacklist)
+                $ is_multislot = any(x in item.type for x in ("makeup", "accessory", "piercing", "tattoo"))
 
-                    add "interface/topbar/icon_check.webp" pos (60+90*col, 225+90*row)
-                else:
-                    button:
-                        style gui.theme("overlay_button")
-                        pos (12+90*col, 180+92*row)
-                        xysize (83, 85)
-                        # tooltip "Put on"
-                        action Return(["equip", menu_items[i]])
+                button:
+                    xysize icon_size
+                    background Transform(icon, zoom=icon_zoom, anchor=(0.5, 0.5), align=(0.5, 0.5))
+                    action Return(["equip", item])
+                    if not is_allowed:
+                        foreground "#b2000040"
+                        tooltip "Character level too low."
 
-                # Whoring req
-                if wardrobe_requirements:
-                    if menu_items[i].level > get_progression(active_girl):
-                        textbutton str(menu_items[i].level):
-                            style "empty"
-                            pos (15+90*col, 180+92*row)
-                            text_size 20
-                            text_outlines [ (1, "#000", 0, 0) ]
-                            text_color "#b20000"
-                            tooltip ("{color=#35aae2}[active_girl]'s{/color} level is too low to wear that." if not active_girl.endswith("s") else "{color=#35aae2}[active_girl]'{/color} level is too low to wear that.")
-                            action NullAction()
-                # Check current item compatibility, if fails forbid equipping
-                if char_active.is_blacklisted(menu_items[i].type):
-                    textbutton "{color=#b20000}X{/color}":
-                        pos (64+90*col, 180+92*row)
-                        background None
-                        text_size 20
-                        text_outlines [ (1, "#000", 0, 0) ]
-                        tooltip "Incompatible with your current setup."
-                        action NullAction()
-                elif menu_items[i].blacklist != None:
-                    textbutton "{color=#b20000}!{/color}":
-                        pos (64+90*col, 180+92*row)
-                        background None
-                        text_size 20
-                        text_outlines [ (1, "#000", 0, 0) ]
-                        tooltip "Incompatible with:\n{color=#35aae2}"+"\n".join(str(k) for k in menu_items[i].blacklist)+"{/color}\n{size=-4}{color=#e4cb35}Above items will be unequipped.{/color}{/size}"
-                        action NullAction()
-                if menu_items[i].modpath:
-                    textbutton "{color=#00b200}M{/color}":
-                        style "empty"
-                        pos (15+90*col, 240+92*row)
-                        background None
-                        text_size 20
-                        text_outlines [ (1, "#000", 0, 0) ]
-                        tooltip "This item belongs to a mod:\n{size=-4}{color=#35aae2}"+menu_items[i].get_modname()+"{/color}{/size}"
-                        action NullAction()
+                    add icon_frame
 
-        # Add empty items
-        for i in xrange(menu_items_length-(items_shown*current_page), items_shown):
-            $ row = (i // 5) % 4
-            $ col = i % 5
-            button style "empty" pos (12+90*col, 179+92*row) xysize (83, 85) background "#00000033"
+                    if is_equipped:
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-6, -6) zoom 0.8
+                    if is_multislot:
+                        $ slot = str(int(item.type[-1])+1)
+                        textbutton slot:
+                            anchor (0.0, 1.0)
+                            align (0.0, 1.0)
+                            tooltip "Occupies slot number [slot]."
+                            offset (6, -6)
+
+                    hbox:
+                        if is_modded:
+                            textbutton "{color=#00b200}M{/color}":
+                                tooltip "This item belongs to a mod:\n{size=-4}{color=#35aae2}"+ item.get_modname() + "{/color}{/size}"
+                                action NullAction()
+                        if has_blacklist:
+                            textbutton "{color=#b20000}!{/color}":
+                                tooltip "Incompatible with:\n{color=#35aae2}" + "\n".join(str(k) for k in item.blacklist) + "{/color}\n{size=-4}{color=#e4cb35}Above items will be unequipped.{/color}{/size}"
+                                action NullAction()
+                        if is_blacklisted:
+                            textbutton "{color=#b20000}X{/color}":
+                                tooltip "Incompatible with your current setup."
+                                action NullAction()
+style wardrobe_window is empty
+
+style wardrobe_button is empty:
+    foreground None
+    hover_foreground "#ffffff80"
+
+style wardrobe_button_text:
+    color "#fff"
+    size 20
+    outlines [ (1, "#000", 0, 0) ]
 
 screen wardrobe_outfit_menuitem(xx, yy):
     tag wardrobe_menuitem

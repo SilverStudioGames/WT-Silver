@@ -39,7 +39,7 @@ label inventory_menu(xx=150, yy=90):
     $ menu_items_length = len(menu_items)
 
     if not renpy.android:
-        show screen mouse_tooltip
+        show screen tooltip
 
     show screen inventory(xx, yy)
     with d3

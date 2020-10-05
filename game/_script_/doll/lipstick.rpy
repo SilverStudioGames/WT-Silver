@@ -24,9 +24,10 @@ init python:
             return sprites
 
         def build_icon(self):
-            mouth = self.char.face.face["mouth"][0]
+            mouth = "base" #HARDCODED
+            sprites = (self.char.body.get_mannequin([self]), self.apply_color("{}{}.webp".format(self.imagepath, mouth), 0), )
             bounds = "{}{}.webp".format(self.imagepath, mouth)
-            self.ico = CroppedImage(self.build_image(), bounds)
+            return (sprites, bounds)
 
         def set_pose(self, pose):
             if pose is None:

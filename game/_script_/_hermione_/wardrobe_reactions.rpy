@@ -225,8 +225,9 @@ label hermione_wardrobe_check(section, arg=None):
 
     $ renpy.play('sounds/equip.ogg')
     $ current_item = arg
-    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.clothes[current_item.type][0].id == current_item.id:
+    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.get_equipped(current_item.type) == current_item:
         $ char_active.unequip(current_item.type)
+        $ current_item = None
     else:
         $ char_active.equip(current_item)
     $ char_active.reset_blacklist()

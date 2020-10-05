@@ -71,7 +71,7 @@ label upgrades_menu(xx=150, yy=90):
     $ item_bought = False
 
     if not renpy.android:
-        show screen mouse_tooltip
+        show screen tooltip
 
     show screen upgrades_menu(xx, yy)
     show screen upgrades_menuitem(xx, yy)

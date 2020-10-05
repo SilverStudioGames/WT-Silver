@@ -31,15 +31,19 @@ init python:
                 self.char.wardrobe_list.append(self)
 
             self.rebuild_image()
-            self.build_icon()
 
         def set_imagepath(self):
-            for x in (self.categories[0], self.categories[1], self.type):
-                path = "{}/characters/{}/clothes/{}/{}/".format(self.modpath, self.name, x, self.id)
-                if renpy.loadable(path + "0.webp"):
-                    self.imagepath = path
-                    return
-            raise IOError("Couldn't find file \"{}/characters/{}/clothes/{}/{}/0.webp\"".format(self.modpath, self.name, self.categories[0], self.id))
+            if any(x in self.type for x in ("makeup", "accessory", "piercing", "tattoo")):
+                subpath = self.type[:-1]
+            else:
+                subpath = self.type
+
+            path = "{}/characters/{}/clothes/{}/{}/".format(self.modpath, self.name, subpath, self.id)
+
+            if renpy.loadable(path + "0.webp"):
+                self.imagepath = path
+                return
+            raise IOError("Couldn't find file \"{}/characters/{}/clothes/{}/{}/0.webp\"".format(self.modpath, self.name, subpath, self.id))
 
         def set_layers(self):
             for x in self.layers_special:
@@ -87,7 +91,7 @@ init python:
 
             sprites.sort(key=itemgetter(1))
             sprites = tuple(x[0] for x in sprites)
-            self.ico = CroppedImage(sprites, bounds)
+            return (sprites, bounds)
 
         def get_back(self):
             """Returns a list of layers displayed in the back of object/character"""
@@ -112,7 +116,10 @@ init python:
 
         def get_icon(self):
             """Returns cropped Fixed displayable"""
-            return self.ico.get_image()
+            if not renpy.is_skipping() or self.ico is None:
+                sprites, bounds = self.build_icon()
+                self.ico = CroppedImage(sprites, bounds).get_image()
+            return self.ico
 
         def apply_color(self, img, n):
             """Takes image and int layer number. Used internally."""

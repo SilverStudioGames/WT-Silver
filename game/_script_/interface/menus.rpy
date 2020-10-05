@@ -104,7 +104,7 @@ screen list_menu_item(menu_item, ypos=0):
         if isinstance(item_image, im.ImageBase):
             $ item_image, image_zoom = crop_image_zoom(item_image, 83, 83)
         else:
-            $ image_zoom = get_zoom(item_image, 83, 83)
+            $ image_zoom = get_zoom(item_image, (83, 83))
 
         fixed:
             pos (6,2)
@@ -223,7 +223,7 @@ screen icon_menu_item(menu_item, xpos=0, ypos=0):
         if isinstance(item_image, im.ImageBase):
             $ item_image, image_zoom = crop_image_zoom(item_image, 80, 80)
         else:
-            $ image_zoom = get_zoom(item_image, 80, 80)
+            $ image_zoom = get_zoom(item_image, (80, 80))
 
         fixed:
             xsize 80

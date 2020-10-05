@@ -103,11 +103,6 @@ style dark_dropdown_text:
     insensitive_color "#6c625c"
     outlines [(1, "#00000080", 1, 0)]
 
-style tooltip_text is default:
-    color "#fff"
-    size 12
-    outlines [(1, "#00000080", 1, 0)]
-
 # Hyperlinks
 style hyperlink_text:
     underline False

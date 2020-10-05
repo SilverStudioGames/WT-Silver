@@ -29,12 +29,13 @@ init python:
         sprite = im.FactorScale(sprite, zoom*2)
         return (sprite, 0.5)
 
-    def get_zoom(image, xsize, ysize):
+    def get_zoom(image, size):
         if isinstance(image, basestring):
             image = Image(image)
 
         r = renpy.render(image, 800, 800, 0, 0)
         x, y = r.get_size()
+        xsize, ysize = size
 
         return min(ysize / y, xsize / x)
 
@@ -55,14 +56,14 @@ init python:
                 xoffset = w/4
                 yoffset = h/4
 
-                w = max(w, max(h, 84))
-                h = max(h, max(w, 84))
+                w = max(w, max(h, 72))
+                h = max(h, max(w, 72))
 
                 x = clamp( (x - w/2) + xoffset, 0, 1010)
-                w = max(84, w + w/2)
+                w = max(72, w + w/2)
 
                 y = clamp( (y - h/2) + yoffset, 0, 1200)
-                h = max(84, h + h/2)
+                h = max(72, h + h/2)
 
                 # Forbid exceeding the image height.
                 if y+h > 1200:
