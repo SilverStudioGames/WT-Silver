@@ -31,7 +31,7 @@ init -1 python:
     def TBA_message(msg="Currently unavailable, check in later versions of the game."):
         renpy.show_screen("blktone")
         renpy.with_statement(d3)
-        renpy.say(sil, msg)
+        renpy.say(nar, msg)
         renpy.hide_screen("blktone")
         renpy.with_statement(d3)
         return

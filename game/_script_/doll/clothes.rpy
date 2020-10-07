@@ -1,6 +1,8 @@
 init python:
     class DollCloth(DollMethods):
-        def __init__(self, name, categories, type, id, color, zorder=None, unlocked=False, level=0, blacklist=None, parent=None, armfix=False, modpath=""):
+        multislots = {"makeup", "accessory", "piercing", "tattoo"}
+
+        def __init__(self, name, categories, type, id, color, zorder=None, unlocked=False, level=0, blacklist=[], parent=None, armfix=False, modpath=""):
             self.name = name
             self.char = eval(name)
             self.categories = categories
@@ -22,6 +24,8 @@ init python:
             # Inherit zorder from character if needed
             self.zorder = zorder if zorder else self.char.clothes[type][1]
 
+            self.seen = self.unlocked
+
             self.set_imagepath()
             self.set_layers()
 
@@ -33,7 +37,7 @@ init python:
             self.rebuild_image()
 
         def set_imagepath(self):
-            if any(x in self.type for x in ("makeup", "accessory", "piercing", "tattoo")):
+            if any(x in self.type for x in self.multislots):
                 subpath = self.type[:-1]
             else:
                 subpath = self.type
@@ -186,3 +190,6 @@ init python:
         def get_modname(self):
             """Return the name of the mod directory if exists."""
             return self.modpath.split("/")[1] if self.is_modded() else None
+
+        def mark_as_seen(self):
+            self.seen = True

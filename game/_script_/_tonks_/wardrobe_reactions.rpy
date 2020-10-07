@@ -69,14 +69,6 @@ label tonks_wardrobe_check(section, arg=None):
                         _value = ("category", None)
                         _failure = True
 
-                    for i in char_active.clothes.itervalues():
-                        if i[0]:
-                            if i[0].blacklist and "bra" in i[0].blacklist and arg[1] == "bras":
-                                _value = ("category", None)
-                                break
-                            if i[0].blacklist and "panties" in i[0].blacklist and arg[1] == "panties":
-                                _value = ("category", None)
-                                break
             if _failure:
                 $ renpy.play('sounds/fail.mp3')
                 call ton_main("Underwear? Puh-lease, only a prude would wear something silly like that.", face="neutral")
@@ -242,12 +234,11 @@ label tonks_wardrobe_check(section, arg=None):
 
     $ renpy.play('sounds/equip.ogg')
     $ current_item = arg
-    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.get_equipped(current_item.type) == current_item:
+    if isinstance(current_item, DollCloth) and char_active.is_item_equipped(current_item):
         $ char_active.unequip(current_item.type)
         $ current_item = None
     else:
         $ char_active.equip(current_item)
-    $ char_active.reset_blacklist()
 
     # NOTE: Tonks does not utilize underwear checks, she's supposed to not wear them and will refuse to wear any underwear until higher friendship level.
     # Blacklist fallbacks

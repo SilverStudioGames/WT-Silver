@@ -477,7 +477,7 @@ label read_scroll:
         python:
             for comment in scroll.comments:
                 if scroll in scroll_list_C:
-                    renpy.say(sil,comment)
+                    renpy.say(nar, comment)
                 else:
                     renpy.say("\"Creator\"",comment)
     call ctc

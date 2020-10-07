@@ -91,7 +91,15 @@ init python:
         def equip(self, obj):
             """Takes DollCloth or DollOutfit object to equip."""
             if isinstance(obj, DollCloth):
-                self.clothes[obj.type][0], self.clothes[obj.type][2] = obj, True
+                self.clothes[obj.type][0] = obj
+                self.clothes[obj.type][2] = True
+
+                if self.is_blacklisted(obj.type):
+                    self.unequip(*self.get_blacklister(obj.type))
+
+                if obj.blacklist:
+                    self.unequip(*obj.blacklist)
+
                 if self.pose:
                     obj.set_pose(self.pose)
             elif isinstance(obj, DollOutfit):
@@ -103,6 +111,7 @@ init python:
                         i.parent.set_pose(self.pose)
             self.body.rebuild_image()
             self.rebuild_image()
+            self.rebuild_blacklist()
             self.apply_transition()
             update_chibi(self.name)
 
@@ -110,18 +119,20 @@ init python:
             """Takes argument(s) containing string cloth type(s) to unequip."""
             if "all" in args:
                 for k, v in self.clothes.iteritems():
-                    if not k.startswith(self.blacklist_unequip):
+                    if not k in self.blacklist_unequip:
                         if self.pose:
                             v[0].set_pose(None)
                         v[0], v[2] = None, True
             else:
                 for arg in args:
-                    if self.pose and self.clothes[arg][0]:
-                        self.clothes[arg][0].set_pose(None)
-                    self.clothes[arg][0] = None
+                    if not arg in self.blacklist_unequip:
+                        if self.pose and self.clothes[arg][0]:
+                            self.clothes[arg][0].set_pose(None)
+                        self.clothes[arg][0] = None
 
             self.body.rebuild_image()
             self.rebuild_image()
+            self.rebuild_blacklist()
             self.apply_transition()
             update_chibi(self.name)
 
@@ -151,6 +162,9 @@ init python:
         def wear(self, *args):
             """Takes argument(s) containing string cloth type(s) to put on (unhide)."""
             if "all" in args:
+                if self.is_worn("all"):
+                    return
+
                 for v in self.clothes.itervalues():
                     v[2] = True
             else:
@@ -179,26 +193,35 @@ init python:
             self.apply_transition()
             update_chibi(self.name)
 
-        def is_equipped(self, arg):
+        def is_equipped(self, type):
             """Takes argument containing string cloth type. Returns True if slot is occupied, False otherwise."""
-            if arg.startswith(self.blacklist_toggles):
+            if type.startswith(self.blacklist_toggles):
                 for k, v in self.clothes.iteritems():
-                    if k.startswith(arg) and v[0]:
+                    if k.startswith(type) and v[0]:
                         return True
                 return False
             else:
-                return True if self.clothes[arg][0] else False
+                return True if self.clothes[type][0] else False
+
+        def is_item_equipped(self, item):
+            """Takes DollCloth object or list of objects. Returns True if item is equipped, False otherwise."""
+            return self.get_equipped(item.type) == item
 
         def is_worn(self, *args):
             """Takes argument(s) containing string cloth type(s). Returns True if worn, False otherwise."""
-            for arg in args:
-                if arg.startswith(self.blacklist_toggles):
-                    for k, v in self.clothes.iteritems():
-                        if k.startswith(arg) and not v[0] or not v[2]:
-                            return False
-                else:
-                    if not self.clothes[arg][0] or not self.clothes[arg][2]:
+            if "all" in args:
+                for v in self.clothes.itervalues():
+                    if not v[2]:
                         return False
+            else:
+                for arg in args:
+                    if arg.startswith(self.blacklist_toggles):
+                        for k, v in self.clothes.iteritems():
+                            if k.startswith(arg) and not v[0] or not v[2]:
+                                return False
+                    else:
+                        if not self.clothes[arg][0] or not self.clothes[arg][2]:
+                            return False
             return True
 
         def is_any_worn(self, *args):
@@ -272,18 +295,20 @@ init python:
             else:
                 raise Exception("'{}' pose doesn't exist for character named '{}'.".format(pose, self.name))
 
-        def reset_blacklist(self, unequip=True):
-            """Resets wardrobe blacklist based on worn clothes. Takes optional argument that causes blacklisted clothes to be unequipped."""
-            self.blacklist = []
+        def rebuild_blacklist(self):
+            blacklist = []
             for v in self.clothes.itervalues():
-                if v[0] and v[0].blacklist:
-                    self.blacklist.extend(x for x in v[0].blacklist if x not in self.blacklist)
-            if unequip and self.blacklist:
-                self.unequip(*self.blacklist)
+                if v[0]:
+                    blacklist.extend(v[0].blacklist)
+            self.blacklist = list(set(blacklist))
 
         def is_blacklisted(self, type):
             """Takes string cloth type. Returns True if cloth type is blacklisted."""
             return True if type in self.blacklist else False
+
+        def get_blacklister(self, type):
+            """Takes string cloth type. Returns a list of clothing types that report incompatibility."""
+            return [x[0].type for x in self.clothes.itervalues() if x[0] and type in x[0].blacklist]
 
         def create_outfit(self):
             """Creates a copy of the current character clothes and stores it."""

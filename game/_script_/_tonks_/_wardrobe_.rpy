@@ -163,14 +163,14 @@ default ton_earring_cartilege = DollCloth("tonks", ("head", "earrings"), "earrin
 default ton_earring_hoops = DollCloth("tonks", ("head", "earrings"), "earrings", "hoops", [[161, 159, 159, 255]], unlocked=True)
 default ton_earring_industrial = DollCloth("tonks", ("head", "earrings"), "earrings", "industrial", [[161, 159, 159, 255]], unlocked=True)
 
-default ton_piercing0_clit_stud = DollCloth("tonks", ("lower undergarment", "piercing"), "piercing0", "clit_stud", [[161, 159, 159, 255]], unlocked=True)
-default ton_piercing1_nipple_stud = DollCloth("tonks", ("upper undergarment", "piercing"), "piercing1", "nipple_stud", [[161, 159, 159, 255]], unlocked=True)
-default ton_piercing1_nipple_rings = DollCloth("tonks", ("upper undergarment", "piercing"), "piercing1", "nipple_rings", [[161, 159, 159, 255]], unlocked=True)
-default ton_piercing1_nipple_rings2 = DollCloth("tonks", ("upper undergarment", "piercing"), "piercing1", "nipple_rings2", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing0_clit_stud = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing0", "clit_stud", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing1_nipple_stud = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing1", "nipple_stud", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing1_nipple_rings = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing1", "nipple_rings", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing1_nipple_rings2 = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing1", "nipple_rings2", [[161, 159, 159, 255]], unlocked=True)
 
-default ton_piercing2_belly_stud = DollCloth("tonks", ("lower undergarment", "piercing"), "piercing2", "belly_stud", [[161, 159, 159, 255]], unlocked=True)
-default ton_piercing2_belly_heart = DollCloth("tonks", ("lower undergarment", "piercing"), "piercing2", "belly_heart", [[161, 159, 159, 255]], unlocked=True)
-default ton_piercing2_belly_dick = DollCloth("tonks", ("lower undergarment", "piercing"), "piercing2", "belly_dick", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing2_belly_stud = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing2", "belly_stud", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing2_belly_heart = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing2", "belly_heart", [[161, 159, 159, 255]], unlocked=True)
+default ton_piercing2_belly_dick = DollCloth("tonks", ("piercings & tattoos", "piercings"), "piercing2", "belly_dick", [[161, 159, 159, 255]], unlocked=True)
 
 ################
 ## Pubic Hair ##

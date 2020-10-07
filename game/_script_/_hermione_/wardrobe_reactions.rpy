@@ -43,16 +43,7 @@ label hermione_wardrobe_check(section, arg=None):
             $ wardrobe_fail_hint(max(temp_count[0], her_requirements["change_underwear"], her_requirements["unequip_underwear"]))
             return
     else:
-        if section == "tabswitch":
-            if her_whoring < her_requirements["tattoos"]:
-                if wardrobe_chitchats:
-                    call her_main("You want me to have piercing and tattoos?", "open", "narrow", "angry", "L")
-                    call her_main("My body is already perfect without things like that...", "annoyed", "happyCl", "angry", "L", cheeks="blush")
-                #Hint
-                $ wardrobe_fail_hint(her_requirements["tattoos"])
-                return False
-            return True
-        elif section == "category":
+        if section == "category":
             # TODO: Simplify
             python:
                 _value = arg
@@ -161,40 +152,25 @@ label hermione_wardrobe_check(section, arg=None):
         elif section == "equip":
             if arg.type in ("bra", "panties"):
                 if her_whoring < her_requirements["unequip_underwear"]:
-                    if char_active.get_equipped("bra"):
-                        if arg.id == char_active.get_equipped("bra").id:
-                            if wardrobe_chitchats:
-                                call her_main("No, I'm not taking off my bra!", "clench", "wide", "angry", "mid")
-                            #Hint
-                            $ wardrobe_fail_hint(her_requirements["unequip_underwear"])
-                            return
-                    if char_active.get_equipped("panties"):
-                        if arg.id == char_active.get_equipped("panties").id:
-                            if wardrobe_chitchats:
-                                call her_main("No, I'm not taking off my panties!", "mad", "narrow", "angry", "mid")
-                            #Hint
-                            $ wardrobe_fail_hint(her_requirements["unequip_underwear"])
-                            return
+                    if char_active.is_item_equipped(arg):
+                        if wardrobe_chitchats:
+                            call her_main("No, I'm not taking off my [arg.type]!", "clench", "wide", "angry", "mid")
+                        #Hint
+                        $ wardrobe_fail_hint(her_requirements["unequip_underwear"])
+                        return
+
                 if her_whoring < arg.level:
                     call .too_much
                     return
-            else:
+            elif arg.type in ("top", "bottom"):
                 if her_whoring < her_requirements["unequip_clothes"]:
-                    if arg.type in ("top", "bottom"):
-                        if char_active.get_equipped("top"):
-                            if arg.id == char_active.get_equipped("top").id:
-                                if wardrobe_chitchats:
-                                    call her_main("I am not taking off my top, forget it!", "annoyed", "narrow", "angry", "L", cheeks="blush")
-                                #Hint
-                                $ wardrobe_fail_hint(her_requirements["unequip_clothes"])
-                                return
-                        if char_active.get_equipped("bottom"):
-                            if arg.id == char_active.get_equipped("bottom").id:
-                                if wardrobe_chitchats:
-                                    call her_main("I won't be walking bottomless on the school grounds..", "upset", "happyCl", "angry", "mid", cheeks="blush")
-                                #Hint
-                                $ wardrobe_fail_hint(her_requirements["unequip_clothes"])
-                                return
+                    if char_active.is_item_equipped(arg):
+                        if wardrobe_chitchats:
+                            call her_main("I am not taking off my clothes, forget it!", "annoyed", "narrow", "angry", "L", cheeks="blush")
+                        #Hint
+                        $ wardrobe_fail_hint(her_requirements["unequip_clothes"])
+                        return
+            else:
 
                 label .too_much:
                 if her_whoring < arg.level:
@@ -225,16 +201,14 @@ label hermione_wardrobe_check(section, arg=None):
 
     $ renpy.play('sounds/equip.ogg')
     $ current_item = arg
-    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.get_equipped(current_item.type) == current_item:
+    if isinstance(current_item, DollCloth) and char_active.is_item_equipped(current_item):
         $ char_active.unequip(current_item.type)
         $ current_item = None
     else:
         $ char_active.equip(current_item)
-    $ char_active.reset_blacklist()
 
     # Blacklist fallbacks
     if her_whoring < her_requirements["unequip_underwear"]:
-
         $ underwear_pass = True
 
         if not "bra" in char_active.blacklist and not char_active.is_equipped("bra"):

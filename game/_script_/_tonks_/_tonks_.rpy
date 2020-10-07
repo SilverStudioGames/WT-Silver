@@ -104,7 +104,7 @@ label ton_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, h
     if not renpy.get_screen("wardrobe_menu"):
         hide screen tonks_main
         show screen tonks_main()
-    show screen bld1
+        show screen bld1
 
     if trans:
         with trans

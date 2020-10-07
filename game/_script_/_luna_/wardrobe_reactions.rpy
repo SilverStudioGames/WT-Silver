@@ -249,7 +249,6 @@ label luna_wardrobe_check(section, arg=None):
         $ current_item = None
     else:
         $ char_active.equip(current_item)
-    $ char_active.reset_blacklist()
 
     # Blacklist fallbacks
     if lun_whoring < lun_requirements["unequip_underwear"]:
