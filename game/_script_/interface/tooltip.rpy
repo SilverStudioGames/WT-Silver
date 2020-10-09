@@ -4,14 +4,26 @@ screen tooltip():
     zorder 5
     style_prefix "tooltip"
 
+    default last_tooltip = None
+    default show_tooltip = False
+
     if preferences.tooltip:
         $ tooltip = GetTooltip()
-        $ x, y = renpy.get_mouse_pos()
-        $ align = (1.0, 0.0) if x > config.screen_width/2 else (0.0, 0.0)
 
-        if tooltip:
+        if tooltip == last_tooltip:
+            timer 0.5 action SetScreenVariable("show_tooltip", True)
+        else:
+            $ last_tooltip = tooltip
+            $ show_tooltip = False
+
+        if tooltip and show_tooltip:
+            $ x, y = renpy.get_mouse_pos()
+            $ flip = x > config.screen_width / 2
+            $ align = (1.0, 0.0) if flip else (0.0, 0.0)
+
             window:
                 background "#00000080"
+                offset (-5 if flip else 10, 5)
                 pos (x, y)
                 anchor align
                 align align

@@ -73,35 +73,33 @@ style mm_button:
 #     selected_color "#eedfd5"
 #     selected_hover_color "#fff"
 
-style light_dropdown:
+style dropdown:
     ysize 24
+
+style light_dropdown:
     insensitive_background "interface/frames/gold/check_none.webp"
     selected_background "interface/frames/gold/check_true.webp"
     background "interface/frames/gold/check_false.webp"
 
-style light_dropdown_text:
-    yalign 0.5
-    first_indent 26
-    size 12
-    color "#f9d592"
-    hover_color "#FFF"
-    insensitive_color "#ae9566"
-    outlines [(1, "#00000080", 1, 0)]
-
 style dark_dropdown:
-    ysize 24
     insensitive_background "interface/frames/gray/check_none.webp"
     selected_background "interface/frames/gray/check_true.webp"
     background "interface/frames/gray/check_false.webp"
 
-style dark_dropdown_text:
+style dropdown_text:
     yalign 0.5
     first_indent 26
     size 12
-    color "#9b8d84"
     hover_color "#FFF"
-    insensitive_color "#6c625c"
     outlines [(1, "#00000080", 1, 0)]
+
+style light_dropdown_text:
+    color "#f9d592"
+    insensitive_color "#ae9566"
+
+style dark_dropdown_text:
+    color "#9b8d84"
+    insensitive_color "#6c625c"
 
 # Hyperlinks
 style hyperlink_text:
