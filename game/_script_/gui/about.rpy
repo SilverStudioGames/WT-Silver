@@ -54,9 +54,9 @@ style about_name is about_text:
 
 define gui.about = """{=about_name}Witch Trainer: Silver{/=about_name} is an unofficial and complete rework of Akabur's popular game, Witch Trainer.
 \n\n
-It combines several mods for Witch Trainer into one game, with new features, bugfixes, improvements, events, and new art being added periodically.
+It combines several mods for Witch Trainer into one modded game, with new features, bugfixes, improvements, events, and artwork being added periodically.
 \n\n
-The game is developed by {a=https://www.patreon.com/SilverStudioGames}Silver Studio Games{/a} -- a group of people from around the world who work on this project in their free time.
+The mod is developed by {a=https://www.silverstudiogames.com/}Silver Studio Games{/a} -- a group of people from around the world who work on this project in their free time.
 \n\n
 {=about_name}Current team{/=about_name}{=smallcredits}
 \n
@@ -72,7 +72,9 @@ TropeCode
 \n
 CyniclePickle
 \n
-perniciousducks{/=smallcredits}
+perniciousducks
+\n
+Livvypoo{/=smallcredits}
 \n\n
 {=about_name}Special thanks{/=about_name} to {a=https://www.patreon.com/akabur}Akabur{/a}
 \n
