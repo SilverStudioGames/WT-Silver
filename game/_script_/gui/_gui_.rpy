@@ -62,7 +62,7 @@ init python in gui:
         renpy.call_in_new_context("gui_init_context", bg, label, *args, **kwargs)
 
 label gui_init_context(bg, label, *args , **kwargs):
-    $ renpy.show('screenshot', what=bg)
+    $ renpy.show('screenshot', what=bg, at_list=[Transform(size=(config.screen_width, config.screen_height))])
     $ renpy.call(label, *args, **kwargs)
     return
 
