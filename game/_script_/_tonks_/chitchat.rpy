@@ -132,7 +132,7 @@ label tonks_chit_chat:
 
     elif random_number == 25:
         call ton_main("I don't like when people call me Nymphadora... It's Tonks!", "annoyed", "base", "annoyed", "mid")
-        call ton_main("Last time someone called me that, I used a engorgement charm on him.","open","base","angry","R")
+        call ton_main("Last time someone called me that, I used an engorgement charm on them.","open","base","angry","R")
         call ton_main("Don't ask me what I aimed at...", "crooked_smile", "base", "base", "up")
 
     elif random_number == 26:

@@ -268,12 +268,12 @@ label luna_favour_3:
                     call lun_main("enjoy stroking your filthy old cock while you force me to stand here...","upset","suspicious","mad","mid",tears="mascara")
                     m "{size=-4}(*mmmm*... yes...){/size}"
                     m "well, seeing as how you are standing there... why don't you give those nice little tits of yours a good shake?"
-                    call lun_main("*hmph*...","normal","angry","angry","mid",tears="mascara")
+                    call lun_main("*Hmph*...","normal","angry","angry","mid",tears="mascara")
                     ">Luna sways her chest side to side ever so slightly."
                     call lun_main("well...","normal","angry","mad","down",tears="mascara")
                     ">You keep on wanking while you gaze at Luna's milky tits..."
                     m "just a little bit faster..."
-                    call lun_main("*hmph*... just hurry up and get it over with, [lun_genie_name]...","upset","suspicious","sad","down",tears="mascara")
+                    call lun_main("*Hmph*... just hurry up and get it over with, [lun_genie_name]...","upset","suspicious","sad","down",tears="mascara")
                     ">Luna starts shaking her chest a little faster"
                     m "{size=-4}ah...{/size}"
                     m "that's it slut... keep going..."
@@ -343,7 +343,7 @@ label luna_favour_3:
             call lun_main("there we are...","base","mad","sad","mid")
             call lun_main("don't you feel better now?","base","mad","sad","R")
             m "*mmmm*... yes..."
-            call lun_main("*Hmmm*, I'm not sure if I believe you.","upset","suspicious","sad","mid")
+            call lun_main("*Hmm*... I'm not sure if I believe you.","upset","suspicious","sad","mid")
             call lun_main("maybe you need a little encouragement...","base","suspicious","sad","R")
             m "encouragement?"
             call lun_main("close your eyes, [lun_genie_name]...","base","suspicious","sad","mid")
@@ -455,7 +455,7 @@ label luna_favour_3:
             call lun_main("Thank you...?","upset","suspicious","raised","mid")
             m "Thank you princess..."
             $ lun_name = "Princess"
-            call lun_main("*hmph*","normal","suspicious","angry","R")
+            call lun_main("*Hmph*","normal","suspicious","angry","R")
             call lun_main("Well seeing as how you've... finished... I suppose I better get dressed.","normal","angry","angry","R")
 
             hide screen luna_main
@@ -515,7 +515,7 @@ label luna_favour_3:
             m "If it's not too much trouble--"
             call lun_main("...","normal","base","angry","R")
             m "--Could you please take your clothes off?"
-            call lun_main("*hmph* {w=0.5}Well, seeing as how you seemed to have learned some manners.","normal","angry","angry","mid")
+            call lun_main("*Hmph* {w=0.5}Well, seeing as how you seemed to have learned some manners.","normal","angry","angry","mid")
             m "yes, [lun_name]..."
             call lun_main("I suppose there's no harm in it...","base","seductive","angry","R")
             hide screen luna_main
@@ -686,7 +686,7 @@ label luna_favour_3:
 
             m "I am, and I expect you to do it now, [lun_name]."
             call lun_main("[lun_genie_name]... please...","normal","seductive","sad","mid",tears="soft")
-            m "*Hmmm*... well, seeing as how I'm in a generous mood, how about we make another deal?"
+            m "*Hmm*... Well... Seeing as how I'm in a generous mood, how about we make another deal?"
             call lun_main("...","normal","angry","sad","R",tears="soft")
             call lun_main("Really? What sort?","normal","angry","sad","R")
             m "what's the closest school to {i}Howgsmorts{/i}?"
@@ -817,12 +817,12 @@ label luna_favour_3:
                     call lun_main("enjoy stroking that filthy old cock while you force me to stand here...","upset","angry","sad","down",tears="crying")
                     g9 "{size=-4}(*mmmm*... yes...){/size}"
                     g9 "Oh I am!"
-                    call lun_main("*hmph*...","normal","angry","angry","mid",tears="crying")
+                    call lun_main("*Hmph*...","normal","angry","angry","mid",tears="crying")
                     ">Luna tosses her hair over her shoulder in frustration."
                     call lun_main("You're disgusting...","normal","angry","mad","down",tears="crying")
                     ">You keep on wanking while you gaze at Luna's milky tits..."
                     m "*mmmm*... that's it, [lun_name]..."
-                    call lun_main("*hmph*... just hurry up and get it over with, [lun_genie_name]...","upset","suspicious","sad","down",tears="mascara")
+                    call lun_main("*Hmph*... just hurry up and get it over with, [lun_genie_name]...","upset","suspicious","sad","down",tears="mascara")
                     call lun_main("I'm sick of looking at that... thing...","normal","angry","sad","R",tears="mascara")
                     m "{size=-4}ah...{/size}"
                     m "that's it slut... keep looking..."
@@ -920,7 +920,7 @@ label luna_favour_3:
             call lun_main("there we are...","base","mad","sad","mid", xpos=500)
             call lun_main("Isn't that better?","base","mad","sad","R")
             m "*mmmm*... yes..."
-            call lun_main("*Hmmm*, that's it just keep looking...","base","mad","mad","R")
+            call lun_main("*Hmm*... that's it, just keep looking...","base","mad","mad","R")
             ">Luna gives her tits a little shake."
             g9 "!!!"
             call lun_main("See something you like?...","base","suspicious","sad","R")
@@ -1109,7 +1109,7 @@ label luna_favour_3:
     $ renpy.play("sounds/coins.mp3")
     ">You hand Luna {number=current_payout} gold."
     if current_payout <= 40:
-        call lun_main("(only {number=current_payout}?) *hmph*","upset","mad","angry","R")
+        call lun_main("(only {number=current_payout}?) *Hmph*...","upset","mad","angry","R")
         call lun_main("Thank you, [lun_genie_name].","normal","suspicious","angry","R")
     else:
         call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")

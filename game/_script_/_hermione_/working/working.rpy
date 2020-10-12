@@ -61,11 +61,11 @@ label maid_responses:
                 call her_main("Fine, I get your point. It's just, surely there are other ways for you to earn money [genie_name]?", "upset", "closed", "base", "mid")
                 call her_main("I mean you're the school headmaster, can't you just file some reports and get paid by the ministry?", "base", "base", "base", "R")
                 m "I can, it's just not as enjoyable."
-                call her_main("*Hmmph*. Can I at least get my points now?", "angry", "closed", "angry", "mid")
+                call her_main("*Hmph*... Can I at least get my points now?", "angry", "closed", "angry", "mid")
                 m "Certainly, twenty points to Gryffindor."
             else:
                 call her_main("I think you need to start enforcing harsher punishment for sexual harassment.", "mad", "base", "angry", "mid")
-                call her_main("*Hmmph*... Can I at least get my points now?", "angry", "closed", "angry", "mid")
+                call her_main("*Hmph*... Can I at least get my points now?", "angry", "closed", "angry", "mid")
                 m "Certainly, twenty points to Gryffindor."
         "-Dismiss her-":
             call her_main("Here's your payment.", "base", "base", "base", "mid")

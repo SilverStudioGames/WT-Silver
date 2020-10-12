@@ -76,7 +76,7 @@ label astoria_intro_E1:
             call ton_main("................", "annoyed", "base", "annoyed", "R")
             call ton_main("You are clearly insane!","open","base","angry","mid") # Annoyed
             call ton_main("Fine... Tell me what you want so we can continue...", "upset", "base", "base", "mid")
-            m "Hmm..."
+            m "*Hmm*..."
 
             $ d_flag_01 = False
 
@@ -286,7 +286,7 @@ label astoria_intro_E1:
 label astoria_intro_E2_hermione:
     m "I require your help with something."
     m "Tonks came by earlier and informed me about a student making a ruckus."
-    m "I-- *uhm*...{w} She thought maybe you could be of help finding her?"
+    m "I-- *Uhm*...{w} She thought maybe you could be of help finding her?"
     call her_main("Of course, Sir.", "base", "happyCl", "base", "mid")
     m "Apparently a student got hit by an \"unforgivable curse\" here at the school."
     call her_main("AN unforgivable CURSE!!!", "scream", "wide", "base", "stare", trans=hpunch)
@@ -538,7 +538,7 @@ label astoria_intro_E3:
             m "We'll talk about your reward later..."
             call her_main("But!", "disgust", "narrow", "worried", "down")
             m "No butts..." # deliberate.
-            call her_main("*hmph*", "annoyed", "narrow", "angry", "R")
+            call her_main("*Hmph*", "annoyed", "narrow", "angry", "R")
             call her_main("Fine...", "open", "closed", "angry", "mid")
             $ her_mood += 12
 

@@ -691,7 +691,7 @@ label nt_he_story_centaur: # Not in use.
 
     g9 "Yes! How filthy!"
     call ton_main("*Hmph?!* You believe what I did was filthy, Professor?!", "base", "wide", "shocked", "stare")
-    call ton_main("*Uhm*... I mean, it depends on how you look at it...","upset","base","worried","down")
+    call ton_main("*Ehm*... I mean, it depends on how you look at it...","upset","base","worried","down")
     call ton_main("It's by far the simplest way to calm down a group of wild centaurs...","open","base","worried","R")
     call ton_main("As far as I could tell, they didn't have any females within their group...","open","base","base","mid")
     call ton_main("You can imagine the amount of tension that gets built up as a result of that...", "mad", "base", "base", "mid")

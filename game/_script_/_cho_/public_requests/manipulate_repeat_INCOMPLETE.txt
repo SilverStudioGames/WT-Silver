@@ -221,7 +221,7 @@ label cc_pr_spy_boys_T3_repeat1:
     m "Did you collect any useful intel?"
     cho "The twins were goofing around again, performing some tricks that they learnt for the other students.."
     m "And was there anything we could use against them?"
-    cho "*uhm*..."
+    cho "*Ehm*..."
     m "Tell me what they did... Perhaps I’ll be able to think of something."
     cho "Oh, you should’ve seen them. It was hilarious!"
     cho "They somehow managed to convince Neville to hand over his pet toad for them to use in one of their tricks."

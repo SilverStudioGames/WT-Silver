@@ -273,7 +273,7 @@ label eating_for_pleasure:
     "{cps=5}.........{/cps}{nw}"
     pause 1.0
     $ renpy.play('sounds/gltch.mp3')
-    "Genie" "Yes.... mhmmmmmmm, just like that."
+    "Genie" "Yes.... *Mhmmmmmmm*... Just like that."
     hat "By Merlins beard, that's disgusting!"
     "Genie" "Shut up hat! Don't judge me!"
 

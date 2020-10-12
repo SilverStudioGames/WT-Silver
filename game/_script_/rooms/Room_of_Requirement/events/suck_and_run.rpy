@@ -111,7 +111,7 @@ label suck_and_run:
         m "Don't you mean dress up?"
         call ton_main("Same thing...", "horny", "narrow", "base", "mid")
         m "So, what will it be this year then?"
-        call ton_main("Hmm... Why don't you have a guess...", "soft", "base", "raised", "down")
+        call ton_main("*Hmm*... Why don't you have a guess...", "soft", "base", "raised", "down")
 
         menu:
             "\"A Slutty Nurse?\"":
@@ -131,13 +131,13 @@ label suck_and_run:
                 m "That's true..."
 
         m "So... What is it then?"
-        call ton_main("Hmm... Not sure I should ruin the surprise.", "horny", "wink", "base", "mid")
+        call ton_main("*Hmm*... Not sure I should ruin the surprise.", "horny", "wink", "base", "mid")
         call ton_main("I'm sure you'll find out soon enough...", "base", "narrow", "base", "R", hair="horny") #Glance #hornyhair
         g9 "Looking forward to it."
         call ton_main("Anyway...", "base", "base", "shocked", "mid")
         call ton_main("Anything else going on that I should know of?", "soft", "base", "base", "down")
         m "*Err*... I had a little chat with Severus the other night."
-        call ton_main("Hmm... Not really the kind of thing I was talking about...", "annoyed", "base", "base", "mid")
+        call ton_main("*Hmm*... Not really the kind of thing I was talking about...", "annoyed", "base", "base", "mid")
         call ton_main("Although I'm always up for gossip.", "base", "base", "shocked", "R")
         call ton_main("I assume you weren't talking about Halloween... Since I doubt Snape would care about it in the slightest.", "crooked_smile", "base", "base", "R")
         m "Oh no, he absolutely loves it."

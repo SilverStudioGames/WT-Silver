@@ -188,7 +188,7 @@ label hg_pf_handjob_T5_intro_E1:
     m "[hermione_name]?"
     call her_main("[genie_name]?", "base", "base", "base", "mid")
     m "You don't mind giving me another handjob, do you?"
-    call her_main("*Uhm*...", "upset", "narrow", "worried", "down")
+    call her_main("*Ehm*...", "upset", "narrow", "worried", "down")
     call her_main("As long as I am getting paid...", "grin", "base", "base", "R")
     m "Well, then. Time to earn those points."
 
@@ -688,7 +688,7 @@ label hg_pf_handjob_2:
                     call her_main("....................", "angry", "wink", "base", "mid")
                     m ".................."
                 "\"I love to swallow cum!\"":
-                    call her_main("I love to... *ehm*... swallow cum.", "angry", "wink", "base", "mid")
+                    call her_main("I love to... *Ehm*... swallow cum.", "angry", "wink", "base", "mid")
                     m "You hesitated there for a moment."
                     call her_main("Yes, I know...", "angry", "wink", "base", "mid")
                     call her_main("Let me try again...")
@@ -790,7 +790,7 @@ label hg_pf_handjob_2_continue:
 
             call her_main("But He doesn't listen! He rips my panties off!", "grin", "narrow", "base", "dead")
             call her_main("I beg him to stop! I scream and I scream!", "angry", "base", "base", "mid", tears="soft")
-            m "*Uhm*, [hermione_name]?"
+            m "*Err*, [hermione_name]?"
             call her_main("Yes?", "angry", "base", "base", "mid", tears="soft")
             m "You are not stroking my cock anymore..."
             call her_main("Oh, I am sorry, [genie_name].", "grin", "happyCl", "worried", "mid", emote="sweat")

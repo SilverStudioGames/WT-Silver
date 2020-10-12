@@ -65,7 +65,7 @@ label tonks_intro_E1:
     pause.1
 
     call bld
-    m "*hmmm*?"
+    m "*Hmm*?"
 
     call ton_walk("mid", "base")
     pause.5

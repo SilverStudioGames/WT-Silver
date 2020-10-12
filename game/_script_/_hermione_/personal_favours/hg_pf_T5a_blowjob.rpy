@@ -241,7 +241,7 @@ label hg_pf_blowjob_T5_intro_E2:
     her "So I was just trying to imagine how the \"old me\" would've reacted to this."
     m "So..."
     g4 "You were messing with me then?"
-    call her_main("*Uhm*... I'm sorry [genie_name], I didn't mean to...", "angry", "happyCl", "worried", "mid", emote="sweat")
+    call her_main("*Ehm*... I'm sorry [genie_name], I didn't mean to...", "angry", "happyCl", "worried", "mid", emote="sweat")
     g4 "You nasty little slut! You must be punished!"
     g9 "I'll punish you with my cock!"
     call her_main("...............................", "angry", "happyCl", "worried", "mid", emote="sweat")
@@ -275,7 +275,7 @@ label hg_pf_blowjob_T6_intro_E1:
     call her_main("I've been a very, very bad girl, [genie_name]!", "soft", "narrow", "base", "mid_soft")
     g9 "..............."
     m "Tell me, what wrongs did you do, [hermione_name]?"
-    call her_main("*Uhm*...", "disgust", "narrow", "worried", "down")
+    call her_main("*Ehm*...", "disgust", "narrow", "worried", "down")
     call her_main("I sucked off my headmaster's cock...", "soft", "narrow", "worried", "down")
     g9 "Yes you did!"
     call her_main("And not just to earn those points...", "disgust", "happyCl", "worried", "mid")
@@ -983,7 +983,7 @@ label hg_hidden_blowjob_tonks:
 
             call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "squint", "worried", "up")
             m "He isn't here, actually. But I will let him know..."
-            ton "So, are you with a student then, hmm?"
+            ton "So, are you with a student then, *Hmm*?"
             call her_main("{size=-4}(.......... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
             ton "Who is she?"
 
@@ -1079,7 +1079,7 @@ label hg_hidden_blowjob_tonks:
                 call her_main("{size=-4}What??{/size}", "open_wide_tongue", "narrow", "base", "up")
                 call ton_main("What was that?","open","base","raised","mid")
                 call ton_main("[ton_genie_name]?!","grin","base","base","mid")
-                m "*Uhm*-{w=0.5} My belly?"
+                m "*Ehm*-{w=0.5} My belly?"
                 call ton_main("Sounded like somebody doesn't know how to deep throat a dick properly...","open","base","base","R")
 
             call her_main("(Excuse me?!)", "open_wide_tongue", "narrow", "annoyed", "up")
@@ -1092,7 +1092,7 @@ label hg_hidden_blowjob_tonks:
     call ton_main("Miss Granger?!", "open", "wide", "shocked", "stare")
 
     if her_reputation <= 15:
-        call ton_main("*Hmmm?*... I thought she'd be busy pretending to study in the library.","open","base","raised","mid")
+        call ton_main("*Hmm?*... I thought she'd be busy pretending to study in the library.","open","base","raised","mid")
         call her_main("(Pretending???)", "open_wide_tongue", "narrow", "base", "up")
     else:
         call ton_main("*Oh?* I could've sworn I just saw her in the library fluttering her eyelashes to some Slytherin boy...","open","base","raised","mid")
@@ -1220,7 +1220,7 @@ label hg_hidden_blowjob_tonks:
     m "Didn't you say fifty earlier?"
     call ton_main("Yes, but sixty-nine is so much better!","horny","base","raised","mid")
     call ton_main("Don't you think so too, Miss Granger?","base","base","angry","down")
-    call her_main("*Uhm*... Yes. Thank you, professor Tonks.", "disgust", "happyCl", "worried", "mid")
+    call her_main("*Ehm*... Yes. Thank you, professor Tonks.", "disgust", "happyCl", "worried", "mid")
     m "Less talking, more sucking, [hermione_name]!"
     call her_main("Sorry, [genie_name]...", "soft", "narrow", "annoyed", "up")
 
@@ -1683,7 +1683,7 @@ label hg_pf_blowjob_2:
                     m "So... Aren't you going to clean up?"
                     call her_main("In a minute...", "grin", "narrow", "base", "dead")
                     call her_main("I'm just savouring the moment...")
-                    m "*Hm*..."
+                    m "*Hmm*..."
                     m "Take your time, [hermione_name]..."
 
                     stop music fadeout 1.0

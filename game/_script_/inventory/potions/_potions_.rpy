@@ -58,7 +58,7 @@ default potion_lib = PotionCollection(
             id = "ing_niffler_fancy",
             name = "Niffler's fancy",
             effect = "",
-            description = "Hmm... I think I heard that it's found by the lake.",
+            description = "*Hmm*... I think I heard that it's found by the lake.",
             picture = ""
         ),
         PotionIngredient(

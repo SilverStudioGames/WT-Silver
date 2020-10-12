@@ -113,7 +113,7 @@ label update_luna:
 
 label luna_no_money:
     call lun_main("You expect me to do it for free?", "angry", "mad", "mad", "R")
-    call lun_main("Hmph!", "angry", "mad", "mad", "R")
+    call lun_main("*Hmph*!", "angry", "mad", "mad", "R")
     jump luna_away
 
 

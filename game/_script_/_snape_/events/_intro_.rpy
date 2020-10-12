@@ -469,7 +469,7 @@ label snape_intro_E4:
     m "Listen, I'm not a demon..."
     m "And I sure as heck don't work for \"I don't know who\"!"
     call sna_main(".............................","snape_01")
-    m "I've been *ehm*..."
+    m "I've been *Ehm*..."
     m "... Conducting an experiment back in my world, during which something went wrong and I ended up here."
     m "That's all..."
     call sna_main("..........................","snape_01")

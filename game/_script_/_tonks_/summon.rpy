@@ -238,7 +238,7 @@ label tonks_talk:
             call ton_main("The exposed body of one of your subordinates?","open_wide_tongue","base","raised","ahegao")
             g4 "I do, [tonks_name]!"
             g9 "You should teach like that!"
-            call ton_main("Hmm...","base","base","base","R")
+            call ton_main("*Hmm*...","base","base","base","R")
             call ton_main("I like the way you think, [ton_genie_name]!","horny","base","base","mid")
             jump tonks_requests
 
@@ -389,7 +389,7 @@ label tonks_talk:
                         jump tonks_talk
                     else:
                         $ ton_genie_name = temp_name
-                        call ton_main("Hmm, [ton_genie_name]... I like it.","horny","base","raised","mid")
+                        call ton_main("*Hmm*... [ton_genie_name]... I like it.","horny","base","raised","mid")
                     jump tonks_talk
 
                 "-Never mind-":
@@ -471,7 +471,7 @@ label tonks_talk:
                         jump tonks_talk
                     else:
                         $ tonks_name = temp_name
-                        call ton_main("Hmm...","base","base","base","R")
+                        call ton_main("*Hmm*...","base","base","base","R")
                         call ton_main("Alright.","base","base","base","mid")
                         m "Really? You don't mind?"
                         call ton_main("Not at all, [ton_genie_name].","horny","base","raised","mid")

@@ -82,7 +82,7 @@ label summon_susan:
             if daytime:
                 call sus_main("I will go back to classes then, [sus_genie_name].","base","base","base","down")
             else:
-                call sus_main("*Uhm*... good night then, [sus_genie_name].","base","base","base","down")
+                call sus_main("*Ehm*... good night then, [sus_genie_name].","base","base","base","down")
 
             call play_sound("door")
 
@@ -114,12 +114,12 @@ label susan_talk:
                     call sus_main("That wouldn't be very polite, Professor.","open","closed","base","mid")
                     m "Don't worry, [susan_name]. I always tell my students to call me silly names."
                     g9 "It helps bonding with them!"
-                    call sus_main("If you say so... *Uhm*, [sus_genie_name].","base","base","base","mid")
+                    call sus_main("If you say so... *Ehm*, [sus_genie_name].","base","base","base","mid")
                     g4 "And soon I'm going to bond with your tits!"
                     jump susan_talk
                 "-Genie-":
                     $ sus_genie_name = "Genie"
-                    call sus_main("I *uhm*--","upset","base","base","L")
+                    call sus_main("I... *Ehm*--","upset","base","base","L")
                     call sus_main("Do all the people call you that?","upset","narrow","worried","mid")
                     m "Yes-yes--, everybody!"
                     m "It's perfectly normal!"
@@ -154,7 +154,7 @@ label susan_talk:
                     call sus_main("I don't think I should call my teachers that.","open","closed","worried","mid")
                     m "No-no--, that's what you call your teachers nowadays!"
                     m "But only call me that!"
-                    call sus_main("*Uhm*... very well, [sus_genie_name].","upset","narrow","worried","R")
+                    call sus_main("*Ehm*... Very well, [sus_genie_name].","upset","narrow","worried","R")
                     jump susan_talk
                 "-Custom Input-":
                     $ temp_name = renpy.input("(Please enter the name.)", sus_genie_name, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ", length=14)
@@ -163,7 +163,7 @@ label susan_talk:
                         jump susan_talk
                     else:
                         $ sus_genie_name = temp_name
-                        call sus_main("*Uhm*... Okay. I will call you [sus_genie_name].","upset","narrow","base","L")
+                        call sus_main("*Ehm*... Okay. I will call you [sus_genie_name].","upset","narrow","base","L")
                     jump susan_talk
                 "-Never mind-":
                     jump susan_requests

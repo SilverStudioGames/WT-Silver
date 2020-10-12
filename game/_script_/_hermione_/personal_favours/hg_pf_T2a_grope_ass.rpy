@@ -76,7 +76,7 @@ label hg_pf_grope_ass_T2_back:
     call her_main(".............................", "annoyed", "narrow", "angry", "R", cheeks="blush")
 
     menu:
-        m "Hm..."
+        m "*Hmm*..."
         "-Give her butt a squeeze-":
             jump hg_pf_grope_ass_T2_continue
 
@@ -400,7 +400,7 @@ label hg_pf_grope_ass_T3_continue:
         "\"In the name of science of course!\"":
             call her_main("Really?!", "soft", "wide", "base", "stare")
             call her_main("Is this research of some kind?", "soft", "wide", "base", "stare")
-            m "Yeah, sure, I'm researching *ehm*... er..."
+            m "Yeah, sure, I'm researching... *Err*..."
             m "Well, you wouldn't understand, this is some pretty advanced wizardry stuff..."
             call her_main("I see...", "soft", "wide", "base", "stare")
             call her_main("Well, if it is for research then I am glad to be of help...", "annoyed", "narrow", "angry", "R")
@@ -795,4 +795,3 @@ label hg_pf_grope_ass_T4_continue:
 
         "-Stop pushing your luck. Dismiss the girl-":
             jump end_hg_pf_grope
-

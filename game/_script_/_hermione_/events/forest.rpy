@@ -56,7 +56,7 @@ label forest_BJ_1: #BJ in the forest interrupted by moaning myrtle
             call her_main("Oh thank goodness... I thought you were going to murder me for a second there...", "base", "happyCl", "base", "mid",trans=hpunch)
             m "What? How could you think such a thing!"
             m "I don't know if I'll be able to--"
-            call her_main("How about I make it up to you with my mouth then, *hmmm*?", "base", "narrow", "base", "mid")
+            call her_main("How about I make it up to you with my mouth then, *Hmm*?", "base", "narrow", "base", "mid")
             m "Done."
             $ forest_BJ_progress = 2
 
@@ -386,7 +386,7 @@ label forest_BJ_3: #Complete BJ with Myrtle appearing after the cumshot
     $ ccg2 = 29
     m "How are you able go so deep?..."
     $ ccg2 = 17
-    her "*Hmmm*, I had a good teacher..."
+    her "*Hmm*... I had a good teacher."
     $ ccg2 = 19
     m "As flattered as I am..."
     ">You softly low your hand on to the back of the little sluts head..."

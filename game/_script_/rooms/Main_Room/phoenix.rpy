@@ -6,7 +6,7 @@ label phoenix:
         show screen chair_left
         show screen desk
         with d5
-        m "Hm..."
+        m "*Hmm*..."
         m "Even this weird-looking bird radiates magic..."
         call gen_chibi("sit_behind_desk")
         with d5

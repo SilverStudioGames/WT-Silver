@@ -351,8 +351,8 @@ label hg_pf_grope_breasts_T4_continue:
     call her_main("...............", "angry", "narrow", "base", "down")
     pause.2
 
-    call her_main("[genie_name], your are still... Holding me...", "angry", "base", "base", "mid")
-    m "Oh, right... my bad..."
+    call her_main("[genie_name], you're... Still... Holding me.", "angry", "base", "base", "mid")
+    m "Oh, right... my bad."
 
     call nar(">You let go of Hermione's breasts...")
 

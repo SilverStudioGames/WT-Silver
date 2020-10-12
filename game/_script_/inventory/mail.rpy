@@ -134,7 +134,7 @@ label shoo_owl_away:
 
 # Hermione Granger Letters.
 label letter_from_hermione_A:
-    m "Ehm........."
+    m "*Ehm*........."
     m "What?"
     m "................................."
 
@@ -142,7 +142,7 @@ label letter_from_hermione_A:
 
 # Ministry of Magic letters.
 label letter_paperwork_unlock:
-    m "Payments? Hmm..."
+    m "Payments? *Hmm*..."
 
     call give_reward(">From now on you can do paperwork at your desk in order to earn additional gold...","interface/icons/gold.webp")
     call tutorial("workngold")

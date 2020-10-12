@@ -39,7 +39,7 @@ label hermione_summon_setup:
                 # g4 "(Wow! Look at her!)"
                 # g9 "That's quite a sexy outfit, [hermione_name]!"
                 # if her_whoring < 11:
-                    # call her_main("*Uhm*... Thank you, [genie_name].", "soft", "base", "base", "R")
+                    # call her_main("*Ehm*... Thank you, [genie_name].", "soft", "base", "base", "R")
                     # call her_main("I normally don't wear something like this.", "open", "base", "base", "mid")
                     # call her_main("(Showing so much cleavage...)", "disgust", "narrow", "worried", "down", cheeks="blush")
                     # call her_main("But the weather is just too hot today.", "base", "base", "base", "R")

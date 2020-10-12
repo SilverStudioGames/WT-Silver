@@ -13,7 +13,7 @@ label luna_favour_4:
         call lun_main("yes, [lun_genie_name]...","normal","base","angry","R")
         m "Would it be possible for me to buy another favour?"
         call lun_main("Does it involve me cranking out that delicious cum from your wrinkly old balls?","base","angry","angry","R")
-        call lun_main("*Hmmmm*?","base","seductive","base","mid")
+        call lun_main("*Hmm*?","base","seductive","base","mid")
         m "Possibly..."
         call lun_main("*mmmm*... good boy...","base","mad","mad","mid")
         call lun_main("well...","base","mad","mad","mid")
@@ -46,7 +46,7 @@ label luna_favour_4:
         with d3
 
         call gen_main("!!!","grin")
-        call lun_main("*Hmmph*","base","seductive","angry","mid")
+        call lun_main("*Hmph*","base","seductive","angry","mid")
         call lun_main("(It's so warm...)","base","seductive","mad","down")
         ">Luna slowly starts stroking your cock with her hand, her movements are fast yet stiff."
         m "Why don't you try grabbing it with both hands, [lun_name]..."
@@ -129,7 +129,7 @@ label luna_favour_4:
                 g4 "Ah! yes!"
                 call lun_main("...","base","suspicious","mad","mid")
                 g4 "[lun_name]..."
-                call lun_main("*Hmmm*, are you feeling alright now, [lun_genie_name]?","base","seductive","raised","R")
+                call lun_main("*Hmm*... Are you feeling alright now, [lun_genie_name]?","base","seductive","raised","R")
                 g4 "yes... thank you, [lun_name]..."
                 call lun_main("Good boy.","base","angry","angry","down")
                 call lun_main("*Ptew*","open_tongue","seductive","angry","downL", xpos=390, ypos=40)
@@ -350,7 +350,7 @@ label luna_favour_4:
             with d3
 
             call gen_main("!!!","grin","hard")
-            call lun_main("*Hmmph* At least it isn't small...","base","seductive","angry","mid")
+            call lun_main("*Hmph*... At least it isn't small.","base","seductive","angry","mid")
             call lun_main("(I can't even fit my hand around it)","base","seductive","mad","down")
             ">Luna slowly starts stroking your cock with her hand, her movements are rough and inexperienced."
             m "Why don't you try grabbing it with both hands, [lun_name]..."
@@ -567,7 +567,7 @@ label luna_favour_4:
             with d3
 
             call gen_main("!!!","grin")
-            call lun_main("*Hmmph* At least it isn't small...","base","seductive","angry","mid")
+            call lun_main("*Hmph*... At least it isn't small.","base","seductive","angry","mid")
             call lun_main("(I can't even fit my hand around it)","base","seductive","mad","down")
             ">Luna slowly starts stroking your cock with her hand, her movements are rough and inexperienced."
             m "Why don't you try grabbing it with both hands, [lun_name]..."
@@ -642,7 +642,7 @@ label luna_favour_4:
                     g9 "Ah! yes!"
                     call lun_main("...","base","suspicious","mad","mid")
                     g9 "[lun_name]..."
-                    call lun_main("*Hmmm*, do You want me to spit on your cock then?","base","seductive","raised","mid")
+                    call lun_main("*Hmm*... Do You want me to spit on your cock then?","base","seductive","raised","mid")
                     g9 "yes... please, [lun_name]..."
                     call lun_main("Good boy.","base","angry","angry","mid")
                     call lun_main("*Ptew*","open_tongue","seductive","angry","downL")
@@ -672,7 +672,7 @@ label luna_favour_4:
             call lun_main("[lun_genie_name]!!!","clench","angry","mad","mid")
             call lun_main("You're not trying to cum on me are you?","upset","mad","mad","mid")
             g4 "Ah [lun_name], I'm almost there!"
-            call lun_main("*hmmm*... (I might as well make some more money from the old man...)","upset","suspicious","mad","mid")
+            call lun_main("*Hmm*... (I might as well make some more money from the old man...)","upset","suspicious","mad","mid")
 
             hide screen luna_main
             $ luna_wear_bottom = False

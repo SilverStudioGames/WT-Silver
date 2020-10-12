@@ -13,7 +13,7 @@ label cupboard:
         pause.2
 
         call bld
-        m "Hm..."
+        m "*Hmm*..."
         m "A cupboard..."
         m "Maybe I should rummage through this one later..."
         jump main_room_menu

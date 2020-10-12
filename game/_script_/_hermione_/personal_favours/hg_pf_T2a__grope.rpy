@@ -132,7 +132,7 @@ label hg_pf_grope_T1_fail_repeat:
 label hg_pf_grope_T2_intro_E1:
     stop music fadeout 2.0
     m "Come closer [hermione_name]... Hop around my desk..."
-    call her_main("*Uhm*... very well, Sir.", "disgust", "narrow", "base", "down")
+    call her_main("*Ehm*... very well, Sir.", "disgust", "narrow", "base", "down")
 
     call her_walk("desk", "base", reduce=0.8)
     call blkfade

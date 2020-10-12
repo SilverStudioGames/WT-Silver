@@ -347,7 +347,7 @@ label hg_pf_strip_T3_intro_E2:
     call her_main("That again, [genie_name]...?", "disgust", "narrow", "base", "mid_soft")
     m "You will get paid accordingly of course..."
     call her_main("............................", "annoyed", "narrow", "angry", "R")
-    call her_main("And you expect me to... *ehm*...", "annoyed", "narrow", "angry", "R")
+    call her_main("And you expect me to... *Ehm*...", "annoyed", "narrow", "angry", "R")
     m "Take your clothes off. Naturally."
     stop music fadeout 1.0
 
@@ -379,7 +379,7 @@ label hg_pf_strip_T3_intro_E2:
     $ renpy.play('sounds/08_hop_on_desk.mp3') #Sound of the desk squeaking.
     pause 3
     g4 "!!!!!!"
-    ">To your surprise Hermione just hops onto your desk and starts dancing franticly..."
+    ">To your surprise Hermione just hops onto your desk and starts dancing frantically..."
 
     call her_chibi("dance","on_desk","on_desk")
 
@@ -659,7 +659,7 @@ label hg_pf_strip_T3_E2:
     call her_main("...................", "annoyed", "narrow", "angry", "R")
 
     if ss_he.hermione_strip: #Turns TRUE after Dance Event 2 and the next Date with Snape.
-        m "(Hm... Should I invite Snape to watch as well?)"
+        m "(*Hmm*... Should I invite Snape to watch as well?)"
 
         menu:
             "-Yes! Hermione needs an audience!-":
@@ -918,13 +918,13 @@ label hg_pf_strip_T4_intro_E1:
     jump hg_pf_strip_T4
 
 label hg_pf_strip_T4_intro_E2:
-    m "[hermione_name], would you like to provide me with about another strip show?"
+    m "[hermione_name], would you like to provide me another strip show?"
     m "(I'm bored as fuck in here after all...)"
     call her_main("*Hmm*...", "annoyed", "base", "base", "R", xpos="base", ypos="base")
     call her_main("Sure! Why not...", "base", "happyCl", "base", "mid")
     g9 "Yes?"
-    call her_main("I've been practising a bit more. Mainly just my dancing.", "soft", "narrow", "worried", "down")
-    m "Very good. I'd love to see your progress."
+    call her_main("I've been practising a bit more. Mainly on my dancing.", "soft", "narrow", "worried", "down")
+    m "Very good... I'd love to see your progress."
     call her_main("Of course, [genie_name]...", "base", "narrow", "base", "mid_soft")
 
     jump hg_pf_strip_T4

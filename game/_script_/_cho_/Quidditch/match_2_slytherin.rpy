@@ -1091,7 +1091,7 @@ label slytherin_match:
     hide screen hermione_main
     with d3
     call sna_main("...", "snape_04")
-    call sna_main("Hmm... wouldn't be the first time a student's personality changed from a bludger hit... ", "snape_35")
+    call sna_main("*Hmm*... wouldn't be the first time a student's personality changed from a bludger hit... ", "snape_35")
     call sna_main("Perhaps Madam Pomfrey's healing drafts aren't being distilled properly...", "snape_09")
     m "If you say so..."
 
@@ -1380,7 +1380,7 @@ label slytherin_match:
     m "What?!"
     m "I thought that you didn't like miss Granger..."
     g9 "Where's that Slytherin pride you're so adamant about?"
-    call sna_main("*HMPH*... I'm sure you can find your own way back to your office...", "snape_05")
+    call sna_main("*Hmph*... I'm sure you can find your own way back to your office...", "snape_05")
     m "What about our bet?"
     call sna_main("The bet?", "snape_38")
     m "I beat you!{w=0.3} Slytherin is out of the competition!"
@@ -1570,7 +1570,7 @@ label slytherin_match_return:
     call her_main("What's wrong sweetie?", "soft", "narrow", "base", "L")
     call her_main("Want to find out if Gryffindors taste the same as Ravenclaws?", "smile", "narrow", "base", "L")
     call cho_main("...", "angry", "base", "worried", "down", cheeks="heavy_blush") #Blushes
-    call cho_main("*HMPH*!", "annoyed", "narrow", "angry", "L", cheeks="blush")
+    call cho_main("*Hmph*!", "annoyed", "narrow", "angry", "L", cheeks="blush")
 
     # Cho walks out and slams the door
     call play_music("stop")

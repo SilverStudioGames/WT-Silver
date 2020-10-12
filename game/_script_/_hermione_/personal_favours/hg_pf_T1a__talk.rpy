@@ -833,7 +833,7 @@ label hg_pf_talk_tonks:
 
     if not masturbating:
         m "Actually..."
-        call her_main("*Hmpf*...", "annoyed", "narrow", "angry", "R", cheeks="blush")
+        call her_main("*Hmph*...", "annoyed", "narrow", "angry", "R", cheeks="blush")
 
     call ton_main("And I suppose you're against the idea of doing favours for another teacher?","horny","base","raised","L", hair="horny")
     call her_main("I...", "angry", "narrow", "worried", "down", cheeks="blush")
@@ -955,7 +955,7 @@ label hg_pf_talk_tonks:
             else:
                 call her_main("...", "annoyed", "narrow", "worried", "down", cheeks="blush")
                 call ton_main("Miss Granger?", "normal", "base", "raised", "L")
-                call her_main("*Uhm*...", "annoyed", "base", "base", "R", cheeks="blush")
+                call her_main("*Ehm*...", "annoyed", "base", "base", "R", cheeks="blush")
                 call her_main("Well, I could pick any of the girls in Slytherin, really...", "soft", "narrow", "angry", "R")
 
             call her_main("It is quite astonishing to what level those Slytherins would go - to get the teachers going...", "annoyed", "base", "angry", "mid")
@@ -1077,7 +1077,7 @@ label hg_pf_talk_tonks:
                     call bld
                     m "(She ignored me...?)"
                     if masturbating:
-                        m "(And I just got blue-balled, bollocks..."
+                        m "(And I just got blue-balled, bollocks...)"
                     $ masturbating = False
 
                 "\"Tonks isn't some kind of snitch\"":
@@ -1146,7 +1146,7 @@ label hg_pf_talk_tonks:
                         call ton_main("What have you been doing back there?", "soft", "narrow", "raised", "mid", hair="horny")
                         m "I--"
                         call her_main("H-{w=0.3}he isn't doing anything! Isn't that right, Professor?", "angry", "happyCl", "worried", "mid", cheeks="blush")
-                        call her_main("Just *uhm*...{w=0.5} stretching your leg, as always.", "crooked_smile", "base", "worried", "mid", cheeks="blush")
+                        call her_main("Just *Ehm*...{w=0.5} stretching your leg, as always.", "crooked_smile", "base", "worried", "mid", cheeks="blush")
                         call ton_main("Right...", "normal", "base", "shocked", "R")
                         call ton_main("Well then, since my work here is done... I need to go back to my regular duties.","open","closed","base","mid", hair="basic")
 

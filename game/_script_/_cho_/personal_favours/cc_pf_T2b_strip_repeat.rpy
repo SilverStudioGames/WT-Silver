@@ -179,7 +179,7 @@ label cc_pf_strip_T3_tonks:
     call ton_main("Let's not waste any more time...", "horny", "narrow", "base", "L", hair="horny")
 
     call ton_main("Who of us would you like to start, Professor?", "base", "narrow", "base", "mid", hair="horny")
-    m "*Hmmm*..."
+    m "*Hmm*..."
 
     menu:
         "\"Miss Chang will go first.\"":
@@ -189,7 +189,7 @@ label cc_pf_strip_T3_tonks:
             jump cc_pf_strip_T3_tonks.strip_cho
 
         "\"You go first, Miss Tonks!\"":
-            call ton_main("*Hmmm*...", "base", "narrow", "base", "L", hair="horny")
+            call ton_main("*Hmm*...", "base", "narrow", "base", "L", hair="horny")
             call ton_main("Saving the best for last, are we?", "base", "narrow", "raised", "mid", hair="horny")
             call cho_main("...", "horny", "narrow", "base", "downR", cheeks="blush")
             $ cho_position = 1 # Cho's current positon is in the middle.
@@ -320,7 +320,7 @@ label .strip_cho:
         call cho_main("Thank you.", "soft", "narrow", "base", "L", cheeks="blush")
     elif random_number == 2:
         call ton_main("You look quite tasty, Miss Chang.", "horny", "narrow", "raised", "down", hair="horny")
-        call cho_main("*Uhm*...", "clench", "narrow", "worried", "down", cheeks="heavy_blush")
+        call cho_main("*Ehm*...", "clench", "narrow", "worried", "down", cheeks="heavy_blush")
         call cho_main("Thanks?", "soft", "narrow", "worried", "L", cheeks="heavy_blush")
     else:
         call ton_main("Looks like we're done here, Professor.", "horny", "narrow", "raised", "mid", hair="horny")
@@ -456,7 +456,7 @@ label .spank_cho:
             call ctc
 
             call cho_main("...", "horny", "narrow", "base", "R", cheeks="heavy_blush")
-            call ton_main("*Hmmm*...", "annoyed", "narrow", "shocked", "down", hair="horny")
+            call ton_main("*Hmm*...", "annoyed", "narrow", "shocked", "down", hair="horny")
             call ton_main("A well behaved girl like you should be rewarded. {heart}", "crooked_smile", "narrow", "raised", "L", hair="horny")
             call ton_main("Ten points for Ravenclaw, Miss Chang.", "soft", "narrow", "base", "L", hair="horny")
             $ ravenclaw += 10
@@ -569,7 +569,7 @@ label .strip_tonks:
 
     # Remove Bra and Panties.
     if tonks.is_worn("bra") or tonks.is_worn("panties"):
-        call ton_main("*Hmmm*... It's been a while since I had to remove underwear.", "annoyed", "narrow", "base", "down", hair="horny")
+        call ton_main("*Hmm*... It's been a while since I had to remove underwear.", "annoyed", "narrow", "base", "down", hair="horny")
         call ton_main("Help me take them off, [tonks_cho_name].", "base", "narrow", "base", "down", hair="horny")
         call cho_main("Of course...", "smile", "narrow", "base", "down", cheeks="blush")
         call cho_main("", "horny", "narrow", "base", "down", cheeks="blush", xpos=315, ypos="base", flip=False, trans=d5) # Cho moves closer to Tonks.
@@ -762,7 +762,7 @@ label .strip_hermione:
     ton "Professor, how many house points may I get for this shameless act you're asking me to do?"
     g9 "You're requesting house points for this, Miss Granger?"
     ton "Naturally."
-    m "*Hmmm*..."
+    m "*Hmm*..."
 
     menu:
         "You shall receive five points.":
@@ -866,7 +866,7 @@ label .transformations:
             pass
 
         else:
-            call ton_main("*Hmmm*... not so nervous around me anymore, are you, Cho?", "crooked_smile", "narrow", "base", "L")
+            call ton_main("*Hmm*... not so nervous around me anymore, are you, Cho?", "crooked_smile", "narrow", "base", "L")
             call cho_main("Oh, I guess not. It seems like I got used to it...", "crooked_smile", "narrow", "worried", "R", cheeks="blush")
             call cho_main("It's fun doing this sort of thing at school... I'm quite enjoying it.", "smile", "narrow", "base", "downR", cheeks="blush")
             call ton_main("Well, there's somebody who enjoys it even more than we do, isn't that right, Professor?", "horny", "base", "raised", "mid", hair="horny")
@@ -888,7 +888,7 @@ label .transformations:
                 if doppler_done == True:
                     jump .doppler # jumps ahead a bit
                 $ doppler_done = True
-                call ton_main("*Hmmm?*... What's a \"doppler\"?", "upset", "base", "base", "mid")
+                call ton_main("*Hmm*?... What's a \"doppler\"?", "upset", "base", "base", "mid")
                 m "What do you mean, what's a doppler?!"
                 g4 "Aren't you part of the magical animal control... or whatever."
                 call ton_main("The Auror division does a lot more than \"animal control\"...", "open", "narrow", "base", "mid")
@@ -931,7 +931,7 @@ label .transformations:
                 m "We all know those are highly edited..."
                 call ton_main("So I'm smoking hot, huh?", "horny", "narrow", "base", "mid", hair="horny")
                 call ton_main("You flatter me, but no... I've always looked like this.", "base", "happyCl", "base", "mid", hair="horny")
-                m "*Hmmm*..."
+                m "*Hmm*..."
                 call cho_main("...", "annoyed", "base", "base", "mid", cheeks="blush") # blushing
 
                 m "You can count yourself lucky that I haven't seen any bounties for a Doppler..."
@@ -1002,7 +1002,7 @@ label .transformations:
                 call cho_main("Yes! I want to hear it!", "grin", "base", "base", "mid")
                 call ton_main("Are you sure you'd want that, honey?", "soft", "narrow", "base", "L", hair="horny")
                 call ton_main("It's quite the filthy story... You don't walk away from a Succubus unscarred unless you can impress her!", "horny", "narrow", "raised", "mid", hair="horny") # horny
-                call cho_main("*Uhm*...", "disgust", "narrow", "worried", "downR", cheeks="heavy_blush")
+                call cho_main("*Ehm*...", "disgust", "narrow", "worried", "downR", cheeks="heavy_blush")
                 call play_sound("gulp")
                 g4 "*gulp*..." # sound
                 call ton_main("Of course I could tone it down for you guys.", "base", "happyCl", "base", "mid", hair="horny")
@@ -1063,7 +1063,7 @@ label .transformations:
             ton "Usually you only encounter them if {b}they{/b} want to, and have set an eye on you already."
 
             g9 "Thankfully I have the ability to summon you any time I want!"
-            ton "*Hmmm*... Be careful what you wish for, Professor..."
+            ton "*Hmm*... Be careful what you wish for, Professor..."
             ton "I can be just as dangerous and seductive if I want to! {heart}"
 
             g9 "Did you hear that, Cho?"
@@ -1076,7 +1076,7 @@ label .transformations:
             m "Tell me, Miss Tonks."
             g9 "Are you one of these Succubbi that like to hunt virgins?"
             ton "*Ha-ha-ha*... Where did you hear that?" # cracks up.
-            m "I've read it in a-- *uhm*...{w=0.5} in a book."
+            m "I've read it in a-- *Ehm*...{w=0.5} in a book."
             m "If you're a virgin by the age of forty and one visits you, you might end up lucky!"
             cho "Is this true, professor Tonks?"
             ton "I... I don't know... I'd have to do some of my own research..."

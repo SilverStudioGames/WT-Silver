@@ -46,7 +46,7 @@ label hg_ps_cumslut_Scene_1:
     call her_main("Well... I suppose that would be alright...", "annoyed", "narrow", "annoyed", "mid")
     call her_main("But what's the point if they can't see it?", "annoyed", "base", "worried", "R")
     m "You'll know it's there."
-    call her_main("*Hmmmm*...", "annoyed", "narrow", "angry", "R")
+    call her_main("*Hmm*...", "annoyed", "narrow", "angry", "R")
     call her_main("How much will I be paid?", "annoyed", "squint", "base", "mid")
     m "Thirty points."
     call her_main("Thirty?! I expect at least seventy for such a filthy act!", "scream", "happyCl", "worried", "mid")
@@ -234,7 +234,7 @@ label hg_ps_cumslut_Scene_2:
     call her_main("Well I guess not...", "annoyed", "base", "base", "mid")
     call her_main("But will it still be hidden this time?", "annoyed", "base", "worried", "R")
     m "That's up to you."
-    call her_main("*Hmmmm*...", "annoyed", "narrow", "angry", "R")
+    call her_main("*Hmm*...", "annoyed", "narrow", "angry", "R")
 
     call her_main("How much will I be paid this time then?", "annoyed", "squint", "base", "mid")
     m "Twenty points."
@@ -628,7 +628,7 @@ label hg_ps_cumslut_complete_1:
                 $ her_mood += 5
                 call her_main("...", "annoyed", "narrow", "annoyed", "mid", tears="mascara_soft")
                 m "Well [hermione_name], you may leave now."
-                call her_main("*Hmmmphh*...", "angry", "narrow", "annoyed", "mid", emote="angry",tears="mascara")
+                call her_main("*Hmph*...", "angry", "narrow", "annoyed", "mid", emote="angry",tears="mascara")
 
             "\"Tell me about your day.\"":
                 $ her_mood += 10

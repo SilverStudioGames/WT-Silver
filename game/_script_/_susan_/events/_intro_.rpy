@@ -70,7 +70,7 @@ label susan_intro_E1:
     call bld
     "*knock-knock-knock*"
 
-    who "*Uhm*... Professor Dumbledore, Sir?"
+    who "*Ehm*... Professor Dumbledore, Sir?"
     who "May I come in?"
     m "Another girl?"
 
@@ -120,7 +120,7 @@ label susan_intro_E1:
 
     menu:
         "\"Hello, Gorgeous!\"":
-            call sus_main("*Uhm*...","upset","base","base","down") # Embarrassed.
+            call sus_main("*Ehm*...","upset","base","base","down") # Embarrassed.
             call sus_main("H-Hello...","open","base","worried","mid")
 
         "\"Susan! How great to see you!\"" if d_flag_01:

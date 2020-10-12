@@ -572,7 +572,7 @@ label ball_quest_E3:
     call her_main("Oh, you wouldn't understand...", "angry", "squint", "base", "mid", cheeks="blush", tears="messy")
     call her_main("You're just like my father!", "scream", "base", "angry", "mid", cheeks="blush", tears="messy")
     m "I beg your pardon?"
-    call her_main("I mean... *ehm*...", "open", "wide", "worried", "stare", cheeks="blush", tears="messy")
+    call her_main("I mean... *Ehm*...", "open", "wide", "worried", "stare", cheeks="blush", tears="messy")
     her "Forgive me sir..."
     call her_main("I don't know why I am telling you all of this...", "shock", "narrow", "base", "down", cheeks="blush", tears="crying")
     m "................"
@@ -684,7 +684,7 @@ label ball_quest_E5:
     call her_main("Because I will do it!", "open", "wide", "worried", "stare", cheeks="blush", tears="messy")
     her "And I will swallow and everything!"
     call her_main("And you wouldn't have to pay me a single house point!", "shock", "narrow", "base", "down", cheeks="blush", tears="crying")
-    m "*uhm*... Maybe some other time..."
+    m "*Uhm*... Maybe some other time..."
     m "This is not the type of crying I find arousing..."
     call her_main("I'm sorry, sir. I'm such a mess...", "angry", "squint", "base", "mid", cheeks="blush", tears="messy")
     call her_main("But this is so unexpected...", "shock", "narrow", "base", "down", cheeks="blush", tears="crying")

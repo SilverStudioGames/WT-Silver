@@ -86,7 +86,7 @@ label cc_pf_talk_T1_intro_E1:
             m "Swinging the other way, you know..."
             call cho_main("What?", "angry", "wide", "base", "mid")
             m "Some people like flicking the bean rather than rubbing a wand..."
-            call cho_main("*Uhmm*, I never said I minded either way...", "quiver", "narrow", "worried", "R")
+            call cho_main("*Uhm*, I never said I minded either way...", "quiver", "narrow", "worried", "R")
             m "So you have had a girlfriend?"
             call cho_main("I'd rather not talk about it right now...", "soft", "narrow", "worried", "mid")
             m "(Damn, maybe that's not the way to go about this, maybe instead I could tell her...)"
@@ -98,7 +98,7 @@ label cc_pf_talk_T1_intro_E1:
                 $ cho_mood += 1
             call cho_main("Sir, I'd rather not hear a boring old tale about any of your old flames...", "open", "narrow", "base", "R")
             g9 "Oh they weren't boring at all!"
-            call cho_main("Hmm?", "annoyed", "narrow", "base", "mid")
+            call cho_main("*Hmm*?", "annoyed", "narrow", "base", "mid")
             g9 "They were very intimate..."
             call cho_main("???", "annoyed", "base", "raised", "mid")
             g4 "Very sexual!"
@@ -1092,7 +1092,7 @@ label cc_pf_talk_T2_E3:
         call cho_main("To be frank with you, Sir...{w=0.6} I would be disappointed if it wasn't.", "base", "narrow", "base", "mid")
         m "Why don't you tease him a bit more then? Get him hooked on it..."
         m "It would be to our benefit, don't you think?"
-        call cho_main("*Hmmm*{w=0.3} Yes I could give him a peak once or twice.", "annoyed", "base", "base", "R")
+        call cho_main("*Hmm*{w=0.3} Yes I could give him a peak once or twice.", "annoyed", "base", "base", "R")
         call cho_main("For as long as I don't have to let him touch it.", "soft", "narrow", "angry", "mid")
         m "..."
         m "Anything else you could tell me?"

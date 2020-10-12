@@ -147,7 +147,7 @@ label cc_pf_strip_T2_intro_E1:
         "\"You have marvellous abs!\"":
             g4 "Magnificent."
             g4 "Simply...{w} magnificent..."
-            call cho_main("*Uhmm*...", "annoyed", "narrow", "worried", "R", cheeks="blush") # Embarrassed
+            call cho_main("*Ehm*...", "annoyed", "narrow", "worried", "R", cheeks="blush") # Embarrassed
             g4 "As if Michelangelo himself carved them onto your flesh..."
             m "I must say I'm very impressed!"
             call cho_main("Thank you, Sir.", "soft", "narrow", "worried", "downR", cheeks="blush")
@@ -326,7 +326,7 @@ label cc_pf_strip_T2_intro_E2:
 
     call cho_main("Down to my undergarments, [cho_genie_name]?", "soft", "closed", "base", "mid", xpos="mid", ypos="base", trans=fade)
     call cho_main("Or would you like me to take off all of it?", "soft", "narrow", "base", "mid")
-    m "*Uhm*... All of it?"
+    m "*Ehm*... All of it?"
     call cho_main("Very well, Sir.", "soft", "closed", "base", "mid")
     g4 "(Please don't let this be a trick question.)"
     call cho_main("", "upset", "narrow", "base", "mid")
@@ -425,7 +425,7 @@ label cc_pf_strip_T2_intro_E2:
             call cho_main("Overcoming my fears...", "soft", "narrow", "angry", "R")
             call cho_main("Failure, and embarrassment...", "soft", "closed", "base", "mid")
             call cho_main("(Come on Cho, you can do it!!!)", "horny", "happyCl", "worried", "mid", cheeks="blush")
-            call cho_main("*Uhm*...", "horny", "narrow", "worried", "down", cheeks="blush")
+            call cho_main("*Ehm*...", "horny", "narrow", "worried", "down", cheeks="blush")
             call cho_main("What would you like me to do first, [cho_genie_name]?", "soft", "narrow", "worried", "mid", cheeks="blush")
             call cho_main("Remove my bra...", "soft", "narrow", "base", "mid", cheeks="blush")
             call cho_main("Or take off my panties?", "horny", "narrow", "worried", "down", cheeks="blush")
@@ -686,7 +686,7 @@ label cc_pf_strip_T2_intro_E2:
     pause .8
 
     call cho_main("(...)", "disgust", "narrow", "worried", "down", cheeks="blush", xpos="right", ypos="base")
-    call cho_main("*Uhm*...", "soft", "narrow", "worried", "mid", cheeks="blush")
+    call cho_main("*Ehm*...", "soft", "narrow", "worried", "mid", cheeks="blush")
     if daytime:
         call cho_main("Have a good day...", "soft", "base", "base", "R", cheeks="blush")
     else:
@@ -819,7 +819,7 @@ label cc_pf_strip_T2_intro_E3:
     call cho_main("That sounds sooo embarrassing!", "soft", "narrow", "worried", "up", cheeks="blush")
     m "As far as I know, that door isn't locked right now either..."
     m "Aren't you scared that Snape might walk in on you too?"
-    call cho_main("*Hmmmm*", "annoyed", "base", "base", "R")
+    call cho_main("*Hmm*..", "annoyed", "base", "base", "R")
 
     call hide_characters
     show screen blkfade
@@ -917,7 +917,7 @@ label cc_pf_strip_T2_intro_E3:
 
     # Cho asks you to summon Hermione.
     call cho_main("Could you please...", "soft", "base", "worried", "downR", cheeks="blush")
-    call cho_main("*Uhm*...", "quiver", "narrow", "worried", "downR", cheeks="heavy_blush")
+    call cho_main("*Ehm*...", "quiver", "narrow", "worried", "downR", cheeks="heavy_blush")
     call cho_main("Could you please summon Hermione?", "soft", "narrow", "worried", "mid", cheeks="heavy_blush")
 
     with hpunch
@@ -1353,7 +1353,7 @@ label cc_pf_strip_T2_hermione:
             hide screen cho_cloth_pile
             hide screen blkfade
 
-            call cho_main("Sir, my *uhm*...{w} my panties...", "open", "narrow", "angry", "R", cheeks="blush", xpos="mid", ypos="base", trans=fade)
+            call cho_main("Sir, my *Ehm*...{w} my panties...", "open", "narrow", "angry", "R", cheeks="blush", xpos="mid", ypos="base", trans=fade)
             m "Oh, of course..."
             call cho_main("", "annoyed", "narrow", "angry", "mid", cheeks="blush")
             pause .5
@@ -1781,7 +1781,7 @@ label cc_pf_strip_T3_intro_E2:
     call cho_chibi("stand", "desk", "base")
 
     hide screen blkfade
-    call cho_main("*Uhm*...", "quiver", "narrow", "base", "downR", xpos="mid", ypos="base", trans=fade)
+    call cho_main("*Ehm*...", "quiver", "narrow", "base", "downR", xpos="mid", ypos="base", trans=fade)
     call cho_main("The teacher you're about to summon, [cho_genie_name]...", "open", "narrow", "base", "mid")
     call cho_main("You're talking about Professor Tonks, right?", "soft", "narrow", "base", "mid") # suspicious
     m "Oh... of course."
@@ -1836,7 +1836,7 @@ label cc_pf_strip_T3_intro_E2:
     call ton_main("Miss Chang. Didn't expect to see you here...", "base", "narrow", "base", "L")
     call ton_main("What a nice surprise.", "horny", "narrow", "base", "mid") # horny tongue
     call cho_main("...", "quiver", "narrow", "worried", "downR", cheeks="blush") # nervous
-    call cho_main("*Uhm*...", "soft", "narrow", "worried", "down", cheeks="blush")
+    call cho_main("*Ehm*...", "soft", "narrow", "worried", "down", cheeks="blush")
     m "Go on, Cho. She's not going to bite you..."
     call ton_main("*Hmm*?", "base", "base", "raised", "mid")
     g9 "Miss Chang was hoping she could repay you with a favour. For the help you provided against Slytherin."
@@ -2105,7 +2105,7 @@ label cc_pf_strip_T3_intro_E2:
     call play_music("stop")
     call cho_main("What?!", "soft", "wide", "raised", "mid", cheeks="blush") # blushing
     g9 "!!!"
-    call ton_main("*Hmmm*... Or is that snitch of yours going to dart off after all?", "soft", "narrow", "base", "down", hair="horny")
+    call ton_main("*Hmm*... Or is that snitch of yours going to dart off after all?", "soft", "narrow", "base", "down", hair="horny")
     call cho_main("", "angry", "happyCl", "worried", "mid", cheeks="blush")
     show screen blktone5
     with d3
@@ -2309,7 +2309,7 @@ label cc_pf_strip_T3_intro_E2:
     call cho_main("{size=-4}Like I care...{/size}", "annoyed", "narrow", "angry", "down", cheeks="blush")
     call ton_main("Let the girl speak her mind, Severus!", "open", "closed", "shocked", "mid")
     call ton_main("Or shall I remind you that you were the one who barged in here uninvited...", "open", "narrow", "base", "L")
-    call sna_main("*Hmpf*...", "snape_35")
+    call sna_main("*Hmph*...", "snape_35")
     call sna_main("Can't let her spew such lies in the headmaster's presence, can I?", "snape_03")
     m "The hell is that supposed to mean?"
     call sna_main("I merely gave those boys some encouragement.", "snape_04")
@@ -2388,7 +2388,7 @@ label cc_pf_strip_T3_intro_E2:
     call sna_main("Miss Chang, I wish you the very best of luck on your next match.", "snape_45")
     call ton_main("", "normal", "narrow", "base", "L", hair="horny")
     call sna_main("You lot look like you're going to need it...", "snape_42")
-    call cho_main("*Hmpf*...", "annoyed", "base", "angry", "L")
+    call cho_main("*Hmph*...", "annoyed", "base", "angry", "L")
     m "(...)"
     call play_music("stop")
     call hide_characters
@@ -2732,7 +2732,7 @@ label cc_pf_strip_T3_intro_E3:
         m "No, that's just the girl's regular dress code around my office."
         call cho_main("", "clench", "narrow", "base", "downR", cheeks="heavy_blush")
         call ton_main("Is that so...", "soft", "narrow", "raised", "mid", hair="horny")
-        call ton_main("*Hmmm*... I suppose I should follow suit, then?", "base", "narrow", "base", "mid", hair="horny")
+        call ton_main("*Hmm*... I suppose I should follow suit, then?", "base", "narrow", "base", "mid", hair="horny")
         call cho_main("...", "horny", "narrow", "base", "R", cheeks="blush") # embarrassed
 
     g9 "Go right ahead!"
@@ -2750,7 +2750,7 @@ label cc_pf_strip_T3_intro_E3:
     call ton_main("There... much better, don't you think?", "base", "narrow", "base", "mid")
     call cho_main("...", "base", "narrow", "worried", "downR", cheeks="heavy_blush") #embarrassed
     call ton_main("Miss Chang, could you switch places with me, please.", "open", "base", "shocked", "L")
-    call cho_main("*Uhm*... Y-Yes. Of course...", "soft", "narrow", "worried", "L", cheeks="heavy_blush")
+    call cho_main("*Ehm*... Y-Yes. Of course...", "soft", "narrow", "worried", "L", cheeks="heavy_blush")
 
     # Tonks' sprite moves in front of Cho, both are facing Genie.
     call hide_characters
@@ -2789,7 +2789,7 @@ label cc_pf_strip_T3_intro_E3:
     call nar("With some effort, Cho manages to remove her teacher's shirt.")
     call ton_main("Thank you, sweetie.", "soft", "narrow", "raised", "downR", hair="horny")
     call cho_main("", "base", "narrow", "base", "mid", cheeks="heavy_blush")
-    call ton_main("*Hmmm*...", "annoyed", "base", "raised", "down", hair="horny")
+    call ton_main("*Hmm*...", "annoyed", "base", "raised", "down", hair="horny")
     call ton_main("I guess my tight trousers are next...", "base", "narrow", "base", "mid", hair="horny")
     call cho_main("...", "horny", "narrow", "base", "down", cheeks="heavy_blush") # blush
     call ton_main("I'll take it from here...", "soft", "narrow", "shocked", "downR", hair="horny")
@@ -3033,7 +3033,7 @@ label cc_pf_strip_T3_intro_E3:
     m "Now then, Miss Chang..."
     g9 "I think this would be the perfect time to ask Professor Tonks your question."
     call cho_main("W-what...{w=0.4} Oh, yes!", "soft", "base", "raised", "mid", cheeks="heavy_blush")
-    call ton_main("*Hmm?*", "base", "base", "raised", "L", hair="horny")
+    call ton_main("*Hmm*?", "base", "base", "raised", "L", hair="horny")
     call cho_main("Professor Dumbledore told me about how you helped me during the Slytherin game.", "open", "base", "base", "L", cheeks="blush")
     call ton_main("What? You already told her I'm a Metamorphmagi?", "clench", "wide", "worried", "mid", hair="horny")
     call cho_main("You are?!?", "open", "wide", "raised", "L", cheeks="blush")
@@ -3130,7 +3130,7 @@ label cc_pf_strip_T3_intro_E3:
 
     call cho_main("I hope you didn't do that kind of stuff while you looked like me, Professor!", "open", "narrow", "angry", "L", cheeks="blush")
     call her_main("", "annoyed", "base", "base", "R")
-    ton "*Uhm*..."
+    ton "*Ehm*..."
     call cho_main("If I find out you've shown some boys my breasts, then--", "open", "closed", "angry", "mid", cheeks="blush")
     call her_main("", "smile", "happyCl", "worried", "mid", cheeks="blush")
     ton "Of course not, sweetie."
@@ -3165,7 +3165,7 @@ label cc_pf_strip_T3_intro_E3:
     call ton_main("Let's do this again some other time, shall we.", "horny", "narrow", "raised", "mid", hair="horny")
     g9 "Gladly."
     call ton_main("And, Miss Chang... if you ever want to have some quiet time with Miss Granger... my office door is always open.", "grin", "narrow", "base", "L", hair="horny", cheeks="heavy_blush")
-    call cho_main("I-- *uhm*...", "soft", "narrow", "worried", "downR", cheeks="heavy_blush") # super embarrassed
+    call cho_main("I-- *Ehm*...", "soft", "narrow", "worried", "downR", cheeks="heavy_blush") # super embarrassed
     m "Maybe you could wait with that until Quidditch is over."
     m "She has to stay focused, you know..."
     call cho_main("...", "disgust", "narrow", "worried", "down", cheeks="heavy_blush")
@@ -3247,7 +3247,7 @@ label cc_pf_strip_T3_repeat:
     m "I'm in the mood for another strip-show, [cho_name]."
     call cho_main("Of course you are, [cho_genie_name].", "base", "narrow", "raised", "mid")
     call cho_main("Who's going to watch me this time?", "soft", "narrow", "base", "mid")
-    m "*Hmmm*... how about--"
+    m "*Hmm*... how about--"
 
     menu:
         #"\"Miss Granger\"":

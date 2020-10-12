@@ -39,7 +39,7 @@ label ll_pf_sex_T1_intro:
     call lun_main("Sir could you please...{w=0.3} follow me?","base","wink","sad","R")
     m "Follow you? To where?"
     call lun_main("Let's find somewhere the wrackspurts won't bother anyone.","base","base","sad","mid")
-    m "Hmm...{w=0.3} A desolate and quiet place would be perfect..."
+    m "*Hmm*...{w=0.3} A desolate and quiet place would be perfect..."
     call lun_main("I can give you a tour of the school while we're at it!","base","wink","base","mid")
     call lun_main("And once we've found a spot you can tell me about your ideas!","base","wink","base","mid")
     g9 "Sounds like a plan! Let's go!"
@@ -65,7 +65,7 @@ label ll_pf_sex_T1_intro:
     call lun_main("I wouldn't recommend it... If we accidentally get cum on any of the books they'll probably attack us...","open","angry","sad","downL")
     m "(Is she being serious?)"
     m "Well, where do you suggest?"
-    call lun_main("hmmm, we need somewhere we don't have to worry about being found...","pout","seductive","sad","down")
+    call lun_main("*hmm*... We need it to be somewhere were we don't have to worry about being found...","pout","seductive","sad","down")
     call lun_main("And also somewhere the wrackspurts we expel won't bother anyone...","pout","angry","sad","downL")
     call lun_main("...","pout","closed","sad","mid")
     call lun_main("I know, let's go to the lake! Wrackspurts hate cold water!","open","wide","base","mid")
@@ -264,7 +264,7 @@ label ll_pf_sex_T1_E3:
     m "Wow... This room's fantastic! It's practically as big as my office! And you have two beds!"
     call lun_main("Well, the other one doesn't belong to me.","soft","wink","sad","mid")
     m "Oh... So you're boarding with another chick?"
-    call lun_main("Mhmm!","base","happyCl","sad","mid")
+    call lun_main("*Mhmm*!","base","happyCl","sad","mid")
 
     menu:
         "\"Ever fool around?\"":
@@ -385,7 +385,7 @@ label ll_pf_sex_T1_E3:
             lun "Are you sure I don't get any wishes, [lun_genie_name]?"
             m "No lamp, no wishes. Those are the rules."
             $ lunCG('pout', 'angry', 'sad', 'right')
-            lun "Hmph... Maybe I should try a-- *ah*...{heart} a summoning spell..."
+            lun "*Hmph*... Maybe I should try a-- *ah*...{heart} a summoning spell..."
             m "I'm not sure that would work... Besides, what do you need a wish for?"
             ">You grab a hold of Luna's hips and go to town on the needy fuckslut."
             $ lunCG('open_tongue', 'furious', 'sad', 'up')
@@ -564,7 +564,7 @@ label ll_pf_sex_T1_lake_sex: # Call label
     lun "Oh..."
     m "..."
     $ lunCG(pupil='dl', eye='seductive', mouth='base')
-    lun "Hmmm..."
+    lun "*Hmm*..."
     $ lunCG(pupil='left', eye='wink', mouth='base')
     lun "So, sex forces us to eject the wrackspurts... but the feeling good is normal?"
     m "..."
@@ -758,7 +758,7 @@ label ll_pf_sex_T1_her_2: # Call label
     her "Figures I'd find you up here..."
     m "Why's that?"
     lun "..."
-    her "Hmph... I think you know what I'm talking about..."
+    her "*Hmph*... I think you know what I'm talking about..."
     menu:
         "-The cum-":
             m "The cum?"
@@ -1139,7 +1139,7 @@ label ll_pf_sex_T1_ton_1: # Call label
     call ton_main("Fuck... you've really done a number on her, haven't you, Dumbledore?","horny","base","raised","L")
     m "She was like this from the start..."
     $ lunCG('base', 'happyCl', 'base', 'dr')
-    lun "Mhmm!"
+    lun "*Mhmm*!"
     call ton_main("Then you've lucked out on finding the horniest little nymph to ever live...","horny","base","base","L")
     $ lunCG('open', 'angry', 'mad', 'right')
     lun "I am not... a nymph!"
@@ -1172,7 +1172,7 @@ label ll_pf_sex_T1_ton_1: # Call label
 
             m "On your knees slut!"
             $ lunCG('sucking', 'seductive', 'sad', 'up', pos=8)
-            lun "Mhmm!"
+            lun "*Mhmm*!"
             hide screen blkfade
             with d3
 
@@ -1257,7 +1257,7 @@ label ll_pf_sex_T1_ton_1: # Call label
     lun "But there are still so many--"
     $ lunCG('pout', 'tired', '', 'dl')
     g9 "Well, too bad, I'm about to pass out."
-    call ton_main("Hmmm, he's probably right, Luna... He is pretty old.","base","base","raised","L")
+    call ton_main("*Hmm*... He's probably right, Luna... He is pretty old.","base","base","raised","L")
     $ lunCG('pout', 'angry', 'sad', 'right')
     lun "That shouldn't matter!"
     $ lunCG('pout', 'angry', 'sad', 'dr')
@@ -1468,4 +1468,3 @@ label ll_pf_sex_T1_ton_2: # Call label
     ">You doze off seconds after they leave."
 
     return
-

@@ -234,7 +234,7 @@ label hg_pr_flash_T3_E2:
     call play_music("hermione") # Music
     call her_main("*Ehm*... Sort of...", "annoyed", "base", "worried", "R")
     m "Sort of?"
-    call her_main("Yes... *ehm*...", "open", "base", "base", "mid")
+    call her_main("Yes... *Ehm*...", "open", "base", "base", "mid")
     her "Well, I decided to try and flash them to this Hufflepuff boy..."
     call her_main("I've been waiting for the right moment...", "open", "narrow", "worried", "down")
     her "I was worried that something would go wrong..."

@@ -534,7 +534,7 @@ label nt_pr_teach_T2_E2: # Tier 2 - Event 2 - Ravenclaw boy
         "-Let her know about the cum-":
             $ choice_flag=True
             m "You do know that you've got some cum on you?"
-            call ton_main("*Hmm?*...","base","base","base","down")
+            call ton_main("*Hmm*?...","base","base","base","down")
             call ton_main("Oh...", "mad", "base", "shocked", "down")
             call ton_main("That cheeky bugger! I can't believe he actually shot it that far...","open","base","base","down")
             m ".................."
@@ -583,7 +583,7 @@ label nt_pr_teach_T2_E2: # Tier 2 - Event 2 - Ravenclaw boy
 
     if choice_flag:
         m "Are you going to do anything about the cum?"
-        call ton_main("*Hmm?*... The cum?","upset","base","worried","down")
+        call ton_main("*Hmm*?... The cum?","upset","base","worried","down")
         call ton_main("Oh... Why bother...", "soft", "base", "base", "down")
         call ton_main("It was already there on my way over here.", "soft", "closed", "shocked", "mid")
         call ton_main("Besides, it'll be good for spreading the word, don't you think?", "horny", "narrow", "base", "mid")

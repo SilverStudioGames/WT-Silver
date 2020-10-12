@@ -78,7 +78,7 @@ label cc_ht_return:
     #m "Would you say you've had enough practice to play against them in a tourney game?"
     #call cho_main("Absolutely! The next time we will confront Hufflepuff, they will be crushed!", "smile", "narrow", "angry", "mid")
     #call cho_main("This should be an easy win for Ravenclaw.", "base", "closed", "base", "mid")
-    call cho_main("*Uhm*... [cho_genie_name]...", "horny", "base", "worried", "mid")
+    call cho_main("*Ehm*... [cho_genie_name]...", "horny", "base", "worried", "mid")
     call cho_main("The whole house is celebrating our win at the moment...", "soft", "narrow", "worried", "mid")
     call cho_main("And I'd rather not miss spending some time with--", "horny", "base", "worried", "R")
     g4 "You did well today, [cho_name]."
@@ -164,7 +164,7 @@ label cc_ht_talk:
         call cho_main("But...", "soft", "base", "base", "down", cheeks="blush")
         m "Where's your confidence, your spirit?"
         call cho_main("I'm sorry, [cho_genie_name], forget I said anything...", "open", "happyCl", "base", "mid", cheeks="blush")
-        m "(Hmm... She doesn't look very confident to me...)"
+        m "(*Hmm*... She doesn't look very confident to me...)"
         m "(Perhaps I should train her more in private.)"
     else:
         call cho_main("I'm confident that we can win this, [cho_genie_name].", "smile", "base", "base", "mid")

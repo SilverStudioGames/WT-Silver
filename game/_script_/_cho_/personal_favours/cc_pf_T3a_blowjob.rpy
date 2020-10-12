@@ -138,7 +138,7 @@ label cc_pf_blowjob_T3_intro_E1:
 
         $ camera.set_image("mid_annoyed")
 
-        cho "*Hmmph*..." #annoyed
+        cho "*Hmph*..." #annoyed
 
         $ camera.set_image("away_blush")
 
@@ -420,7 +420,7 @@ label cc_pf_blowjob_1:
 
             call ctc
 
-            gen "*Hmmm*... That's it, grip it firmly just like that..."
+            gen "*Hmm*... That's it, grip it firmly just like that..."
 
             call ctc
 
@@ -1061,7 +1061,7 @@ label cc_pf_blowjob_T3_E2:
                     cho "(T-taste?! But... We never discussed this!)"
 
                     $ camera.set_image("cho_bj topless suck medium up")
-                    cho "*mhmmmm mmhmmmm*!"
+                    cho "*Mhmmmm Mmhmmmm*!"
 
                     #Cho stops for a second to consider and then starts going again
                     call ctc
@@ -1076,7 +1076,7 @@ label cc_pf_blowjob_T3_E2:
                     $ camera.set_image("cho_bj topless suck medium")
 
                     cho "(No, wait!)"
-                    cho "*mmmmmhmmm*!!!"
+                    cho "*Mmmmmhmmm*!!!"
                     gen "{size=+4}*ARGH!*{/size}"
 
                     with vpunch
@@ -1438,7 +1438,7 @@ label cc_pf_blowjob_T3_E3:
 
     cho "Do you like it when I stroke your cock, [cho_genie_name]?" #Looks at genie
     gen "Very much so!"
-    cho "*mhmmm* Good answer. {heart}"
+    cho "*Mhmmm* Good answer. {heart}"
 
     $ camera.set_image("cho_hj topless mid smile")
 

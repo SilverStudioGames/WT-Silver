@@ -547,7 +547,7 @@ label shop_potion_menu:
                 ger "Wormwood is sometimes found in the forbidden forest."
             "-Niffler's Fancy-":
                 m "Do you know where I can find \"Niffler's Fancy\"?"
-                fre "Hmm... I think I heard that it's found by the lake."
+                fre "*Hmm*... I think I heard that it's found by the lake."
         jump shop_potion_menu
     if potion_choice == "her_whoring":
         "Hermione must be \"Trained\" more before you can purchase this."

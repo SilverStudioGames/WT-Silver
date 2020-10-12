@@ -111,7 +111,7 @@ label hg_pr_flirt_teacher_intro:
     m "Tell me, [hermione_name], how many teachers did you flirt with?"
 
     if hg_pr_flirt_teacher.counter == 1:
-        call her_main("*Uhm*... Okay...", "soft", "base", "base", "R")
+        call her_main("*Ehm*... Okay...", "soft", "base", "base", "R")
 
     show screen blktone
     with d3
@@ -135,7 +135,7 @@ label hg_pr_flirt_teacher_T1_E1: # Flitwick
     call her_main("Y-yes...", "open", "base", "worried", "mid")
     her "But [genie_name], I know for a fact that professor Flitwick is \"dirty\"!"
     her "Everyone knows that because of his height..."
-    call her_main("He sometimes... *ehm*...", "soft", "base", "base", "R")
+    call her_main("He sometimes... *Ehm*...", "soft", "base", "base", "R")
     call her_main("He likes to look up under girl's skirts, [genie_name]!", "annoyed", "base", "worried", "R")
     m "Don't we all?"
     call her_main("What?", "open", "base", "base", "mid")
@@ -204,7 +204,7 @@ label hg_pr_flirt_teacher_T1_E2: # Snape
     m "Someone else?"
     call her_main("Yes! Someone with more experience in this...", "upset", "wink", "base", "mid")
     her "Someone..."
-    her "Someone, *ehm*..."
+    her "Someone... *Ehm*..."
     m "Sluttier?"
     call her_main("Yes, I suppose...", "disgust", "narrow", "base", "mid_soft")
     m "Don't you give up, [hermione_name]. We will make a slut *err*--"
@@ -376,7 +376,7 @@ label hg_pr_flirt_teacher_T2_E2:
                 $ hermione.strip("bottom", "stockings")
                 pause.5
 
-                m "Hmm..."
+                m "*Hmm*..."
                 call her_main("", "angry", "narrow", "annoyed", "mid", cheeks="blush", emote="angry")
                 call ctc
 

@@ -219,7 +219,7 @@ label hg_pr_sex_T6_E4:
     m "*Hmm*...?"
     call her_main("My reputation is starting to suffer and it troubles me, [genie_name]...", "open", "base", "base", "mid", cheeks="blush")
     m "Your reputation?"
-    call her_main("Well, yes... *ehm*...", "open", "base", "base", "R", cheeks="blush")
+    call her_main("Well, yes... *Ehm*...", "open", "base", "base", "R", cheeks="blush")
     m ".............."
     call her_main("No, sorry, please disregard what I just said, [genie_name].", "upset", "closed", "base", "mid")
     m "(At this point I'm not sure she has any reputation left.)"

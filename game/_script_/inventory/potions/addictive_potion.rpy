@@ -136,7 +136,7 @@ label hg_pp_cumaddict_intro:
             m "I don't think that you deserve to after calling it filthy and old."
             m "Perhaps if you asked nicely..."
             call her_main("Fine. Please let me suck your dick [genie_name].", "upset", "wink", "base", "mid")
-            m "Hmmm, I don't think that was sincere enough."
+            m "*Hmm*... I don't think that was sincere enough."
             call her_main("Please [genie_name], let me suck your big, thick dick. Pretty please.", "angry", "happyCl", "worried", "mid",emote="sweat")
             m "Much better."
     label hg_pp_cumaddict_sucking:
@@ -431,7 +431,7 @@ label hg_pp_cumaddict_E1: #Repetitive version where she doesn't faint after the 
             m "No? Well in that case...{w=0.5}{nw}"
             call her_main("{size=+5}I'm sorry!{/size}", "scream", "closed", "angry", "mid")
             call her_main("Please let me suck your dick [genie_name]...", "annoyed", "closed", "base", "mid")
-            m "Hmmm, I don't think that was sincere enough."
+            m "*Hmm*... I don't think that was sincere enough."
             call her_main("Please [genie_name], let me suck your big, thick dick. Pretty please.", "soft", "base", "worried", "mid")
             m "Much better."
     jump hg_pp_cumaddict_sucking # <-- Jumps to blowjob section from the intro, you can replace it with new writing if you'd like.
@@ -551,7 +551,7 @@ label potion_scene_3_3_1:
     call her_main("I-I feel grea--", "annoyed", "narrow", "worried", "down")
     call nar(">Hermione's eyes go blank and she stares forward blankly.")
     call her_main("What am I?", "grin", "narrow", "base", "dead")
-    m "*uhm*..."
+    m "*Uhm*..."
     m "(Should have thought of something. At least the potion seems to work. Let's see...)"
 
     #TODO Reconsider the use of menu here, there is only one option
@@ -763,7 +763,7 @@ label potion_scene_3_3_1:
     call her_main("I mean I can barely stop mahself coming here everyday!", "smile", "happyCl", "base", "mid")
     m "That's it..."
     call set_her_action("pinch")
-    call her_main("Hmmm, I just luv playin' with mah boobies{heart}{heart}{heart}", "base", "narrow", "base", "up")
+    call her_main("*Hmmm*... I just luv playin' with mah boobies{heart}{heart}{heart}", "base", "narrow", "base", "up")
     call her_main("They're just so soft...", "open", "narrow", "base", "up",cheeks="blush")
     call set_her_action("covering")
     call her_main("And they feel soo good. They're really sensi--", "base", "narrow", "base", "up",cheeks="blush")

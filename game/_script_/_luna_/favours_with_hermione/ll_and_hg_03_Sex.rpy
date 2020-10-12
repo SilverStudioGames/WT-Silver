@@ -63,7 +63,7 @@ label luna_favour_7: #Luna and Hermione Sex #DONE
     call her_main("You're the cutest, nicest, zaniest girl at this school and I don't know what's happened to you recently, but you need to just calm down and enjoy your life.", "open", "wink", "base", "mid")
     call lun_main("but...","normal","wide","sad","down", cheeks="blush",tears="crying")
     call her_main("*Shhh*... It's okay...", "soft", "base", "base", "mid_soft")
-    call her_main("Why don't we start by enjoying our headmaster's big cock, hmmm?", "grin", "happy", "base", "mid_soft")
+    call her_main("Why don't we start by enjoying our headmaster's big cock, *Hmm*?", "grin", "happy", "base", "mid_soft")
     call her_main("Would that make you feel a little better?", "smile", "wink", "base", "mid")
     call lun_main("y-yes...","base","seductive","sad","R", cheeks="blush",tears="crying")
     show screen blkfade
@@ -204,7 +204,7 @@ label luna_favour_7: #Luna and Hermione Sex #DONE
     $ ccg1 = "luna_18"
     lun "ah... yes..."
     lun "Just please... go slowly sir..."
-    her "*Hmmm*, I'm not sure he'll be able to control himself."
+    her "*Hmm*, I'm not sure he'll be able to control himself."
     show screen blkfade
     with d3
     ">Hermione leans over and whispers into Luna's ear."

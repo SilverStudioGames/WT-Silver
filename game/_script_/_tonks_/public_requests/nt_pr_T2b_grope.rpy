@@ -127,7 +127,7 @@ label nt_pr_grope_T1_E1: # Tier 1 - Event 1 - Slytherin boy
     m "[tonks_name]..."
     call ton_main("Right, well after letting him play with them for a little while, I sent him back to class.", "mad", "narrow", "base", "down")
     m "Think you'll gain any reputation from this encounter?"
-    call ton_main("*Hmmm*... I'm not sure if he'll talk...", "annoyed", "narrow", "base", "R")
+    call ton_main("*Hmm*... I'm not sure if he'll talk...", "annoyed", "narrow", "base", "R")
     call ton_main("But the fact I ask students to stay behind after class should start spreading some rumours.", "base", "wink", "base", "mid")
     m "Good to hear. That'll be all then, [tonks_name]."
     call ton_main("Thank you, [ton_genie_name].","base","base","base","mid")
