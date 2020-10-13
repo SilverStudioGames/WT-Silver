@@ -140,6 +140,13 @@ init python:
             """Takes argument containing string cloth type. Returns equipped object for cloth type."""
             return self.clothes[type][0]
 
+        def get_equipped_item(self, items):
+            """Returns first equipped item from a list or None."""
+            for i in items:
+                if self.is_equipped_item(i):
+                    return i
+            return None
+
         def strip(self, *args):
             """Takes argument(s) containing string cloth type(s) to temporarily displace (hide)."""
             if "all" in args:
@@ -203,7 +210,7 @@ init python:
             else:
                 return True if self.clothes[type][0] else False
 
-        def is_item_equipped(self, item):
+        def is_equipped_item(self, item):
             """Takes DollCloth object or list of objects. Returns True if item is equipped, False otherwise."""
             return self.get_equipped(item.type) == item
 

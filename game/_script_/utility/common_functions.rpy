@@ -10,6 +10,7 @@ init -1 python:
     import posixpath
     import re
     from operator import itemgetter
+    from collections import OrderedDict
 
     get_volume_preference = renpy.game.preferences.get_volume
 

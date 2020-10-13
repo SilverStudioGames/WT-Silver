@@ -234,7 +234,7 @@ label tonks_wardrobe_check(section, arg=None):
 
     $ renpy.play('sounds/equip.ogg')
     $ current_item = arg
-    if isinstance(current_item, DollCloth) and char_active.is_item_equipped(current_item):
+    if isinstance(current_item, DollCloth) and char_active.is_equipped_item(current_item):
         $ char_active.unequip(current_item.type)
         $ current_item = None
     else:

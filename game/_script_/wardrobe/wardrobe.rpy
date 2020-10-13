@@ -1,5 +1,3 @@
-init python:
-    from collections import OrderedDict
 
 default wardrobe_music = False
 default wardrobe_chitchats = True
@@ -20,44 +18,22 @@ define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 
 label wardrobe(char_label):
     python:
-        # TODO: Streamline and unify whoring variables.
-        _char_var_list = {
-            "hermione": (her_whoring, her_requirements["change_underwear"]),
-            "tonks": (ton_friendship, ton_requirements["change_underwear"]),
-            "astoria": (ast_whoring, ast_requirements["change_underwear"]),
-            "cho": (cho_whoring, cho_requirements["change_underwear"]),
-            "luna": (lun_whoring, lun_requirements["change_underwear"]),
-            "susan": (sus_whoring, sus_requirements["change_underwear"])
-            }
-
-        export_in_progress = False
-        item_to_export = None
-
         char_active = getattr(store, active_girl)
-        char_nickname = char_active.name
-        char_scale = 0.5
-        char_level = _char_var_list[active_girl][0]
-        char_underwear_allowed = char_level >= _char_var_list[active_girl][1]
 
         wardrobe_subcategories = char_active.wardrobe
+        wardrobe_subcategories.update( { "outfits": { k:char_active.outfits for k in {"load", "save", "delete", "export&import", "schedule"} } } )
 
         current_category = None
         current_subcategory = None
         current_item = None
 
-        character_toggles = [(k, v[1]) for k, v in char_active.clothes.iteritems() if k != "hair" and not any(i.isdigit() for i in k)]
-        character_toggles.extend([("tattoo", 30), ("piercing", 31), ("makeup", 32), ("accessory", 33)])
-        character_toggles.sort(key=lambda x: x[1], reverse=True)
-
-        renpy.hide_screen(active_girl+"_main")
-
-        if wardrobe_music:
-            renpy.call("play_music", "wardrobe")
+    if wardrobe_music:
+        call play_music("wardrobe")
 
     if not renpy.android:
         show screen tooltip
 
-    show screen wardrobe_menu(650, 50)
+    show screen wardrobe_menu(662, 50)
 
     label .after_init:
 
@@ -68,47 +44,26 @@ label wardrobe(char_label):
             current_category = _return[1]
 
             category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
-
             current_subcategory = category_items.keys()[0] if category_items else ""
-            current_item = None
-
             menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
-            menu_items_length = len(menu_items)
+
+            if current_category != "outfits":
+                current_item = char_active.get_equipped_item(menu_items)
 
             char_active.wear("all")
             if current_category in ("lower undergarment", "upper undergarment"):
                 char_active.strip("top", "bottom", "robe", "accessory")
             elif current_category == "piercings & tattoos":
                 char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
-
-            for item in menu_items:
-                if char_active.is_item_equipped(item):
-                    current_item = item
-                    break
         elif _return[0] == "subcategory":
             current_subcategory = _return[1]
+            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
 
             if current_category != "outfits":
-                menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
-                menu_items_length = len(menu_items)
-                # Default selected item
-                current_item = None
-
-                for item in menu_items:
-                    if char_active.is_item_equipped(item):
-                        current_item = item
-                        break
-        elif _return[0] == "outfits":
-            current_category = "outfits"
-            category_items = ("Load", "Save", "Delete", "Export&Import", "Schedule")
-            current_subcategory = category_items[0]
-            current_item = None
-            char_active.wear("all")
-            menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
-            menu_items_length = len(menu_items)
+                current_item = char_active.get_equipped_item(menu_items)
         elif _return[0] == "equip":
             if isinstance(_return[1], DollCloth):
-                if _return[1].type == "hair" and char_active.is_item_equipped(_return[1]):
+                if _return[1].type == "hair" and char_active.is_equipped_item(_return[1]):
                     renpy.play("sounds/fail.mp3")
                     renpy.notify("Hair cannot be removed.")
                 else:
@@ -129,12 +84,10 @@ label wardrobe(char_label):
                 _outfit.delete()
                 renpy.notify("This outfit has already been saved!")
 
-            menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
-            menu_items_length = len(menu_items)
+            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
         elif _return[0] == "deloutfit":
             _return[1].delete()
-            menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
-            menu_items_length = len(menu_items)
+            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
         elif _return[0] == "export":
             #menu:
             #    "-Export to PNG file-" if not renpy.android:
@@ -162,7 +115,6 @@ label wardrobe(char_label):
             #    "-Back-":
             pass
             #$ menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
-            #$ menu_items_length = len(menu_items)
         elif _return == "music":
             if wardrobe_music:
                 wardrobe_music = False
@@ -205,19 +157,9 @@ screen wardrobe_menu(xx, yy):
     window:
         pos (xx, yy)
         xysize (344, 507)
-        background panel
+        #background panel
 
         use invisible_button()
-
-        # Character
-        add char_active.get_image():
-            yoffset -6
-            corner1 (238, 200)
-            corner2 (872, 1200)
-            zoom 0.45
-            anchor (0.5, 1.0)
-            align (0.5, 1.0)
-            events False
 
         # Main Categories
         grid 2 4:
@@ -239,23 +181,39 @@ screen wardrobe_menu(xx, yy):
                     if current_category == category:
                         xoffset icon_xoffset
 
-        vbox:
-            pos (50, 120)
+        hbox:
+            $ icon_yoffset = -18
+
+            pos (92, 18)
+            spacing 18
             # Outfits Manager
             button:
-
-                xysize (50, 50)
-                background Fixed(gui.format("interface/frames/{}/circle.webp"), "interface/wardrobe/outfits.webp")
+                xysize (72, 72)
+                background Fixed(icon_bg, Transform("interface/wardrobe/icons/categories/outfits.webp", zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5)), icon_frame)
                 tooltip "Outfits Manager"
-                action Return(["outfits"])
+                action Return(["category", "outfits"])
+                if current_category == "outfits":
+                    yoffset icon_yoffset
 
             # Studio
             if not renpy.android:
                 button:
-                    xysize (50, 50)
-                    background Fixed(gui.format("interface/frames/{}/circle.webp"), "interface/wardrobe/studio.webp")
-                    tooltip "Open Studio"
+                    xysize (72, 72)
+                    background Fixed(icon_bg, Transform("interface/wardrobe/icons/categories/studio.webp", zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5)), icon_frame)
+                    tooltip "Photo Studio"
                     action Function(renpy.call_in_new_context, "studio", active_girl)
+
+        add panel
+
+        # Character
+        add char_active.get_image():
+            yoffset -6
+            corner1 (238, 200)
+            corner2 (872, 1200)
+            zoom 0.45
+            anchor (0.5, 1.0)
+            align (0.5, 1.0)
+            events False
 
         # Easter Egg (Headpats, boobs, pussy)
         button style "empty" xysize (120, 80) xalign 0.525 ypos 60 action Return(["touching", "head"])
@@ -288,7 +246,6 @@ screen wardrobe_menu(xx, yy):
                 style gui.theme("dropdown")
                 tooltip "{color=#35aae2}[active_girl]{/color} will automatically wear outfits\nbased on set schedule, time of day and weather."
                 action ToggleVariable(active_girl+"_outfits_schedule", True, False)
-
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
@@ -360,12 +317,12 @@ screen wardrobe_menuitem(xx, yy):
             for item in menu_items:
                 $ icon = item.get_icon()
                 $ is_seen = item.seen
-                $ is_equipped = char_active.is_item_equipped(item)
+                $ is_equipped = char_active.is_equipped_item(item)
                 $ is_inadequate = bool(get_progression(active_girl) < item.level)
                 $ is_blacklisted = char_active.is_blacklisted(item.type)
                 $ is_blacklister = any(char_active.is_equipped(x) for x in item.blacklist)
                 $ is_modded = bool(item.modpath)
-                $ is_multislot = any(x in item.type for x in ("makeup", "accessory", "piercing", "tattoo"))
+                $ is_multislot = False #any( (x in item.type) for x in ("makeup", "accessory", "piercing", "tattoo") ) # BROKEN
                 $ warnings = []
 
                 if is_blacklisted or is_blacklister:
@@ -440,7 +397,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
             spacing 5
             pos (8, 108)
 
-            for subcategory in category_items:
+            for subcategory in category_items.keys():
                 $ icon = "interface/wardrobe/icons/{}.webp".format(subcategory)
 
                 button:
@@ -470,15 +427,15 @@ screen wardrobe_outfit_menuitem(xx, yy):
                 if is_modded:
                     $ warnings.append("This item belongs to a mod:\n{size=-4}{color=#35aae2}"+ item.get_modname() + "{/color}{/size}")
 
-                if current_subcategory == "Delete":
+                if current_subcategory == "delete":
                     $ action = Return(["deloutfit", item])
-                elif current_subcategory == "Load":
+                elif current_subcategory == "load":
                     $ action = Return(["equip", item])
-                elif current_subcategory == "Save":
+                elif current_subcategory == "save":
                     $ action = Return(["addoutfit", item])
-                elif current_subcategory == "Export&Import":
+                elif current_subcategory == "export&import":
                     $ action = Return(["export", item])
-                elif current_subcategory == "Schedule":
+                elif current_subcategory == "schedule":
                     $ action = None
 
                 button:
@@ -495,7 +452,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                         if is_modded:
                             text "M" color "#00b200"
 
-                    if current_subcategory == "Schedule" and getattr(renpy.store, active_girl+"_outfits_schedule"):
+                    if current_subcategory == "schedule" and getattr(renpy.store, active_girl+"_outfits_schedule"):
                         vbox:
                             spacing 5
                             for x in wardrobe_outfit_schedule:
@@ -517,14 +474,14 @@ screen wardrobe_outfit_menuitem(xx, yy):
                                     tooltip _tooltip
                                     action ToggleDict(item.schedule, x, True, False)
             # Add empty slot
-            $ slot = menu_items_length+1
-            if current_subcategory == "Save":
+            $ slot = len(menu_items)+1
+            if current_subcategory == "save":
                 textbutton "Save\n{size=-5}Slot [slot]{/size}":
                     xysize icon_size
                     idle_background "#00000033"
                     text_align (0.5, 0.5)
                     action Return("addoutfit")
-            elif current_subcategory == "Export&Import":
+            elif current_subcategory == "export&import":
                 textbutton "Import\n{size=-5}Slot [slot]{/size}":
                     xysize icon_size
                     idle_background "#00000033"

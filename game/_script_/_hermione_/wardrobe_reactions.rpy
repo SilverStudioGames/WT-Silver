@@ -152,7 +152,7 @@ label hermione_wardrobe_check(section, arg=None):
         elif section == "equip":
             if arg.type in ("bra", "panties"):
                 if her_whoring < her_requirements["unequip_underwear"]:
-                    if char_active.is_item_equipped(arg):
+                    if char_active.is_equipped_item(arg):
                         if wardrobe_chitchats:
                             call her_main("No, I'm not taking off my [arg.type]!", "clench", "wide", "angry", "mid")
                         #Hint
@@ -164,7 +164,7 @@ label hermione_wardrobe_check(section, arg=None):
                     return
             elif arg.type in ("top", "bottom"):
                 if her_whoring < her_requirements["unequip_clothes"]:
-                    if char_active.is_item_equipped(arg):
+                    if char_active.is_equipped_item(arg):
                         if wardrobe_chitchats:
                             call her_main("I am not taking off my clothes, forget it!", "annoyed", "narrow", "angry", "L", cheeks="blush")
                         #Hint
@@ -201,7 +201,7 @@ label hermione_wardrobe_check(section, arg=None):
 
     $ renpy.play('sounds/equip.ogg')
     $ current_item = arg
-    if isinstance(current_item, DollCloth) and char_active.is_item_equipped(current_item):
+    if isinstance(current_item, DollCloth) and char_active.is_equipped_item(current_item):
         $ char_active.unequip(current_item.type)
         $ current_item = None
     else:
