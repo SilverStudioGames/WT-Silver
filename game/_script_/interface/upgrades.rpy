@@ -122,9 +122,6 @@ screen upgrades_menu(xx, yy):
     zorder 30
     modal True
 
-    default bg = At(screenshot_image, gaussianblur(15.0))
-    add bg
-
     use close_button
     frame:
         style "empty"

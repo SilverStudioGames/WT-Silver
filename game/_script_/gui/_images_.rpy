@@ -99,53 +99,53 @@ image game_title:
 
     #TODO Add sparkle to game logo
     # #sparkle
-    # contains:
-    #     subpixel True
-    #     xpos 798-682
-    #     ypos 200
-    #     xanchor 0.5
-    #     yanchor 0.5
-    #     zoom 0.0
-    #     "gui/main_menu/sparkle.webp"
-    #     linear 0.8 zoom 1.0
-    #     linear 0.5 zoom 0.0
-    #     pause 5
-    #     repeat
+    contains:
+        subpixel True
+        xpos 50
+        ypos 200
+        xanchor 0.5
+        yanchor 0.5
+        zoom 0.0
+        "gui/main_menu/sparkle.webp"
+        linear 0.8 zoom 1.0
+        linear 0.5 zoom 0.0
+        pause 5
+        repeat
 
     # #shine silver (synchronized)
-    # contains:
-    #     subpixel True
-    #     xpos 848-682
-    #     ypos 230-12
-    #     xanchor 0.5
-    #     yanchor 0.5
-    #     zoom 0.0
-    #     "gui/main_menu/sparkle.webp"
-    #     pause 1.3
-    #     linear 0.5 zoom 1.0
-    #     linear 0.5 zoom 0.0
+    contains:
+        subpixel True
+        xpos 115
+        ypos 222
+        xanchor 0.5
+        yanchor 0.5
+        zoom 0.0
+        "title/sparkle.webp"
+        pause 1.3
+        linear 0.5 zoom 1.0
+        linear 0.5 zoom 0.0
 
-    #     xpos 870-682
-    #     ypos 205-12
-    #     linear 0.5 zoom 1.0
-    #     linear 0.5 zoom 0.0
+        xpos 135
+        ypos 192
+        linear 0.5 zoom 1.0
+        linear 0.5 zoom 0.0
 
-    #     xpos 914-682
-    #     ypos 227-12
-    #     linear 0.5 zoom 1.0
-    #     linear 0.5 zoom 0.0
+        xpos 186
+        ypos 217
+        linear 0.5 zoom 1.0
+        linear 0.5 zoom 0.0
 
-    #     xpos 948-682
-    #     ypos 233-12
-    #     linear 0.5 zoom 1.0
-    #     linear 0.5 zoom 0.0
+        xpos 220
+        ypos 223
+        linear 0.5 zoom 1.0
+        linear 0.5 zoom 0.0
 
-    #     xpos 999-682
-    #     ypos 226-12
-    #     linear 0.5 zoom 1.0
-    #     linear 0.5 zoom 0.0
-    #     pause 12.6
-    #     repeat
+        xpos 275
+        ypos 220
+        linear 0.5 zoom 1.0
+        linear 0.5 zoom 0.0
+        pause 12.6
+        repeat
 
 image candle_fire:
     "gui/main_menu/candle/fire_01.webp"

@@ -1,6 +1,4 @@
 
-default screenshot_image = None
-
 init -10 python:
     class ScreenshotImage(im.ImageBase):
         def __init__(self, root, **properties):
