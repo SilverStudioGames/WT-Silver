@@ -143,7 +143,7 @@ label suck_and_run:
         m "Oh no, he absolutely loves it."
         call ton_main("Really?", "disgust", "wide", "shocked", "mid")
         call ton_main("Well... Colour me surprised...", "open", "closed", "base", "mid")
-        m "Yes... In fact he seemed quite eager to find out what will the girls wear this year."
+        m "Yes... He seemed quite eager to find out what the girls will be wearing this year in fact."
         call ton_main("Oh, so it's like that is it?", "base", "base", "raised", "down")
         m "He also mentioned that some Hufflepuff boys have been falling asleep during his lessons lately... What do you think--"
         call ton_main("What?! Why do you think I'd know anything about Hufflepuff boys falling asleep in class!?", "mad", "wide", "base", "mid")
@@ -345,7 +345,7 @@ label suck_and_run:
         m "Surely it is not my fault that my semen contains such immeasurable--"
         call ton_main("...", "annoyed", "narrow", "base", "down", hair="sad") #sad
         m "*Ahem*"
-        m "So... A Succubus... ey?"
+        m "So... A Succubus... *eh*?"
         call ton_main("Obviously...", "open", "narrow", "shocked", "downR", hair="sad")
         m "A sexual deviant that can't hold in their own desires..."
         g9 "Not sure why I didn't figure it out sooner..."
