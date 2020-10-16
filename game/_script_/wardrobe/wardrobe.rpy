@@ -19,6 +19,8 @@ define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 label wardrobe():
     python:
         char_active = getattr(store, active_girl)
+        char_outfit = getattr(renpy.store, active_girl[:3] + "_outfit_last")
+        char_outfit.save()
 
         wardrobe_subcategories = char_active.wardrobe
 
@@ -51,7 +53,11 @@ label wardrobe():
             current_subcategory = category_items.keys()[0] if category_items else ""
             menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
 
-            if current_category != "outfits":
+            if current_category == "outfits":
+                _outfit = char_active.create_outfit()
+                current_item = next( (x for x in char_active.outfits if _outfit.hash == x.hash), None)
+                _outfit.delete()
+            else:
                 current_item = char_active.get_equipped_item(menu_items)
 
             char_active.wear("all")
@@ -67,7 +73,11 @@ label wardrobe():
             else:
                 menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
 
-            if current_category != "outfits":
+            if current_category == "outfits":
+                _outfit = char_active.create_outfit()
+                current_item = next( (x for x in char_active.outfits if _outfit.hash == x.hash), None)
+                _outfit.delete()
+            else:
                 current_item = char_active.get_equipped_item(menu_items)
         elif _return[0] == "equip":
             if isinstance(_return[1], DollCloth):
@@ -89,12 +99,12 @@ label wardrobe():
                     renpy.jump("wardrobe.after_init")
 
                 if not _outfit.exists():
-                    _confimed = False
-                    renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?", [SetVariable("_confimed", True), Return()], Return())
+                    _confirmed = False
+                    renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?", [SetVariable("_confirmed", True), Return()], Return())
 
                     _outfit.delete()
 
-                    if _confimed:
+                    if _confirmed:
                         renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
                     else:
                         renpy.notify("Load failed: Cancelled by user.")
@@ -110,18 +120,20 @@ label wardrobe():
 
             if _outfit.exists():
                 _outfit.delete()
-                renpy.notify("Save failed: This outfit already exists.")
+                renpy.notify("Save failed: Outfit already exists.")
             else:
                 if _return[1]:
                     _indx = char_active.outfits.index(_return[1])
                     char_active.outfits.remove(_outfit)
-                    renpy.call_screen("confirm", "Overwrite this outfit?", [SetDict(char_active.outfits, _indx, _outfit), Return()], [Function(_outfit.delete), Return()])
+                    renpy.call_screen("confirm", "Overwrite outfit?", [SetDict(char_active.outfits, _indx, _outfit), Return()], [Function(_outfit.delete), Return()])
 
                 menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+                renpy.notify("Saved.")
 
         elif _return[0] == "deloutfit":
             _return[1].delete()
             menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+            renpy.notify("Deleted.")
         elif _return[0] == "export":
             _return[1].export_data(datetime.datetime.now().strftime("%d %b %Y-%H%M%S"))
             achievement.unlock("export")
@@ -141,21 +153,21 @@ label wardrobe():
                 renpy.call("play_music", "wardrobe")
                 #renpy.call(char_label, face="happy")
         else: #_return == "Close":
-            _confimed = False
+            _confirmed = False
             _outfit = char_active.create_outfit()
 
             if not _outfit.exists():
+                _outfit.delete()
                 renpy.notify("Advice: If you want to keep an outfit, save it.")
-                renpy.call_screen("confirm", "Exit without saving?", [SetVariable("_confimed", True), Return()], Return())
+                renpy.call_screen("confirm", "Exit without saving?\n{size=-6}Unsaved changed will be lost.{/size}", [SetVariable("_confirmed", True), Return()], Return())
+
+                if not _confirmed:
+                    renpy.jump("wardrobe.after_init")
+                char_active.equip(char_outfit)
 
             _outfit.delete()
-
-            if not _confimed:
-                renpy.jump("wardrobe.after_init")
-
-            renpy.play('sounds/door2.mp3')
             char_active.wear("all")
-
+            renpy.play('sounds/door2.mp3')
             if wardrobe_music:
                 renpy.call("play_music", active_girl)
 
@@ -362,7 +374,7 @@ screen wardrobe_menuitem(xx, yy):
                     $ warnings.append("Character level too low")
 
                 if is_modded:
-                    $ warnings.append("This item belongs to a mod:\n{size=-4}{color=#35aae2}" + item.get_modname() + "{/color}{/size}")
+                    $ warnings.append("Item belongs to a mod:\n{size=-4}{color=#35aae2}" + item.get_modname() + "{/color}{/size}")
 
                 if is_multislot:
                     $ slot = str(int(item.type[-1])+1)
@@ -451,14 +463,16 @@ screen wardrobe_outfit_menuitem(xx, yy):
                 if current_subcategory == "import":
                     $ icon = "/outfits/{}".format(item)
                     $ is_modded = False
+                    $ is_equipped = False
                 else:
                     $ icon = Crop((210, 200, 700, 1000), item.get_image())
                     $ is_modded = item.is_modded()
+                    $ is_equipped = bool(current_item == item)
 
                 $ warnings = []
 
                 if is_modded:
-                    $ warnings.append("This item belongs to a mod:\n{size=-4}{color=#35aae2}"+ item.get_modname() + "{/color}{/size}")
+                    $ warnings.append("Item belongs to a mod:\n{size=-4}{color=#35aae2}"+ item.get_modname() + "{/color}{/size}")
 
                 if current_subcategory == "delete":
                     $ action = Return(["deloutfit", item])
@@ -508,6 +522,10 @@ screen wardrobe_outfit_menuitem(xx, yy):
                                     #selected _on
                                     tooltip _tooltip
                                     action ToggleDict(item.schedule, x, True, False)
+
+                    if is_equipped:
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
+
             # Add empty slot
             $ slot = len(menu_items)+1
             if current_subcategory == "save":
