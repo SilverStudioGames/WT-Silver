@@ -89,7 +89,7 @@ init python:
                     return False
             return True
 
-        def export_data(self, tofile=True, filename="exported"):
+        def export_data(self, filename, tofile=True):
             """Exports outfit to .png file or clipboard text."""
             exported = [self.group[0].name]
             exported.extend([x.id, x.color] for x in self.group)
@@ -102,61 +102,20 @@ init python:
                 if not os.path.exists(path):
                     os.makedirs(path)
 
-                path = path+fn
-                renpy.screenshot(path)
-                img = pygame.image.load(path)
-                img = pygame.transform.smoothscale(img, (1080, 600))
-                subsurface = img.subsurface((384, 63, 309, 470))
-                pygame.image.save(subsurface, path)
+                d = Transform(self.get_image(), crop=(210, 200, 700, 1000), anchor=(0.5, 1.0), align=(0.5, 1.0), xsize=310, ysize=470, fit="contain")
+                d = Fixed(
+                    "interface/wardrobe/export_background.webp",
+                    d,
+                    "interface/wardrobe/export_frame.webp",
+                    Text(active_girl, align=(0.5, 0.995)),
+                    Text("Ver. {}".format(config.version), size=10, align=(0.99, 0.99))
+                )
+
+                displayable_to_file(d, path+fn, size=(310, 470) )
                 image_payload.encode(filename, str(exported))
             else:
                 set_clipboard(exported)
             renpy.notify("Export successful!")
-
-        def import_data(self, fromfile=True, filename="exported"):
-            """Imports outfit from .png file or clipboard text."""
-            # Grab data
-            if fromfile:
-                try:
-                    if renpy.loadable("/outfits/{}.png".format(filename)):
-                        imported = image_payload.decode(filename)
-                    else:
-                        renpy.notify("File doesn't exist!")
-                        return False
-                except:
-                    if image_payload._file:
-                        image_payload._file.close()
-                    renpy.notify("Corrupted file!")
-                    return False
-            else:
-                imported = get_clipboard()
-
-            # Evaluate data
-            if imported:
-                try:
-                    imported = make_revertable(evaluate(imported))
-                except:
-                    renpy.notify("Corrupted file!")
-                    renpy.block_rollback()
-                    return False
-
-                group = []
-
-                for x in imported:
-                    if isinstance(x, list):
-                        for o in char_active.wardrobe_list:
-                            if x[0] == o.id:
-                                if not o.unlocked and not cheats_active:
-                                    renpy.notify("You haven't unlocked some of the items yet. Try again later.")
-                                    return False
-                                x[0] = o.clone()
-                                x[0].set_color(x[1])
-                                group.append(x[0])
-                if len(group) > 0:
-                    renpy.notify("Import successful!")
-                    return DollOutfit(group, True)
-            renpy.notify("Import failed!")
-            return False
 
         def unlock(self):
             """Unlocks outfit and respective clothing objects from which they were cloned."""

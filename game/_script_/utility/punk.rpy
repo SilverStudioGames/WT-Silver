@@ -26,7 +26,7 @@ init python:
         def decode(self, input_file):
             self.__init__()
             self._mode = 'decode'
-            self._file = open(config.basedir+'/game/outfits/'+input_file+'.png', 'rb+')
+            self._file = open("{}/outfits/{}".format(config.gamedir, input_file), 'rb+')
             #self._output = open(config.basedir+'/game/'+output_file+'.txt', 'wb+')
 
             # First move cursor past the signature
@@ -39,7 +39,7 @@ init python:
         def encode(self, input_file, bytes_to_hide):
             self.__init__()
             self._mode = 'encode'
-            self._file = open(config.basedir+'/game/outfits/'+input_file+'.png', 'rb+')
+            self._file = open("{}/outfits/{}.png".format(config.gamedir, input_file), 'rb+')
             self._bytes_to_hide = bytes_to_hide.encode('utf-8')
 
             # First move cursor past the signature

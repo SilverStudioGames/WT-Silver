@@ -21,37 +21,18 @@ init -10 python:
             root = renpy.display.core.scene_lists().make_layer("screens", {})
             return ScreenshotImage(root)
 
-    def displayable_to_file(d, fn="output.webp", w=2048, h=2048):
-        import cStringIO
+    def displayable_to_file(d, path, size=(1080, 600), crop=None, coloralpha=(0, 255, 0)):
+        crop = crop or (0, 0, size[0], size[1])
+        gl_clear = renpy.config.gl_clear_color
+        renpy.config.gl_clear_color = coloralpha
 
-        switch_renderer = renpy.get_renderer_info()["renderer"] != "sw"
+        d = d.render(size[0], size[1], 0, 0)
+        surf = renpy.display.draw.screenshot(d)
+        surf = pygame.transform.smoothscale(surf, (config.screen_width, config.screen_height)).convert()
+        surf.set_colorkey(coloralpha)
 
-        if switch_renderer:
-            # Remember the renderer preference
-            renderer_pref = renpy.game.preferences.renderer
-            renpy.game.preferences.renderer = "sw"
+        psurf = pygame.Surface(size, pygame.SRCALPHA).convert_alpha()
+        psurf.blit(surf, (0, 0), crop)
 
-            # Switch to software rendering
-            renpy.display.draw.quit()
-            renpy.display.draw = None
-            renpy.display.interface.set_mode()
-
-        # Render to surface using software rendering
-        render = d.render(w, h, 0, 0)
-        surf = renpy.display.swdraw.surface(render.width, render.height, True)
-        renpy.display.swdraw.draw(surf, None, render, 0, 0, False)
-
-        if switch_renderer:
-            # Restore preferred rendering
-            renpy.display.draw.quit()
-            renpy.display.draw = None
-            renpy.game.preferences.renderer = renderer_pref
-            renpy.display.interface.set_mode()
-            renpy.free_memory()
-
-        # Write surface to PNG file
-        sio = cStringIO.StringIO()
-        renpy.display.module.save_png(surf, sio, 0)
-        with open(fn, "wb") as f:
-            f.write(sio.getvalue())
-        sio.close()
+        pygame.image.save(psurf, path)
+        renpy.config.gl_clear_color = gl_clear

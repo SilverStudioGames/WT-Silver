@@ -1,15 +1,16 @@
 
 default wardrobe_music = False
 default wardrobe_chitchats = True
+default wardrobe_prompts = True
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
-    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "slot1": 5, "panties": 5,
-    "earrings": 4, "sweaters": 4, "trousers": 4, "stockings": 4, "bikini panties": 4,
-    "neckwear": 3, "dresses": 3, "shorts": 3, "socks": 3,
-    "one-piece suits": 2,
-    "robes": 1,
-    "gloves": 0, "pubes": 0,
+    "hair": 5, "shirts": 5, "skirts": 5, "pantyhose": 5, "slot1": 5, "panties": 5, "save": 5,
+    "earrings": 4, "sweaters": 4, "trousers": 4, "stockings": 4, "bikini panties": 4, "load": 4,
+    "neckwear": 3, "dresses": 3, "shorts": 3, "socks": 3, "schedule": 3,
+    "one-piece suits": 2, "import": 2,
+    "robes": 1, "export": 1,
+    "gloves": 0, "pubes": 0, "delete": 0,
     "other": -1,
 }
 
@@ -21,7 +22,11 @@ label wardrobe(char_label):
         char_active = getattr(store, active_girl)
 
         wardrobe_subcategories = char_active.wardrobe
-        wardrobe_subcategories.update( { "outfits": { k:char_active.outfits for k in {"load", "save", "delete", "export&import", "schedule"} } } )
+
+        if renpy.android:
+            wardrobe_subcategories.update( { "outfits": { k:char_active.outfits for k in {"load", "save", "delete", "schedule"} } } )
+        else:
+            wardrobe_subcategories.update( { "outfits": { k:char_active.outfits for k in {"load", "save", "delete", "schedule", "import", "export"} } } )
 
         current_category = None
         current_subcategory = None
@@ -57,7 +62,11 @@ label wardrobe(char_label):
                 char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
         elif _return[0] == "subcategory":
             current_subcategory = _return[1]
-            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+
+            if current_subcategory == "import":
+                menu_items = list_outfit_files()
+            else:
+                menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
 
             if current_category != "outfits":
                 current_item = char_active.get_equipped_item(menu_items)
@@ -89,32 +98,14 @@ label wardrobe(char_label):
             _return[1].delete()
             menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
         elif _return[0] == "export":
-            #menu:
-            #    "-Export to PNG file-" if not renpy.android:
-            #        export_in_progress = True
-            #        last_outfit = char_active.create_outfit()
-            #        char_active.equip(_return[1])
-            #        item_to_export = _return[1]
-            #        renpy.call_in_new_context("studio", active_girl)
-            #        char_active.equip(last_outfit)
-            #    "-Export to clipboard-":
-            #        _return[1].export_data(False)
-            #    "-Back-":
-            pass
-            #$ achievement.unlock("export")
-        elif _return == "import":
-            #menu:
-            #    "-Import from PNG file-" if not renpy.android:
-            #        #call file_explorer # Unfinished
+            _return[1].export_data(datetime.datetime.now().strftime("%d %b %Y-%H%M%S"))
+            achievement.unlock("export")
+        elif _return[0] == "import":
+            _outfit = char_active.import_outfit(_return[1])
 
-            #        $ txt_filename = "exported"
-            #        $ txt_filename = renpy.input("Filename", txt_filename, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#&_- ", length=64)
-            #        $ getattr(renpy.store, active_girl[:3]+"_outfit_last").import_data(True, txt_filename)
-            #    "-Import from clipboard-":
-            #        $ getattr(renpy.store, active_girl[:3]+"_outfit_last").import_data(False)
-            #    "-Back-":
-            pass
-            #$ menu_items = filter(lambda x: x.unlocked==True, char_active.outfits)
+            if _outfit and not _outfit.validate():
+                _outfit.delete()
+                renpy.notify("Import failed: Outfit already exists.")
         elif _return == "music":
             if wardrobe_music:
                 wardrobe_music = False
@@ -246,6 +237,10 @@ screen wardrobe_menu(xx, yy):
                 style gui.theme("dropdown")
                 tooltip "{color=#35aae2}[active_girl]{/color} will automatically wear outfits\nbased on set schedule, time of day and weather."
                 action ToggleVariable(active_girl+"_outfits_schedule", True, False)
+            textbutton "Action prompts":
+                style gui.theme("dropdown")
+                tooltip "Toggle confirmation prompts"
+                action ToggleVariable("wardrobe_prompts", True, False)
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
@@ -420,8 +415,13 @@ screen wardrobe_outfit_menuitem(xx, yy):
             ysize 308
 
             for item in menu_items:
-                $ icon = Crop((210, 200, 700, 1000), item.get_image())
-                $ is_modded = item.is_modded()
+                if current_subcategory == "import":
+                    $ icon = "/outfits/{}".format(item)
+                    $ is_modded = False
+                else:
+                    $ icon = Crop((210, 200, 700, 1000), item.get_image())
+                    $ is_modded = item.is_modded()
+
                 $ warnings = []
 
                 if is_modded:
@@ -433,7 +433,9 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     $ action = Return(["equip", item])
                 elif current_subcategory == "save":
                     $ action = Return(["addoutfit", item])
-                elif current_subcategory == "export&import":
+                elif current_subcategory == "import":
+                    $ action = Return(["import", item])
+                elif current_subcategory == "export":
                     $ action = Return(["export", item])
                 elif current_subcategory == "schedule":
                     $ action = None
@@ -481,12 +483,6 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     idle_background "#00000033"
                     text_align (0.5, 0.5)
                     action Return("addoutfit")
-            elif current_subcategory == "export&import":
-                textbutton "Import\n{size=-5}Slot [slot]{/size}":
-                    xysize icon_size
-                    idle_background "#00000033"
-                    text_align (0.5, 0.5)
-                    action Return("import")
 
 style wardrobe_window is empty
 

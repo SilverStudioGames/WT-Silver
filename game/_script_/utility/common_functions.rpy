@@ -1,6 +1,7 @@
 init -1 python:
     # Import commonly used python modules
     import time
+    import datetime
     import math
     import random
     import pygame

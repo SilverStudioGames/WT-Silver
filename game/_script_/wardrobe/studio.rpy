@@ -156,16 +156,6 @@ label studio(char):
 
     call screen studio
 
-    python:
-        if _return == "confirm":
-            renpy.show_screen("studio")
-            _filename = renpy.input("Filename", "exported", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#& ", length=64)
-            renpy.pause(0.1, hard=True)
-            item_to_export.export_data(True, _filename)
-        else: # Close
-            char_active = last_char
-            char_active.set_face(**last_face)
-            active_girl = last_char.name
     return
 
 screen studio():
@@ -214,20 +204,6 @@ screen studio():
 
     if visible:
         use close_button
-
-        if export_in_progress:
-            add "images/rooms/overlays/card_sp.webp"
-            hbox:
-                align (1.0, 1.0)
-                textbutton "Confirm" action Return("confirm")
-                textbutton "Cancel" action Return("cancel")
-            fixed:
-                style_prefix "studio_export"
-                ypos 512
-
-                text "WT:S [title_version]"
-                if item_to_export.is_modded():
-                    text "Modded" size 12 color "#00b200" outlines [(1, "#000000", 0, 0)] xpos 392
 
         hbox:
             pos (25, 25)
@@ -291,13 +267,6 @@ style studio_button:
 
 style studio_button_text:
     size 12
-
-style studio_export_text:
-    size 12
-    color "#FFFFFF"
-    outlines [(1, "#000000", 0, 0)]
-    xanchor 1.0
-    xpos 688
 
 style studio_characters_button_text:
     size 10

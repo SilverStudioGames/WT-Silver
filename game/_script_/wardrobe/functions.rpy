@@ -104,3 +104,11 @@ init python:
             renpy.hide_screen("blktone")
             renpy.with_statement(d3)
         return
+
+    def list_outfit_files():
+        path = "{}/outfits/".format(config.gamedir)
+
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) and f.endswith(".png")]

@@ -321,6 +321,52 @@ init python:
             """Creates a copy of the current character clothes and stores it."""
             return DollOutfit([x[0] for x in self.clothes.itervalues() if x[0]], True)
 
+        def import_outfit(self, path, fromfile=True):
+            """Imports outfit from .png file or clipboard text."""
+            # Grab data
+            if fromfile:
+                try:
+                    imported = image_payload.decode(path)
+                except:
+                    if image_payload._file:
+                        image_payload._file.close()
+                    renpy.notify("Import failed: Corrupted file.")
+                    return None
+            else:
+                imported = get_clipboard()
+
+            # Evaluate data
+            if imported:
+                try:
+                    imported = make_revertable(evaluate(imported))
+                except:
+                    renpy.notify("Import failed: Corrupted outfit data.")
+                    renpy.block_rollback()
+                    return None
+
+                group = []
+
+                for i, x in enumerate(imported):
+                    if i == 0 and not x == self.name:
+                        renpy.notify("Import failed: Wrong character.")
+                        return False
+
+                    for o in self.wardrobe_list:
+                        if x[0] == o.id:
+                            if not o.unlocked and not cheats_active:
+                                renpy.notify("Import failed: You don't own these items. Buy them first.")
+                                return False
+
+                            x[0] = o.clone()
+                            x[0].set_color(x[1])
+                            group.append(x[0])
+
+                if len(group) > 0:
+                    renpy.notify("Import successful!")
+                    return DollOutfit(group, True)
+            renpy.notify("Import failed: Unknown error.")
+            return None
+
         def get_schedule(self):
             """Returns a list of outfits available for current daytime and weather conditions."""
             global daytime
