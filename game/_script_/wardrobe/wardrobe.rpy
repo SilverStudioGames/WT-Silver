@@ -1,7 +1,6 @@
 
 default wardrobe_music = False
 default wardrobe_chitchats = True
-default wardrobe_prompts = True
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
@@ -17,7 +16,7 @@ define wardrobe_subcategories_sorted = {
 define wardrobe_categories = ("head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc")
 define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 
-label wardrobe(char_label):
+label wardrobe():
     python:
         char_active = getattr(store, active_girl)
 
@@ -77,23 +76,49 @@ label wardrobe(char_label):
                     renpy.notify("Hair cannot be removed.")
                 else:
                     renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
-            elif isinstance(_return[1], DollOutfit):
-                renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
 
-            # Lipstick Fix - Synchronize image with current mouth after equipping.
-            if isinstance(_return[1], DollLipstick):
-                _return[1].rebuild_image()
+                # Lipstick Fix - Synchronize image with current mouth after equipping.
+                if isinstance(_return[1], DollLipstick):
+                    _return[1].rebuild_image()
+            elif isinstance(_return[1], DollOutfit):
+                _outfit = char_active.create_outfit()
+
+                if _outfit.hash == _return[1].hash:
+                    renpy.notify("Load failed: Outfit arleady equipped.")
+                    _outfit.delete()
+                    renpy.jump("wardrobe.after_init")
+
+                if not _outfit.exists():
+                    _confimed = False
+                    renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?", [SetVariable("_confimed", True), Return()], Return())
+
+                    _outfit.delete()
+
+                    if _confimed:
+                        renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
+                    else:
+                        renpy.notify("Load failed: Cancelled by user.")
+                else:
+                    _outfit.delete()
+                    renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
         elif _return[0] == "setcolor":
             current_item.set_color(_return[1])
         elif _return[0] == "touching":
             renpy.call(active_girl+"_wardrobe_check", "touching", _return[1])
-        elif _return == "addoutfit":
+        elif _return[0] == "addoutfit":
             _outfit = char_active.create_outfit()
-            if not _outfit.validate():
-                _outfit.delete()
-                renpy.notify("This outfit has already been saved!")
 
-            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+            if _outfit.exists():
+                _outfit.delete()
+                renpy.notify("Save failed: This outfit already exists.")
+            else:
+                if _return[1]:
+                    _indx = char_active.outfits.index(_return[1])
+                    char_active.outfits.remove(_outfit)
+                    renpy.call_screen("confirm", "Overwrite this outfit?", [SetDict(char_active.outfits, _indx, _outfit), Return()], [Function(_outfit.delete), Return()])
+
+                menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+
         elif _return[0] == "deloutfit":
             _return[1].delete()
             menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
@@ -103,19 +128,31 @@ label wardrobe(char_label):
         elif _return[0] == "import":
             _outfit = char_active.import_outfit(_return[1])
 
-            if _outfit and not _outfit.validate():
+            if _outfit and _outfit.exists():
                 _outfit.delete()
                 renpy.notify("Import failed: Outfit already exists.")
         elif _return == "music":
             if wardrobe_music:
                 wardrobe_music = False
                 renpy.call("play_music", active_girl)
-                renpy.call(char_label, face="annoyed")
+                #renpy.call(char_label, face="annoyed")
             else:
                 wardrobe_music = True
                 renpy.call("play_music", "wardrobe")
-                renpy.call(char_label, face="happy")
+                #renpy.call(char_label, face="happy")
         else: #_return == "Close":
+            _confimed = False
+            _outfit = char_active.create_outfit()
+
+            if not _outfit.exists():
+                renpy.notify("Advice: If you want to keep an outfit, save it.")
+                renpy.call_screen("confirm", "Exit without saving?", [SetVariable("_confimed", True), Return()], Return())
+
+            _outfit.delete()
+
+            if not _confimed:
+                renpy.jump("wardrobe.after_init")
+
             renpy.play('sounds/door2.mp3')
             char_active.wear("all")
 
@@ -199,8 +236,8 @@ screen wardrobe_menu(xx, yy):
         # Character
         add char_active.get_image():
             yoffset -6
-            corner1 (238, 200)
-            corner2 (872, 1200)
+            corner1 (184, 218)
+            corner2 (924, 1200)
             zoom 0.45
             anchor (0.5, 1.0)
             align (0.5, 1.0)
@@ -237,10 +274,6 @@ screen wardrobe_menu(xx, yy):
                 style gui.theme("dropdown")
                 tooltip "{color=#35aae2}[active_girl]{/color} will automatically wear outfits\nbased on set schedule, time of day and weather."
                 action ToggleVariable(active_girl+"_outfits_schedule", True, False)
-            textbutton "Action prompts":
-                style gui.theme("dropdown")
-                tooltip "Toggle confirmation prompts"
-                action ToggleVariable("wardrobe_prompts", True, False)
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
@@ -482,7 +515,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     xysize icon_size
                     idle_background "#00000033"
                     text_align (0.5, 0.5)
-                    action Return("addoutfit")
+                    action Return(["addoutfit", None])
 
 style wardrobe_window is empty
 

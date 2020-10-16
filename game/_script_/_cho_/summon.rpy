@@ -104,7 +104,7 @@ label summon_cho:
 
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if cho_wardrobe_unlocked:
             hide screen cho_main with d1
-            $ gui.in_context("wardrobe", "cho_main")
+            $ gui.in_context("wardrobe")
             with d2
             jump cho_requests
 

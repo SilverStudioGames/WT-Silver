@@ -349,19 +349,19 @@ init python:
                 for i, x in enumerate(imported):
                     if i == 0 and not x == self.name:
                         renpy.notify("Import failed: Wrong character.")
-                        return False
+                        return None
 
                     for o in self.wardrobe_list:
                         if x[0] == o.id:
                             if not o.unlocked and not cheats_active:
                                 renpy.notify("Import failed: You don't own these items. Buy them first.")
-                                return False
+                                return None
 
                             x[0] = o.clone()
                             x[0].set_color(x[1])
                             group.append(x[0])
 
-                if len(group) > 0:
+                if group:
                     renpy.notify("Import successful!")
                     return DollOutfit(group, True)
             renpy.notify("Import failed: Unknown error.")

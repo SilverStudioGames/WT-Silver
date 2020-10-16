@@ -45,7 +45,7 @@ label summon_luna:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if luna_wardrobe_unlocked:
             hide screen astoria_main with d1
-            $ gui.in_context("wardrobe", "lun_main")
+            $ gui.in_context("wardrobe")
             with d2
             jump luna_requests
 

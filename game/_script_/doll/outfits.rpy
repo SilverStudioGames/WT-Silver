@@ -83,11 +83,11 @@ init python:
             salt = str( [(x.name, x.type, x.id, x.color) for x in self.group] )
             return hash(salt)
 
-        def validate(self):
+        def exists(self):
             for i in self.char.outfits:
                 if i.unlocked and not i == self and i.hash == self.hash:
-                    return False
-            return True
+                    return True
+            return False
 
         def export_data(self, filename, tofile=True):
             """Exports outfit to .png file or clipboard text."""

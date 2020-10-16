@@ -92,7 +92,7 @@ label summon_hermione:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if hermione_wardrobe_unlocked: # Unlocks after first summoning her.
             hide screen hermione_main with d1
-            $ gui.in_context("wardrobe", "her_main")
+            $ gui.in_context("wardrobe")
             with d2
             jump hermione_requests
 
