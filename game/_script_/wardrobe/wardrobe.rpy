@@ -13,8 +13,8 @@ define wardrobe_subcategories_sorted = {
     "other": -1,
 }
 
-define wardrobe_categories = {"head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc"}
-define wardrobe_outfit_schedule = {"day", "night", "cloudy", "rainy", "snowy"}
+define wardrobe_categories = ("head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc")
+define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 
 label wardrobe():
     python:

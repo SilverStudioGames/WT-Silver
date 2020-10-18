@@ -33,7 +33,7 @@ init -1 python:
         layers_special = {"skin", "mask", "wind_mask"}
         layers_additional = {"back", "front"}
 
-        blacklist_toggles = {"hair", "pubes", "piercing", "makeup", "tattoo", "accessory"}
+        blacklist_toggles = ("hair", "pubes", "piercing", "makeup", "tattoo", "accessory")
         blacklist_unequip = {"hair"}
 
         def rebuild_image(self):
