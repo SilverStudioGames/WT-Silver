@@ -193,3 +193,6 @@ init python:
 
         def mark_as_seen(self):
             self.seen = True
+
+        def is_multislot(self):
+            return any(x in self.type for x in self.multislots)

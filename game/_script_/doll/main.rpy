@@ -151,11 +151,11 @@ init python:
             """Takes argument(s) containing string cloth type(s) to temporarily displace (hide)."""
             if "all" in args:
                 for k, v in self.clothes.iteritems():
-                    if not k.startswith(self.blacklist_toggles):
+                    if not k in self.blacklist_toggles:
                         v[2] = False
             else:
                 for arg in args:
-                    if arg.startswith(self.blacklist_toggles):
+                    if arg in self.blacklist_toggles:
                         for k in self.clothes.iterkeys():
                             if k.startswith(arg):
                                 self.clothes[k][2] = False
@@ -176,7 +176,7 @@ init python:
                     v[2] = True
             else:
                 for arg in args:
-                    if arg.startswith(self.blacklist_toggles):
+                    if arg in self.blacklist_toggles:
                         for k in self.clothes.iterkeys():
                             if k.startswith(arg):
                                 self.clothes[k][2] = True
@@ -189,7 +189,7 @@ init python:
 
         def toggle_wear(self, type):
             """Takes argument containing string cloth type to toggle visibility (hide/unhide). Used in wardrobe."""
-            if type.startswith(self.blacklist_toggles):
+            if type in self.blacklist_toggles:
                 for k, v in self.clothes.iteritems():
                     if k.startswith(type):
                         v[2] = not v[2]
@@ -202,7 +202,7 @@ init python:
 
         def is_equipped(self, type):
             """Takes argument containing string cloth type. Returns True if slot is occupied, False otherwise."""
-            if type.startswith(self.blacklist_toggles):
+            if type in self.blacklist_toggles:
                 for k, v in self.clothes.iteritems():
                     if k.startswith(type) and v[0]:
                         return True
@@ -222,7 +222,7 @@ init python:
                         return False
             else:
                 for arg in args:
-                    if arg.startswith(self.blacklist_toggles):
+                    if arg in self.blacklist_toggles:
                         for k, v in self.clothes.iteritems():
                             if k.startswith(arg) and not v[0] or not v[2]:
                                 return False
@@ -235,7 +235,7 @@ init python:
             """Takes arguments containing string cloth types. Returns True if ANY of them is worn, False otherwise."""
             if "clothes" in args:
                 for k, v in self.clothes.iteritems():
-                    if not k.startswith(self.blacklist_toggles):
+                    if not k in self.blacklist_toggles:
                         if self.is_worn(k):
                             return True
             else:
@@ -376,11 +376,11 @@ init python:
                 if o.unlocked and o.schedule["day" if daytime else "night"]:
                     if weather == "overcast" and o.schedule["cloudy"]:
                         schedule.append(o)
-                    elif weather in ("storm", "rain") and o.schedule["rainy"]:
+                    elif weather in {"storm", "rain"} and o.schedule["rainy"]:
                         schedule.append(o)
-                    elif weather in ("snow", "blizzard") and o.schedule["snowy"]:
+                    elif weather in {"snow", "blizzard"} and o.schedule["snowy"]:
                         schedule.append(o)
-                    elif weather in ("clear", "cloudy") and not (o.schedule["cloudy"] or o.schedule["rainy"] or o.schedule["snowy"]):
+                    elif weather in {"clear", "cloudy"} and not (o.schedule["cloudy"] or o.schedule["rainy"] or o.schedule["snowy"]):
                         schedule.append(o)
             return schedule
 

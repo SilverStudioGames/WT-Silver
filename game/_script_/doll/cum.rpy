@@ -7,7 +7,7 @@ init python:
             self.name = self.char.name
             self.imagepath = "characters/{}/cum/".format(self.name)
 
-            self.cum = dict((k, None) for k in ("hair", "face", "breasts", "body", "crotch", "pussy", "legs"))
+            self.cum = dict((k, None) for k in {"hair", "face", "breasts", "body", "crotch", "pussy", "legs"})
 
             self.rebuild_image()
 

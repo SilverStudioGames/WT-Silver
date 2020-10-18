@@ -13,8 +13,8 @@ define wardrobe_subcategories_sorted = {
     "other": -1,
 }
 
-define wardrobe_categories = ("head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc")
-define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
+define wardrobe_categories = {"head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc"}
+define wardrobe_outfit_schedule = {"day", "night", "cloudy", "rainy", "snowy"}
 
 label wardrobe():
     python:
@@ -362,7 +362,7 @@ screen wardrobe_menuitem(xx, yy):
                 $ is_blacklisted = char_active.is_blacklisted(item.type)
                 $ is_blacklister = any(char_active.is_equipped(x) for x in item.blacklist)
                 $ is_modded = bool(item.modpath)
-                $ is_multislot = False #any( (x in item.type) for x in ("makeup", "accessory", "piercing", "tattoo") ) # BROKEN
+                $ is_multislot = item.is_multislot()
                 $ warnings = []
 
                 if is_blacklisted or is_blacklister:
@@ -509,17 +509,16 @@ screen wardrobe_outfit_menuitem(xx, yy):
                                 $ _on = item.schedule[x]
                                 $ _yesno = "yes" if _on else "no"
 
-                                if x in ("day", "night"):
-                                    $ _tooltip = "Worn during the [x]:\n{size=-4}[_yesno]{/size}"
-                                elif x in ("rainy", "cloudy", "snowy"):
-                                    $ _tooltip = "Worn during [x] weather:\n{size=-4}[_yesno]{/size}"
+                                if x in ("Day", "Night"):
+                                    $ _tooltip = "Worn during the "+x+":\n{size=-4}"+_yesno+"{/size}"
+                                else:
+                                    $ _tooltip = "Worn during "+x+" weather:\n{size=-4}"+_yesno+"{/size}"
 
                                 button:
                                     xysize (25, 25)
                                     background image_alpha(gray_tint(_ico))
                                     hover_background white_tint(_ico)
                                     selected_background _ico
-                                    #selected _on
                                     tooltip _tooltip
                                     action ToggleDict(item.schedule, x, True, False)
 
