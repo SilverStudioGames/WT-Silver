@@ -15,22 +15,27 @@ screen preferences(page="options"):
         style_prefix gui.theme("pref")
 
         vbox:
-            spacing gui.pref_spacing / 2
+            spacing gui.pref_spacing
+            null # Tab margin
 
-            hbox:
-                textbutton "Options" action [
-                    SelectedIf(page == 'options'),
-                    Show('preferences', config.intra_transition, 'options')
-                ]
-                textbutton "Graphics"  action [
-                    SelectedIf(page == 'graphics'),
-                    Show('preferences', config.intra_transition, 'graphics')
-                ]
+            if page == 'options':
+                use preferences_options
+            elif page == 'graphics':
+                use preferences_graphics
 
-        if page == 'options':
-            use preferences_options
-        elif page == 'graphics':
-            use preferences_graphics
+    hbox:
+        style_prefix gui.theme("tab")
+        pos (25 + 15, 100)
+        yanchor 0.5
+
+        textbutton "Options" action [
+            SelectedIf(page == 'options'),
+            Show('preferences', config.intra_transition, 'options')
+        ]
+        textbutton "Graphics"  action [
+            SelectedIf(page == 'graphics'),
+            Show('preferences', config.intra_transition, 'graphics')
+        ]
 
 screen preferences_options():
     hbox:
@@ -70,7 +75,7 @@ screen preferences_options():
             ]
 
         vbox:
-            style_prefix gui.theme("check")
+            style_prefix gui.theme("pref")
 
             $ text_color_day = settings.get('text_color_day')
             $ text_color_night = settings.get('text_color_night')
@@ -85,7 +90,7 @@ screen preferences_options():
                         Function(gui.rebuild_styles)
                     ]
                 textbutton "{color=[text_color_day]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#d1a261"
-                textbutton "Reset" text_size 14 yalign 0.5 action [
+                textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
                         settings.Reset("text_color_day"),
                         Function(renpy.transition, trans),
                         Function(gui.rebuild_styles)
@@ -98,7 +103,7 @@ screen preferences_options():
                         Function(gui.rebuild_styles)
                     ]
                 textbutton "{color=[text_color_night]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#5b4f4f"
-                textbutton "Reset" text_size 14 yalign 0.5 action [
+                textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
                         settings.Reset("text_color_night"),
                         Function(renpy.transition, trans),
                         Function(gui.rebuild_styles)
@@ -186,6 +191,7 @@ screen preferences_options():
             textbutton _("Confirm Delete"):
                 action ToggleVariable("persistent.save_confirm_delete", True, False)
             textbutton "Full reset":
+                style gui.theme("pref_button")
                 action Confirm(gui.CONFIRM_FULL_RESET, Function(delete_persistent))
 
 define gui.CONFIRM_FULL_RESET = """{color=#f00}Warning!{/color}
@@ -222,7 +228,7 @@ screen preferences_graphics():
 
 
         vbox:
-            style_prefix gui.theme("check")
+            style_prefix gui.theme("pref")
 
             label "Ren'Py"
             textbutton "Accessibility" action Show("_accessibility")
@@ -259,7 +265,9 @@ style pref_label_text is gui_label_text:
 style dark_pref_label_text is dark_label_text
 style light_pref_label_text is light_label_text
 
-style pref_button is gui_button
+style pref_button is gui_button:
+    padding (18, 4, 4, 4)
+
 style pref_button_text is gui_button_text
 
 style pref_vbox is vbox:
@@ -281,8 +289,15 @@ style radio_vbox is pref_vbox:
 
 style radio_button is gui_button:
     background None
-    foreground "gui/button/radio_[prefix_]foreground.png"
-    padding (15, 4, 4, 4)
+    padding (18, 4, 4, 4)
+
+style dark_radio_button is dark_gui_button:
+    take radio_button
+    foreground "gui/button/dark_radio_[prefix_]foreground.png"
+
+style light_radio_button is light_gui_button:
+    take radio_button
+    foreground "gui/button/light_radio_[prefix_]foreground.png"
 
 style radio_button_text is gui_button_text
 
@@ -298,8 +313,15 @@ style check_vbox is pref_vbox:
 
 style check_button is gui_button:
     background None
-    foreground "gui/button/check_[prefix_]foreground.png"
-    padding (15, 4, 4, 4)
+    padding (18, 4, 4, 4)
+
+style dark_check_button is dark_gui_button:
+    take check_button
+    foreground "gui/button/dark_check_[prefix_]foreground.png"
+
+style light_check_button is light_gui_button:
+    take check_button
+    foreground "gui/button/light_check_[prefix_]foreground.png"
 
 style check_button_text is gui_button_text
 
@@ -311,7 +333,10 @@ style dark_slider_label_text is dark_pref_label_text
 style light_slider_label_text is light_pref_label_text
 
 style slider_slider is gui_slider:
-    xsize 300
+    xsize 320
+
+style dark_slider_slider is dark_slider
+style light_slider_slider is light_slider
 
 style slider_button is gui_button:
     background None
@@ -321,4 +346,4 @@ style slider_button is gui_button:
 style slider_button_text is gui_button_text
 
 style slider_vbox is pref_vbox:
-    xsize 368 - 30 - 30
+    xsize 320
