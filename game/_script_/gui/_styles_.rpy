@@ -181,7 +181,7 @@ style say_label is default:
     bold False
     text_align 0.5
     align (0.5, 0.5)
-    outlines [(1, preferences.text_outline, 1, 0)]
+    outlines [(1, settings.get('text_outline'), 1, 0)]
 
 style dark_say_label:
     color settings.get('text_color_night')
@@ -192,7 +192,7 @@ style light_say_label:
 # Say dialogue
 
 style say_dialogue is default:
-    outlines [(1, preferences.text_outline, 1, 0)]
+    outlines [(1, settings.get('text_outline'), 1, 0)]
 
 style dark_say_dialogue:
     color settings.get('text_color_night')
@@ -255,8 +255,8 @@ style light_namebox is light_gui_frame:
 
 style dark_text:
     color settings.get('text_color_night')
-    outlines [(1, preferences.text_outline, 1, 0)]
+    outlines [(1, settings.get('text_outline'), 1, 0)]
 
 style light_text:
     color settings.get('text_color_day')
-    outlines [(1, preferences.text_outline, 1, 0)]
+    outlines [(1, settings.get('text_outline'), 1, 0)]

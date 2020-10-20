@@ -11,22 +11,26 @@ init offset = -1
 #
 # https://www.renpy.org/doc/html/screen_special.html#confirm
 
-screen confirm(message, yes_action, no_action):
+screen confirm(message, yes_action=Return(True), no_action=Return(False)):
     modal True
 
     zorder 200
 
-    style_prefix gui.theme("confirm")
+    style_prefix gui.theme()
 
     add "confirm_fade"
 
     frame:
+        padding (34, 34, 34, 34)
+        xalign 0.5
+        yalign 0.5
+
         vbox:
-            style_prefix gui.theme()
             spacing 25
 
             text _(message):
                 xalign 0.5
+                text_align 0.5
 
             hbox:
                 xalign 0.5
@@ -59,8 +63,6 @@ style dark_confirm_frame is dark_gui_frame:
 
 style light_confirm_frame is light_gui_frame:
     take confirm_frame
-
-style confirm_prompt is gui_prompt
 
 # Skip indicator screen
 #

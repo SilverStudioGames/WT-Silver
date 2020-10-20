@@ -12,7 +12,7 @@ init python:
         return tutorial_dict[entry][2]
 
 label tutorial(entry):
-    if not tutorial_dict[entry][2] and preferences.tutorials == True:
+    if not tutorial_dict[entry][2] and settings.get('tutorials'):
         $ tutorial_dict[entry][2] = True
         $ renpy.play("sounds/pop01.mp3")
         $ renpy.music.set_volume(0.5, 3.0)

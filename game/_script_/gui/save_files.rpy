@@ -89,12 +89,9 @@ screen file_slots(title):
                             xsize gui.slot_width - config.thumbnail_width - gui.slot_height
                             yalign 0.5
 
-                            if renpy.windows:
-                                text FileTime(slot, format=_("{#file_time}%#d %B, %Y, %H:%M"), empty=_("empty slot")):
-                                    style "slot_time_text"
-                            else:
-                                text FileTime(slot, format=_("{#file_time}%-d %B, %Y, %H:%M"), empty=_("empty slot")):
-                                    style "slot_time_text"
+                            default slot_time_format = "{#file_time}%#d %B, %Y, %#H:%M" if renpy.windows else "{#file_time}%-d %B, %Y, %-H:%M"
+                            text FileTime(slot, format=_(slot_time_format), empty=_("empty slot")):
+                                style "slot_time_text"
 
                             text FileSaveName(slot):
                                 style "slot_name_text"
@@ -102,9 +99,9 @@ screen file_slots(title):
                         if FileLoadable(slot):
                             textbutton "{font=[gui.glyph_font]}✘{/font}":
                                 style "slot_delete_button"
-                                action FileDelete(slot)
+                                action FileDelete(slot, settings.get('confirm_delete'))
 
-                        key "save_delete" action FileDelete(slot)
+                        key "save_delete" action FileDelete(slot, settings.get('confirm_delete'))
 
             ## Buttons to access other pages.
             hbox:

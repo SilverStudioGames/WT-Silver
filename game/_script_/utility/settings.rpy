@@ -42,6 +42,7 @@ init python in settings:
 
         def __call__(self):
             set(self.name, self.value)
+            renpy.restart_interaction()
 
         def get_selected(self):
             return prefs.get(self.name, not_set) == self.value
@@ -52,6 +53,7 @@ init python in settings:
 
         def __call__(self):
             reset(self.name)
+            renpy.restart_interaction()
 
         def get_sensitive(self):
             return prefs.get(self.name, not_set) != defaults.get(self.name, not_set)
@@ -64,6 +66,7 @@ init python in settings:
 
         def __call__(self):
             toggle(self.name, self.true_value, self.false_value)
+            renpy.restart_interaction()
 
         def get_selected(self):
             return prefs[self.name] == self.true_value

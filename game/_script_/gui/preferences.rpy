@@ -45,10 +45,10 @@ screen preferences_options():
             style_prefix gui.theme("check")
 
             label _("Interface")
-            textbutton "Tutorials"
-            textbutton _("Tooltips") action ToggleVariable("preferences.tooltip", True, False)
+            textbutton "Tutorials" action settings.Toggle('tutorials')
+            textbutton _("Tooltips") action settings.Toggle('tooltip')
             textbutton _("Custom Cursor") action [
-                ToggleVariable("preferences.customcursor", True, False),
+                settings.Toggle('custom_cursor'),
                 # Broken in 7.4 nightly: ToggleVariable("config.mouse", { 'default' : [ ('interface/cursor.webp', 0, 0)] }, None)
             ]
 
@@ -159,9 +159,9 @@ screen preferences_options():
 
                 label _("Weather Volume")
                 hbox:
-                    bar value Preference("sound volume")
+                    bar value Preference("weather volume")
                     if config.sample_sound:
-                        textbutton _("Test") action Play("sound", config.sample_sound)
+                        textbutton _("Test") action Play("weather", config.sample_sound)
 
             if config.has_voice:
                 label _("Voice Volume")
@@ -185,22 +185,21 @@ screen preferences_options():
             label _("Advanced")
             textbutton _("Autosave"):
                 action [
-                    ToggleVariable("persistent.autosave", True, False),
+                    settings.Toggle('autosave'),
                     Notify("Autosave preference will take effect after restarting the game")
                 ]
             textbutton _("Confirm Delete"):
-                action ToggleVariable("persistent.save_confirm_delete", True, False)
+                action settings.Toggle('confirm_delete')
             textbutton "Full reset":
                 style gui.theme("pref_button")
                 action Confirm(gui.CONFIRM_FULL_RESET, Function(delete_persistent))
 
-define gui.CONFIRM_FULL_RESET = """{color=#f00}Warning!{/color}
-This will clear everything except for saves!
-
-{size=-4}Reset persistent data, such as
-achievements, seen text, and preferences.{/size}
-
-Are you sure you want to perform a full reset of the game?"""
+define gui.CONFIRM_FULL_RESET = """{color=#f00}Warning!{/color}\n
+\n
+{size=-4}You are about to reset all persistent data, which\n
+includes achievements, seen text, and preferences.{/size}\n
+\n
+Are you sure you want to do a full reset?"""
 
 screen preferences_graphics():
     hbox:

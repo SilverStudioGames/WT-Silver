@@ -136,9 +136,6 @@ screen ui_top_bar():
                 #xpos 10 ypos 40
                 #text "{size=-3}{color=#FFF}[total_points] [housepoints]\n[housepoints_y]\nToggle display:[persistent.toggle_points]\n\nSly:[slytherin_place]\nGry:[gryffindor_place]\nRav:[ravenclaw_place]\nHuf:[hufflepuff_place]\nUI lock:[toggle_ui_lock]{/color}{/size}"
 
-        # if tooltip and preferences.tooltip and not renpy.android:
-            # text "{color=#FFF}{size=+4}[tooltip]{/size}{/color}" xalign 0.5 text_align 0.5 ypos 540
-
 screen ui_points():
     tag ui
     drag:

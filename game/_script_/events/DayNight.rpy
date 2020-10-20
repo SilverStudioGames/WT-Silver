@@ -50,6 +50,10 @@ label common_start(set_daytime):
 
     hide screen blkfade
     with dissolve
+
+    if game.daytime:
+        $ renpy.force_autosave(True)
+
     return
 
 label update_day_values:

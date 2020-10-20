@@ -7,25 +7,15 @@ default preferences.text_cps = 40
 default preferences.afm_time = 15
 
 init python:
-    settings.default('theme', 'auto') # can be 'dark', 'light', or 'auto'
+    settings.default('theme', 'auto')
     settings.default('text_color_day', '#402313ff')
     settings.default('text_color_night', '#341c0fff')
     settings.default('text_outline', '#00000000')
-    settings.default("autosave", False)
-
-default persistent.autosave = False
-default persistent.save_confirm_delete = True
-default persistent.text_color_day = '#402313'
-
-default preferences.savedelwarn = True # gui
-default preferences.customcursor = False # gui
-default preferences.autosave = False # gui?
-default preferences.tooltip = True # gui
-default preferences.text_color_day = "#402313" # gui
-default preferences.text_color_night = "#341c0f" # gui
-default preferences.text_outline = "#00000000" # gui
-default preferences.nightmode = False # gui
-default preferences.tutorials = True # gui
+    settings.default('autosave', False)
+    settings.default('confirm_delete', True)
+    settings.default('tooltip', True)
+    settings.default('tutorials', True)
+    settings.default('custom_cursor', False)
 
 # Configuration
 # https://www.renpy.org/doc/html/config.html
@@ -58,7 +48,7 @@ define config.quit_action = Quit(True)
 define config.narrator_menu = True
 define config.hard_rollback_limit = 150
 define config.history_length = 250
-define config.mouse = None # Broken in 7.4 nightly {"default": [("interface/cursor.webp", 0, 0)]} if preferences.customcursor else None
+define config.mouse = None # Broken in 7.4 nightly {"default": [("interface/cursor.webp", 0, 0)]} if settings.get('custom_cursor') else None
 define config.help = None
 
 # Graphics and cache settings
@@ -84,8 +74,8 @@ init -1:
 
 # Saving and loading
 define config.save_directory = "WT SILVER"
-define config.has_autosave = persistent.autosave
-define config.autosave_on_quit = persistent.autosave
+define config.has_autosave = settings.get('autosave')
+define config.autosave_on_quit = settings.get('autosave')
 define config.autosave_on_choice = False
 define config.autosave_frequency = 100
 

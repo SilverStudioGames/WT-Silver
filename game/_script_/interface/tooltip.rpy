@@ -7,7 +7,7 @@ screen tooltip():
     default last_tooltip = None
     default show_tooltip = False
 
-    if preferences.tooltip:
+    if settings.get('tooltip'):
         $ tooltip = GetTooltip()
 
         if tooltip == last_tooltip:
