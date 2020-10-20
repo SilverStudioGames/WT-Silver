@@ -99,7 +99,7 @@ define config.main_menu_music = "music/01 Prologue.mp3"
 # Transitions
 define config.enter_transition = f3
 define config.exit_transition = f3
-define config.intra_transition = d3
+define config.intra_transition = d1
 define config.main_game_transition = f3
 define config.game_main_transition = f3
 define config.end_splash_transition = dissolve

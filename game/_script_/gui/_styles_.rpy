@@ -77,8 +77,20 @@ style vscrollbar:
 
 style slider:
     ysize gui.slider_size
-    base_bar Frame("slider_horizontal_[prefix_]bar", gui.slider_borders, tile=gui.slider_tile)
-    thumb "slider_horizontal_[prefix_]thumb"
+    base_bar Frame(Solid(gui.muted_color))
+    thumb Frame("slider_horizontal_[prefix_]thumb", gui.slider_borders, tile=gui.slider_tile, xsize=gui.thumb_size)
+
+style dark_slider:
+    left_bar Frame("dark_slider_full", gui.slider_borders, tile=gui.slider_tile)
+    right_bar Frame("dark_slider_empty", gui.slider_borders, tile=gui.slider_tile)
+    thumb Frame(Transform("gui/dark_frame.png", alpha=0.5), gui.slider_borders, tile=gui.slider_tile, xsize=gui.thumb_size)
+    hover_thumb Frame("gui/dark_frame.png", gui.slider_borders, tile=gui.slider_tile, xsize=gui.thumb_size)
+
+style light_slider:
+    left_bar Frame("light_slider_full", gui.slider_borders, tile=gui.slider_tile)
+    right_bar Frame("light_slider_empty", gui.slider_borders, tile=gui.slider_tile)
+    thumb Frame(Transform("gui/light_frame.png", alpha=0.5), gui.slider_borders, tile=gui.slider_tile, xsize=gui.thumb_size)
+    hover_thumb Frame("gui/light_frame.png", gui.slider_borders, tile=gui.slider_tile, xsize=gui.thumb_size)
 
 style vslider:
     xsize gui.slider_size
@@ -140,12 +152,28 @@ style light_frame is light_gui_frame
 style gui_frame:
     padding (6, 6, 6, 6)
 
-# TODO The property nearest=True is needed to avoid a scaling bug in gl2, it can be removed when it's fixed
 style dark_gui_frame:
     background Transform(Frame("gui/dark_frame.png", 8, 8))
 
 style light_gui_frame:
     background Transform(Frame("gui/light_frame.png", 8, 8))
+
+# Tabs
+
+style tab_hbox:
+    spacing gui.pref_spacing
+    margin (-6, -6)
+
+style tab_button is gui_button:
+    padding (12, 12)
+
+style dark_tab_button:
+    take dark_gui_frame
+
+style light_tab_button:
+    take light_gui_frame
+
+style tab_button_text is gui_button_text
 
 # Say label
 

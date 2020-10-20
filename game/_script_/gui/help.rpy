@@ -16,26 +16,7 @@ screen help(page='tutorials'):
 
         vbox:
             spacing 13
-
-            hbox:
-                textbutton _("Tutorials") action [
-                    SelectedIf(page == 'tutorials'),
-                    Show("help", config.intra_transition, "tutorials")
-                ]
-                textbutton _("Keyboard") action [
-                    SelectedIf(page == 'keyboard'),
-                    Show("help", config.intra_transition, "keyboard")
-                ]
-                textbutton _("Mouse") action [
-                    SelectedIf(page == 'mouse'),
-                    Show("help", config.intra_transition, "mouse")
-                ]
-
-                if GamepadExists():
-                    textbutton _("Gamepad") action [
-                        SelectedIf(page == 'gamepad'),
-                        Show("help", config.intra_transition, "gamepad")
-                    ]
+            null # Tab margin
 
             if page == 'tutorials':
                 use tutorials_help
@@ -45,6 +26,30 @@ screen help(page='tutorials'):
                 use mouse_help
             elif page == "gamepad":
                 use gamepad_help
+
+    hbox:
+        style_prefix gui.theme("tab")
+        pos (25 + 15, 100)
+        yanchor 0.5
+
+        textbutton _("Tutorials") action [
+            SelectedIf(page == 'tutorials'),
+            Show("help", config.intra_transition, "tutorials")
+        ]
+        textbutton _("Keyboard") action [
+            SelectedIf(page == 'keyboard'),
+            Show("help", config.intra_transition, "keyboard")
+        ]
+        textbutton _("Mouse") action [
+            SelectedIf(page == 'mouse'),
+            Show("help", config.intra_transition, "mouse")
+        ]
+
+        if GamepadExists():
+            textbutton _("Gamepad") action [
+                SelectedIf(page == 'gamepad'),
+                Show("help", config.intra_transition, "gamepad")
+            ]
 
 screen tutorials_help():
     for entry, tutorial in tutorial_dict.iteritems():
@@ -104,10 +109,6 @@ screen keyboard_help():
     hbox:
         label "S"
         text _("Takes a screenshot.")
-
-    hbox:
-        label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
 
 
 screen mouse_help():

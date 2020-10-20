@@ -149,8 +149,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                         frame:
                             style "empty"
                             padding (15, 15, 15, 15)
-                            vbox:
-                                transclude
+                            transclude
 
                 elif scroll == "vpgrid":
                     vpgrid:
@@ -236,11 +235,6 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        spacing gui.navigation_spacing
-        xoffset -150
-        xpos 1.0
-        xanchor 0.5
-
         if main_menu:
             yalign 1.0
             yoffset -105 - gui.navigation_padding * 2
@@ -288,11 +282,23 @@ screen navigation():
             # The quit button is banned on iOS and unnecessary on Android and web
             textbutton _("Quit") action Quit(confirm=not main_menu)
 
+style navigation_vbox:
+    xsize 250
+    spacing gui.navigation_spacing
+    xoffset -150
+    xpos 1.0
+    xanchor 0.5
+
 style navigation_button is gui_button:
-    size_group "navigation"
+    # size_group "navigation"
     background None
+    xalign 0.5
 
 style navigation_button_text is gui_button_text:
     background None
     size 19
     xalign 0.5
+    idle_color Color('#888')
+    hover_color '#fff'
+    selected_color '#fff'
+    insensitive_color Color('#888', alpha=0.5)

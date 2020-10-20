@@ -67,26 +67,26 @@ label gui_init_context(bg, label, *args , **kwargs):
     return
 
 # Colors
-define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
+define gui.text_color = '#fff'
+define gui.interface_text_color = '#fff'
 
 # An accent color used throughout the interface to label and highlight text.
 define gui.accent_color = '#ebc275' # '#ee7700' # '#cc6600'
 
 # The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = Color('#000', alpha=0.5)
 
 # The small color is used for small text, which needs to be brighter/darker to achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = Color('#000', alpha=0.5)
 
 # The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#ffffff'
+define gui.hover_color = '#000'
 
 # The color used for a text button when it is selected but not focused.
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#fff'
 
 # The color used for a text button when it cannot be selected.
-define gui.insensitive_color = '#8888887f'
+define gui.insensitive_color = Color('#000', alpha=0.3)
 
 # Colors used for the portions of bars that are not filled in.
 define gui.muted_color = '#88888844' # '#512800'
@@ -112,8 +112,8 @@ define gui.navigation_padding = 34
 define gui.navigation_spacing = 4
 
 # Save thumbnail size
-define config.thumbnail_width = 94 # 216
-define config.thumbnail_height = 50 #120
+define config.thumbnail_width = 94
+define config.thumbnail_height = 50
 
 # Save slots table
 define gui.file_slot_cols = 2
@@ -126,12 +126,12 @@ define gui.page_spacing = 0
 define gui.slot_spacing = 9
 
 # Sliders and Bars
-define gui.bar_size = 21
-define gui.scrollbar_size = 10
-define gui.slider_size = 21
-define gui.thumb_size = 10
+define gui.bar_size = 20
+define gui.scrollbar_size = 12
+define gui.slider_size = 20
+define gui.thumb_size = 12
 
 define gui.slider_tile = False
-define gui.slider_borders = Borders(4, 4, 4, 4)
+define gui.slider_borders = Borders(10, 10, 10, 10)
 
 define gui.unscrollable = 'hide'

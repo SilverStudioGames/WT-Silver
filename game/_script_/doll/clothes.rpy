@@ -137,7 +137,7 @@ init python:
 
                 # Transarency slider boolean
                 is_cheating = config.developer or cheat_wardrobe_alpha
-                is_blacklisted = self.type.startswith(self.blacklist_unequip)
+                is_blacklisted = self.type.startswith(tuple(self.blacklist_unequip))
                 is_allowed = self.type.startswith(("makeup", "tattoo"))
 
                 transparency = not is_blacklisted and (is_allowed or is_cheating)

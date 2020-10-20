@@ -37,7 +37,7 @@ screen file_slots(title):
 
             # The page name, which can be edited by clicking on a button
             button:
-                style "page_label"
+                style gui.theme("page_label")
 
                 key_events True
                 xalign 0.5
@@ -46,17 +46,15 @@ screen file_slots(title):
                 hbox:
                     spacing 9
                     input:
-                        style "page_label_text"
+                        style gui.theme("page_label_text")
                         value page_name_value
 
                     if page_name_value.editable:
-                        text "{size=-4}{font=[gui.glyph_font]}✎{/font}{/size}":
-                            at transform:
-                                xzoom -1
+                        text "{size=-4}{font=[gui.glyph_font]}✎{/font}{/size}"
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
+                style_prefix gui.theme("slot")
 
                 xalign 0.5
                 yalign 0.5
@@ -80,19 +78,18 @@ screen file_slots(title):
                             add Solid("#000") pos (0, 0) size (config.thumbnail_width, config.thumbnail_height)
 
                         fixed:
-                            at transform:
-                                alpha 0.3
                             pos (0, 0)
                             xysize (config.thumbnail_width, config.thumbnail_height)
-                            text FileSlotName(slot, gui.file_slot_cols * gui.file_slot_rows) align (0.5, 0.5)
+                            text FileSlotName(slot, gui.file_slot_cols * gui.file_slot_rows):
+                                color Color("#fff", alpha=0.5)
+                                align (0.5, 0.5)
 
                         vbox:
                             xpos config.thumbnail_width
                             xsize gui.slot_width - config.thumbnail_width - gui.slot_height
                             yalign 0.5
 
-                            # text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            text FileTime(slot, format=_("{#file_time}%B %d %Y, %H:%M"), empty=_("empty slot")):
+                            text FileTime(slot, format=_("{#file_time}%-d %B, %Y, %H:%M"), empty=_("empty slot")):
                                 style "slot_time_text"
 
                             text FileSaveName(slot):
@@ -100,17 +97,14 @@ screen file_slots(title):
 
                         if FileLoadable(slot):
                             textbutton "{font=[gui.glyph_font]}✘{/font}":
-                                idle_background None
-                                text_size 24
-                                xsize gui.slot_height
-                                xalign 1.0
+                                style "slot_delete_button"
                                 action FileDelete(slot)
 
                         key "save_delete" action FileDelete(slot)
 
             ## Buttons to access other pages.
             hbox:
-                style_prefix "page"
+                style_prefix gui.theme("page")
 
                 xalign 0.5
                 yalign 1.0
@@ -139,6 +133,12 @@ style page_label_text is gui_label_text:
     layout "subtitle"
     hover_color gui.hover_color
 
+style dark_page_label_text is dark_label_text:
+    take page_label_text
+
+style light_page_label_text is light_label_text:
+    take page_label_text
+
 style page_button is gui_button:
     background None
     padding (9, 4, 9, 4)
@@ -146,17 +146,34 @@ style page_button is gui_button:
 style page_button_text is gui_button_text
 
 style slot_button is gui_button:
-    background gui.muted_color
+    # background gui.muted_color
     xsize gui.slot_width
-    ysize gui.slot_height
-    padding (0, 0, 0, 0)
+    ysize gui.slot_height+4
+    padding (2, 2, 2, 2)
+
+style dark_slot_button:
+    take dark_gui_frame
+
+style light_slot_button:
+    take light_gui_frame
 
 style slot_button_text is gui_button_text:
     size 14
     xalign 0.5
+    text_align 0.5
     idle_color gui.idle_small_color
     # selected_idle_color gui.selected_color
     selected_hover_color gui.hover_color
 
 style slot_time_text is slot_button_text
 style slot_name_text is slot_button_text
+
+style slot_delete_button is gui_button:
+    background None
+    idle_background None
+    xsize gui.slot_height
+    ysize gui.slot_height
+    xalign 1.0
+
+style slot_delete_button_text is slot_button_text:
+    size 24

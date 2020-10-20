@@ -102,7 +102,7 @@ screen notify(message):
     sensitive False
 
     frame at notify_appear:
-        align (1.0, 1.0)
+        align (0.0, 1.0)
         text message: # or "[message!tq]"
             color "#fff"
             outlines [(1, "#00000080", 1, 0)]

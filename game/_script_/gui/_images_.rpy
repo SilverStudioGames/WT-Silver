@@ -9,9 +9,9 @@ image gui_fade:
     on appear:
         alpha 0.5
     on show:
-        linear 0.3 alpha 0.5
+        linear 0.1 alpha 0.5
     on hide:
-        linear 0.3 alpha 0.0
+        linear 0.1 alpha 0.0
 
 image game_menu:
     contains:
@@ -200,9 +200,9 @@ image silverstudiogames_hover:
 
 # Sliders
 
-image slider_horizontal_idle_thumb = Solid(gui.idle_color, xsize=gui.thumb_size)
+image slider_horizontal_idle_thumb = Transform("gui/dark_frame.png", alpha=0.5)
 
-image slider_horizontal_hover_thumb = Solid(gui.hover_color, xsize=gui.thumb_size)
+image slider_horizontal_hover_thumb = "gui/dark_frame.png"
 
 image slider_horizontal_idle_bar = Solid(gui.muted_color)
 
@@ -216,6 +216,12 @@ image slider_vertical_idle_bar = Solid(gui.muted_color)
 
 image slider_vertical_hover_bar = Solid(gui.hover_muted_color)
 
+image dark_slider_empty = "gui/slider/dark_empty.png"
+image light_slider_empty = "gui/slider/light_empty.png"
+
+image dark_slider_full = "gui/slider/dark_full.png"
+image light_slider_full = "gui/slider/light_full.png"
+
 
 # Scrollbars
 
@@ -227,13 +233,13 @@ image scrollbar_horizontal_idle_bar = Solid(gui.muted_color)
 
 image scrollbar_horizontal_hover_bar = Solid(gui.hover_muted_color)
 
-image scrollbar_vertical_idle_thumb = Solid(gui.accent_color)
+image scrollbar_vertical_idle_thumb = Solid("#3d3535")
 
-image scrollbar_vertical_hover_thumb = Solid(gui.hover_color)
+image scrollbar_vertical_hover_thumb = Solid("#3d3535")
 
-image scrollbar_vertical_idle_bar = Solid(gui.muted_color)
+image scrollbar_vertical_idle_bar = Solid("#726363")
 
-image scrollbar_vertical_hover_bar = Solid(gui.hover_muted_color)
+image scrollbar_vertical_hover_bar = Solid("#726363")
 
 
 # Bars
