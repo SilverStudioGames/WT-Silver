@@ -15,9 +15,6 @@ default commentaries = False
 # GUI color scheme
 default interface_color = "gold"
 
-default gallery_active = False
-default ball_ending_2  = False
-
 default rum_times      = 0 # Counts how many times have you rummaged the cupboard.
 default current_payout = 0
 
@@ -60,16 +57,9 @@ default owl_away_counter   = 0
 # Sprite positioning
 default nxpos        = 0
 default nypos        = 0
-default nscale       = 0.5
-default walk_xpos    = 750
-default walk_ypos    = 250
-default chibi_xpos   = 0
-default chibi_ypos   = 0
-default chibi_zorder = 1
 default desk_zorder  = 2
 
 default unlocked_7th       = False
-default charName           = "genie"
 
 # Phoenix
 default phoenix_is_fed         = False

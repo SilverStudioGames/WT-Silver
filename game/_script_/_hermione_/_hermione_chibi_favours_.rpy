@@ -222,13 +222,11 @@ screen hermione_chibi_sex(img):
 screen hermione_chibi_hj(img, xpos=230, ypos=0):
     tag favor
     zorder desk_zorder
-    $ chibi_xpos = xpos
-    $ chibi_ypos = ypos
-    add img xpos chibi_xpos ypos chibi_ypos
+
+    add img xpos xpos ypos ypos
 
 screen hermione_chibi_tj(img, xpos=450, ypos=200):
     tag favor
     zorder desk_zorder
-    $ chibi_xpos = xpos
-    $ chibi_ypos = ypos
-    add img xpos chibi_xpos ypos chibi_ypos
+
+    add img xpos xpos ypos ypos
