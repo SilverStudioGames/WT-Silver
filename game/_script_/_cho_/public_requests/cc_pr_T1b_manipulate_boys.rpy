@@ -1080,8 +1080,8 @@ label cc_pr_manipulate_boys_twins_branch:
     maf "Until next time..."
 
     # Add smurfette outfit to the shop if was not picked during the event
-    if not d_flag_01 and cc_smurfette_ITEM not in cho_clothing_sets_list:
-        $ cho_clothing_sets_list.append(cc_smurfette_ITEM)
+    if not d_flag_01:
+        $ cho_outfit_smurfette.price = 100
 
     call room("main_room")
     call play_music("stop")

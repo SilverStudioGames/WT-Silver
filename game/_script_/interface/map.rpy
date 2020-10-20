@@ -133,7 +133,7 @@ screen map_buttons():
         hover "interface/map/room_clothing_store_hover.webp"
         hovered SetVariable("ball_hint", "clothing_store")
         unhovered SetVariable("ball_hint", None)
-        action Return("open_clothing_store")
+        action Return("clothing_store")
 
     # TODO: Uncomment after Snape's office has been implemented.
     #Potions

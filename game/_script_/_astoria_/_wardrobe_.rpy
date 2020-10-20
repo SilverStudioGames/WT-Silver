@@ -87,7 +87,7 @@ default ast_stockings_ann = DollCloth("astoria", ("legwear", "stockings"), "stoc
 default ast_gloves_ann = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", [[249, 139, 225, 255]], armfix=True)
 default ast_buttplug_ann = DollCloth("astoria", ("misc", "accessory"), "accessory0", "ann_takamaki", [[99, 42, 42, 255], [181, 135, 135, 255]], level=14)
 
-default ast_outfit_ann = DollOutfit([ast_hair_ann, ast_hat_ann, ast_top_ann, ast_stockings_ann, ast_gloves_ann, ast_buttplug_ann], price=500)
+default ast_outfit_ann = DollOutfit([ast_hair_ann, ast_hat_ann, ast_top_ann, ast_stockings_ann, ast_gloves_ann, ast_buttplug_ann], price=500, name="Ann Costume", desc="Wearing this will make you look like a different persona.")
 
 ##########
 ## Misc ##

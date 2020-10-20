@@ -1,210 +1,4 @@
-init python:
-    def unlock_clothing_compat(item):
-        """Unlock a clothing item. Compatible with new outfit system."""
-        if isinstance(item, Item):
-            item.unlocked = True
-        elif isinstance(item, DollOutfit):
-            item.unlock()
-        elif isinstance(item, DollCloth):
-            item.unlocked = True
-
-        #TODO Find a better solution than outfit linking (probably just convert all clothes to new wardrobe system)
-        if isinstance(item, Item) and item.id in outfit_linking:
-            var_name = outfit_linking[item.id]
-            outfit = globals()[var_name]
-            outfit.unlock()
-
-init python:
-    # Used for prediction
-    def all_clothes_images():
-        lists = [
-            hermione_outfits_list,
-            luna_outfits_list, luna_costumes_list, luna_dresses_list, luna_clothing_sets_list,
-            astoria_outfits_list, astoria_costumes_list, astoria_dresses_list, astoria_clothing_sets_list,
-            susan_outfits_list, susan_costumes_list, susan_dresses_list, susan_clothing_sets_list,
-            cho_outfits_list, cho_costumes_list, cho_dresses_list, cho_clothing_sets_list,
-            tonks_clothing_sets_list
-        ]
-        for i in lists:
-            for j in i:
-                yield j.get_image()
-
-### CLOTHING STORE ###
-
-screen clothing_store_room():
-    tag room_screen
-
-    if daytime:
-        add "images/rooms/_bg_/corridor.webp" #Need day image.
-    else:
-        add "images/rooms/_bg_/corridor.webp"
-
-    use ui_top_bar
-
-    zorder 0
-
-label open_clothing_store:
-    show screen blkfade
-    with d3
-
-    call room("clothing_store")
-
-    call play_music("clothing_store")
-
-    hide screen blkfade
-    with d3
-    pause.2
-
-    $ renpy.block_rollback()
-
-    $ renpy.start_predict(*all_clothes_images())
-
-    call clothing_store_chitchat
-
-    #Reset
-    $ store_category = 0
-    $ item_choice = None
-    $ current_page = 0
-    $ character_choice = 1 #Hermione
-    $ character_choice_list = [1,2,3,4,5,6]
-    $ store_menu = True #Displays item's gold value.
-
-    show screen clothing_store_menu
-
-    jump clothing_shop_menu
-
-label clothing_store_chitchat:
-    if not clothing_store_intro_done:
-        $ clothing_store_intro_done = True
-        ">You enter to see an old woman sewing together two pieces of long dark fabric."
-        ">The woman is dressed almost entirely in pink and has a warm, approachable air to her."
-        m "Hello."
-        maf "Hello, Professor Dumbledore."
-        maf "What can I do for you? Would you like a new cloak, or do you require some alterations to an existing item?"
-        m "Neither thank you, I'm just here to make a few inquiries."
-        maf "Of course sir, what could I help you with?"
-        m "Firstly, what type of items do you sell?"
-        maf "Well, I'm a tailor. I make uniforms for the staff and students."
-        maf "I also perform alterations to existing items. This is mainly when a student goes through a growth spurt or gets a hole in their cloak."
-        m "I see. Do you ever make custom orders?"
-        maf "Not really, although it is my passion. Most of what I'm asked to make are standard black robes."
-        m "So you're interested in making unique outfits?"
-        maf "Absolutely, although I would have to order the fabrics in. I don't really have a range of colours at the moment."
-        maf "What did you have in mind?"
-        m "A few things. I haven't decided on anything specific yet."
-        maf "Well, while you're making up your mind, feel free to browse the store."
-    else:
-        maf "What can I get you today?"
-
-    return
-
-label close_clothing_store:
-    $ renpy.play('sounds/door2.mp3')
-    hide screen clothing_store_menu
-    hide screen list_menu
-    hide screen clothing_menu
-    with d3
-
-    $ renpy.stop_predict(*all_clothes_images())
-
-    m "That's all for today, thank you."
-    maf "You're welcome, sir. Come back any time."
-
-    $ store_menu = False #Displays item's gold value.
-
-    jump return_office
-
-screen clothing_store_menu():
-    tag store_menu
-    if store_category == 0:
-        $ UI_xpos_offset = 0
-    else:
-        $ UI_xpos_offset = 100
-
-    zorder 4
-
-    # Close Button
-    use close_button
-
-#Clothing Store, Outfits & Sets.
-label clothing_shop_menu:
-    hide screen list_menu
-    show screen clothing_store_menu
-
-    python:
-        item_list = []
-        if character_choice == 1:
-            item_list.extend(hermione_outfits_list)
-        elif character_choice == 2:
-            item_list.extend(luna_outfits_list)
-            item_list.extend(luna_costumes_list)
-            item_list.extend(luna_dresses_list)
-            item_list.extend(luna_clothing_sets_list)
-        elif character_choice == 3:
-            item_list.extend(astoria_outfits_list)
-            item_list.extend(astoria_costumes_list)
-            item_list.extend(astoria_dresses_list)
-            item_list.extend(astoria_clothing_sets_list)
-        elif character_choice == 4:
-            item_list.extend(susan_outfits_list)
-            item_list.extend(susan_costumes_list)
-            item_list.extend(susan_dresses_list)
-            item_list.extend(susan_clothing_sets_list)
-        elif character_choice == 5:
-            item_list.extend(cho_outfits_list)
-            item_list.extend(cho_costumes_list)
-            item_list.extend(cho_dresses_list)
-            item_list.extend(cho_clothing_sets_list)
-        elif character_choice == 6:
-            item_list.extend(tonks_clothing_sets_list)
-
-        item_list = list(filter(lambda x: (x.unlocked==False and x.unlockable==False), item_list))
-
-    show screen clothing_menu(item_list, character_choice, item_choice)
-    with d3
-
-    $ _return = ui.interact()
-
-    hide screen clothing_menu
-
-    if isinstance(_return, Item):
-        $ item_choice = _return
-
-    elif _return == "buy":
-        call purchase_outfit(item_choice)
-        $ item_choice = None
-        $ current_page = 0
-        if mailbox.type_in_parcels("outfit"):
-            jump close_clothing_store
-        else:
-            jump clothing_shop_menu
-
-    elif _return == "Close":
-        $ current_page = 0
-        $ item_choice = None
-        jump close_clothing_store
-
-    elif _return == "inc":
-        $ current_page += 1
-    elif _return == "dec":
-        $ current_page += -1
-
-    elif _return == "left":
-        $ current_page = 0
-        $ character_choice += -1
-        $ item_choice = None
-    elif _return == "right":
-        $ current_page = 0
-        $ character_choice += 1
-        $ item_choice = None
-
-    jump clothing_shop_menu
-
 label purchase_outfit(item):
-    hide screen clothing_store_menu
-    hide screen list_menu
-    hide screen clothing_menu
-    with d3
 
     if mailbox.type_in_parcels("outfit"):
         maf "I'm sorry luv, but I'm still quite busy working on your previous order."
@@ -232,7 +26,6 @@ label purchase_outfit(item):
         maf "..."
         maf "Well I should have it available for pick-up in a few days after I get the materials in."
         m "Thank you."
-
     elif item == hg_nightie:
         m "I'd like to order a custom outfit today."
         maf "Certainly honey... Repairing these conservative school clothes all day has been quite dull to say the least."
@@ -248,7 +41,6 @@ label purchase_outfit(item):
         m "Don't worry about the cost."
         maf "As you wish sweetie, it should be ready shortly."
         m "Thank you."
-
     elif item == hg_ball:
         if not ball_quest.E4_complete:
             m "Could you make a dress for me?"
@@ -267,7 +59,6 @@ label purchase_outfit(item):
         m "A week? Why so long?"
         maf "I'm ordering my next batch of material in a couple of days to keep the cost down..."
         maf "Or I could order it now if you pay a bit extra..."
-
     elif item == hg_msmarv:
         m "Tell me Madam Mafkin, have you ever heard of superheroes?"
         maf "Yes yes, those people in the comic books. My grandson is quite fond of them."
@@ -278,7 +69,6 @@ label purchase_outfit(item):
         maf "But I'm sure that my grandson has a comic of hers. I'm set to visit him this tonight so I can take a look."
         m "Thank you very much."
         maf "No need to thank me honey. Payment will suffice."
-
     elif item == hg_hslut:
         m "Have you ever seen a burlesque show Madam?"
         maf "I've done more than that, I've designed a few of the outfits for them!"
@@ -288,7 +78,6 @@ label purchase_outfit(item):
         maf "As you wish."
         m "Thank you very much."
         maf "You're quite welcome, sir."
-
     # elif item == hg_costume_power_girl_ITEM:
         # m "I was wondering if it would be possible for you to make me a super hero costume."
         # maf "Certainly, who did you have in mind?"
@@ -297,7 +86,6 @@ label purchase_outfit(item):
         # maf "But I'm sure that my grandson has a comic of hers. I'm set to visit him this weekend so I can take a look."
         # m "Thank you very much."
         # maf "No need to thank me sir. Payment will suffice."
-
     # elif item == hg_costume_harley_quinn_ITEM:
         # m "I was wondering if it would be possible for you to make me a super villain costume."
         # maf "Certainly, who did you have in mind?"
@@ -306,7 +94,6 @@ label purchase_outfit(item):
         # maf "But I'm sure that my grandson has a comic of hers. I'll just have to wrestle it out of his grubby little hands."
         # m "Thank you very much."
         # maf "You're quite welcome."
-
     elif item == hg_croft:
         m "Would you be able to make me a cosplay costume?"
         maf "Certainly, what are you after?"
@@ -317,7 +104,6 @@ label purchase_outfit(item):
         m "Thank you very much."
         maf "You're welcome. I'm seeing him tonight so I should be able to complete this one slightly faster than usual."
         m "Fantastic."
-
     # elif item == hg_outfit_christmas_ITEM:
         # m "I was wondering if it would be possible for you to make me a festive costume."
         # maf "Certainly, what what holiday are you looking to \"celebrate\"?"
@@ -328,11 +114,9 @@ label purchase_outfit(item):
         # m "Thank you very much."
         # maf "You're welcome. I'll even give you a special price. Consider it my Christmas gift to you.."
         # m "Thank you."
-
     # elif item == hg_outfit_pirate_ITEM:
         # m "I want a pirate outfit"
         # maf "ok"
-
     elif item == hg_bioshock:
         m "Have you ever heard of Bioshock infinite?"
         maf "Biology what now?"
@@ -343,7 +127,6 @@ label purchase_outfit(item):
         maf "Consider it done!"
         m "Thank you very much."
         maf "You're welcome."
-
     elif item == hg_yennefer:
         m "Have you ever heard of the sorceress Yennefer?"
         maf "Of course! The mother of a universe hopper isn't quickly forgotten..."
@@ -351,7 +134,6 @@ label purchase_outfit(item):
         maf "Certainly."
         m "Thank you very much."
         maf "Toss a coin to your tailor."
-
     elif item == hg_bikini1:
         m "I'd like to order a bikini."
         maf "A bikini sir? Isn't that a bit cold in this climate?"
@@ -359,7 +141,6 @@ label purchase_outfit(item):
         maf "Are you even--"
         m "You think you could make something like that for me?"
         maf "Of course sir, as you wish..."
-
     elif item == hg_bikini2:
         m "I'd like to order a bikini."
         maf "Of course, what kind of bikini would you like?"
@@ -369,7 +150,6 @@ label purchase_outfit(item):
         maf "Alright then..."
         maf "Your bikini shall be ready shortly."
         m "Excellent..."
-
     elif item == hg_bunny:
         m "Could you make me a bunny costume?"
         maf "A bunny costume? Do you mean something like the Easter bunny?"
@@ -377,7 +157,6 @@ label purchase_outfit(item):
         maf "I'll see what I can--"
         m "With big bunny ears!"
         maf "Okay then..."
-
     elif item == hg_swimsuit:
         m "I need a swimsuit."
         maf "Swimming at your age?"
@@ -389,7 +168,6 @@ label purchase_outfit(item):
         maf "..."
         maf "I'll have to look through some of those muggle magazines then..."
         maf "It will be ready shortly."
-
     elif item == hg_egypt:
         m "I'd like something that one of my old flames used to wear..."
         maf "An old what, sir?"
@@ -410,7 +188,6 @@ label purchase_outfit(item):
         maf "I'll have it ready for you in no time!"
         maf "Although I'd prefer to be paid in gold rather than in camels."
         m "Ask and you shall receive!"
-
     elif item == hg_latex_dress:
         m "Ready to work with some latex?"
         maf "Latex... now that's something I don't get to work with often..."
@@ -436,7 +213,6 @@ label purchase_outfit(item):
         m "So you'll make it?"
         maf "Certainly."
         m "Fantastic!"
-
     elif item == hg_tifa:
         m "I'd like a cosplay costume."
         maf "Good idea! Who are we thinking, Gandalf the grey or--"
@@ -450,7 +226,6 @@ label purchase_outfit(item):
         maf "Okay then, I shall floo him and then I'll get that outfit ready for you."
         m "(She'll do what to him?)"
         maf "Anything else?"
-
     elif item == hg_witch:
         m "Do you have time to make a cosplay costume?"
         maf "A cosplay costume?"
@@ -461,14 +236,12 @@ label purchase_outfit(item):
         maf "Those costumes looks nothing like a real witch's costume..."
         maf "Oh Well... If I'm to make one, it's going to be the best of the best..."
         m "Great!"
-
     elif item == hg_latex:
         m "I'd like an outfit... a latex one!"
         maf "Latex?"
         maf "Now you do know what kind of outfits are known to be made by latex don't you, honey?"
         m "Of course... And I'd like one of those very much."
         maf "Okay then... just making sure."
-
     elif item == hg_teddy:
         m "I need a teddy nightgown."
         maf "A teddy--"
@@ -484,7 +257,6 @@ label purchase_outfit(item):
         maf "Black?! Is it for Professor Sn..."
         m "Madam..."
         maf "My apologies... I'll get going on this as soon as possible! Can't let a lady wait can we?"
-
     elif item == hg_fishnet:
         m "Could you make me a fishnet outfit?"
         maf "A fishnet... outfit, sir?"
@@ -497,7 +269,6 @@ label purchase_outfit(item):
         maf "..."
         maf "Of course, sir."
         m "Excellent..."
-
     elif item == hg_bikini3:
         m "Madam, I require your finest bikini!"
         maf "Oh my, aren't you a quick one, at least buy me a dinner first."
@@ -510,7 +281,6 @@ label purchase_outfit(item):
         m "Sling bikini it is! Great idea Madam!"
         maf "Of course, sir..."
         maf "I'll get to it then..."
-
     elif item == hg_cheerleader:
         m "Could you make me a Gryffindor cheerleader outfit?"
         maf "You're not showing favouritism towards Gryffindor's Quidditch team again are you, sir?"
@@ -533,7 +303,6 @@ label purchase_outfit(item):
         maf "I shall get to work on it shortly."
         m "..."
 
-
     #
     # Cho chang
     #
@@ -548,7 +317,6 @@ label purchase_outfit(item):
         maf "Oh, I see what you mean..."
         maf "Yes... that could be done."
         m "Perfect."
-
     elif item == cc_costume_misty_ITEM:
         m "I'd like a cosplay outfit please."
         maf "Yes?"
@@ -561,7 +329,6 @@ label purchase_outfit(item):
         m "She's a character from Pokémon..."
         maf "Oh... I see, maybe my grandson will know."
         m "I'm sure he will..."
-
     elif item == cc_japanese_school_uniform_ITEM:
         m "Can you make me a school girl uniform?"
         maf "Make you one? Don't you mean repair a uniform?"
@@ -584,7 +351,6 @@ label purchase_outfit(item):
         m "So... Can you make the outfit?"
         maf "Certainly... I'll get started right away."
         m "Domo arigato Mr roboto."
-
     elif item == cc_dress_red_ITEM:
         m "Could you make me a traditional Chinese dress?"
         maf "Now, who on earth could this dress be for?"
@@ -596,7 +362,6 @@ label purchase_outfit(item):
         m "Sorry?"
         maf "Nothing... Of course I'll make it for something this important!"
         m "Great!"
-
     elif item == cc_lingerie_lace_ITEM:
         m "I'd like to order some lace lingerie please."
         maf "lingerie..."
@@ -606,7 +371,6 @@ label purchase_outfit(item):
         m "Of course..."
         maf "Yes, I should be able to procure some for you."
         m "Excellent."
-
     elif item == cc_bikini_micro_ITEM:
         m "Bikini please!"
         maf "Straight to the point..."
@@ -645,7 +409,6 @@ label purchase_outfit(item):
         m "Precisely!"
         maf "I'll see what I can do..."
         m "Great!"
-
     elif item == ll_dress_orange_ITEM:
         if not ball_quest.E4_complete:
             m "Could you make a dress for me?"
@@ -666,7 +429,6 @@ label purchase_outfit(item):
         maf "Okay then, well... in that case I'll have to throw fashion out the window..."
         maf "I'll see what I can do..."
         m "Good luck!"
-
     elif item == ll_cheer_r_ITEM:
         m "Could you make me a Ravenclaw Cheerleader outfit?"
         maf "You're not showing favouritism towards Ravenclaw's Quidditch team are you?"
@@ -676,7 +438,6 @@ label purchase_outfit(item):
         maf "Great then that's settled."
         m "(Wait, what did she say?)"
         maf "I'll get it done as soon as possible."
-
     elif item == ll_lingerie_silk_ITEM:
         m "I need some silk underwear... Do you happen to have any on hand?"
         maf "Male or female?"
@@ -705,7 +466,6 @@ label purchase_outfit(item):
         m "A very good one."
         maf "Alright then, I'll see what I can do."
         m "Excellent."
-
     elif item  == nt_casual:
         m "I'm looking for something casual and tightfitting."
         maf "That's pretty vague... could you be more specific of what you had in mind?"
@@ -720,7 +480,6 @@ label purchase_outfit(item):
         maf "Now how is this supposed to be modern?"
         m "*Err*..."
         maf "No matter... I'll get to work on it as soon as possible."
-
     elif item  == nt_nightie:
         m "I'm looking to acquire a nightgown."
         maf "Right, any specifications?"
@@ -730,7 +489,6 @@ label purchase_outfit(item):
         maf "Is that all?"
         m "Yes, that should be all."
         maf "One see-through... nightgown coming right up."
-
     elif item == nt_bunny:
         m "I need a bunny suit, something similar to what they'd wear at a casino."
         maf "*Hmm*...{w=0.3} Not sure what casino's you've been to but I think I know what you mean..."
@@ -738,7 +496,6 @@ label purchase_outfit(item):
         maf "Alright..."
         maf "If that's all, I need to go source the materials for these...{w=0.3} ears."
         m "Yes, that will be all."
-
     elif item == nt_silky:
         m "I'm looking for something Greek... like a toga."
         maf "A toga, sir?"
@@ -754,21 +511,18 @@ label purchase_outfit(item):
         m "A bit, what?"
         maf "Never mind... I'll do it."
         m "Excellent..."
-
     elif item == nt_bikini_1:
         m "Could you make be a simple bikini-bra?"
         maf "Certainly, looking for any particular pattern?"
         m "A Plain one should be fine."
         maf "Alright then, I'll get to work on it shortly."
         m "Thank you very much!"
-
     elif item == nt_bikini_2:
         m "Could you make be a simple bikini-bra?"
         maf "Certainly, looking for any particular pattern?"
         m "A Striped one would be great."
         maf "Alright then, I'll get to work on it shortly."
         m "Thank you very much!"
-
     elif item == nt_bikini_3:
         m "Could you make be a bikini-bra?"
         maf "Certainly, looking for any particular pattern?"
@@ -778,7 +532,6 @@ label purchase_outfit(item):
         maf "Oh... righto..."
         maf "One union jack bikini-bra it is..."
         m "(Scottish... As if I wouldn't know straight away that we were in Scotland...)"
-
     elif item == nt_bikini_4:
         m "Could you make be a bikini-bra?"
         maf "Certainly, looking for any particular pattern?"
@@ -806,53 +559,3 @@ label purchase_outfit(item):
         maf "That should be quite doable..."
         m "Excellent."
         maf "I'll get it done as soon as I can."
-
-    # Purchase Outfit
-
-    $ transit_time = item.wait_time
-    $ order_cost = item.cost
-    $ order_tip = int(item.cost * 0.20) # int() removes decimental
-
-    menu:
-        "-Add next day delivery (+[order_tip] gold)-" if gold >= order_cost + order_tip:
-            $ order_cost += order_tip
-            $ transit_time = 1
-
-            g9 "I'll tip you handsomely if you can get it done by tomorrow."
-            $ random_response = renpy.random.randint(1, 5)
-
-            if random_response == 1:
-                maf "Oh, Professor. I {b}do{/b} love a challenge."
-                maf "I'll have to pull some strings but I'll get it done."
-            elif random_response == 2:
-                maf "Well... since you're putting it that way..."
-                maf "I'll start on it straight away."
-            elif random_response == 3:
-                maf "I feel like I'd be neglecting my usual responsibilities a bit if I took this on immediately..."
-                m "So, is that a no?"
-                maf "You're the headmaster, your wish is my command."
-            elif random_response == 4:
-                maf "I'll put everything else on hold in that case..."
-            else:
-                maf "I might need an extra pair of hands to pull it off by then..."
-                maf "Could I use one of the house elves?"
-                m "Use anything that will get it done by tomorrow."
-                maf "Certainly, sir."
-        "-Add next day delivery (+[order_tip] gold)-" (style="disabled") if gold < order_cost + order_tip:
-            m "(I don't have enough money for that.)"
-        "-No thanks-":
-            pass
-
-    $ item.unlockable = True #Hides it from the store menu.
-    $ gold -= order_cost
-    $ Parcel(contents=[(item, 1)], wait=transit_time).send()
-
-    m "Here is your gold."
-    maf "Thank you.\nI'll start working on it right away, Professor!"
-    if transit_time == 1:
-        maf "You can expect a package with the outfit by tomorrow."
-    else:
-        $ _tmp = "You can expect a package with the outfit in about "+num_to_word(transit_time)+" days."
-        maf "[_tmp]"
-
-    return

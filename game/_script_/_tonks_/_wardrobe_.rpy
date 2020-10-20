@@ -77,7 +77,7 @@ default ton_bottom_school2 = DollCloth("tonks", ("lower body", "skirts"), "botto
 default ton_bottom_school3 = DollCloth("tonks", ("lower body", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], armfix=True, level=40)
 default ton_bottom_school4 = DollCloth("tonks", ("lower body", "skirts"), "bottom", "school_skirt_4", [[103, 90, 108, 255], [232, 177, 13, 255]], armfix=True, level=60)
 
-default ton_outfit_school = DollOutfit([ton_hair_base_new, ton_top_tied, ton_bottom_school2], price=350)
+default ton_outfit_school = DollOutfit([ton_hair_base_new, ton_top_tied, ton_bottom_school2], price=350, name="Oldschool School Uniform", desc="A very tight school outfit back from 1995!")
 
 ##################
 ## Flag Bikinis ##
@@ -93,10 +93,10 @@ default ton_panties_bikini_1_jock = DollCloth("tonks", ("lower undergarment", "b
 default ton_panties_bikini_1_striped = DollCloth("tonks", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_1_striped", [[255, 255, 255, 255], [139, 0, 0, 255]])
 default ton_panties_bikini_1_UK = DollCloth("tonks", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_1_UK", [[255, 255, 255, 255], [200, 16, 46, 255], [1, 33, 105, 255]])
 
-default ton_outfit_bikini_1 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1, ton_panties_bikini_1], price=250)
-default ton_outfit_bikini_2 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_striped, ton_panties_bikini_1_striped], price=250)
-default ton_outfit_bikini_3 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_UK, ton_panties_bikini_1_UK], price=250)
-default ton_outfit_bikini_4 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_USA, ton_panties_bikini_1_jock], price=250)
+default ton_outfit_bikini_1 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1, ton_panties_bikini_1], price=250, name="Simple Bikini", desc="It ain't much, but it at least covers the important bits.")
+default ton_outfit_bikini_2 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_striped, ton_panties_bikini_1_striped], price=250, name="Striped Bikini", desc="It ain't much, but it at least covers the important bits. Did I mention the stripes?")
+default ton_outfit_bikini_3 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_UK, ton_panties_bikini_1_UK], price=250, name="\"For the queen!\" bikini set", desc="This is the way.")
+default ton_outfit_bikini_4 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_USA, ton_panties_bikini_1_jock], price=250, name="American bikini set", desc="Fuck yeah!")
 
 ###################
 ## Casual Outfit ##
@@ -105,7 +105,7 @@ default ton_outfit_bikini_4 = DollOutfit([ton_hair_base_new, ton_bra_bikini_1_US
 default ton_top_crop_casual = DollCloth("tonks", ("upper body", "shirts"), "top", "crop_top",[[200, 8, 45, 255]])
 default ton_bottoms_leggings_casual = DollCloth("tonks", ("lower body", "leggings"), "bottom", "latex_leggings",[[32, 32, 32, 255], [25, 24, 24, 255]], armfix=True)
 
-default ton_outfit_casual = DollOutfit([ton_hair_base_new, ton_top_crop_casual, ton_bottoms_leggings_casual], price=350)
+default ton_outfit_casual = DollOutfit([ton_hair_base_new, ton_top_crop_casual, ton_bottoms_leggings_casual], price=350, name="Sexy Casual Outfit", desc="Leggings make squeeky sounds when rubbed together.")
 
 #############
 ## Nightie ##
@@ -113,7 +113,7 @@ default ton_outfit_casual = DollOutfit([ton_hair_base_new, ton_top_crop_casual, 
 
 default ton_top_nightie_1 = DollCloth("tonks", ("upper body", "shirts"), "top", "nightie_1", [[153, 38, 96, 255]], armfix=True)
 
-default ton_outfit_nightie = DollOutfit([ton_hair_base_new, ton_top_nightie_1], price=350)
+default ton_outfit_nightie = DollOutfit([ton_hair_base_new, ton_top_nightie_1], price=350, name="Nightie", desc="Doesn't leave much for the imagination.")
 
 ##################
 ## Bunny outfit ##
@@ -124,7 +124,7 @@ default ton_stockings_bunny1 = DollCloth("tonks", ("legwear", "pantyhose"), "sto
 default ton_hat_bunny1 = DollCloth("tonks", ("head", "headgear"), "headgear", "bunny", [[48, 48, 48, 255], [232, 232, 232, 255]], level=20)
 default ton_neckwear_bunny1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "bunny_bowtie_1", [[232, 232, 232, 255], [48, 48, 48, 255]], level=10)
 
-default ton_outfit_bunny = DollOutfit([ton_hair_base_new, ton_top_bunny1, ton_stockings_bunny1, ton_hat_bunny1, ton_neckwear_bunny1], price=350)
+default ton_outfit_bunny = DollOutfit([ton_hair_base_new, ton_top_bunny1, ton_stockings_bunny1, ton_hat_bunny1, ton_neckwear_bunny1], price=350, name="Sexy bunny outfit", desc="Vewy sexy :3")
 
 #################
 ## Silky Dress ##
@@ -133,7 +133,7 @@ default ton_outfit_bunny = DollOutfit([ton_hair_base_new, ton_top_bunny1, ton_st
 default ton_top_silk_dress = DollCloth("tonks", ("upper body", "dresses"), "top", "silk_dress", [[240, 237, 250, 255], [234, 234, 234, 255]], blacklist=["bra", "bottom"], armfix=True)
 default ton_robe_silk = DollCloth("tonks", ("upper body", "robes"), "robe", "silk_robe", [[240, 237, 250, 255]], armfix=True)
 
-default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, ton_robe_silk], price=350)
+default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, ton_robe_silk], price=350, name="Silky Dress", desc="{size=-4}Disclaimer: Madam Mafkin isn't responsible for damaged nipples.{/size}")
 
 #####################
 ## Succubus Outfit ##
@@ -147,7 +147,7 @@ default ton_panties_succubus = DollCloth("tonks", ("lower undergarment", "bikini
 default ton_accessory0_succubus = DollCloth("tonks", ("misc", "accessory"), "accessory0", "succubus_wings", [[62, 51, 57, 255], [181, 86, 84, 255], [136, 134, 134, 255]], zorder=-160, blacklist=["robe"])
 default ton_accessory1_succubus = DollCloth("tonks", ("misc", "accessory"), "accessory1", "succubus_tail", [[62, 51, 57, 255], [181, 86, 84, 255]])
 
-default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, ton_neckwear_succubus, ton_gloves_succubus, ton_top_succubus, ton_panties_succubus, ton_accessory0_succubus, ton_accessory1_succubus], price=666)
+default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, ton_neckwear_succubus, ton_gloves_succubus, ton_top_succubus, ton_panties_succubus, ton_accessory0_succubus, ton_accessory1_succubus], price=666, name="Succubus Costume", desc="Hot as hell.")
 
 ##########
 ## Misc ##

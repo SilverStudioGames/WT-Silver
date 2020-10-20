@@ -58,3 +58,22 @@ default lun_hair_base = DollCloth("luna", ("head", "hair"), "hair", "base", [[25
 default lun_outfit_default = DollOutfit([lun_hair_base], True)
 default lun_outfit_last = DollOutfit([lun_hair_base])
 
+# default ll_stewardess_ITEM = CostumeItem(
+#     id="ll_stewardess", name="Stewardess Outfit", type="outfit", items=["onepiece-top","hat","necklace","thong"],
+#     cost=80, wait_time=2, image="outfits/ll_stewardess", description="> An outfit giving you immediate access to the mile-high club!",
+#     # Layers
+#     outfit_layers = ["panties/panties_thong_1","onepieces/onepiece_stewardess_1","neckwear/cloth_tie"],
+#     top_layers    = "hat_stewardess"
+# )
+# default ll_stewardess_short_ITEM = CostumeItem(
+#     id="ll_stewardess_short", name="Short Stewardess Outfit", type="outfit", items=["onepiece-top","hat","necklace","thong"], image="outfits/ll_stewardess_short", unlockable=True,
+#     # Layers
+#     outfit_layers = ["panties/panties_thong_2","onepieces/onepiece_stewardess_2","neckwear/cloth_tie"],
+#     top_layers    = "hat_stewardess"
+# )
+# default ll_dress_orange_ITEM = CostumeItem(
+#     id="ll_dress_orange", name="Ball Dress", type="outfit", items=["earrings","onepiece-top","stockings"],
+#     cost=200, wait_time=3, image="outfits/ll_dress_orange", description=">A cute dress in a questionable colour.",
+#     # Layers
+#     outfit_layers = ["stockings/leggings_1","onepieces/onepiece_ball_dress","piercings/ears_starts_1"]
+# )

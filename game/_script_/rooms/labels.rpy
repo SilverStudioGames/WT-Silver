@@ -52,7 +52,7 @@ label room(room=None, hide_screens=True, stop_sound=True):
         show screen potions_room
 
     if room == "clothing_store":
-        show screen clothing_store_room
+        show screen clothing_store
 
     if room == "floor_seven":
         show screen floor_7th_screen

@@ -1,8 +1,8 @@
 init python:
     class DollOutfit(DollMethods):
         def __init__(self, group, unlocked=False, name="", desc="", price=0):
-            self.name = name
             self.group = [x.clone() if not x.parent else x for x in group]
+            self.name = name
             self.desc = desc
             self.price = price
             self.char = self.group[0].char

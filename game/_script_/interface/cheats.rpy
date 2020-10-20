@@ -216,20 +216,11 @@ label cheats:
                     jump cheats.devroom
                 "-Unlock all characters clothes-" (icon="interface/icons/small/wardrobe.webp"):
                     python:
-                        for i in ("hermione", "cho", "astoria", "tonks"):
-                            for x in getattr(renpy.store, i).wardrobe_list:
-                                x.unlocked = True
-                        # Her
-                        for i in hermione_outfits_list:
-                            i.unlocked = True
-                        # Lun
-                        for i in (luna_costumes_list + luna_dresses_list + luna_clothing_sets_list):
-                            i.unlocked = True
-                        # Cho
-                        for i in (cho_outfits_list + cho_costumes_list + cho_dresses_list + cho_clothing_sets_list):
-                            i.unlocked = True
-                        # Ast
-                        ag_anntakamaki_ITEM.unlocked = True
+                        for i in ("hermione", "cho", "astoria", "tonks", "susan", "luna"):
+                            for x in getattr(renpy.store, i).outfits:
+                                if x.price > 0:
+                                    x.unlock()
+
                     jump cheats.devroom
 
                 "-Skip character progression-":
