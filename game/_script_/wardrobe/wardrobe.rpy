@@ -159,7 +159,7 @@ label wardrobe():
             if not _outfit.exists():
                 _outfit.delete()
                 renpy.notify("Advice: If you want to keep an outfit, save it.")
-                renpy.call_screen("confirm", "Exit without saving?\n{size=-6}Unsaved changed will be lost.{/size}", [SetVariable("_confirmed", True), Return()], Return())
+                renpy.call_screen("confirm", "Exit without saving?\n{size=-6}Unsaved changes will be lost.{/size}", [SetVariable("_confirmed", True), Return()], Return())
 
                 if not _confirmed:
                     renpy.jump("wardrobe.after_init")

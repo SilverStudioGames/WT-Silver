@@ -89,8 +89,12 @@ screen file_slots(title):
                             xsize gui.slot_width - config.thumbnail_width - gui.slot_height
                             yalign 0.5
 
-                            text FileTime(slot, format=_("{#file_time}%-d %B, %Y, %H:%M"), empty=_("empty slot")):
-                                style "slot_time_text"
+                            if renpy.windows:
+                                text FileTime(slot, format=_("{#file_time}%#d %B, %Y, %H:%M"), empty=_("empty slot")):
+                                    style "slot_time_text"
+                            else:
+                                text FileTime(slot, format=_("{#file_time}%-d %B, %Y, %H:%M"), empty=_("empty slot")):
+                                    style "slot_time_text"
 
                             text FileSaveName(slot):
                                 style "slot_name_text"
