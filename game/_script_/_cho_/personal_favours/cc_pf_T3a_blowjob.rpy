@@ -82,7 +82,7 @@ label cc_pf_blowjob_T3_intro_E1:
 
         $ camera.set_imagepath("cho_bj/kneel/")
         $ camera.set_image("mid_shock")
-        if daytime:
+        if game.daytime:
             $ camera.set_overlay("day_overlay")
         else:
             $ camera.set_overlay("night_overlay")
@@ -615,7 +615,7 @@ label cc_pf_blowjob_1:
     call cho_main("Are you...{w=0.4} Are we done?", "open", "narrow", "base", "downR", cheeks="blush") #Blush
     m "Yes, for now..."
 
-    if daytime:
+    if game.daytime:
         call cho_main("Alright... In that case I better head back to class.", "open", "base", "base", "R")
     else:
         call cho_main("Alright... I'll head off to bed then.", "open", "base", "base", "R")
@@ -650,7 +650,7 @@ label cc_pf_blowjob_T3_E2:
 
     $ camera.set_imagepath("cho_bj/kneel/")
     $ camera.set_image("mid")
-    if daytime:
+    if game.daytime:
         $ camera.set_overlay("day_overlay")
     else:
         $ camera.set_overlay("night_overlay")
@@ -1144,7 +1144,7 @@ label cc_pf_blowjob_T3_E2:
                         call cho_main("I don't know how Granger could do this for so long.", "soft", "narrow", "base", "down")
                         g9 "(*Heh*, practice makes perfect...)"
 
-                    if daytime:
+                    if game.daytime:
                         m "No time for a lie down I'm afraid..."
                         call cho_main("What, don't tell me you're already--", "clench", "wide", "base", "mid", cheeks="blush")
                         m "You've got class to get to."
@@ -1249,7 +1249,7 @@ label cc_pf_blowjob_T3_E2:
                     m "[cho_name]?"
                     call cho_main("Yes...{w=0.5} sorry...{w=0.5} thank you [cho_genie_name].", "angry", "base", "base", "downR", cheeks="blush")
                     call cho_main("Is that all?", "soft", "narrow", "base", "down", cheeks="blush")
-                    if daytime:
+                    if game.daytime:
                         m "That will be all for today..."
                     else:
                         m "That will be all for tonight..."
@@ -1270,7 +1270,7 @@ label cc_pf_blowjob_T3_E2:
                     $ cho.wear("all")
                     with fade
 
-                    if daytime:
+                    if game.daytime:
                         call cho_main("Bye then!", "open", "happyCl", "base", "downR", cheeks="blush")
                     else:
                         call cho_main("Good night then!", "base", "base", "base", "mid")
@@ -1393,7 +1393,7 @@ label cc_pf_blowjob_T3_E3:
 
     $ camera.set_imagepath("cho_bj/kneel/")
     $ camera.set_image("mid")
-    if daytime:
+    if game.daytime:
         $ camera.set_overlay("day_overlay")
     else:
         $ camera.set_overlay("night_overlay")
@@ -1690,7 +1690,7 @@ label cc_pf_blowjob_T3_E3:
     $ cho.set_cum(None)
     with fade
 
-    if daytime:
+    if game.daytime:
         call cho_main("In that case I'll head back to class.", "open", "base", "base", "R", cheeks="blush")
     else:
         call cho_main("I'll head back to my dorms then...", "base", "base", "base", "mid")

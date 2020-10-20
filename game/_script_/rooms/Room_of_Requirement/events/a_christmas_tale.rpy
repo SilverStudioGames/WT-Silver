@@ -1,8 +1,8 @@
 label a_christmas_tale:
     # Setup
     $ temp_date = day
-    $ temp_gold = gold
-    $ temp_day = daytime
+    $ temp_gold = game.gold
+    $ temp_day = game.daytime
     $ temp_weather = weather
 
     call play_music("stop")
@@ -13,7 +13,7 @@ label a_christmas_tale:
 
     centered "{size=+7}{color=#cbcbcb}A Christmas tale{/color}{/size}"
 
-    $ daytime = False # Night
+    $ game.daytime = False # Night
     call update_interface_color
 
     stop weather
@@ -196,7 +196,7 @@ label a_christmas_tale:
     call hide_screens
 
     # Reset
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     $ weather = temp_weather
     call update_interface_color
 

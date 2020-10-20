@@ -5,7 +5,7 @@ label purchase_outfit(item):
         maf "Come back once you received my package."
         return
 
-    if gold < item.cost:
+    if game.gold < item.cost:
         m "(I don't have enough gold.)"
         return
 

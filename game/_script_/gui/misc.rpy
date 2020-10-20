@@ -1,4 +1,4 @@
-﻿#
+#
 # Additional screens
 #
 
@@ -78,7 +78,7 @@ screen skip_indicator():
 
 
     if room_menu_active:
-        if daytime:
+        if game.daytime:
             timer 10 action Jump("night_start")
         else:
             timer 10 action Jump("day_start")

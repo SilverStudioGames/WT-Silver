@@ -34,7 +34,7 @@ label shop_dress():
             menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
             current_item = next(iter(menu_items), None)
         elif _return[0] == "buy":
-            gold -= _return[1].price
+            game.gold -= _return[1].price
             _return[1].unlock()
 
             menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
@@ -140,7 +140,7 @@ screen shop_dress_menuitem():
             for item in menu_items:
                 $ icon = Crop((210, 200, 700, 1000), item.get_image())
                 $ is_modded = item.is_modded()
-                $ is_affordable = bool(gold >= item.price)
+                $ is_affordable = bool(game.gold >= item.price)
 
                 button:
                     style "shop_outfit_button"
@@ -168,7 +168,7 @@ screen shop_dress_menuitem():
 
             textbutton "Buy":
                 align (0.5, 0.95)
-                sensitive (gold >= current_item.price)
+                sensitive (game.gold >= current_item.price)
                 activate_sound "sounds/money.mp3"
                 action Return(["buy", current_item])
 

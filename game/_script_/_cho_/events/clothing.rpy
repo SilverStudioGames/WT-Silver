@@ -115,7 +115,7 @@ label cho_summon_setup:
         call describe_mood("Cho", cho_mood)
         call tutorial("moodngifts")
     else:
-        if daytime:
+        if game.daytime:
             call cho_main("Good morning, [cho_genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)
         else:
             call cho_main("Good evening, [cho_genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)

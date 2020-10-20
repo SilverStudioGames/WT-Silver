@@ -39,7 +39,7 @@ label summon_hermione:
 
 
         # Tutoring
-        "-Tutoring-" (icon="interface/icons/small/book.webp") if not daytime and her_tutoring < 15: #14 is last level.
+        "-Tutoring-" (icon="interface/icons/small/book.webp") if not game.daytime and her_tutoring < 15: #14 is last level.
             if her_mood >=1 and her_mood < 3:
                 her "I'm sorry, maybe tomorrow..."
                 jump hermione_requests
@@ -57,7 +57,7 @@ label summon_hermione:
             else:
                 jump hg_tutor_start
 
-        "-Tutoring-" (icon="interface/icons/small/book.webp", style="disabled") if daytime and her_tutoring < 15:
+        "-Tutoring-" (icon="interface/icons/small/book.webp", style="disabled") if game.daytime and her_tutoring < 15:
             call nar("> Tutoring is available during the night only.")
             jump hermione_requests
 
@@ -114,7 +114,7 @@ label summon_hermione:
         "-Dismiss her-":
             stop music fadeout 3.0
 
-            if daytime:
+            if game.daytime:
                 if her_mood >=3 and her_mood < 7:
                     her "..............................."
                 elif her_mood >=7:
@@ -141,22 +141,22 @@ label update_her_tier:
         $ her_level_up = 1
     elif her_tier == 2 and her_whoring >= 9 and hg_jerkoff.trigger == True:
         # Trigger: When you get caught jerking off.
-        if game_difficulty >= 3 and imagination < 2: # Hardcore only
+        if game.difficulty >= 3 and imagination < 2: # Hardcore only
             return
         $ her_level_up = 2
     elif her_tier == 3 and her_whoring >= 12 and hg_strip.trigger == True:
         # Trigger: After she strips for you.
-        if game_difficulty >= 3 and imagination < 3: # Hardcore only
+        if game.difficulty >= 3 and imagination < 3: # Hardcore only
             return
         $ her_level_up = 3
     elif her_tier == 4 and her_whoring >= 18 and hg_kiss.trigger == True:
         # Trigger: None
-        if game_difficulty >= 3 and imagination < 4: # Hardcore only
+        if game.difficulty >= 3 and imagination < 4: # Hardcore only
             return
         $ her_level_up = 4
     elif her_tier == 5 and her_whoring >= 21 and hg_blowjob.trigger == True:
         # Trigger: First BJ
-        if game_difficulty >= 3 and imagination < 5: # Hardcore only
+        if game.difficulty >= 3 and imagination < 5: # Hardcore only
             return
         $ her_level_up = 5
 
@@ -171,7 +171,7 @@ label hermione_level_up(tier=None):
         with d3
         ">Hermione's second {i}favour tier{/i} is now available."
         ">You can move up {i}favour tiers{/i} by increasing her {i}whoring level{/i}, and by triggering {i}favour milestones{/i}."
-        if game_difficulty >= 3: # Hardcore, books are required.
+        if game.difficulty >= 3: # Hardcore, books are required.
             ">In addition, it is also required of you to increase your {i}imagination level{/i} by reading {i}fictional books{/i}, to unlock Hermione's next tier of favours."
         ">Each tier unlocks a new set of favours, but favours of the previous tier will no longer be available."
         hide screen blktone
@@ -247,11 +247,11 @@ label hermione_favor_menu:
                 else:
                     $ renpy.jump(result)
 
-            "-Public requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not daytime:
+            "-Public requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not game.daytime:
                 call nar(">Public requests are available during the day only.")
                 jump silver_requests_root
 
-            "-Public requests-" (icon="interface/icons/small/star_yellow.webp") if daytime:
+            "-Public requests-" (icon="interface/icons/small/star_yellow.webp") if game.daytime:
                 if her_reputation >= 16 and not public_whore_ending:
                     # Public whore ending choice
                     $ renpy.choice_for_skipping()
@@ -291,11 +291,11 @@ label hermione_favor_menu:
                 else:
                     $ renpy.jump(result)
 
-            "-Public Shaming-" (icon="interface/icons/small/star_pink.webp", style="disabled") if not daytime:
+            "-Public Shaming-" (icon="interface/icons/small/star_pink.webp", style="disabled") if not game.daytime:
                 call nar(">Public Shaming events are available during the day only.")
                 jump silver_requests_root
 
-            "-Public Shaming-" (icon="interface/icons/small/star_pink.webp")if daytime:
+            "-Public Shaming-" (icon="interface/icons/small/star_pink.webp")if game.daytime:
                 label not_now_ps:
                 python:
                     menu_choices = []
@@ -407,51 +407,51 @@ label hermione_talk:
         "-Working-" (icon="interface/icons/small/gold.webp"):
             label working_menu:
             menu:
-                "-Work as a maid-" if daytime and hg_maid.unlocked:
+                "-Work as a maid-" if game.daytime and hg_maid.unlocked:
                     jump job_1
 
-                "-Work as a maid-" (style="disabled") if daytime and not hg_maid.unlocked:
+                "-Work as a maid-" (style="disabled") if game.daytime and not hg_maid.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     jump working_menu
 
-                "-Work as a maid-" (style="disabled") if not daytime:
+                "-Work as a maid-" (style="disabled") if not game.daytime:
                     "This job is only available during the day."
                     jump working_menu
 
-                #"-Work as a cheerleader for Gryffindor-" if daytime and (hg_cheer_g_ITEM.unlocked or hg_cheer_g_sexy_ITEM.unlocked):
+                #"-Work as a cheerleader for Gryffindor-" if game.daytime and (hg_cheer_g_ITEM.unlocked or hg_cheer_g_sexy_ITEM.unlocked):
                      #jump job_3
 
-                #"-Work as a cheerleader for Gryffindor-" if daytime and not (hg_cheer_g_ITEM.unlocked or hg_cheer_g_sexy_ITEM.unlocked):
+                #"-Work as a cheerleader for Gryffindor-" if game.daytime and not (hg_cheer_g_ITEM.unlocked or hg_cheer_g_sexy_ITEM.unlocked):
                     #m "(I'll need an outfit for hermione if I want her to work.)"
                     #jump working_menu
 
-                #"-Work as a cheerleader for Gryffindor-" (style="disabled") if not daytime:
+                #"-Work as a cheerleader for Gryffindor-" (style="disabled") if not game.daytime:
                     #"This job is only available during the day."
                     #jump working_menu
 
-                #"-Work as a cheerleader for Slytherin-" if daytime and (hg_cheer_s_ITEM.unlocked or hg_cheer_s_sexy_ITEM.unlocked):
+                #"-Work as a cheerleader for Slytherin-" if game.daytime and (hg_cheer_s_ITEM.unlocked or hg_cheer_s_sexy_ITEM.unlocked):
                     #jump job_4
 
-                #"-Work as a cheerleader for Slytherin-" if daytime and not (hg_cheer_s_ITEM.unlocked or hg_cheer_s_sexy_ITEM.unlocked):
+                #"-Work as a cheerleader for Slytherin-" if game.daytime and not (hg_cheer_s_ITEM.unlocked or hg_cheer_s_sexy_ITEM.unlocked):
                     #m "(I'll need a slytherin cheerleader outfit for hermione if I want her to work.)"
                     #jump working_menu
 
-                #"-Work as a cheerleader for Slytherin-" (style="disabled") if not daytime:
+                #"-Work as a cheerleader for Slytherin-" (style="disabled") if not game.daytime:
                     #"This job is only available during the day."
                     #jump working_menu
 
-                "-Hidden-" (style="disabled") if daytime and not cardgame_work and not hg_poker.unlocked:
+                "-Hidden-" (style="disabled") if game.daytime and not cardgame_work and not hg_poker.unlocked:
                     "You haven't unlocked this job opportunity yet."
                     jump working_menu
 
-                "-Work by advertising the card game-" if daytime and cardgame_work and hg_poker.unlocked:
+                "-Work by advertising the card game-" if game.daytime and cardgame_work and hg_poker.unlocked:
                     jump job_5
-                "-Work by advertising the card game-" (style="disabled") if daytime and cardgame_work and not hg_poker.unlocked:
+                "-Work by advertising the card game-" (style="disabled") if game.daytime and cardgame_work and not hg_poker.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     m "(Maybe the twins have something fitting for her in their stock.)"
                     jump working_menu
 
-                "-Work by advertising the card game-" (style="disabled") if not daytime and cardgame_work:
+                "-Work by advertising the card game-" (style="disabled") if not game.daytime and cardgame_work:
                     "This job is only available during the day."
                     jump working_menu
 

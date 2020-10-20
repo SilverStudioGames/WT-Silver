@@ -6,9 +6,9 @@ label prev_at_hogwarts:
     #Story Unlock requirements: Finish the first 3 Wizard Cards challenges.
 
     # Setup
-    $ temp_date = day
-    $ temp_gold = gold
-    $ temp_day = daytime
+    $ temp_date = game.day
+    $ temp_gold = game.gold
+    $ temp_day = game.daytime
     $ temp_weather = weather
 
     stop weather
@@ -17,9 +17,9 @@ label prev_at_hogwarts:
     show screen blkfade
     with d5
 
-    $ day = 1
-    $ gold = 0
-    $ daytime = True
+    $ game.day = 1
+    $ game.gold = 0
+    $ game.daytime = True
     call update_interface_color
     $ set_weather("clear")
 
@@ -115,9 +115,9 @@ label prev_at_hogwarts:
     pause.8
 
     # Reset vars.
-    $ day = temp_date
-    $ gold = temp_gold
-    $ daytime = temp_day
+    $ game.day = temp_date
+    $ game.gold = temp_gold
+    $ game.daytime = temp_day
     call update_interface_color
     $ weather = temp_weather
 
@@ -126,9 +126,9 @@ label prev_at_hogwarts:
 label a_spaced_out_conversation:
 
     # Setup
-    $ temp_date = day
-    $ temp_gold = gold
-    $ temp_day = daytime
+    $ temp_date = game.day
+    $ temp_gold = game.gold
+    $ temp_day = game.daytime
     $ temp_weather = weather
 
     stop weather
@@ -137,7 +137,7 @@ label a_spaced_out_conversation:
     show screen blkfade
     with d5
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
     $ fire_in_fireplace = True
     $ set_weather("clear")
@@ -350,7 +350,7 @@ label a_spaced_out_conversation:
 
     centered "{size=+7}{color=#cbcbcb}The end.{/color}{/size}"
 
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     $ weather = temp_weather
     call update_interface_color
     $ fire_in_fireplace = False

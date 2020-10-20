@@ -75,7 +75,7 @@ label maid_responses:
     call her_main("Thank you, [genie_name].", "base", "base", "base", "mid")
 
     $ gryffindor+= 20
-    $ gold += payment
+    $ game.gold += payment
 
     call her_walk(action="leave")
 
@@ -141,7 +141,7 @@ label barmaid_responses:
     her "Thank you, [genie_name]."
 
     $ gryffindor+= 20
-    $ gold += payment
+    $ game.gold += payment
 
     call her_walk(action="leave")
 
@@ -282,7 +282,7 @@ label gryffindor_cheer_responses:
     call her_main("Thank you, [genie_name].", "base", "happyCl", "base", "mid")
     ">You receive [payment] gold coins."
     $ gryffindor+= 20
-    $ gold += payment
+    $ game.gold += payment
 
     call her_walk(action="leave")
 
@@ -424,7 +424,7 @@ label slytherin_cheer_responses:
     call her_main("Thank you, [genie_name].", "base", "narrow", "base", "mid_soft")
     ">You receive [payment] gold coins."
     $ gryffindor+= 30
-    $ gold += payment
+    $ game.gold += payment
 
     label end_her_working_no_payment:
 
@@ -536,7 +536,7 @@ label hermione_helping_selling_cards:
         call her_main("Thanks!","open","happy", cheeks="blush")
         call her_main("Here's your payment.", "open", "base", "base", "mid")
         call give_reward("You have received twenty gold", "interface/icons/gold.webp")
-        $ gold += 20
+        $ game.gold += 20
         m "Well done [hermione_name], fifteen points to Gryffindor."
         $ gryffindor += 15
 
@@ -563,7 +563,7 @@ label hermione_helping_selling_cards:
         m "How noble of you..."
         call her_main("Here's your payment.", "open", "base", "base", "mid")
         call give_reward("You have received twenty gold", "interface/icons/gold.webp")
-        $ gold += 20
+        $ game.gold += 20
         m "Well done [hermione_name], twenty points to Gryffindor."
         $ gryffindor += 20
     elif random_choice == 2:
@@ -602,7 +602,7 @@ label hermione_helping_selling_cards:
         call her_main("Anyway...", "base", "base", "base", "mid")
         call her_main("Here's your payment.", "open", "base", "base", "mid")
         call give_reward("You have received twenty gold", "interface/icons/gold.webp")
-        $ gold += 20
+        $ game.gold += 20
         m "Well done [hermione_name], twenty-five points to Gryffindor."
         $ gryffindor += 25
     elif random_choice == 3:
@@ -637,7 +637,7 @@ label hermione_helping_selling_cards:
         call her_main("glad you agree.", "base", "happy", "base", "mid_soft")
         call her_main("Here's your payment.", "open", "base", "base", "mid")
         call give_reward("You have received twenty gold", "interface/icons/gold.webp")
-        $ gold += 20
+        $ game.gold += 20
         m "Well done [hermione_name], twenty-five points to Gryffindor."
         $ gryffindor += 25
     else:
@@ -666,7 +666,7 @@ label hermione_helping_selling_cards:
         call her_main("Anyway...", "open", "base", "base", "mid")
         call her_main("Here's your payment.", "open", "base", "base", "mid")
         call give_reward("You have received twenty gold", "interface/icons/gold.webp")
-        $ gold += 20
+        $ game.gold += 20
         m "Well done [hermione_name], thirty points to Gryffindor."
         $ gryffindor += 30
 

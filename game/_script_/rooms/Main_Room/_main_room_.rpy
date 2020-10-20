@@ -13,13 +13,13 @@ screen main_room():
     sensitive room_menu_active
 
     # Hotkeys
-    if room_menu_active and day > 1 and not renpy.android:
+    if room_menu_active and game.day > 1 and not renpy.android:
         use hotkeys_main
 
     use weather
 
     # Walls
-    if daytime:
+    if game.daytime:
         add "images/rooms/_bg_/main_room_day.webp" zoom 0.5
     else:
         add "images/rooms/_bg_/main_room_night.webp" zoom 0.5
@@ -35,7 +35,7 @@ screen main_room():
     # Candles
     add candle_left_OBJ.get_room_image() xpos candle_left_OBJ.xpos ypos candle_left_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
     add candle_right_OBJ.get_room_image() xpos candle_right_OBJ.xpos ypos candle_right_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
-    if not daytime:
+    if not game.daytime:
         add "candle_fire_01" xpos candle_left_OBJ.xpos-110 ypos candle_left_OBJ.ypos-117
         add "candle_fire_02" xpos candle_right_OBJ.xpos-110 ypos candle_right_OBJ.ypos-117
 
@@ -44,7 +44,7 @@ screen main_room():
         focus_mask True
         xanchor "center"
         yanchor "center"
-        if daytime:
+        if game.daytime:
             xpos door_OBJ.xpos
             ypos door_OBJ.ypos
             idle door_OBJ.get_idle_image()
@@ -59,7 +59,7 @@ screen main_room():
         else:
             tooltip "Examine Door"
         action Jump("door")
-        sensitive (room_menu_active and not (day == 1 and door_examined))
+        sensitive (room_menu_active and not (game.day == 1 and door_examined))
 
     # Cupboard
     add cupboard_OBJ.get_room_image() xpos cupboard_OBJ.xpos ypos cupboard_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
@@ -184,7 +184,7 @@ screen genie_desk_interactive():
             hovered Show("gui_tooltip", img="emo_exclaim", xx=195+140, yy=210)
             unhovered Hide("gui_tooltip")
             action Jump("desk")
-            sensitive (room_menu_active and not (day == 1 and desk_examined))
+            sensitive (room_menu_active and not (game.day == 1 and desk_examined))
 
 screen gui_tooltip(img=None, xx=335, yy=210):
     add img xpos xx ypos yy

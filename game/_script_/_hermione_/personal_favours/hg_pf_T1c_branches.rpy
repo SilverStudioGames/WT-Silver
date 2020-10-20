@@ -555,7 +555,7 @@ label hg_pf_admire_breasts_T4_touch: # Call label
     call nar(">You pull the tits in opposite directions and then squish them together...")
 
     call her_main("Ah...{heart} [genie_name], I really need to go...", "base", "narrow", "base", "up", cheeks="blush")
-    if daytime:
+    if game.daytime:
         call her_main("That's right... the classes are about to start...", "open", "base", "base", "R", cheeks="blush")
     else:
         call her_main("It is getting late...", "open", "base", "base", "R", cheeks="blush")

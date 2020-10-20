@@ -81,31 +81,27 @@ label tonks_summon_setup:
                 call ton_main("How much am I worth to you, [ton_genie_name]?","base","base","raised","mid")
 
                 menu:
-                    "-Zero gold-" if gold <= 0:
-                        # This option should be unreachable on a normal playthrough, but if somehow the player triggers it,
-                        # it should fix gold counter
-
+                    "-Zero gold-" if game.gold <= 0:
                         m "Zero gold."
                         call ton_main("Seriously?","angry","base","raised","mid")
                         m "Yes, I'm a cheap bastard."
                         call ton_main("I can see that...","upset","base","base","mid")
-                        $ gold = 0 # Fix overflow if it somehow happened
 
-                    "-One gold-" if gold > 0:
+                    "-One gold-" if game.gold > 0:
                         m "A single gold coin, if anything..."
                         call ton_main("(Bastard... How humiliating.)","base","base","raised","ahegao")
                         call ton_main("Thank you so much, [ton_genie_name].","base","base","base","mid")
                         m "Don't mention it, [tonks_name]."
-                        $ gold -= 1
+                        $ game.gold -= 1
 
-                    "-Twenty gold-" if gold >= 20:
+                    "-Twenty gold-" if game.gold >= 20:
                         m "How does twenty gold sound?"
                         call ton_main("(Hmm... I kind of expected more.)","base","base","base","R")
                         call ton_main("Thank you, [ton_genie_name].","base","base","base","mid")
                         g9 "No, [tonks_name]... Thank you."
-                        $ gold -= 20
+                        $ game.gold -= 20
 
-                    "-A hundred gold-" if gold >= 100:
+                    "-A hundred gold-" if game.gold >= 100:
                         m "Does one hundred gold sound nice to you?"
                         g9 "With a body like that, you could earn a fortune at a strip club!"
                         call ton_main("Really...","horny","base","raised","mid")
@@ -115,7 +111,7 @@ label tonks_summon_setup:
                         call ton_main("Maybe the duelling stage could find some extra use...","base","base","base","R")
                         call ton_main("Perhaps some extra curricular activities for a couple of my favourite students could be arranged...","open","base","raised","mid")
                         g9 "I'm sure they would all love to watch their perverted teacher strip!"
-                        $ gold -= 100
+                        $ game.gold -= 100
 
                 m "Now..."
 

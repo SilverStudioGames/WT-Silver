@@ -50,7 +50,7 @@ label hg_pf_admire_panties:
         call her_main("Except that I can't actually tell them about any of this...", "annoyed", "narrow", "angry", "R")
 
     pause 1.0
-    if daytime:
+    if game.daytime:
         call her_main("Well, my classes are about to start...", "open", "closed", "base", "mid")
     else:
         call her_main("It's getting pretty late, [genie_name]...", "open", "closed", "base", "mid")

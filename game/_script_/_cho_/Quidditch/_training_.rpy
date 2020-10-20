@@ -334,7 +334,7 @@ label cho_training:
 
             jump cho_training.choices
 
-        "-Start Practice Match-" if daytime and not cho_quid.lock_practice:
+        "-Start Practice Match-" if game.daytime and not cho_quid.lock_practice:
             if cho_tier == 1:
                 # Hufflepuff
                 jump cc_ht_start
@@ -345,7 +345,7 @@ label cho_training:
                 # Gryffindor
                 #jump cc_gt_start
 
-        "-Start Practice Match-" (style="disabled") if not daytime or cho_quid.lock_practice:
+        "-Start Practice Match-" (style="disabled") if not game.daytime or cho_quid.lock_practice:
             if cho_quid.lock_practice:
                 if (cho_tier == 1 and cho_quid.hufflepuff_training) or (cho_tier == 2 and cho_quid.slytherin_training):
                     m "(She doesn't need any more practice.)"
@@ -458,7 +458,7 @@ label cho_tactics:
             g9 "I certainly shall."
             m "But this will do for today, [cho_name]."
 
-            if daytime:
+            if game.daytime:
                 call cho_main("I'll head back to class then.", "open", "base", "base", "R")
             else:
                 call cho_main("I'll head back to my dorm then.", "open", "base", "base", "R")
@@ -545,7 +545,7 @@ label cho_tactics:
             call cho_main("*Sigh* Just let me know when and I'll set one up with their captain.", "open", "narrow", "base", "R")
             m "Excellent."
 
-            if daytime:
+            if game.daytime:
                 call cho_main("If that is all, I'll head back to class.", "open", "base", "base", "mid")
                 m "Yes, that shall do for today."
                 call cho_main("Good day then, Sir...", "soft", "narrow", "base", "mid")
@@ -656,7 +656,7 @@ label cho_tactics:
             m "Certainly... Oh, and keep wearing that scent, whatever it is."
             call cho_main("It's just deodorant...", "clench", "base", "raised", "mid", cheeks="blush")
             m "Yes, that! Keep wearing it!"
-            if daytime:
+            if game.daytime:
                 call cho_main("If that is all, I'll head back to class.", "base", "narrow", "base", "R")
                 m "Yes, that shall do for today."
                 call cho_main("Good day then, Sir...", "soft", "narrow", "base", "mid")

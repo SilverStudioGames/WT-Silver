@@ -19,7 +19,7 @@ label ll_pf_sex_T1_intro:
 
     call lun_walk("mid", action="enter")
 
-    if daytime:
+    if game.daytime:
         call lun_main("Good morning, [lun_genie_name]!","base","happyCl","sad","mid",cheeks="blush", xpos="mid" , ypos="base")
     else:
         call lun_main("Good evening, [lun_genie_name]!","base","happyCl","sad","mid",cheeks="blush", xpos="mid" , ypos="base")
@@ -193,13 +193,13 @@ label ll_pf_sex_T1_E2:
                 else:
                     call ll_pf_sex_T1_her_2
 
-        "\"Hermione maybe?\"" if game_difficulty <= 2:
+        "\"Hermione maybe?\"" if game.difficulty <= 2:
             # Hermione
             if "hermione" not in seen_luna_sex_list:
                 $ seen_luna_sex_list.append("hermione")
                 call ll_pf_sex_T1_her_1
 
-        "\"Astoria, that sadist!\"" if game_difficulty <= 2 and astoria_unlocked and ag_st_imperio.counter > 0:
+        "\"Astoria, that sadist!\"" if game.difficulty <= 2 and astoria_unlocked and ag_st_imperio.counter > 0:
             # Astoria
             if "astoria" not in seen_luna_sex_list:
                 $ seen_luna_sex_list.append("astoria")
@@ -207,7 +207,7 @@ label ll_pf_sex_T1_E2:
             else:
                 call ll_pf_sex_T1_ast_2
 
-        "\"Tonks, your teacher...\"" if game_difficulty <= 2 and tonks_unlocked:
+        "\"Tonks, your teacher...\"" if game.difficulty <= 2 and tonks_unlocked:
             # Tonks
             if "tonks" not in seen_luna_sex_list:
                 $ seen_luna_sex_list.append("tonks")
@@ -1050,7 +1050,7 @@ label ll_pf_sex_T1_ast_2: # Call label
 
     m "Gods that was good..."
     call lun_main("*ah*...","soft","seductive","base","up", ypos="head")
-    if daytime:
+    if game.daytime:
         ">You let Luna recover for a while until she is somewhat capable again to head back to her classes."
     else:
         ">You let Luna recover for a while until she is somewhat capable again to walk back to her room."

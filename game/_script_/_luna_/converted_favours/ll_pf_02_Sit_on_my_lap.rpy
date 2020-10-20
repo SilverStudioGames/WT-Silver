@@ -343,7 +343,7 @@ label luna_favour_2:
                         call lun_main("I'd like to be paid now [lun_genie_name]...","upset","mad","mad","mid")
 
         m "Alright, alright. Here's your gold."
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         if current_payout <= 50:
@@ -518,7 +518,7 @@ label luna_favour_2:
                         call lun_main("will that be all, [lun_genie_name]?","normal","suspicious","sad","mid")
                         m "Yes, thank you, [luna_name]."
                         call lun_main("You're welcome, [lun_genie_name].","upset","angry","sad","R")
-                        if daytime:
+                        if game.daytime:
                             call lun_main("Well, I better be off to class then.","upset","mad","sad","mid")
                         else:
                             call lun_main("Well, I better be off to bed then.","upset","mad","sad","mid")
@@ -838,7 +838,7 @@ label luna_favour_2:
         else:
             m "Here's your payment [luna_name]."
 
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
 
         ">You hand Luna {number=current_payout} gold."
@@ -1013,7 +1013,7 @@ label luna_favour_2:
                         call lun_main("will that be all, [lun_genie_name]?","base","suspicious","sad","mid")
                         m "Yes, thank you, [luna_name]."
                         call lun_main("You're welcome, [lun_genie_name].","upset","angry","sad","R")
-                        if daytime:
+                        if game.daytime:
                             call lun_main("Well, I better be off to class then.","upset","mad","sad","mid")
                         else:
                             call lun_main("Well, I better be off to bed then.","upset","mad","sad","mid")
@@ -1302,7 +1302,7 @@ label luna_favour_2:
         else:
             m "Here's your payment [luna_name]."
 
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         if current_payout <= 50:
@@ -1455,7 +1455,7 @@ label luna_favour_2:
         $ gryffindor += 25
         $ ravenclaw += 25
         m "Fifteen points to Gryffindor and Ravenclaw."
-        $ gold -= 80
+        $ game.gold -= 80
         $ luna_gold += 40
         m "and here's your gold."
         ">You hand Luna and hermione forty gold each."

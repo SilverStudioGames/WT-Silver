@@ -628,7 +628,7 @@ label hg_pf_talk_tonks:
     call ton_main("","base","base","base","mid", hair="basic", xpos="600", ypos="base")
     call her_main("Hello, Professor Tonks.", "open", "closed", "base", "mid", xpos="right", ypos="base")
     call her_main("", "base", "base", "base", "mid")
-    if daytime:
+    if game.daytime:
         m "Good day, Miss Tonks."
         call ton_main("Good day, Professor.","base","happyCl","base","mid")
     else:
@@ -1005,7 +1005,7 @@ label hg_pf_talk_tonks:
                 call ton_main("Right...", "open", "closed", "raised", "mid", hair="basic")
                 call ton_main("Well, then... I think we're done here...", "base", "narrow", "raised", "R")
                 call her_main("...", "normal", "base", "base", "R", cheeks="blush")
-                if daytime:
+                if game.daytime:
                     call ton_main("I'll leave you two to it, have a good day, Miss Granger.","base","base","base","L")
                     call her_main("Good day, professor Tonks.", "soft", "base", "base", "R")
                 else:
@@ -1030,7 +1030,7 @@ label hg_pf_talk_tonks:
 
                 call ton_main("Well then, I think we're done here.", "open", "base", "worried", "mid")
                 call ton_main("I'll leave you two to it...","base","base","base","mid")
-                if daytime:
+                if game.daytime:
                     call ton_main("Have a good day, Miss Granger.","base","base","base","L")
                     call her_main("Good day, professor Tonks.", "open", "base", "base", "R")
                 else:
@@ -1065,7 +1065,7 @@ label hg_pf_talk_tonks:
                     call ton_main("I've thoroughly enjoyed it, in any case.", "base", "base", "base", "L")
                     g9 "Good to hear."
                     call ton_main("I'll leave you two to it...","base","base","base","mid")
-                    if daytime:
+                    if game.daytime:
                         call ton_main("Have a good day, Miss Granger.","base","base","base","L")
                         call her_main("Good day, professor Tonks.", "open", "base", "base", "R")
                     else:
@@ -1169,7 +1169,7 @@ label hg_pf_talk_tonks:
                         call ton_main("This conversation has been very enlightening.","horny","base","base","mid", hair="horny")
 
                     call ton_main("I'll leave you two to it...","base","base","base","mid", hair="basic")
-                    if daytime:
+                    if game.daytime:
                         call ton_main("Have a good day, Miss Granger.","base","base","base","L")
                         call her_main("Good day, professor Tonks.", "open", "base", "base", "R")
                     else:

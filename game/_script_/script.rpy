@@ -7,8 +7,8 @@ label start:
 # Quickstart for developer mode
 label start_dev:
     call game_init
-    call adjust_game_difficulty(2)
-    $ cheats_active = True
+    $ game.difficulty = 2
+    $ game.cheats = True
     $ use_cgs = True
 
     call screen loading

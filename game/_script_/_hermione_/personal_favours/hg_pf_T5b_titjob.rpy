@@ -54,7 +54,7 @@ label hg_pf_titjob:
 
     call her_main("Thank you, [genie_name]...", "soft", "base", "base", "R")
 
-    if daytime:
+    if game.daytime:
         her "Classes are about to start..."
     else:
         her "It's getting late..."
@@ -323,7 +323,7 @@ label hg_pf_titjob_1:
     call her_main("Are you almost...{w=0.3} there?", "open", "base", "base", "mid")
     m "Why?"
     $ ccg1 = 7
-    if daytime:
+    if game.daytime:
         call her_main("Well, it's just that...{w=0.3} my classes are about to start...", "upset", "wink", "base", "mid")
     else:
         call her_main("Well, it's just that...{w=0.3} I promised I would meet with Ginny tonight...", "upset", "wink", "base", "mid")
@@ -489,7 +489,7 @@ label hg_pf_titjob_1:
             call her_main("I had to swallow most of it...", "disgust", "narrow", "base", "down", emote="sweat")
             g9 "You did a great job, [hermione_name]!"
             call her_main("I don't want to hear it...", "angry", "narrow", "angry", "R", emote="sweat")
-            if daytime:
+            if game.daytime:
                 call her_main("I can't go to class like this...", "angry", "happyCl", "worried", "mid", emote="sweat")
                 call her_main("I'm covered in semen...", "disgust", "narrow", "base", "down", emote="sweat")
             else:
@@ -539,7 +539,7 @@ label hg_pf_titjob_1:
             $ ccg1 = 17
             call her_main("[genie_name]! How could you cum this much?!", "scream", "happyCl", "worried", "mid")
             call her_main("(It's like he dumped a bucket load all over my chest...)", "disgust", "narrow", "base", "down")
-            if daytime:
+            if game.daytime:
                 call her_main("I can't attend classes looking like this!", "angry", "happyCl", "worried", "mid")
             else:
                 call her_main("How am I supposed to go back to the Gryffindor common room like this?!", "angry", "happyCl", "worried", "mid")
@@ -896,7 +896,7 @@ label hg_pf_titjob_2_cumming:
             call bld
             call nar(">Hermione releases your cock from between her tits.")
 
-            if daytime:
+            if game.daytime:
                 call her_main("Well then, I think I'd better go... my classes are about to begin.", "base", "base", "base", "mid")
             else:
                 call her_main("Well then, I think I'd better go... It's getting late.", "base", "base", "base", "mid")

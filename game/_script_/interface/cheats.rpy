@@ -1,4 +1,4 @@
-default cheats_active = False
+
 default cheat_reading = False
 default cheat_wardrobe_alpha = False
 
@@ -99,7 +99,7 @@ label cheats:
                 "-Skip Cho Intro-" if not cho_intro.E3_complete:
                     call cheats.cho_skip_intro
                     "Cho is now unlocked."
-                    if day < 16:
+                    if game.day < 16:
                         "Sixteen days have passed since you arrived here."
                     jump cheats.cho
                 "-Skip Cho Quiz-" if cho_intro.E3_complete and not cho_quiz.complete:
@@ -134,7 +134,7 @@ label cheats:
                 "-Cheat Reading ([cheat_reading])-":
                     $ cheat_reading = not cheat_reading
                     jump cheats.books
-                "-All Books-" if day >= 16:
+                "-All Books-" if game.day >= 16:
                     python:
                         for book in book_list.get_all():
                             book.unlockable = False
@@ -159,8 +159,7 @@ label cheats:
             jump open_puzzle_box
 
         "-Add Gold-" (icon="interface/icons/small/gold.webp"):
-            $ gold += 500
-            "You've obtained 500g."
+            $ game.gold += 500
             jump cheats
 
         "-Add Slytherin Points-" (icon="interface/icons/small/slyt.webp"):
@@ -356,7 +355,7 @@ label .hermione_skip_intro:
     $ firewhisky_ITEM.unlockable = False
 
     $ rum_times = 6
-    $ day = 7
+    $ game.day = 7
 
     $ achievement.unlock("start", True)
 
@@ -449,8 +448,8 @@ label .hermione_skip_T5:
 ### Cho ###
 
 label .cho_skip_intro:
-    if day < 16:
-        $ day = 16
+    if game.day < 16:
+        $ game.day = 16
     $ cho_intro.E1_complete = True
     $ cho_intro.E2_complete = True
     $ ss_he.cho_E1 = True

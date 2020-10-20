@@ -271,7 +271,7 @@ label hg_wager_bj:
                     call her_chibi("stand","mid","base")
                     call gen_chibi("sit_behind_desk")
                     hide screen blkfade
-                    if daytime:
+                    if game.daytime:
                         call her_main("Bye then...", "smile", "base", "base", "mid")
                         m "Bye, [hermione_name]."
                     else:
@@ -374,7 +374,7 @@ label hg_wager_bj:
                             call her_main("", "base", "happy", "base", "mid_soft", ypos="base")
                             m "You've done more than enough to save those points."
                             call her_main("Thank you, [genie_name].", "smile", "happy", "base", "mid_soft")
-                            if daytime: #should play if day time
+                            if game.daytime: #should play if day time
                                 call her_main("Bye then...", "open", "base", "base", "mid")
                                 m "Bye, [hermione_name]."
                             else:
@@ -434,7 +434,7 @@ label hg_wager_bj:
                                 g9 "As I said, at least not for another thirty minutes..."
                                 call her_main("So I assume I'm not losing those points anymore?", "open", "narrow", "worried", "mid_soft")
                                 m "Definitely not..."
-                                if daytime:
+                                if game.daytime:
                                     call her_main("Great, goodbye for now then [genie_name]...", "base", "base", "base", "mid")
                                 else:
                                     call her_main("Great, good night then... [genie_name].", "base", "base", "base", "mid")
@@ -514,7 +514,7 @@ label hg_wager_bj:
                                         m "A net gain is when...{nw}"
                                         call her_main("I know what it means...", "open", "narrow", "base", "mid_soft")
                                         m "Right."
-                                        if daytime:
+                                        if game.daytime:
                                             call her_main("good day to you then sir.", "base", "base", "base", "mid")
                                         else:
                                             call her_main("Good night then...", "base", "base", "base", "mid")
@@ -560,7 +560,7 @@ label hg_wager_bj:
                                 $ gryffindor += 20
                                 call her_main("That's not...", "normal", "narrow", "base", "down")
                                 call her_main("Thank you...", "open", "closed", "base", "mid")
-                                if daytime:
+                                if game.daytime:
                                     call her_main("Goodbye then [genie_name].", "base", "base", "base", "mid")
                                 else:
                                     call her_main("Good night then [genie_name].", "base", "base", "base", "mid")

@@ -25,7 +25,7 @@ label twins_first_duel:
         twi "And we'll win next time!"
         m "We'll see about that, I can't have students going around showing up to their headmaster can I..."
         $ twins_first_win = True
-        $ twins_cards_delay = twins_cards_delay+day
+        $ twins_cards_delay = twins_cards_delay+game.day
         pass
     else:
         twi "Not again.."
@@ -114,7 +114,7 @@ label twins_random_duel:
         m "Finished?"
         ger "Just a second..."
         ger "Done!"
-        if gold < 10:
+        if game.gold < 10:
             ger "Unfortunately we will have to refuse."
             g4 "Why?"
             fre "The further extension to fractional values of your current income in the first instance on the establishment of a method of algebraical evolution which bears the same relation to arithmetical evolution that algebraical division bears to arithmetical division gives unsatisfactory results."
@@ -148,7 +148,7 @@ label twins_random_duel:
         m "Okay, well... If you two win then I'll give you ten gold."
         ger "One second, professor."
         "> George takes out a calculator and starts calculating something."
-        if gold < 10:
+        if game.gold < 10:
             ger "We have to refuse."
             m "Why?"
             fre "Long explanation or short?"
@@ -234,7 +234,7 @@ label twins_duel_lost:
         m "It would appear that I may have lost this one..."
         twi "It seems so."
         m "Well, here's your reward..."
-        $ gold -= 10
+        $ game.gold -= 10
 
     menu:
         "-Rematch-":

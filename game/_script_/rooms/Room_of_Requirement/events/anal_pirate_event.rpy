@@ -556,7 +556,7 @@ label anal_pirate_event_common_1_2: # Call label
             m "You plan to keep it in? My cum I mean."
             call her_main("Aye..", "grin", "narrow", "base", "mid_soft",cheeks="blush",tears="mascara")
 
-            if daytime:
+            if game.daytime:
                 call her_main("I hope I won't spring a leak during my classes...",cheeks="blush",tears="mascara")
             else:
                 call her_main("I hope it won't spring a leak before I get to my cabin...",cheeks="blush",tears="mascara")

@@ -13,7 +13,7 @@ label hermione_summon_setup:
     #
     # if weather == "clear":
 
-        # if her_tier >= 3 and daytime and not hg_muggle_hot_ITEM.unlocked:
+        # if her_tier >= 3 and game.daytime and not hg_muggle_hot_ITEM.unlocked:
             # $ hg_muggle_hot_ITEM.unlocked = True
 
             # if not persistent.game_complete:
@@ -358,7 +358,7 @@ label hermione_summon_setup:
         call describe_mood("Hermione", her_mood)
         call tutorial("moodngifts")
     else:
-        if daytime:
+        if game.daytime:
             call her_main("Good morning, [genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)
         else:
              call her_main("Good evening, [genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)

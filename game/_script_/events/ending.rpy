@@ -396,7 +396,7 @@ label ball_ending_E2:
     centered "{size=+7}{color=#cbcbcb}The Annual Hogwarts Autumn Ball{/color}{/size}"
 
     # Scene Setup
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
 
     hide screen bld1
@@ -2659,7 +2659,7 @@ label ball_ending_E2:
 
     centered "{size=+7}{color=#cbcbcb}Outskirts of hogwarts{/color}{/size}"
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
 
     hide screen cg
@@ -2735,7 +2735,7 @@ label ball_ending_E2:
     # Dumbledore is back at Hogwarts
     centered "{size=+7}{color=#cbcbcb}The next morning...{/color}{/size}"
 
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
 
     $ hermione.equip(her_outfit_default)
@@ -2914,8 +2914,7 @@ Farewell, my little [word_03].{/size}
 
     $ ball_quest.completed = True
     $ persistent.game_complete = True
-
-    $ persistent.gold = gold
+    $ persistent.gold = game.gold
 
     if public_whore_ending:
         $ persistent.ending_02 = True

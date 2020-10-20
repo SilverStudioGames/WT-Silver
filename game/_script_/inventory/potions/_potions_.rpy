@@ -225,7 +225,7 @@ default p_inv = {} # this stores the id and quantity of items the player has per
 screen potions_room():
     tag room_screen
 
-    if daytime:
+    if game.daytime:
         add "images/rooms/_bg_/corridor.webp" #Need day image.
     else:
         add "images/rooms/_bg_/corridor.webp"

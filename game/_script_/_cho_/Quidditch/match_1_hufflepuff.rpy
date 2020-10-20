@@ -1036,7 +1036,7 @@ label hufflepuff_match:
     call play_sound("grass")
     "> You hurry back to your office before giving anyone a chance to talk to you."
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
     call room("main_room")
     call gen_chibi("hide")

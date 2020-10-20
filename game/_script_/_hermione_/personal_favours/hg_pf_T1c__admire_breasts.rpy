@@ -55,7 +55,7 @@ label hg_pf_admire_breasts:
         call her_main("..................", "base", "happyCl", "base", "mid")
         call her_main("Thank you, [genie_name]...", "soft", "narrow", "base", "mid_soft")
 
-    if daytime:
+    if game.daytime:
         her "Now if you don't mind I'd better go. my classes are about to start."
     else:
         her "I'd better go now then. It's getting pretty late..."

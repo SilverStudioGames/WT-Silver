@@ -3,7 +3,7 @@
 default defer_daytime_change = False
 
 label defer_daytime_change(set_daytime):
-    $ daytime = set_daytime
+    $ game.daytime = set_daytime
     $ defer_daytime_change = True
     call update_interface_color
     call music_block
@@ -13,13 +13,13 @@ label common_start(set_daytime):
     show screen blkfade
     with dissolve
 
-    $ daytime = set_daytime
+    $ game.daytime = set_daytime
     $ defer_daytime_change = False
 
     call update_interface_color
 
     # Update various time-based values
-    if daytime:
+    if game.daytime:
         call update_day_values
     call update_day_and_night_values
 
@@ -27,7 +27,7 @@ label common_start(set_daytime):
     call update_ui_points
 
     # Set save filename
-    $ temp_name = "Day - "+str(day)+"\nWhoring - "+str(her_whoring)
+    $ temp_name = "Day - "+str(game.day)+"\nWhoring - "+str(her_whoring)
     $ save_name = temp_name
 
     # Reset character appearances (chibis, clothing, etc.)
@@ -110,10 +110,10 @@ label update_day_values:
     call set_random_nicknames
 
     # Mood
-    if game_difficulty < 3:
-        if game_difficulty == 1:   # Easy difficulty
+    if game.difficulty < 3:
+        if game.difficulty == 1:   # Easy difficulty
             $ val = 3
-        elif game_difficulty == 2: # Normal difficulty
+        elif game.difficulty == 2: # Normal difficulty
             $ val = 2
 
         $ ton_mood = max(ton_mood-val, 0)
@@ -131,34 +131,28 @@ label update_day_values:
     $ generating_points_ravenclaw = renpy.random.randint(1, 10)
 
     # Set random variables
-    $ one_out_of_three = renpy.random.randint(1, 3)
+    $ one_of_three = renpy.random.randint(1, 3)
     $ one_of_five = renpy.random.randint(1, 5)
     $ one_of_ten = renpy.random.randint(1, 10)
 
     $ day_random = renpy.random.randint(0, 10)
 
-    # Count days of the week. Every day +1. When day_of_week = 7, reset to zero.
-    if day_of_week == 7:
-        $ day_of_week = 0
+    # Work money every seventh day of the week.
+    $ game.day += 1
+
+    if game.day % 7 == 0:
         if reports_finished >= 1:
             $ letter_work_report.send()
         if not first_random_twins:
             $ twins_interest = True
 
-    $ day_of_week += 1
-    $ day += 1
-
-    # Change the weather
-    if day <= 1:
-        $ set_weather("cloudy")
-    else:
-        $ set_weather()
-
-    # Weather for Quidditch Matches
+    # Weather
     if cc_event_pause == 0 and hufflepuff_match == "start":
         $ set_weather("clear")
-    if cc_event_pause == 0 and slytherin_match == "start":
+    elif cc_event_pause == 0 and slytherin_match == "start":
         $ set_weather("clear")
+    else:
+        $ set_weather()
 
     # Change whether today is a full moon day
     $ set_moon()

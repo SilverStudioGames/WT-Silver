@@ -68,7 +68,7 @@ label summon_astoria:
         "-Dismiss her-":
             stop music fadeout 3.0
 
-            if daytime:
+            if game.daytime:
                 call ast_main("I will go back to classes then, [ast_genie_name].", face="neutral")
             else:
                 call ast_main("Oh, alright. Good night, [ast_genie_name].", face="neutral")
@@ -87,7 +87,7 @@ label astoria_spells:
 
         for i in ag_spell_list:
             if not i.is_complete(): # Not trained yet.
-                if daytime and not tonks_busy:
+                if game.daytime and not tonks_busy:
                     spell_menu.append(i.get_menu_item())
                 else:
                     spell_menu.append(i.get_menu_item(disabled=True))
@@ -115,14 +115,14 @@ label astoria_spells:
 
 
 label block_spell_training:
-    if not daytime:
+    if not game.daytime:
         m "It's too late for that..."
     elif tonks_busy:
         m "I don't think Tonks has time for that right now..."
     return
 
 label person_is_busy:
-    if daytime:
+    if game.daytime:
         m "Looks like she's taking classes right now."
     else:
         m "Seems like she's already asleep."

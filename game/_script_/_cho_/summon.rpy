@@ -166,14 +166,14 @@ label cho_favor_menu:
             else:
                 $ renpy.jump(result)
 
-        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not daytime or not cho_requests_unlocked:
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not game.daytime or not cho_requests_unlocked:
             if not cho_requests_unlocked:
                 call nar(">You haven't unlocked this feature yet.")
-            elif not daytime:
-                call nar(">Public requests are available during the daytime only.")
+            elif not game.daytime:
+                call nar(">Public requests are available during the game.daytime only.")
             jump cho_favor_menu
 
-        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if daytime and cho_requests_unlocked:
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if game.daytime and cho_requests_unlocked:
             jump cho_requests_menu
 
         "-Never mind-":

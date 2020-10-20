@@ -39,7 +39,7 @@ label astoria_summon_setup:
         call describe_mood("Astoria", ast_mood)
         call tutorial("moodngifts")
     else:
-        if daytime:
+        if game.daytime:
             call ast_main("Mornin', [ast_genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)
         else:
              call ast_main("Evenin', [ast_genie_name].", "base", "base", "base", "mid", xpos="base", ypos="base", trans=d3)

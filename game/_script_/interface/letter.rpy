@@ -32,16 +32,16 @@ init python:
     def calc_reports_gold():
         global reports_gold, reports_finished
 
-        if game_difficulty <= 1: # Easy
+        if game.difficulty <= 1: # Easy
             reports_gold = reports_finished * 50
-        elif game_difficulty == 2: # Normal
+        elif game.difficulty == 2: # Normal
             reports_gold = reports_finished * 40
         else: # Hardcore
             reports_gold = reports_finished * renpy.random.randint(20, 30)
 
 label letter_work_report:
     python:
-        gold += reports_gold
+        game.gold += reports_gold
 
         # Reset
         reports_finished = 0

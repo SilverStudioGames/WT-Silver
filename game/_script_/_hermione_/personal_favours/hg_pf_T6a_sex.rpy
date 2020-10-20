@@ -360,7 +360,7 @@ label hg_sex_1:
     $ ccg1 = 4
     call her_main("*Ah-ah*...{heart}", "open", "happyCl", "worried", "mid")
 
-    if daytime:
+    if game.daytime:
         m "Going to classes after this?"
     else:
         m "Going to bed after this?"
@@ -441,7 +441,7 @@ label hg_sex_1:
 
             $ hermione_zorder = 15 # Reset zorder
 
-            if daytime:
+            if game.daytime:
                 call her_main("But I think I will be able to make it to my classes...", "silly", "narrow", "base", "dead")
             else:
                 call her_main("But I think I will be able to make it to the common room...", "silly", "narrow", "base", "dead")
@@ -797,7 +797,7 @@ label hg_sex_luna:
     call her_main("Does it...{heart} *ah*...{heart}", "open", "happyCl", "worried", "mid")
     call her_main("That's all because of you [genie_name]...{heart}", "shock", "happyCl", "worried", "mid")
 
-    if daytime:
+    if game.daytime:
         call her_main("I've been... looking forward to this all morning...{heart}", "silly", "narrow", "annoyed", "up")
     else:
         call her_main("I've been... looking forward to this all day...{heart}", "silly", "narrow", "annoyed", "up")

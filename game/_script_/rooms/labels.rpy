@@ -73,7 +73,7 @@ label room(room=None, hide_screens=True, stop_sound=True):
     return
 
 # Return to main_room at resume point (after quests, before events)
-# If daytime change was deferred during an event, return to the start of the current daytime
+# If game.daytime change was deferred during an event, return to the start of the current game.daytime
 # Used to return from event sequences
 label main_room:
     call room("main_room", stop_sound=False)
@@ -85,12 +85,12 @@ label main_room:
     call music_block
 
     if defer_daytime_change:
-        if daytime:
+        if game.daytime:
             jump day_start
         else:
             jump night_start
     else:
-        if daytime:
+        if game.daytime:
             jump day_resume
         else:
             jump night_resume
@@ -104,7 +104,7 @@ label main_room_menu:
     call reset_menu_position
     call music_block
 
-    if daytime:
+    if game.daytime:
         jump day_main_menu
     else:
         jump night_main_menu

@@ -56,7 +56,7 @@ screen ui_top_bar():
     use ui_points
 
     # Don't display buttons in certain rooms or on the first day
-    if current_room not in ["clothing_store", "weasley_store", "room_of_requirement", "floor_seven"] and day > 1:
+    if current_room not in ["clothing_store", "weasley_store", "room_of_requirement", "floor_seven"] and game.day > 1:
         # Menu button
         imagebutton:
             xpos 0
@@ -76,7 +76,7 @@ screen ui_top_bar():
             idle gui.format("interface/topbar/buttons/{}/ui_sleep.webp")
             if room_menu_active:
                 hover image_hover(gui.format("interface/topbar/buttons/{}/ui_sleep.webp"))
-                if daytime:
+                if game.daytime:
                     action Jump("night_start")
                     tooltip "Doze Off (s)"
                 else:
@@ -205,14 +205,14 @@ screen ui_stats():
 
             hbox:
                 xpos 40 ypos 11
-                text "{size=-4}[day]{/size}"
+                text "{size=-4}[game.day]{/size}"
             hbox:
                 xpos 140 ypos 11
                 # Display tokens in token shop
                 if renpy.get_screen("weasley_store_room") and store_category == 3:
                     text "{size=-4}[tokens]{/size}"
                 else:
-                    text "{size=-4}[gold]{/size}"
+                    text "{size=-4}[game.gold]{/size}"
 
 style light_ui_stats_text:
     color "#000"
@@ -248,16 +248,16 @@ screen ui_menu():
             ypos 15
             textbutton "Save" action ShowMenu("save") background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
             textbutton "Load" action ShowMenu("load") background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
-            if cheats_active and game_difficulty <= 2 and day > 1:
+            if game.cheats and game.difficulty <= 2 and game.day > 1:
                 textbutton "Cheats" action [SetVariable("toggle_menu", False), Jump("cheats")] background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
-            if day > 1 and renpy.android:
+            if game.day > 1 and renpy.android:
                 textbutton "Preferences" action ShowMenu("preferences") background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
-            if day > 1 and persistent.game_complete:
+            if game.day > 1 and persistent.game_complete:
                 textbutton "Gallery" action [SetVariable("toggle_menu", False), Jump("scene_gallery")] background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
-            if day > 1:
+            if game.day > 1:
                 textbutton "Decorate" action [SetVariable("toggle_menu", False), Jump("decorate_room_menu")] background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
 
-            #if day > 1 and config.developer:
+            #if game.day > 1 and config.developer:
             #    textbutton "{size=-11}Show Chars{/size}" action [SetVariable("toggle_menu", False), Jump("summon_characters")] background "#000"
 
         hbox:
@@ -290,10 +290,11 @@ screen ui_menu():
 
 label options_menu:
     menu:
-        "-Change Game Difficulty-" if game_difficulty <= 2:
+        "-Change Game Difficulty-" if game.difficulty <= 2:
             menu:
                 "-Enable Easy Difficulty-":
-                    call adjust_game_difficulty(1)
+                    $ game.difficulty = 1
+                    $ cheat_reading = True
                     "Game set to easy difficulty!"
                     "Increased gold reward from reports and other sources!"
                     "Rummaging through your cupboard is more rewarding!"
@@ -301,7 +302,8 @@ label options_menu:
                     "Hermione won't stay mad at you for as long!"
                     jump main_room_menu
                 "-Enable Normal Difficulty-":
-                    call adjust_game_difficulty(2)
+                    $ game.difficulty = 2
+                    $ cheat_reading = False
                     "Game set to normal difficulty!"
                     jump main_room_menu
                 "-Back-":

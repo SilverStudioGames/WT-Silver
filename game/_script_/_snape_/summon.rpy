@@ -36,7 +36,7 @@ label summon_snape:
                     jump astoria_intro_E2_snape
 
                 "-Try solving the Quidditch Quarrel-" (icon="interface/icons/small/quidditch.webp") if cho_tier == 2 and cho_quid.E6_complete and not cho_quid.E9_complete and not cho_quid.E8_complete:
-                    if daytime:
+                    if game.daytime:
                         m "I wanted to talk to you about the upcoming Quidditch game."
                         call sna_main("I don't really have time right now...", "snape_05")
                         if wine_ITEM.number >= 1:
@@ -70,11 +70,11 @@ label summon_snape:
 
 
         # Fireplace Chats
-        "-Let's hang-" (icon="interface/icons/small/toast.webp") if wine_ITEM.number >= 1 and not daytime:
+        "-Let's hang-" (icon="interface/icons/small/toast.webp") if wine_ITEM.number >= 1 and not game.daytime:
             jump snape_hangout
 
-        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if wine_ITEM.number < 1 or daytime:
-            if daytime:
+        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if wine_ITEM.number < 1 or game.daytime:
+            if game.daytime:
                 m "(I'm not sharing my booze with Snape while he still has to teach classes...)"
                 m "(I better ask him during the evening to get drunk...)"
             elif wine_ITEM.number < 1:
@@ -94,7 +94,7 @@ label summon_snape:
         "-Never mind-":
             stop music fadeout 1.0
 
-            if daytime:
+            if game.daytime:
                 sna "Alright, back to work then..."
             else:
                 sna "Goodnight then."

@@ -1119,7 +1119,7 @@ label luna_revert_2:
     call lun_main("Fantastic!","base","happyCl","base","mid")
     m "..."
     m "Here's your payment, [luna_name]."
-    $ gold -= 250
+    $ game.gold -= 250
     $ luna_gold += 250
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
     call lun_main("Well, I best be off then. I'm late for class.","normal","seductive","angry","R")

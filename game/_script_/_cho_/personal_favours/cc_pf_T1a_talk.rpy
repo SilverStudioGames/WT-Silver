@@ -224,7 +224,7 @@ label cc_pf_talk_T1_intro_E1:
 
     call cho_main("I'm sorry, Sir. It's just that...", "open", "closed", "raised", "mid")
 
-    if daytime:
+    if game.daytime:
         call cho_main("I'm really late for classes. May we postpone this talk to some other time?", "soft", "narrow", "worried", "R")
     else:
         call cho_main("It's getting really late. May we postpone this talk to some other time?", "soft", "narrow", "worried", "R")
@@ -543,7 +543,7 @@ label cc_pf_talk_T1_E3:
         g9 "Did our little talk about panties maybe... excite you?"
         call cho_main("What? No of course not!", "angry", "wide", "base", "mid")
 
-        if daytime:
+        if game.daytime:
             call cho_main("I simply have to go to my next lesson...", "soft", "closed", "base", "mid")
             call cho_main("Or I will be late again.", "annoyed", "base", "base", "R")
         else:
@@ -599,7 +599,7 @@ label cc_pf_talk_T1_E3:
             m "I mean who doesn't..."
 
         call cho_main("Sir, if you don't mind...", "soft", "closed", "base", "mid")
-        if daytime:
+        if game.daytime:
             call cho_main("I'm already late for classes.", "soft", "narrow", "base", "R")
             call cho_main("I really should be going now...", "angry", "narrow", "worried", "mid")
         else:
@@ -608,7 +608,7 @@ label cc_pf_talk_T1_E3:
 
         m "Of course. You are dismissed."
         call cho_main("Thank you, Sir.", "base", "base", "base", "mid")
-        if daytime:
+        if game.daytime:
             call cho_main("Until next time.", "smile", "narrow", "base", "mid")
         else:
             call cho_main("Have a good night.", "smile", "narrow", "base", "mid")
@@ -770,7 +770,7 @@ label cc_pf_talk_T2_intro_E1:
     call cho_main("Very funny, [cho_genie_name]...", "annoyed", "narrow", "angry", "R")
     call cho_main("If you don't mind, Sir.", "soft", "closed", "base", "mid")
 
-    if daytime:
+    if game.daytime:
         call cho_main("Classes are about to start, and I'm already late for them...", "open", "narrow", "base", "R")
         call cho_main("I hope it would be okay if I leave?", "soft", "narrow", "base", "mid")
     else:
@@ -1216,7 +1216,7 @@ label cc_pf_talk_T2_E3:
         call cho_main("I am not!", "clench", "closed", "angry", "mid", cheeks="blush")
         call cho_main("Sir are we done here?", "soft", "narrow", "angry", "mid")
 
-    if daytime:
+    if game.daytime:
         call cho_main("I'm late for classes.", "soft", "narrow", "angry", "R")
     else:
         call cho_main("I need to get some sleep.", "soft", "narrow", "angry", "R")

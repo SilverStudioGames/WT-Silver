@@ -275,7 +275,7 @@ label waifu_completed:
     $ victoria = 0
     $ leena = 0
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

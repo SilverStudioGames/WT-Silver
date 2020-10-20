@@ -49,4 +49,4 @@ label fireplace:
 
 init python:
     def is_puzzle_box_in_fireplace():
-        return day >= 25 and not daytime and full_moon and not puzzle_box_quest_ITEM.unlocked and not unlocked_7th
+        return game.day >= 25 and not game.daytime and full_moon and not puzzle_box_quest_ITEM.unlocked and not unlocked_7th

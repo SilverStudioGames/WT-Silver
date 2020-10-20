@@ -31,7 +31,7 @@ label luna_favour_5:
         call lun_main("Now [lun_genie_name]...","upset","angry","mad","mid")
         m "Alright then..."
         ">You pay Luna 150 gold."
-        $ gold -=150
+        $ game.gold -=150
         $ luna_gold += 150
         call lun_main("thank you [lun_genie_name]...","normal","angry","sad","R")
         call lun_main("...","normal","angry","raised","mid")
@@ -783,7 +783,7 @@ label luna_favour_5:
         m "{number=hermione_payout} points to Gryffindor!"
         call her_main("Thank you, [genie_name].", "base", "closed", "base", "mid")
         $ luna_gold += luna_payout
-        $ gold -= luna_payout
+        $ game.gold -= luna_payout
         m "And of course, {number=luna_payout} gold coins for Luna."
         ">You hand Luna the pile of coins."
         $ luna_flip = 1
@@ -1139,7 +1139,7 @@ label luna_favour_5:
                     call her_main("thank you [genie_name]...", "base", "closed", "base", "mid")
                     call lun_main("...","normal","seductive","base","R")
                     $ luna_gold += 150
-                    $ gold -= 150
+                    $ game.gold -= 150
                     m "150 gold for Luna."
                     call lun_main("thanks [lun_genie_name]...","normal","seductive","base","R")
                     call her_main("...", "annoyed", "narrow", "angry", "R")

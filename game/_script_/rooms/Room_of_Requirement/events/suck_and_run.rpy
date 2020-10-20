@@ -2,8 +2,8 @@
 # Mirror story: Sucn and Run
 label suck_and_run:
 
-    $ temp_day = daytime
-    $ daytime = False
+    $ temp_day = game.daytime
+    $ game.daytime = False
     call update_interface_color
     call room("main_room")
     hide screen owl
@@ -28,7 +28,7 @@ label suck_and_run:
             $ pathvalue = 2
         "-Go back-":
             # Return
-            $ daytime = temp_day
+            $ game.daytime = temp_day
             call update_interface_color
             jump enter_room_of_req
 
@@ -36,7 +36,7 @@ label suck_and_run:
     pause 1.0
 
     if pathvalue == 0:
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call music_block
 
@@ -83,13 +83,13 @@ label suck_and_run:
         show screen blkfade with d3
         stop music fadeout 1.0
         hide screen with_snape
-        $ daytime = temp_day
+        $ game.daytime = temp_day
         centered "{size=+7}{color=#cbcbcb}End of part one{/color}{/size}"
 
         jump suck_and_run.choices
 
     elif pathvalue == 1:
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call play_music("tonks")
 
@@ -167,14 +167,14 @@ label suck_and_run:
         show screen blkfade with d3
         stop music fadeout 1.0
         hide screen with_tonks_animated
-        $ daytime = temp_day
+        $ game.daytime = temp_day
         centered "{size=+7}{color=#cbcbcb}End of part two{/color}{/size}"
 
         jump suck_and_run.choices
 
     elif pathvalue == 2:
 
-        $ daytime = False
+        $ game.daytime = False
         $ fire_in_fireplace = False
         hide screen fireplace_fire
 
@@ -317,7 +317,7 @@ label suck_and_run:
 
         stop music fadeout 1.0
         hide screen add_overlay
-        $ daytime = temp_day
+        $ game.daytime = temp_day
         centered "{size=+7}{color=#cbcbcb}End of part three{/color}{/size}"
 
         jump suck_and_run.choices

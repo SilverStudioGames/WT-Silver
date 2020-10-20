@@ -13,7 +13,7 @@ init python:
         """Returns a list of outfits applicable for the current day and weather"""
         schedule = []
         char = get_character_object(key)
-        outfits = char.outfits_schedule[daytime]
+        outfits = char.outfits_schedule[game.daytime]
 
         for i in outfits:
             if i.schedule[4] and weather in ("snow", "blizzard"):
@@ -97,7 +97,7 @@ init python:
         word_list = {"tonks": "friendship", "astoria": "affection", "susan": "confidence", "luna": "corruption", "cho": "recklessness", "hermione": "whoring"}
         word = word_list[active_girl]
 
-        if cheats_active or game_difficulty <= 2:
+        if game.cheats or game.difficulty <= 2:
             renpy.show_screen("blktone")
             renpy.with_statement(d3)
             renpy.say(None, "{size=+6}> Try again at "+word+" level {color=#7a0000}"+str(value)+"{/color}.{/size}")

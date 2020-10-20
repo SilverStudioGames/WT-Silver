@@ -10,7 +10,7 @@ screen plant_on_desk():
     add "/images/rooms/_objects_/desk/plant.webp" zoom 0.5 xpos 364 ypos 306
 
 label desk:
-    if day == 1:
+    if game.day == 1:
         if not desk_examined:
             $ desk_examined = True
             call bld
@@ -66,7 +66,7 @@ label desk:
 
     #Hermione
     if _return == "hermione" and hermione_busy:
-        if daytime:
+        if game.daytime:
             call nar(">Hermione is taking classes.")
             jump main_room_menu
         else:
@@ -86,7 +86,7 @@ label desk:
 
     #Luna
     elif luna_known and _return == "luna" and luna_busy:
-        if daytime:
+        if game.daytime:
             call nar(">Luna is taking classes.")
             jump main_room_menu
         else:
@@ -98,7 +98,7 @@ label desk:
 
     #Astoria
     elif astoria_busy and _return == "astoria":
-        if daytime:
+        if game.daytime:
             call nar(">Astoria is taking classes.")
             jump main_room_menu
         else:
@@ -110,7 +110,7 @@ label desk:
 
     #Susan
     elif _return == "susan" and susan_busy:
-        if daytime:
+        if game.daytime:
             call nar(">Susan is taking classes.")
             jump main_room_menu
         else:
@@ -122,7 +122,7 @@ label desk:
 
     #Cho
     elif _return == "cho" and cho_busy:
-        if daytime:
+        if game.daytime:
             call nar(">Cho is taking classes.")
             jump main_room_menu
         else:
@@ -135,7 +135,7 @@ label desk:
     #Snape
     elif _return == "snape" and snape_busy:
         call nar(">Professor Snape is unavailable.")
-        if daytime:
+        if game.daytime:
             jump main_room_menu
         else:
             jump main_room_menu
@@ -146,7 +146,7 @@ label desk:
     #Tonks
     elif _return == "tonks" and tonks_busy:
         call nar(">Tonks is unavailable.")
-        if daytime:
+        if game.daytime:
             jump main_room_menu
         else:
             jump main_room_menu
@@ -243,7 +243,7 @@ screen desk_menu():
         action Return("Close")
 
     #Night Overlay
-    if not daytime:
+    if not game.daytime:
         add "interface/desk/_night_overlay_.webp"
 
     use close_button
@@ -269,7 +269,7 @@ screen watch():
         hover "interface/desk/watch_hover.webp"
         unhovered SetVariable("ball_hint", None)
         keysym hkey_sleep
-        if daytime:
+        if game.daytime:
             hovered SetVariable("ball_hint", "doze_off")
             action Return("night_start") #Skip to night
         else:
@@ -286,12 +286,12 @@ screen watch():
     elif weather == "storm":
         add "interface/desk/watch/storm.webp" xpos watch_x ypos watch_y
     else:
-        if daytime:
+        if game.daytime:
             add "interface/desk/watch/sun.webp" xpos watch_x ypos watch_y
         else:
             add "interface/desk/watch/moon.webp" xpos watch_x ypos watch_y
 
-    if daytime:
+    if game.daytime:
         add "interface/desk/watch/day.webp" xpos watch_x+40 ypos watch_y+6 xanchor 0.5
     else:
         add "interface/desk/watch/night.webp" xpos watch_x+40 ypos watch_y+6 xanchor 0.5
@@ -314,7 +314,7 @@ label paperwork:
 
     call paperwork_progress_chapter
 
-    if not daytime and full_moon:
+    if not game.daytime and full_moon:
         call paperwork_full_moon
 
     $ speedwriting_check = renpy.random.randint(1, 3)
@@ -336,7 +336,7 @@ label paperwork:
 
     call gen_chibi("sit_behind_desk")
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

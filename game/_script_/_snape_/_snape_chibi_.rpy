@@ -54,14 +54,14 @@ screen with_snape(ani=False):
     tag hanging_with_snape
     zorder 3
     if ani:
-        if daytime:
+        if game.daytime:
             add "ch_gen toast_goblet_daytime" xpos 435 ypos 200 # Different shadow.
         else:
             add "ch_gen toast_goblet" xpos 435 ypos 200
         add "snape_toast_goblet" xpos 618 ypos 200 zoom 0.5
 
     else:
-        if daytime:
+        if game.daytime:
             add "characters/genie/chibis/drinking/01_day.webp" xpos 435 ypos 200 zoom 0.5 # Different shadow.
         else:
             add "characters/genie/chibis/drinking/01.webp" xpos 435 ypos 200 zoom 0.5

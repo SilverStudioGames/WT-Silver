@@ -1,6 +1,6 @@
 label setup_fireplace_hangout(char=None):
 
-    if not daytime: # Night time
+    if not game.daytime: # Night time
         show screen blkfade
 
         $ fire_in_fireplace = True
@@ -13,7 +13,7 @@ label setup_fireplace_hangout(char=None):
         show screen desk
 
         show screen fireplace_fire
-    else: # Daytime
+    else: # game.daytime
         stop bg_sounds
         show screen blkfade
 

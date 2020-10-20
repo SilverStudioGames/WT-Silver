@@ -74,7 +74,7 @@ label nothing_to_see_here_049:
     #    "-Forfeit, and give Snape the money...-":
     #        #TODO Review this text: is Genie thinking to himself? what should happen, return to other options?
     #        show screen blktone
-    #        if gold >= 2000:
+    #        if game.gold >= 2000:
     #            g4 "Fuck no, you think I'm some kind of charity?"
     #        else:
     #            g4 "With what money?"

@@ -129,7 +129,7 @@ label map_attic:
         menu:
             m "(Question is... Should I use it now or save it for later?)"
             "-Use it now-":
-                if daytime:
+                if game.daytime:
                     if not hermione_busy:
                         g9 "Yes, there's no time like the present..."
                         m "I'll just grab a seat first."
@@ -159,7 +159,7 @@ label map_attic:
         jump main_room
 
 label map_forest:
-    if daytime:
+    if game.daytime:
         m "I shouldn't be leaving the castle during the day. It's too risky..."
         jump desk
 
@@ -198,7 +198,7 @@ label map_forest:
 
 
 label map_lake:
-    if daytime:
+    if game.daytime:
         m "I shouldn't be leaving the castle during the day. It's too risky..."
         jump desk
 

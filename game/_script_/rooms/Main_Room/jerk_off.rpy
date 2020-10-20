@@ -85,7 +85,7 @@ label jerk_off:
     call gen_chibi("sit_behind_desk")
     hide screen bld1
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

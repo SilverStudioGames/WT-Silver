@@ -3,7 +3,7 @@
 label a_bad_time_to_disrobe:
 
     # Setup
-    $ temp_day = daytime
+    $ temp_day = game.daytime
 
     stop weather
     call play_music("stop")
@@ -71,7 +71,7 @@ label a_bad_time_to_disrobe_part_1:
     show screen day_to_night
     with d3
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
     call music_block
 
@@ -113,7 +113,7 @@ label a_bad_time_to_disrobe_part_1:
 
     show screen quistion_pop_up("{color=#cbcbcb}Hermione will remember that{/color}")
     nar "Hermione returns the next morning, looking nervous but more determined than yesterday."
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
     call music_block
 
@@ -132,7 +132,7 @@ label a_bad_time_to_disrobe_part_1:
     show screen day_to_night
     with d3
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
     call music_block
 
@@ -189,7 +189,7 @@ label a_bad_time_to_disrobe_part_1:
 
     centered "{size=+7}{color=#cbcbcb}End of part one.{/color}{/size}"
 
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     $ hermione.equip(her_outfit_last)
     call update_interface_color
     call hide_screens
@@ -263,7 +263,7 @@ label a_bad_time_to_disrobe_part_2:
     show screen day_to_night
     with d3
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
     call music_block
 
@@ -352,7 +352,7 @@ label a_bad_time_to_disrobe_part_2:
     centered "{size=+10}{color=#cbcbcb}The end{/color}{/size}"
 
     call hide_screens
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     call update_interface_color
 
     $ hermione.equip(her_outfit_last)

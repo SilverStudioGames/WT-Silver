@@ -258,7 +258,7 @@ label set_her_map_location(location = ""):
                 else: #Gryff Room
                     $ her_map_location = "room_g"
 
-            if hg_blowjob.trigger == True and one_of_five in [1,2,3] and weather in ("clear", "cloudy") and not daytime and not hermione_busy:
+            if hg_blowjob.trigger == True and one_of_five in [1,2,3] and weather in ("clear", "cloudy") and not game.daytime and not hermione_busy:
                 $ her_map_location = "forest"
 
     call update_character_map_locations

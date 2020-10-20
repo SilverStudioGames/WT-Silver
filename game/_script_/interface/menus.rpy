@@ -288,7 +288,7 @@ screen clothing_menu(menu_items, character, preview):
         imagebutton:
             xpos 705
             ypos 490
-            if gold >= preview.cost:
+            if game.gold >= preview.cost:
                 idle  "interface/general/gold_bag.webp"
                 hover "interface/general/gold_bag_hover.webp"
             else:

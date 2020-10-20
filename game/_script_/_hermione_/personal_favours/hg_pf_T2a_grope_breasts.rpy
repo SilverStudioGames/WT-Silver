@@ -339,7 +339,7 @@ label hg_pf_grope_breasts_T4_continue:
     m "I think you like me squeezing your tits like this."
     call her_main("[genie_name], please...", "angry", "narrow", "base", "down")
 
-    if daytime:
+    if game.daytime:
         call her_main("Classes are about to start...", "angry", "narrow", "base", "down")
     else:
         call her_main("It's getting late...", "angry", "narrow", "base", "down")

@@ -2,8 +2,8 @@
 # Mirror story: Whose points is it anyway?
 label whose_points:
 
-    $ temp_day = daytime
-    $ daytime = True
+    $ temp_day = game.daytime
+    $ game.daytime = True
     call update_interface_color
     call hide_screens
 
@@ -245,7 +245,7 @@ label whose_points:
     $ hermione.equip(her_outfit_last)
     $ astoria.equip(ast_outfit_last)
 
-    $ daytime = temp_day
+    $ game.daytime = temp_day
 
     call set_her_action("none")
     jump enter_room_of_req

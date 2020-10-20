@@ -14,7 +14,7 @@ init python:
             full_moon = bool(full)
         else:
             # Full moon averages every 7 days
-            if day % moon_cycle == 0:
+            if game.day % moon_cycle == 0:
                 full_moon = True
                 moon_cycle = renpy.random.randint(5,9)
             else:
@@ -42,7 +42,7 @@ init python:
             snow_gen = renpy.random.randint(1, 3) == 1
             storm_gen = renpy.random.randint(1, 3) == 1
 
-            if snow_gen and day >= 30:
+            if snow_gen and game.day >= 30:
                 weather = "blizzard" if storm_gen else "snow"
             elif storm_gen:
                 weather = "storm"
@@ -64,7 +64,7 @@ screen weather():
     zorder -1
     sensitive False
 
-    if daytime:
+    if game.daytime:
         if weather in ("clear", "cloudy"):
             add "images/rooms/_weather_/sky.webp" pos (430, 218) anchor (0.5, 0.5)
 

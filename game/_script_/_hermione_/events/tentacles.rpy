@@ -80,7 +80,7 @@ label tentacle_scene_intro:
     else:
         m "(Ah, that's it... it's supposed to turn me into some sort of magical tentacle plant...)"
         m "(I have everything I need to perform the ritual and have some fun with Hermione.)"
-        if not daytime:
+        if not game.daytime:
             m "(*hmm* But it's too late for me to use it now. I should do it at dawn, before class has started.)"
             jump main_room_menu
         elif hermione_busy:

@@ -245,7 +245,7 @@ label hg_pf_strip_T4_snape:
                 call her_main("......", "annoyed", "narrow", "angry", "R")
             call sna_main(".............","snape_13")
 
-        "-Unleash your rage {size=-2}(Hardcore){/size}-" if game_difficulty >= 3: #Hardcore difficulty dialogue.
+        "-Unleash your rage {size=-2}(Hardcore){/size}-" if game.difficulty >= 3: #Hardcore difficulty dialogue.
             $ her_mood += 18
             $ sna_friendship -= 10
             m "Both of you..."
@@ -428,7 +428,7 @@ label hg_pf_strip_T4_snape_watch:
     call sna_main("Good job, you harlot!","snape_22")
     call her_main(".............", "soft", "happy", "base", "R", animation=None)
 
-    if daytime:
+    if game.daytime:
         call sna_main("Well, my class is about to start so I will be leaving now.","snape_22")
         sna "Don't you have potion class with me today, Miss Granger?"
         call her_main("Yes, [genie_name]...", "annoyed", "narrow", "base", "dead")

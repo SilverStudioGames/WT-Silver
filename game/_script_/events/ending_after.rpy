@@ -4,7 +4,7 @@
 
 # Genie gets stuck in the cosmos not being able to go anywhere
 label ending_after:
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
 
     call blkfade

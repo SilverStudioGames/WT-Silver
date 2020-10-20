@@ -353,7 +353,7 @@ init python:
 
                     for o in self.wardrobe_list:
                         if x[0] == o.id:
-                            if not o.unlocked and not cheats_active:
+                            if not o.unlocked and not game.cheats:
                                 renpy.notify("Import failed: You don't own these items. Buy them first.")
                                 return None
 
@@ -368,12 +368,11 @@ init python:
             return None
 
         def get_schedule(self):
-            """Returns a list of outfits available for current daytime and weather conditions."""
-            global daytime
+            """Returns a list of outfits available for current time of day and weather conditions."""
             schedule = []
 
             for o in self.outfits:
-                if o.unlocked and o.schedule["day" if daytime else "night"]:
+                if o.unlocked and o.schedule["day" if game.daytime else "night"]:
                     if weather == "overcast" and o.schedule["cloudy"]:
                         schedule.append(o)
                     elif weather in {"storm", "rain"} and o.schedule["rainy"]:

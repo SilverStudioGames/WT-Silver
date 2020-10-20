@@ -126,7 +126,7 @@ label luna_favour_1:
                 call lun_main("It's ridiculous! I should be showered in gifts and gold...","normal","suspicious","mad","R")
         call lun_main("Speaking of which...","normal","seductive","angry","mid")
         m "Alright, alright. Here's your gold."
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -343,7 +343,7 @@ label luna_favour_1:
 
         call lun_main("Speaking of which...","normal","seductive","angry","mid")
         m "Alright, alright. Here's your gold."
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -551,7 +551,7 @@ label luna_favour_1:
 
 
         m "Alright, alright. Here's your gold."
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         call lun_main("Thank you, [lun_genie_name].","normal","seductive","base","R")
@@ -675,7 +675,7 @@ label luna_favour_1:
         $ gryffindor += 15
         $ ravenclaw += 15
         m "Fifteen points to Gryffindor and Ravenclaw."
-        $ gold -= 50
+        $ game.gold -= 50
         $ luna_gold += 25
         m "Here's your gold."
         ">You hand Luna and hermione twenty-five gold each."

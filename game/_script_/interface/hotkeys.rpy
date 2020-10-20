@@ -52,7 +52,7 @@ screen hotkeys_main():
     key hkey_fap action Jump("jerk_off")
     key hkey_summon action Jump("door")
 
-    if daytime:
+    if game.daytime:
         key hkey_sleep action Jump("night_start") #Skip to night
     else:
         key hkey_sleep action Jump("day_start") #Skip to next day

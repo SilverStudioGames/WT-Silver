@@ -468,7 +468,7 @@ label hg_anal_sex_1:
             m "You plan to keep it in? My cum I mean."
             call her_main("Yes...", "grin", "narrow", "base", "mid_soft",cheeks="blush",tears="mascara")
 
-            if daytime:
+            if game.daytime:
                 call her_main("I hope it won't start leaking during my classes...",cheeks="blush",tears="mascara")
             else:
                 call her_main("I hope it won't start leaking before I get to my room...",cheeks="blush",tears="mascara")

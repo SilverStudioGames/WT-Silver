@@ -18,17 +18,8 @@ default interface_color = "gold"
 default gallery_active = False
 default ball_ending_2  = False
 
-default game_difficulty = 2
-
-default day = 0
-
-default daytime        = False
-default gold           = 0
 default rum_times      = 0 # Counts how many times have you rummaged the cupboard.
 default current_payout = 0
-
-# Hermione main screen flags
-default uni_sperm     = False # OBSOLETE! Untouched for backwards compatibility and references in the code.
 
 default public_whore_ending = False # If TRUE the game will end with "Public Whore Ending".
 
@@ -46,9 +37,6 @@ default searched = False # Turns true after you search the cupboard. Turns back 
 
 # Books
 default found_voucher = False # Turns TRUE after you complete "My Dear Waifu" with the harem ending and "Dahr's voucher" fall out.
-
-# Clothing
-default gave_miniskirt = False # Turns True when Hermione has the miniskirt.
 
 # Used to pause events/summons for a number of days
 default ss_event_pause  = 0
@@ -90,7 +78,6 @@ default phoenix_fed_counter    = 0
 default phoenix_petted_counter = 0
 
 # Paperwork related flags
-default day_of_week          = 0 # Counts days of the week. Everyday +1. When day_of_week = = 7 resets to zero.
 default report_chapters      = 0 # Number of chapters of current report completed so far. Resets to zero when report is finished.
 default reports_finished      = 0 # Number of completed reports.
 default stat_reports_counter = 0

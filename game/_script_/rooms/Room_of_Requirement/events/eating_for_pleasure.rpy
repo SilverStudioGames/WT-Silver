@@ -9,8 +9,8 @@ label eating_for_pleasure:
     narrator "This story is best played when drunk...{w=0.4} or not at all...{w=0.4} it's the worst...{w=0.4} enjoy!"
 
     # Setup
-    $ temp_time = daytime
-    $ daytime = False
+    $ temp_time = game.daytime
+    $ game.daytime = False
     $ her_outfit_last.save()
     call update_interface_color
     call music_block
@@ -282,7 +282,7 @@ label eating_for_pleasure:
     centered "{size=+7}{color=#cbcbcb}{cps=1}...{/cps}End?{/color}{/size}"
 
     #Reset
-    $ daytime = temp_time
+    $ game.daytime = temp_time
     $ hermione.equip(her_outfit_last)
     call hide_screens
     call update_interface_color

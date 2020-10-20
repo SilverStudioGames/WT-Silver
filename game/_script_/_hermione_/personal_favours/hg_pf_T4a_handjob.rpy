@@ -51,7 +51,7 @@ label hg_pf_handjob:
 
     call her_main("Thank you, [genie_name]...", "soft", "base", "base", "R")
 
-    if daytime:
+    if game.daytime:
         her "I better go. My classes are about to start."
     else:
         her "I'd better go now. It's getting pretty late..."
@@ -284,7 +284,7 @@ label hg_pf_handjob_1:
     call her_main("How long do you think this will take?", "open", "base", "base", "mid")
     m "Why?"
 
-    if daytime:
+    if game.daytime:
         call her_main("Well, it's just that my classes are about to start...", "upset", "wink", "base", "mid")
     else:
         call her_main("Well, it's just that I have this paper that I need to finish...", "upset", "wink", "base", "mid")
@@ -490,7 +490,7 @@ label hg_pf_handjob_1:
             call play_music("chipper_doodle") # HERMIONE'S THEME.
             call her_main("I don't know... I suppose I just panicked...", "angry", "happyCl", "worried", "mid", emote="sweat")
 
-            if daytime:
+            if game.daytime:
                 if hermione.is_worn("top"):
                     call her_main("My classes are about to start and I didn't want you to ruin my clothes, [genie_name]...", "angry", "happyCl", "worried", "mid", emote="sweat")
                     m "So you'll go to classes, looking like this?"
@@ -587,7 +587,7 @@ label hg_pf_handjob_1:
                 her "... I would like to get paid now."
 
             else:
-                if daytime:
+                if game.daytime:
                     if hermione.is_worn("top"):
                         call her_main("My clothes are ruined now!", "annoyed", "narrow", "angry", "R")
                     else:
@@ -841,19 +841,19 @@ label hg_pf_handjob_2_continue:
                 call her_main("[tmp_name]", "base", "base", "base", "mid")
                 m "A bit louder..."
                 call her_main("[tmp_name]!!!", "scream", "closed", "angry", "mid")
-            elif one_out_of_three == 1:
+            elif one_of_three == 1:
                 call her_main("I don't want to say that...", "annoyed", "base", "worried", "R")
                 m "Oh, just do it, [hermione_name]."
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("[tmp_name]", "scream", "closed", "angry", "mid")
-            elif one_out_of_three == 2:
+            elif one_of_three == 2:
                 call her_main("*huh*?", "annoyed", "base", "worried", "R")
                 call her_main("What does That have to do with anything?")
                 m "Just say it."
                 call her_main("......", "annoyed", "base", "worried", "R")
                 m "Come on, humour me."
                 call her_main("[tmp_name]", "scream", "closed", "angry", "mid")
-            elif one_out_of_three == 3:
+            elif one_of_three == 3:
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Do I really have to?")
                 m "Just say it."
@@ -861,19 +861,19 @@ label hg_pf_handjob_2_continue:
             g9 "He-he..."
 
         "{size=-4}\"-Manual user input-\"{/size}" if renpy.android:
-            if one_out_of_three == 1:
+            if one_of_three == 1:
                 call her_main("I don't want to say that...", "annoyed", "base", "worried", "R")
                 m "Oh, just do it, [hermione_name]."
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Manual user input...", "scream", "closed", "angry", "mid")
-            elif one_out_of_three == 2:
+            elif one_of_three == 2:
                 call her_main("*huh*?", "annoyed", "base", "worried", "R")
                 call her_main("What does That have to do with anything?")
                 m "Just say it."
                 call her_main("......", "annoyed", "base", "worried", "R")
                 m "Come on, humour me."
                 call her_main("... Manual user input.", "scream", "closed", "angry", "mid")
-            elif one_out_of_three == 3:
+            elif one_of_three == 3:
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Do I really have to?")
                 m "Just say it."
@@ -960,7 +960,7 @@ label hg_pf_handjob_2_cumming:
             with fade
             pause.8
 
-            if daytime:
+            if game.daytime:
                 call her_main("Well, I think I'd better go now... my Classes are about to start.", "base", "base", "base", "mid", xpos="right", ypos="base")
             else:
                 call her_main("Well, I think I'd better go now... It's getting late.", "base", "base", "base", "mid", xpos="right", ypos="base")
@@ -1101,7 +1101,7 @@ label hg_pf_handjob_2_cumming:
                 m "Well, the deed is done, and your tits are perfectly clean."
             call her_main("Yes! I know! It's so much easier this way!", "base", "narrow", "worried", "down")
 
-            if daytime:
+            if game.daytime:
                 call her_main("I can just go to classes now as if nothing ever happened.", "angry", "wink", "base", "mid")
             else:
                 call her_main("I can just go and spend some time with the guys in the common room now and nobody will know...", "base", "narrow", "worried", "down")

@@ -251,7 +251,7 @@ label luna_favour_4:
 
         call gen_chibi("stand")
         m "well then, Here's your payment, [luna_name]."
-        $ gold -= current_payout
+        $ game.gold -= current_payout
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         call lun_main("Oh um... yes, Thank you, [lun_genie_name].","base","seductive","base","R", cheeks="blush")
@@ -763,7 +763,7 @@ label luna_favour_4:
     with d3
 
     m "well then, Here's your payment, [luna_name]."
-    $ gold -= current_payout
+    $ game.gold -= current_payout
     $ luna_gold += current_payout
     ">You hand Luna {number=current_payout} gold."
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -867,7 +867,7 @@ label luna_cum_addict_event:
     call lun_main("Just don't expect me to let you get away with wasting that spunk anymore!","normal","mad","angry","mid")
 
     m "Anyway, here's your payment, [luna_name]."
-    $ gold -= current_payout
+    $ game.gold -= current_payout
     $ luna_gold += current_payout
     ">You hand Luna {number=current_payout} gold."
     call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")

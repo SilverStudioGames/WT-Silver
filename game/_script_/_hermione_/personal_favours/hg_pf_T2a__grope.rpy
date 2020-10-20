@@ -63,7 +63,7 @@ label hg_pf_grope:
         call her_main("..................", "soft", "narrow", "annoyed", "up")
         call her_main("Thank you, [genie_name]...", "soft", "narrow", "base", "mid_soft")
 
-    if daytime:
+    if game.daytime:
         her "Now if you don't mind, I'd better go. My classes are about to start."
     else:
         her "I'd better go now. It's getting pretty late..."
@@ -333,9 +333,9 @@ label hg_pf_grope_T4_E2:
     call her_main("Or my bum?....", "soft", "narrow", "base", "mid_soft")
 
     m "*Hmm*... What would you like?"
-    if one_out_of_three == 1:
+    if one_of_three == 1:
         call her_main("I wouldn't mind it if you massaged my breasts a little...", "soft", "narrow", "base", "R_soft")
-    elif one_out_of_three == 2:
+    elif one_of_three == 2:
         call her_main("I wouldn't mind it if you caressed my bum a bit, Sir...", "soft", "narrow", "worried", "down")
     else:
         call her_main("I wouldn't mind either today, Sir.", "soft", "narrow", "base", "R_soft")

@@ -11,8 +11,8 @@ label quests:
     # DAY-BASED EVENTS
     #
 
-    if day >= 1:
-        if daytime:
+    if game.day >= 1:
+        if game.daytime:
             if not genie_intro.E1_complete:
                 jump genie_intro_E1
         else:
@@ -20,10 +20,10 @@ label quests:
                 # Snape visits for the first time.
                 jump snape_intro_E1
 
-    if day >= 2:
+    if game.day >= 2:
         if not letter_hg_2.read:
             $ letter_hg_2.send()
-        if daytime:
+        if game.daytime:
             if not genie_intro.E3_complete:
                 jump genie_intro_E3
         else:
@@ -31,40 +31,40 @@ label quests:
                 # Snape's second visit.
                 jump snape_intro_E2
 
-    if day >= 3:
-        if daytime:
+    if game.day >= 3:
+        if game.daytime:
             pass
         else:
             if ss_event_pause == 0 and not snape_intro.E3_complete:
                 # Day of the duel.
                 jump snape_intro_E3
 
-    if day >= 4:
+    if game.day >= 4:
         if not letter_work_unlock.read:
             $ letter_work_unlock.send()
-        if daytime:
+        if game.daytime:
             pass
         else:
             if ss_event_pause == 0 and not snape_intro.E5_complete:
                 # You bother decide to just "roll with it"... Snape summon unlocked.
                 jump snape_intro_E5
 
-    if day >= 5:
-        if daytime:
+    if game.day >= 5:
+        if game.daytime:
             if hg_event_pause == 0 and not hermione_intro.E1_complete:
                 # Hermione shows up for the first time.
                 jump hermione_intro_E1
 
-    if day >= 6:
-        if daytime:
+    if game.day >= 6:
+        if game.daytime:
             if hg_event_pause == 0 and ss_he.hermione_E1 and not hermione_intro.E2_complete:
                 # Second visit from Hermione. Says she sent a letter to the Ministry.
                 jump hermione_intro_E2
 
-    if day >= 7:
+    if game.day >= 7:
         if hermione_intro.E2_complete and not letter_favors.read:
             $ letter_favors.send()
-        if daytime:
+        if game.daytime:
             pass
         else:
             if hg_event_pause == 0 and ss_he.hermione_E2 and not hermione_intro.E3_complete:
@@ -72,22 +72,22 @@ label quests:
                 # Hermione might have failed a test...
                 jump hermione_intro_E3
 
-    if day >= 8:
-        if daytime:
+    if game.day >= 8:
+        if game.daytime:
             pass
         else:
             if hg_event_pause == 0 and hermione_intro.E3_complete and not hermione_intro.E4_complete:
                 # She failed a test and cries.
                 jump hermione_intro_E4
 
-    if day >= 9:
-        if daytime:
+    if game.day >= 9:
+        if game.daytime:
             if hg_event_pause == 0 and hermione_intro.E4_complete and not hermione_intro.E5_complete:
                 # Hermione asks to be tutored. Summon unlocked!
                 jump hermione_intro_E5
 
-    if day >= 10:
-        if daytime:
+    if game.day >= 10:
+        if game.daytime:
             if nt_event_pause == 0 and hermione_intro.E5_complete and not tonks_intro.E1_complete:
                 # Tonks visits for the first time.
                 jump tonks_intro_E1
@@ -96,26 +96,26 @@ label quests:
                 # Tonks has found no evidence so far.
                 jump tonks_intro_E2
 
-    if day >= 11:
-        if daytime:
+    if game.day >= 11:
+        if game.daytime:
             pass
         else:
             if nt_event_pause == 0 and ss_he.tonks_E1 and not tonks_intro.E3_complete:
                 # Tonks becomes a teacher. Summon unlocked!
                 jump tonks_intro_E3
 
-    if day >= 13:
-        if daytime:
+    if game.day >= 13:
+        if game.daytime:
             if hg_event_pause == 0 and hermione_intro.E5_complete and ss_he.tonks_E1 and nt_he.hermione_E1 and not hermione_intro.E6_complete:
                 # Hermione wants to buy favours. Favours unlocked!
                 jump hermione_intro_E6
 
-    if day >= 16:
-        if daytime:
+    if game.day >= 16:
+        if game.daytime:
             if her_tier >= 2 and not cho_intro.E1_complete:
                 jump cho_intro_E1
 
-    if day >= 25:
+    if game.day >= 25:
         if not deck_unlocked:
             $ letter_cards_unlock.send()
 
@@ -123,7 +123,7 @@ label quests:
     # CARDGAME - EVENTS
     #
 
-    if day >= twins_cards_delay:
+    if game.day >= twins_cards_delay:
         if deck_unlocked and twins_first_win and not twins_cards_stocked:
             $ letter_cards_store.send()
 
@@ -135,7 +135,7 @@ label quests:
     #
 
     if cc_event_pause == 0:
-        if daytime:
+        if game.daytime:
 
             if hufflepuff_match == "start":
                 $ hufflepuff_match = "return" # Triggers the return during the evening.
@@ -191,7 +191,7 @@ label quests:
     #
 
     if sb_event_pause == 0:
-        if daytime:
+        if game.daytime:
             # Introduction
             if nt_he.susan_E1 and not susan_intro.E1_complete:
                 jump susan_intro_E1
@@ -202,7 +202,7 @@ label quests:
 
     # Astoria events not triggered by a date.
     if ag_event_pause == 0:
-        if daytime:
+        if game.daytime:
             # Introduction
             if astoria_intro.E2_hermione and astoria_intro.E2_snape and not astoria_intro.E3_complete:
                 jump astoria_intro_E3
@@ -218,7 +218,7 @@ label quests:
     #
 
     if ss_event_pause == 0:
-        if daytime:
+        if game.daytime:
             # Ending events
             if her_whoring >= 15 and ball_quest.E1_complete and not ball_quest.E2_complete:
                 # Snape complains that appointing Hermione in the Autumn Ball committee was a mistake.
@@ -235,7 +235,7 @@ label quests:
 
     # Tonks events not triggered by a date.
     if nt_event_pause == 0:
-        if daytime:
+        if game.daytime:
             python:
                 for i in tonks_mail_list:
                     if i == "poster_1_gift":
@@ -251,7 +251,7 @@ label quests:
     #
 
     if hg_event_pause == 0:
-        if daytime:
+        if game.daytime:
             # Ending events
             if her_whoring >= 15 and not ball_quest.E1_complete:
                 # Hermione wants to be in the Autumn Ball committee.
@@ -274,7 +274,7 @@ label quests:
     #
 
     if ll_event_pause == 0:
-        if daytime:
+        if game.daytime:
 
             # Intro
             if her_whoring >= 21 and not hat_known:

@@ -15,7 +15,7 @@ init python in gui:
         if theme != 'auto':
             return theme != 'light'
         try:
-            return store._menu or store.interface_color == 'gray' or not store.daytime
+            return store._menu or store.interface_color == 'gray' or not store.game.daytime
         except:
             return store._menu
 

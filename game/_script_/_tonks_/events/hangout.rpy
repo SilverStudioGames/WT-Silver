@@ -60,7 +60,7 @@ label tonks_hangout:
 
     label end_tonks_hangout:
 
-    $ d_flag_01 = "afternoon" if daytime else "evening"
+    $ d_flag_01 = "afternoon" if game.daytime else "evening"
 
     call bld
     if ton_friendship < 100:
@@ -76,9 +76,9 @@ label tonks_hangout:
         if fire_in_fireplace: # Tonks is feeling hot.
             $ ton_friendship += 2
 
-        if game_difficulty < 2:      #Easy difficulty
+        if game.difficulty < 2:      #Easy difficulty
             $ ton_friendship += 5
-        elif game_difficulty == 2:   #Normal
+        elif game.difficulty == 2:   #Normal
             $ ton_friendship += 4
         else:                        #Hardcore
             $ ton_friendship += 3
@@ -88,7 +88,7 @@ label tonks_hangout:
 
     $ tonks.wear("all")
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start
@@ -157,7 +157,7 @@ label nt_he_firewhisky_E1:
     call ton_main("That's it, cheers.", "base", "base", "base", "mid")
 
     if nt_he_drink.counter <= 3: # First time only.
-        if daytime:
+        if game.daytime:
             m "Boring lessons ahead?"
             call ton_main("Not particularly, why?","open","base","base","mid")
             m "You might regret going back to classes after drinking this much."
@@ -187,7 +187,7 @@ label nt_he_firewhisky_E3:
     call bld
     m "Want to get drunk?"
     call ton_main("Of course.", "base", "narrow", "shocked", "down", ypos="head")
-    if daytime:
+    if game.daytime:
         call ton_main("I'm not going to regret this, am I?", "clench", "base", "raised", "downR")
         call ton_main("Hopefully my students won't notice...", "grin", "narrow", "base", "downR")
     else:
@@ -289,7 +289,7 @@ label nt_he_story_intro_E1:
     call ton_main("And I'm not talking about my intellectual abilities...", "horny", "base", "base", "down")
     g9 "I'm a well for all kinds of knowledge!"
 
-    if daytime:
+    if game.daytime:
         call ton_main("Anyway, I have to go prepare for classes.","open","base","base","R")
     else:
         call ton_main("Anyway, I think I'm gonna go hit the sack.","open","base","base","R")

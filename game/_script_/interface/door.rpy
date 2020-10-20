@@ -42,7 +42,7 @@ label door_menu(xx=723, yy=90):
         if not _return[2]:
             $ renpy.jump("summon_"+_return[1].lower())
         else:
-            if daytime or _return[1] in ["Tonks", "Snape"]:
+            if game.daytime or _return[1] in ["Tonks", "Snape"]:
                 call nar(">"+_return[1]+" is currently busy. Try again later.")
             else:
                 call nar(">"+_return[1]+" is currently asleep. Try again tomorrow.")

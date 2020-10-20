@@ -36,7 +36,7 @@ screen clothing_store():
     tag room_screen
     zorder 0
 
-    if daytime:
+    if game.daytime:
         add "images/rooms/_bg_/corridor.webp" #Need day image.
     else:
         add "images/rooms/_bg_/corridor.webp"

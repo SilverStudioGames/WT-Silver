@@ -23,7 +23,7 @@ label start_wt:
                 "Easy" "{cps=*2}>Increased gold and Slytherin-points gain.\nYou will always find items or gold in your cupboard.\nBad mood will decrease faster.\nBooks can be read in one go.{/cps}"
                 "-Confirm-":
                     ">Game set to easy!"
-                    call adjust_game_difficulty(1)
+                    $ game.difficulty = 1
                 "-Choose something else-":
                     jump choose_your_difficulty
         "-Play with normal difficulty-":
@@ -31,7 +31,7 @@ label start_wt:
                 "Normal" "{cps=*2}>Balanced gold and Slytherin-points gain.\nRandom chance of finding items or gold in your cupboard.\nBad mood will decrease gradually.\nBooks take time to read.{/cps}"
                 "-Confirm-":
                     ">Game set to normal!"
-                    call adjust_game_difficulty(2)
+                    $ game.difficulty = 2
                 "-Choose something else-":
                     jump choose_your_difficulty
         "-Play with hardcore difficulty-" if persistent.game_complete:
@@ -39,16 +39,16 @@ label start_wt:
                 "Hardcore" "{cps=*2}>Reduced gold and Slytherin-points gain.\nAll hints and guides are disabled.\nAdditional rewards and dialogue choices are added.{/cps}"
                 "-Confirm-":
                     ">Game set to hardcore!"
-                    call adjust_game_difficulty(3)
+                    $ game.difficulty = 3
                 "-Choose something else-":
                     jump choose_your_difficulty
 
-    if persistent.game_complete and game_difficulty <= 2: # Offer for game+
+    if persistent.game_complete and game.difficulty <= 2: # Offer for game+
         menu:
             "NEW GAME +" ">Would you like to carry over your gold and possessions from your previous playthrough?"
             "-Yes please-":
                 # Code needed here for adding persistant items across games
-                $ gold = gold + persistent.gold
+                $ game.gold += persistent.gold
                 ">[persistent.gold] gold has been added to your founds."
 
                 #$ candy_gift_list = persistent.candy_gift_list
@@ -69,13 +69,13 @@ label start_wt:
             "-No need-":
                 pass
 
-    if game_difficulty <= 2:
+    if game.difficulty <= 2:
         menu:
             "Cheats" "> Cheats can be found in the options menu at the top left of the screen.\nDisclaimer: Cheats may cause various bugs and instabilities."
             "-Activate Cheats-":
-                $ cheats_active = True
+                $ game.cheats = True
             "-Disable Cheats-":
-                $ cheats_active = False
+                $ game.cheats = False
 
     menu:
         "Animations" ">Would you like to use chibi animations, or CG images when available?\nThis can be changed in the preferences menu."
@@ -84,12 +84,12 @@ label start_wt:
         "-Use CG images-":
             $ use_cgs = True
 
-    if cheats_active or persistent.game_complete:
+    if game.cheats or persistent.game_complete:
         menu:
             "Skip content" ">Would you like to skip early sections of the game?"
             "-Play the intro-": # {p}{size=-6}{color=#ffae19}new content!{/color}{/size}
                 $ skip_to_hermione = False
-            "-Skip to Hermione-" if cheats_active or persistent.game_complete:
+            "-Skip to Hermione-" if game.cheats or persistent.game_complete:
                 $ skip_to_hermione = True
 
     hide screen close_button
@@ -110,7 +110,7 @@ label start_wt:
     ### START ANIMATION ###
     call stop_sound_effects
     $ set_weather("clear")
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
     call room("main_room")
     call gen_chibi("hide")

@@ -81,9 +81,9 @@ label snape_hangout:
             # Rain puts him in a good mood.
             $ sna_friendship += 2
 
-        if game_difficulty < 2:
+        if game.difficulty < 2:
             $ sna_friendship += 5
-        elif game_difficulty == 2:
+        elif game.difficulty == 2:
             $ sna_friendship += 4
         else:
             $ sna_friendship += 3
@@ -91,7 +91,7 @@ label snape_hangout:
     if sna_friendship > 100:
         $ sna_friendship = 100
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

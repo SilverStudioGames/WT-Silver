@@ -2,8 +2,8 @@
 # Mirror story: Panty raid
 label panty_raid:
 
-    $ temp_day = daytime
-    $ daytime = True
+    $ temp_day = game.daytime
+    $ game.daytime = True
     call update_interface_color
     call room("main_room")
     hide screen owl
@@ -30,14 +30,14 @@ label panty_raid:
             $ pathvalue = 3
         "-Go back-":
             # Return
-            $ daytime = temp_day
+            $ game.daytime = temp_day
             call update_interface_color
             jump enter_room_of_req
 
     stop music fadeout 1.0
     pause 1.0
 
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
     call music_block
 
@@ -129,7 +129,7 @@ label panty_raid:
         stop music fadeout 1.0
         centered "{size=+7}{color=#cbcbcb}Three hours later...{/color}{/size}"
 
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call music_block
         show screen fireplace_fire
@@ -302,7 +302,7 @@ label panty_raid:
         with d3
         stop music fadeout 1.0
         centered "{size=+7}{color=#cbcbcb}Four hours later...{/color}{/size}"
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call music_block
         show screen fireplace_fire
@@ -436,7 +436,7 @@ label panty_raid:
 
         stop music fadeout 1.0
         centered "{size=+7}{color=#cbcbcb}A few hours later...{/color}{/size}"
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call music_block
         show screen fireplace_fire
@@ -679,7 +679,7 @@ label panty_raid:
 
         stop music fadeout 1.0
         centered "{size=+7}{color=#cbcbcb}Some time later...{/color}{/size}"
-        $ daytime = False
+        $ game.daytime = False
         call update_interface_color
         call music_block
         show screen fireplace_fire

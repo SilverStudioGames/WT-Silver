@@ -419,7 +419,7 @@ screen stats_menuitem(xx, yy):
                             use text_stat("Bird petted:")
                             use text_stat("- ", " times -", phoenix_petted_counter)
                             use text_stat("You missed feeding your bird for:")
-                            use text_stat("- ", " days...", (day - phoenix_fed_counter) )
+                            use text_stat("- ", " days...", (game.day - phoenix_fed_counter) )
                             use text_stat("If you were a Quidditch player, you'd be a:")
                             use text_stat("- \"", "\" -", genie_quid_position)
 

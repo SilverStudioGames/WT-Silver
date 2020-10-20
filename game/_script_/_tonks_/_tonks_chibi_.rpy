@@ -92,7 +92,7 @@ screen with_tonks_animated():
     tag ton_chibi
     zorder tonks_chibi.zorder
 
-    if daytime:
+    if game.daytime:
         add "ch_gen toast_goblet_daytime" xpos 435 ypos 200
     else:
         add "ch_gen toast_goblet" xpos 435 ypos 200

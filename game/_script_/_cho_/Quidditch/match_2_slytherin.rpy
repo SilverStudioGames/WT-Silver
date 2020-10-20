@@ -560,7 +560,7 @@ label slytherin_match:
     call her_main("", "open", "base", "angry", "up")
 
     call sna_main("Well, some of us bet quite a fortune on the outcome.", "snape_09")
-    if gold >= 2000:
+    if game.gold >= 2000:
         g4 "Fuck{w=0.3}, I forgot he was here..."
     else:
         g4 "Oh shit{w=0.3}, the bet..."
@@ -569,7 +569,7 @@ label slytherin_match:
     m "No... of course not..."
     show screen blktone
     with d5
-    if gold >= 2000:
+    if game.gold >= 2000:
         g4 "(Why did I bet so much gold on this?!)"
     else:
         g4 "(How in the hell would I get 2000 gold?!)"
@@ -1413,7 +1413,7 @@ label slytherin_match:
 label slytherin_match_return:
 
     # The office, evening after the game
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
 
     call play_music("stop")

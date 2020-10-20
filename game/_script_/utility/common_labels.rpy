@@ -19,7 +19,7 @@ label hide_screens:
 label update_interface_color(color=None):
     if color in ["gold", "gray"]:
         $ interface_color = color
-    elif daytime:
+    elif game.daytime:
         $ interface_color = "gold"
     else:
         $ interface_color = "gray"
@@ -274,29 +274,10 @@ label play_music(music=""):
 
 # Play day/night theme
 label music_block:
-    if daytime:
+    if game.daytime:
         call play_music("day")
     else:
         call play_music("night")
-    return
-
-label adjust_game_difficulty(dif=None):
-    if 1 <= dif <= 3:
-        $ game_difficulty = dif
-
-    if game_difficulty <= 1:
-        $ cheat_reading = True
-        $ wine_ITEM.cost = 40
-        $ firewhisky_ITEM.cost = 60
-    elif game_difficulty == 2:
-        $ cheat_reading = False
-        $ wine_ITEM.cost = 60
-        $ firewhisky_ITEM.cost = 80
-    else:
-        $ cheats_active = False
-        $ cheat_reading = False
-        $ wine_ITEM.cost = 140
-        $ firewhisky_ITEM.cost = 160
     return
 
 label unlock_clothing(text="", item="interface/icons/box_blue_1.webp"):

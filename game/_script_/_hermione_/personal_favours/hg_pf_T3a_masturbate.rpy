@@ -77,7 +77,7 @@ label hg_pf_strip_T4_fingering:
     call her_main("For how long did you want me to do this?", "open", "base", "worried", "mid")
     m "Until you finish [hermione_name]..."
 
-    if daytime:
+    if game.daytime:
         call her_main("But my classes are about to start, [genie_name]...", "annoyed", "base", "worried", "mid")
     else:
         call her_main("But it's getting late, [genie_name]...", "annoyed", "base", "worried", "mid")

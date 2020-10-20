@@ -69,7 +69,7 @@ init python:
                 branches = tuple(self.dictionary[str(x)] for x in branches)
                 entry = [entry[0], entry[1].format(*branches)]
 
-            self.contents.append(["Day {}\n{}".format(day, entry[0]), str(entry[1]), id])
+            self.contents.append(["Day {}\n{}".format(game.day, entry[0]), str(entry[1]), id])
             self.pages = len(self.contents)-1
             return
 

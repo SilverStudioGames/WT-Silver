@@ -687,7 +687,7 @@ label cc_pf_strip_T2_intro_E2:
 
     call cho_main("(...)", "disgust", "narrow", "worried", "down", cheeks="blush", xpos="right", ypos="base")
     call cho_main("*Uhm*...", "soft", "narrow", "worried", "mid", cheeks="blush")
-    if daytime:
+    if game.daytime:
         call cho_main("Have a good day...", "soft", "base", "base", "R", cheeks="blush")
     else:
         call cho_main("Have a good night...", "soft", "base", "base", "R", cheeks="blush")
@@ -1316,7 +1316,7 @@ label cc_pf_strip_T2_hermione:
             call her_main("I {b}did{/b} enjoy this little obscene \"freak-show\" you arranged for me...", "grin", "narrow", "base", "mid_soft")
             call cho_main("You'll regret this, Granger!", "clench", "narrow", "angry", "L", cheeks="heavy_blush")
 
-            if daytime:
+            if game.daytime:
                 call her_main("Have a nice day, Professor.", "soft", "closed", "base", "mid")
             else:
                 call her_main("Have a good night, Professor.", "soft", "closed", "base", "mid")
@@ -1432,7 +1432,7 @@ label cc_pf_strip_T2_hermione:
             call cho_main("Already missing your books, are you?", "annoyed", "narrow", "base", "L")
             call her_main("I am not.{w} And I don't appreciate being made fun of!", "angry", "closed", "angry", "mid")
 
-            if daytime:
+            if game.daytime:
                 call her_main("Good day, Sir.", "soft", "base", "angry", "mid")
                 call cho_main("See ya around, Granger...", "smile", "narrow", "angry", "L")
                 call her_main("*Hmpf*", "annoyed", "narrow", "angry", "R")
@@ -1465,7 +1465,7 @@ label cc_pf_strip_T2_hermione:
 
             call cho_main("Now, if you excuse me...", "soft", "base", "base", "mid")
 
-            if daytime:
+            if game.daytime:
                 call cho_main("I have to head back to classes.", "soft", "base", "base", "R")
                 m "I still got your--"
                 call cho_main("See ya next time, [cho_genie_name]!", "smile", "narrow", "angry", "mid")
@@ -1730,7 +1730,7 @@ label cc_pf_strip_T3_intro_E1:
     call cho_main("", "base", "narrow", "base", "mid", xpos="mid", ypos="base", trans=fade)
     pause .5
 
-    if daytime:
+    if game.daytime:
         call cho_main("I'll head back to classes, then.", "soft", "narrow", "base", "mid")
     else:
         call cho_main("I'll head back to our dorms, then.", "soft", "narrow", "base", "mid")
@@ -1828,7 +1828,7 @@ label cc_pf_strip_T3_intro_E2:
 
     call play_music("tonks")
     call cho_main("", "soft", "narrow", "worried", "L", cheeks="blush", xpos="left", ypos="base", flip=True)
-    if daytime:
+    if game.daytime:
         call ton_main("Hello, Professor.", "base", "base", "base", "mid", xpos="right", ypos="base")
     else:
         call ton_main("Good evening, Professor.", "base", "base", "base", "mid", xpos="right", ypos="base")
@@ -2443,7 +2443,7 @@ label cc_pf_strip_T3_intro_E2:
     call ton_main("If we aren't getting interrupted again, that is...", "annoyed", "narrow", "base", "mid")
     call cho_main("Alright.", "annoyed", "base", "base", "R") # bit disappointed.
 
-    if daytime:
+    if game.daytime:
         call ton_main("Let's head back to classes, shall we.", "soft", "base", "base", "L", hair="horny")
     else:
         call ton_main("Let me escort you back to your common room. It's getting late.", "soft", "base", "base", "L", hair="horny")
@@ -2476,7 +2476,7 @@ label cc_pf_strip_T3_intro_E2:
     pause .5
 
     call ton_main("Thank you for your time, Professor.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
-    if daytime:
+    if game.daytime:
         call cho_main("Good day, Sir.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
     else:
         call cho_main("Good night, Sir.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
@@ -3206,7 +3206,7 @@ label cc_pf_strip_T3_intro_E3:
     g9 "And Tonks, next time we do this, wear the clothes I usually ask you to wear around my office."
     call ton_main("With pleasure.", "base", "narrow", "base", "mid", hair="horny", flip=False, xpos="far_right", ypos="head")
 
-    if daytime:
+    if game.daytime:
         call ton_main("I'll escort you back to classes, Miss Chang.", "open", "narrow", "base", "L", hair="horny", xpos="far_right", ypos="head")
         call ton_main("Have a good day, Professor.", "base", "narrow", "base", "mid", hair="horny", xpos="far_right", ypos="head")
     else:

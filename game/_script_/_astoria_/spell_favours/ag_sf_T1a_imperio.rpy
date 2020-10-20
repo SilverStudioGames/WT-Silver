@@ -198,7 +198,7 @@ label ag_se_imperio_sb_E1:
     call ast_main("Can't you do it?","annoyed","base","base","mid")
     m "My wand casting hand is a bit tired for some reason..."
     call ast_main("Fine...","annoyed","base","worried","R")
-    if daytime:
+    if game.daytime:
         call ast_main("Have a nice day, Sir!","grin","closed","base","mid")
         m "You too..."
     else:
@@ -514,7 +514,7 @@ label ag_se_imperio_sb_E2:
 
     call sus_walk(action="leave")
 
-    if daytime:
+    if game.daytime:
         call ast_main("See you, [ast_genie_name]!","grin","closed","base","mid")
         m "..."
     else:
@@ -844,7 +844,7 @@ label ag_se_imperio_sb_E3:
 
     $ susan.wear("top", "bra")
 
-    if daytime:
+    if game.daytime:
         call ast_main("We're going to be late for classes, Suzy!","annoyed","narrow","base","R")
         call ast_main("Let's head to Tonks' study, shall we?...","smile","narrow","base","R")
         sus "..."

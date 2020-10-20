@@ -349,7 +349,7 @@ label reading_book:
     else:
         call gen_chibi("read_done")
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start
@@ -433,7 +433,7 @@ label book_complete:
     call notes
     ">[book_choice.effect]" # ex. ">New skill unlocked: a 1 out of 6 chance of completing an additional chapter when doing paperwork.."
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

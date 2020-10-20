@@ -590,7 +590,7 @@ label cho_quiz_checkpoint:
         call cho_main("And should you not be able to help me and my team beat Hufflepuff, this will be over before you can even say Snitch!", "scream", "closed", "base", "mid")
         g4 "..."
 
-        if daytime:
+        if game.daytime:
             call cho_main("Anyway, got to go now, or I'll be too late for classes.", "smile", "base", "base", "mid")
         else:
             call cho_main("Anyway, it's getting late. I should better head to my dorms.", "soft", "base", "base", "R")

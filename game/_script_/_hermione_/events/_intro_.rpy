@@ -979,7 +979,7 @@ label nt_he_hermione_E1:
     call ton_main("And the mortality rate...","upset","base","worried","R")
     call ton_main("If I had known the benefits of being a teacher at Hogwarts, I would have signed up straight away!","horny","base","base","up")
 
-    if daytime:
+    if game.daytime:
         ">You spend the afternoon conspiring against Hermione with Tonks..."
     else:
         ">You spend the evening conspiring against Hermione with Tonks..."

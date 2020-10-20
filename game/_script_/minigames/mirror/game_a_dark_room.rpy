@@ -24,9 +24,9 @@ label start_dark_room_game:
     show screen blkfade
     with d9
 
-    $ temp_time = daytime
+    $ temp_time = game.daytime
 
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
 
     call hide_screens
@@ -49,7 +49,7 @@ label start_dark_room_game:
                 "Would you like to delete your save and get gold coins for it?"
                 "-Yes-":
                     $ current_payout = DRgame.day*2
-                    $ gold += current_payout
+                    $ game.gold += current_payout
                     ">You have received {number=current_payout} gold.\n>Thank you for playing \"A Dark Room\"."
                     call reset_dark_room_init
                     jump dark_room_game_start_menu

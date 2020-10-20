@@ -578,7 +578,7 @@ label hg_pf_blowjob_1:
             call her_main("My stomach is so full...")
             g9 "Yes, I fed you with my cum!"
 
-            if daytime:
+            if game.daytime:
                 call her_main("You did... I think I may skip lunch today...", "soft", "narrow", "annoyed", "up")
             else:
                 call her_main("You did... I think I may skip supper tonight...", "soft", "narrow", "annoyed", "up")
@@ -612,7 +612,7 @@ label hg_pf_blowjob_1:
             m "Alright, I'm done..."
             call her_main(".................", "open", "base", "base", "mid")
 
-            if daytime:
+            if game.daytime:
                 her "My classes are about to start..."
             else:
                 her "I just took a shower recently..."
@@ -626,7 +626,7 @@ label hg_pf_blowjob_1:
             call her_main("Of course not, [genie_name]!", "angry", "happyCl", "worried", "mid", emote="sweat")
 
             stop music fadeout 1.0
-            if daytime:
+            if game.daytime:
                 m "You better go before you are late for your classes..."
             else:
                 m "It's getting late..."
@@ -656,7 +656,7 @@ label hg_pf_hidden_blowjob:
     call her_main("{size=+7}!!!{/size}", "open_wide_tongue", "narrow", "base", "up")
     m "*Hmm*?!"
 
-    if daytime:
+    if game.daytime:
         m "Who could that be?"
     else:
         m "Who could that be at this hour?"
@@ -770,7 +770,7 @@ label hg_hidden_blowjob_snape:
     m "Yes. She'll get what she deserves."
     call sna_main("Good. That is all I wanted to hear.","snape_06")
 
-    if daytime:
+    if game.daytime:
         m "Well, have a good day, Severus."
         call sna_main("Yes, thank you.","snape_06")
     else:
@@ -819,7 +819,7 @@ label hg_hidden_blowjob_luna:
         "\"I am busy right now, [luna_name].\"":
             call her_main("Thank you, [genie_name].", "angry", "base", "base", "mid")
             lun "Oh... well, I'll visit you later then, [lun_genie_name]."
-            if daytime:
+            if game.daytime:
                 lun "Have a good day!"
             else:
                 lun "Have a good night!"
@@ -928,7 +928,7 @@ label hg_hidden_blowjob_luna:
     g9 "Full of great ideas!"
     call lun_main("I will, [lun_genie_name].","smile","seductive","base","mid")
 
-    if daytime:
+    if game.daytime:
         call lun_main("Have a nice day!","smile_large","happyCl","base","mid")
     else:
         call lun_main("Good night!","smile_large","happyCl","base","mid")
@@ -971,7 +971,7 @@ label hg_hidden_blowjob_tonks:
             ton "Busy?"
             ton "Could it be..."
             ton "Is Snape with you?"
-            if daytime:
+            if game.daytime:
                 ton "Are you two having one of your silly little duels again?"
             else:
                 ton "Don't stay up drinking again..."
@@ -1040,7 +1040,7 @@ label hg_hidden_blowjob_tonks:
 
     call ton_walk("mid","base")
 
-    if daytime:
+    if game.daytime:
         call ton_main("Hello, Sir.","base","base","base","mid", xpos="right", ypos="base", trans=d3)
     else:
         call ton_main("Good evening, Sir.", "base", "base", "shocked", "mid", xpos="right", ypos="base", trans=dissolve)
@@ -1193,7 +1193,7 @@ label hg_hidden_blowjob_tonks:
         g9 "You can both have it!"
 
     call ton_main("I'm sorry, [ton_genie_name]... I'm already pre-occupied with something...", "open", "narrow", "base", "R")
-    if daytime:
+    if game.daytime:
         call ton_main("Teaching our second-years how to cast a simple deflection spell...","open","base","raised","down")
     else:
         call ton_main("I'm preparing some material for our second-years how to cast a simple deflection spell...","open","base","raised","down")
@@ -1236,7 +1236,7 @@ label hg_hidden_blowjob_tonks:
         call ton_main("Make sure she swallows for me.","horny","base","base","mid")
     g9 "Every last drop!"
 
-    if daytime:
+    if game.daytime:
         call ton_main("See you in class, {i}Parseltongue{/i}!","horny","base","angry","down")
     else:
         call ton_main("Have a good night, {i}Parseltongue{/i}!", "horny", "base", "annoyed", "down")
@@ -1311,7 +1311,7 @@ label hg_hidden_blowjob_cumming:
             else:
                 call her_main("I would like you to cum in my mouth.", "grin", "narrow", "base", "dead")
                 call her_main("You usually cum so much so I think I will be able to just skip my next meal...")
-                if daytime:
+                if game.daytime:
                     call her_main("And do some light workout instead.")
                 else:
                     call her_main("And do some homework instead.")
@@ -1412,7 +1412,7 @@ label hg_hidden_blowjob_cumming:
             call her_main("Can I get paid now?")
 
             if her_tier >= 6:
-                if daytime:
+                if game.daytime:
                     m "What, even after I just gave you lunch?"
                 else:
                     m "What, even after I fed you dinner?"
@@ -1840,7 +1840,7 @@ label hg_pf_blowjob_2:
             m "Are you going to swallow?"
             call her_main("*Shakes her head from side to side*", "full_cum", "narrow", "base", "dead", tears="mascara")
 
-            if daytime:
+            if game.daytime:
                 m "So you're going to go to class with a mouth full of my cum?"
             else:
                 m "So you're going to go to sleep with a mouth full of my cum?"

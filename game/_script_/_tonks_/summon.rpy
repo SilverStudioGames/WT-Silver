@@ -77,7 +77,7 @@ label summon_tonks:
         "-Never mind-":
             stop music fadeout 3.0
 
-            if daytime:
+            if game.daytime:
                 ton "Alright, back to work then..."
             else:
                 ton "Sweet dreams, [ton_genie_name]."
@@ -151,13 +151,13 @@ label tonks_favor_menu:
             # else:
                 # $ renpy.jump(result)
 
-        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if daytime and tonks_requests_unlocked:
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if game.daytime and tonks_requests_unlocked:
             jump tonks_requests_menu
 
-        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not daytime or not tonks_requests_unlocked:
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not game.daytime or not tonks_requests_unlocked:
             if not tonks_requests_unlocked:
                 call nar(">You haven't unlocked this feature yet.")
-            elif not daytime:
+            elif not game.daytime:
                 call nar(">Public requests are available during the day only.")
             jump tonks_favor_menu
 

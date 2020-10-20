@@ -90,11 +90,11 @@ label upgrades_menu(xx=150, yy=90):
         if _return[1] != current_subcategory:
             $ current_subcategory = _return[1]
     elif _return[0] == "buy":
-        if gold >= _return[1] and ton_friendship >= _return[3]*25:
+        if game.gold >= _return[1] and ton_friendship >= _return[3]*25:
             python:
                 renpy.play('sounds/money.mp3')
 
-                gold -= _return[1]
+                game.gold -= _return[1]
                 _list = _return[2]
                 _iter = _return[3]
 
@@ -192,7 +192,7 @@ screen upgrades_menuitem(xx, yy):
             spacing 5
             pos (18, 70)
             add "interface/icons/small/gold.webp"
-            text str(gold) size 15 ypos 4
+            text str(game.gold) size 15 ypos 4
             add "interface/icons/small/tonks.webp"
             text str(ton_friendship) size 15 ypos 4
 
@@ -229,7 +229,7 @@ screen upgrades_menuitem(xx, yy):
                                     xysize (95, 130)
                                     xpos 10
                                     if x < len(i):
-                                        add Flatten(i[x].get_image()) align (1.0, 1.0) zoom 0.125 alpha (1.0 if ((gold >= actual_price and ton_friendship >= favor_req) or i[x].unlocked) else 0.5)
+                                        add Flatten(i[x].get_image()) align (1.0, 1.0) zoom 0.125 alpha (1.0 if ((game.gold >= actual_price and ton_friendship >= favor_req) or i[x].unlocked) else 0.5)
                                         if i[x].unlocked:
                                             add "interface/topbar/icon_check.webp" zoom 0.75 align (0.85, 1.0)
                                         else:
@@ -243,6 +243,6 @@ screen upgrades_menuitem(xx, yy):
                                         xysize (50, 50)
                                         yalign 0.5
                                         text ("" if (linear_price <= 0) else str(favor_req+25)+"{unicode}\u2764{/unicode}") color ("#b20000" if (ton_friendship < favor_req+25) else "#402313") size 14 align (0.5, 0.25)
-                                        text (str(linear_price)+"g" if linear_price > 0 else "Sold!") color ("#b20000" if (0 < linear_price > gold) else "#402313") size 14 align (0.5, 0.7)
+                                        text (str(linear_price)+"g" if linear_price > 0 else "Sold!") color ("#b20000" if (0 < linear_price > game.gold) else "#402313") size 14 align (0.5, 0.7)
                                         text "{unicode}\u0362{/unicode}" size 65 align (1.0, 0.5) xoffset 5
                         add gui.format("interface/achievements/{}/spacer.webp") yalign 1.0 xpos 274 xanchor 0.5

@@ -71,7 +71,7 @@ label points_changes: # Gets called every day/night.
     ### Ravenclaw ###
 
     ### Slytherin ###
-    if generating_points == 1 and game_difficulty >= 2: # Failed, no bonus points for S today.
+    if generating_points == 1 and game.difficulty >= 2: # Failed, no bonus points for S today.
         pass
 
     else: # Success, award bonus points to S today.

@@ -2,9 +2,9 @@
 # Mirror story: The genie, the desk and the door
 label genie_house_elf:
 
-    $ temp_day = daytime
+    $ temp_day = game.daytime
     $ temp_weather = weather
-    $ daytime = True
+    $ game.daytime = True
     call update_interface_color
 
     $ set_weather("clear")
@@ -88,7 +88,7 @@ label genie_house_elf:
 
     centered "{size=+7}{color=#cbcbcb}The end{/color}{/size}"
 
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     call update_interface_color
     $ weather = temp_weather
 

@@ -1,8 +1,8 @@
 # Mirror story: An odd circumstance
 label an_odd_circumstance:
 
-    $ temp_day = daytime
-    $ daytime = False
+    $ temp_day = game.daytime
+    $ game.daytime = False
     call update_interface_color
     stop weather
     call play_music("stop")
@@ -191,7 +191,7 @@ label an_odd_circumstance:
     show screen blkfade
     with d9
 
-    $ daytime = temp_day
+    $ game.daytime = temp_day
     call update_interface_color
 
     $ hermione.equip(her_outfit_last)

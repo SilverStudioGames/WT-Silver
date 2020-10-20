@@ -122,7 +122,7 @@ label cho_quid_E1:
     g9 "And you, think about using that petite body of yours to get closer to your dreams!"
     call cho_main("*Tzzzz*", "angry", "closed", "angry", "mid")
 
-    if daytime:
+    if game.daytime:
         call cho_main("Good day, Sir...", "soft", "narrow", "angry", "mid")
     else:
         call cho_main("Good night, Sir...", "soft", "narrow", "angry", "mid")
@@ -436,7 +436,7 @@ label cho_quid_E5:
     call cho_walk(action="enter")
     call cho_walk("mid", "base")
 
-    if daytime:
+    if game.daytime:
         call cho_main("Good morning, [cho_genie_name]...", "annoyed", "narrow", "worried", "downR", xpos="right", ypos="base", trans=d3)
         m "Mornin'."
     else:
@@ -769,7 +769,7 @@ label cho_quid_E7:
     m "I'd say that was a success."
     call cho_main("(...)", "annoyed", "narrow", "angry", "R")
 
-    if daytime:
+    if game.daytime:
         call cho_main("Good day, Sir.", "open", "narrow", "angry", "mid")
     else:
         call cho_main("Good night, Sir.", "open", "narrow", "angry", "mid")
@@ -934,7 +934,7 @@ label cho_quid_E8:
     call ton_main("*Hick*!... whoopsie...", "upset", "wide", "base", "mid")
     call ton_main("Now, I better get going convincing those boys to play again...", "open", "base", "raised", "R", hair="horny")
 
-    if daytime:
+    if game.daytime:
         ">You finish your drinks before calling it a day."
     else:
         ">You finish your drinks before calling it a night."
@@ -944,7 +944,7 @@ label cho_quid_E8:
     $ cho_quid.lock_practice = False
     $ cho_quid.slytherin_prepared = True # Unlocks practice match
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start
@@ -994,7 +994,7 @@ label cho_quid_E9:
 
     $ cho_quid.E9_complete = True
 
-    if daytime:
+    if game.daytime:
         jump night_start
     else:
         jump day_start

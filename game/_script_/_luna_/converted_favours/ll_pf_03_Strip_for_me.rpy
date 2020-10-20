@@ -202,7 +202,7 @@ label luna_favour_3:
                     m "Take off your underwear now, [luna_name]..."
                     call lun_main("{size=-5}(Should I really do this?){/size}","normal","suspicious","sad","down",tears="soft")
                     call lun_main("[lun_genie_name] I don't know about this... ","normal","mad","sad","mid",tears="soft")
-                    if daytime:
+                    if game.daytime:
                         m "Come on, [luna_name], just a little peek and then you'll be off to class."
                     else:
                         m "Come on, [luna_name], just a little peek and then you'll be off to bed."
@@ -764,7 +764,7 @@ label luna_favour_3:
                     m "*Mmmm*... that's it, [luna_name]..."
                     call lun_main("{size=-5}(What is he doing?){/size}","normal","suspicious","sad","R")
                     call lun_main("[lun_genie_name], you really have to stop... ","upset","mad","sad","mid")
-                    if daytime:
+                    if game.daytime:
                         m "Come on, [luna_name], just a little more, then you'll be off to class."
                     else:
                         m "Come on, [luna_name], just a little more, then you'll be off to bed."
@@ -1106,7 +1106,7 @@ label luna_favour_3:
         m "Alright, alright. Here's your gold."
     else:
         m "well then, Here's your payment, [luna_name]."
-    $ gold -= current_payout
+    $ game.gold -= current_payout
     $ luna_gold += current_payout
     $ renpy.play("sounds/coins.mp3")
     ">You hand Luna {number=current_payout} gold."

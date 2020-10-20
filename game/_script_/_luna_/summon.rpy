@@ -78,7 +78,7 @@ label luna_favor_menu:
 
     menu:
         "-Personal Favours-" (icon="interface/icons/small/heart_green.webp") if not luna_reverted:
-            if gold <= 0:
+            if game.gold <= 0:
                 m "(I don't have any gold...)"
                 jump luna_favor_menu
             menu:

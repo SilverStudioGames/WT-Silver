@@ -1,5 +1,5 @@
 label door:
-    if day == 1:
+    if game.day == 1:
         if not door_examined:
             $ door_examined = True
             jump examine_door
@@ -9,7 +9,7 @@ label door:
 
     call play_sound("scroll")
     jump door_menu
- 
+
 # Day 1 room interact quest
 label examine_door:
     $ door_examined = True

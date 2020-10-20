@@ -297,7 +297,7 @@ label luna_favour_6:
         $ gryffindor += 30
         m "Thirty points to Gryffindor and Ravenclaw!"
         $ luna_gold += 75
-        $ gold -= 150
+        $ game.gold -= 150
         m "And here's seventy-five gold each."
         call her_main("Thank you [genie_name]!", "base", "base", "base", "mid")
         call lun_main("...","normal","angry","angry","R")
@@ -600,7 +600,7 @@ label luna_favour_6:
         $ gryffindor += 30
         m "Thirty points to Gryffindor and Ravenclaw!"
         $ luna_gold += 75
-        $ gold -= 150
+        $ game.gold -= 150
         m "And here's seventy-five gold each."
         call her_main("Thank you [genie_name]!", "base", "base", "base", "mid")
         call lun_main("...","normal","angry","angry","R")
@@ -875,7 +875,7 @@ label luna_favour_6:
         $ gryffindor += 30
         m "Thirty points to Gryffindor and Ravenclaw!"
         $ luna_gold += 75
-        $ gold -= 150
+        $ game.gold -= 150
         m "And here's seventy-five gold each."
         call her_main("Thank you [genie_name]! Any time you want to fuck Luna's slutty little throat again just let us know!", "base", "base", "base", "mid")
         call lun_main("... Thank you sir.","base","seductive","sad","down", cheeks="blush",tears="mascara")

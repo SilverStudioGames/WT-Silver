@@ -1,12 +1,12 @@
 init python:
     def periodic_achievements():
-        if not achievement.status('gold') and gold >= 10000:
+        if not achievement.status('gold') and game.gold >= 10000:
             achievement.unlock("gold")
 
         if not achievement.status('drunkard') and wine_ITEM.number >= 25:
             achievement.unlock("drunkard")
 
-        if not achievement.status('peta') and (day-phoenix_fed_counter) >= 50:
+        if not achievement.status('peta') and (game.day-phoenix_fed_counter) >= 50:
             achievement.unlock("peta")
 
         if not achievement.status('petpal') and phoenix_petted_counter >= 25:

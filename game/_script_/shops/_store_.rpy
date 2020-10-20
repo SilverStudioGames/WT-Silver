@@ -2,7 +2,7 @@
 screen weasley_store_room():
     tag room_screen
 
-    if daytime:
+    if game.daytime:
         add "images/rooms/weasley_store/store_day.webp"
     else:
         add "images/rooms/weasley_store/store_night.webp"
@@ -179,7 +179,7 @@ label store_chit_chat:
             ger "Here, your weekly cut."
             call give_reward("You've received "+str(int(shop_profit*twins_profit))+" gold.", "interface/icons/gold.webp")
 
-            $ gold += int(shop_profit*twins_profit)
+            $ game.gold += int(shop_profit*twins_profit)
             ger "..."
             twi "Did you need anything else?"
 
@@ -228,10 +228,10 @@ label close_weasley_store:
         if transit_time > 1:
             menu:
                 fre "Would you like to add a next-day delivery service?"
-                "\"Yes, please. (25 gold)\"" if gold >= 25:
-                    $ gold -= 25
+                "\"Yes, please. (25 gold)\"" if game.gold >= 25:
+                    $ game.gold -= 25
                     $ transit_time = 1
-                "\"Yes, please. (25 gold)\"" (style="disabled") if gold < 25:
+                "\"Yes, please. (25 gold)\"" (style="disabled") if game.gold < 25:
                     ger "It would appear you have spend all your money, Professor."
                     fre "I'm afraid you will have to wait a while longer for your delivery."
                     m "(Greedy bastards...)"
@@ -353,8 +353,8 @@ label object_gift_block(item):
 
 label object_purchase_item(item, quantity):
     $ order_cost = item.cost*quantity
-    if gold >= (order_cost):
-        $ gold -= order_cost
+    if game.gold >= (order_cost):
+        $ game.gold -= order_cost
 
         $ store_cart.setdefault(item, 0)
         $ store_cart[item] += quantity
@@ -419,8 +419,8 @@ label purchase_book(item):
     ">[item.description]"
     menu:
         "-Buy the book for [item.cost] gold -":
-            if gold >= item.cost:
-                $ gold -= item.cost
+            if game.gold >= item.cost:
+                $ game.gold -= item.cost
                 $ item.unlocked = True
                 "Book [item.name] has been added to your collection."
             else:
@@ -472,13 +472,13 @@ label purchase_forbidden_scroll(item):
 
     menu:
         "-Buy the scroll ([item.cost] gold)":
-            if gold >= item.cost:
+            if game.gold >= item.cost:
                 m "Fine, here's the money"
                 ger "Thank you very much"
                 $ the_gift = item.get_image()
                 show screen gift
                 with d3
-                $ gold -= item.cost
+                $ game.gold -= item.cost
                 $ item.unlocked = True
                 call update_quest_items
                 ">Forbidden scroll has been added to your inventory."
@@ -502,8 +502,8 @@ label purchase_scroll(item):
     ">A scroll containing sacred knowledge.\n(May also contain spoilers)."
     menu:
         "-Buy the scroll ([item.cost] gold)-":
-            if gold >= item.cost:
-                $ gold -= item.cost
+            if game.gold >= item.cost:
+                $ game.gold -= item.cost
                 $ item.unlocked = True
                 ">A New scroll has been added to your sacred scrolls collection."
             else:
@@ -540,8 +540,8 @@ label shop_potion_menu:
             potion_menu.append(("-Never mind-", "nvm"))
             choice = renpy.display_menu(potion_menu)
         if isinstance(choice, Potion):
-            if gold >= potion_choice.cost:
-                $ gold -= potion_choice.cost
+            if game.gold >= potion_choice.cost:
+                $ game.gold -= potion_choice.cost
                 $ potion_inv.add(potion_choice.id)
                 $ renpy.say(m, potion_choice.name+" acquired, although it's missing a key ingredient...")
             else:
@@ -627,8 +627,8 @@ label purchase_deco(item):
             else:
                 m "I don't have enough tokens."
         "-Buy [item.name] for [item.cost] gold coins -" if item.type == "quest item":
-            if gold >= item.cost:
-                $ gold -= item.cost
+            if game.gold >= item.cost:
+                $ game.gold -= item.cost
                 $ item.number += 1
                 call update_quest_items
                 "[item_token_str]"

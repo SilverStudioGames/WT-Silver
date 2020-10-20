@@ -1143,7 +1143,7 @@ label .end_event:
     pause .5
 
     call bld
-    if daytime:
+    if game.daytime:
         call ton_main("We should get going, Miss Chang. Classes are about to start...", "open", "base", "base", "L", xpos="far_right", ypos="head", flip=False)
         call cho_main("Until next time, Professor.", "grin", "base", "base", "mid", xpos="far_right", ypos="head", flip=False)
     else:

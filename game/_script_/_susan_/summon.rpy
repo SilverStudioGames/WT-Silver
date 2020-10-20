@@ -15,7 +15,7 @@ label summon_susan:
     with d3
 
     if one_of_ten < 4:
-        if daytime:
+        if game.daytime:
             call sus_main("Good day, [sus_genie_name].","base","base","base","mid",xpos="base",ypos="base")
         else:
             call sus_main("Good evening, [sus_genie_name].","base","base","base","mid",xpos="base",ypos="base")
@@ -67,7 +67,7 @@ label summon_susan:
 
         # Dismiss
         "-Dismiss her-":
-            if daytime:
+            if game.daytime:
                 call sus_main("I will go back to classes then, [sus_genie_name].","base","base","base","down")
             else:
                 call sus_main("*Uhm*... good night then, [sus_genie_name].","base","base","base","down")
