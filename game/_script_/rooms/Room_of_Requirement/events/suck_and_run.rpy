@@ -103,7 +103,7 @@ label suck_and_run:
         call setup_fireplace_hangout(char="tonks")
 
         m "Getting into the Halloween spirit?"
-        call ton_main("Of course!", "grin", "wide", "base", "mid")
+        call ton_main("Of course!", "grin", "wide", "base", "mid", ypos="head")
         call ton_main("I've been looking forward to the Halloween feast ever since I got here.", "crooked_smile", "closed", "base", "mid")
         call ton_main("Brings back memories.", "base", "base", "base", "downR")
         m "*Ha-hah*, yeah... That food thing that I do all the time. Love it!"
@@ -184,6 +184,7 @@ label suck_and_run:
         $ daytime = False
         $ fire_in_fireplace = False
         hide screen fireplace_fire
+        hide screen bld1
 
         $ ton_outfit_last.save()
         call update_interface_color
