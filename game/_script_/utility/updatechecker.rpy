@@ -138,5 +138,11 @@ init -1 python:
             tonks.rebuild()
             cho.rebuild()
 
+            misc_deco_list.append(fireplace_halloween_ITEM)
+            misc_deco_list.append(cupboard_halloween_ITEM)
+            misc_deco_list.append(phoenix_halloween_ITEM)
+
+            mr_ev_list.append(mr_ev_SNR)
+
             save_internal_version = 1.393
             renpy.block_rollback()

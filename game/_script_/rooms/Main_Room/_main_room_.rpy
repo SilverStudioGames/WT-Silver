@@ -64,6 +64,9 @@ screen main_room():
     # Cupboard
     add cupboard_OBJ.get_room_image() xpos cupboard_OBJ.xpos ypos cupboard_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
 
+    if cupboard_deco_OBJ.room_image:
+        add cupboard_deco_OBJ.get_room_image() xpos cupboard_OBJ.xpos ypos cupboard_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
+
     # Scrolls (interactive overlay)
     if renpy.android:
         imagemap:
