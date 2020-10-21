@@ -145,7 +145,7 @@ label luna_favour_6:
         ">You can feel Luna trying to stretch her mouth over the head of your enormous cock, managing to get a little more in."
         $ ccg2 = 15
         lun "......"
-        her "*hmmm*... I guess the dildo we practised on wasn't large enough..."
+        her "*Hmm*... I guess the dildo we practised on wasn't large enough..."
         m "Ugh... maybe we should try again later..."
         her "and stop now? I don't think so [genie_name]. Besides, once she gets the head in her mouth she'll be ok."
         her "she probably just needs one more push--"
@@ -281,7 +281,7 @@ label luna_favour_6:
         call lun_main()
         call her_main("So what did you think Luna? Not so bad now was it?", "grin", "base", "base", "R", trans=d3)
         call lun_main("I suppose not. although next time I think I should be able to move my head on my own!","normal","seductive","base","R")
-        call her_main("*Hmmm*, I'm not sure if you're ready for that just yet...", "grin", "happyCl", "worried", "mid")
+        call her_main("*Hmm*... I'm not sure if you're ready for that just yet...", "grin", "happyCl", "worried", "mid")
         call lun_main("Whatever... now about our payment, [lun_genie_name]...","normal","suspicious","angry","R")
         m "Yes, yes. How does sixty points to Gryffindor for Hermione and 150 gold for you sound?"
         call her_main("Actually, we wanted to talk to you about that, [genie_name]...", "base", "narrow", "worried", "down")
@@ -315,7 +315,7 @@ label luna_favour_6:
         m "how do you feel about another blowjob?"
         call lun_main("...","normal","angry","angry","mid")
         m "Come on, you seemed to like the last one..."
-        call lun_main("*hmph* only because of your magic cum...","base","seductive","angry","R")
+        call lun_main("*Hmph*... Only because of your magic cum...","base","seductive","angry","R")
         m "well then, I've got a fresh load ready for you!"
         call lun_main("Alright... hurry up and summon hermione","base","suspicious","sad","R")
         m "Again? I thought you only wanted her here for the first time?"
@@ -336,7 +336,7 @@ label luna_favour_6:
         call her_main("great!!!", "base", "narrow", "worried", "down")
         call her_main("You're going to love it [genie_name], she's been practising whenever she could since last time!", "soft", "narrow", "annoyed", "up")
         m "really? I didn't expect her to be so enthusiastic..."
-        call lun_main("*hmph* it's not like I'm excited about this...","normal","seductive","angry","R")
+        call lun_main("*Hmph*... It's not like I'm excited about this.","normal","seductive","angry","R")
         call her_main("I told you to stop acting so cold Luna!", "grin", "base", "base", "R")
         call her_main("You should have heard her [genie_name]... She was practically begging for more lessons...", "open", "base", "base", "R")
         call lun_main("...","base","seductive","sad","down", cheeks="blush")
@@ -413,7 +413,7 @@ label luna_favour_6:
                 lun "fine..."
                 $ ccg2 = 2
                 lun "can I suck your cock sir?"
-                m "*Hmmm*, I'm not sure... that wasn't very convincing."
+                m "*Hmm*... I'm not sure... That wasn't very convincing."
                 $ ccg2 = 28
                 lun "how dare you make--"
                 her "LUNA!"
@@ -431,7 +431,7 @@ label luna_favour_6:
                 m "Go ahead slut."
 
         $ ccg2 = 30
-        lun "*hmph*"
+        lun "*Hmph*"
         her "Say thank you..."
         $ ccg2 = 28
         lun "..."
@@ -632,7 +632,7 @@ label luna_favour_6:
         call her_main("yay!!!", "grin", "happyCl", "worried", "mid")
         call her_main("we can finally practise deep throating!", "base", "narrow", "base", "mid_soft")
         m "really? are you sure she's ready for that?"
-        call lun_main("*hmph* of course I am...","pout","angry","angry","R")
+        call lun_main("*Hmph*... of course I am.","pout","angry","angry","R")
         call her_main("believe me sir, she's been practising really hard!", "open", "base", "base", "R")
         call her_main("You should have seen her [genie_name]... she almost got my seven inch dildo in all the way...", "grin", "narrow", "annoyed", "up")
         call lun_main("...","normal","angry","sad","R", cheeks="blush")

@@ -179,9 +179,9 @@ label hat_intro_3:
 
     call lun_main("...","normal","base","base","empty")
     m "Wait what happened?! Her eyes just changed colour!"
-    hat "Really? *Hmmm*... didn't expect that... what colour are they?"
+    hat "Really? *Hmm*... Didn't expect that... what colour are they?"
     m "Green."
-    hat "Hmm, that seems rather fitting."
+    hat "*Hmm*... that seems rather fitting."
     m "Why, what did you do to her personality?"
     hat "Not much, just made it a bit more Snake like..."
     m "What now?"
@@ -201,7 +201,7 @@ label hat_intro_3:
     ">You place the hat back on the cupboard."
     m "So what did you do to her personality?"
     hat "Now now... let's not spoil the fun. You'll just have to wait..."
-    m "*Hmmph*"
+    m "*Hmph*..."
 
     $ luna_unlocked = True
     $ achievement.unlock("unlocklun", True)
@@ -302,7 +302,7 @@ label luna_reverted_greeting_1:
             m "[luna_name], I am afraid I don't know what a wrackspurt is, let alone how to cure it."
             call lun_main("Well, professor, wrackspurts are detailed on page six of \"the Quibbler\"! Here!","normal","base","sad","mid")
             ">Luna hands you an issue of \"the Quibbler\"."
-            m "*Hmmm*... \"Rotfang conspiracy... Three hundred ways to tie up a ghost...\" Ah! Wrackspurts..."
+            m "*Hmm*... \"Rotfang conspiracy... Three hundred ways to tie up a ghost...\" Ah! Wrackspurts..."
             "\"Invisible creatures which float into a person's ears, making his/her brain go fuzzy\""
             ">Luna points to her spectrespecs."
             call lun_main("I can see them, Sir.","base","happyCl","base","mid")
@@ -341,7 +341,7 @@ label luna_reverted_greeting_1:
     m "Let's just focus on this fuzziness of yours."
     call lun_main("... Alright, professor.","normal","seductive","sad","down")
     call lun_main("As I was saying, this fuzziness has really been bothering me the last few days...","normal","seductive","sad","mid")
-    m "*Hmmm*... Has it been affecting your studies at all?"
+    m "*Hmm*... Has it been affecting your studies at all?"
     call lun_main("Yes it has, sir...","upset","seductive","sad","down")
     m "Well, we can't have that now, can we?"
     call lun_main("No, sir...","base","seductive","sad","mid")

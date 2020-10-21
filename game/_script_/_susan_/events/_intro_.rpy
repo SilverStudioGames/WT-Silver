@@ -69,7 +69,6 @@ label susan_intro_E1:
     call play_sound("knocking")
     call bld
     "*knock-knock-knock*"
-
     femv "*Uhm*... Professor Dumbledore, Sir?"
     femv "May I come in?"
     m "Another girl?"
@@ -120,7 +119,7 @@ label susan_intro_E1:
 
     menu:
         "\"Hello, Gorgeous!\"":
-            call sus_main("*Uhm*...","upset","base","base","down") # Embarrassed.
+            call sus_main("*Ehm*...","upset","base","base","down") # Embarrassed.
             call sus_main("H-Hello...","open","base","worried","mid")
 
         "\"Susan! How great to see you!\"" if d_flag_01:

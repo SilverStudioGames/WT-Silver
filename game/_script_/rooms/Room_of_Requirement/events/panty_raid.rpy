@@ -83,7 +83,7 @@ label panty_raid:
         call her_main("Sorry...", "soft", "narrow", "worried", "down")
         call her_main("", "normal", "base", "base", "mid")
         m "\"The only thing man covet more than my form is the secret I hid.\""
-        call her_main("hmm...", "upset", "base", "base", "R")
+        call her_main("*Hmm*...", "upset", "base", "base", "R")
         call her_main("", "normal", "base", "base", "mid")
         m "... \"Sometimes I am plain and white, but I look my best when skimpy and black.\""
         call her_main("", "normal", "happy", "base", "mid")
@@ -455,7 +455,7 @@ label panty_raid:
         call her_main("There aren't any in Gryffindor or Ravenclaw I believe, but I'm not sure for some of the other houses.", "open", "base", "base", "mid_soft")
         call her_main("", mouth="normal")
         m "I feel as though there's some context missing."
-        call her_main("*uhm*mm... alright, so...{w=0.5} I was in the Gryffindor girl's dorm, working on my \"task.\"", mouth="open")
+        call her_main("*Ehm*... alright, so...{w=0.5} I was in the Gryffindor girl's dorm, working on my \"task.\"", mouth="open")
         call her_main("", mouth="normal")
         m "The perfect hunting grounds."
         call her_main("I am astonished that I'll have to agree with you, but yes... I had the pick of the litter with no absence of choice.{w=0.3} Speaking of...", "open", "closed", "base", "mid")
@@ -656,7 +656,7 @@ label panty_raid:
         call her_main("Ready!", "smile", "happyCl", "base", "mid")
         call her_main("", "base", "base", "base", "mid")
         m "\"I am as soft and pure as a kitten, though far more desirable.\""
-        call her_main("Hmmmm...", "base", "base", "base", "R")
+        call her_main("*Hmm*...", "base", "base", "base", "R")
         call her_main("Boobs?{w=0.5} Titjob?", "soft", "base", "base", "mid")
         call her_main("", "smile", "base", "base", "mid")
         m "No. In this case, contrary to a titjob, it being both small and tight is usually preferred."
@@ -732,7 +732,7 @@ label panty_raid:
         call gen_chibi("cum_behind_desk_done")
         call her_main("Oh, poor [genie_name], I had no idea you were so pent up. You can start calling me out more than twice a day if that isn't enough.", "soft", "narrow", "worried", "mid_soft", cheeks="blush")
         m "During the day? But what about your classes?"
-        call her_main("Hmm? Oh well, missing one or two wouldn't hurt... Especially if the headmaster has an important \"assignment\" for me.", "base", "narrow", "base", "mid_soft", cheeks="blush")
+        call her_main("*Hmm*? Oh well, missing one or two wouldn't hurt... Especially if the headmaster has an important \"assignment\" for me.", "base", "narrow", "base", "mid_soft", cheeks="blush")
         m "I'll consider it... Now let's circle back to you, Katie and your binge of her minge."
         call her_main("Professor... How dare you... I would never even think to shamelessly do something so heinous with a classmate and give you all the juicy details...", "annoyed", "base", "base", "R")
         call her_main("For less than forty house points.", "grin", "wink", "base", "mid", cheeks="blush")
@@ -745,7 +745,7 @@ label panty_raid:
         call her_walk(action="leave")
 
         pause 1.0
-        m "... Hmmm...{w=1.0} I don't think I ever gave her points."
+        m "... *Hmm*...{w=1.0} I don't think I ever gave her points."
         pause 0.5
 
         show screen blkfade with d9

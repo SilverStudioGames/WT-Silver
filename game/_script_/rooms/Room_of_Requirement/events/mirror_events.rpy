@@ -277,7 +277,7 @@ label a_spaced_out_conversation:
     m "you could at least have had a little fun with her. Maybe even take her on her wedding night."
     nar "Snape's head snapped up angrily. How dare Genie sully the memory of Lily."
     nar "But then, a wicked thought entered his head."
-    call sna_main("Hmm, what if the boy wasn't really James' after all?","snape_02")
+    call sna_main("*Hmm*... What if the boy wasn't really James' after all?","snape_02")
     nar "Snape said, and the smile that formed on his face could have frozen the dancing fire beside them."
     call sna_main("Then, one day, I could reach out to that insipid boy, with his foolish fantasies about Potter and say, ‘Harry, I am your father!'","snape_28")
     nar "Genie nodded."

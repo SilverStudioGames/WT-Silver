@@ -8,7 +8,7 @@ label costume_scene_1: #Maid role-play
     m "It's where you pretend to be someone you're not."
     call her_main("I gathered that much but why would I want to do that?", "smile", "narrow", "base", "mid_soft")
     m "Because it can be fun!"
-    call her_main("*Hmmmm*... Who would I be role-playing?", "smile", "narrow", "base", "mid_soft")
+    call her_main("*Hmm*... Who would I be role-playing?", "smile", "narrow", "base", "mid_soft")
     m "Well I was thinking seeing as how I purchased you that lovely new cleaning outfit."
     m "You could play the role of my personal maid."
     if her_whoring < 17:
@@ -59,7 +59,7 @@ label costume_scene_1: #Maid role-play
     her "Making a mess as I am cleaning up this filthy filthy room."
     her "At this rate I'll never be done!"
     m "Well you're cleaning was responsible for this mess."
-    her "*Hmmm*, I suppose you are right as always Monsieur, I better start cleaning."
+    her "*Hmm*... I suppose you are right as always Monsieur, I better start cleaning."
     ">Hermione drops to her knees and starts wiping up your cum."
     her "Such a big mess!"
     ">Hermione cleans up your cum from the floor and table."

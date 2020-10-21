@@ -202,7 +202,7 @@ label astoria_talk:
                     $ ast_genie_name = "Daddy"
                     call ast_main("Daddy? Don't you think that's a little weird?", face="disgusted")
                     m "Not at all!"
-                    call ast_main("Hmpf...", face="angry")
+                    call ast_main("*Hmph*...", face="angry")
                     call ast_main("Alright, why not. Nobody knows about it anyways.", face="neutral")
                     jump astoria_talk
                 "-Master-" (style="disabled") if ast_whoring < 18:
@@ -246,7 +246,7 @@ label astoria_talk:
                         jump astoria_talk
                     else:
                         $ ast_genie_name = temp_name
-                        call ast_main("*uhm*... ok. I will call you [ast_genie_name].", face="neutral")
+                        call ast_main("*Uhm*... ok. I will call you [ast_genie_name].", face="neutral")
                     jump astoria_talk
                 "-Never mind-":
                     jump astoria_talk

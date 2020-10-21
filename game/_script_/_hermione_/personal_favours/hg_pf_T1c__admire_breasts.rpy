@@ -209,7 +209,7 @@ label hg_pf_admire_breasts_T1_intro_E2:
             call her_main("How many points did you say I'd get for this?", "open", "base", "angry", "mid")
             m "{number=current_payout} points."
             call her_main("(.............................)", "annoyed", "base", "angry", "mid")
-            m "And I expect you to do it today, if you don't mind. I have... *uhm*..."
+            m "And I expect you to do it today, if you don't mind. I have... *Err*..."
             m "I have other things to take care off."
             call her_main("Very well, Sir...", "open", "base", "angry", "mid")
             call her_main("I'll do it.", "annoyed", "base", "angry", "mid")

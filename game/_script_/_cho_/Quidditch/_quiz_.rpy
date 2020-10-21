@@ -244,7 +244,7 @@ label cho_quiz:
             $ renpy.music.set_volume(0.5)
             $ renpy.block_rollback()
             $ renpy.sound.play( "sounds/hmm3.mp3")
-            call cho_main("Hmm, well that's the same as in Quidditch I suppose...", "smile", "base", "base", "mid")
+            call cho_main("*Hmm*... Well that's the same as in Quidditch I suppose.", "smile", "base", "base", "mid")
             g9 "Naturally..."
 
 

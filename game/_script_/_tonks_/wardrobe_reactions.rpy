@@ -220,7 +220,7 @@ label tonks_wardrobe_check(section, arg=None):
                         elif random_number == 2:
                             call ton_main("It does look nice but you need to deserve it...",face="annoyed",eyebrows="angry",mouth="grin")
                         else:
-                            call ton_main("Hmm, what would you think of me if I wore this...? Later perhaps.",face="annoyed",eyebrows="raised",mouth="horny")
+                            call ton_main("*Hmm*... What would you think of me if I wore this?... Later perhaps.",face="annoyed",eyebrows="raised",mouth="horny")
                     #Hint
                     $ wardrobe_fail_hint(arg.level)
                     return

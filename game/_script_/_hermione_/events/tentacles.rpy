@@ -5,7 +5,7 @@ label tentacle_scene_intro:
 
     if not tentacle_scroll_examined:
         $ tentacle_scroll_examined = True
-        m "(Hmm... let's see if we can get this writing to show...)"
+        m "(*Hmm*... let's see if we can get this writing to show...)"
         m "(It should be something simple like a command word...)"
 
         $ d_flag_01 = False
@@ -75,16 +75,17 @@ label tentacle_scene_intro:
                 jump tentacle_scene_intro.riddle
 
         m "(Well... I have the key, now to figure out the rest...)"
-        m "(The highest point... *hmm* I wonder where that could be.)"
+        m "(The highest point... *Hmm* I wonder where that could be.)"
         jump main_room_menu
     else:
         m "(Ah, that's it... it's supposed to turn me into some sort of magical tentacle plant...)"
         m "(I have everything I need to perform the ritual and have some fun with Hermione.)"
+
         if not game.daytime:
             m "(*hmm* But it's too late for me to use it now. I should do it at dawn, before class has started.)"
             jump main_room_menu
         elif hermione_busy:
-            m "(*hmm* But Hermione is busy at the moment, I should postpone my plans until tomorrow.)"
+            m "(*Hmm* But Hermione is busy at the moment, I should postpone my plans until tomorrow.)"
             jump main_room_menu
 
     m "(I better write her a note first so she can carry me with her to class...)"
@@ -98,7 +99,7 @@ label tentacle_scene_intro:
     $ d_flag_02 = False
 
     menu:
-        m "(Hmm... how should I start?)"
+        m "(*Hmm*... how should I start?)"
         "\"Dear Hermione, ...\"":
             $ d_flag_01.append("Dear Hermione,\n\n")
         "\"Dear [hermione_name], ...\"":
@@ -109,7 +110,7 @@ label tentacle_scene_intro:
     "*Scribble* *Scribble*"
 
     menu:
-        m "....*mhmm*...."
+        m "....*Mhmm*...."
         "\"... I had very important business matter to attend to...\"":
             $ d_flag_01.append("I had very important business matter to attend to,")
         "\"... I went out to visit a brothel...\"":
@@ -558,9 +559,9 @@ label tentacle_2: # Personal path
     gen "Admit it! You're loving this aren't you."
     gen "Having your holes filled in front of your classmates like the whore you are."
     gen "Go on say it! Tell me what you are!"
-    her "*hmmm aaaaa hhhhhhuuuttt*"
+    her "*Hmmm aaaaa hhhhhhuuuttt*"
     gen "What was that, I couldn't quite make it out over the sound of you sucking dick."
-    her "*hmmm aaaaa hhhhhhuuuttt*!"
+    her "*Hmmm aaaaa hhhhhhuuuttt*!"
     gen "One last time. Say it like you mean it."
     call cg_scene("e5")
     ">As she exhales, you quickly remove the tentacle from her mouth."

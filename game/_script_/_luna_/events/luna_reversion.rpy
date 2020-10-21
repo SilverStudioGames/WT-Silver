@@ -42,7 +42,7 @@ label luna_reversion_event:
             call lun_main("Really? You expect me to {size=+5}touch{/size} that filthy cock of yours?","upset","wide","raised","mid")
             call lun_main("It's bad enough that I have to stand here while you touch yourself...","normal","mad","angry","mid")
             call lun_main("But that's where I draw the line, [lun_genie_name]!","upset","suspicious","mad","mid")
-            m "*Hmmm*..., well alright then, I'm not going to force you into anything."
+            m "*Hmm*..., well alright then, I'm not going to force you into anything."
             call lun_main("Thank you...","upset","suspicious","sad","R")
             m "That will be all for today, [luna_name], you may leave now."
             call lun_main("Alright, [lun_genie_name]...","normal","suspicious","sad","mid")
@@ -79,7 +79,7 @@ label luna_reversion_event:
             m "Of course..."
             call lun_main("Fine...","upset","suspicious","sad","down")
             m "Fantastic! Let me just stand up."
-            call lun_main("*Hmmmph* Don't expect that you'll be cumming anywhere near me though!","upset","mad","mad","mid")
+            call lun_main("*Hmph* Don't expect that you'll be cumming anywhere near me though!","upset","mad","mad","mid")
 
         "-Ask for a handjob politely-" if lun_sub < lun_dom:
             $ current_payout = 160
@@ -442,7 +442,7 @@ label luna_revert_1:
     call her_main("...", "annoyed", "squint", "angry", "mid")
     call her_main("She needs a punishment.", "smile", "base", "angry", "mid")
     m "What are you thinking of?"
-    call her_main("*Hmmm*...", "annoyed", "narrow", "angry", "R")
+    call her_main("*Hmm*...", "annoyed", "narrow", "angry", "R")
     call her_main("Sorting hat!", "annoyed", "narrow", "annoyed", "mid")
     hat "W-w-what? I'm trying to go to sleep..."
     call her_main("How long until Luna's back to normal?", "soft", "base", "angry", "mid")
@@ -521,7 +521,7 @@ label luna_revert_2:
     $ luna_r_arm = 3
     $ luna_xpos = 390
     call gen_main("!!!", "grin", "hard", xpos=300, ypos=0)
-    call lun_main("*Hmmph* At least it isn't small...","base","seductive","angry","mid")
+    call lun_main("*Hmph* At least it isn't small...","base","seductive","angry","mid")
     call lun_main("(I can't even fit my hand around it.)","base","seductive","mad","down")
     ">Luna slowly starts stroking your cock with her hand, her movements are rough and inexperienced."
     m "Why don't you try grabbing it with both hands, [luna_name]..."
@@ -788,7 +788,7 @@ label luna_revert_2:
     show screen luna_main
     with d3
 
-    call lun_main("*Hmmmph*","upset","seductive","angry","R")
+    call lun_main("*Hmph*!","upset","seductive","angry","R")
     ">Luna huffs, ignoring the question."
     call lun_main("Honestly, [lun_genie_name], I don't know what you see in her...","normal","angry","angry","mid")
     call ctc
@@ -809,7 +809,7 @@ label luna_revert_2:
     with d3
 
     ">Luna turns to face hermione."
-    call lun_main("*Hmmm*, what should I do...","base","mad","mad","mid")
+    call lun_main("*Hmm*... what should I do...","base","mad","mad","mid")
     call lun_main("...","base","seductive","angry","mid")
     call her_main("...", "open", "wide", "base", "stare")
     call lun_main("I've got it!","grin","wide","angry","mid")
@@ -912,7 +912,7 @@ label luna_revert_2:
             hide screen blkfade
 
             call lun_main("...","base","seductive","base","down")
-            m "*Hmmm*... I wonder if..."
+            m "*Hmm*... I wonder if..."
             ">You start bending Hermione's limbs, finding that they move easily but lock into place when you stop pushing."
             m "Huh, she's just like a Barbie doll!"
             call her_main("*hro-hessor*!","angry","wink","base","mid")

@@ -262,13 +262,13 @@ label hg_pf_grope_T5_continue:
             call her_main("...", "angry", "narrow", "base", "dead", cheeks="blush", tears="crying")
             m "well?"
             call her_main("... Keep going...", "shock", "narrow", "base", "down", cheeks="blush", tears="crying")
-            m "*hmm*?"
+            m "*Hmm*?"
             call her_main("Keep fingering my pussy!!", "scream", "base", "angry", "mid", cheeks="blush", tears="messy")
             m "You want me to keep fingering your cunt? is that what your saying?"
             call her_main("Yes, [genie_name]! {heart} Fuck my cunt with your fingers!{heart}", "open_wide_tongue", "narrow", "annoyed", "up", tears="messy")
             ">Her hips roll and slam into your fingers."
             call her_main("Shove them deep in my slutty fuckhole!!{heart}", "silly", "narrow", "base", "dead", tears="messy")
-            m "Hm... I don't think my fingers are up to this task after all..."
+            m "*Hmm*... I don't think my fingers are up to this task after all..."
             ">You take your fingers out of the girl's gushing cunt."
             call her_main("what!!? no, don't st--", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="crying")
             ">... so you can take the dildo out of your desk."
@@ -313,7 +313,7 @@ label hg_pf_grope_T5_continue:
             call her_main("...", "angry", "narrow", "base", "dead", cheeks="blush", tears="crying")
             m "well?"
             call her_main("... keep going...", "shock", "narrow", "base", "down", cheeks="blush", tears="crying")
-            m "hm?"
+            m "*Hmm*?"
             call her_main("keep fingering my ass!!", "scream", "base", "angry", "mid", cheeks="blush", tears="messy")
             ">you pull your thumb out of her tight little asshole..."
             call her_main("w-what!?", "scream", "wide", "worried", "stare", cheeks="blush", tears="messy")

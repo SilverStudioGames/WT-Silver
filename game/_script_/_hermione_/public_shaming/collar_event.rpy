@@ -70,7 +70,7 @@ label slut_scene: #Locked to her being your slut
     hide screen hermione_main
     call her_main("Please [genie_name], let me suck your cock.", "open", "base", "base", "mid")
     hide screen hermione_main
-    m "*Hmmm*... That was almost good enough. Try again, a little harder."
+    m "*Hmm*... That was almost good enough. Try again, a little harder."
     call her_main("Pretty please [genie_name], please let me suck your big beautiful cock.", "scream", "happyCl", "worried", "mid")
     hide screen hermione_main
     m "Good girl."
@@ -334,7 +334,7 @@ label whore_scene: #(locked behind the public her_whoring flag)
     m "Of course. I already know what a whore you are, this is so that everyone else will know."
     call her_main("What will people think of me?", "scream", "happyCl", "worried", "mid",cheeks="blush",tears="messy")
     m "They'll think the truth, that you're a shameless whore."
-    call her_main("...*Hmmph*", "angry", "squint", "base", "mid",cheeks="blush")
+    call her_main("...*Hmph*", "angry", "squint", "base", "mid",cheeks="blush")
     m "Well whatever you think, I expect you to put it on and then get out of my office."
     call her_main("... Fine", "shock", "narrow", "base", "down",cheeks="blush",tears="crying")
     ">She places the collar around her neck and tightens it."

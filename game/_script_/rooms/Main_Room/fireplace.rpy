@@ -5,7 +5,7 @@ label fireplace:
         show screen chair_left #Empty chair near the desk.
         show screen desk
         with d5
-        m "Hm... Looks like an ordinary fireplace..."
+        m "*Hmm*... Looks like an ordinary fireplace..."
         call gen_chibi("sit_behind_desk")
         with d5
         jump main_room_menu
@@ -15,7 +15,7 @@ label fireplace:
         show screen chair_left
         show screen desk
         with d3
-        m "(Hmm, there's something glimmering in the fireplace.)"
+        m "(*Hmm*... There's something glimmering in the fireplace.)"
         menu:
             "-Search fireplace-":
                 m "(A loose brick... If only I could..{nw}{w=1.0}"

@@ -403,6 +403,7 @@ label decorate_room_menu:
                     poster_OBJ.room_image = ""
                     trophy_OBJ.room_image = ""
                     cupboard_deco = ""
+                    cupboard_deco_OBJ.room_image = ""
                     phoenix_deco_OBJ.room_image = ""
                     fireplace_deco_OBJ.room_image = ""
                     owl_deco_OBJ.room_image = ""
@@ -443,6 +444,13 @@ label use_deco_item(item=None): # Add the 'item' decoration to the room. Remove 
             $ trophy_OBJ.room_image = ""
         else:
             $ trophy_OBJ.room_image = item.id
+            $ item.active = True
+    elif item.type == "cupboard":
+        if cupboard_deco_OBJ.room_image == item.id:
+            $ cupboard_deco_OBJ.room_image = ""
+            $ item.active = False
+        else:
+            $ cupboard_deco_OBJ.room_image = item.id
             $ item.active = True
     elif item.type == "pinup":
         if cupboard_deco == item.id:

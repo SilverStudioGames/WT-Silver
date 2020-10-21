@@ -239,7 +239,7 @@ label potion_scene_2_2:
     m "Evidently."
     call her_main("Why does my ass feel so good?", "soft", "narrow", "annoyed", "up") #new
     call nar(">Hermione keeps rubbing her ass, rolling her fingers across her expanded buttocks.")
-    m "Hmmm, it's not supposed to, but I guess every case is different."
+    m "*Hmm*... It's not supposed to, but I guess every case is different."
     call her_main("It's just so sensitive... [genie_name] do you think that you could... massage me?", "grin", "narrow", "base", "dead")
     m "Well I mean I'm hardly going to say no am I."
     hide screen hermione_main

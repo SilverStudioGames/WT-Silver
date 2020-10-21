@@ -184,11 +184,11 @@ label luna_favour_5:
         call ctc
 
         ">Luna starts sliding her smooth hand up and down your cock."
-        call lun_main("*hmmmm*... I'm not so sure a good student would do this...","pout","seductive","sad","R")
+        call lun_main("*Hmm*... I'm not so sure a good student would do this...","pout","seductive","sad","R")
         call her_main("...","soft","happy","base","R")
-        call lun_main("kneel willingly in front of their headmaster..","base","angry","angry","down")
+        call lun_main("Kneel willingly in front of their headmaster..","base","angry","angry","down")
         call her_main("...","grin","narrow","annoyed","up")
-        call lun_main("naked...","base","mad","angry","mid")
+        call lun_main("Naked...","base","mad","angry","mid")
         call her_main("...","angry","narrow","base","down")
         call lun_main("While another student jerks him off...","base","seductive","sad","R")
         call her_main("...","soft","narrow","annoyed","up")
@@ -438,7 +438,7 @@ label luna_favour_5:
         call her_main("What? I have to spend more time with her?", "soft", "wide", "base", "stare")
         call her_main("But she's weird...", "open", "happyCl", "worried", "mid",cheeks="blush")
         m "We can work on that. Besides, don't you want to help out one of your friends?"
-        call her_main("*Hmmm*, I suppose that you're right [genie_name].", "annoyed", "closed", "base", "mid")
+        call her_main("*Hmm*... I suppose you're right [genie_name].", "annoyed", "closed", "base", "mid")
         call her_main("I can't imagine that the daydreaming Luna would do too well in the real world.", "open", "happy", "base", "mid",cheeks="blush")
         call her_main("and as her friend It's my responsibility to try and save her from that!", "open", "base", "base", "R",cheeks="blush")
         call her_main("!!!", "soft", "wide", "base", "stare")
@@ -517,7 +517,7 @@ label luna_favour_5:
                 call her_main("oh... well alright then.", "base", "happy", "base", "mid")
                 call lun_main("and you don't want to see me naked?","normal","mad","angry","mid")
                 m "I didn't mean it like--"
-                call lun_main("*hmph* I suppose I'll strip then [lun_genie_name]... Just so you remember who has the better body.","normal","seductive","angry","mid")
+                call lun_main("*Hmph* I suppose I'll strip then [lun_genie_name]... Just so you remember who has the better body.","normal","seductive","angry","mid")
                 call lun_main("But I expect extra for this [lun_genie_name]!","upset","angry","angry","R")
 
         m "sure. I'll add another forty gold."
@@ -593,7 +593,7 @@ label luna_favour_5:
         call lun_main("are you sure? He seems to be enjoying it to me...","upset","angry","angry","down")
         call her_main("he's just being nice. You need to focus on the tip with the palm of your hand more.","annoyed","base","angry","mid")
         call her_main("otherwise he doesn't shoot nearly as much...","annoyed","narrow","annoyed","mid")
-        call lun_main("*hmph*","normal","angry","angry","R")
+        call lun_main("*Hmph*","normal","angry","angry","R")
         call lun_main("Why don't we ask the old pervert who he prefers then...","normal","mad","mad","down")
         call her_main("alright. Who do you prefer [genie_name]?","annoyed","base","base","mid")
 
@@ -606,7 +606,7 @@ label luna_favour_5:
                 call lun_main("it's about excitement...","base","seductive","angry","mid")
                 ">Luna gives your cock light squeeze."
                 m "Ah..."
-                call her_main("*hmph* at least let me show you how it's done...","disgust","narrow","base","mid_soft")
+                call her_main("*Hhmph*... At least let me show you how it's done...","disgust","narrow","base","mid_soft")
                 call her_main("I'm sure you'll find plenty of ways to \"excite\" him from the floor.","annoyed","narrow","annoyed","mid")
             "-Hermione-":
                 call lun_main("WHAT?","upset","wide","base","mid")
@@ -616,7 +616,7 @@ label luna_favour_5:
                 ">Luna lets go of your cock."
                 call gen_main(face="base")
                 $ luna_r_arm = 1
-                call lun_main("*hmph*, I suppose you're right. You've probably spent all year with your hands wrapped around any cock you could find.","upset","suspicious","mad","mid")
+                call lun_main("*Hmph*... I suppose you're right. You've probably spent all year with your hands wrapped around any cock you could find.","upset","suspicious","mad","mid")
                 call her_main("Hey!","annoyed","narrow","annoyed","mid")
                 call lun_main("Am I wrong?","base","angry","angry","mid")
                 call her_main("...","disgust","narrow","base","down")
@@ -936,7 +936,7 @@ label luna_favour_5:
         ">Luna slows her hand back down, bringing you almost painfully back from the edge of orgasm."
         call her_main("Continuing, if you keep teasing him, it will make him cum much harder.","grin","narrow","base","dead")
         call her_main("I read about this technique in \"witches weekly\"... it's called edging!","base","narrow","worried","down")
-        call lun_main("*hmmm*, and you're sure it's safe?","normal","seductive","raised","mid")
+        call lun_main("*Hmm*, and you're sure it's safe?","normal","seductive","raised","mid")
         call lun_main("He almost seems like he's in pain...","base","seductive","angry","mid")
         ">Luna gives your cock a hard squeeze as she looks sadistically at your cock."
         $ genie_face = "characters/genie/face/angry.webp"
@@ -952,7 +952,7 @@ label luna_favour_5:
         call lun_main("Really? I don't mind that...","base","mad","mad","mid")
         g4 "I do!"
         call lun_main("Fine then... How should I finish him off?","base","seductive","angry","down")
-        call her_main("hmmm...","base","squint","base","mid")
+        call her_main("*Hmm*...","base","squint","base","mid")
         show screen blkfade
         with d3
 
@@ -1131,7 +1131,7 @@ label luna_favour_5:
                 label luna_her_hj_end:
                     m "Alright, you two can go now."
                     $ luna_l_arm = 2
-                    call lun_main("*hmph*, not before you pay us!","normal","angry","angry","R")
+                    call lun_main("*Hmph*... Not before you pay us!","normal","angry","angry","R")
                     m "Right, nearly forgot."
                     call her_main("...", "annoyed", "squint", "base", "mid")
                     $ gryffindor += 50

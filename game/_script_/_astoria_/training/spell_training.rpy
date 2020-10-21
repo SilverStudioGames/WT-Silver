@@ -189,7 +189,7 @@ label ag_st_imperio_E1:
     call ast_main("No. All we did was some theoretical practice of the spell...","open","base","base","down")
     call ast_main("I need to tell her to do something... or...","open","base","worried","mid")
     call ast_main("I don't know... Maybe say something?","clench","base","base","L")
-    call ton_main("*Hmmm*... Something...", "base", "base", "worried", "up")
+    call ton_main("*Hmm*... Something...", "base", "base", "worried", "up")
     call ast_main("!!!","smile","base","base","L")
     m "What?"
     call ast_main("She did it!","smile","base","base","L")
@@ -369,7 +369,7 @@ label ag_st_imperio_E2:
             m "No... Ask her politely..."
             call ast_main("Oh! I got it!","smile","closed","base","mid")
             call ast_main("Professor Tonks, please remove your coat for me...","open","base","base","L")
-            call ton_main("*Hmmm*... okay...", "soft", "wide", "base", "stare")
+            call ton_main("*Hmm*... okay...", "soft", "wide", "base", "stare")
 
             # Tonks removes her coat.
             call play_sound("equip")
@@ -383,7 +383,7 @@ label ag_st_imperio_E2:
 
     call ast_main("Yes, she did it!","smile","base","base","L")
     call ast_main("What shall I have her do next?","base","base","base","mid")
-    m "*hmmm*................."
+    m "*Hmm*................."
 
     $ d_flag_01 = False
 
@@ -459,7 +459,7 @@ label ag_st_imperio_E2:
 
             call play_music("trance")
             call ast_main("","clench","base","angry","L")
-            call ton_main("*hmmm*.............","base","base","base","ahegao")
+            call ton_main("*Hmm*.............","base","base","base","ahegao")
             call ast_chibi("wand",530,"base")
             call ast_main("And now?","open","base","base","mid")
 
@@ -553,7 +553,7 @@ label ag_st_imperio_E2:
             m "She can refuse to do it if she doesn't want to..."
             call ast_main("I suppose...","annoyed","base","base","L")
             call ast_main("Professor Tonks, I'd like you to show us your...","open","base","base","mid")
-            call ast_main("*uhm*...","upset","base","base","down")
+            call ast_main("*Uhm*...","upset","base","base","down")
             call ast_main("Your breasts!","clench","closed","base","mid") # embarrassed
             call ton_main("Oh...", "open", "wide", "shocked", "up")
             call ton_main("............................", "soft", "wide", "worried", "stare")
@@ -670,8 +670,8 @@ label ag_st_imperio_E3:
 
     call play_music("trance")
     call ast_main("","clench","base","angry","L")
-    call ton_main("*hngh*!...", "mad", "wide", "shocked", "ahegao") # shock
-    call ton_main("*Hmmm*...","base","base","base","ahegao", hair="horny")
+    call ton_main("*Hngh*!...", "mad", "wide", "shocked", "ahegao") # shock
+    call ton_main("*Hmm*...","base","base","base","ahegao", hair="horny")
 
     call ast_chibi("wand",530,"base")
     with d3
@@ -902,7 +902,7 @@ label ag_st_imperio_E4:
         "\"Make her turn around!\"": # She's facing Astoria
             call ast_main("Very well, Sir.","base","base","worried","mid")
             call ast_main("Professor, please turn around for me...","open","base","base","L")
-            call ton_main("*hmm*... Yes!", "base", "base", "worried", "stare")
+            call ton_main("*Hmm*... Yes!", "base", "base", "worried", "stare")
 
             # Tonks turns around
             call hide_characters
@@ -919,7 +919,7 @@ label ag_st_imperio_E4:
             pause.8
 
             call ton_main("........................", "horny", "wide", "base", "stare")
-            call ast_main("*uhm*...","clench","narrow","worried","R") # Astoria is uncomfortable
+            call ast_main("*Uhm*...","clench","narrow","worried","R") # Astoria is uncomfortable
 
         "\"Let her face me!\"":
             call ast_main("Very well...","open","base","base","mid")
@@ -1011,7 +1011,7 @@ label ag_st_imperio_E4:
         call ast_main("","clench","narrow","worried","R")
         call ton_main("................", "horny", "wide", "base", "stare", cheeks="blush") # ahegao
 
-    m "*hmm*..."
+    m "*Hmm*..."
     m "We might be able to push her even further!"
     call ast_main("Further, Sir? How?","annoyed","wink","base","mid")
     g9 "By getting her to remove the rest of her clothing, of course!"
@@ -1033,7 +1033,7 @@ label ag_st_imperio_E4:
     m "..."
     call ast_main("I should go to bed...","open","narrow","base","R")
     m "Is that so..."
-    call ast_main("I-- *uhm*...{w=0.5} I'm tired, Sir.","open","narrow","base","mid")
+    call ast_main("I-- *Uhm*...{w=0.5} I'm tired, Sir.","open","narrow","base","mid")
     call ast_main("*yaaaaawn*!...","open","closed","worried","mid")
     call ast_main("See?","annoyed","base","base","mid")
     m "..."
@@ -1180,7 +1180,7 @@ label ag_st_imperio_E5:
 
     call play_music("trance")
     call ast_main("","base","base","base","L")
-    call ton_main("*hmmm*............", "soft", "base", "worried", "ahegao", hair="horny")
+    call ton_main("*Hmm*............", "soft", "base", "worried", "ahegao", hair="horny")
 
     g9 "(Here we go!)"
     call ast_main("..............","grin","base","base","L")
@@ -1191,7 +1191,7 @@ label ag_st_imperio_E5:
     m "Ask her to take that coat off first."
     call ast_main("Very well...","base","base","base","mid")
     call ast_main("Professor, would you please take off your coat?","open","base","base","L")
-    call ton_main("*hmmm*... My coat?...", "open", "base", "worried", "stare")
+    call ton_main("*Hmm*... My coat?...", "open", "base", "worried", "stare")
     call ton_main("...............", "normal", "wide", "base", "stare")
     call ton_main("Sure {heart}", "silly", "happyCl", "base", "mid")
 
@@ -1238,7 +1238,7 @@ label ag_st_imperio_E5:
     call ast_main("Professor, how can it be that you're not wearing any underwear?!","angry","base","worried","down") # angry embarrassed
     m "Yes, Miss Tonks."
     g9 "Explain yourself!"
-    call ton_main("*Hmmm*.......", "normal", "base", "worried", "stare", cheeks="blush")
+    call ton_main("*Hmm*.......", "normal", "base", "worried", "stare", cheeks="blush")
     call ast_main("Answer us!","clench","closed","angry","mid")
     call ton_main("I don't like to wear them...", "open", "wide", "worried", "stare", hair="sad", cheeks="blush")
     call ast_main("Why?!","open","narrow","angry","L") # angry
@@ -1399,7 +1399,7 @@ label ag_st_imperio_E5:
     call ton_main("To give him a blowjob...", "open", "closed", "shocked", "mid") # Tonks answers for Genie
     call ast_main("Professor Tonks!{w} Are you serious?","scream","base","base","L") # shocked
     call ast_main("Why would she want to do that? That's disgusting!!!","clench","base","worried","mid")
-    m "That-- *uhm*..."
+    m "That-- *Uhm*..."
     m "That wasn't what I would have suggested, but..."
     m "I'm willing to give her a chance to try..."
     m "Try to resist that urge, I mean..."

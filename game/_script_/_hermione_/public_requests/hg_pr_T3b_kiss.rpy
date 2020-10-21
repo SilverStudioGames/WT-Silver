@@ -170,7 +170,7 @@ label hg_pr_kiss_T3_E1:
     her "It was awkward and embarrassing..."
     m "did you do it or not?"
     call her_main("... no I did not, [genie_name]...", "annoyed", "narrow", "angry", "R")
-    her "All I did was making a complete fool out of myself..."
+    her "All I achieved was making a complete fool out of myself..."
     call her_main("In front of the entire class...", "angry", "base", "angry", "mid")
     m "Tell me what happened, [hermione_name]."
     call her_main("No, I will not, [genie_name].", "annoyed", "narrow", "angry", "R")
@@ -478,11 +478,11 @@ label hg_pr_kiss_T5_E2:
     call hg_pr_kiss_intro
 
     call her_main("I did, [genie_name].", "open", "closed", "base", "mid")
-    call her_main("Only... *ehm*...", "grin", "base", "base", "R")
+    call her_main("Only... *Ehm*...", "grin", "base", "base", "R")
     m "What is it?"
     call her_main("Well... I have this friend...", "base", "base", "base", "mid")
     her "Her name is Ginny Weasley..."
-    call her_main("And... *ehm*...", "base", "base", "base", "R", cheeks="blush")
+    call her_main("And... *Ehm*...", "base", "base", "base", "R", cheeks="blush")
     her "I'm Not sure how to say this..."
     m "Just say it, [hermione_name]."
     call her_main("Well, we decided to skip the potions class together...", "open", "base", "base", "mid")

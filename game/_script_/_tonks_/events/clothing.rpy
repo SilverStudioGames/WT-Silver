@@ -96,7 +96,7 @@ label tonks_summon_setup:
 
                     "-Twenty gold-" if game.gold >= 20:
                         m "How does twenty gold sound?"
-                        call ton_main("(Hmm... I kind of expected more.)","base","base","base","R")
+                        call ton_main("(*Hmm*... I kind of expected more.)","base","base","base","R")
                         call ton_main("Thank you, [ton_genie_name].","base","base","base","mid")
                         g9 "No, [tonks_name]... Thank you."
                         $ game.gold -= 20

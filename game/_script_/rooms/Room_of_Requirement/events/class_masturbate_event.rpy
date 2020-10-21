@@ -164,14 +164,14 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
                 call her_main("*Ugh*... It's like you don't even listen to me.", "annoyed", "narrow", "annoyed", "mid")
 
             "-Take two hundred points from Slytherin-":
-                m "Hmmm. While I doubt I can do anything official just yet..."
+                m "*Hmm*... While I doubt I can do anything official just yet..."
                 m "Two hundred house points from Slytherin!"
                 call her_main("Serves them right. Heh, heh heh.", "grin", "happy", "base", "mid_soft")
                 call her_main("You know I understand now why I rushed here to talk to you.", "smile", "happy", "base", "mid_soft")
                 call her_main("You always know just what to say to make me feel good. [genie_name]", "open", "happy", "base", "mid_soft")
                 m "Glad to be appreciated [hermione_name]"
                 call her_main("In this case I don't think I'd mind 'showing you some of that appreciate--", "soft", "base", "base", "mid_soft")
-                call her_main("Ahem. I mean.... *uhm* It's getting time for dinner. So, goodnight [genie_name]", "open", "narrow", "worried", "down", cheeks="blush")
+                call her_main("Ahem. I mean... *Ehm*... It's getting time for dinner. So, goodnight [genie_name]", "open", "narrow", "worried", "down", cheeks="blush")
                 m "See you tomorrow [hermione_name]"
                 call her_main("Yes! I mean... if I must.", "open", "narrow", "base", "mid_soft")
                 call her_main("{size=-5}Totally worth it.{/size}", "smile", "happy", "base", "mid_soft")
@@ -216,7 +216,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
         call her_main("Suck a--? But you said eat a wand.", "clench", "squint", "angry", "mid")
         call her_main("Oh. I guess I walked into that one [genie_name].", "smile", "happy", "base", "mid_soft", cheeks="blush")
         m "Hey you got it in the end! That's progress from before!"
-        call her_main("Hmm, good point. Anyway, you wanted me to masturbate during class?", "open", "base", "base", "mid")
+        call her_main("*Hmm*... Good point. Anyway, you wanted me to masturbate during class?", "open", "base", "base", "mid")
         m "Up for it?"
         call her_main("Sure why not... though I wish you had asked yesterday.", "annoyed", "narrow", "annoyed", "mid")
         call her_main("Snape gave a 2-hour lecture on the 'Rich and Pure' History of Slytherin.", "open", "base", "base", "mid")
@@ -248,7 +248,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
         call her_main("I don't know why! It's never happened before!", "scream", "wide", "base", "stare")
         call her_main("Class was nearly over and I just couldn't do it no matter how much I tried.", "annoyed", "narrow", "annoyed", "mid")
         m "Maybe you weren't trying hard enough."
-        call her_main("Not trying hard enough? [genie_name] to put it delicately... Hmmm.", "open", "base", "base", "R")
+        call her_main("Not trying hard enough? [genie_name] to put it delicately... *Hmm*...", "open", "base", "base", "R")
         call her_main("How would you put shoving three fingers down my slit, rubbing my clit with my thumb, and using my free hand to pinch my nipples delicately?", "soft", "base", "base", "mid_soft", cheeks="blush")
         m "Sounds plenty delicate to me! But maybe it was just nerves."
         call her_main("I mean people were staring but... I'm pretty used to that by now.", "upset", "squint", "angry", "mid")
@@ -311,7 +311,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
         call her_main("", "soft", "base", "base", "mid_soft", cheeks="blush")
         m "Oh you gorgeous little, teasing minx!"
         call her_main("I thought we were done with the nicknames.", "annoyed", "base", "base", "mid")
-        m "Hmm yes, well unfortunately according to the official rules, I may only give eighty points per day for masturbation related favours."
+        m "*Hmm*... Yes... Well unfortunately according to the official rules, I may only give eighty points per day for masturbation related favours."
         call her_main("Oh I see, that's too bad.", "upset", "narrow", "worried", "down")
         g9 "A real shame... but there nothing preventing you from doing those 'bonus' acts on your own."
         call her_main("I guess...", "upset", "squint", "angry", "mid")
@@ -352,7 +352,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
                 call her_main("Am I going to send a letter to the dementors and bogarts asking them to stop?", "open", "happyCl", "base", "mid")
                 m "{size=-5}(I don't think I want to know what those are.){/size}"
                 m "Indeed, so encouraging to hear our sessions are making you a better person, but I think we are getting off track here."
-                call her_main("Hmmm?", "clench", "base", "base", "mid")
+                call her_main("*Hmm*?", "clench", "base", "base", "mid")
                 m "Masturbating in bad lipped Mike's class?"
                 call her_main("{size=-4}(Bad lipp--?){/size} Oh, Professor Moody's class.", "open", "slit", "low", "stare")
                 call her_main("Right, there was an exam and I didn't study at all for it!", "upset", "squint", "angry", "mid")

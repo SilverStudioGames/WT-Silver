@@ -189,10 +189,10 @@ label cc_pr_spy_girls_T3_showers:
     call cho_main("I found a hole in one of the walls, actually...", "annoyed", "narrow", "raised", "mid")
     m "That's unfortunate, I'll have to look into filling that hole at some point..."
     m "So what were they talking about if it wasn't Quidditch?"
-    call cho_main("*uhm*... There wasn't much talking at all...", "disgust", "narrow", "base", "downR", cheeks="blush")
+    call cho_main("*Ehm*... There wasn't much talking at all...", "disgust", "narrow", "base", "downR", cheeks="blush")
     call cho_main("They were too preoccupied with kissing, and touching each other.", "open", "happyCl", "base", "mid", cheeks="blush")
     g9 "I knew it!"
-    call cho_main("*Hmpf*...", "annoyed", "narrow", "angry", "mid", cheeks="blush") #annoyed
+    call cho_main("*Hmph*...", "annoyed", "narrow", "angry", "mid", cheeks="blush") #annoyed
     g9 "Makes you wish you had those girls on your own team, doesn't it?"
     call cho_main("Yeah right...", "annoyed", "narrow", "angry", "downR", cheeks="heavy_blush") #annoyed glancing to the right #blush
     m "What else did they do?"
@@ -260,7 +260,7 @@ label cc_pr_spy_girls_T3_alicia:
         call cho_main("The Imperius curse?", "open", "narrow", "raised", "mid")
         m "That's what I said..."
         call cho_main("Of course not. That spell is illegal!{w=0.8} She'd be thrown into Azkaban for it...", "soft", "narrow", "angry", "mid")
-        m "That's-- *uhm*...{w=0.3} correct.{w=0.5} Straight into prison..."
+        m "That's-- *Ehm*...{w=0.3} correct.{w=0.5} Straight into prison..."
         call cho_main("But No... I haven't seen her with a wand in hand...", "open", "closed", "base", "mid")
     else:
         call cho_main("That's why I said, \"if I didn't know any better\"...", "open", "closed", "base", "mid")
@@ -283,7 +283,7 @@ label cc_pr_spy_girls_T3_alicia:
     m "I should get her number."
     call cho_main("Her what?", "annoyed", "narrow", "angry", "mid")
     m "Never mind... {w=0.4} So is that all you saw?"
-    call cho_main("*Uhm*... Yes...{w=0.5} That was it...", "quiver", "narrow", "base", "down", cheeks="blush") #Blushing
+    call cho_main("*Ehm*... Yes...{w=0.5} That was it...", "quiver", "narrow", "base", "down", cheeks="blush") #Blushing
     call cho_main("As I said, I could only see her bottom, from underneath that stall...", "open", "narrow", "base", "downR", cheeks="blush") #Blushing
     m "Your face says otherwise... Is that really everything you saw?"
     call cho_main("When I say bottom... She wasn't wearing any panties, [cho_genie_name]...", "disgust", "happyCl", "worried", "mid", cheeks="blush") #Blushing
@@ -417,7 +417,7 @@ label cc_pr_spy_girls_T3_angelina:
     call cho_main("Angelina sure didn't see it that way -- and stormed right out her office...", "base", "narrow", "angry", "mid")
     m "You sure she wasn't talking about--"
     call cho_main("[cho_genie_name]... If Madame Hooch is spying on them, then Angelina might get the idea to entice her into helping them during the finals!", "annoyed", "narrow", "base", "mid")
-    m "Hmm... Not a bad idea, now that I think about it..."
+    m "*Hmm*... Not a bad idea, now that I think about it..."
     g9 "We should try that as well."
     call cho_main("No! I don't want to win by cheating!", "clench", "narrow", "angry", "mid")
     m "Yes, cause distracting hardly counts as cheating..."

@@ -10,7 +10,7 @@ label luna_favour_1:
         call play_music("chipper_doodle")
         m "Okay then..."
         m "Tell me a little about yourself, [luna_name]."
-        call lun_main("*hmph* I assume you'll be paying me for this [lun_genie_name].","normal","angry","angry","mid")
+        call lun_main("*Hmph* I assume you'll be paying me for this [lun_genie_name].","normal","angry","angry","mid")
         menu:
             "-Five gold-":
                 m "How does five gold sound [luna_name]?"
@@ -34,7 +34,7 @@ label luna_favour_1:
                 $ current_payout = 50
                 m "How does fifty gold sound [luna_name]?"
                 call lun_main("{size=+10}(FIFTY GOLD!){/size}","open_wide_tongue","wide","base","mid")
-                call lun_main("*Hmph* I suppose that's a fair amount.","base","happyCl","base","down")
+                call lun_main("*Hmph*... I suppose that's a fair amount.","base","happyCl","base","down")
                 call lun_main("Just don't think it buys you anything other than a conversation.","normal","angry","angry","mid")
                 m "Of course not. Speaking of which..."
         call lun_main("Fine, fine, I'll start...","normal","closed","base","down")
@@ -143,7 +143,7 @@ label luna_favour_1:
             "-Ten gold-": #just conversation (very short)
                 $ current_payout = 10
                 m "How does ten gold sound?"
-                call lun_main("*Hmph* Fine...","normal","closed","base","down")
+                call lun_main("*Hmph*... Fine.","normal","closed","base","down")
                 m "so about your school life..."
                 call lun_main("School is boring. All I do is go to classes.","upset","base","angry","mid")
                 call lun_main("Can I leave now?","normal","base","angry","R")
@@ -169,7 +169,7 @@ label luna_favour_1:
                 m "How haven't I heard a complaint?"
                 call lun_main("Well from what I hear... the girls don't have any complaints afterwards...","base","seductive","raised","mid")
                 m "Ah... Anything else?"
-                call lun_main("*Hmmm*... nothing comes to mind.","normal","suspicious","angry","down")
+                call lun_main("*Hmm*... nothing comes to mind.","normal","suspicious","angry","down")
                 m "fair enough, well I think that was worth your twenty gold."
             "-One hundred gold-": #JOI
                 $ current_payout = 100
@@ -215,7 +215,7 @@ label luna_favour_1:
                         m "I'd never do any--"
                         call lun_main("Do you even know how old I am?","base","suspicious","raised","mid")
                         m "of course..."
-                        call lun_main("*Hmph* Are you sure about that?","soft","angry","raised","mid")
+                        call lun_main("*Hmph*... Are you sure about that?","soft","angry","raised","mid")
                         m "..."
                         call lun_main("Back to stroking it [lun_genie_name]...","base","suspicious","mad","mid")
                         ">You start stroking your cock again."
@@ -257,7 +257,7 @@ label luna_favour_1:
                     "-Let her know her place-": #note that he could get more for less from those tarts
                         $ lun_sub += 1
                         m "well now that you mention it I'm sure those tarts would probably charge a lot less for a conversation..."
-                        call lun_main("*Hmph* You get what you pay for...","upset","angry","mad","R")
+                        call lun_main("*Hmph*... You get what you pay for.","upset","angry","mad","R")
                         m "And what exactly am I getting from you for my payment?"
                         call lun_main("Getting to Look at me while you stroke your filthy old cock should be payment enough.","normal","angry","mad","mid")
                         m "Well you'll have to excuse my old eyes because I can barely see you..."
@@ -336,9 +336,9 @@ label luna_favour_1:
                         m "ah..."
                         call lun_main("Forcing me to watch you do this...","base","suspicious","mad","R")
                         m "Ah... I'm not forcing you to do anything..."
-                        call lun_main("*Hmph* well I expect to be paid now...","normal","mad","angry","mid")
+                        call lun_main("*Hmph*... well I expect to be paid now...","normal","mad","angry","mid")
                         m "Don't worry, I'll give you your hundred gold."
-                        call lun_main("*Hmph* Fine...{w=0.5} (Nothing extra...?)","upset","mad","angry","R")
+                        call lun_main("*Hmph*... Fine...{w=0.5} (Nothing extra...?)","upset","mad","angry","R")
 
 
         call lun_main("Speaking of which...","normal","seductive","angry","mid")
@@ -375,9 +375,9 @@ label luna_favour_1:
                 m "I hardly think one more person is going to turn things around."
                 call lun_main("Not you personally [lun_genie_name], Hogwarts!","normal","mad","angry","mid")
                 call lun_main("Just imagine how many copies the entire school would buy!","smile","base","angry","R")
-                m "*Hmmm*, I'll think about it..."
+                m "*Hmm*... I'll think about it."
                 call lun_main("You'll {size=+4}think{/size} about it?","upset","suspicious","mad","mid")
-                call lun_main("*Hmph* Maybe I'll just have to {size=+4}think{/size} about getting my father to write a story...","upset","suspicious","mad","R")
+                call lun_main("*Hmph*... Maybe I'll just have to {size=+4}think{/size} about getting my father to write a story...","upset","suspicious","mad","R")
                 call lun_main("involving a perverted old headmaster who likes to lure girls into his office...","upset","suspicious","raised","R")
                 call lun_main("Just to leer at them while he strokes his filthy old cock...","upset","suspicious","angry","mid")
                 m "..."
@@ -514,18 +514,18 @@ label luna_favour_1:
                 m "I don't recall forcing you into anything [luna_name]..."
                 call lun_main("*hmph*...","normal","angry","angry","mid")
                 ">You start stroking faster."
-                call lun_main("well...","normal","angry","mad","down")
-                call lun_main("just get it over with...","upset","suspicious","sad","down")
+                call lun_main("Well...","normal","angry","mad","down")
+                call lun_main("Just get it over with...","upset","suspicious","sad","down")
                 m "{size=-4}ah...{/size}"
                 call lun_main("Just keep touching yourself in front of me...","normal","mad","mad","mid")
-                m "{size=-4}(*argh*... yes...){/size}"
-                call lun_main("let it all out front of me...","grin","mad","mad","mid")
-                m "{size=-4}yes...{/size}"
+                m "{size=-4}(*Argh*... Yes...){/size}"
+                call lun_main("Let it all out front of me...","grin","mad","mad","mid")
+                m "{size=-4}Yes...{/size}"
                 call lun_main("Your student...","upset","suspicious","mad","mid")
-                m "{size=-2}(*mmmm*...){/size}"
+                m "{size=-2}(*Mmmm*...){/size}"
                 call lun_main("come on...","base","suspicious","angry","mid")
-                g4 "{size=+4}(*agh*... almost there...){/size}"
-                call lun_main("come for your little princess...","base","suspicious","sad","mid")
+                g4 "{size=+4}(*Argh*... almost there...){/size}"
+                call lun_main("Come for your little princess...","base","suspicious","sad","mid")
                 g4 "{size=+4}(YES! YES! YES!) *Argh*!{/size}"
                 hide screen luna_main
                 with d3
@@ -538,10 +538,10 @@ label luna_favour_1:
                 show screen bld1
                 with d3
 
-                call lun_main("ugh... there's so much...","upset","mad","mad","mid")
+                call lun_main("*Ugh*... There's so much...","upset","mad","mad","mid")
                 call gen_chibi("cum_behind_desk_done")
                 with d3
-                g4 "good work, slut... ah, shit, this feels so good..."
+                g4 "Good work, slut... ah, shit, this feels so good..."
                 hide screen bld1
                 with d3
                 call lun_main("The floor...","normal","angry","angry","down")
@@ -556,7 +556,7 @@ label luna_favour_1:
         ">You hand Luna {number=current_payout} gold."
         call lun_main("Thank you, [lun_genie_name].","normal","seductive","base","R")
         if current_payout <= 50:
-            call lun_main("(only {number=current_payout}?) *hmph*","upset","mad","angry","R")
+            call lun_main("(only {number=current_payout}?) *Hmph*","upset","mad","angry","R")
         ">Luna leaves your office."
 
     else:
@@ -570,7 +570,7 @@ label luna_favour_1:
         call lun_main("Yes... at first I thought that they'd just be a waste of time...","normal","mad","sad","R")
         call lun_main("but they're actually helping a lot.","base","base","sad","mid")
         m "*mmmmm*, the way you sucked my cock is proof enough of that..."
-        call lun_main("*hmph* I meant my grades...","normal","angry","angry","R")
+        call lun_main("*Hmph* I meant my grades...","normal","angry","angry","R")
         call lun_main("Although she has been a great help with sex as well...","base","seductive","angry","down")
         call lun_main("in fact... Why don't you bring her up here now?","base","seductive","angry","mid")
         m "why?"

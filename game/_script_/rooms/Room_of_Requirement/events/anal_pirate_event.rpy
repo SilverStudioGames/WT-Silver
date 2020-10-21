@@ -113,7 +113,7 @@ label anal_pirate_event_common_1_2: # Call label
     call blkfade
     call play_sound("climb_desk")
     pause 2
-    m "Hm..."
+    m "*Hmm*..."
     $ renpy.play('sounds/boing02.mp3')
     call her_main("!!!", "angry", "wide", "base", "stare", ypos="head")
     call play_sound("slap")
@@ -125,7 +125,7 @@ label anal_pirate_event_common_1_2: # Call label
     $ renpy.play('sounds/boing03.mp3')
     call her_main("Ouch! Wha' are ye doin', captain?", "mad", "happyCl", "worried", "mid",tears="soft_blink")
     m "Aye, this won't work either..."
-    m "Hm..."
+    m "*Hmm*..."
     m "Har har, I reckon I know wha' we should do."
     m "..."
     menu:
@@ -627,7 +627,7 @@ label anal_pirate_event_3: # Call label
     call blkfade
 
     call her_main("........", "annoyed", "base", "worried", "R",ypos="head")
-    m "Hm..."
+    m "*Hmm*..."
     call her_main("...........", "open", "base", "base", "mid")
     $ renpy.play('sounds/gltch.mp3')
     with hpunch

@@ -352,7 +352,7 @@ label cho_intro_E1:
 
         call cho_main("Professor, please do consider what we discussed earlier...", "soft", "closed", "base", "mid", trans=d3)
         m "Of course."
-        call her_main("Hmmm?", "normal", "squint", "base", "mid", trans=d3)
+        call her_main("*Hmm*?", "normal", "squint", "base", "mid", trans=d3)
 
     hide screen cho_main
     hide screen hermione_main
@@ -618,7 +618,7 @@ label ss_he_cho_E1:
                 call sna_main("Zone out and dream of stuffing that witch's relentless mouth!", "snape_06")
                 m "I feel you..."
 
-            call sna_main("*Hmmm*...{w} That reminds me of something I witnessed at the end of last year...", "snape_23")
+            call sna_main("*Hmm*...{w} That reminds me of something I witnessed at the end of last year...", "snape_23")
             call sna_main("Granger was scolding the poor girl for kissing a boy in the hallways.", "snape_20")
             m "Hot...{w} What happened then?"
             call sna_main("They were screaming and grabbing at each other's hair before I had the chance to interfere.", "snape_18")
@@ -706,7 +706,7 @@ label cho_intro_E3:
         g4 "Two hundred? Are you nuts?"
         call her_main("And just points isn't going to cut it...", "open", "closed", "base", "mid")
         m "Then what else?"
-        call her_main("*uhm*...", "annoyed", "base", "base", "R")
+        call her_main("*Uhm*...", "annoyed", "base", "base", "R")
         m "You're testing my patience Miss Granger..."
         call her_main("Oh, I know!{w=0.5} I want a seat in the teacher stands during the Quidditch matches!", "smile", "happyCl", "base", "mid")
         call her_main("Cho would be so jealous if she saw me sitting near the commentator and teachers...", "grin", "narrow", "base", "mid_soft")

@@ -282,7 +282,7 @@ label give_ast_gift(gift_item):
             call ast_main("Why would I need condoms when I could just go in raw?", mouth="grin", face="angry")
             call ast_main("*Ha-Ha-Hah* The look on your face, now that's something money can't buy.", face="happy")
             call give_gift(">You sheepishly give the pack of Condoms to Astoria...", gift_item)
-            call ast_main("*Hmmm*.... yeah why not.", face="neutral")
+            call ast_main("*Hmm*.... yeah why not.", face="neutral")
             call ast_mood(-1)
 
     elif gift_item == vibrator_ITEM:

@@ -78,7 +78,7 @@ label luna_favour_2:
                 call lun_main("Can I leave yet?","upset","mad","angry","mid")
                 m "What? We just started!"
                 call lun_main("Well, I don't have all day.","upset","mad","angry","R")
-                m "*Hmmm*, I'll see what I can do to speed this up..."
+                m "*Hmm*... I'll see what I can do to speed this up..."
 
                 menu:
                     "-Grab her waist-":
@@ -182,7 +182,7 @@ label luna_favour_2:
                 with d3
 
                 m "What, you barely even sat down!"
-                call lun_main("*hmph* You should consider yourself lucky you got what you did [lun_genie_name]!","upset","mad","angry","R")
+                call lun_main("*Hmph*... You should consider yourself lucky you got what you did [lun_genie_name]!","upset","mad","angry","R")
                 m "You could have at least moved around a little."
                 call lun_main("What? Who do you think I am? Some sort of harlot who'll let you grind yourself against them for as long as you want?","clench","suspicious","angry","R")
                 m "Well... I expected at least a few minutes."
@@ -249,11 +249,11 @@ label luna_favour_2:
 
                 ">Luna starts bouncing slowly on your lap, lifting her weight on and off your crotch."
                 m "yes... that's it."
-                call lun_main("*hmph* You're not even ashamed, are you?","soft","seductive","base","R")
+                call lun_main("*Hmph*... You're not even ashamed, are you?","soft","seductive","base","R")
                 m "of what?"
                 call lun_main("What? begging your student for a lap dance.","upset","mad","angry","R")
                 m "I don't recall begging."
-                call lun_main("*Hmmm*...","normal","angry","base","R")
+                call lun_main("*Hmm*...","normal","angry","base","R")
                 ">Luna stands up slowly."
 
                 call lun_chibi_scene("reset", "by_desk", "back")
@@ -318,7 +318,7 @@ label luna_favour_2:
                         hide screen blkfade
                         with d3
 
-                        call lun_main("*hmph* You pervert!","normal","suspicious","angry","mid")
+                        call lun_main("*Hmph*... You pervert!","normal","suspicious","angry","mid")
                         m "You can hardly blame me for this."
                         call lun_main("What? You're the one who begged for it, of course it's your fault.","upset","angry","mad","R")
                         m "well you didn't have to be so good at it."
@@ -347,7 +347,7 @@ label luna_favour_2:
         $ luna_gold += current_payout
         ">You hand Luna {number=current_payout} gold."
         if current_payout <= 50:
-            call lun_main("(only {number=current_payout}?) *hmph*","upset","mad","angry","R")
+            call lun_main("(only {number=current_payout}?) *Hmph*...","upset","mad","angry","R")
             call lun_main("Thank you, [lun_genie_name].","normal","suspicious","angry","R")
         else:
             call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -640,11 +640,11 @@ label luna_favour_2:
                 call lun_main("More like the world's greatest pervert.","upset","suspicious","angry","R")
                 ">Luna starts bouncing slowly on your lap, lifting her weight on and off your crotch."
                 m "yes... that's it."
-                call lun_main("*hmph* You're not even ashamed, are you?","soft","seductive","mad","R")
+                call lun_main("*Hmph*... You're not even ashamed, are you?","soft","seductive","mad","R")
                 m "of what?"
                 call lun_main("What? begging your student for a lap dance.","upset","mad","angry","R")
                 m "I don't recall begging."
-                call lun_main("*Hmmm*...","normal","angry","base","R")
+                call lun_main("*Hmm*...","normal","angry","base","R")
                 ">Luna stands up slowly."
 
                 call lun_chibi_scene("reset", "by_desk", "back")
@@ -706,7 +706,7 @@ label luna_favour_2:
                 hide screen blkfade
                 with d3
 
-                call lun_main("*hmph* You naughty pervert!","normal","suspicious","angry","mid")
+                call lun_main("*Hmph*... You naughty pervert!","normal","suspicious","angry","mid")
                 m "You can hardly blame me for this."
                 call lun_main("What? You're the one who begged for it, of course it's your fault.","upset","angry","mad","R")
                 m "well, you didn't have to be so good at it."
@@ -735,11 +735,11 @@ label luna_favour_2:
                 call lun_main("More like the world's greatest pervert.","base","suspicious","angry","down")
                 ">Luna starts bouncing slowly on your lap, lifting her weight on and off your crotch."
                 m "yes... that's it."
-                call lun_main("*hmph* You're not even ashamed, are you?","soft","seductive","angry","down")
+                call lun_main("*Hmph*... You're not even ashamed, are you?","soft","seductive","angry","down")
                 m "of what?"
                 call lun_main("What? begging your student for a lap dance.","base","mad","angry","R")
                 m "I don't recall begging."
-                call lun_main("*Hmmm*...","base","seductive","angry","R")
+                call lun_main("*Hmm*...","base","seductive","angry","R")
                 ">Luna stands up slowly."
 
                 call lun_chibi_scene("reset", "by_desk", "back")
@@ -826,7 +826,7 @@ label luna_favour_2:
                 hide screen blkfade
                 with d3
 
-                call lun_main("*hmph* You nasty old pervert!","base","suspicious","angry","mid")
+                call lun_main("*Hmph*... You nasty old pervert!","base","suspicious","angry","mid")
                 m "ah..."
                 call lun_main("Enjoy yourself a little too much did we?","base","angry","mad","R")
                 m "That was too much, [luna_name]..."
@@ -844,7 +844,7 @@ label luna_favour_2:
         ">You hand Luna {number=current_payout} gold."
 
         if current_payout <= 50:
-            call lun_main("(only {number=current_payout}?) *hmph*","upset","mad","angry","R")
+            call lun_main("(only {number=current_payout}?) *Hmph*...","upset","mad","angry","R")
             call lun_main("Thank you, [lun_genie_name].","normal","suspicious","angry","R")
         else:
             call lun_main("Thank you, [lun_genie_name].","base","seductive","base","R")
@@ -1099,7 +1099,7 @@ label luna_favour_2:
                         hide screen blkfade
                         with d3
 
-                        call lun_main("*hmph*","base","suspicious","angry","mid",tears="crying")
+                        call lun_main("*Hmph*","base","suspicious","angry","mid",tears="crying")
                         m "ah... gods that was good"
                         call lun_main("I think I'd like to leave now [lun_genie_name]...","base","seductive","base","R",tears="soft")
 
@@ -1126,11 +1126,11 @@ label luna_favour_2:
                 call lun_main("More like the world's greatest pervert.","base","suspicious","angry","down")
                 ">Luna starts bouncing slowly on your lap, lifting her weight on and off your crotch."
                 m "yes... that's it."
-                call lun_main("*hmph* You're not even ashamed, are you?","soft","seductive","angry","down")
+                call lun_main("*Hmph*... You're not even ashamed, are you?","soft","seductive","angry","down")
                 m "of what?"
                 call lun_main("What? begging your student for a lap dance.","base","mad","angry","R")
                 m "I don't recall begging."
-                call lun_main("*Hmmm*...","base","seductive","angry","R")
+                call lun_main("*Hmm*...","base","seductive","angry","R")
                 ">Luna stands up slowly."
 
                 call lun_chibi_scene("reset", "by_desk", "back")
@@ -1217,7 +1217,7 @@ label luna_favour_2:
                 hide screen blkfade
                 with d3
 
-                call lun_main("*hmph* You nasty old pervert!","base","suspicious","angry","mid")
+                call lun_main("*Hmph*... You nasty old pervert!","base","suspicious","angry","mid")
                 m "*ah*..."
                 call lun_main("Enjoy yourself a little too much did we?","base","angry","mad","R")
                 m "That was too much [luna_name]..."
@@ -1242,15 +1242,15 @@ label luna_favour_2:
                 with d3
 
                 m "*mmmm*"
-                ">You start to feel yourself get hard against her ass"
+                ">You start to feel yourself get hard against her ass."
                 call lun_main("...","base","seductive","angry","down")
-                call lun_main("that's it [lun_genie_name]...","base","seductive","base","R")
-                call lun_main("just sit back and enjoy yourself...","base","seductive","base","R")
-                call lun_main("enjoy the feeling of your disgusting old cock rubbing against me...","base","suspicious","angry","down")
+                call lun_main("That's it [lun_genie_name]...","base","seductive","base","R")
+                call lun_main("Just sit back and enjoy yourself...","base","seductive","base","R")
+                call lun_main("Enjoy the feeling of your disgusting old cock rubbing against me...","base","suspicious","angry","down")
                 ">Luna starts moving her hips back and forth."
-                m "ah..."
-                call lun_main("*hmph* that's it... tell me how good it feels.","soft","seductive","angry","down")
-                m "w-what?"
+                m "*Ah*..."
+                call lun_main("*Hmph*... That's it... Tell me how good it feels.","soft","seductive","angry","down")
+                m "W-what?"
                 call lun_main("tell me how good it feels to rub that filthy cock of yours against me...","base","mad","angry","R")
                 m "..."
                 call lun_main("go on... or else...","base","seductive","angry","R")
@@ -1293,7 +1293,7 @@ label luna_favour_2:
                 hide screen blkfade
                 with d3
 
-                call lun_main("*hmph* You're such nasty old [lun_genie_name]!","base","suspicious","angry","mid")
+                call lun_main("*Hmph*... You're such nasty old [lun_genie_name]!","base","suspicious","angry","mid")
                 call lun_main("But I suppose I don't mind, as long as I get my reward.","base","mad","angry","mid")
                 call lun_main("Speaking of which...","base","seductive","base","R")
 

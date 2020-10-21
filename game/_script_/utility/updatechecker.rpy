@@ -123,3 +123,26 @@ init -1 python:
 
             save_internal_version = 1.392
             renpy.block_rollback()
+
+        if float(save_internal_version) < 1.393:
+
+            # Update fixed clothes
+            ast_gloves_ann.armfix = False
+            ton_panties_base.armfix = True
+            cho_stockings_sailor1.armfix = True
+            cho_stockings_lace1.armfix = True
+            cho_stockings_pantyhose.armfix = True
+            cho_stockings_fishnet.armfix = True
+
+            astoria.rebuild()
+            tonks.rebuild()
+            cho.rebuild()
+
+            misc_deco_list.append(fireplace_halloween_ITEM)
+            misc_deco_list.append(cupboard_halloween_ITEM)
+            misc_deco_list.append(phoenix_halloween_ITEM)
+
+            mr_ev_list.append(mr_ev_SNR)
+
+            save_internal_version = 1.393
+            renpy.block_rollback()

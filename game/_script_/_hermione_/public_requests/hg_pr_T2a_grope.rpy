@@ -205,14 +205,14 @@ label hg_pr_grope_T2_E2:
 
     call her_main("I did, but it was all very awkward and embarrassing...", "annoyed", "narrow", "angry", "R")
     m "That's the whole point of it, [hermione_name]."
-    m "Tell me where were you touched today..."
+    m "Tell me where you were touched today..."
     call play_music("playful_tension") # Music
     her "*Ehm*..."
     call her_main("Well, he touched me under my skirt a little...", "angry", "base", "base", "mid")
     her "Then I let him rub my..."
-    call her_main("... my c-crotch through the panties, [genie_name].", "angry", "narrow", "base", "down")
-    m "Very good. What happened next?"
-    call her_main("Then he sort of started to touch himself [genie_name]...", "open", "happyCl", "worried", "mid")
+    call her_main("... my c-crotch through my panties, [genie_name].", "angry", "narrow", "base", "down")
+    m "Very good... And what happened next?"
+    call her_main("He just sort of started... Touching himself [genie_name].", "open", "happyCl", "worried", "mid")
     her "So, I decided to leave..."
     m "I see..."
     call her_main(".............", "normal", "happyCl", "worried", "mid")
@@ -345,7 +345,7 @@ label hg_pr_grope_T3_E3:
     call her_main("He started to touch my... feet, [genie_name].", "scream", "happyCl", "worried", "mid")
     m "*huh*?"
     m "Your \"Feet\"? Is that what zoomers call tits these days?"
-    call her_main("I'd wish, [genie_name]...", "disgust", "narrow", "base", "mid_soft")
+    call her_main("I wish, [genie_name]...", "disgust", "narrow", "base", "mid_soft")
     her "He asked me to take off my shoes..."
     her "Then he..."
     call her_main("He started to smell my toes, [genie_name]!", "angry", "base", "base", "mid", tears="soft")
@@ -436,7 +436,7 @@ label hg_pr_grope_T4_E3:
 
     call her_main("Well...", "upset", "wink", "base", "mid")
     her "I did what you told me to do, [genie_name]..."
-    her "But... it sort of... *ehm*..."
+    her "But... it sort of... *Ehm*..."
     call her_main("Well, it sort of escalated into something else...", "base", "narrow", "base", "up")
     call play_music("playful_tension") # Music
     m "*Hmm*?"
@@ -464,7 +464,7 @@ label hg_pr_grope_T4_E3:
     call her_main("And then they started kissing in front of me...", "annoyed", "base", "worried", "R")
     her "A moment later their hands were all over each other."
     her "I felt like the third wheel in that situation, so I just slipped away quietly..."
-    m "*hmm*..."
+    m "*Emm*..."
     m "Perhaps if you've stayed a little longer... or perhaps taken the initiative..."
     m "No matter."
 

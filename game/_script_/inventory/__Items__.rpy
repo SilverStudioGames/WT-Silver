@@ -97,6 +97,9 @@ default fireplace_xmas_ITEM = Item(id="fireplace_tree", name="Christmas Decorati
 default phoenix_xmas_ITEM = Item(id="phoenix_xmas", name="Phoenix Christmas Decorations", cost=1, type="phoenix", imagepath="interface/icons/misc/phoenix_xmas.webp", description="A little something to make your friend look less depressed.")
 default owl_xmas_ITEM = Item(id="owl_xmas", name="Owl Christmas hat", cost=1, type="owl", imagepath="interface/icons/misc/owl_xmas.webp", description="A hat for an owl. Don't ask, just accept it..")
 
+default cupboard_halloween_ITEM = Item(id="cupboard_halloween", name="Halloween decorations", cost=0, type="cupboard", imagepath="interface/icons/misc/halloween.webp", description="", unlocked=True)
+default fireplace_halloween_ITEM = Item(id="fireplace_halloween", name="Halloween decorations", cost=0, type="fireplace", imagepath="interface/icons/misc/fireplace_halloween.webp", description="", unlocked=True)
+default phoenix_halloween_ITEM = Item(id="phoenix_halloween", name="Halloween decorations", cost=0, type="phoenix", imagepath="interface/icons/misc/phoenix_halloween.webp", description="", unlocked=True)
 
 default wall_deco_list = [
     poster_agrabah_ITEM,
@@ -120,7 +123,10 @@ default cupboard_deco_list = [
 default misc_deco_list = [
     owl_black_ITEM,
     phoenix_xmas_ITEM,
-    fireplace_xmas_ITEM
+    fireplace_xmas_ITEM,
+    cupboard_halloween_ITEM,
+    fireplace_halloween_ITEM,
+    phoenix_halloween_ITEM,
 ]
 default misc_hat_list = [
     fireplace_hat_ITEM,

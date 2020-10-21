@@ -42,7 +42,7 @@ label cc_pr_manipulate_boys_start:
             m "You're just talking to him..."
             call cho_main("So I'm just supposed to lead him down the garden path?", "soft", "base", "raised", "mid")
             m "Only if you want Ravenclaw to have a chance at winning."
-            call cho_main("*Hmmm*...", "annoyed", "narrow", "base", "R")
+            call cho_main("*Hmm*...", "annoyed", "narrow", "base", "R")
             m "And don't worry about him.{w} He's hardly going to complain about having a pretty little thing like you to talk to..."
             g9 "Not to mention look at..."
             call cho_main("Hey!", "soft", "base", "base", "mid")
@@ -117,7 +117,7 @@ label cc_pr_manipulate_boys_start:
             call cho_main("Yes, I do believe they can read.{w=0.8} But don't take my word for it...", "soft", "narrow", "worried", "mid")
             m "You need to find a way to convince them to throw the game. It's our only chance..."
             #m "Do you have any ideas how you could accomplish that?"
-            #call cho_main("I-- *uhm*...", "annoyed", "base", "base", "R")
+            #call cho_main("I-- *Ehm*...", "annoyed", "base", "base", "R")
             #call cho_main("I could still try to flirt with them a bit, I guess.", "soft", "base", "worried", "mid")
             #m "I doubt that that will be enough..."
             #call cho_main("", "annoyed", "base", "worried", "mid")
@@ -610,7 +610,7 @@ label cc_pr_manipulate_boys_T2_intro_E3:
     g9 "And what was their reaction?"
     call cho_main("I don't know... They were surprised?", "angry", "wink", "raised", "mid", cheeks="blush")
     call cho_main("I closed my eyes through most of it, and then I ran off...", "soft", "base", "worried", "down", cheeks="blush")
-    m "*Hmmm*..."
+    m "*Hmm*..."
     call cho_main("Did I go too far, [cho_genie_name]?", "soft", "narrow", "worried", "mid", cheeks="blush")
     g9 "No girl, you did great!"
     m "You successfully got yourself out of an intricate situation."
@@ -655,7 +655,7 @@ label cc_pr_manipulate_boys_T2_E3:
     g9 "[cho_name]! You're back."
     call cho_main("(...)", "annoyed", "narrow", "angry", "down") # Annoyed
     g9 "How was your day? Anything exciting to tell me?"
-    call cho_main("I-- *uhm*...", "soft", "narrow", "base", "down")
+    call cho_main("I-- *Ehm*...", "soft", "narrow", "base", "down")
     call cho_main("I did what you asked me to...", "soft", "narrow", "worried", "mid")
     g9 "Yes?"
     call cho_main("I... flashed them...", "mad", "closed", "worried", "mid")
@@ -1001,7 +1001,7 @@ label cc_pr_manipulate_boys_twins_branch:
     $ renpy.sound.play("sounds/pageflip.mp3")
     maf "Cho Chang..."
     $ renpy.sound.play("sounds/pageflip.mp3")
-    maf "*Hmmm*..."
+    maf "*Hmm*..."
     maf "Ah yes, here she is..."
     maf "Well, that's unfortunate..."
     m "You don't have any clothing her size?"
@@ -1060,9 +1060,9 @@ label cc_pr_manipulate_boys_twins_branch:
             m "Great."
             #TODO have his chibi turn and walk so you just see his back inside the screen and then display the next line - No can do, not implemented
             # Rummage sound.
-            m "Hmm, doesn't seem to be a lot to pick from..."
+            m "*Hmm*... Doesn't seem to be a lot to pick from."
             # Rummage sound.
-            m "What would she fit well in..."
+            m "Now what could I get that would suit her?"
             # Rummage sound.
             m "Hold on a second."
             # Rummage sound.

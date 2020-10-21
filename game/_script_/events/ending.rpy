@@ -124,7 +124,7 @@ label ball_ending_E1:
     m "Yes... just ask me tomorrow: \"Who rules?\""
     call sna_main("\"Who rules?\"","snape_01")
     g9 "\"Robin Williams!\""
-    call sna_main("Robin Wil--... *ehm*...{w=0.3} I'm sorry, who?","snape_05")
+    call sna_main("Robin Wil--... *Err*...{w=0.3} I'm sorry, who?","snape_05")
     m "You didn't see the \"Flubber\"? Great movie. Just came out."
     call sna_main("Can't say that I have...","snape_02")
     call sna_main("Alright then...","snape_06")
@@ -612,7 +612,7 @@ label ball_ending_E2:
     her "*Slurp*! *Slurp*! *Slurp*!"
     $ dynamic_cg("ball/bj", "background", "base2", "eyes_up2", "mouth_smile2", "sweat2")
     her "Wouldn't you agree, sir?"
-    m "*Ehm*..."
+    m "*Err*..."
     her "Wouldn't you?"
     with hpunch
     $ dynamic_cg("ball/bj", "background", "base3", "blush3")
@@ -2133,7 +2133,7 @@ label ball_ending_E2:
 
         stop music fadeout 1.0
         m "Great speech..."
-        m "Very arousing... *Ehm*, I mean inspiring."
+        m "Very arousing... *Ehm*... I mean inspiring."
         call her_main("Thank you, sir.", "soft", "narrow", "base", "R_soft",cheeks="blush",ypos="head")
         m "Swallowing my load in front of the entire school?"
         g9 "A very nice touch."

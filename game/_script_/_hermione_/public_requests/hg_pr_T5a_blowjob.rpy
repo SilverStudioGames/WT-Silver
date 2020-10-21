@@ -352,7 +352,7 @@ label hg_pr_blowjob_T6_E3:
     her "Before I knew what happened I was surrounded with hard throbbing cocks..."
     call her_main("Oh... Just talking about it makes me shiver with excitement... *err*..", "silly", "narrow", "base", "dead")
     call her_main("... I mean, with fear... no, not fear...", "grin", "narrow", "annoyed", "up")
-    call her_main("Embarrassment...? No, that's not it... *hmm*", "base", "base", "base", "R", cheeks="blush")
+    call her_main("Embarrassment...? No, that's not it... *Hmm*...", "base", "base", "base", "R", cheeks="blush")
     m "Are you asking me?"
     call her_main("Oh, excuse me, [genie_name]... I feel a little lightheaded...", "grin", "narrow", "base", "dead")
     her "I think I need to go lie down for a while..."

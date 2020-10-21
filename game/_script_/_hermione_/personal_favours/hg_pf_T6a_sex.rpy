@@ -142,7 +142,7 @@ label hg_pf_sex_T6_intro_E3:
     pause.5
 
     call bld
-    m "*Hmmm*... (Now that I look at it, I feel like fucking her ass...)"
+    m "*Hmm*... (Now that I look at it, I feel like fucking her ass...)"
 
     menu:
         m "(Where should I put it in?)"
@@ -693,7 +693,7 @@ label hg_sex_2:
             m "Well, this was pretty great..."
             $ ccg1 = 7
             call her_main("*Ah*...{heart}", "silly", "narrow", "base", "dead")
-            m "You alright there, fuckhole? *Ehm*, I mean, [hermione_name]."
+            m "You alright there, fuckhole? *Err*, I mean, [hermione_name]."
             call her_main("Yes... I...{heart}", "silly", "narrow", "base", "dead")
             $ ccg1 = 9
             call her_main("I feel so full...", "open_wide_tongue", "narrow", "annoyed", "up")
@@ -844,7 +844,7 @@ label hg_sex_luna:
     call her_main("I may have given her a suggestibility serum...", "silly", "narrow", "annoyed", "up")
     m "{size=-3}A suggestibility serum?{/size}"
     lun "Who are you talking to sir?"
-    m "Oh, *ehm*.... no one, just ignore me..."
+    m "Oh... *Ehm*... No one... Just ignore me."
     lun "Okay then, I'll ignore you..."
     call her_main("I may have suggested that she come here...", "silly", "narrow", "annoyed", "up")
     call her_main("And that she be unable to see me...", "silly", "narrow", "annoyed", "up")

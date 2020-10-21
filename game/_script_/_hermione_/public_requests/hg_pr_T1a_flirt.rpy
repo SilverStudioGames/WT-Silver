@@ -154,7 +154,7 @@ label hg_pr_flirt_intro:
 
     if hg_pr_flirt.counter == 1:
         call her_main("......", "annoyed", "narrow", "angry", "R")
-        call her_main("So *ehm*...", "soft", "base", "base", "R")
+        call her_main("So *Ehm*...", "soft", "base", "base", "R")
 
     m "How many boys did you flirt with today, [hermione_name]?"
 
@@ -433,7 +433,7 @@ label hg_pr_flirt_T3_E1:
     call her_main("Yes... Whenever a boy from Slytherin is being mean to me or calls me a name...", "open", "base", "base", "R")
     call her_main("Like so!", "base", "happyCl", "base", "mid")
     her "I just swallow my pride and smile in response."
-    m "*Hm*..."
+    m "*Hmm*..."
     m "So, if for example, somebody were to call you a \"whore\" you would just smile at them?"
     call her_main("Well, yes, [genie_name]...", "angry", "happyCl", "worried", "mid", emote="sweat")
     m "Yeah, I'm sure that wins them over."
@@ -456,7 +456,7 @@ label hg_pr_flirt_T3_E2:
 
     m "Quite impressive, [hermione_name]."
     call her_main("I think so too, [genie_name]. Thank you.", "base", "happyCl", "base", "mid")
-    call her_main("Oh, and there was also this little freshman kid...", "smile", "happyCl", "base", "mid")
+    call her_main("Oh, and there was also this freshman boy...", "smile", "happyCl", "base", "mid")
     her "I tried to flirt with him too, but we ended up just chatting..."
     call her_main("He kept calling me \"Miss Hermione\"...", "base", "happyCl", "base", "mid")
     her "So adorable..."

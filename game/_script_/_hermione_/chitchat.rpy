@@ -186,7 +186,7 @@ label chit_chat:
             call her_main("Sir, there is something about professor Snape that I think you should know...", "open", "base", "base", "mid")
             call her_main(".................", "open", "base", "worried", "R")
             call her_main(".........................", "annoyed", "squint", "angry", "mid")
-            call her_main("*uhm*... Never mind...", "open", "closed", "angry", "mid")
+            call her_main("*Ehm*... Never mind...", "open", "closed", "angry", "mid")
             call her_main("", "normal", "base", "base", "mid")
 
         elif one_of_ten == 5:

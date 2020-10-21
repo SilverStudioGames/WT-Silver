@@ -106,7 +106,7 @@ label hg_pf_titjob_T5_intro_E1:
     m "Is that a yes?"
     call her_main("...............", "disgust", "narrow", "base", "mid_soft")
     call her_main("{size=-7}No...{/size}", "angry", "happyCl", "worried", "mid", emote="sweat")
-    m "*Hmmm?*... What was that?"
+    m "*Hmm*?... What was that?"
     call her_main("Of course I haven't...", "open", "narrow", "angry", "R")
     g9 "Well then, today is your lucky day!"
     call her_main("Lucky?{w} In what way would you consider it lucky?", "disgust", "narrow", "base", "mid_soft")
@@ -309,9 +309,9 @@ label hg_pf_titjob_1:
             $ d_flag_01 = True #If TRUE Genie promised to warn her.
             $ ccg1 = 6
             call her_main("Thank you, [genie_name].", "base", "happy", "base", "mid")
-        "\"*Hmmmm*... We'll see how I feel later...\"":
+        "\"*Hmm*... We'll see how I feel later.\"":
             $ ccg1 = 8
-            call her_main("*Hmmmmph*...", "annoyed", "narrow", "annoyed", "mid")
+            call her_main("*Hmph*...", "annoyed", "narrow", "annoyed", "mid")
             call her_main("At least try and avoid my hair...", "normal", "happyCl", "worried", "mid")
 
     $ ccg1 = 5
@@ -352,7 +352,7 @@ label hg_pf_titjob_1:
             g9 "Yes! And somehow you got even hotter!"
             call her_main("The boy was trying to act all sly about it, but I could tell he snuck a peek at them any chance he got...", "base", "base", "base", "R")
             call her_main("At that point I began undoing a couple of buttons... Slowly at first, not enough for him to suspect anything...", "base", "narrow", "base", "mid_soft")
-            g9 "*hmmm*... you little flaunter..."
+            g9 "*Hmm*... You little flaunter."
             $ ccg1 = 9
             call her_main("By the third button, he couldn't take his eyes off me...", "base", "narrow", "worried", "down")
             call her_main("And when I got to the fourth... I saw him move his hands under the desk...")
@@ -380,7 +380,7 @@ label hg_pf_titjob_1:
             call her_main("[genie_name]?", "open", "wink", "base", "mid")
             g4 "Just do it, slut!"
             $ ccg1 = 11
-            call her_main("*Uhm*...{w=0.4} *Ike* *ees*?", "open_wide_tongue", "narrow", "worried", "down")
+            call her_main("*Ehm*...{w=0.4} *Ike* *ees*?", "open_wide_tongue", "narrow", "worried", "down")
             m "Yes, good..."
             m "Now tilt your head down a bit... as far as it'll go."
             call her_main(".....................", "open_wide_tongue", "base", "base", "mid")

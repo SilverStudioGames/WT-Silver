@@ -227,10 +227,10 @@ label waifu_completed:
 
     if complited_shea and complited_stevens and complited_leena and waifu_completed_once and not found_voucher: #Harem ending. The DAHR's ticket.
         m "Wow! What a great book! That was intense!"
-        m "Hm...?"
+        m "*Hmm*...?"
         m "What is that...? A bookmark?"
         call give_reward(">You found a DAHR's voucher.","interface/icons/item_voucher.webp")
-        m "Hm..."
+        m "*Hmm*..."
 
         $ found_voucher = True
         $ Dear_Wifu_ITEM.done = True
@@ -246,7 +246,7 @@ label waifu_completed:
                 $ imagination += 1
         else: #Finished with Shea for the second time.
             m "So I ended up with Shea again, *huh*?"
-            m "Hm... Maybe I should try and make different choices next time...?"
+            m "*Hmm*... Maybe I should try and make different choices next time...?"
     elif victoria >= 7:
         if not complited_stevens: #Finished with Ms.Stevens for the first time.
             m "Not bad, not bad. That Ms. Stevens Lady turned out to be one dirty slut..."
@@ -255,7 +255,7 @@ label waifu_completed:
                 $ imagination += 1
         else: #Finished with Shea for the second time.
             m "So I ended up with Ms.Stevens again?"
-            m "Hm... Maybe I should try and make different choices next time...?"
+            m "*Hm*... Maybe I should try and make different choices next time...?"
     elif leena >= 8:
         if not complited_leena: #Finished with Leena for the first time.
             g9 "Sweet! I love happy endings!"
@@ -264,10 +264,10 @@ label waifu_completed:
                 $ imagination += 1
         else: #Finished with Shea for the second time.
             m "So I ended up with that blond chick again?"
-            m "Hm... Maybe I should try and make different choices next time...?"
+            m "*Hmm*... Maybe I should try and make different choices next time...?"
 
     else:
-        m "Hm... What an anticlimactic ending..."
+        m "*Hmm*... What an anticlimactic ending..."
         m "Maybe I should read it again sometime."
 
     $ Dear_Wifu_ITEM.progress = 0 #RESTING THE BOOK FOR ANOTHER PLAYTHORUGH.

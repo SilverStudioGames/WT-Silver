@@ -13,7 +13,7 @@ label nothing_to_see_here_048:
     call cho_main("But this was too much!","scream","closed","angry","mid")
     call cho_main("I couldn't get them off of me!", "open", "narrow", "angry", "R")
     call cho_main("Half the Slytherin team spent the whole game following me around, trying to get a peak from underneath!", "scream", "narrow", "angry", "mid")
-    m "Hmmm, I was worried this might happen..."
+    m "*Hmm*... I was worried this might happen."
     call cho_main("Well how are you going to fix it then, [cho_genie_name]?", "annoyed", "narrow", "angry", "mid")
 
 
@@ -44,7 +44,7 @@ label nothing_to_see_here_049:
     m "How about you fight fire with fire then?"
     call cho_main("So you think we should fight dirty too?","horny","narrow","base","mid")
     call cho_main("But how? The rules forbid almost all foul play.", "annoyed", "narrow", "worried", "downR")
-    m "*Hmmmm*..."
+    m "*Hmm*..."
 
 
 
@@ -62,7 +62,7 @@ label nothing_to_see_here_049:
     #    g4 "(Dammit! Two against one... That's not fair!)"
     #    "-Agree, and call the bet off...-":
     #        # Offer to call off the bet, Snape declines
-    #        call ton_main("That's the spirit, now let's just enjoy the... *uhm*...", "horny", "base", "raised", "L", hair="horny")
+    #        call ton_main("That's the spirit, now let's just enjoy the... *Ehm*...", "horny", "base", "raised", "L", hair="horny")
     #        call ton_main("The match, is what I wanted to say...", "upset", "base", "worried", "L")
     #        call sna_main("No no, it's fine. I've got some cards up my sleeves.", "snape_09") #I think a repeated 'no' here works well, sort of a posh English way of being dismissive. But you can just use one it makes no real difference
     #        #Keep the bet going, Snape should've listened properly

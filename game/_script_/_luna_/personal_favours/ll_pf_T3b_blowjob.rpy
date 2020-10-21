@@ -39,7 +39,7 @@ label ll_pf_blowjob_T1_intro:
     call lun_main("So you won't...","pout","annoyed","sad","down")
     call lun_main("...","normal","annoyed","sad","R")
     call lun_main("Is there any way I could help?","base","wink","sad","mid")
-    m "*Hmmmm*... There is a special technique that I've been developing..."
+    m "*Hmm*... There is a special technique that I've been developing..."
     m "I'm not sure you're ready for it though..."
     call lun_main("Please, [lun_genie_name]! I know I can handle it!","base","wide","sad","mid")
     m "If you insist..."
@@ -392,7 +392,7 @@ label ll_pf_blowjob_T1_under_desk: # Call label
 
     g4 "I-I think this is it... again..."
     $ lunCG('sucking', 'angry', 'mad', 'dick', pos=6)
-    lun "*Hmmmm*..."
+    lun "*Mmm*..."
     $ lunCG('sucking', 'closed', 'base', 'up', pos=3)
     lun "*Hhhoohhyyy*! (okay!)"
     m "Oh, thank--"
@@ -449,7 +449,7 @@ label ll_pf_blowjob_T1_marathon: # Call label
     hide screen blkfade
     with d5
 
-    lun "*Hmmmm*... you don't know how heavy on my mind this has been, sir..."
+    lun "*Mmmmm*... you don't know how heavy on my mind this has been, sir..."
     $ ccg("37")
     lun "All those nasty wrackspurts churning around in you..."
     $ ccg("38")
@@ -1294,7 +1294,7 @@ label ll_pf_blowjob_T1_summon:
     call her_main("Anyone I know?", "smile", "happy", "base", "mid")
     m "I believe... argh... you've met..."
     $ lunCG(pos=7)
-    call her_main("Hmmmm... It's not a slytherin is it?", "upset", "squint", "base", "mid")
+    call her_main("*Hmmmm*... It's not a slytherin is it?", "upset", "squint", "base", "mid")
     m "Which colour are they again?"
     $ lunCG(pos=14)
     call her_main("The green ones you decrepit old perv!", "open", "base", "angry", "mid")
@@ -1302,7 +1302,7 @@ label ll_pf_blowjob_T1_summon:
     lun "*glck* *slrp* *glck*"
     $ lunCG('', '', '', 'up', pos=15)
     m "Mmmm... she's not a slytherin then..."
-    call her_main("Hmmm... She certainly doesn't have any shame by the sounds of it, so she's not a hufflepuff...", "upset", "narrow", "angry", "R")
+    call her_main("*Hmmm*... She certainly doesn't have any shame by the sounds of it, so she's not a Hufflepuff...", "upset", "narrow", "angry", "R")
     $ lunCG(pos=10)
     lun "*glck* *slrp* *glck*"
     $ lunCG(pos=13)
@@ -1488,7 +1488,7 @@ label ll_pf_blowjob_T1_summon:
 label ll_pf_blowjob_T1_old_writing: # Not in use. Old writing.
 
     m "Well... Now that you mention it... What's your class schedule like for today?"
-    call lun_main("Hmmmm... not too busy. I have divination at eleven and... um... herbology at two!","base","happyCl","sad","mid",cheeks="blush")
+    call lun_main("*Hmmmm*... not too busy. I have divination at eleven and... um... herbology at two!","base","happyCl","sad","mid",cheeks="blush")
     m "I think I might need to write you a note explaining your absence from class then."
     call lun_main("Really? Why's that?","base","happyCl","sad","mid",cheeks="blush")
     m "Those nasty wickerspoons are bothering me again, quite badly I'm afraid."

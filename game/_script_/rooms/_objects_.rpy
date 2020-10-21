@@ -89,3 +89,7 @@ default fireplace_deco_OBJ = RoomObject(type="fireplace_deco",
 default owl_deco_OBJ = RoomObject(type="owl_deco",
     room_image="", room_image_path="images/rooms/_objects_/mail/",
     xpos=owl_OBJ.xpos, ypos=owl_OBJ.ypos)
+
+default cupboard_deco_OBJ = RoomObject(type="cupboard_deco",
+    room_image="", room_image_path="images/rooms/_objects_/cupboard/",
+    xpos=cupboard_OBJ.xpos, ypos=cupboard_OBJ.ypos)

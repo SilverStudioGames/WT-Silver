@@ -422,7 +422,7 @@ label cho_tactics:
             call cho_walk(600, 150+180)
 
             call cho_main("Is this good?", "open", "base", "raised", "mid", xpos="base", ypos="head")
-            m "Hmm... No, that robe is in the way... I can't seem to get a good view from this angle..."
+            m "*Hmm*... No, that robe is in the way... I can't seem to get a good view from this angle..."
             call cho_main("Good! Then the crowd shouldn't either!", "smile", "base", "base", "down", xpos="base", ypos="head")
             m "Yes, probably..."
             m "How about instead you..."
@@ -518,7 +518,7 @@ label cho_tactics:
 
             g4 "Yes, fantastic!"
             g9 "You have very cute panties, girl!"
-            call cho_main("*Uhm*...{w=0.5} Thank you, [cho_genie_name].", "annoyed", "base", "base", "down", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("*Ehm*...{w=0.5} Thank you, [cho_genie_name].", "annoyed", "base", "base", "down", cheeks="blush", xpos="base", ypos="head")
             m "(I have created the ultimate up-skirt!)"
             m "(Nothing can stop us now...)"
             call cho_main("Can I come down now?", "soft", "base", "base", "downR", xpos="base", ypos="head")
@@ -637,7 +637,7 @@ label cho_tactics:
             m "They should even be able to smell you if you are this close!"
             call cho_main("I hope not!", "quiver", "closed", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
             g9 "Why? You smell lovely, girl!"
-            call cho_main("*Uhm*...{w} Thank you, Sir.", "soft", "base", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("*Ehm*...{w} Thank you, Sir.", "soft", "base", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
 
             call cho_main("Can I come down now?", "soft", "narrow", "base", "mid", cheeks="blush", xpos="base", ypos="head")
             m "Of course."

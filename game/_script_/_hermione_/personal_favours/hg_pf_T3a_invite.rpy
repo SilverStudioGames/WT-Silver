@@ -81,7 +81,7 @@ label hg_pf_strip_T4_snape:
         call her_main("!!!", "open", "base", "base", "mid")
         m "I want to prove that professor Snape is dirty, and I need your help."
         call her_main("But didn't we already establish that last time I did this?", "annoyed", "base", "worried", "R")
-        m "Well, *ehm*... sure..."
+        m "Well, *Ehm*... sure..."
         m "But I will need more proof if I am to take this issue to the ministry of magic!"
         call her_main(".....", "angry", "base", "angry", "mid")
         m "So, what do you say [hermione_name]?"
@@ -163,7 +163,7 @@ label hg_pf_strip_T4_snape:
     m "And will make up for it today, won't you, [hermione_name]?"
     pause.2
 
-    call her_main("*Uhm*... Yes, [genie_name].", "base", "happy", "base", "mid")
+    call her_main("*Ehm*... Yes, [genie_name].", "base", "happy", "base", "mid")
     pause.2
 
     call nar(">Hermione starts to sway her hips seductively.")
@@ -482,7 +482,7 @@ label hg_pf_strip_T4_snape_masturbate:
     with d5
     call ctc
 
-    call her_main("No, guys... err I mean, sirs... Ehm, professors!", "angry", "wide", "base", "stare", xpos="mid", ypos="base")
+    call her_main("No, guys... *Err*... I mean, sirs! *Ehm*... professors!", "angry", "wide", "base", "stare", xpos="mid", ypos="base")
     m "Don't you mind us [hermione_name], just keep on doing your thing."
     call her_main("But...")
     call her_main("No! I refuse to dance with those things pointed at me!", "angry", "happyCl", "worried", "mid")

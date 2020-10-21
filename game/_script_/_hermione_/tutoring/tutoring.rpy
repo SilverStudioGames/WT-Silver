@@ -242,7 +242,7 @@ label hg_tutor_E3:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Hmm, I wonder what he {b}was{/b} thinking about.){/size}", "base", "narrow", "base", "down", cheeks="blush", xpos="base", flip=True, trans=d3)
+    call her_main("{size=-4}(*Hmm*... I wonder what he {b}was{/b} thinking about.){/size}", "base", "narrow", "base", "down", cheeks="blush", xpos="base", flip=True, trans=d3)
     call her_main("{size=-4}(Probably all the problems caused by those harlots.){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush")
     call her_main("{size=-4}(Well, I will never be like them, so no need to worry.){/size}", "silly", "narrow", "base", "mid_soft", cheeks="blush")
 
@@ -620,7 +620,7 @@ label hg_tutor_E7:
     call blkfade
     call nar(">You abruptly stop.")
     pause .5
-    call her_main("*Hmpf*...{w=0.3} Why did you stop, [genie_name]?", "clench", "base", "worried", "mid", cheeks="blush", emote="angry", xpos="base", ypos="head")
+    call her_main("*Hmph*...{w=0.3} Why did you stop, [genie_name]?", "clench", "base", "worried", "mid", cheeks="blush", emote="angry", xpos="base", ypos="head")
     m "Lesson is over. Time to practise by yourself."
 
     call gen_chibi("sit_behind_desk")
@@ -932,7 +932,7 @@ label hg_tutor_E9:
     call her_walk("door", "base")
 
     call her_main("{size=-4}(Favourite...){/size}", "base", "narrow", "base", "up", cheeks="blush", xpos="base", ypos="head")
-    call her_main("{size=-4}(Hmm, could there be another one?){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush")
+    call her_main("{size=-4}(*Hmm*... Could there be another one?){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call her_main("{size=-4}(I better do my best to remain his favourite!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush")
 
     call her_chibi("leave")
@@ -1402,7 +1402,7 @@ label hg_tutor_E12:
     call her_main("{size=-2}(I'll try them in my pussy later tonight){/size}", "base", "closed", "base", "mid")
     call her_chibi_scene("grope_ass_back")
     call nar(">You push the first bead in with ease.")
-    her "*Hmmm* {heart}"
+    her "*Mmm*... {heart}"
     m "How many do you think you can take, my dear?"
     call her_main("How many have you got?", "base", "narrow", "base", "up", cheeks="blush")
     g9 "That's the spirit!"
@@ -1695,7 +1695,7 @@ label hg_tutor_E13:
     call hide_blkfade
     call ctc
 
-    call her_main("*Hmmm* yes like that.", "base", "narrow", "base", "up", cheeks="blush")
+    call her_main("*Mmm*... Yes... like that.", "base", "narrow", "base", "up", cheeks="blush")
     call her_main("My pussy feels lonely without your care.", "grin", "wink", "base", "mid", cheeks="blush")
     call nar(">You start to finger her pussy too.")
     m "Poor little thing."
@@ -1704,7 +1704,7 @@ label hg_tutor_E13:
     call her_main("Thank you for letting me discover such pleasures.", "open", "happyCl", "worried", "mid", cheeks="blush")
     g9 "{b}My{/b} pleasure."
     call her_main("It's even better when it's mutual, isn't it?", "open", "happy", "base", "mid", cheeks="blush")
-    m "Hmm, yes you're right. I'm glad you feel that way."
+    m "*Hmm*... Yes you're right... I'm glad you feel that way."
     call her_main("Now a little deeper please.", "soft", "base", "base", "R", cheeks="blush")
     call nar(">You push the whole bottle neck up inside her asshole.")
     call her_main("*Ohhh* yesss! {heart}", "open", "narrow", "base", "up", cheeks="blush")

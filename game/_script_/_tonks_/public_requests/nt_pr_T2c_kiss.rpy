@@ -27,7 +27,7 @@ label nt_pr_kiss_start:
                 m "You've already gotten to second base! Let's not jump back to first!"
                 call ton_main("You don't get it...{w} The way I make out...","horny","base","base","R")
                 call ton_main("It's way more intense than anything these students will have ever experienced...","base","base","angry","mid")
-            m "*Hmmm*..."
+            m "*Hmm*..."
             g9 "So you're not just going to give them a peck on the cheek, are you?"
             call ton_main("Oh no...", "crooked_smile", "narrow", "base", "mid")
             call ton_main("They'll be lucky if they can talk straight after I'm done with them...", "crooked_smile", "closed", "base", "mid")
@@ -130,7 +130,7 @@ label nt_pr_kiss_T1_intro_E1: # Tier 1 - Event 1 - Slytherin boy
     m "Oh... How so?"
     call ton_main("His behaviour has really started to improve after I began buying favours from him!", "base", "narrow", "base", "mid")
     m "Maybe you should consider dealing with all your troublemakers this way?"
-    call ton_main("*Hmmm*... Don't tempt me...","horny","base","base","R")
+    call ton_main("*Hmm*... Don't tempt me...","horny","base","base","R")
     m "That'll be all then."
     call ton_main("Right, see you, [ton_genie_name].","base","base","base","mid")
 
@@ -197,7 +197,7 @@ label nt_pr_kiss_T1_E2: # Tier 1 - Event 2 - Ravenclaw boy
     call ton_main("*Ugh*!... I've never had someone attack me with their tongue like that...", "horny", "base", "base", "up")
     call ton_main("It was intense! And neither of us wanted it to end...", "soft", "base", "shocked", "ahegao", hair="horny")
     g9 "Is that why you were late today?"
-    call ton_main("*Hmmm*... Can you blame me?", "crooked_smile", "base", "base", "up")
+    call ton_main("*Hmm*... Can you blame me?", "crooked_smile", "base", "base", "up")
     g9 "So you spent all afternoon French kissing one of your students?"
     call ton_main("Yes, [ton_genie_name]...", "soft", "closed", "base", "mid")
     call ton_main("I guess I fucking did!", "crooked_smile", "base", "shocked", "mid", hair="neutral")
@@ -334,7 +334,7 @@ label nt_pr_kiss_T1_E4: #Level 1 Event 4
     m "....................."
     call ton_main("She couldn't quite work out whether it was too extreme of a favour... or too mild...", "annoyed", "base", "shocked", "R")
     m "Well, it all depends on how you kiss..."
-    call ton_main("*Hmmm*... Yes!","horny","base","base","ahegao")
+    call ton_main("*Hmm*... Yes!","horny","base","base","ahegao")
     call ton_main("For an emotionally charged schoolgirl, she really didn't let me down one bit...", "horny", "base", "annoyed", "up")
     call ton_main("Her lips kept quivering...{w} And I'm not sure if it was because of fear... or anticipation...", "soft", "narrow", "base", "R")
     call ton_main("And she gazed at me like a stunned deer... Waiting for me to make the first move...", "soft", "narrow", "base", "mid")

@@ -293,7 +293,7 @@ label ll_pf_masturbate_T1_E2:
     call lun_main("And I promise that I wouldn't ask unless it was of the utmost importance!","soft","base","sad","R")
     m "Get on with it, [luna_name]."
     call lun_main("Can I... get some more wrackspurts out? Please?","normal","wink","sad","mid")
-    m "*Hmmm*, again? so soon?"
+    m "*Hmm*... Again? So soon?"
     call lun_main("If you think that it's too much for you to handle, we could slow down a bit...","normal","seductive","sad","R")
     m "Nonsense! I could never abandon my students in their hour of need."
     call lun_main("You mean it's okay if I?","normal","wide","sad","mid")
@@ -333,7 +333,7 @@ label ll_pf_masturbate_T1_E3:
     m "You seem relieved..."
     call lun_main("Ah... {heart} yes...","base","wide","sad","mid")
     call lun_main("These visits are starting to become all I can think about...","base","seductive","sad","down")
-    m "*Hmmm*...{w=0.3} Do you think that's a bad thing?"
+    m "*Hmm*...{w=0.3} Do you think that's a bad thing?"
     call lun_main("Ah...{w=0.3} of course not!","normal","happyCl","sad","R")
     call lun_main("It just...*Hngh*{w=0.3} means that it's working...","pout","base","sad","mid")
     call lun_main("If only I could spend all day up here...","base","base","sad","mid")
@@ -553,7 +553,7 @@ label ll_pf_masturbate_T1_jerk_off: # Call label
     m "..."
     m "And what did it smell like?"
     $ ccg1 = "10"
-    lun "*Hmmm*... It reminds me of a certain Bertie Bott's Every-Flavour bean I once had..."
+    lun "*Hmm*... It reminds me of a certain Bertie Bott's Every-Flavour bean I once had..."
     $ ccg1 = "11"
     lun "It wasn't very good... But it wasn't bad..."
     m "Well now that you've taken it all--"

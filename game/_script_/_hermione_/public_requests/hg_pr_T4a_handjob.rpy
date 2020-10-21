@@ -329,7 +329,7 @@ label hg_pr_handjob_T5_E1:
     her "Not yet, [genie_name]..."
     m "Not yet?"
     call her_main("Yes... Let me explain, [genie_name]...", "annoyed", "base", "worried", "R")
-    call her_main("*Uhm*... Well...", "open", "base", "base", "mid")
+    call her_main("*Ehm*... Well...", "open", "base", "base", "mid")
     her "I was jerking this one boy off, in one of the empty classrooms..."
     her "And that nasty ghost Peeves walked in..."
     call her_main("Or rather flew in on us...", "annoyed", "base", "worried", "R")
@@ -586,7 +586,7 @@ label hg_pr_handjob_T6_E2:
     m "And you ended up jerking off five cocks..."
     call her_main("... yes.", "soft", "narrow", "annoyed", "up")
     m "At the same time?"
-    call her_main("*Mhm*!", "base", "narrow", "annoyed", "mid_soft")
+    call her_main("*Mhmm*!", "base", "narrow", "annoyed", "mid_soft")
     g9 "And they came on you?!"
     call her_main("You have no idea.", "base", "base", "base", "mid_soft")
     g9 "Well done, miss Granger, absolutely fantastic!"
@@ -599,7 +599,7 @@ label hg_pr_handjob_T6_E3:
     call hg_pr_handjob_intro
 
     call her_main("Yes I did, [genie_name].", "base", "base", "base", "mid")
-    call her_main("But, *ehm*...", "open", "base", "worried", "mid")
+    call her_main("But, *Ehm*...", "open", "base", "worried", "mid")
     m "...?"
     call her_main("Well, I did not just wank off one of my classmates...", "open", "base", "base", "mid")
     her "I........."

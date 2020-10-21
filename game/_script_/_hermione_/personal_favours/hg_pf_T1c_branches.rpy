@@ -268,7 +268,7 @@ label hg_pf_admire_breasts_T3_promise:
 
             return
 
-        "\"Hm... I've seen better.\"":
+        "\"*Hmm*... I've seen better.\"":
             $ her_mood += 7
 
             her "*Tsk*..."
@@ -359,7 +359,7 @@ label hg_pf_admire_breasts_T3_masturbate:
     call her_main("well, so be it...", "open", "base", "base", "R", cheeks="blush")
     call her_main("You can keep touching yourself, [genie_name]...", "open", "base", "base", "R", cheeks="blush")
     call her_main("But you must promise me not to...", "soft", "base", "base", "R", cheeks="blush")
-    call her_main("Not to... *ehm*...", "open", "base", "base", "R", cheeks="blush")
+    call her_main("Not to... *Ehm*...", "open", "base", "base", "R", cheeks="blush")
     call her_main("Not to discharge...", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call her_main("Not in front of me, [genie_name]...", "angry", "base", "angry", "mid")
     m "Fine, whatever..."
@@ -611,7 +611,7 @@ label hg_pf_admire_breasts_T4_masturbate: # Call label
         call her_main("..............", "disgust", "narrow", "base", "down", cheeks="blush")
         call her_main("well, so be it...", "open", "base", "base", "R", cheeks="blush")
         call her_main("But you must promise me not to...", "soft", "base", "base", "R", cheeks="blush")
-        call her_main("Not to... *ehm*...", "open", "base", "base", "R", cheeks="blush")
+        call her_main("Not to... *Ehm*...", "open", "base", "base", "R", cheeks="blush")
         call her_main("Not to discharge...", "annoyed", "narrow", "angry", "R", cheeks="blush")
         call her_main("Not on me, [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush")
         m "Fine, whatever..."
@@ -631,7 +631,7 @@ label hg_pf_admire_breasts_T4_masturbate: # Call label
         call her_main("..............", "base", "narrow", "base", "up", cheeks="blush")
         call her_main("well, so be it...", "open", "base", "base", "R", cheeks="blush")
         call her_main("But you must promise me not to...", "soft", "base", "base", "R", cheeks="blush")
-        call her_main("Not to... *ehm*...", "open", "base", "base", "R", cheeks="blush")
+        call her_main("Not to... *Ehm*...", "open", "base", "base", "R", cheeks="blush")
         call her_main("Not to cum on me, [genie_name]...", "base", "narrow", "base", "up", cheeks="blush")
         m "Fine, whatever..."
         m "Oh, you little slut. You nasty little slut!"

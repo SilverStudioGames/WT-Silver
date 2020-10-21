@@ -188,7 +188,7 @@ label ag_se_imperio_sb_E1:
     m "Ugh... fine..."
     call ast_main("But not today...","annoyed","base","base","mid")
     call ast_main("I should put Bessy here back in her barn before people start to notice.","grin","base","angry","L")
-    call sus_main("(Hmm...)","upset","wide","worried","wide")
+    call sus_main("(*Hmm*...)","upset","wide","worried","wide")
     m "Alright..."
     call ast_main("Just call me for the next practice session!","smile","narrow","base","mid")
     m "Will do."
@@ -306,7 +306,7 @@ label ag_se_imperio_sb_E2:
     call ast_chibi("wand",530,"base")
     call ast_main("So what should we make her do today, [ast_genie_name]?","smile","base","base","mid")
     m "Something fun, perhaps?"
-    call ast_main("*Hmmm*...","annoyed","narrow","base","R")
+    call ast_main("*Hmm*...","annoyed","narrow","base","R")
     m "Maybe something a little more... adventurous?"
     call ast_main("You mean like making her show you her milk duds?","upset","narrow","base","mid")
     m "Well if you insist..."
@@ -631,7 +631,7 @@ label ag_se_imperio_sb_E3:
     call sus_main("to... Azkaban...","open","narrow","base","up")
     call sus_main("...","upset","narrow","base","mid")
     call ast_main("Alright... that'll shut her up...{w} what should we make her do this time, [ast_genie_name]?","grin","base","base","mid",xpos="close",ypos="base")
-    m "Hmmm... Are you actually going to let me choose this time or are you just asking to be annoying?"
+    m "*Hmm*... Are you actually going to let me choose this time or are you just asking to be annoying?"
     call ast_main("Hey! I am not annoying!","scream","closed","angry","mid",trans=hpunch)
     m "Well are you going to let me pick then?"
     call ast_main("Fine... Just nothing too disgusting!","clench","narrow","base","mid")
@@ -725,7 +725,7 @@ label ag_se_imperio_sb_E3:
     sus "I can't!"
     call ast_main("Really? why's that, Suzy?","grin","narrow","base","down")
     sus "I don't know... I just can't!"
-    call ast_main("*Hmmm*... it must be because you're such a nasty little slut then...","open","closed","base","mid")
+    call ast_main("*Hmm*... it must be because you're such a nasty little slut then...","open","closed","base","mid")
     with hpunch
     sus "I-- I am not!"
     call ast_main("Are you sure?","grin","base","angry","down")
@@ -782,7 +782,7 @@ label ag_se_imperio_sb_E3:
     sus "Really?"
     sus "Alright..."
     sus "{size=-5}I'm a...{/size} {size=-3}slut...{/size}"
-    call ast_main("*Hmmm*, I'm not sure I heard anything... What about you, sir?","annoyed","base","base","R")
+    call ast_main("*Hmm*... I'm not sure I heard anything. What about you, sir?","annoyed","base","base","R")
     m "Ah...{w=0.3} almost..."
     call ast_main("Go on Suzy... one more time...","smile","narrow","base","down")
     with hpunch
@@ -853,7 +853,7 @@ label ag_se_imperio_sb_E3:
     else:
         call ast_main("It's getting a bit late Suzy, let's head to Tonks' study...","annoyed","narrow","base","R")
         sus "..."
-        m "Ugh... *uhm*... good night."
+        m "Ugh... *Uhm*... good night."
         call ast_main("Good night, [ast_genie_name]!","grin","closed","base","mid")
 
     call play_sound("door")

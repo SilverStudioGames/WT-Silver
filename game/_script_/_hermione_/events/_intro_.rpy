@@ -19,7 +19,7 @@ label hermione_intro_E1:
 
     m "Somebody is knocking on the door..."
     m "Crap... I'm supposed to avoid any human contact!"
-    m "Hm... What are the chances that the thing knocking on my door is not human?"
+    m "*Hmm*... What are the chances that the thing knocking on my door is not human?"
     m "Yeah, quite slim..."
 
     call play_sound("knocking")
@@ -221,7 +221,7 @@ label hermione_intro_E1:
 
     if not masturbating:
         m "{size=-4}(Do I? I honestly don't give a damn...){/size}"
-        m "*Uhm*... I suppose I do..."
+        m "*Err*... I suppose I do..."
         call her_main("{size=-4}(\"Suppose\"?){/size}", "annoyed", "base", "base", "mid")
         call her_main("{size=-4}(When did Professor Dumbledore become so... apathetic?){/size}", "annoyed", "base", "worried", "R")
 
@@ -351,7 +351,7 @@ label ss_he_hermione_E1:
     m "Well... I've read the books..."
     call sna_main("What? What books?","snape_34")
     m "Nah, never mind. I'm a genie, remember? I know things..."
-    call sna_main("Hm... And yet you need me to teach you stuff...","snape_37")
+    call sna_main("*Hmm*... And yet you need me to teach you stuff...","snape_37")
     m "Well, I told you. My magic is acting up in your world..."
     call sna_main("Sure, sure...","snape_37")
     m "......"
@@ -828,7 +828,7 @@ label hermione_intro_E4:
     call her_main("I'm sorry, sir... I...", "upset", "narrow", "base", "down", tears="mascara")
     call her_main("..................", "angry", "narrow", "base", "down", tears="mascara")
     call her_main("It seems that I did...", "angry", "happyCl", "base", "dead", tears="mascara")
-    call her_main("I did... *uhm*...", "normal", "happyCl", "base", "dead", tears="mascara")
+    call her_main("I did... *Ehm*...", "normal", "happyCl", "base", "dead", tears="mascara")
     call her_main("... I failed that test after all.", "open", "happyCl", "base", "dead", tears="mascara")
     call her_main("I...", "disgust", "narrow", "base", "down", tears="mascara")
     call her_main("I'm sorry, professor...", "upset", "happyCl", "worried", "mid", tears="mascara_soft_blink")
@@ -912,7 +912,7 @@ label hermione_intro_E5:
             "\"Splendid! Starting today?\"":
                 pass
     else:
-        call her_main("I... *uhm*...", "normal", "squint", "angry", "mid")
+        call her_main("I... *Ehm*...", "normal", "squint", "angry", "mid")
         her "Sir, I hope this is not too much to ask..."
         m "Yes?"
         her "*Ehm*... would it be alright if..."
@@ -1043,7 +1043,7 @@ label hermione_intro_E6:
     call her_main("*Ehm*......", "open", "base", "base", "mid")
     call her_main(".................", "annoyed", "base", "worried", "R")
     m "What is it, miss Granger?"
-    call her_main("Well, *ehm*...", "open", "base", "base", "mid")
+    call her_main("Well... *Ehm*.", "open", "base", "base", "mid")
 
     if gryffindor < slytherin:
         call her_main("You see... The Gryffindor house is not in the lead anymore...", "open", "base", "worried", "R")
@@ -1177,14 +1177,14 @@ label hermione_intro_E6:
                 "\"No, come closer\"" if d_flag_01 == "mid":
                     $ d_flag_01 = "desk"
                     $ d_flag_02 += 1
-                    her "*uhm*... alright..."
+                    her "*Ehm*... alright..."
                     call her_walk("desk", "base")
 
                     jump hermione_intro_E6.stand_there_choices
                 "{size=-4}\"On second thought, go back to the middle\"{/size}" if d_flag_01 == "desk":
                     $ d_flag_01 = "mid"
                     $ d_flag_02 += 1
-                    her "*uhm*... alright..."
+                    her "*Ehm*... alright..."
                     call her_walk("mid", "base")
                     call her_chibi("stand", flip=False)
                     with d3
@@ -1267,7 +1267,7 @@ label hermione_intro_E6:
                 call her_main("*Ehm*...", "upset", "base", "base", "down")
                 her "....................."
                 call her_main("Well, I am not perfect, if that's what you mean, sir...", "annoyed", "narrow", "angry", "R")
-                call her_main("But do I need to be punished... hm?", "annoyed", "base", "base", "R")
+                call her_main("But do I need to be punished?", "annoyed", "base", "base", "R")
                 call her_main("Is this really for me to decide...? I mean...", "normal", "squint", "angry", "mid")
                 call her_main("What does this have to do with anything?", "open", "squint", "angry", "mid")
                 call her_main("", "normal", "squint", "angry", "mid")

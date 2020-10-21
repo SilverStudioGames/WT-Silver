@@ -390,7 +390,7 @@ label cc_pr_manipulate_girls_T3_angelina:
         g4 "You look soaked."
         call cho_main("Oh, yes... I guess my clothes ended up a little wet...", "base", "narrow", "base", "down", cheeks="blush") #Blushing
         m "How? It's not even raining!"
-        call cho_main("*Uhm*....", "disgust", "narrow", "base", "mid", cheeks="blush")
+        call cho_main("*Ehm*....", "disgust", "narrow", "base", "mid", cheeks="blush")
 
     m "So, do you have that report for me?"
     call cho_main("I...{w=0.3} yes...", "horny", "base", "base", "downR", cheeks="blush")

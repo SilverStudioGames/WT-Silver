@@ -88,7 +88,7 @@ label hg_ps_buttplug:
         m "Will you be putting it in now then?"
         call her_main("........", "annoyed", "narrow", "angry", "R")
         call her_main("I'll do it in the girls' bathroom, [genie_name]", "annoyed", "narrow", "angry", "R")
-        m "*Hmmm*... alright, I'll see you tonight then."
+        m "*Hmm*... alright, I'll see you tonight then."
 
         $ buttplug_1_worn = True
 
@@ -146,7 +146,7 @@ label hg_ps_buttplug:
 
             "\"You'll get seventy points.\"":
                 $ current_payout = 70
-                call her_main("*Hmmmph*...", "annoyed", "narrow", "angry", "R")
+                call her_main("*Hmph*...", "annoyed", "narrow", "angry", "R")
                 call her_main("Alright then, just don't expect me to show it to you!", "angry", "base", "angry", "mid")
                 m "So long as you wear it to class then you'll get your seventy points."
                 ">You hand her the butt plug."
@@ -266,7 +266,7 @@ label hg_ps_buttplug:
 
                     "\"Fifty-five is all I can do.\"":
                         m "Any more and people might get suspicious."
-                        call her_main("*hmmmm* I suppose you're right...", "annoyed", "narrow", "angry", "R")
+                        call her_main("*Hmm*... I suppose you're right.", "annoyed", "narrow", "angry", "R")
                         call her_main("but as a present I'll show you anyway...", "base", "narrow", "worried", "down")
                         call her_main("although you better appreciate it...", "base", "squint", "base", "mid")
                         m "I'm sure I will."
@@ -542,7 +542,7 @@ label hg_ps_buttplug_complete:
             m "Did she say anything?"
             call her_main("No, [genie_name]...", "soft", "happy", "base", "R")
             her "But when I turned back around she didn't make eye contact..."
-            m "Hm..."
+            m "*Hmm*..."
             call her_main("I don't think I've seen anyone blush so hard...", "base", "narrow", "base", "mid_soft")
             m "Well it sounds like you've earned your points and then some."
 
@@ -803,7 +803,7 @@ label hg_ps_buttplug_complete:
             call her_main("Yes... well I might have...", "base", "narrow", "worried", "down")
             call her_main("had someone...", "base", "happyCl", "worried", "mid")
             call her_main("touch it...", "base", "narrow", "base", "mid_soft")
-            m "*hmmmm*..."
+            m "*Hmm*..."
             call her_main("It was Luna Lovegood again.", "grin", "base", "base", "R")
             call her_main("We ended up sitting next to each other in class.", "soft", "base", "base", "R")
             her "we were talking about school, clothes..."
@@ -817,7 +817,7 @@ label hg_ps_buttplug_complete:
             m "Did she realise what was happening?"
             call her_main("maybe... it felt so good that it was hard to keep it hidden.", "soft", "narrow", "annoyed", "up")
             her "But I think that just made her want to touch it more..."
-            m "*Hm*..."
+            m "*Hmm*..."
             call her_main("I don't think I've ever had a better lesson...", "grin", "narrow", "base", "dead")
             m "Well it sounds like you've earned your points and then some."
 
@@ -828,7 +828,7 @@ label hg_ps_buttplug_complete:
             m "[hermione_name], did you complete your task?"
             show screen blktone
             call her_main("I did, [genie_name].", "open", "closed", "base", "mid",xpos="right",ypos="base")
-            call her_main("Only... *ehm*...", "grin", "base", "base", "R")
+            call her_main("Only... *Ehm*...", "grin", "base", "base", "R")
             m "What is it this time [hermione_name]?"
             call her_main("Well... you know my friend...", "base", "base", "base", "mid")
             her "Ginny Weasley..."
@@ -849,7 +849,7 @@ label hg_ps_buttplug_complete:
                 her "but after she saw what it was doing to me..."
                 her "she insisted that I let her have a go..."
                 call her_main("and that's all I'll say...", "base", "narrow", "worried", "down")
-                m "*Hmmmm*, well you did earn your points [hermione_name], even if you are secretive about it..."
+                m "*Hmm*... I suppose you've earned your points [hermione_name], even if you are secretive about it..."
             else:
                 call her_main("... No.", "open", "narrow", "worried", "down")
                 m "Why not?"

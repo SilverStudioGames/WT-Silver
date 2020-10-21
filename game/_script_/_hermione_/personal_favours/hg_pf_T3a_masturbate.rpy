@@ -18,7 +18,7 @@ label hg_pf_strip_T4_fingering:
         call her_main("{size=-5}I suppose I do...{/size}", "angry", "happyCl", "worried", "mid", emote="sweat")
         m "*huh*? What was that?"
         call her_main("I said that I do alright!!!", "scream", "happyCl", "worried", "mid")
-        m "*Hmmmm*, I'm not sure I believe you..."
+        m "*Hmm*... I'm not sure I believe you."
         call her_main("What? why would I lie?", "annoyed", "base", "worried", "R")
         m "I'm not sure... maybe it's because you think it's what I want you to say..."
         call her_main("That doesn't make any--", "annoyed", "base", "worried", "mid")
@@ -87,7 +87,7 @@ label hg_pf_strip_T4_fingering:
     call her_main("I do, [genie_name]! I'm sorry...", "open", "narrow", "worried", "down")
     call her_main("I'll keep going then...", "disgust", "narrow", "base", "down")
     play bg_sounds "sounds/slickloop.mp3" fadein 2
-    m "(*Hmmm*, maybe I should encourage her a little.)"
+    m "(*Hmm*... Maybe I should encourage her a little.)"
 
     menu:
         m "..."

@@ -165,7 +165,7 @@ label whose_points:
 
     call ast_main("Let me check professor!","smile","base","base","mid")
     $ renpy.play("sounds/cloth_sound.mp3")
-    call ast_main("Hmm...{w} It has to be here somewhere...","annoyed","base","base","down")
+    call ast_main("*Hmm*...{w} It has to be here somewhere...","annoyed","base","base","down")
     call ast_main("There it is! It was stuck under one of the folds!","smile","base","base","mid")
     hide screen astoria_main
     with d3

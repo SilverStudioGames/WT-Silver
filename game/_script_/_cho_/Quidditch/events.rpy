@@ -60,7 +60,7 @@ label cho_quid_E1:
     call cho_main("Yes, [cho_genie_name].", "soft", "base", "base", "mid")
     call cho_main("I do my best flying around the pitch searching for it. But it's just so small and really tricky to see...", "angry", "base", "worried", "down")
     m "Why don't you look for it together? After all there is only one."
-    call cho_main("*Hmmm*?", "annoyed", "base", "base", "mid")
+    call cho_main("*Hmm*?", "annoyed", "base", "base", "mid")
     g9 "You just need to grab that Snatch before he does."
     call cho_main("???", "annoyed", "wide", "raised", "mid")
     call cho_main("[cho_genie_name]! It's \"Snitch\"!", "angry", "closed", "angry", "mid")
@@ -820,7 +820,7 @@ label cho_quid_E8:
     m "She's one of the girls I buy favours from."
     call ton_main("No way!", "open_wide", "shocked", "shocked", "mid", hair="horny")
     call ton_main("You got that little hotty--", "horny", "base", "raised", "R", hair="horny")
-    call ton_main("*Uhm*... hot-head to sell you favours?", "mad", "base", "raised", "R")
+    call ton_main("*Ehm*... hot-head to sell you favours?", "mad", "base", "raised", "R")
     m "Once or twice..."
     call ton_main("Impressive.","horny","base","raised","mid")
     call ton_main("Tell me everything!","horny","base","angry","mid")
@@ -835,7 +835,7 @@ label cho_quid_E8:
             call ton_main("I'd pay so many galleons to watch that girl take her clothes off...", "base", "base", "raised", "R")
             call ton_main("You need to invite me next time!", "annoyed", "base", "angry", "mid", hair="angry") # angry
             m "And how would I get her to agree to that?"
-            call ton_main("Well... *Uhm*...", "upset", "base", "worried", "down", hair="horny")
+            call ton_main("Well... *Ehm*...", "upset", "base", "worried", "down", hair="horny")
             m "It was difficult enough to get her to strip just for me..."
             m "She only did it because I helped her win against Hufflepuff."
             call ton_main("So that was your idea with the skirt? Very clever.", "horny", "base", "annoyed", "mid")
@@ -896,8 +896,8 @@ label cho_quid_E8:
         m "It's about Hermione's role as a commentator..."
         call ton_main("Really? What happened to Miss Granger?","upset","base","worried","mid")
         m "She quit..."
-        call ton_main("Hmm... that's too bad...", "open", "base", "worried", "R")
-        call ton_main("But it's understandable... after all that mocking she had to go through last game.", "open", "base", "worried", "mid")
+        call ton_main("*Hmm*... That's too bad...", "open", "base", "worried", "R")
+        call ton_main("But it's understandable... After all that mocking she had to go through last game.", "open", "base", "worried", "mid")
         call ton_main("Poor thing...", "mad", "base", "worried", "L")
         call ton_main("Have you tried talking to her?", "open", "base", "raised", "mid")
         m "Not yet..."
