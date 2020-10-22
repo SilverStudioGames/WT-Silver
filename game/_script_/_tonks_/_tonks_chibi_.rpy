@@ -120,28 +120,26 @@ init python:
         chibi["base"] = chibi_image
 
         # Determine clothing state
+        if tonks.is_worn("top"):
+            chibi["top"] = "nt_top.webp"
 
-        if chibi.action in ("walk", "stand", "leave", "enter"):
-            if tonks.is_worn("top"):
-                chibi["top"] = "nt_top.webp"
+        if tonks.is_worn("bottom"):
+            if chibi.action == "walk":
+                chibi["bottom"] = "ch_ton walk trousers"
+            else:
+                chibi["bottom"] = "nt_trousers.webp"
 
-            if tonks.is_worn("bottom"):
-                if chibi.action == "walk":
-                    chibi["bottom"] = "ch_ton walk trousers"
-                else:
-                    chibi["bottom"] = "nt_trousers.webp"
+        if tonks.is_worn("gloves"):
+            chibi["gloves"] = "nt_gloves.webp"
 
-            if tonks.is_worn("gloves"):
-                chibi["gloves"] = "nt_gloves.webp"
+        if tonks.is_worn("robe"):
+            chibi["robe"] = "nt_robe.webp"
 
-            if tonks.is_worn("robe"):
-                chibi["robe"] = "nt_robe.webp"
+        if tonks.is_worn("bottom") or tonks.is_worn("stockings"):
+            if chibi.action == "walk":
+                chibi["shoes"] = "ch_ton walk shoes"
+            else:
+                chibi["shoes"] = "nt_shoes.webp"
 
-            if tonks.is_worn("bottom") or tonks.is_worn("stockings"):
-                if chibi.action == "walk":
-                    chibi["shoes"] = "ch_ton walk shoes"
-                else:
-                    chibi["shoes"] = "nt_shoes.webp"
-
-            if tonks.is_worn("neckwear"):
-                chibi["neck"] = "nt_choker.webp"
+        if tonks.is_worn("neckwear"):
+            chibi["neck"] = "nt_choker.webp"
