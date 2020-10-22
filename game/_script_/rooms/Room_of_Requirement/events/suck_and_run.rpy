@@ -215,7 +215,8 @@ label suck_and_run:
         call play_sound("giggle")
         pause 1.0
 
-        call ton_chibi("hide")
+        call gen_chibi("hide")
+        call ton_chibi("bj_desk", xpos=218, ypos=205+262) # Desk position
         hide screen blkfade
         with d9
 
@@ -228,16 +229,19 @@ label suck_and_run:
         "*Slurp* *Slurp* *Gulp*"
         m "*Snore*... *Sn--*"
         m "Princess--"
+        call ton_chibi("bj_desk_shocked", xpos=218, ypos=205+262)
         g16 "Tonks?!"
 
         call play_music("tonks")
         call ton_main("*Slurp* *Slurp* *Gulp*!", face="horny", mouth="open_wide_tongue", xpos="far_right", ypos=200, trans=d3) # Explicit positions to avoid hiding the doll
 
+        call ton_chibi("bj_desk", xpos=218, ypos=205+262)
         g4 "am I still dreaming?"
         call ton_main("*Slurp* *Slurp* *slurp*!", "open_wide_tongue", "narrow", "shocked", "stare")
         g4 "*Ngh*... But it feels so real!"
         stop bg_sounds
         call ton_main("...", "base", "closed", "annoyed", "up", hair="angry") #Hair turns red
+        call ton_chibi("bj_desk_shocked", xpos=218, ypos=205+262)
         m "*Ah*... T-Tonks?!"
 
         $ renpy.sound.play("sounds/magic3.mp3")
@@ -272,6 +276,7 @@ label suck_and_run:
         pause 2
 
         call ton_main("Just close your eyes and relax...", "normal", "narrow", "angry", "stare", hair="angry")
+        call ton_chibi("bj_desk", xpos=218, ypos=205+262)
         m "*Ehm*..."
         m "So you don't want my soul?"
         call ton_main("Me? Want a soul as tainted and corrupt as yours?", "base", "base", "angry", "stare", hair="angry")
