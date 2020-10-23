@@ -187,24 +187,28 @@ screen inventory_menuitem(xx, yy):
                     ysize 48
                     pos (24+58*(col), 113+58*(row))
                     add gui.format("interface/achievements/{}/iconbox.webp")
+
                     if not current_item == None and current_item.id == menu_items[i].id:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
+
                     if menu_items[i].number > 0:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42)
                     else:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42, True)
-                    add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
-                    add "interface/achievements/glass_iconbox.webp" pos (3, 2)
+
+                    add image_zoom align (0.5, 0.5)
+                    button:
+                        style gui.theme("overlay_button")
+                        background "interface/achievements/glass_iconbox.webp"
+                        xsize 46 ysize 46
+                        action Return(["select", menu_items[i]])
+                        tooltip menu_items[i].name
+
                     if current_category == "Gifts":
                         if menu_items[i].number > 0:
                             text str(menu_items[i].number) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                         #else:
                             #text str(menu_items[i].number) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
-                    button:
-                        style gui.theme("overlay_button")
-                        xsize 46 ysize 46
-                        action Return(["select", menu_items[i]])
-                        tooltip menu_items[i].name
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24
@@ -226,7 +230,7 @@ screen inventory_menuitem(xx, yy):
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84)
                 else:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
-                add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
+                add image_zoom align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
                 text str(current_item.number) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 

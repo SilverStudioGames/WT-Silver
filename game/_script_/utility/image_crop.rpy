@@ -21,13 +21,14 @@ init python:
     def crop_image_zoom(path, xsize, ysize, grayscale=False):
         box = crop_whitespace(path)
         zoom = min(1.0, min(float(xsize)/box[2], float(ysize)/box[3]))
-
+        matrix = SaturationMatrix(0) if grayscale else None
         sprite = Image(path)
-        if grayscale:
-            sprite = im.Grayscale(path)
+
+        # Image manipulation still looks better than mipmaps at small scales
         sprite = im.Crop(sprite, box)
         sprite = im.FactorScale(sprite, zoom*2)
-        return (sprite, 0.5)
+        # Alternative to the above; pass `crop=box, zoom=zoom` to the transform
+        return Transform(sprite, zoom=0.5, matrixcolor=matrix)
 
     def get_zoom(image, size):
         if isinstance(image, basestring):

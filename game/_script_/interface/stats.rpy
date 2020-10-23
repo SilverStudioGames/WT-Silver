@@ -195,7 +195,7 @@ screen stats_menu(xx, yy):
                         vbox:
                             textbutton (category if stats_dict[category]["flag"] else "???"):
                                 style "empty"
-                                xysize (195, 48)
+                                xysize (195, 46)
                                 text_align (0.6, 0.5)
                                 text_xanchor 0.5
                                 text_size 20
@@ -206,17 +206,18 @@ screen stats_menu(xx, yy):
                                     action Return(["category", category])
 
                             add gui.format("interface/achievements/{}/spacer_left.webp")
-                        add gui.format("interface/achievements/{}/iconbox.webp") yoffset 1
+
                         if stats_dict[category]["flag"]:
                             $ image_zoom = crop_image_zoom("interface/icons/head/"+stats_dict.get(category).get("ico")+".webp", 42, 42)
                         else:
                             $ image_zoom = crop_image_zoom("interface/icons/head/"+stats_dict.get(category).get("ico")+"_locked.webp", 42, 42)
-                        frame:
-                            style "empty"
-                            xsize 42
-                            ysize 42
-                            add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) offset (3, 4)
-                        add "interface/achievements/glass_iconbox.webp" pos (3, 3)
+
+                        button:
+                            style gui.theme("overlay_button")
+                            background gui.format("interface/achievements/{}/iconbox.webp")
+                            foreground "interface/achievements/glass_iconbox.webp"
+                            xysize (48, 48)
+                            add image_zoom align (0.5, 0.5)
 
 transform at_zoom(zoom=1.0):
     zoom zoom

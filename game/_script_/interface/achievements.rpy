@@ -148,9 +148,9 @@ screen achievement_window(string="", title="", icon=None, xpos=0, ypos=60):
                 ysize 84
                 $ image_zoom = crop_image_zoom(icon, 84, 84)
                 if 'head' in icon:
-                    add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) yoffset -1
+                    add image_zoom align (0.5, 1.0) yoffset -1
                 else:
-                    add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
+                    add image_zoom align (0.5, 0.5)
 
             add "interface/achievements/glass.webp"
         frame:
@@ -385,6 +385,7 @@ screen achievement_menuitem(xx, yy):
                     ysize 48
                     pos (24+58*(col), 113+58*(row))
                     add gui.format("interface/achievements/{}/iconbox.webp")
+
                     if current_item and current_item[0] == menu_items[i][0]:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
 
@@ -397,14 +398,13 @@ screen achievement_menuitem(xx, yy):
                             $ image_zoom = crop_image_zoom("interface/achievements/secret.webp", 35, 35, True)
 
                         if menu_items[i][1][0] == "Characters" and not (menu_items[i][1][5] is True and not menu_items[i][1][3] is True):
-                            add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) yoffset -3
+                            add image_zoom align (0.5, 1.0) yoffset -3
                         else:
-                            add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
-
-                    add "interface/achievements/glass_iconbox.webp" pos (3, 2)
+                            add image_zoom align (0.5, 0.5)
 
                     button:
                         style gui.theme("overlay_button")
+                        background "interface/achievements/glass_iconbox.webp"
                         xsize 48 ysize 48
                         action Return(["select", menu_items[i]])
                         if menu_items[i][1][5] and not menu_items[i][1][3]:
@@ -435,9 +435,9 @@ screen achievement_menuitem(xx, yy):
                         else:
                             $ image_zoom = crop_image_zoom(current_item[1][4], 84, 84, True)
                     if current_item[1][0] == "Characters" and not (current_item[1][5] is True and not current_item[1][3] is True):
-                        add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) yoffset -7
+                        add image_zoom align (0.5, 1.0) yoffset -7
                     else:
-                        add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
+                        add image_zoom align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
 
             add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
