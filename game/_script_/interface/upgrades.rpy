@@ -172,7 +172,7 @@ screen upgrades_menu(xx, yy):
                             xsize 42
                             ysize 42
                             add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) offset (3, 4)
-                        add "interface/achievements/glass_iconbox.webp" pos (3, 3)
+                        add "interface/achievements/glass_iconbox.webp"
 
 screen upgrades_menuitem(xx, yy):
     tag upgrades_menuitem

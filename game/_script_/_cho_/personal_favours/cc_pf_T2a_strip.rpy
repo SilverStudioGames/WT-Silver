@@ -292,7 +292,7 @@ label cc_pf_strip_T2_intro_E1:
             call cho_main("And I'm supposed to believe that.", "open", "narrow", "base", "R")
             call cho_main("You're practically foaming out of your mouth just looking at me, Sir...", "soft", "narrow", "angry", "mid")
             g4 "I'm not...{w} that's just..."
-            #if butterbeer_ITEM.number > 0:
+            #if butterbeer_ITEM.owned > 0:
             g4 "Butterbeer..."
             call cho_main("This is as far as I will go, Sir!", "annoyed", "narrow", "angry", "mid")
 

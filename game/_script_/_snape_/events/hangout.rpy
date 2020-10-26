@@ -7,8 +7,8 @@ label snape_hangout:
     call setup_fireplace_hangout(char="snape")
 
     $ ss_he_counter += 1
-    if wine_ITEM.number >= 1:
-        $ wine_ITEM.number -= 1
+    if wine_ITEM.owned >= 1:
+        $ wine_ITEM.owned -= 1
 
     $ ss_he_drink.start()
 
@@ -106,7 +106,7 @@ label ss_he_wine_intro:
     pause.1
 
     # Show wine
-    call give_reward(">You hand over the bottle you found in the cupboard to professor Snape...", gift="interface/icons/item_wine.webp", sound=False)
+    call give_reward(">You hand over the bottle you found in the cupboard to professor Snape...", gift="interface/icons/wine.webp", sound=False)
 
     call sna_main("This one has got to be from Albus' personal stash!","snape_24")
     call sna_main("Some pricey and incredibly rare stuff.","snape_06")
@@ -121,7 +121,7 @@ label ss_he_wine_intro_E2:
     m "Care for another bottle?"
     pause.1
 
-    call give_reward(">You hand over the bottle you found in the cupboard to Professor Snape...",gift="interface/icons/item_wine.webp", sound=False)
+    call give_reward(">You hand over the bottle you found in the cupboard to Professor Snape...",gift="interface/icons/wine.webp", sound=False)
 
     call sna_main("Another bottle of Dumbledore's wine?","snape_05", ypos="head")
     call sna_main("Did you find Albus' secret stash or was it his personal wine cellar?","snape_05")
@@ -139,7 +139,7 @@ label ss_he_wine_repeat:
     m "Look what I've got!"
     pause.1
 
-    call give_reward(">You hand over the bottle you found in the cupboard to Professor Snape...",gift="interface/icons/item_wine.webp", sound=False)
+    call give_reward(">You hand over the bottle you found in the cupboard to Professor Snape...",gift="interface/icons/wine.webp", sound=False)
 
     call sna_main("Another one?","snape_05", ypos="head")
 

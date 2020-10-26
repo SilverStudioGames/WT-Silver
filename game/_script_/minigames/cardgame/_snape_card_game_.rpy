@@ -90,7 +90,7 @@ label snape_duel_menu:
             g9 "I'm in."
 
             $ snape_wager_talk = True
-            if wine_ITEM.number < 1:
+            if wine_ITEM.owned < 1:
                 sna "Show me the bottle."
                 m "What?"
                 sna "I want to see the wine first."
@@ -101,7 +101,7 @@ label snape_duel_menu:
                 jump snape_ready
 
         else:
-            if wine_ITEM.number < 1:
+            if wine_ITEM.owned < 1:
                 sna "Do you have it?"
                 m "What?"
                 sna "The wine of course!"
@@ -324,12 +324,12 @@ label snape_random_duel:
     $ renpy.call_in_new_context("start_duel", random_enemy_deck, snape_after, [renpy.random.randint(0,3), False, True, False], random_player_deck)
 
     if duel_response == "Close":
-        $ wine_ITEM.number -= 1
+        $ wine_ITEM.owned -= 1
         jump snape_duel_cancel
     elif duel_response == "draw":
         jump snape_duel_draw
     elif not duel_response == "win":
-        $ wine_ITEM.number -= 1
+        $ wine_ITEM.owned -= 1
         jump snape_duel_lost
 
     stop music fadeout 1
@@ -476,7 +476,7 @@ label snape_duel_lost:
                 jump snape_duel_menu
             else:
                 m "I demand a rematch!"
-                if wine_ITEM.number < 1:
+                if wine_ITEM.owned < 1:
                     sna "Seems like you lost all of your bottles, maybe next time."
                     g4 "... You evil creature..."
                     pass

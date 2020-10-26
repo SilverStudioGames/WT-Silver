@@ -38,7 +38,7 @@ init python:
 
             for i in self.contents:
                 item, quantity = i
-                item.number += quantity
+                item.owned += quantity
 
             if self.type() == "outfit":
                 # TODO: Remove after conversion of all characters is done.

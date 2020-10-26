@@ -228,118 +228,13 @@ screen icon_menu_item(menu_item, xpos=0, ypos=0):
         fixed:
             xsize 80
             ysize 80
-            if menu_item.number > 0 or menu_item.unlocked == True:
+            if menu_item.owned > 0 or menu_item.unlocked == True:
                 add item_image xalign 0.5 yalign 0.5 zoom image_zoom
             else:
                 add gray_tint(item_image) xalign 0.5 yalign 0.5 zoom image_zoom
 
-            if menu_item.number > 0:
-                text "{color=#ffffff}" +str(menu_item.number)+ "{/color}"
+            if menu_item.owned > 0:
+                text "{color=#ffffff}" +str(menu_item.owned)+ "{/color}"
 
             if menu_item.active:
                 add "interface/topbar/icon_check.webp" align (1.0,1.0)
-
-# Clothing Menu #Customizable
-screen clothing_menu(menu_items, character, preview):
-    $ items_shown=3
-    zorder 5
-
-    #Close Button.
-    use close_button
-
-    #Up Button.
-    imagebutton:
-        xpos 725
-        ypos 240
-        idle gui.format("interface/general/{}/button_arrow_up.webp")
-        if not current_page <= 0:
-            hover gui.format("interface/general/{}/button_arrow_up_hover.webp")
-            action Return("dec")
-
-    #Down Button.
-    imagebutton:
-        xpos 725
-        ypos 292
-        idle gui.format("interface/general/{}/button_arrow_down.webp")
-        if current_page < math.ceil((len(menu_items)-1)/items_shown):
-            hover gui.format("interface/general/{}/button_arrow_down_hover.webp")
-            action Return("inc")
-
-    #Left Button (Bottom right of screen).
-    imagebutton:
-        xpos 977
-        ypos 544
-        idle gui.format("interface/general/{}/button_arrow_left.webp")
-        if character >= character_choice_list[1]:
-            hover gui.format("interface/general/{}/button_arrow_left_hover.webp")
-            action Return("left")
-
-    #Right Button (Bottom right of screen).
-    imagebutton:
-        xpos 1029
-        ypos 544
-        idle gui.format("interface/general/{}/button_arrow_right.webp")
-        if character < character_choice_list[-1]:
-            hover gui.format("interface/general/{}/button_arrow_right_hover.webp")
-            action Return("right")
-
-    #Bag of Gold Icon
-    if preview != None:
-        imagebutton:
-            xpos 705
-            ypos 490
-            if game.gold >= preview.cost:
-                idle  "interface/general/gold_bag.webp"
-                hover "interface/general/gold_bag_hover.webp"
-            else:
-                idle  gray_tint("interface/general/gold_bag.webp")
-                hover gray_tint("interface/general/gold_bag.webp")
-            action Return("buy") #Buys whatever is currently previewed (item_choice)
-
-
-    #Main Store Window.
-    imagemap:
-        xpos 0
-        ypos 0
-
-        if preview == None:
-            ground gui.format("interface/panels/{}/clothing_panel_main.webp")
-            hover gui.format("interface/panels/{}/clothing_panel_main_hover.webp")
-        else:
-            ground gui.format("interface/panels/{}/clothing_panel_full.webp")
-            hover gui.format("interface/panels/{}/clothing_panel_full_hover.webp")
-
-            #Item Information Display Panel.
-            text preview.get_name() xpos 83 ypos 458 size 16
-
-            frame:
-                style "empty"
-                xysize (410, 200)
-                text preview.get_description() xpos 85 ypos 490 size 12
-            text preview.get_type() xpos 509 ypos 458 size 16
-            text ", ".join(preview.get_items()) pos (511, 490) xmaximum 180 size 12
-            text preview.get_wait_time() xpos 83 ypos 557 size 16
-            text "Price: "+preview.get_cost() xpos 509 ypos 557 size 16
-
-        #Mannequin Display Panels.
-        $ page_offset = current_page*items_shown
-        for i in xrange(page_offset, page_offset+items_shown):
-            if i < len(menu_items):
-                hotspot( 70+(227*(i-page_offset)) , (107) , 175 , 284 ) clicked Return(menu_items[i])
-
-                add menu_items[i].get_image() xpos (15+(227*(i-page_offset))) ypos 90 zoom 0.25
-
-        #Large Mannequin Preview.
-        if preview != None:
-            add preview.get_image() xpos 600 ypos 0 zoom 0.5
-        else:
-            if character == 1:
-                add hermione.body.get_mannequin() xpos 600 ypos 0 zoom 0.5
-            elif character == 3:
-                add astoria.body.get_mannequin() xpos 600 ypos 0 zoom 0.5
-            elif character == 5:
-                add cho.body.get_mannequin() xpos 600 ypos 0 zoom 0.5
-            elif character == 6:
-                add tonks.body.get_mannequin() xpos 600 ypos 0 zoom 0.5
-            else:
-                add "interface/icons/outfits/mannequin_"+str(character)+".webp" xpos 600 ypos 0 zoom 0.5

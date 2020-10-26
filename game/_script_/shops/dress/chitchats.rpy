@@ -192,7 +192,7 @@ label purchase_outfit(item):
         m "Ready to work with some latex?"
         maf "Latex... now that's something I don't get to work with often..."
         maf "Anything particular in mind?"
-        if pink_condoms_ITEM.number > 0:
+        if pink_condoms_ITEM.owned > 0:
             m "Yes... something like this."
             maf "Is that a condo--"
             m "But you'd cut a heart shape here..."

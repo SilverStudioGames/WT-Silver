@@ -375,7 +375,7 @@ label decorate_room_menu:
     $ _return = ui.interact()
 
     if isinstance(_return, tuple):
-        if _return[1].number > 0 or _return[1].unlocked:
+        if _return[1].owned > 0 or _return[1].unlocked:
             call use_deco_item(_return[1])
             $ achievement.unlock("decorator")
         else:

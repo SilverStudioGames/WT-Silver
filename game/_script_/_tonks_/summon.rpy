@@ -38,14 +38,14 @@ label summon_tonks:
             jump tonks_favor_menu
 
         # Fireplace Chats
-        "-Let's hang-" (icon="interface/icons/small/toast.webp") if (wine_ITEM.number > 0 and nt_he_drink.counter == 0) or (firewhisky_ITEM.number > 0 and nt_he_drink.counter > 0):
+        "-Let's hang-" (icon="interface/icons/small/toast.webp") if (wine_ITEM.owned > 0 and nt_he_drink.counter == 0) or (firewhisky_ITEM.owned > 0 and nt_he_drink.counter > 0):
             jump tonks_hangout
 
-        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if (firewhisky_ITEM.number < 1 and nt_he_drink.counter > 0):
+        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if (firewhisky_ITEM.owned < 1 and nt_he_drink.counter > 0):
             m "(I don't have any firewhisky...)"
             jump tonks_requests
 
-        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if (wine_ITEM.number < 1 and nt_he_drink.counter == 0):
+        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if (wine_ITEM.owned < 1 and nt_he_drink.counter == 0):
             m "(I don't have any wine...)"
             jump tonks_requests
 
@@ -212,7 +212,7 @@ label tonks_talk:
             call ton_main("You should offer a lady a drink, before burdening her with your problems...","base","base","base","mid")
             m "(Is there {b}any{/b} teacher in this school that has no problems with alcohol...?)"
 
-            if firewhisky_ITEM.number >= 1:
+            if firewhisky_ITEM.owned >= 1:
                 m "I got drinks."
                 call ton_main("What are we waiting for then?","horny","base","base","mid")
 

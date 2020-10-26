@@ -4,7 +4,7 @@ label hg_ps_buttplug:
     hide screen hermione_main
     with d3
 
-    if anal_plugs_ITEM.number == 0:
+    if anal_plugs_ITEM.owned == 0:
         m "{size=-4}(I should get some anal plugs first, then I could make her wear them...){/size}"
         jump hermione_favor_menu
 
@@ -337,7 +337,7 @@ label hg_ps_buttplug:
             call her_main("Unless you have some sort of actual {i}lubricant{/i} in your possession, I don't think I'll be letting this thing anywhere near me...", "open", "base", "angry", "mid")
 
             menu:
-                "-Use anal lube-" if anal_lube_ITEM.number > 0:
+                "-Use anal lube-" if anal_lube_ITEM.owned > 0:
                     $ buttplug_3_worn = True
                     call play_music("playful_tension")
                     m "well it just so happens that I recently came across the solution to your problem."
@@ -387,7 +387,7 @@ label hg_ps_buttplug:
                     call her_main(".............", "disgust", "narrow", "worried", "down",cheeks="blush")
                     call nar(">Hermione slowly leaves your office, barely able to walk in a straight line.")
 
-                "-Use anal lube-" (style="disabled") if anal_lube_ITEM.number == 0:
+                "-Use anal lube-" (style="disabled") if anal_lube_ITEM.owned == 0:
                     m "I'm afraid I do not have that..."
                     call her_main("well then i think I better be off to class then.", "open", "closed", "base", "mid")
                     call her_main("{size=-2}unless {size=-2}you {size=-2}have {size=-2}the {size=-2}smaller {size=-2}one?{/size}{heart}", "soft", "narrow", "base", "R_soft",cheeks="blush")

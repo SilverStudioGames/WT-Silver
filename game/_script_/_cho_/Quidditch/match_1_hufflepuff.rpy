@@ -86,7 +86,7 @@ label hufflepuff_match:
     with d3
 
     # Show wine
-    call give_reward(text=">Not grape-juice.",gift="interface/icons/item_wine.webp")
+    call give_reward(text=">Not grape-juice.",gift="interface/icons/wine.webp")
 
     m "That's all the persuasion I needed my friend!"
     hide screen bld1

@@ -3,9 +3,9 @@ init python:
         if sortby == "z-A":
             item = sorted(item, key=lambda x: x.name, reverse=True)
         elif current_sorting == "Available":
-            item = sorted(item, key=lambda x: x.number, reverse=True)
+            item = sorted(item, key=lambda x: x.owned, reverse=True)
         elif current_sorting == "Unavailable":
-            item = sorted(item, key=lambda x: x.number)
+            item = sorted(item, key=lambda x: x.owned)
         else:
             item = sorted(item, key=lambda x: x.name)
         return item
@@ -21,12 +21,12 @@ label inventory:
 label inventory_menu(xx=150, yy=90):
     # Inventory dictionary
     $ inventory_dict = {
-                        "Gifts": candy_gift_list+mag_gift_list+drink_gift_list+toy_gift_list,
-                        "Quest Items": gen_quest_items_list
-                        }
+        "Gifts": Item.get_instances_of_type("gift"),
+        "Books": Item.get_instances_of_type("book"),
+        "Quest Items": qitem_list,
+    }
 
-    $ inventory_categories_sorted = ["Gifts", "Quest Items"]
-    $ inventory_categories_sorted_length = len(inventory_categories_sorted)
+    $ inventory_categories_sorted = ["Gifts", "Books", "Quest Items"]
 
     $ items_shown = 36
     $ current_page = 0
@@ -52,9 +52,6 @@ label inventory_menu(xx=150, yy=90):
             $ current_item = None
         else:
             $ current_item = _return[1]
-    elif _return[0] == "use":
-        if current_item.number > 0:
-            $ renpy.jump_out_of_context(_return[1])
     elif _return[0] == "category":
         $ current_category = _return[1]
         $ category_items = inventory_dict[current_category]
@@ -102,6 +99,7 @@ screen inventory(xx, yy):
 screen inventory_menu(xx, yy):
     frame:
         style "empty"
+        style_prefix gui.theme('achievements')
         pos (xx, yy)
         xysize (207, 454)
 
@@ -124,14 +122,10 @@ screen inventory_menu(xx, yy):
                             action Return(["category", category])
                     add gui.format("interface/achievements/{}/spacer_left.webp")
         vbox:
+            style_prefix gui.theme('achievements_filters')
             pos (6, 384)
             button action NullAction() style "empty" xsize 195 ysize 32
-            textbutton "Sort by: [current_sorting]":
-                style gui.theme("overlay_button")
-                xsize 195 ysize 32
-                text_align (0.5, 0.5)
-                text_size 12
-                action Return("sort")
+            textbutton "Sort by: [current_sorting]" action Return("sort")
 
 screen inventory_menuitem(xx, yy):
     frame:
@@ -189,17 +183,17 @@ screen inventory_menuitem(xx, yy):
                     add gui.format("interface/achievements/{}/iconbox.webp")
                     if not current_item == None and current_item.id == menu_items[i].id:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
-                    if menu_items[i].number > 0:
+                    if menu_items[i].owned > 0:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42)
                     else:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42, True)
                     add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
-                    add "interface/achievements/glass_iconbox.webp" pos (3, 2)
+                    add "interface/achievements/glass_iconbox.webp"
                     if current_category == "Gifts":
-                        if menu_items[i].number > 0:
-                            text str(menu_items[i].number) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                        if menu_items[i].owned > 0:
+                            text str(menu_items[i].owned) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                         #else:
-                            #text str(menu_items[i].number) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
+                            #text str(menu_items[i].owned) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
                     button:
                         style gui.theme("overlay_button")
                         xsize 46 ysize 46
@@ -222,13 +216,13 @@ screen inventory_menuitem(xx, yy):
                 ysize 96
                 pos (24, 375)
                 add gui.format("interface/achievements/{}/icon_selected.webp")
-                if current_item.number > 0:
+                if current_item.owned > 0:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84)
                 else:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
                 add image_zoom[0] zoom image_zoom[1] align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
-                text str(current_item.number) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                text str(current_item.owned) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
             add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
             add gui.format("interface/achievements/{}/spacer.webp") pos (120, 398)
@@ -237,15 +231,15 @@ screen inventory_menuitem(xx, yy):
                 xalign 0.5
                 text current_item.name ypos 380 size 16 xoffset 45
 
-            if current_category == "Quest Items" and hasattr(current_item, "event"):
+            if current_item.usable and current_item.owned > 0:
                 textbutton "Use":
                     xysize (90, 26)
                     xalign 0.89
                     xoffset 45
                     ypos 374
                     text_size 16
-                    action Return(["use", current_item.event])
+                    action Function(current_item.use)
             hbox:
                 pos (132, 407)
                 xsize 410
-                text current_item.description size 12
+                text current_item.desc size 12

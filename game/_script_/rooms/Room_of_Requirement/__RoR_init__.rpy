@@ -136,7 +136,7 @@ default current_page = 0
 
 init python:
 
-    class MirrorStory(Item): # This class extends Item only so it can be displayed in the item menu screen (refactor?)
+    class MirrorStory(object): # This class extends Item only so it can be displayed in the item menu screen (refactor?)
 
         def __init__(self, **kwargs):
             self.start_label = ""
@@ -145,8 +145,6 @@ init python:
             self.story_description = ""
             self.ach_desc = ""
             self.content_characters = []
-
-            super(MirrorStory, self).__init__(**kwargs)
 
         def get_name(self):
             ret_str = "{size=-2}\""+self.name+"\"{/size}{size=-6} by "

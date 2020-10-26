@@ -51,11 +51,11 @@ label rummaging:
             call give_reward(">You found a map of the school grounds...\n>You can now leave the office.","interface/icons/item_scroll.webp")
             jump main_room_menu
 
-        elif wine_ITEM.number < 1:
+        elif wine_ITEM.owned < 1:
             call rum_block(wine_ITEM)
             jump main_room_menu
 
-        elif not firewhisky_ITEM.unlockable and firewhisky_ITEM.number < 1:
+        elif firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1:
             call rum_block(firewhisky_ITEM)
             jump main_room_menu
 
@@ -82,7 +82,7 @@ label rum_block(item):
         ">You found nothing of value..."
 
     else:
-        $ item.number += 1
+        $ item.owned += 1
         $ the_gift = item.get_image()
         show screen gift(True)
         with d3
@@ -103,7 +103,7 @@ label rum_block(item):
 
 init python:
     def drop_item_from_cupboard(random_percent):
-        drop_list = [item for item in cupboard_drop_list if not item.unlockable]
+        drop_list = [item for item in Item.get_instances_of_type("gift") if item.unlocked]
 
         dr = max(rum_times - game.day, 0) * 2 # Frequent rummaging penalty
         progress_factor = math.log(her_tier + cho_tier + ton_tier + lun_tier + game.day)
@@ -111,36 +111,36 @@ init python:
         if game.difficulty == 1:
             # Easy
             # Soft diminishing returns, more rubber banding. Guaranteed item drop.
-            if not firewhisky_ITEM.unlockable and firewhisky_ITEM.number < 1:
+            if not firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1:
                 return firewhisky_ITEM
-            elif wine_ITEM.number < 1:
+            elif wine_ITEM.owned < 1:
                 return wine_ITEM
             elif game.gold < int(170 * math.log(game.day)) and random_percent <= 56 - dr:
                 return int(progress_factor * random_gold)
             else:
-                filtered_list = filter(lambda x: x.number <= 5, drop_list)
+                filtered_list = filter(lambda x: x.owned <= 5, drop_list)
                 random_item = renpy.random.choice(filtered_list if filtered_list else drop_list)
                 return random_item
 
         elif game.difficulty == 2:
             # Normal
             # Fair diminishing returns, soft rubber banding. High chance for item drop. (Recommended)
-            if not firewhisky_ITEM.unlockable and firewhisky_ITEM.number < 1 and random_percent <= 50:
+            if not firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1 and random_percent <= 50:
                 return firewhisky_ITEM
-            elif wine_ITEM.number < 1 and random_percent <= 50:
+            elif wine_ITEM.owned < 1 and random_percent <= 50:
                 return wine_ITEM
             elif game.gold < int(120 * math.log(game.day)) and random_percent <= 38 - dr:
                 return int(progress_factor * random_gold)
             else:
-                filtered_list = filter(lambda x: x.number <= 3, drop_list)
+                filtered_list = filter(lambda x: x.owned <= 3, drop_list)
                 random_item = renpy.random.choice(filtered_list if filtered_list else drop_list)
 
                 if int(120 * math.log(game.day)) / 3 < random_item.cost:
-                    chance = max(6 - (random_item.number * 5), 1)
+                    chance = max(6 - (random_item.owned * 5), 1)
                 elif game.gold > random_item.cost:
-                    chance = max(65 - (random_item.number * 15), 5)
+                    chance = max(65 - (random_item.owned * 15), 5)
                 else:
-                    chance = max(95 - (random_item.number * 10), 15)
+                    chance = max(95 - (random_item.owned * 10), 15)
 
                 if random_percent <= chance - dr:
                     return random_item
@@ -156,11 +156,11 @@ init python:
                 random_item = renpy.random.choice(drop_list)
 
                 if int(90 * math.log(game.day)) / 3 < random_item.cost:
-                    chance = max(3 - (random_item.number * 5), 1)
+                    chance = max(3 - (random_item.owned * 5), 1)
                 elif game.gold > random_item.cost:
-                    chance = max(40 - (random_item.number * 15), 0)
+                    chance = max(40 - (random_item.owned * 15), 0)
                 else:
-                    chance = max(75 - (random_item.number * 10), 5)
+                    chance = max(75 - (random_item.owned * 10), 5)
 
                 if random_percent <= chance - dr:
                     return random_item

@@ -163,6 +163,7 @@ screen stats_menu(xx, yy):
 
     frame:
         style "empty"
+        style_prefix gui.theme('achievements')
         pos (xx, yy)
         xsize 207
         ysize 454
@@ -172,16 +173,12 @@ screen stats_menu(xx, yy):
         add gui.format("interface/achievements/{}/panel_left.webp")
 
         vbox:
+            style_prefix gui.theme('achievements_filters')
             pos (6, 384)
             button action NullAction() style "empty" xsize 195 ysize 32
             frame:
                 style "empty"
-                textbutton "Show locked:":
-                    style gui.theme("overlay_button")
-                    xsize 195 ysize 32
-                    text_align (0.4, 0.5)
-                    text_size 12
-                    action ToggleVariable("stats_show_locked", True, False)
+                textbutton "Show locked:" action ToggleVariable("stats_show_locked", True, False)
                 add gui.format("interface/frames/{}/check_")+str(stats_show_locked).lower()+".webp" xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
@@ -216,7 +213,7 @@ screen stats_menu(xx, yy):
                             xsize 42
                             ysize 42
                             add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) offset (3, 4)
-                        add "interface/achievements/glass_iconbox.webp" pos (3, 3)
+                        add "interface/achievements/glass_iconbox.webp"
 
 transform at_zoom(zoom=1.0):
     zoom zoom

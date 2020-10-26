@@ -45,26 +45,10 @@ label start_wt:
 
     if persistent.game_complete and game.difficulty <= 2: # Offer for game+
         menu:
-            "NEW GAME +" ">Would you like to carry over your gold and possessions from your previous playthrough?"
+            "NEW GAME +" ">Would you like to carry over your hard earned gold from your previous playthrough?"
             "-Yes please-":
-                # Code needed here for adding persistant items across games
                 $ game.gold += persistent.gold
                 ">[persistent.gold] gold has been added to your founds."
-
-                #$ candy_gift_list = persistent.candy_gift_list
-                #$ drink_gift_list = persistent.drink_gift_list
-                #$ mag_gift_list   = persistent.mag_gift_list
-                #$ toy_gift_list   = persistent.toy_gift_list
-                #">All previously bought gift items have been added to your possessions."
-
-                #if persistent.wine >= 1:
-                #    $ wine = wine + persistent.wine # WINE.
-                #    ">[persistent.wine] bottles of Dumbledore's wine have been added to your possessions."
-
-                #$ scroll_list_A = persistent.scroll_list_A
-                #$ scroll_list_B = persistent.scroll_list_B
-                #$ scroll_list_C = persistent.scroll_list_C
-                #">Your unlocked scrolls have been added to your possessions."
 
             "-No need-":
                 pass

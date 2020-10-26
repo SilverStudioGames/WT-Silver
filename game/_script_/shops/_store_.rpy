@@ -304,7 +304,7 @@ screen weasley_store_menu():
 label gift_shop_menu:
     show screen weasley_store_menu
 
-    $ item_list = [filter(lambda x : not x.unlockable, y) for y in [drink_gift_list, candy_gift_list, mag_gift_list, toy_gift_list]]
+    $ item_list = filter(lambda x : x.unlocked, Item.get_instances_of_type("gift"))
 
     show screen list_menu("gift_shop_menu", "Gifts", ("Beverages", "Candy", "Mags", "Toys"), item_list)
     with d3
@@ -629,7 +629,7 @@ label purchase_deco(item):
         "-Buy [item.name] for [item.cost] gold coins -" if item.type == "quest item":
             if game.gold >= item.cost:
                 $ game.gold -= item.cost
-                $ item.number += 1
+                $ item.owned += 1
                 call update_quest_items
                 "[item_token_str]"
             else:

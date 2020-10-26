@@ -39,7 +39,7 @@ label summon_snape:
                     if game.daytime:
                         m "I wanted to talk to you about the upcoming Quidditch game."
                         call sna_main("I don't really have time right now...", "snape_05")
-                        if wine_ITEM.number >= 1:
+                        if wine_ITEM.owned >= 1:
                             m "I got drinks."
                         else:
                             m "I'll get us drinks."
@@ -49,12 +49,12 @@ label summon_snape:
                     else:
                         m "So about that upcoming Quidditch game..."
 
-                        if wine_ITEM.number >= 1:
+                        if wine_ITEM.owned >= 1:
                             call sna_main("Whatever it is, it can wait, let's sit down first, shall we.", "snape_01")
                             call setup_fireplace_hangout(char="snape")
                             $ ss_he_drink.start()
                             $ ss_he_counter += 1
-                            $ wine_ITEM.number -= 1
+                            $ wine_ITEM.owned -= 1
 
                             jump cho_quid_E9
                         else:
@@ -70,14 +70,14 @@ label summon_snape:
 
 
         # Fireplace Chats
-        "-Let's hang-" (icon="interface/icons/small/toast.webp") if wine_ITEM.number >= 1 and not game.daytime:
+        "-Let's hang-" (icon="interface/icons/small/toast.webp") if wine_ITEM.owned >= 1 and not game.daytime:
             jump snape_hangout
 
-        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if wine_ITEM.number < 1 or game.daytime:
+        "-Let's hang-" (icon="interface/icons/small/toast.webp", style="disabled") if wine_ITEM.owned < 1 or game.daytime:
             if game.daytime:
                 m "(I'm not sharing my booze with Snape while he still has to teach classes...)"
                 m "(I better ask him during the evening to get drunk...)"
-            elif wine_ITEM.number < 1:
+            elif wine_ITEM.owned < 1:
                 m "(I don't have any more wine...)"
             jump snape_ready
 

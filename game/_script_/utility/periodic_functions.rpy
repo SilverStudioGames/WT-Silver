@@ -3,7 +3,7 @@ init python:
         if not achievement.status('gold') and game.gold >= 10000:
             achievement.unlock("gold")
 
-        if not achievement.status('drunkard') and wine_ITEM.number >= 25:
+        if not achievement.status('drunkard') and wine_ITEM.owned >= 25:
             achievement.unlock("drunkard")
 
         if not achievement.status('peta') and (game.day-phoenix_fed_counter) >= 50:

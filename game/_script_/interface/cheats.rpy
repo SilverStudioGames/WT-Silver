@@ -123,27 +123,6 @@ label cheats:
                 "-Back-":
                     jump cheats
 
-        "-Book Cheats-" (icon="interface/icons/small/book.webp") if store_intro_done:
-            label .books:
-            menu:
-                "-Max Imagination":
-                    $ imagination = 8
-                    $ bdsm_imagination = 2
-                    "Your imagination grows!"
-                    jump cheats.books
-                "-Cheat Reading ([cheat_reading])-":
-                    $ cheat_reading = not cheat_reading
-                    jump cheats.books
-                "-All Books-" if game.day >= 16:
-                    python:
-                        for book in book_list.get_all():
-                            book.unlockable = False
-                            book.unlocked = True
-                    "Obtained All Books."
-                    jump cheats.books
-                "-Back-":
-                    jump cheats
-
         "-Potion Cheats-" (icon="interface/icons/small/potion.webp"):
             label cheats_potions:
             menu:
@@ -153,10 +132,6 @@ label cheats:
                     jump cheats_potions
                 "-Back-":
                     jump cheats
-
-        "-Solve the slider puzzle-" if puzzle_box_quest_ITEM.unlocked == True and unlocked_7th == False:
-            $ unlocked_7th = True
-            jump open_puzzle_box
 
         "-Add Gold-" (icon="interface/icons/small/gold.webp"):
             $ game.gold += 500
@@ -225,16 +200,10 @@ label cheats:
                 "-Skip character progression-":
                     jump cheats.progression_skip
 
-                "-Get 100 of all gift items-" (icon="interface/icons/small/gift.webp"):
+                "-Get all gifts-" (icon="interface/icons/small/gift.webp"):
                     python:
-                        for i in candy_gift_list:
-                            i.number = 100
-                        for i in drink_gift_list:
-                            i.number = 100
-                        for i in mag_gift_list:
-                            i.number = 100
-                        for i in toy_gift_list:
-                            i.number = 100
+                        for i in Item.get_instances_of_type("gift"):
+                            i.owned = 100
                     jump cheats.devroom
                 "-Get all scrolls-" (icon="interface/icons/small/spell.webp"):
                     python:
@@ -247,15 +216,8 @@ label cheats:
                     jump cheats.devroom
                 "-Get all books-" (icon="interface/icons/small/book.webp"):
                     python:
-                        for i in book_list.read_books:
-                            i.unlocked = True
-                            i.unlockable = False
-                        for i in book_list.write_books:
-                            i.unlocked = True
-                            i.unlockable = False
-                        for i in book_list.fiction_books:
-                            i.unlocked = True
-                            i.unlockable = False
+                        for i in Item.get_instances_of_type("book"):
+                            i.owned = 1
                     jump cheats.devroom
                 "-Get all decorations-" (icon="interface/icons/small/gold.webp"):
                     python:
@@ -275,7 +237,7 @@ label cheats:
                         sealed_scroll_quest_ITEM.unlocked = True
                         puzzle_box_quest_ITEM.unlocked = True
                         collar_quest_ITEM.unlocked = True
-                        lootbox_quest_ITEM.number = 5 # Consumable
+                        lootbox_quest_ITEM.owned = 5 # Consumable
                     call update_quest_items
                     jump cheats.devroom
                 "-Read Hermione's Diary-" (icon="interface/icons/small/hermione.webp"):
@@ -350,9 +312,9 @@ label .hermione_skip_intro:
     $ door_examined = True
     $ fireplace_examined = True
 
-    $ wine_ITEM.number       += 5
-    $ firewhisky_ITEM.number += 5
-    $ firewhisky_ITEM.unlockable = False
+    $ wine_ITEM.owned       += 5
+    $ firewhisky_ITEM.owned += 5
+    $ firewhisky_ITEM.unlocked = True
 
     $ rum_times = 6
     $ game.day = 7

@@ -24,24 +24,24 @@ label hg_tutor_start:
 
     # Tier 4
     elif her_tutoring == 8 and her_tier >= 4:
-        if adult_mag_ITEM.number >= 1: # Adult magazines
+        if adult_mag_ITEM.owned >= 1: # Adult magazines
             jump hg_tutor_E8
         else:
             m "I need to buy adult magazines for this lesson."
     elif her_tutoring == 9 and her_tier >= 4:
-        if porn_mag_ITEM.number >= 1: # Porn magazines
+        if porn_mag_ITEM.owned >= 1: # Porn magazines
             jump hg_tutor_E9
         else:
             m "I need to buy porn magazines for this lesson."
 
     # Tier 5
     elif her_tutoring == 10 and her_tier >= 5:
-        if vibrator_ITEM.number >= 1: # Vibrator
+        if vibrator_ITEM.owned >= 1: # Vibrator
             jump hg_tutor_E10
         else:
             m "I need to buy a vibrator for this lesson."
     elif her_tutoring == 11 and her_tier >= 5:
-        if anal_plugs_ITEM.number >= 1: # Anal plugs
+        if anal_plugs_ITEM.owned >= 1: # Anal plugs
             jump hg_tutor_E11
         else:
             m "I need to buy anal plugs for this lesson."

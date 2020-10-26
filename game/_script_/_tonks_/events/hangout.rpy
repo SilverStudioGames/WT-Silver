@@ -9,8 +9,8 @@ label tonks_hangout:
     $ tonks.strip("robe") # Takes off robe
 
     $ nt_he_counter += 1
-    if firewhisky_ITEM.number >= 1:
-        $ firewhisky_ITEM.number -= 1
+    if firewhisky_ITEM.owned >= 1:
+        $ firewhisky_ITEM.owned -= 1
 
     $ nt_he_drink.start()
 
@@ -103,7 +103,7 @@ label nt_he_wine_intro:
     pause.1
 
     # Show wine
-    call give_reward(">You hand over a bottle of wine you found in the cupboard to Tonks...", gift="interface/icons/item_wine.webp", sound=False)
+    call give_reward(">You hand over a bottle of wine you found in the cupboard to Tonks...", gift="interface/icons/wine.webp", sound=False)
 
     call ton_main("Wine?","open","base","raised","down")
     call ton_main("Don't you have anything stronger?","upset","base","base","R")
@@ -114,8 +114,8 @@ label nt_he_wine_intro:
     m "(Maybe there is some of that other stuff stored in the cupboard as well...)"
 
     # Make firewhisky available in the cupboard and store
-    $ firewhisky_ITEM.unlockable = False
-    $ wine_ITEM.number -= 1
+    $ firewhisky_ITEM.unlocked = True
+    $ wine_ITEM.owned -= 1
 
     jump tonks_hangout_continue
 
