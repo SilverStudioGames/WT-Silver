@@ -200,10 +200,10 @@ screen inventory_menuitem(xx, yy):
                         tooltip menu_items[i].name
 
                     if current_category == "Gifts":
-                        if menu_items[i].number > 0:
-                            text str(menu_items[i].number) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                        if menu_items[i].owned > 0:
+                            text str(menu_items[i].owned) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                         #else:
-                            #text str(menu_items[i].number) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
+                            #text str(menu_items[i].owned) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24
