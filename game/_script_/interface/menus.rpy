@@ -102,7 +102,8 @@ screen list_menu_item(menu_item, ypos=0):
 
         $ item_image = menu_item.get_image()
         if isinstance(item_image, im.ImageBase):
-            $ item_image, image_zoom = crop_image_zoom(item_image, 83, 83)
+            $ item_image = crop_image_zoom(item_image, 83, 83)
+            $ image_zoom = 1.0
         else:
             $ image_zoom = get_zoom(item_image, (83, 83))
 
@@ -221,7 +222,8 @@ screen icon_menu_item(menu_item, xpos=0, ypos=0):
 
         $ item_image = menu_item.get_image()
         if isinstance(item_image, im.ImageBase):
-            $ item_image, image_zoom = crop_image_zoom(item_image, 80, 80)
+            $ item_image = crop_image_zoom(item_image, 80, 80)
+            $ image_zoom = 1.0
         else:
             $ image_zoom = get_zoom(item_image, (80, 80))
 

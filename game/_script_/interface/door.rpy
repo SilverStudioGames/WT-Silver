@@ -86,38 +86,45 @@ screen door_menu(xx, yy):
                     text_size 12
                     action ToggleVariable("door_show_busy", True, False)
                 add gui.format("interface/frames/{}/check_")+str(door_show_busy).lower()+".webp" xalign 0.8 ypos 4
+
         vbox:
             pos (6, 6)
             $ tmp_x = 0
             for char in door_categories_sorted:
-                if not door_dict[char]["flag"]:
-                    pass
-                else:
-                    if not door_show_busy and door_dict[char]["busy"]:
-                        pass
-                    else:
+                if door_dict[char]["flag"]:
+                    if door_show_busy or not door_dict[char]["busy"]:
                         $ tmp_x += 1
                         frame:
                             style "empty"
                             xsize 195
                             ysize 50
                             vbox:
-                                vbox:
+                                textbutton char:
+                                    style "empty"
+                                    xsize 195 ysize 46
+                                    hover_background gui.format("interface/achievements/{}/highlight_left_b.webp")
+                                    text_xalign 0.6 text_yalign 0.5
+                                    text_xanchor 0.5
+                                    text_size 20
                                     if not door_dict[char]["busy"]:
-                                        textbutton char xsize 195 ysize 48 style "empty" hover_background gui.format("interface/achievements/{}/highlight_left_b.webp") text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 action Return(["summon", char, False])
+                                        action Return(["summon", char, False])
                                     else:
-                                        textbutton char xsize 195 ysize 48 style "empty" hover_background gui.format("interface/achievements/{}/highlight_left_b.webp") text_xalign 0.6 text_yalign 0.5 text_xanchor 0.5 text_size 20 text_color "#8C8C70" action Return(["summon", char, True])
+                                        text_color "#8C8C70"
+                                        action Return(["summon", char, True])
 
                                 add gui.format("interface/achievements/{}/spacer_left.webp")
-                            add gui.format("interface/achievements/{}/iconbox.webp") yoffset 1
+
                             $ image_zoom = crop_image_zoom("interface/icons/head/"+door_dict[char]["ico"]+".webp", 42, 42, door_dict[char]["busy"])
-                            frame:
-                                style "empty"
-                                xsize 42
-                                ysize 42
-                                add image_zoom[0] zoom image_zoom[1] align (0.5, 1.0) offset (3, 4)
-                            add "interface/achievements/glass_iconbox.webp"
+
+                            button:
+                                style gui.theme("overlay_button")
+                                background gui.format("interface/achievements/{}/iconbox.webp")
+                                foreground "interface/achievements/glass_iconbox.webp"
+                                xysize (48, 48)
+                                add image_zoom align (0.5, 0.5)
+
                             text map_transcript_loc[door_dict[char]["loc"]] size 10 xalign 0.625 yalign 0.9 xanchor 0.5
+
         if not snape_unlocked:
             text "You don't know anyone" size 12 at truecenter
         else:
