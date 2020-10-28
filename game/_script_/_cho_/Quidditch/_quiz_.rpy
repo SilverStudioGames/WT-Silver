@@ -292,15 +292,10 @@ label cho_quiz:
 
         $ cho_quiz.lost = True
 
-        # Read the book.
-        if quidditch_book_1_ITEM.done:
-            m "(Why didn't I just follow the book?{w} Serves me right...)"
-
-        # Got the book but not read.
-        elif quidditch_book_1_ITEM.unlocked:
+        if quidditchguide_ITEM.used:
+            m "(Why didn't I just follow the book? Serves me right...)"
+        elif quidditchguide_ITEM.owned > 0:
             m "(Maybe I should read that book they gave me...)"
-
-        # Visited their shop before.
         elif store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
@@ -355,11 +350,11 @@ label cho_quiz:
         $ cho_quiz.lost = True
 
         # Read the book.
-        if quidditch_book_1_ITEM.done:
+        if quidditchguide_ITEM.used:
             m "(Why didn't I just follow the book?{w} Serves me right...)"
 
         # Got the book but not read.
-        elif quidditch_book_1_ITEM.unlocked:
+        elif quidditchguide_ITEM.owned > 0:
             m "(Maybe I should read that book they gave me...)"
 
         # Visited their shop before.
@@ -633,11 +628,11 @@ label cho_quiz_checkpoint:
         $ cho_quiz.lost = True
 
         # Read the book.
-        if quidditch_book_1_ITEM.done:
+        if quidditchguide_ITEM.used:
             m "(Why didn't I just follow the book?{w} Serves me right...)"
 
         # Got the book but not read.
-        elif quidditch_book_1_ITEM.unlocked:
+        elif quidditchguide_ITEM.owned > 0:
             m "(Maybe I should read that book they gave me...)"
 
         # Visited their shop before.

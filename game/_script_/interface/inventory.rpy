@@ -23,15 +23,14 @@ label inventory_menu(xx=150, yy=90):
     $ inventory_dict = {
         "Gifts": Item.get_instances_of_type("gift"),
         "Books": Item.get_instances_of_type("book"),
+        "Potions": Item.get_instances_of_type("potion"),
         "Quest Items": qitem_list,
     }
-
-    $ inventory_categories_sorted = ["Gifts", "Books", "Quest Items"]
 
     $ items_shown = 36
     $ current_page = 0
     $ current_item = None
-    $ current_category = inventory_categories_sorted[0]
+    $ current_category = next(iter(inventory_dict.iterkeys()))
     $ current_sorting = "Available"
 
     $ category_items = inventory_dict[current_category]
@@ -109,7 +108,7 @@ screen inventory_menu(xx, yy):
 
         vbox:
             pos (6, 41)
-            for category in inventory_categories_sorted:
+            for category in inventory_dict.iterkeys():
                 vbox:
                     textbutton category:
                         style "empty"

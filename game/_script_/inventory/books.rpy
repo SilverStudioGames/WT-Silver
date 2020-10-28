@@ -1,10 +1,10 @@
 
-default quidditchguide_ITEM = Item("general", "book", "Quidditch Guide", 200, "This book contains the basic knowledge of Quidditch.", label="quidditch_guide_book")
+default quidditchguide_ITEM = Item("general", "book", "Quidditch Guide", 200, "This book contains the basic knowledge of Quidditch.", label="quidditch_guide_book", limit=1)
 
-default galadriel1_ITEM = Item("galadriel1", "book", "Tome 1: The Tale of Galadriel", 100, "This book tells the story of an elven princess who defies the traditions of her people and chooses to forge her own destiny.\nEffect: Improves imagination.", label="galadriel1_book")
-default galadriel2_ITEM = Item("galadriel2", "book", "Tome 2: The Tale of Galadriel", 200, "This is a continuation on the story of the elven princess who defies the tradition, with a twist.\nEffect: Improves imagination.", label="galadriel2_book", unlocked=False)
+default galadriel1_ITEM = Item("galadriel1", "book", "Tome 1: The Tale of Galadriel", 100, "This book tells the story of an elven princess who defies the traditions of her people and chooses to forge her own destiny.\nEffect: Improves imagination.", label="galadriel1_book", limit=1)
+default galadriel2_ITEM = Item("galadriel2", "book", "Tome 2: The Tale of Galadriel", 200, "This is a continuation on the story of the elven princess who defies the tradition, with a twist.\nEffect: Improves imagination.", label="galadriel2_book", limit=1, unlocked=False)
 
-default gameofchairs1_ITEM = Item("game_of_chairs1", "book", "Tome 1: Game of Chairs", 200, "An epic tale of betrayal, murder and rape. Then some more murder, some more betrayal and some more rape.", label="game_of_chairs1_book")
+default gameofchairs1_ITEM = Item("game_of_chairs1", "book", "Tome 1: Game of Chairs", 200, "An epic tale of betrayal, murder and rape. Then some more murder, some more betrayal and some more rape.", label="game_of_chairs1_book", limit=1)
 
 label book_start:
     call weather_sound
