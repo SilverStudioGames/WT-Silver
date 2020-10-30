@@ -119,6 +119,7 @@ default mr_ev_SNR = MirrorStory(
 )
 
 default mr_evs_list = [
+    mr_ev_SNR,
     mr_ev_PaH,
     mr_ev_AXmasTale,
     mr_ev_WPIIA,
@@ -129,8 +130,7 @@ default mr_evs_list = [
     mr_ev_PR,
     mr_ev_AOC,
     mr_ev_EFP,
-    mr_ev_SNR
-    ]
+]
 
 default current_page = 0
 

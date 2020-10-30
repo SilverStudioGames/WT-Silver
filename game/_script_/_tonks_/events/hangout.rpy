@@ -408,7 +408,7 @@ label nt_he_story_intro_E5:
     call ton_main("I studied to become an auror with the hopes of taking down evil wizards.", "annoyed", "base", "annoyed", "down")
     m "Sounds like a nineties B movie to me."
     call ton_main("A what?", "normal", "shocked", "raised", "mid")
-    m "Nevermind... continue."
+    m "Never mind... continue."
     call ton_main("In any case... That's not at all how the job is anymore.", "mad", "base", "base", "R")
     m "Was it ever?"
     call ton_main("That's what they told me...", "annoyed", "base", "annoyed", "R") #'tell' to 'told'

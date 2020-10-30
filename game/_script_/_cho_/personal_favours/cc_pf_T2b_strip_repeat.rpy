@@ -174,7 +174,7 @@ label cc_pf_strip_T3_tonks:
     call cho_main("", "base", "narrow", "base", "L", cheeks="heavy_blush", xpos=280, ypos="base", flip=True)
     call ton_main("...", "base", "narrow", "raised", "L", hair="horny", xpos=345, ypos="base")
 
-    call ton_main("This feels quite familiar already, doesn't it, Miss Chang?", "crooked_smile", "narrow", "raised", "L", hair="horny")
+    call ton_main("This feels quite familiar, doesn't it, Miss Chang?", "crooked_smile", "narrow", "raised", "L", hair="horny")
     call cho_main("...", "horny", "narrow", "base", "mid", cheeks="blush")
     call ton_main("Let's not waste any more time...", "horny", "narrow", "base", "L", hair="horny")
 

@@ -142,7 +142,10 @@ init -1 python:
             misc_deco_list.append(cupboard_halloween_ITEM)
             misc_deco_list.append(phoenix_halloween_ITEM)
 
-            mr_ev_list.append(mr_ev_SNR)
+            mr_evs_list.insert(0, mr_ev_SNR)
+
+            if hg_pr_flirt.is_event_complete(1, 1) and her_reputation < 6:
+                her_reputation = 6
 
             save_internal_version = 1.393
             renpy.block_rollback()
