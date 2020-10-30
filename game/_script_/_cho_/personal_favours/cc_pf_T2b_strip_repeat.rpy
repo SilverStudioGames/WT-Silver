@@ -312,7 +312,7 @@ label .strip_cho:
     with d5
 
     $ random_number = renpy.random.randint(1, 3)
-    call ctc # remove
+
     if random_number == 1:
         call ton_main("Look at all these muscles!", "horny", "narrow", "raised", "down", hair="horny")
         call ton_main("I mean... I could easily get some muscles as well, but not without cheating...", "open", "closed", "base", "mid", hair="horny")
@@ -750,80 +750,6 @@ label .strip_check:
         jump cc_pf_strip_T3_tonks.transformations
 
 
-## Hermione Strips ## WIP- not in 1.39.0
-label .strip_hermione:
-    ton "Move aside, Chang!" # angry
-    ton "The headmaster wants me to strip for him."
-    g9 "That's right, Miss Granger."
-    cho "..."
-
-    # Hermione stands in the middle, between Genie and Cho.
-
-    ton "Professor, how many house points may I get for this shameless act you're asking me to do?"
-    g9 "You're requesting house points for this, Miss Granger?"
-    ton "Naturally."
-    m "*Hmm*..."
-
-    menu:
-        "You shall receive five points.":
-            ton "Only so little, Professor?"
-            ton "Surely revealing my tits must be worth a lot more to you than that..."
-            g9 "Five points, Miss Granger. And I demand to see a lot more than just your tits!"
-            call cho_main("...", "smile", "narrow", "base", "mid", cheeks="blush")
-            ton "So be it then..."
-            ton "I'll do anything for my precious Gryffindor house!"
-            g9 "Five points for Gryffindor, Miss Granger!"
-            $ gryffindor += 5
-            g4 "Now strip for us, you little slut."
-
-        "You shall receive one hundred points!":
-            ton "Seriously?"
-            call cho_main("Professor, what are you doing?", "base", "narrow", "base", "mid")
-            ton "Well, one hundred points seem to be sufficient, Professor..."
-            call cho_main("...", "base", "narrow", "base", "mid")
-            ton "I'd gladly bare my tits for that amount."
-            g9 "Not just your tits, Miss Granger!"
-            ton "Anything for you, Sir."
-            call cho_main("I don't want Granger to get points from this! She isn't even here...", "base", "narrow", "base", "mid")
-            m "Didn't you say you don't give a flying fuck about the house cup?"
-            ton "*snort*... You said what?"
-            call cho_main("I didn't say it like that!", "base", "narrow", "base", "mid")
-            ton "*shsss*, Professor.{w=0.5} Just mumble a bit when giving out those points..."
-            m "Very well, then..."
-            g9 "One hundret points for this Gryffin-whore!"
-            call cho_main("*Ha-ha*!", "base", "narrow", "base", "mid")
-            ton "Thank you, Sir."
-            ton "I know I deserve those Gryffin-whore points more than anyone!"
-            ton "I'm the biggest slut in all of Hogwarts!"
-
-        "No points for you, Granger.":
-            ton "What? But Professor!"
-            ton "You're asking me to expose myself for you, without getting any of those precious house points?"
-            ton "How outragious!"
-            m "Cho isn't asking for points either, Miss Granger. I'd say it's quite fair if you receive none as well..."
-            ton "Well, I'm not a slag like Miss Chang here... Who loves stripping for her headmaster!"
-            call cho_main("Hey!", "annoyed", "narrow", "angry", "L")
-            ton "What? It's the truth, isn't it... You slut!"
-            call cho_main("...", "annoyed", "narrow", "base", "mid")
-            call cho_main("Sir, could you ask her to turn back again? She's starting to get on my nerves...", "open", "narrow", "base", "mid")
-            g9 "Not a chance. She's doing great!"
-            call cho_main("A bit too convincing for my likeing...", "annoyed", "narrow", "base", "L")
-            ton "..."
-            ton "Very well, then. I shall undress for you, Professor."
-            ton "My friends will be so disappointed when they hear I'm doing this for free..."
-            ton "But I simply can't help it, can I?"
-            ton "I want to be the biggest slut in all of Hogwarts!"
-
-
-    ton "..." # naughty look
-
-    # Hermione and Cho strip for you.
-
-    # Spank Hermione.
-
-    jump cc_pf_strip_T3_tonks.choice_hermione # Skips all choices and jumps to the Hermione event.
-
-
 
 ## Transformations ##
 label .transformations:
@@ -836,12 +762,11 @@ label .transformations:
     call cho_chibi("stand", flip=True, 314, 366)
     call ton_chibi("stand", flip=False, 370, 360)
     call ton_main("", "base", "narrow", "base", "L", hair="horny", xpos=345, ypos="base", flip=False)
-    call cho_main("", "base", "narrow", "base", "L", cheeks="blush", xpos=280, ypos="base", flip=True)
+    call cho_main("", "grin", "base", "base", "L", cheeks="blush", xpos=280, ypos="base", flip=True)
     with d5
 
     ## Intro Events 1 and 2:
-    # TODO: Uncomment actual checks after doppled and succubus content is added for Tonks.
-    if True: #doppler_done == False or succubus_done == False:
+    if doppler_done == False or succubus_done == False:
 
         # Ask Tonks if she's a Doppler or a Succubus.
         # After asking her both questions, the next time you do the event she'll do some tranformations.
@@ -884,228 +809,542 @@ label .transformations:
 
         menu:
             m "(...)"
-            "\"A Doppler!\"": # if doppler_done == False:
-                if doppler_done == True:
-                    jump .doppler # jumps ahead a bit
-                $ doppler_done = True
-                call ton_main("*Hmm*?... What's a \"doppler\"?", "upset", "base", "base", "mid")
-                m "What do you mean, what's a doppler?!"
-                g4 "Aren't you part of the magical animal control... or whatever."
-                call ton_main("The Auror division does a lot more than \"animal control\"...", "open", "narrow", "base", "mid")
-                g4 "But you're incapable of identifying a doppler?"
-                call ton_main("I guess... This is the first time I'm hearing of such a creature.", "annoyed", "base", "raised", "mid")
-                call cho_main("I haven't heard of them either, Sir.", "soft", "narrow", "base", "mid")
-                m "What sort of magic school are we running here? Aren't you getting taught any Witcher lore?"
-                call cho_main("...", "annoyed", "base", "base", "mid")
-                call ton_main("Very well, Professor. Why don't you tell us about them?", "upset", "narrow", "base", "mid")
-
-                g9 "Oh, there's nobody better suited to do that than me, I'll have you know!"
-                g9 "After all, I know a lot about the Witcher just from playing the games alone!"
-                m "(Truth be told I skipped the first two, but they don't need to know that...)"
-                call cho_main("What kind of \"games\" is he talking about, Professor?", "soft", "base", "worried", "L") # looking at Tonks. Small text
-                call ton_main("I haven't the foggiest...", "mad", "base", "raised", "L") # looking back. Small text
-
-                label cc_pf_strip_T3_tonks.doppler:
-                    $ doppler_done = True
-
-                g4 "Dopplers are hideous creatures, you see... Both in character, and in appearance."
-                call cho_main("", "annoyed", "base", "base", "mid")
-                call ton_main("", "upset", "narrow", "base", "mid")
-                m "They often abuse their ability for selfish gains, and manipulate people into thinking they're somebody else entirely."
-                call cho_main("That does sound quite suspicious, Professor...", "open", "narrow", "angry", "mid")
-                call cho_main("After all, she's been abusing her powers to flaunt my bum at people!", "annoyed", "narrow", "angry", "mid", cheeks="blush")
-                g9 "That's true!"
-                call ton_main("Surely you can't blame me for that... As I said, it wasn't anything they hadn't seen before.", "soft", "base", "base", "R", hair="horny")
-                call cho_main("But-- Professor!", "annoyed", "narrow", "angry", "L", cheeks="heavy_blush")
-                m "*Hmm*..."
-                call ton_main("I'm not doing anything harmful, I promise.", "upset", "happyCl", "worried", "mid", hair="horny", cheeks="blush")
-                call cho_main("...", "annoyed", "narrow", "angry", "mid", cheeks="blush") # annoyed
-
-                call ton_main("So, what other \"Evidence\" do you have to further prove this theory?", "soft", "narrow", "base", "mid", hair="horny") #Amused
-                m "Well, there's a big reason why Dopplers indulge themselves when they get the chance to."
-                m "Since they're incredibly ugly creatures, it wouldn't surprise me in the slightest that they'd change their appearance into a highly attractive woman when given the chance."
-                call cho_main("", "annoyed", "base", "base", "L", cheeks="blush")
-                call ton_main("", "annoyed", "base", "base", "mid", hair="horny")
-                m "Miss Tonks, your appearance, it's almost too perfect..."
-                m "You didn't find some smoking hot woman in a magazine did you?"
-                m "We all know those are highly edited..."
-                call ton_main("So I'm smoking hot, huh?", "horny", "narrow", "base", "mid", hair="horny")
-                call ton_main("You flatter me, but no... I've always looked like this.", "base", "happyCl", "base", "mid", hair="horny")
-                m "*Hmm*..."
-                call cho_main("...", "annoyed", "base", "base", "mid", cheeks="blush") # blushing
-
-                m "You can count yourself lucky that I haven't seen any bounties for a Doppler..."
-                m "So, doppler or not... "
-                m "You're off the hook for now."
-                call ton_main("Well, I'm glad we cleared that up...", "base", "narrow", "base", "mid")
-                call cho_main("", "annoyed", "base", "base", "mid", cheeks="blush")
-                call ton_main("My ability is perfectly harmless, Professor.", "crooked_smile", "base", "base", "mid")
-                g4 "You may say that, but we all know shape-shifting is the source of all kinds of evil sorcery!"
-                call ton_main("No it's not...", "open", "closed", "annoyed", "mid")
-                g4 "The last thing we need at this school is a rogue shapeshifter -- abusive of its powers..."
-                call ton_main("...", "upset", "base", "base", "mid", hair="horny")
-
-                m "Anyway... Promise me you won't start murdering people and steal their identities."
-                call cho_main("", "angry", "base", "raised", "mid", cheeks="blush")
-                call ton_main("What?! How could you even suggest that I would--", "clench", "shocked", "shocked", "mid", hair="scared") # shocked
-                g4 "Identity theft is not a joke, Tonks! Millions of families suffer every year!"
-                call ton_main("Yikes! Of course I won't do that, Professor!", "clench", "happyCl", "base", "mid")
-                m "Good."
-                call ton_main("...", "upset", "base", "worried", "mid")
-                call cho_main("", "annoyed", "base", "base", "mid")
-                m "How come you're the only one that can shapeshift?"
-                call ton_main("It's just very uncommon.", "open", "narrow", "raised", "down")
-                call ton_main("You can't fault me for having it... I was born with it.", "annoyed", "base", "base", "mid")
-                m "Very well then, I shall believe that you're not a doppler..."
-                m "(For now...)"
-                call ton_main("Glad to hear it.", "mad", "base", "base", "mid")
-                call cho_main("...", "soft", "narrow", "worried", "L")
-
-            "\"A Succubus!\"": # if succubus_done == False:
-                if succubus_done == True:
-                    jump .succubus # jumps ahead a bit
-                $ succubus_done = True
-                call ton_main("*snort!*... For real?", "crooked_smile", "happyCl", "shocked", "mid")
-                call cho_main("Oh, I've heard of those, Professor!", "grin", "happyCl", "base", "mid")
-                call cho_main("They're demons in female form, that can visit you in your dreams and murder you!", "soft", "narrow", "angry", "mid")
-                call ton_main("Very good, Miss Chang...", "crooked_smile", "base", "base", "L")
-                call ton_main("Ten points for Ravenclaw!", "soft", "narrow", "base", "L")
-                $ ravenclaw += 10
-                call cho_main("Thank you.", "smile", "narrow", "base", "downR", cheeks="blush") # happy
-
-                label cc_pf_strip_T3_tonks.succubus:
-                    $ succubus_done = True
-
-                call ton_main("I mean... I'm quite flattered, Professor...", "open", "narrow", "raised", "mid")
-                call ton_main("Who doesn't want to be compared to a demonic, sex-driven temptress!", "soft", "narrow", "base", "mid", hair="horny")
-                call cho_main("", "annoyed", "base", "base", "mid", cheeks="blush")
-                g9 "I knew it! You're a Succubus!"
-                call cho_main("", "annoyed", "base", "raised", "L", cheeks="blush")
-                call ton_main("No I'm not, silly!", "open", "closed", "base", "mid")
-                call ton_main("...", "annoyed", "base", "shocked", "L", hair="horny") # thinks
-                call ton_main("Well, I do have similar shapeshifting abilities, that's true...", "soft", "base", "base", "down", hair="horny")
-                call ton_main("And share some of their more raunchy characteristics...", "crooked_smile", "happyCl", "base", "mid", hair="horny")
-                g9 "Not to mention a banger body!"
-                call ton_main("Obviously.", "soft", "narrow", "base", "mid", hair="horny")
-                call cho_main("...", "horny", "narrow", "base", "L", cheeks="blush") # blushing
-                call ton_main("I may also act like one on the occasion...", "horny", "narrow", "base", "mid", hair="horny")
-                call ton_main("But I'm still human, and not a sex-demon...{w=0.5} Believe it or not.", "open", "narrow", "raised", "mid", hair="horny")
-                m "If you say so..."
-                call ton_main("If you'd met one before, you'd know the difference between me and a succubus right away...", "base", "narrow", "base", "mid", hair="horny")
-                call ton_main("They are quite relentless when it comes to sex, you know. -- Even more so than I am!", "horny", "narrow", "annoyed", "mid", hair="horny")
-                call cho_main("You have met a Succubus, Professor? But I thought they're extremely dangerous.", "mad", "base", "base", "mid")
-                call ton_main("Oh yes! You have to be extremely careful around them...", "soft", "base", "base", "L", hair="horny")
-                m "Don't tell me you--"
-                call ton_main("Who do you think you're talking to, Professor.{w=0.5} Of course I did.", "base", "narrow", "base", "mid", hair="horny") # horny, confident
-                call cho_main("No way!", "horny", "base", "base", "L", cheeks="heavy_blush")
-                call ton_main("It was part of an auror job, obviously. Maybe I'll tell you about it some time.", "crooked_smile", "base", "base", "mid", hair="horny")
-                call cho_main("Yes! I want to hear it!", "grin", "base", "base", "mid")
-                call ton_main("Are you sure you'd want that, honey?", "soft", "narrow", "base", "L", hair="horny")
-                call ton_main("It's quite the filthy story... You don't walk away from a Succubus unscarred unless you can impress her!", "horny", "narrow", "raised", "mid", hair="horny") # horny
-                call cho_main("*Ehm*...", "disgust", "narrow", "worried", "downR", cheeks="heavy_blush")
-                call play_sound("gulp")
-                g4 "*gulp*..." # sound
-                call ton_main("Of course I could tone it down for you guys.", "base", "happyCl", "base", "mid", hair="horny")
-                g9 "No, please. We'd love to hear the full story!"
-                call cho_main("...", "horny", "narrow", "base", "mid", cheeks="blush")
-                call ton_main("Next time. I promise.", "base", "narrow", "base", "mid")
-
-        call ton_main("Anyhow, it's getting quite late, Professor.", "soft", "narrow", "base", "L")
-        #call ton_main("Let's wrap things up for the day, shall we?...", "base", "base", "base", "mid")
-
-        # End Event.
-        jump cc_pf_strip_T3_tonks.end_event
+            "\"A Doppler!\"" if doppler_done == False:
+                jump .doppler_E1
+            "\"A Succubus!\"" if succubus_done == False:
+                jump .succubus_E1
 
 
     ## Repeatable ##
-
     else:
         pass
 
-    ton "Now that we're naked, Professor... Is there anything you'd like us to do?"
-    cho "..."
+    call ctc
 
-    g9 "Tonks, could you change your appearance for me?"
-    ton "Of course, Professor. I'd love to..."
-    ton "So, what would you like me to turn into?"
+    g9 "Tonks, would you mind showing us your little trick again?"
+    call ton_main("Of course. What's it gonna be, Professor?", "grin", "base", "base", "mid")
+    call ton_main("Remember I can transform into anything... or anyone.", "soft", "narrow", "base", "mid") # suggestive
+    call cho_main("...", "horny", "narrow", "base", "down", cheeks="blush")
+    m "*Hmmm*... who do I want you to turn into... Let me think."
 
     menu:
-        m "I want you to shapeshift into..."
-        # "\"Hermione!\"":
-            # Hermione has to stand in the middle.
-            # ton ""
-            # label .choice_hermione: # If you asked Tonks to strip as Hermione earlier, the event will jump here.
-            # call nar("Event not yet added.")
-            # pass
-
-        #"\"Luna!\"":
-
+        g9 "Yes, I want you to shapeshift into--"
+        "\"Hermione!\"":
+            jump cc_pf_strip_T3_tonks.hermione_E1
         "\"A Succubus!\"":
-            ton "You want me to shapeshift into one?"
-            g9 "Hell yeah! I do love me some cosplay!"
-            ton "Very well."
-
-            # Tonks transforms into a succubus
-
-            g9 "Would you look at that!"
-            cho "..." # blush
-            m "You look much better than the last demon who visited me in my dreams..."
-            cho "You had a succubus visit you in your dreams before, Professor?"
-            m "No... It was very much not a succubus..."
-            m "Just your regular sleep paralysis demon."
-            cho "Oh..."
-            g4 "She looked rather horrifying, and not sexy at all!"
-            g9 "Though that didn't stop me from trying to mate with her."
-            ton "Of course you did..."
-            m "How do you summon a Succubus anyway? You wouldn't happen to know, would you?"
-            ton "Actually, I don't..."
-            ton "They're quite erratic and spontaneous."
-            ton "Usually you only encounter them if {b}they{/b} want to, and have set an eye on you already."
-
-            g9 "Thankfully I have the ability to summon you any time I want!"
-            ton "*Hmm*... Be careful what you wish for, Professor..."
-            ton "I can be just as dangerous and seductive if I want to! {heart}"
-
-            g9 "Did you hear that, Cho?"
-            cho "..."
-            g4 "Do you see that hungry look in her eyes?"
-            g9 "This Succubus here is out to steal all my semen!"
-            ton "Oh, am I, Professor?"
-            cho "..." # embarrassed
-
-            m "Tell me, Miss Tonks."
-            g9 "Are you one of these Succubbi that like to hunt virgins?"
-            ton "*Ha-ha-ha*... Where did you hear that?" # cracks up.
-            m "I've read it in a-- *Ehm*...{w=0.5} in a book."
-            m "If you're a virgin by the age of forty and one visits you, you might end up lucky!"
-            cho "Is this true, professor Tonks?"
-            ton "I... I don't know... I'd have to do some of my own research..."
-            ton "I was sure I knew everything there was to know about succubi..."
-            m "I suppose you might not be sophisticated enough to appreciate fine arts..."
-            ton "*Hmm*... Then perhaps It'd be worth covering during one of my lesson." #looking at cho
-            ton "Although I'd have to borrow that book of yours."
-
-            m "Still denying that you're an alluring demon, even after that last demonstration?"
-            ton "I might have some unusual talents, but I'm still human."
-            m "(You're a human just as much as I am.)"
-            ton "Why are you so scared of them anyway?"
-            ton "What's the worst a succubus could do to you?"
-            m "Many things I'd rather not speak of..."
-            g4 "I won't let any demon suck the life-blood out of my penis!"
-            ton "Well, if I was one, I promise you I wouldn't do that..."
-            ton "Not as long as there's plenty of other essence to be gathered."
-            cho "What?!" # bit shocked.
-            g9 "Then I better not run out of essence."
-            cho "(Oh my...)"
-            g9 "Now show us your true form, you semen loving sex-demon!"
+            jump cc_pf_strip_T3_tonks.succubus_E2
 
 
-            # Unlock outfit message. Should only appear once.
 
-            ton "Maybe I could dress as a Succubus for Halloween. The boys will love it..."
+## Doppler Event 1 ##
+label cc_pf_strip_T3_tonks.doppler_E1:
+    if doppler_done == False:
+        # Intro
+        call ton_main("*Hmmm?*... What's a \"doppler\"?", "upset", "base", "base", "mid")
+        m "What do you mean, what's a doppler?!"
+        g4 "Aren't you part of the magical animal control... or whatever."
+        call ton_main("The Auror division does a lot more than \"animal control\"...", "open", "narrow", "base", "mid")
+        g4 "But you're incapable of identifying a doppler?"
+        call ton_main("I guess... This is the first time I'm hearing of such a creature.", "annoyed", "base", "raised", "mid")
+        call cho_main("I haven't heard of them either, Sir.", "soft", "narrow", "base", "mid")
+        m "What sort of magic school are we running here? Aren't you getting taught any Witcher lore?"
+        call cho_main("...", "annoyed", "base", "base", "mid")
+        call ton_main("Very well, Professor. Why don't you tell us about them?", "upset", "narrow", "base", "mid")
+        g9 "Oh, there's nobody better suited to do that than me, I'll have you know!"
+        g9 "After all, I know a lot about the Witcher just from playing the games alone!"
+        m "(Truth be told I skipped the first two, but they don't need to know that...)"
+        call cho_main("What kind of \"games\" is he talking about, Professor?", "soft", "base", "worried", "L") # looking at Tonks. Small text
+        call ton_main("I haven't the foggiest...", "mad", "base", "raised", "L") # looking back. Small text
+
+    $ doppler_done = True
+    g4 "Dopplers are hideous creatures, you see... Both in character, and in appearance."
+    call cho_main("", "annoyed", "base", "base", "mid")
+    call ton_main("", "upset", "narrow", "base", "mid")
+    m "They often abuse their ability for selfish gains, and manipulate people into thinking they're somebody else entirely."
+    call cho_main("That does sound quite suspicious, Professor...", "open", "narrow", "angry", "mid")
+    call cho_main("After all, she's been abusing her powers to flaunt my bum at people!", "annoyed", "narrow", "angry", "mid", cheeks="blush")
+    g9 "That's true!"
+    call ton_main("Surely you can't blame me for that... As I said, it wasn't anything they hadn't seen before.", "soft", "base", "base", "R", hair="horny")
+    call cho_main("But-- Professor!", "annoyed", "narrow", "angry", "L", cheeks="heavy_blush")
+    m "*Hmm*..."
+    call ton_main("I'm not doing anything harmful, I promise.", "upset", "happyCl", "worried", "mid", hair="horny", cheeks="blush")
+    call cho_main("...", "annoyed", "narrow", "angry", "mid", cheeks="blush") # annoyed
+
+    call ton_main("So, what other \"Evidence\" do you have to further prove this theory?", "soft", "narrow", "base", "mid", hair="horny") #Amused
+    m "Well, there's a big reason why Dopplers indulge themselves when they get the chance to."
+    m "Since they're incredibly ugly creatures, it wouldn't surprise me in the slightest that they'd change their appearance into a highly attractive woman when given the chance."
+    call cho_main("", "annoyed", "base", "base", "L", cheeks="blush")
+    call ton_main("", "annoyed", "base", "base", "mid", hair="horny")
+    m "Miss Tonks, your appearance, it's almost too perfect..."
+    m "You didn't find some smoking hot woman in a magazine did you?"
+    m "We all know those are highly edited..."
+    call ton_main("So I'm smoking hot, huh?", "horny", "narrow", "base", "mid", hair="horny")
+    call ton_main("You flatter me, but no... I've always looked like this.", "base", "happyCl", "base", "mid", hair="horny")
+    m "*Hmmm*..."
+    call cho_main("...", "annoyed", "base", "base", "mid", cheeks="blush") # blushing
+
+    m "You can count yourself lucky that I haven't seen any bounties for a Doppler..."
+    m "So, doppler or not... "
+    m "You're off the hook for now."
+    call ton_main("Well, I'm glad we cleared that up...", "base", "narrow", "base", "mid")
+    call cho_main("", "annoyed", "base", "base", "mid", cheeks="blush")
+    call ton_main("My ability is perfectly harmless, Professor.", "crooked_smile", "base", "base", "mid")
+    g4 "You may say that, but we all know shape-shifting is the source of all kinds of evil sorcery!"
+    call ton_main("No it's not...", "open", "closed", "annoyed", "mid")
+    g4 "The last thing we need at this school is a rogue shapeshifter -- abusive of its powers..."
+    call ton_main("...", "upset", "base", "base", "mid", hair="horny")
+
+    m "Anyway... Promise me you won't start murdering people and steal their identities."
+    call cho_main("", "angry", "base", "raised", "mid", cheeks="blush")
+    call ton_main("What?! How could you even suggest that I would--", "clench", "shocked", "shocked", "mid", hair="scared") # shocked
+    g4 "Identity theft is not a joke, Tonks! Millions of families suffer every year!"
+    call ton_main("Yikes! Of course I won't do that, Professor!", "clench", "happyCl", "base", "mid")
+    m "Good."
+    call ton_main("...", "upset", "base", "worried", "mid")
+    call cho_main("", "annoyed", "base", "base", "mid")
+    m "How come you're the only one that can shapeshift?"
+    call ton_main("It's just very uncommon.", "open", "narrow", "raised", "down")
+    call ton_main("You can't fault me for having it... I was born with it.", "annoyed", "base", "base", "mid")
+    m "Very well then, I shall believe that you're not a doppler..."
+    m "(For now...)"
+    call ton_main("Glad to hear it.", "mad", "base", "base", "mid")
+    call cho_main("...", "soft", "narrow", "worried", "L")
+    call ton_main("Anyhow, it's getting quite late, Professor.", "soft", "narrow", "base", "L")
 
     # End Event.
     jump cc_pf_strip_T3_tonks.end_event
+
+
+## Succubus Event 1 ##
+label cc_pf_strip_T3_tonks.succubus_E1:
+    if succubus_done == False:
+        # Intro
+        call ton_main("*snort!*... For real?", "crooked_smile", "happyCl", "shocked", "mid")
+        call cho_main("Oh, I've heard of those, Professor!", "grin", "happyCl", "base", "mid")
+        call cho_main("They're demons in female form, that can visit you in your dreams and murder you!", "soft", "narrow", "angry", "mid")
+        call ton_main("Very good, Miss Chang...", "crooked_smile", "base", "base", "L")
+        call ton_main("Ten points for Ravenclaw!", "soft", "narrow", "base", "L")
+        $ ravenclaw += 10
+        call cho_main("Thank you.", "smile", "narrow", "base", "downR", cheeks="blush") # happy
+
+    $ succubus_done = True
+    call ton_main("I mean... I'm quite flattered, Professor...", "open", "narrow", "raised", "mid")
+    call ton_main("Who doesn't want to be compared to a demonic, sex-driven temptress!", "soft", "narrow", "base", "mid", hair="horny")
+    call cho_main("", "annoyed", "base", "base", "mid", cheeks="blush")
+    g9 "I knew it! You're a Succubus!"
+    call cho_main("", "annoyed", "base", "raised", "L", cheeks="blush")
+    call ton_main("No I'm not, silly!", "open", "closed", "base", "mid")
+    call ton_main("...", "annoyed", "base", "shocked", "L", hair="horny") # thinks
+    call ton_main("Well, I do have similar shapeshifting abilities, that's true...", "soft", "base", "base", "down", hair="horny")
+    call ton_main("And share some of their more raunchy characteristics...", "crooked_smile", "happyCl", "base", "mid", hair="horny")
+    g9 "Not to mention a banger body!"
+    call ton_main("Obviously.", "soft", "narrow", "base", "mid", hair="horny")
+    call cho_main("...", "horny", "narrow", "base", "L", cheeks="blush") # blushing
+    call ton_main("I may also act like one on the occasion...", "open", "base", "base", "R", hair="horny")
+
+    # TODO: v v v Added this bit of writing. Needs review
+    m "But you're still denying that you're an alluring sex-demon, even after that last demonstration?"
+    call ton_main("I might have some unusual talents, that's all...", "open", "base", "base", "R", hair="horny")
+    call ton_main("Why are you so scared of them anyway?", "open", "narrow", "base", "mid", hair="horny")
+    call ton_main("What's the worst a succubus could do to you?", "horny", "narrow", "base", "mid", hair="horny")
+    g4 "Do I really have to remind the two of you of what they do?"
+    g4 "I won't let any demon suck the life-blood out of my penis!"
+    call ton_main("", "normal", "base", "base", "mid", hair="horny")
+    call cho_main("What?!", "clench", "base", "base", "mid") # bit shocked.
+    call ton_main("Well, if I was one, I promise you I wouldn't do that...", "mad", "narrow", "base", "mid", hair="horny")
+    call ton_main("Not as long as there's plenty of other essence to be gathered.", "horny", "narrow", "angry", "mid", hair="horny")
+    call cho_main("Professors?!", "mad", "narrow", "base", "downR") # uncomfortable
+    g9 "Then I better not run out of essence!"
+    call cho_main("...", "disgust", "narrow", "base", "mid")
+    g9 "Thought you could trick me, you semen loving sex-demon!"
+    # TODO: ^ ^ ^ Added this bit of writing. Needs review
+
+    call ton_main("I'm still human, and not a sex-demon...{w=0.5} Believe it or not.", "open", "narrow", "raised", "mid", hair="horny")
+    m "If you say so..."
+    call ton_main("If you'd met one before, you'd know the difference between me and a succubus right away...", "base", "narrow", "base", "mid", hair="horny")
+    call ton_main("They are quite relentless when it comes to sex, you know. -- Even more so than I am!", "horny", "narrow", "annoyed", "mid", hair="horny")
+    call cho_main("You have met a Succubus, Professor? But I thought they're extremely dangerous.", "mad", "base", "base", "mid")
+    call ton_main("Oh yes! You have to be extremely careful around them...", "soft", "base", "base", "L", hair="horny")
+    m "Don't tell me you--"
+    call ton_main("Who do you think you're talking to, Professor.{w=0.5} Of course I did.", "base", "narrow", "base", "mid", hair="horny") # horny, confident
+    call cho_main("No way!", "horny", "base", "base", "L", cheeks="heavy_blush")
+    call ton_main("It was part of an auror job, obviously. Maybe I'll tell you about it some time.", "crooked_smile", "base", "base", "mid", hair="horny")
+    call cho_main("Yes! I want to hear it!", "grin", "base", "base", "mid")
+    call ton_main("Are you sure you'd want that, honey?", "soft", "narrow", "base", "L", hair="horny")
+    call ton_main("It's quite the filthy story... You don't walk away from a Succubus unscarred unless you can impress her!", "horny", "narrow", "raised", "mid", hair="horny") # horny
+    call cho_main("*Uhm*...", "disgust", "narrow", "worried", "downR", cheeks="heavy_blush")
+    call play_sound("gulp")
+    g4 "*gulp*..." # sound
+    call ton_main("Of course I could tone it down for you guys.", "base", "happyCl", "base", "mid", hair="horny")
+    g9 "No, please. We'd love to hear the full story!"
+    call cho_main("...", "horny", "narrow", "base", "mid", cheeks="blush")
+    call ton_main("Next time. I promise.", "base", "narrow", "base", "mid")
+    call ton_main("Anyhow, it's getting quite late, Professor.", "soft", "narrow", "base", "L")
+
+    # End Event.
+    jump cc_pf_strip_T3_tonks.end_event
+
+
+## Succubus Event 2 ##
+label .succubus_E2:
+    call ton_main("You want me to shapeshift into a Succubus?", "base", "narrow", "base", "mid")
+    call cho_main("", "horny", "narrow", "base", "L")
+    g9 "Hell yeah! I do love me some cosplay!"
+    call ton_main("It's not...", "open", "base", "shocked", "R")
+    call ton_main("Very well then...", "open", "closed", "base", "mid")
+
+    # Tonks transforms into a Succubus
+    stop music fadeout 0.5
+    call cho_main("", "mad", "narrow", "base", "down", xpos=265, ypos="base", flip=True) # bit more to the left
+    call ton_main("", "base", "narrow", "base", "mid", xpos=345, ypos="base", flip=False) # bit more to the right
+    with fade
+    pause .5
+
+    $ renpy.sound.play("sounds/magic3.mp3")
+    $ tonks.equip(ton_outfit_succubus)
+    call ton_main("", "horny", "narrow", "base", "mid", trans=flash)
+    call ctc
+
+    call play_music("trance")
+    call ton_main("{heart}{heart}{heart}")
+    g9 "Marvellous!"
+    call cho_main("...", "horny", "narrow", "raised", "down", cheeks="blush") # blush
+    call ton_main("*Giggles*", "horny", "narrow", "raised", "L", hair="horny") #sound
+    call ton_main("What do you think?", "grin", "narrow", "base", "mid", hair="horny")
+    call ton_main("Do you like it?", "horny", "narrow", "annoyed", "down", hair="horny")
+    call cho_main("...", "horny", "narrow", "worried", "down", cheeks="blush")
+    pause .8
+    call ton_main("Miss Chang?", "soft", "narrow", "base", "L", hair="horny")
+    call cho_main("Oh! Yes... Very impressive, Professor!", "soft", "narrow", "worried", "L", cheeks="heavy_blush")
+    call ton_main("I don't think my skin tone is quite right... I believe they're usually more devilish looking.", "upset", "narrow", "base", "down", hair="horny")
+    g4 "I can already feel my balls retract by fear."
+    call ton_main("", "base", "narrow", "base", "mid", hair="horny")
+    call cho_main("Your... What, Sir?", "clench", "wide", "base", "mid") #wide eyed
+    call ton_main("Don't worry, Miss Chang... Unless you're in a state of high arousal then you have nothing to worry about.", "crooked_smile", "narrow", "base", "L", hair="horny")
+    call cho_main("*Ehm*... If you say so, Professor.", "normal", "happyCl", "worried", "mid", cheeks="blush")
+    call ton_main("Now the Professor on the other hand...", "mad", "narrow", "angry", "mid", hair="angry")
+    call cho_main("", "mad", "base", "raised", "mid", cheeks="blush")
+    call ton_main("He can call himself very lucky that I'm not a real Succubus.", "soft", "narrow", "base", "mid", hair="angry")
+    m "I'm not ruling out the possibility..."
+    call ton_main("*Tsk*...", "upset", "narrow", "base", "mid", hair="angry")
+    m "Though I must say you're much more attractive than the last demon who visited me..."
+    call ton_main("", "annoyed", "narrow", "raised", "mid", hair="angry")
+    call cho_main("You were visited by a demon, Professor?", "soft", "narrow", "base", "mid")
+    m "Yes... Although it was just your regular sleep paralysis demon."
+    call ton_main("", "base", "narrow", "base", "mid", hair="angry")
+    call cho_main("Oh...", "disgust", "narrow", "base", "down")
+    g4 "A rather horrifying looking one at that... Not sexy in the slightest!"
+    g9 "Mating with it proved itself to be quite difficult..."
+    call ton_main("Of course you did...", "horny", "narrow", "angry", "mid", hair="angry")
+    call cho_main("You... Wait, did you say {b}it{/b}, Sir?", "open", "base", "base", "mid") #wide eyed
+    m "*Ahem*... So, how does one summon a Succubus anyway?"
+    g9 "I'm sure you're an expert in the subject, Miss Tonks."
+    call cho_main("{b}It{/b}, sir?!", "mad", "narrow", "raised", "mid")
+    call ton_main("*Hmm*... I wouldn't call myself an expert...", "base", "narrow", "base", "mid")
+    call cho_main("But what about your Auror Training professor?", "annoyed", "narrow", "base", "L") #annoyed pout
+    call ton_main("", "base", "narrow", "base", "L") #Glances at Cho
+    call cho_main("...", "base", "narrow", "base", "L", cheeks="blush") #embarrased
+    call ton_main("Now I know I'm your Teacher, Miss Chang, but that doesn't mean I'm at an expert level of every subject before doing proper research...", "open", "narrow", "raised", "L")
+    call cho_main("Oh... Of course, Professor... I didn't mean to--", "mad", "narrow", "worried", "down", cheeks="blush")
+    call ton_main("Whilst we did cover Succubi during our training, the subject of summoning wasn't very in depth...", "soft", "narrow", "raised", "L")
+    call cho_main("", "base", "narrow", "worried", "L", cheeks="blush")
+    call ton_main("We mostly learned how to easily recognize and how to... Deal with various magical beings.", "open", "closed", "base", "mid")
+    m "Right..."
+    call ton_main("That said...", "grin", "narrow", "base", "mid")
+    call ton_main("What I do know is that they usually come off as quite erratic and spontaneous.", "soft", "narrow", "shocked", "mid")
+    call ton_main("In most cases you'd only encounter them if {b}they{/b} want you to...", "base", "narrow", "base", "mid")
+    call ton_main("So summoning one would be quite difficult.", "base", "narrow", "base", "L")
+    g9 "Well... Luckily I have the ability to summon you any time I want!"
+    call ton_main("*Hmmm*... Be careful what you wish for, Professor...", "horny", "narrow", "base", "mid", hair="horny")
+    call ton_main("I can be just as dangerous and seductive... {heart}", "horny", "narrow", "angry", "mid", hair="angry")
+    call cho_main("", "horny", "narrow", "worried", "mid", cheeks="blush")
+    g4 "See that hungry look in her eyes, Cho?"
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="blush")
+    g9 "This Succubus is out to steal all my semen!"
+    call ton_main("Oh, don't tempt me, Professor...", "crooked_smile", "narrow", "angry", "mid", hair="horny")
+    call cho_main("...", "base", "narrow", "worried", "down", cheeks="blush") # embarrassed
+
+    #Tonks succubus encounter story
+    call cho_main("*Ehm*...{w=0.5} So, did you actually confront a real Succubus, Professor?", "soft", "narrow", "base", "L", cheeks="blush")
+    call ton_main("Oh, Yes indeed, Miss Chang!", "base", "happyCl", "base", "mid", hair="horny")
+    call ton_main("It happened during my first year of Auror training, when I was still a complete novice.", "open", "narrow", "raised", "L")
+    call ton_main("We were tracked down by one during a scouting mission... Unbeknownst to us, of course.", "crooked_smile", "narrow", "base", "mid")
+    call cho_main("She tracked you down?", "mad", "base", "raised", "L", cheeks="blush")
+    call ton_main("Yes... They can sense the arousal of humans from miles away... Even further if they haven't had any relief for some time.", "base", "narrow", "base", "L")
+    m "Well, who can blame your partner with you around?"
+    call ton_main("*giggles*", "base", "happyCl", "base", "mid", hair="horny") #sound
+    call ton_main("Oh silly... She was after me, of course!", "soft", "narrow", "base", "mid", hair="horny")
+    call cho_main("No way!?", "horny", "narrow", "raised", "L", cheeks="blush")
+    call ton_main("I know what you're going to say, Professor... And yes... They don't usually go after females.", "open", "closed", "base", "mid", hair="horny")
+    call cho_main("But she still came after you?", "soft", "narrow", "raised", "L", cheeks="blush")
+    call cho_main("When did you and your partner notice her?", "mad", "narrow", "base", "L", cheeks="blush")
+    call ton_main("Well... My partner didn't notice her exactly... I might've wandered a bit further away from our camp than I should have...", "soft", "narrow", "base", "downR", hair="horny")
+    call ton_main("You know... To get some privacy.", "crooked_smile", "narrow", "base", "mid", hair="horny", cheeks="blush")
+    call ton_main("She must've taken some great caution to be able to sneak up on me, but after a while of... *Ehm*...", "clench", "narrow", "base", "L", hair="horny")
+    call ton_main("After some time I noticed her movements among the bushes.", "open", "closed", "base", "mid", hair="horny")
+    call ton_main("Once I noticed her presence there was no doubt in my mind why she had snuck up on me...", "grin", "narrow", "base", "mid", hair="horny")
+    m "Let me guess... She was--"
+    call ton_main("She was going full force, pleasuring herself... Not even noticing that I had stopped and spotted her!", "grin", "narrow", "angry", "mid", hair="horny")
+    call cho_main("Stopped what?", "annoyed", "base", "raised", "mid")
+    g9 "Shush, Miss Chang... Don't interrupt the story!"
+    call ton_main("Of course I had to be a hundred percent sure what creature she was, so I went to take out my wand to make some light, but...", "base", "narrow", "base", "L", hair="horny")
+    call ton_main("Before I knew it she had flown right up next to me, grabbing my wrists.", "open", "narrow", "angry", "mid", hair="angry")
+    call cho_main("And then you used your auror training to fight her!", "grin", "narrow", "angry", "L")
+    call play_sound("giggle")
+    call ton_main("*Giggles*...{w=0.4} No, we made out instead.", "horny", "narrow", "raised", "L", hair="horny") #sound
+    call cho_main("You...{w} Made out with her!?", "clench", "wide", "base", "L")
+    call ton_main("Of course! She couldn't get enough of me!", "grin", "happyCl", "base", "mid", hair="horny")
+    call ton_main("After all... I'm quite skilled with my tongue.", "horny", "narrow", "base", "mid", hair="horny")
+    call cho_main("Your--", "soft", "narrow", "worried", "L", cheeks="blush")
+    g9 "Tongue!"
+    call play_sound("giggle")
+    call ton_main("*giggles*", "base", "happyCl", "base", "mid", hair="horny")
+    call ton_main("Yes indeed... Would you like a demonstration?", "crooked_smile", "narrow", "base", "mid", hair="horny")
+
+    menu:
+        g9 "!!!"
+        "\"Yes please!\"":
+            call ton_main("Yeah, I bet you'd like that, Professor. {heart}", "horny", "narrow", "base", "mid", hair="horny")
+            call ton_main("Maybe some other time.", "soft", "narrow", "base", "mid", hair="horny")
+            call cho_main("...", "clench", "narrow", "worried", "down", cheeks="blush") # curious look
+
+        "\"What do you say, Miss Chang?\"":
+            call cho_main("With m-me?", "clench", "wide", "raised", "mid", cheeks="heavy_blush")
+            call ton_main("No, silly... Well not today at least. {heart}", "soft", "narrow", "base", "L", hair="horny")
+            call cho_main("...", "clench", "narrow", "worried", "down", cheeks="blush") # blushing
+
+    # Tonks shows her tongue.
+    call ton_main("You'll have to settle for a peek for now...", "horny", "narrow", "base", "mid", hair="horny")
+    call cho_main("...", "horny", "narrow", "base", "L", cheeks="blush") #blush
+    m "*Hmm?*..."
+    call ton_main("*Ahh*...", "open_wide", "narrow", "base", "down", hair="horny")
+    call cho_main("", "horny", "base", "raised", "L", cheeks="blush")
+    call ton_main("*Ahhhhhhh*.........", "open_wide_tongue", "narrow", "angry", "down", hair="horny") # Tonks shows her tongue.
+    call cho_main("Wow!", "open", "base", "raised", "L", cheeks="blush")
+    g9 "..."
+    call ton_main("Ae I chahn mhehk i ash ong ashh I whan...", "open_wide_tongue", "narrow", "angry", "mid", hair="horny")
+    call ton_main("... shee!", "open_wide_tongue2", "narrow", "angry", "down", hair="horny") # Tongue all the way out.
+    call cho_main("By Merlin's beard!", "clench", "narrow", "worried", "L", cheeks="heavy_blush") #blush
+    g9 "Nice..."
+    g9 "Although with a succubus I highly doubt there was just kissing going on..."
+    call ton_main("*Hmm*... Yesh, thaht little devil...", "open_wide_tongue", "narrow", "angry", "mid", hair="horny")
+    call ton_main("She was very quick to lock my head in place between her thighs, and then impaled herself on my tongue.", "open_wide_tongue", "narrow", "raised", "mid", hair="horny")
+    call ton_main("Rode my tongue for a good hour, that freak...", "horny", "narrow", "angry", "mid", hair="horny")
+
+    #g4 "You're calling her a freak? Your tongue is longer than my dick!"
+    #cho "Professor?"
+    #ton "Oh, sweetie... My dick could be longer than your dick..."
+    #cho "What?!"
+    #ton "Not that I have one currently..."
+    #ton "But I could make it as long as I want!"
+    #cho "..." #looking at floor
+    #g4 "What else? Does it vibrate too? How are you even supposed to compete with that?"
+    #ton "*giggles*" #sound
+    #ton "I haven't tried that actually... That's not a bad idea."
+    #cho "" #blush
+    #m "..."
+    #ton "Don't you worry professor... There's always the need for that masculine touch..."
+
+    g9 "(Like you didn't enjoy every minute of it...)"
+    call ton_main("Pleasuring her was quite exhausting to say the least...", "soft", "narrow", "base", "L", hair="horny")
+    call ton_main("I licked her inside out until my whole face was covered in her devilish love-juices... {heart}", "horny", "narrow", "angry", "mid", hair="angry")
+    call cho_main("", "clench", "narrow", "worried", "down", cheeks="heavy_blush") #Horny #looks at tonks
+    call ctc
+
+    call ton_main("Although... I did almost drown...", "upset", "base", "raised", "up", hair="horny") # thinking back
+    call ton_main("Her thighs, practically glued to my cheeks meant there was no other way for her juices to flow than into my mouth...", "open", "narrow", "annoyed", "mid", hair="horny")
+    call ton_main("Her essence becoming too much for me to handle as it eventually ran up my nose.", "horny", "narrow", "base", "down", hair="horny")
+    m "Holy shit."
+    call ton_main("I had no other choice but to swallow all of it...", "grin", "narrow", "base", "mid", hair="horny")
+    call cho_main("", "normal", "happyCl", "worried", "mid", cheeks="heavy_blush")
+    call play_sound("gulp")
+    g4 "*gulp*"
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="blush")
+    call ton_main("That little demon must've come at least twenty times that night. {heart}", "open_wide_tongue", "narrow", "raised", "L", hair="horny")
+    call ton_main("I could give you a ride on this as well if you'd like, Miss Chang.", "open_wide_tongue2", "narrow", "angry", "L", hair="horny", cheeks="heavy_blush") # tongue out
+    call cho_main("Professor--", "soft", "narrow", "worried", "mid", cheeks="heavy_blush") # embarrassed #looks at you
+    m "Tonks, not before--"
+    call ton_main("Yes, yes... Not before you win that silly Quidditch cup.", "mad", "closed", "angry", "mid", hair="angry", cheeks="heavy_blush")
+    call cho_main("It's not silly!", "annoyed", "narrow", "angry", "L", cheeks="blush")
+    call ton_main("Winning that cup won't feel as good as having my tongue inside you, Miss Chang... I can promise you that much.", "annoyed", "narrow", "angry", "L", hair="horny", cheeks="heavy_blush")
+    call cho_main("...", "clench", "happyCl", "worried", "mid", cheeks="heavy_blush") #Pout #blush
+    call ton_main("Well then... I hope you two liked my little story. {heart}", "open", "closed", "base", "mid", hair="horny")
+    call ton_main("And my new outfit of course... ", "crooked_smile", "narrow", "base", "down", hair="horny")
+
+    # Unlock outfit message. Should only appear once.
+    if ton_top_succubus.unlocked == False:
+        call unlock_clothing(text=">New clothing items for Tonks have been unlocked!", item=ton_outfit_succubus)
+        $ unlock_clothing_compat(item=ton_top_succubus2)
+
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="heavy_blush")
+    call ton_main("Maybe I could dress as a Succubus for Halloween. I'm sure the boys would love it...", "base", "narrow", "base", "mid", hair="horny")
+    g9 "With or without the tits out?"
+    call ton_main("*Hmm*... Haven't decided yet.", "upset", "narrow", "raised", "down", hair="horny")
+    call cho_main("...", "clench", "narrow", "worried", "mid", cheeks="blush")
+    call ton_main("Well, then... of we go Miss Chang...", "soft", "narrow", "base", "L", hair="horny")
+
+    # End Event.
+    jump cc_pf_strip_T3_tonks.end_event
+
+
+
+## Hermione Transformation ##
+label .hermione_E1:
+    # Pink Hair: $ hermione.get_equipped("hair").set_color([[255, 87, 171, 255], [255, 210, 227, 255], [230, 141, 32, 255]])
+    # Brown Hair: $ hermione.get_equipped("hair").set_color([[152, 89, 48, 255], [195, 137, 89, 255], [230, 141, 32, 255]])
+    call ton_main("Hermione again, *Hmm*?","base","base","base","mid")
+    call ton_main("Seems to me like she's a bit of a favourite, isn't she?","base","base","base","mid")
+    g9 "What can I say, she's got the best tits in the house!"
+    call cho_main("Hey! That's not true!","base","base","base","mid")
+    m "It isn't? Then who's tits are better, Miss Chang?"
+    g9 "Do tell me, I'd love to know!"
+    call cho_main("Just forget I said anything...","base","base","base","mid")
+    call ton_main("Well, I for one am not going to disagree with you, Professor.","base","base","base","mid")
+    call ton_main("Miss Granger's tits are quite nice indeed...","base","base","base","mid")
+    call cho_main("...","base","base","base","mid")
+    call ton_main("I mean we could do something else if you'd like Miss--","base","base","base","mid")
+    g9 "No, No-- Do the thing!"
+    call ton_main("Certainly... With pleasure.","base","base","base","mid")
+    stop music
+    pause .8
+
+    # Save custom Hermione name
+    $ temp_name = hermione_name
+    $ hermione_name = "Tonks"
+
+    # Transforms into Hermione
+    call play_sound("magic")
+    hide screen tonks_main
+    $ hermione.strip("all")
+    $ cho_chibi.zorder = 3 # Reset to default.
+    $ hermione_chibi.zorder = 2 # behind Cho. Default is 3.
+    call ton_chibi("hide")
+    call her_chibi("stand", flip=False, 370, 360)
+    call her_main("", "crooked_smile", "narrow", "base", "mid", xpos=345, ypos="base", flip=False, trans=d5)
+    with morph
+    pause .2
+
+    call cho_main("", "open", "wide", "raised", "L", cheeks="heavy_blush")
+    call ctc
+
+    call play_music("trance")
+    ton "Well then, here she is..."
+    ton "Feel free to touch me, Cho."
+    ton "Unlike Hermione I won't bite you... Probably. {heart}"
+    cho "..." # blush
+    ton "I simply love getting groped..."
+    g9 "That reminds me... Let's talk about how well you did during the last quidditch match..."
+    m "You did quite a good job pretending to be Hermione"
+    g9 "Wouldn't you say she did a good job commentating, Miss Chang?"
+    cho "Oh... Well I wouldn't know since I more focused on playing, sir..."
+    cho "But from what I could gather you did quite well, *uhm*... Professor."
+    m "Yes... She put so much effort in that was completely exhausted by the end..."
+    ton "... {heart}" # blushing
+    cho "She was?"
+    m "Indeed... Addressing the entire school is no easy task Miss Chang..."
+    ton "..." #Horny #Starts touching breasts (If Cho isn't looking)
+    m "You have to Stay completely focused when you're tasked with commentating on everything that's happening."
+    cho "Surely commentating doesn't even come close to the amount of focus you need to spot the snitch..."
+    cho "Or how would Granger be able to do it?"
+    m "Depends how easily you get distracted I suppose..."
+    m "Would you say that you're easily distracted... Miss Granger?"
+    ton "*Mmm*..."
+    m "Miss Granger?"
+    cho "" #annoyed
+
+    ton "(*Mmm*... Just thinking about it gets me all riled up again...)"
+    cho "Professor, what are you..." #Looks at Tonks/Hermione
+    ton "*Hmm*... Sorry, what did you say?"
+    cho "What are you doing?"
+    ton "*giggles*" #sound
+    ton "What does it looks like?"
+    cho "You're touching your... Her--"
+    ton "Yes... How could I not?"
+    ton "These breasts are just so..."
+
+    #pinch nipples.
+    ton "*Mmmh*... So soft..."
+    ton "And her nipples..."
+    ton "*Ah*..."
+    ton "So sensitive..."
+    cho "*Ehm*..."
+    ton "*Mhmm*... And I bet her nipples isn't the only--"
+    ton "" #Hand in front of pussy
+    pause .8
+    $ renpy.play("sounds/slick_02.mp3")
+    ton "*Ah*..." #Hand on pussy
+    cho "Tonks!" #closing her eyes/looking away
+    play bg_sounds "sounds/slickloop.mp3" fadein 2 #Continuous masturbate loop
+    ton "*mmm*..."
+    pause 1
+    ton "*Hmm*? Not even a peek?"
+    ton "Don't you want to see what Hermione looks like when... *Ah*... She masturbates?"
+    ton "Are you sure you... *Ah*...{w=0.4} Want to miss this?"
+    cho "" #glances at her
+    ton "*Ah*...{w=0.3} That's it, Cho..."
+    ton "I knew you couldn't resist..."
+    cho "" #Horny
+    call ctc
+
+    ton "*Ah*...{w=0.3} Look at me as I rub Granger's cute little slit."
+    ton "*Ah*...{w=0.3} *Ah*...{w=0.3} *Ah*...{w=0.3}"
+    cho "" #looks away
+    call ctc
+
+    ton "No! Keep watching me!"
+    play bg_sounds "sounds/slickloopfast.mp3"
+    ton "*Ah*...{w=0.3} I'm getting close!"
+    play bg_sounds "sounds/slickloopveryfast.mp3"
+    cho "" #still looking away
+    ton "Watch me!"
+    cho "" #still looking away
+    ton "Watch as Hermione cums for you!"
+    cho "" #embarrased #Looks at Tonks
+    $ renpy.sound.play("sounds/slick_01.mp3")
+    ton "*Nngh*...{w=0.4} *Aaah*!!!"
+    stop bg_sounds
+    with kissiris
+    cho "" #wide eyed
+    with kissiris
+    $ renpy.sound.play("sounds/slick_01.mp3")
+    ton "*Ah*!"
+    stop bg_sounds fadeout 2
+    ton "*Mmmh*...."
+    cho "..."
+    ton "*Ah*...{w=0.3} *Ah*...{w=0.5} *Ah*...{w=0.6} Good...{w=0.3} Good girl..."
+
+    #Pose back to normal
+    ton "*Mmmh*... How I love masturbating in a body that I'm not quite familiar with..."
+    ton "It's like flying a new broom... There's nothing quite like the first test ride..."
+    cho "..."
+    ton "*giggles*" #Looks at cho
+
+    # Tonks transforms back.
+    call play_sound("magic")
+    hide screen hermione_main
+    call her_chibi("hide")
+    $ cho_chibi.zorder = 3 # Reset to default.
+    $ tonks_chibi.zorder = 2 # behind Cho. Default is 3.
+    call ton_chibi("stand", flip=False, 370, 360)
+    call ton_main("", "base", "narrow", "base", "mid", xpos=345, ypos="base", flip=False, trans=None)
+    with morph
+    pause .2
+
+    call cho_main("", "clench", "base", "raised", "down", cheeks="heavy_blush")
+    call ctc
+
+    ton "Miss Granger's clit is quite sensitive... Who could have guessed?"
+    g9 "Noted."
+    ton "You'll do good to memorize this as well, Miss Chang. That knowledge might come in handy in the future."
+    cho "..." # blushing
+    ton "Well then... this should be enough to last me for the day... Hopefully..."
+
+    # Reset
+    $ hermione_name = temp_name
+
+    # End Event.
+    jump cc_pf_strip_T3_tonks.end_event
+
 
 
 ## End Event ##
@@ -1175,3 +1414,106 @@ label .end_event:
 
     # End event.
     jump end_cho_strip_event
+
+
+
+
+
+
+##############
+### Tier 4 ###
+##############
+
+## Tier 4 - Summon Tonks ##
+
+
+## Transformations ##
+
+## Succubus - Tier 4 ##
+#label cc_pf_strip_T4_tonks.succubus_E1:
+#    m "Tell me, Miss Tonks."
+#    g9 "Are you one of these Succubbi that like to hunt virgins?"
+#    ton "*Ha-ha-ha*... Where did you hear that?" # cracks up.
+#    m "I've read it in a-- *uhm*...{w=0.5} in a book."
+#    m "If you're a virgin by the age of forty and one visits you, you might end up lucky!"
+#    cho "Lucky... how?"
+#    ton "I don't know... I'd have to do some research on that..."
+#    ton "I was sure I knew everything there was to know about succubi..."
+#    m "I suppose you might not be sophisticated enough to appreciate fine arts..."
+#    ton "*Hmm*... Then perhaps It'd be worth covering during one of my lesson." #looking at cho
+#    ton "Although I'd have to borrow that book of yours."
+
+## Hermione - Tier 4 ##
+#label cc_pf_strip_T4_tonks.hermione_E1:
+    ton "Move aside, Chang!" # angry
+    ton "The headmaster wants me to strip for him."
+    g9 "That's right, Miss Granger."
+    cho "..."
+
+#    g9 "Seeing that she was being groped for the better part of it."
+#    cho "Groped?-- What?" # confused
+#    g9 "I her while she had to announce those points. It was quite funny!"
+#    cho "You were molesting her, in front of everybody?"
+#    g4 "I molested her -- with her consent!...{w} {size=-6}more or less.{/size}{w=0.3}{nw}"
+#    m "She practicly begged me to continue."
+#    ton "Was it that obvious, Professor?"
+#    ton "I loved the way you fingered my pussy in front of everybody. {heart}"
+#    cho "Merlin's beard, you're such a slut..." # judgemental
+
+
+    # Hermione stands in the middle, between Genie and Cho.
+
+    ton "Professor, how many house points may I get for this shameless act you're asking me to do?"
+    g9 "You're requesting house points for this, Miss Granger?"
+    ton "Naturally."
+    m "*Hmmm*..."
+
+    menu:
+        "You shall receive five points.":
+            ton "Only so little, Professor?"
+            ton "Surely revealing my tits must be worth a lot more to you than that..."
+            g9 "Five points, Miss Granger. And I demand to see a lot more than just your tits!"
+            call cho_main("...", "smile", "narrow", "base", "mid", cheeks="blush")
+            ton "So be it then..."
+            ton "I'll do anything for my precious Gryffindor house!"
+            g9 "Five points for Gryffindor, Miss Granger!"
+            $ gryffindor += 5
+            g4 "Now strip for us, you little slut."
+
+        "You shall receive one hundred points!":
+            ton "Seriously?"
+            call cho_main("Professor, what are you doing?", "base", "narrow", "base", "mid")
+            ton "Well, one hundred points seem to be sufficient, Professor..."
+            call cho_main("...", "base", "narrow", "base", "mid")
+            ton "I'd gladly bare my tits for that amount."
+            g9 "Not just your tits, Miss Granger!"
+            ton "Anything for you, Sir."
+            call cho_main("I don't want Granger to get points from this! She isn't even here...", "base", "narrow", "base", "mid")
+            m "Didn't you say you don't give a flying fuck about the house cup?"
+            ton "*snort*... You said what?"
+            call cho_main("I didn't say it like that!", "base", "narrow", "base", "mid")
+            ton "*shsss*, Professor.{w=0.5} Just mumble a bit when giving out those points..."
+            m "Very well, then..."
+            g9 "One hundret points for this Gryffin-whore!"
+            call cho_main("*Ha-ha*!", "base", "narrow", "base", "mid")
+            ton "Thank you, Sir."
+            ton "I know I deserve those Gryffin-whore points more than anyone!"
+            ton "I'm the biggest slut in all of Hogwarts!"
+
+        "No points for you, Granger.":
+            ton "What? But Professor!"
+            ton "You're asking me to expose myself for you, without getting any of those precious house points?"
+            ton "How outragious!"
+            m "Cho isn't asking for points either, Miss Granger. I'd say it's quite fair if you receive none as well..."
+            ton "Well, I'm not a slag like Miss Chang here... Who loves stripping for her headmaster!"
+            call cho_main("Hey!", "annoyed", "narrow", "angry", "L")
+            ton "What? It's the truth, isn't it... You slut!"
+            call cho_main("...", "annoyed", "narrow", "base", "mid")
+            call cho_main("Sir, could you ask her to turn back again? She's starting to get on my nerves...", "open", "narrow", "base", "mid")
+            g9 "Not a chance. She's doing great!"
+            call cho_main("A bit too convincing for my likeing...", "annoyed", "narrow", "base", "L")
+            ton "..."
+            ton "Very well, then. I shall undress for you, Professor."
+            ton "My friends will be so disappointed when they hear I'm doing this for free..."
+            ton "But I simply can't help it, can I?"
+            ton "I want to be the biggest slut in all of Hogwarts!"
