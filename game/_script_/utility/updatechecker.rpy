@@ -126,6 +126,9 @@ init -1 python:
 
         if float(save_internal_version) < 1.393:
 
+            cho_outfits_list.append(cc_japanese_school_uniform_ITEM)
+            outfit_linking[cc_japanese_school_uniform_ITEM.id] = "cho_outfit_j_school"
+
             # Update fixed clothes
             ast_gloves_ann.armfix = False
             ton_panties_base.armfix = True
