@@ -125,6 +125,7 @@ init -1 python:
             renpy.block_rollback()
 
         if float(save_internal_version) < 1.393:
+            global her_reputation
 
             cho_outfits_list.append(cc_japanese_school_uniform_ITEM)
             outfit_linking[cc_japanese_school_uniform_ITEM.id] = "cho_outfit_j_school"
@@ -147,7 +148,7 @@ init -1 python:
 
             mr_evs_list.insert(0, mr_ev_SNR)
 
-            if hg_pr_flirt.is_event_complete(1, 1) and her_reputation < 6:
+            if her_reputation < 6 and hg_pr_flirt.is_event_complete(1, 1):
                 her_reputation = 6
 
             save_internal_version = 1.393
