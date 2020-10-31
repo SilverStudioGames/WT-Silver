@@ -24,10 +24,10 @@ label suck_and_run:
             $ pathvalue = 0
         "-Part two-":
             $ pathvalue = 1
-        "{color=[menu_disabled]}-Part three-{/color}" if not ton_top_succubus.unlocked:
-            call nar("You'll require a certain outfit for Tonks to play this part.")
-            jump suck_and_run.choices
-        "-Part three-" if ton_top_succubus.unlocked:
+        #"{color=[menu_disabled]}-Part three-{/color}" if not ton_top_succubus.unlocked:
+        #    call nar("You'll require a certain outfit for Tonks to play this part.")
+        #    jump suck_and_run.choices
+        "-Part three-": # if ton_top_succubus.unlocked:
             $ pathvalue = 2
         "-Go back-":
             # Return
@@ -374,6 +374,12 @@ label suck_and_run:
         show screen blkfade with d3
         stop music fadeout 1.0
         hide screen add_overlay
+
+        # Unlock outfit message. Should only appear once.
+        if ton_top_succubus.unlocked == False:
+            call unlock_clothing(text=">New clothing items for Tonks have been unlocked!", item=ton_outfit_succubus)
+            $ unlock_clothing_compat(item=ton_top_succubus2)
+
         $ daytime = temp_day
         centered "{size=+7}{color=#cbcbcb}End of part three{/color}{/size}"
 
