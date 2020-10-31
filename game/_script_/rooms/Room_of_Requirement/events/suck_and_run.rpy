@@ -147,7 +147,7 @@ label suck_and_run:
         m "Oh no, he absolutely loves it."
         call ton_main("Really?", "disgust", "wide", "shocked", "mid")
         call ton_main("Well... Colour me surprised...", "open", "closed", "base", "mid")
-        m "Yes... In fact he seemed quite eager to find out what will the girls wear this year."
+        m "Yes... He seemed quite eager to find out what the girls will be wearing this year in fact."
         call ton_main("Oh, so it's like that is it?", "base", "narrow", "raised", "mid")
         m "He also mentioned that some Hufflepuff boys have been falling asleep during his lessons... What do you think--"
         call ton_main("What?! Why do you think I'd know anything about Hufflepuff boys falling asleep in class!?", "silly", "happyCl", "worried", "mid", cheeks="heavy_blush", hair="horny")
