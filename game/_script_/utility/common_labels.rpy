@@ -165,6 +165,8 @@ label play_sound(sound=""):
     # Magic
     elif sound == "spell":
         $ renpy.play('sounds/magic2.mp3')
+    elif sound == "morph":
+        $ renpy.sound.play("sounds/magic3.mp3")
     elif sound == "magic":
         $ renpy.play('sounds/magic4.ogg')
 

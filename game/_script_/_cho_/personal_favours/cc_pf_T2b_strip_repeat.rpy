@@ -1192,19 +1192,20 @@ label .succubus_E2:
 label .hermione_E1:
     # Pink Hair: $ hermione.get_equipped("hair").set_color([[255, 87, 171, 255], [255, 210, 227, 255], [230, 141, 32, 255]])
     # Brown Hair: $ hermione.get_equipped("hair").set_color([[152, 89, 48, 255], [195, 137, 89, 255], [230, 141, 32, 255]])
-    call ton_main("Hermione again, *Hmm*?","base","base","base","mid")
-    call ton_main("Seems to me like she's a bit of a favourite, isn't she?","base","base","base","mid")
+    call ton_main("Hermione again, *Hmm*?", "base", "base", "base", "mid")
+    call ton_main("Seems to me like she's a bit of a favourite, isn't she?", "soft", "narrow", "raised", "mid")
     g9 "What can I say, she's got the best tits in the house!"
-    call cho_main("Hey! That's not true!","base","base","base","mid")
+    call cho_main("Hey! That's not true!", "annoyed", "narrow", "base", "mid")
     m "It isn't? Then who's tits are better, Miss Chang?"
     g9 "Do tell me, I'd love to know!"
-    call cho_main("Just forget I said anything...","base","base","base","mid")
-    call ton_main("Well, I for one am not going to disagree with you, Professor.","base","base","base","mid")
-    call ton_main("Miss Granger's tits are quite nice indeed...","base","base","base","mid")
-    call cho_main("...","base","base","base","mid")
-    call ton_main("I mean we could do something else if you'd like Miss--","base","base","base","mid")
+    call cho_main("Just forget I said anything...", "annoyed", "narrow", "base", "L")
+    call ton_main("Well, I for one am not going to disagree with you, Professor.", "crooked_smile", "narrow", "base", "mid")
+    call ton_main("Miss Granger's tits are quite nice indeed...", "horny", "narrow", "angry", "mid", hair="horny")
+    call cho_main("...", "normal", "narrow", "base", "up")
+    call ton_main("I mean we could do something else if you'd like, Miss--", "open", "base", "base", "L")
     g9 "No, No-- Do the thing!"
-    call ton_main("Certainly... With pleasure.","base","base","base","mid")
+    call cho_main("", "annoyed", "narrow", "base", "L", cheeks="blush")
+    call ton_main("Certainly... With pleasure.", "base", "happyCl", "base", "mid")
     stop music
     pause .8
 
@@ -1213,111 +1214,141 @@ label .hermione_E1:
     $ hermione_name = "Tonks"
 
     # Transforms into Hermione
-    call play_sound("magic")
+    call play_sound("morph")
     hide screen tonks_main
     $ hermione.strip("all")
     $ cho_chibi.zorder = 3 # Reset to default.
     $ hermione_chibi.zorder = 2 # behind Cho. Default is 3.
     call ton_chibi("hide")
     call her_chibi("stand", flip=False, 370, 360)
-    call her_main("", "crooked_smile", "narrow", "base", "mid", xpos=345, ypos="base", flip=False, trans=d5)
+    call her_main("", "base", "narrow", "base", "mid", xpos=345, ypos="base", flip=False, trans=d5)
     with morph
     pause .2
 
-    call cho_main("", "open", "wide", "raised", "L", cheeks="heavy_blush")
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="heavy_blush")
     call ctc
 
     call play_music("trance")
-    ton "Well then, here she is..."
-    ton "Feel free to touch me, Cho."
-    ton "Unlike Hermione I won't bite you... Probably. {heart}"
-    cho "..." # blush
-    ton "I simply love getting groped..."
+    call her_main("Well then, here she is...", "smile", "narrow", "angry", "mid")
+    call her_main("Feel free to touch me, Cho.", "base", "narrow", "annoyed", "R")
+    call her_main("Unlike Hermione I won't bite you... Probably. {heart}", "smile", "narrow", "annoyed", "down")
+    call cho_main("...", "mad", "narrow", "worried", "down", cheeks="blush") # blush
+    call her_main("I simply love getting groped...", "soft", "narrow", "angry", "up")
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="blush")
     g9 "That reminds me... Let's talk about how well you did during the last quidditch match..."
-    m "You did quite a good job pretending to be Hermione"
+    m "You did quite a good job pretending to be Hermione."
     g9 "Wouldn't you say she did a good job commentating, Miss Chang?"
-    cho "Oh... Well I wouldn't know since I more focused on playing, sir..."
-    cho "But from what I could gather you did quite well, *uhm*... Professor."
-    m "Yes... She put so much effort in that was completely exhausted by the end..."
-    ton "... {heart}" # blushing
-    cho "She was?"
-    m "Indeed... Addressing the entire school is no easy task Miss Chang..."
-    ton "..." #Horny #Starts touching breasts (If Cho isn't looking)
-    m "You have to Stay completely focused when you're tasked with commentating on everything that's happening."
-    cho "Surely commentating doesn't even come close to the amount of focus you need to spot the snitch..."
-    cho "Or how would Granger be able to do it?"
-    m "Depends how easily you get distracted I suppose..."
-    m "Would you say that you're easily distracted... Miss Granger?"
-    ton "*Mmm*..."
-    m "Miss Granger?"
-    cho "" #annoyed
+    call cho_main("Oh... Well I wouldn't know since I was more focused on playing, Sir...", "soft", "base", "base", "mid", cheeks="blush")
+    call cho_main("But from what I could gather you did quite well, *uhm*... Professor.", "silly", "narrow", "worried", "L", cheeks="heavy_blush")
+    m "Yes... She put so much effort into in... you must have been completely exhausted by the end..."
+    call cho_main("", "horny", "narrow", "worried", "L", cheeks="blush")
+    call her_main("... {heart}", "base", "happy", "base", "mid_soft", cheeks="blush") # blushing
+    call cho_main("You were?", "smile", "narrow", "base", "L", cheeks="blush")
+    m "Indeed... Addressing the entire school is no easy task, Miss Chang..."
+    call her_main("...", "crooked_smile", "happyCl", "base", "mid") #Horny #Starts touching breasts (If Cho isn't looking)
 
-    ton "(*Mmm*... Just thinking about it gets me all riled up again...)"
-    cho "Professor, what are you..." #Looks at Tonks/Hermione
-    ton "*Hmm*... Sorry, what did you say?"
-    cho "What are you doing?"
-    ton "*giggles*" #sound
-    ton "What does it looks like?"
-    cho "You're touching your... Her--"
-    ton "Yes... How could I not?"
-    ton "These breasts are just so..."
+    show screen blkfade
+    with d5
+    $ renpy.play("sounds/slick_02.mp3")
+    with hpunch
+    with kissiris
+    $ hermione.set_pose("masturbate")
+    $ hermione.set_body(armleft="on_pussy")
+    call her_main("", "base", "narrow", "worried", "stare")
+    hide screen blkfade
+    with d5
+
+    m "You have to Stay completely focused when you're tasked with commentating on everything that's happening."
+    call cho_main("Surely commentating doesn't even come close to the amount of focus you need to spot the snitch...", "soft", "narrow", "raised", "mid")
+    call cho_main("Or how would Granger be able to do it?", "annoyed", "narrow", "base", "R")
+    m "Depends how easily you get distracted, I suppose..."
+    m "Would you say that you're easily distracted... Miss Granger?"
+    call her_main("*Mmm*...", "base", "narrow", "base", "stare_soft")
+    m "Miss Granger?"
+    call cho_main("...", "annoyed", "narrow", "base", "L") #annoyed
+    call her_main("*Mmm*... Just thinking about it gets me all riled up again...", "open", "narrow", "worried", "mid")
+    call cho_main("Professor, what are you...", "disgust", "narrow", "base", "L", cheeks="blush") #Looks at Tonks/Hermione
+    call her_main("*Hmm*... Sorry, what did you say?", "open_tongue", "narrow", "base", "L")
+    call cho_main("What are you doing?", "mad", "happyCl", "base", "mid", cheeks="blush")
+    call play_sound("giggle")
+    call her_main("*giggles*", "base", "narrow", "base", "mid", cheeks="blush") #sound
+    call her_main("What does it looks like?", "grin", "narrow", "base", "L")
+    call cho_main("You're touching your... Her--", "clench", "narrow", "raised", "down", cheeks="blush")
+    call her_main("Yes... How could I not?", "base", "narrow", "base", "mid")
+    call her_main("These breasts are just so...", "soft", "narrow", "base", "down")
 
     #pinch nipples.
-    ton "*Mmmh*... So soft..."
-    ton "And her nipples..."
-    ton "*Ah*..."
-    ton "So sensitive..."
-    cho "*Ehm*..."
-    ton "*Mhmm*... And I bet her nipples isn't the only--"
-    ton "" #Hand in front of pussy
+
+
+    # Hands on pussy, tits
+    $ hermione.set_body_zorder(armright=3)
+    $ hermione.set_body(armleft="on_pussy", armright="on_tits")
+    play bg_sounds "sounds/slickloop.mp3" fadein 2
+
+    call her_main("*Mmmh*... So soft...", "base", "closed", "base", "mid")
+    call her_main("And her nipples...", "soft", "narrow", "base", "down")
+    call her_main("*Ah*...", "open_tongue", "narrow", "base", "stare_soft")
+    call her_main("So sensitive...", "base", "narrow", "base", "up")
+    call cho_main("*Ehm*...", "horny", "narrow", "worried", "down", cheeks="heavy_blush")
+    call her_main("*Mhmm*... And I bet her nipples aren't the only--", "open", "narrow", "base", "down")
+    call her_main("", "grin", "closed", "worried", "mid") #Hand in front of pussy
     pause .8
     $ renpy.play("sounds/slick_02.mp3")
-    ton "*Ah*..." #Hand on pussy
-    cho "Tonks!" #closing her eyes/looking away
+    call her_main("*Ah*...", "open_tongue", "narrow", "base", "up") #Hand on pussy
+    call cho_main("Tonks!", "mad", "narrow", "worried", "R", cheeks="heavy_blush")
+
     play bg_sounds "sounds/slickloop.mp3" fadein 2 #Continuous masturbate loop
-    ton "*mmm*..."
+    call her_main("*Mmmm*...", "base", "narrow", "base", "up")
     pause 1
-    ton "*Hmm*? Not even a peek?"
-    ton "Don't you want to see what Hermione looks like when... *Ah*... She masturbates?"
-    ton "Are you sure you... *Ah*...{w=0.4} Want to miss this?"
-    cho "" #glances at her
-    ton "*Ah*...{w=0.3} That's it, Cho..."
-    ton "I knew you couldn't resist..."
-    cho "" #Horny
+    call her_main("*Hmm?*... Not even a peek?", "soft", "narrow", "base", "L")
+    call her_main("Don't you want to see what Hermione looks like when... *Ah*... She masturbates?", "grin", "narrow", "worried", "down", cheeks="blush")
+    call her_main("Are you sure you... *Ah*...{w=0.4} Want to miss this?", "open", "closed", "base", "mid", cheeks="blush")
+    call cho_main("...", "clench", "narrow", "worried", "down", cheeks="heavy_blush") #glances at her
+    call her_main("*Ah*...{w=0.3} That's it, Cho...", "smile", "narrow", "base", "L")
+    call her_main("I knew you couldn't resist...", "soft", "narrow", "base", "up")
+    call cho_main("", "horny", "narrow", "worried", "down", cheeks="heavy_blush") #Horny
     call ctc
 
-    ton "*Ah*...{w=0.3} Look at me as I rub Granger's cute little slit."
-    ton "*Ah*...{w=0.3} *Ah*...{w=0.3} *Ah*...{w=0.3}"
-    cho "" #looks away
+    call her_main("*Ah*...{w=0.3} Look at me as I rub Granger's cute little slit.", "open_wide_tongue", "narrow", "angry", "up", cheeks="blush")
+    call her_main("*Ah*...{w=0.3} *Ah*...{w=0.3} *Ah*...", "open_wide_tongue", "narrow", "worried", "up", cheeks="blush")
+    call cho_main("", "horny", "narrow", "worried", "downR", cheeks="heavy_blush") #looks away
     call ctc
 
-    ton "No! Keep watching me!"
+    call her_main("No! Keep watching me!", "annoyed", "narrow", "angry", "L")
     play bg_sounds "sounds/slickloopfast.mp3"
-    ton "*Ah*...{w=0.3} I'm getting close!"
+    call her_main("*Ah*...{w=0.3} I'm getting close!", "soft", "narrow", "base", "up", cheeks="blush")
     play bg_sounds "sounds/slickloopveryfast.mp3"
-    cho "" #still looking away
-    ton "Watch me!"
-    cho "" #still looking away
-    ton "Watch as Hermione cums for you!"
-    cho "" #embarrased #Looks at Tonks
+    call cho_main("", "mad", "narrow", "base", "down", cheeks="heavy_blush") #still looking away
+    call her_main("Watch me!", "open_wide_tongue", "narrow", "angry", "up", cheeks="blush")
+    call cho_main("", "horny", "narrow", "raised", "down", cheeks="heavy_blush") #still looking away
+    call her_main("Watch as Hermione cums for you!", "angry", "narrow", "base", "up", cheeks="blush")
+    call cho_main("", "smile", "narrow", "base", "down", cheeks="heavy_blush") #embarrased #Looks at Tonks
     $ renpy.sound.play("sounds/slick_01.mp3")
-    ton "*Nngh*...{w=0.4} *Aaah*!!!"
+    call her_main("*Nngh*...{w=0.4} *Aaah*!!!", "clench", "happy", "base", "ahegao", cheeks="blush")
     stop bg_sounds
     with kissiris
-    cho "" #wide eyed
+    call cho_main("", "horny", "base", "raised", "down", cheeks="heavy_blush") #wide eyed
     with kissiris
     $ renpy.sound.play("sounds/slick_01.mp3")
-    ton "*Ah*!"
+    call her_main("*Ah*!", "open_wide_tongue", "happy", "angry", "ahegao", cheeks="blush")
     stop bg_sounds fadeout 2
-    ton "*Mmmh*...."
-    cho "..."
-    ton "*Ah*...{w=0.3} *Ah*...{w=0.5} *Ah*...{w=0.6} Good...{w=0.3} Good girl..."
+    call play_music("stop")
+    call her_main("*Mmmh*...", "clench", "narrow", "base", "squint", cheeks="blush")
+    call cho_main("...", "smile", "narrow", "base", "L", cheeks="heavy_blush")
+    call her_main("*Ah*...{w=0.3} *Ah*...{w=0.5} *Ah*...{w=0.6} Good...{w=0.3} Good girl...", "open_tongue", "narrow", "base", "up", cheeks="blush")
 
-    #Pose back to normal
-    ton "*Mmmh*... How I love masturbating in a body that I'm not quite familiar with..."
-    ton "It's like flying a new broom... There's nothing quite like the first test ride..."
-    cho "..."
-    ton "*giggles*" #Looks at cho
+    # Reset pose
+    $ hermione.set_body_zorder(armright=0)
+    $ hermione.set_body(armleft="down", armright="down")
+    $ hermione.set_pose(None)
+    with d5
+
+    call play_music("tonks")
+    call her_main("*Mmmh*... How I love masturbating in a body that I'm not quite familiar with...", "smile", "happyCl", "base", "mid")
+    call her_main("It's like flying a new broom... There's nothing quite like the first test ride...", "base", "narrow", "base", "mid")
+    call cho_main("...", "grin", "narrow", "base", "downR", cheeks="heavy_blush")
+    call play_sound("giggle")
+    call her_main("*giggles*", "base", "happyCl", "base", "mid", cheeks="blush") #Looks at cho
 
     # Tonks transforms back.
     call play_sound("magic")
@@ -1330,14 +1361,14 @@ label .hermione_E1:
     with morph
     pause .2
 
-    call cho_main("", "clench", "base", "raised", "down", cheeks="heavy_blush")
+    call cho_main("", "horny", "base", "base", "L", cheeks="heavy_blush")
     call ctc
 
-    ton "Miss Granger's clit is quite sensitive... Who could have guessed?"
+    call ton_main("Miss Granger's clit is quite sensitive... Who could have guessed?", "grin", "narrow", "raised", "mid")
     g9 "Noted."
-    ton "You'll do good to memorize this as well, Miss Chang. That knowledge might come in handy in the future."
-    cho "..." # blushing
-    ton "Well then... this should be enough to last me for the day... Hopefully..."
+    call ton_main("You'll do good to memorize this as well, Miss Chang. That knowledge might come in handy in the future.", "soft", "narrow", "base", "L")
+    call cho_main("...", "smile", "narrow", "base", "down", cheeks="heavy_blush") # blushing
+    call ton_main("Well then... this should be enough to last me for the day... Hopefully...", "grin", "narrow", "base", "mid")
 
     # Reset
     $ hermione_name = temp_name
