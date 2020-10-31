@@ -1240,7 +1240,7 @@ label .hermione_E1:
     g9 "Wouldn't you say she did a good job commentating, Miss Chang?"
     call cho_main("Oh... Well I wouldn't know since I was more focused on playing, Sir...", "soft", "base", "base", "mid", cheeks="blush")
     call cho_main("But from what I could gather you did quite well, *uhm*... Professor.", "silly", "narrow", "worried", "L", cheeks="heavy_blush")
-    m "Yes... She put so much effort into in... you must have been completely exhausted by the end..."
+    m "Yes... She put so much effort into it... you must have been completely exhausted by the end..."
     call cho_main("", "horny", "narrow", "worried", "L", cheeks="blush")
     call her_main("... {heart}", "base", "happy", "base", "mid_soft", cheeks="blush") # blushing
     call cho_main("You were?", "smile", "narrow", "base", "L", cheeks="blush")
