@@ -1,17 +1,6 @@
 
 # Hermione Gift Responses
 
-label give_her_quest_item(quest_item):
-
-    $ gave_hermione_gift = True
-
-    if quest_item == collar_quest_ITEM:
-        $ TBA_message()
-        # ">This Quest is now active!\nIt will start the next morning."
-        # $ collar = 5
-        # call update_quest_items
-        return
-
 label give_her_gift(gift_item):
     hide screen hermione_main
     with d5

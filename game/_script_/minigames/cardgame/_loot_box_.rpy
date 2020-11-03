@@ -35,8 +35,7 @@ label card_lootbox:
                 rand_card.copies += 1
             card_loot.append(rand_card)
 
-    $ lootbox_quest_ITEM.owned -= 1
-    call update_quest_items
+    $ lootbox_ITEM.owned -= 1
 
     show screen card_lootbox
     with d3

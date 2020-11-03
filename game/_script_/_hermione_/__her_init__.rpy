@@ -73,8 +73,6 @@ default her_milk_potion_return = False
 default potion_scene_11_progress = 0
 default potion_version = 0
 
-default collar = 0
-
 # Buttplug Events
 default buttplug_magic_known = False
 default buttplug_1_worn      = False

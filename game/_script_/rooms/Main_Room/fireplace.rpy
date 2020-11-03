@@ -21,16 +21,17 @@ label fireplace:
                 m "(A loose brick... If only I could..{nw}{w=1.0}"
                 $ renpy.play('sounds/brick_scrape.mp3')
                 m "(A loose brick... If only I could..{fast} *Hhng*... There we go.)"
-                call give_reward("A puzzle box has been added to your quest items in the Inventory!", "interface/icons/icon_puzzle.webp")
-                $ puzzle_box_quest_ITEM.unlocked = True
-                call update_quest_items
+                call give_reward("A puzzle box has been added to your inventory!", "interface/icons/puzzle_box.webp")
+
+                $ puzzle_box_ITEM.owned = 1
+
                 m "Seems straight forward enough."
                 m "Maybe I should give it a try?"
                 menu:
                     "-Try solving the puzzle-":
                         call gen_chibi("sit_behind_desk")
                         with d3
-                        jump start_slide_puzzle
+                        $ puzzle_box_ITEM.use()
                     "-Save it for later-":
                         pass
                 call gen_chibi("sit_behind_desk")
@@ -49,4 +50,4 @@ label fireplace:
 
 init python:
     def is_puzzle_box_in_fireplace():
-        return game.day >= 25 and not game.daytime and full_moon and not puzzle_box_quest_ITEM.unlocked and not unlocked_7th
+        return game.day >= 25 and not game.daytime and game.moon and not puzzle_box_ITEM.unlocked and not unlocked_7th

@@ -24,7 +24,7 @@ label inventory_menu(xx=150, yy=90):
         "Gifts": Item.get_instances_of_type("gift"),
         "Books": Item.get_instances_of_type("book"),
         "Potions": Item.get_instances_of_type("potion"),
-        "Quest Items": qitem_list,
+        "Quest Items": Item.get_instances_of_type("quest"),
     }
 
     $ items_shown = 36

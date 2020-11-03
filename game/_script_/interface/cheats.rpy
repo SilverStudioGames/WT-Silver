@@ -234,11 +234,9 @@ label cheats:
                     jump cheats.devroom
                 "-Get all quest items-":
                     python:
-                        sealed_scroll_quest_ITEM.unlocked = True
-                        puzzle_box_quest_ITEM.unlocked = True
-                        collar_quest_ITEM.unlocked = True
-                        lootbox_quest_ITEM.owned = 5 # Consumable
-                    call update_quest_items
+                        for i in Item.get_instances_of_type("qitem"):
+                            i.owned = 1
+                    jump cheats.devroom
                     jump cheats.devroom
                 "-Read Hermione's Diary-" (icon="interface/icons/small/hermione.webp"):
                     call book_handle(book=hermione_diary)
@@ -312,8 +310,8 @@ label .hermione_skip_intro:
     $ door_examined = True
     $ fireplace_examined = True
 
-    $ wine_ITEM.owned       += 5
-    $ firewhisky_ITEM.owned += 5
+    $ wine_ITEM.owned = 5
+    $ firewhisky_ITEM.owned = 5
     $ firewhisky_ITEM.unlocked = True
 
     $ rum_times = 6

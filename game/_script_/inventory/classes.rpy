@@ -25,13 +25,19 @@ init python:
             if not self.usable:
                 raise Exception("Item '{}' is not usable as it does not have any function or a label.".format(self.name))
 
+            if self.owned == 0:
+                raise Exception("Item '{}' owned count is equal to zero.".format(self.name))
+
             self.used = True
 
             if self.func:
                 self.func()
 
             if self.label:
-                renpy.jump_out_of_context(self.label)
+                if renpy.context_nesting_level() > 0:
+                    renpy.jump_out_of_context(self.label)
+                else:
+                    renpy.jump(self.label)
 
         def get_image(self):
             if isinstance(self.image, basestring):
@@ -53,4 +59,7 @@ init python:
 
         @owned.setter
         def owned(self, value):
+            if not self.unlocked:
+                self.unlocked = True
+
             self._owned = max(min(value, self.limit), 0)
