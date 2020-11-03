@@ -373,13 +373,13 @@ init python:
 
             for o in self.outfits:
                 if o.unlocked and o.schedule["day" if game.daytime else "night"]:
-                    if weather == "overcast" and o.schedule["cloudy"]:
+                    if game.weather == "overcast" and o.schedule["cloudy"]:
                         schedule.append(o)
-                    elif weather in {"storm", "rain"} and o.schedule["rainy"]:
+                    elif game.weather in {"storm", "rain"} and o.schedule["rainy"]:
                         schedule.append(o)
-                    elif weather in {"snow", "blizzard"} and o.schedule["snowy"]:
+                    elif game.weather in {"snow", "blizzard"} and o.schedule["snowy"]:
                         schedule.append(o)
-                    elif weather in {"clear", "cloudy"} and not (o.schedule["cloudy"] or o.schedule["rainy"] or o.schedule["snowy"]):
+                    elif game.weather in {"clear", "cloudy"} and not (o.schedule["cloudy"] or o.schedule["rainy"] or o.schedule["snowy"]):
                         schedule.append(o)
             return schedule
 

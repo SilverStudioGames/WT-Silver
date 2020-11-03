@@ -7,7 +7,7 @@ label genie_house_elf:
     $ game.daytime = True
     call update_interface_color
 
-    $ set_weather("clear")
+    $ game.weather = "clear"
     call room("main_room")
     call music_block
     call blkfade
@@ -90,6 +90,6 @@ label genie_house_elf:
 
     $ game.daytime = temp_day
     call update_interface_color
-    $ weather = temp_weather
+    $ game.weather = temp_weather
 
     jump enter_room_of_req

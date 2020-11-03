@@ -77,7 +77,7 @@ label snape_hangout:
     label end_snape_hangout_points:
 
     if sna_friendship < 100:
-        if weather in ("rain", "blizzard"):
+        if game.weather in ("rain", "blizzard"):
             # Rain puts him in a good mood.
             $ sna_friendship += 2
 

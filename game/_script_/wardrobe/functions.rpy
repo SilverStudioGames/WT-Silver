@@ -16,16 +16,16 @@ init python:
         outfits = char.outfits_schedule[game.daytime]
 
         for i in outfits:
-            if i.schedule[4] and weather in ("snow", "blizzard"):
+            if i.schedule[4] and game.weather in ("snow", "blizzard"):
                 schedule.append(i)
                 continue
-            if i.schedule[3] and weather == "rain":
+            if i.schedule[3] and game.weather == "rain":
                 schedule.append(i)
                 continue
-            if i.schedule[2] and weather in ("overcast", "storm"):
+            if i.schedule[2] and game.weather in ("overcast", "storm"):
                 schedule.append(i)
                 continue
-            if not (i.schedule[2] or i.schedule[3] or i.schedule[4]) and weather in ("clear", "cloudy"):
+            if not (i.schedule[2] or i.schedule[3] or i.schedule[4]) and game.weather in ("clear", "cloudy"):
                 schedule.append(i)
                 continue
         return schedule

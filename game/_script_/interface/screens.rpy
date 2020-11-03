@@ -28,17 +28,14 @@ screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), backgr
                     transclude
 
 #Close Button
-screen close_button(xoffset=0, yoffset=0, close_var="Close", close_action=None):
+screen close_button(xoffset=0, yoffset=0, action=Return("Close")):
     imagebutton:
         xalign 1.0
         xanchor 1.0
         offset (xoffset, yoffset)
         idle gui.format("interface/topbar/buttons/{}/ui_close.webp")
         hover image_hover(gui.format("interface/topbar/buttons/{}/ui_close.webp"))
-        if close_action:
-            action close_action
-        else:
-            action Return(close_var)
+        action action
         keysym "game_menu"
 
 # Animation effect controller

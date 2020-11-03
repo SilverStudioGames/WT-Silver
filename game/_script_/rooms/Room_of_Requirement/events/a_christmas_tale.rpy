@@ -17,7 +17,7 @@ label a_christmas_tale:
     call update_interface_color
 
     stop weather
-    $ set_weather("snow")
+    $ game.weather = "snow"
 
     call gen_chibi("hide")
     show screen chair_left

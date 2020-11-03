@@ -9,7 +9,7 @@ label cc_ht_start:
     # First Hufflepuff match.
     m "Ready to show off your panties to those badgering badgers?"
 
-    if weather in ("blizzard", "storm", "snow", "rain"):
+    if game.weather in ("blizzard", "storm", "snow", "rain"):
         call cho_main("In this weather? But I'll freeze my legs off if I'm to wear a skirt...", "clench", "base", "base", "R")
         call cho_main("I'd rather not catch a cold during practice...", "open", "base", "worried", "mid")
         m "Alright."

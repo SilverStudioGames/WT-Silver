@@ -10,7 +10,9 @@ init -1 python:
     import fnmatch
     import posixpath
     import re
+    from bisect import bisect
     from operator import itemgetter
+    from operator import add as _add
     from collections import OrderedDict
 
     get_volume_preference = renpy.game.preferences.get_volume
@@ -141,3 +143,46 @@ init -1 python:
             func()
         end = time.time()
         print("The task has taken {} seconds to finish".format(end-start))
+
+    def list_swap_values(l, val1, val2):
+        """Mutates the original list."""
+        l[val1], l[val2] = l[val2], l[val1]
+
+    def random_choices(population, weights=None, cum_weights=None, k=1):
+        """Backported from python 3.6
+
+        Return a k sized list of population elements chosen with replacement.
+        If the relative weights or cumulative weights are not specified,
+        the selections are made with equal probability.
+        """
+
+        def accumulate(iterable, func=_add, initial=None):
+            it = iter(iterable)
+            total = initial
+            if initial is None:
+                try:
+                    total = next(it)
+                except StopIteration:
+                    return
+            yield total
+            for element in it:
+                total = func(total, element)
+                yield total
+
+        random = renpy.random.random
+        if cum_weights is None:
+            if weights is None:
+                _int = int
+                total = len(population)
+                return [population[_int(random() * total)] for i in range(k)]
+            cum_weights = list(accumulate(weights))
+        elif weights is not None:
+            raise TypeError('Cannot specify both weights and cumulative weights')
+
+        if len(cum_weights) != len(population):
+            raise ValueError('The number of weights does not match the population')
+
+        #bisect = _bisect.bisect
+        total = cum_weights[-1]
+        hi = len(cum_weights) - 1
+        return [population[bisect(cum_weights, random() * total, 0, hi)] for i in range(k)]

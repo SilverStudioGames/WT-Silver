@@ -13,7 +13,7 @@ label start_wt:
     $ menu_y = 0.7
 
     $ disable_game_menu()
-    show screen close_button(close_action=MainMenu())
+    show screen close_button(action=MainMenu())
 
     label choose_your_difficulty:
     menu:
@@ -93,7 +93,7 @@ label start_wt:
 
     ### START ANIMATION ###
     call stop_sound_effects
-    $ set_weather("clear")
+    $ game.weather = "clear"
     $ game.daytime = True
     call update_interface_color
     call room("main_room")

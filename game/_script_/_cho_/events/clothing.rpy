@@ -13,7 +13,7 @@ label cho_summon_setup:
         $ cho_favors_unlocked = True
 
     # Clear Weather.
-    if weather == "clear":
+    if game.weather == "clear":
 
         # Hot muggle outfit.
         if cho_strip_complete and not cc_muggle_hot_ITEM:

@@ -21,7 +21,7 @@ label prev_at_hogwarts:
     $ game.gold = 0
     $ game.daytime = True
     call update_interface_color
-    $ set_weather("clear")
+    $ game.weather = "clear"
 
     call gen_chibi("hide")
     show screen dumbledore
@@ -119,7 +119,7 @@ label prev_at_hogwarts:
     $ game.gold = temp_gold
     $ game.daytime = temp_day
     call update_interface_color
-    $ weather = temp_weather
+    $ game.weather = temp_weather
 
     jump enter_room_of_req
 
@@ -140,7 +140,7 @@ label a_spaced_out_conversation:
     $ game.daytime = False
     call update_interface_color
     $ fire_in_fireplace = True
-    $ set_weather("clear")
+    $ game.weather = "clear"
 
     call gen_chibi("hide")
     hide screen chair_right
@@ -351,7 +351,7 @@ label a_spaced_out_conversation:
     centered "{size=+7}{color=#cbcbcb}The end.{/color}{/size}"
 
     $ game.daytime = temp_day
-    $ weather = temp_weather
+    $ game.weather = temp_weather
     call update_interface_color
     $ fire_in_fireplace = False
     hide screen fireplace_fire

@@ -14,9 +14,9 @@ label start_hufflepuff_match:
     call cho_main("Yes, [cho_genie_name].", "base", "base", "base", "mid")
     g9 "Well then, tomorrow it is!"
 
-    if weather == "rain":
+    if game.weather == "rain":
         call cho_main("Sounds great, [cho_genie_name]. I just hope it stops raining before then.", "soft", "base", "base", "R")
-    elif weather == "snow":
+    elif game.weather == "snow":
         call cho_main("Sounds great, [cho_genie_name]. I just hope it stops snowing before then.", "soft", "base", "base", "R")
     else:
         call cho_main("Sounds great, [cho_genie_name]. I just hope the weather stays like it is.", "soft", "base", "base", "R")

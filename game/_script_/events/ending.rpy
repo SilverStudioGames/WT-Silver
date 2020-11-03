@@ -2749,7 +2749,7 @@ label ball_ending_E2:
     hide screen chair_left
     hide screen bld1
 
-    $ set_weather()
+    $ game.weather = "random"
     call weather_sound
     show screen weather
 

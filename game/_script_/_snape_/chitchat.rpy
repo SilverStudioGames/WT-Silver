@@ -23,7 +23,7 @@ label snape_chitchat:
             call sna_main("Do You think you can break the girl?","snape_25")
 
         elif one_of_ten == 2:
-            if weather in ("rain", "blizzard"):
+            if game.weather in ("rain", "blizzard"):
                 call sna_main("Isn't the weather lovely today?","snape_02")
                 call sna_main("I wish it would stay like that forever.","snape_06")
             else:

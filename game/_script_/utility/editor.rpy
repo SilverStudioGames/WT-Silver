@@ -271,7 +271,7 @@ init python:
     def editor_reset():
         editor.changes = _dict()
 
-    if config.developer:
+    if config.developer and not renpy.mobile:
         config.label_callback = catch_character_call
         config.after_load_callbacks.append(editor_reset)
 

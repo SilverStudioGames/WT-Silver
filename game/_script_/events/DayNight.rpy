@@ -152,14 +152,11 @@ label update_day_values:
 
     # Weather
     if cc_event_pause == 0 and hufflepuff_match == "start":
-        $ set_weather("clear")
+        $ game.weather = "clear"
     elif cc_event_pause == 0 and slytherin_match == "start":
-        $ set_weather("clear")
+        $ game.weather = "clear"
     else:
-        $ set_weather()
-
-    # Change whether today is a full moon day
-    $ set_moon()
+        $ game.weather = "random"
 
     # Package delivery
     $ mailbox.tick()

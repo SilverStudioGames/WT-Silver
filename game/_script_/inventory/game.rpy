@@ -12,6 +12,9 @@ init python:
             return d, 0.01
 
     class Game(object):
+        weather_types = ("clear", "cloudy", "overcast", "blizzard", "snow", "storm", "rain")
+        weather_weights = (35, 35, 20, 5, 10, 10, 15)
+
         def __init__(self, gold=0, day=1):
             # Protected values
             self._gold = gold
@@ -20,11 +23,13 @@ init python:
             self._slyt = 0
             self._rave = 0
             self._huff = 0
+            self._weather = "clear"
 
             # Normal values
             self.daytime = True
             self.difficulty = 2
             self.cheats = False
+            self.moon = True
 
         @property
         def gold(self):
@@ -46,6 +51,23 @@ init python:
         @day.setter
         def day(self, value):
             self._day = max(1, min(value, 99999))
+
+        @property
+        def weather(self):
+            return self._weather
+
+        @weather.setter
+        def weather(self, value):
+            if value == "random":
+                value = random_choices(self.weather_types, weights=self.weather_weights)[0]
+
+            if not value in self.weather_types:
+                raise ValueError("Unsupported weather type: '{}'".format(value))
+
+            self._weather = value
+
+            moon_cycle = renpy.random.randint(5, 9)
+            self.moon = (self.day % moon_cycle == 0)
 
 screen gold(old, new):
     tag gold

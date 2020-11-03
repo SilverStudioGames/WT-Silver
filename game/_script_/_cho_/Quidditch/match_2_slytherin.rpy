@@ -76,7 +76,7 @@ label start_slytherin_match:
 
 label slytherin_match:
     # Quidditch match: Ravenclaw vs. Slytherin
-    $ set_weather("clear")
+    $ game.weather = "clear"
 
     $ cho_outfit_last.save()
     $ her_outfit_last.save()
@@ -364,7 +364,7 @@ label slytherin_match:
     call quidditch_stands(weather="overcast", tree_fire=True, rain=True, puddles=True)
     with flashbulb
     play weather "sounds/storm.mp3" fadeout 1.0 fadein 3.0
-    $ set_weather("rain")
+    $ game.weather = "rain"
 
     pause 1.0
     call sna_main("Indeed!", "snape_02", ypos="head")
@@ -705,7 +705,7 @@ label slytherin_match:
     call gen_chibi("stand_alt", 155, 420) #,210,40+250)
     with d3
 
-    $ set_weather("overcast")
+    $ game.weather = "overcast"
     play bg_sounds "sounds/wind_long_loop.mp3" fadein 5 fadeout 2
     call weather_sound
     call play_music("quidditch")

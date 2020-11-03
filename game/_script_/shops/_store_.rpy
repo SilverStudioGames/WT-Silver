@@ -480,7 +480,7 @@ label purchase_forbidden_scroll(item):
                 with d3
                 $ game.gold -= item.cost
                 $ item.unlocked = True
-                call update_quest_items
+
                 ">Forbidden scroll has been added to your inventory."
                 hide screen gift
                 with d3
@@ -630,7 +630,7 @@ label purchase_deco(item):
             if game.gold >= item.cost:
                 $ game.gold -= item.cost
                 $ item.owned += 1
-                call update_quest_items
+
                 "[item_token_str]"
             else:
                 m "I don't have enough gold."

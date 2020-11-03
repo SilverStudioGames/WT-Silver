@@ -279,11 +279,11 @@ screen watch():
     $ watch_x = 603 +67
     $ watch_y = 35
 
-    if weather == "rain":
+    if game.weather == "rain":
         add "interface/desk/watch/rain.webp" xpos watch_x ypos watch_y
-    elif weather in ("snow", "blizzard"):
+    elif game.weather in ("snow", "blizzard"):
         add "interface/desk/watch/snow.webp" xpos watch_x ypos watch_y
-    elif weather == "storm":
+    elif game.weather == "storm":
         add "interface/desk/watch/storm.webp" xpos watch_x ypos watch_y
     else:
         if game.daytime:
@@ -314,7 +314,7 @@ label paperwork:
 
     call paperwork_progress_chapter
 
-    if not game.daytime and full_moon:
+    if not game.daytime and game.moon:
         call paperwork_full_moon
 
     $ speedwriting_check = renpy.random.randint(1, 3)
