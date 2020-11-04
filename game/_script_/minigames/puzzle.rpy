@@ -110,7 +110,7 @@ label puzzle_minigame:
     call give_reward("You've unlocked something on the 7th floor, check your map to get there.","/images/rooms/room_of_requirement/mirror.webp")
     $ unlocked_7th = True
 
-    $ puzzle_box_ITEM.remove()
+    $ puzzle_box_ITEM.owned -= 1
 
     if deck_unlocked:
         m "What's this?"

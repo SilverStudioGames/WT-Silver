@@ -265,10 +265,6 @@ label quests:
                 # Hermione apologizes for the day (event) before.
                 jump ball_quest_E4
 
-            if collar == 5:
-                $ hg_event_pause += 2
-                jump collar_scene
-
     #
     # LUNA LOVEGOOD - EVENTS
     #

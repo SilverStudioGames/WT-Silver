@@ -59,7 +59,6 @@ label map_attic:
         jump desk
     else:
         $ tentacle_sample = True
-        call update_quest_items
 
         m "(The attic huh...)"
         m "(I guess I could check it out.)"
