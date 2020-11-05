@@ -16,7 +16,8 @@ label shop_dress():
         current_sorting = "Price (Asc)"
         category_items = {"hermione": hermione.outfits, "tonks": tonks.outfits, "cho": cho.outfits, "luna": luna.outfits, "astoria": astoria.outfits, "susan": susan.outfits}
         current_category = "hermione"
-        menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
+        store_cart = set()
+        menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
         current_item = next(iter(menu_items), None)
 
     if not renpy.android:
@@ -31,23 +32,19 @@ label shop_dress():
     python:
         if _return[0] == "category":
             current_category = _return[1]
-            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
+            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
             current_item = next(iter(menu_items), None)
         elif _return[0] == "buy":
-            game.gold -= _return[1].price
-            _return[1].unlock()
-
-            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
-            current_item = next(iter(menu_items), None)
+            renpy.call("purchase_outfit", _return[1])
         elif _return == "sort":
             if current_sorting == "Price (Asc)":
                 current_sorting = "Price (Desc)"
             elif current_sorting == "Price (Desc)":
                 current_sorting = "Price (Asc)"
 
-            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0), category_items.get(current_category, [])), current_sorting)
-        else:
-            renpy.return_statement()
+            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+        else: # Close
+            renpy.call("purchase_outfit_parcel")
 
     jump .after_init
 
@@ -139,7 +136,6 @@ screen shop_dress_menuitem():
                 textbutton "Buy":
                     xalign 0.95
                     text_size 16
-                    sensitive (game.gold >= current_item.price)
                     activate_sound "sounds/money.mp3"
                     action Return(["buy", current_item])
 

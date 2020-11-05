@@ -2,6 +2,11 @@ label clothing_store:
     call room("clothing_store")
     call play_music("clothing_store")
 
+    if mailbox.type_in_parcels("outfit"):
+        maf "I'm sorry luv, but I'm still quite busy working on your previous order."
+        maf "Come back once you received my package."
+        jump return_office
+
     if not clothing_store_intro_done:
         $ clothing_store_intro_done = True
 
@@ -26,6 +31,8 @@ label clothing_store:
         maf "What can I get you today?"
 
     $ gui.in_context("shop_dress")
+
+    label clothing_store.end:
 
     m "That's all for today, thank you."
     maf "You're welcome, sir. Come back any time."

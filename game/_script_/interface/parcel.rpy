@@ -38,11 +38,11 @@ init python:
 
             for i in self.contents:
                 item, quantity = i
-                item.owned += quantity
 
-            if self.type() == "outfit":
-                # TODO: Remove after conversion of all characters is done.
-                unlock_clothing_compat(item)
+                if isinstance(item, Item):
+                    item.owned += quantity
+                else:
+                    item.unlock()
 
             if not silent:
                 renpy.call("parcel", self, self.label)
