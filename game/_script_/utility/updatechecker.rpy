@@ -16,7 +16,7 @@ init -1 python:
             try:
                 updt_website2 = urllib2.urlopen(updt_website, timeout=5)
                 version_check = updt_website2.read()
-                return False if float(config.version) >= float(version_check) else True
+                return False if semver(config.version) >= semver(version_check) else True
             except:
                 pass
         return False
@@ -26,7 +26,7 @@ init -1 python:
         save_version = FileJson(slot, "_version", missing=0, page=page)
         if save_version is not None:
             try:
-                return float(save_version) >= compatible_version
+                return semver(save_version) >= semver(compatible_version)
             except ValueError: # (Old version fallback with letters)
                 return False
         else:
@@ -40,11 +40,11 @@ init -1 python:
             if save_internal_version:
                 pass
         except NameError:
-            save_internal_version = 1.39
+            save_internal_version = "1.39"
 
         # Apply update to old save
 
-        if float(save_internal_version) < 1.391:
+        if semver(save_internal_version) < semver("1.39.1"):
 
             # Fix cardgame images
             for card in cards_dynamic:
@@ -94,10 +94,10 @@ init -1 python:
                 scope = renpy.get_screen("hermione_main").scope
                 scope["hermione_img"] = apply_doll_transition(hermione.get_image(), "hermione_main", use_hermione_head)
 
-            save_internal_version = 1.391
+            save_internal_version = "1.39.1"
             renpy.block_rollback()
 
-        if float(save_internal_version) < 1.392:
+        if semver(save_internal_version) < semver("1.39.2"):
 
             # Fix events with empty event tiers and/or zero start_tier, but do it properly this time...
             # We need to iterate over a copy of the events list if we aim to remove elements from the original list.
@@ -121,10 +121,10 @@ init -1 python:
                 if ev._tier > (ev._max_tiers-1):
                     ev.tier = ev._max_tiers
 
-            save_internal_version = 1.392
+            save_internal_version = "1.39.2"
             renpy.block_rollback()
 
-        if float(save_internal_version) < 1.393:
+        if semver(save_internal_version) < semver("1.39.3"):
 
             # Update fixed clothes
             ast_gloves_ann.armfix = False
@@ -144,5 +144,5 @@ init -1 python:
 
             mr_ev_list.append(mr_ev_SNR)
 
-            save_internal_version = 1.393
+            save_internal_version = "1.39.3"
             renpy.block_rollback()

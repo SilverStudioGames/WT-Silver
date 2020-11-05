@@ -29,12 +29,11 @@ define config.developer = "auto"
 
 # Game version and naming
 define config.version = "1.40"
-define compatible_version = 1.40
-define title_version = config.version if len(config.version) < 5 else (config.version[:4] + "." + config.version[4:6])
+define compatible_version = "{}.{}".format(*semver(config.version)[:2]) # First two parts of the version
 define config.name = "WT Silver" if is_release else "WT Silver {}".format(version_stage)
 
 # Application window settings
-define config.window_title = "Witch Trainer: Silver ({} {})".format(title_version, version_stage)
+define config.window_title = "Witch Trainer: Silver ({} {})".format(config.version, version_stage)
 define config.window_icon = "gui/window_icon.png"
 define config.screen_width = 1080
 define config.screen_height = 600
@@ -118,7 +117,7 @@ define config.say_attribute_transition = d3
 ################################################
 
 init python:
-    build.directory_name = "WT_Silver_{}".format(title_version)
+    build.directory_name = "WT_Silver_{}".format(config.version)
     build.executable_name = "WT Silver"
     build.include_update = False # If True, include update information into packages (allows the updater to run)
     build.exclude_empty_directories = False

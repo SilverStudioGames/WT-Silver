@@ -1,4 +1,4 @@
-init python:
+init -2 python:
     import zipfile
 
     if not renpy.android:
@@ -6,6 +6,11 @@ init python:
 
     def semver(flat):
         vs = flat.split(".")
+        if len(vs) == 3:
+            # Already semver
+            return tuple(map(int, vs))
+
+        # Turn version float notation into semantic version tuple
         major, minor, patch = vs[0], vs[1][:2], vs[1][2:] or "0"
         return tuple(map(int, [major, minor, patch]))
 

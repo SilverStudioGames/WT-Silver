@@ -66,7 +66,7 @@ screen main_menu():
                     xoffset -320 - gui.navigation_padding
                     yanchor 1.0
 
-            text "[title_version]":
+            text "[config.version]":
                 style "main_menu_version"
                 xoffset -320 - gui.navigation_padding
                 yalign 0.5

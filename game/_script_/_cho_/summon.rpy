@@ -224,7 +224,7 @@ label favor_not_ready:
     return
 
 label not_available:
-    $ TBA_message("This feature is currently not available as of version %s." % title_version)
+    $ TBA_message("This feature is currently not available as of version %s." % config.version)
     return
 
 # Cho Talk

@@ -27,7 +27,7 @@ init python:
                     mods_list[_name] = _data
 
                     # Load mod files
-                    if float(mods_list[_name]["GameVer"]) >= float(compatible_version):
+                    if semver(mods_list[_name]["GameVer"]) >= semver(compatible_version):
                         print "Found mod \"{}\" loading...".format(_name)
                         renpy.load_module(_path)
                     else:

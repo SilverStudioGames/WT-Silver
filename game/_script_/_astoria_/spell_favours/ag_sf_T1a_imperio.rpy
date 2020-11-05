@@ -871,7 +871,7 @@ label ag_se_imperio_sb_E3:
     if ast_whoring < 24: # Save compatibility
         $ ast_whoring = 24
 
-        $ TBA_message("This concludes all events for Susan and Astoria as of version %s." % title_version)
+        $ TBA_message("This concludes all events for Susan and Astoria as of version %s." % config.version)
         $ TBA_message("Susan's wardrobe has been unlocked!")
         $ TBA_message("Astoria's affection stat has been maxed out.\nYou can now use all of her wardrobe options.")
 
