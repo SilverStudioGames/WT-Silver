@@ -47,7 +47,7 @@ init python:
 
         @classmethod
         def get_instances(cls):
-            return cls._instances
+            return list(cls._instances)
 
         @classmethod
         def get_instances_of_type(cls, type):

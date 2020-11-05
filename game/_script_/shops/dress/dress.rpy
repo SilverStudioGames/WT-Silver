@@ -120,22 +120,39 @@ screen shop_dress_menuitem():
 
         use invisible_button()
 
+        text "Shop" size 22 xalign 0.5 ypos 65
+
         if current_item:
-            text "[current_item.name]" size 22 xalign 0.5 ypos 65
-            frame: # For text wrapping
-                pos (10, 110)
-                xysize (246+100, 150)
-                text "[current_item.desc]" size 12
+
+            frame:
+                xalign 0.5
+                ypos 412
+
+                vbox:
+                    xalign 0.5
+                    add gui.format("interface/achievements/{}/highlight.webp")# pos (112, 375)
+                    add gui.format("interface/achievements/{}/spacer.webp")# pos (120, 398)
+                    text "[current_item.desc]" size 12 yoffset 6
+
+                text "[current_item.name]" xalign 0.5 ypos 3 size 16
+
+                textbutton "Buy":
+                    xalign 0.95
+                    text_size 16
+                    sensitive (game.gold >= current_item.price)
+                    activate_sound "sounds/money.mp3"
+                    action Return(["buy", current_item])
 
         vpgrid:
-            cols 3
+            rows 2
             xspacing 5
-            yspacing 10
+            yspacing 2
             draggable True
-            mousewheel True
-            scrollbars "vertical"
-            ysize 308
-            pos (8, 192)
+            mousewheel "horizontal"
+            scrollbars "horizontal"
+            xmaximum 512
+            ypos 106
+            xalign 0.5
 
             for item in menu_items:
                 $ icon = Crop((210, 200, 700, 1000), item.get_image())
@@ -162,15 +179,6 @@ screen shop_dress_menuitem():
 
                         if is_modded:
                             text "M" color "#00b200"
-
-        if current_item:
-            add current_item.get_image() zoom 0.4 align (1.0, 1.0) xoffset 25
-
-            textbutton "Buy":
-                align (0.5, 0.95)
-                sensitive (game.gold >= current_item.price)
-                activate_sound "sounds/money.mp3"
-                action Return(["buy", current_item])
 
 style shop_window is empty
 
