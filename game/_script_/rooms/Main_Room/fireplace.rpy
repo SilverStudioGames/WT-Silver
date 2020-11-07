@@ -16,26 +16,24 @@ label fireplace:
         show screen desk
         with d3
         m "(*Hmm*... There's something glimmering in the fireplace.)"
+        m "(A loose brick... If only I could..{nw}{w=1.0}"
+        $ renpy.play('sounds/brick_scrape.mp3')
+        m "(A loose brick... If only I could..{fast} *Hhng*... There we go.)"
+        call give_reward("A puzzle box has been added to your inventory!", "interface/icons/puzzle_box.webp")
+
+        $ puzzle_box_ITEM.owned = 1
+
+        m "Seems straight forward enough."
+        m "Maybe I should give it a try?"
         menu:
-            "-Search fireplace-":
-                m "(A loose brick... If only I could..{nw}{w=1.0}"
-                $ renpy.play('sounds/brick_scrape.mp3')
-                m "(A loose brick... If only I could..{fast} *Hhng*... There we go.)"
-                call give_reward("A puzzle box has been added to your inventory!", "interface/icons/puzzle_box.webp")
-
-                $ puzzle_box_ITEM.owned = 1
-
-                m "Seems straight forward enough."
-                m "Maybe I should give it a try?"
-                menu:
-                    "-Try solving the puzzle-":
-                        call gen_chibi("sit_behind_desk")
-                        with d3
-                        $ puzzle_box_ITEM.use()
-                    "-Save it for later-":
-                        pass
+            "-Try solving the puzzle-":
                 call gen_chibi("sit_behind_desk")
                 with d3
+                $ puzzle_box_ITEM.use()
+            "-Save it for later-":
+                m "I don't have time for this now."
+        call gen_chibi("sit_behind_desk")
+        with d3
 
     else:
         if fire_in_fireplace:

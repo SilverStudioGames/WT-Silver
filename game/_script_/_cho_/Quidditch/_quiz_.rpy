@@ -1,45 +1,32 @@
-transform crop_meter(fill, opacity):
-    transform_anchor True
-    on show, appear, start:
-        alpha opacity
-        yanchor 1.0
-        yzoom -1.0
-        easein_back 1.0 crop (0, 0, 60, int((float(fill)/100)*500))
-        repeat
 
-label exp_o_meter(fill=50, opacity=1.0, alt=False, alt_text=None):
-    show screen exp_o_meter(fill=fill, opacity=opacity, alt=alt, alt_text=alt_text)
-    #with d3
-    return
-
-screen exp_o_meter(fill, opacity, alt, alt_text):
-    tag exp_o_meter
+screen meter(fill=100, caption=None):
+    tag meter
     zorder 30
 
+    default fill = fill
+    style_prefix "meter"
+
     frame:
-        style "empty"
-        xpos 50
-        ypos 570
+        background gui.format("interface/meter/{}/meter.webp")
+        foreground "interface/meter/glass.webp"
 
-        add gui.format("interface/meter/{}/meter.webp") yanchor 1.0 alpha opacity
-        add "interface/meter/fill.webp" at crop_meter(fill, opacity)
-        add "interface/meter/glass.webp" yanchor 1.0 alpha opacity
+        vbar value AnimatedValue(fill, range=100, delay=0.5)
+        if caption:
+            text caption
 
-    if not alt:
-        frame:
-            style "empty"
-            xpos 150
-            ypos 70
-            add gui.format("interface/meter/{}/circle.webp") alpha opacity
-            if fill >= 90:
-                add "interface/meter/100.webp" alpha opacity
-            elif fill >= 50:
-                add "interface/meter/50.webp" alpha opacity
-            else:
-                add "interface/meter/0.webp" alpha opacity
-
-    if alt_text:
-        text alt_text size 22 vertical True color "#FFF" outlines [ (2, "#000", 0, 0) ] xpos 70 ypos 340 yalign 0.5
+style meter_frame is empty:
+    xysize (60, 500)
+    align (0.05, 0.5)
+style meter_vbar:
+    top_bar None
+    bottom_bar "interface/meter/fill.webp"
+    xsize 60
+style meter_text:
+    size 8
+    color "#fff"
+    vertical True
+    align (0.0, 0.5)
+    xoffset 5
 
 screen swear_bubble(type):
     tag bubble
@@ -47,8 +34,6 @@ screen swear_bubble(type):
 
     add "interface/meter/bubble/"+str(type)+".webp" ypos 100 xpos 100
     timer 1.0 action Hide("swear_bubble")
-
-
 
 ### Quidditch Quiz ###
 
@@ -61,9 +46,6 @@ label cho_quiz:
         call cho_main("Great!", "base", "base", "base", "L")
         call cho_main("Let's begin...", "open", "wide", "raised", "mid")
         jump cho_quiz_checkpoint
-
-    $ confidence_meter = 50
-    call exp_o_meter(fill=confidence_meter, opacity=0.0)
 
     # Intro
     if not cho_quiz.E1_complete:
@@ -123,7 +105,8 @@ label cho_quiz:
     $ renpy.music.play("music/ominous_music.mp3")
     $ renpy.music.stop("weather")
 
-    call exp_o_meter(fill=confidence_meter)
+    $ confidence_meter = 50
+    show screen meter(confidence_meter)
 
     # Question 1
     menu:
@@ -136,7 +119,7 @@ label cho_quiz:
             show screen swear_bubble(random.randint(0, 4))
             with d1
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(1.0)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             g4 "Ah,{w=0.4} well..."
@@ -146,7 +129,7 @@ label cho_quiz:
 
             m "You start the game by the referee throwing the ball into the air..."
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(0.5)
             $ renpy.sound.play( "sounds/hmm1.mp3")
             $ renpy.block_rollback()
@@ -166,7 +149,7 @@ label cho_quiz:
             show screen swear_bubble(random.randint(0, 4))
             with d1
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(1.0)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             g4 "Of course!{w=0.4}... and in basketball..."
@@ -176,7 +159,7 @@ label cho_quiz:
 
             m "You're not allowed outside the bounds whilst holding the ball or you'll have to hand it over to the opponent team..."
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(0.5)
             $ renpy.block_rollback()
             $ renpy.sound.play("sounds/hmm1.mp3")
@@ -194,7 +177,7 @@ label cho_quiz:
             m "There are defensive positions..."
             m "And offensive positions..."
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(0.5)
             $ renpy.block_rollback()
             $ renpy.sound.play( "sounds/hmm2.mp3")
@@ -212,7 +195,7 @@ label cho_quiz:
             show screen swear_bubble(random.randint(0, 4))
             with d1
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(1.0)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             g4 "Ah!{w=0.4} Well, I guess that is different... Lastly though..."
@@ -230,7 +213,7 @@ label cho_quiz:
             show screen swear_bubble(random.randint(0, 4))
             with d1
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             g4 "Well...{w=0.4}"
             m "Fine..."
@@ -240,7 +223,7 @@ label cho_quiz:
 
             m "The way you score is by getting the ball through a hoop."
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.music.set_volume(0.5)
             $ renpy.block_rollback()
             $ renpy.sound.play( "sounds/hmm3.mp3")
@@ -249,7 +232,7 @@ label cho_quiz:
 
 
     pause 1.0
-    hide screen exp_o_meter
+    hide screen meter
     with d3
 
     $ renpy.music.set_volume(1.0)
@@ -302,19 +285,19 @@ label cho_quiz:
 
     # Success! Or did you?
     elif cho_quiz.correct_answers == 4:
-        call exp_o_meter(fill=confidence_meter, opacity=0.0)
+        show screen meter(confidence_meter)
         m "So as you can see, Basketball and Quidditch are pretty much the same game..."
         call cho_main("I'm sure that can't be right...", "annoyed", "base", "base", "mid")
         call cho_main("I'll have to look up this \"Space Jamming\"...{w=1.0} thing.", "open", "narrow", "base", "mid")
         g9 "You should! It has Bugs Bunny in it!"
         call cho_main("And now you stopped making sense again...", "annoyed", "base", "raised", "L")
         call cho_main("Also I'm still quite unsure if you actually know Quidditch or are just trying to confuse me with Basketball terms...", "annoyed", "narrow", "raised", "mid")
-        call exp_o_meter(fill=75)
+        show screen meter(75)
         pause .3
         call bld
         g4 "(Fuck, she's onto me!)"
         g9 "Of course I'm not... I'll prove it to you!"
-        call exp_o_meter(fill=50)
+        show screen meter(50)
         pause .5
         call bld
         g4 "(Wait, why did I say that?)"
@@ -371,7 +354,7 @@ label cho_quiz:
 
 label cho_quiz_checkpoint:
     $ confidence_meter = 50
-    call exp_o_meter(fill=confidence_meter, opacity=0.0)
+    show screen meter(confidence_meter)
 
     $ renpy.music.play("music/determined_pursuit_loop.mp3")
     $ renpy.music.stop("weather")
@@ -385,7 +368,7 @@ label cho_quiz_checkpoint:
         call cho_main("In that case...", "base", "base", "base", "mid")
 
     call cho_main("My position on the team is seeker, it is my job to catch the \"Blank\" to end the game and score our team 150 points.", "open", "base", "base", "L")
-    call exp_o_meter(fill=confidence_meter)
+    show screen meter(confidence_meter)
 
     # Question 1
     menu:
@@ -396,7 +379,7 @@ label cho_quiz_checkpoint:
             g4 "Oh wait, that's that blue alien thing, isn't it?"
             call cho_main("I don't know what a stitch is, sorry sir...", "soft", "narrow", "worried", "R")
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("Next question...", "open", "base", "raised", "down")
 
@@ -409,7 +392,7 @@ label cho_quiz_checkpoint:
             call cho_main("You've been tomb raiding?", "soft", "base", "raised", "mid")
             m "..."
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             m "Of course not..."
             call cho_main("Next question...", "open", "base", "raised", "down")
@@ -419,7 +402,7 @@ label cho_quiz_checkpoint:
             $ renpy.block_rollback()
             $ renpy.sound.play( "sounds/gasp.mp3")
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             call cho_main("Yes!", "smile", "wide", "base", "mid")
             g9 "Well then, surely that should show you how superi--"
             call cho_main("Next question...", "open", "closed", "base", "down")
@@ -437,7 +420,7 @@ label cho_quiz_checkpoint:
             g4 "Actually, I can't even remember the last time I ate..."
             call cho_main("Well, you're obviously wrong...", "soft", "narrow", "raised", "R")
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("Next question...", "open", "base", "raised", "down")
 
@@ -445,7 +428,7 @@ label cho_quiz_checkpoint:
             m "Bludger and Quaffle?"
             $ renpy.block_rollback()
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/gasp.mp3")
             call cho_main("Yes!", "smile", "wide", "base", "mid")
             g9 "Great! Then let's get started with the--"
@@ -461,7 +444,7 @@ label cho_quiz_checkpoint:
             m "Qacker and Blugger?"
             call cho_main("Professor...", "annoyed", "narrow", "angry", "mid")
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("Next question...", "open", "base", "raised", "down")
 
@@ -478,7 +461,7 @@ label cho_quiz_checkpoint:
             m "Three months?"
             $ renpy.block_rollback()
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/gasp.mp3")
             call cho_main("Yes!", "smile", "wide", "base", "mid")
             call cho_main("That's impressive, how did you know that one?", "grin", "happyCl", "base", "mid")
@@ -491,7 +474,7 @@ label cho_quiz_checkpoint:
             m "Seven years?"
             $ renpy.block_rollback()
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("How long?! That's the same amount of time a student stays at Hogwarts!", "clench", "wide", "base", "mid")
             m "Oh right, I don't know what I was thinking..."
@@ -509,7 +492,7 @@ label cho_quiz_checkpoint:
             call cho_main("Never heard of it, is it anything like that basketball thing?", "annoyed", "narrow", "base", "mid")
             g9 "Well, balls have a big role in it..."
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("I'll have to take your word on that one...", "soft", "narrow", "angry", "R")
             call cho_main("Anyway... final question...", "open", "base", "raised", "down")
@@ -529,7 +512,7 @@ label cho_quiz_checkpoint:
             m "And you flew outside the prison boundaries..."
             g9 "Did you consider that?"
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("I think you're going off track a bit...", "annoyed", "narrow", "raised", "mid")
             g9 "Or off the pitch..."
@@ -542,7 +525,7 @@ label cho_quiz_checkpoint:
             call cho_main("Well, I don't know...", "angry", "narrow", "worried", "down")
             g4 "How am I supposed to then?"
             $ confidence_meter -= 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/kung-fu-punch.mp3")
             call cho_main("I'm not sure what else to tell you...", "open", "closed", "base", "mid")
 
@@ -550,7 +533,7 @@ label cho_quiz_checkpoint:
             m "Uh... I don't know..."
             $ renpy.block_rollback()
             $ confidence_meter += 12
-            call exp_o_meter(fill=confidence_meter)
+            show screen meter(confidence_meter)
             $ renpy.sound.play( "sounds/gasp.mp3")
             call cho_main("That's right!", "smile", "wide", "base", "mid")
             g4 "What?"
@@ -561,7 +544,7 @@ label cho_quiz_checkpoint:
             $ cho_quiz.correct_answers += 1
 
     pause 1.0
-    hide screen exp_o_meter
+    hide screen meter
     with d3
 
     $ renpy.music.set_volume(1.0)

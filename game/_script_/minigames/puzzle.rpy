@@ -25,11 +25,12 @@ screen puzzle_minigame():
     default tries = 0
     default tiles = generate_puzzle()
     default selection = None
+    default hint = False
     $ score = 0
 
     use invisible_button()
     use close_button()
-    use exp_o_meter(fill=tries, opacity=1.0, alt=True, alt_text="Patience") # Broken
+    use meter(fill=100-tries)
 
     frame:
         align (0.5, 0.5)
@@ -58,13 +59,24 @@ screen puzzle_minigame():
                         action None
                     elif not tile is None: # Select first
                         action SetScreenVariable("selection", i)
+    if hint:
+        frame:
+            align (0.5, 0.5)
+            background Transform("interface/puzzle/background.webp", align=(0.5, 0.5))
+            add "interface/puzzle/puzzle.webp"
 
-        for i, tile in enumerate(tiles):
-            if i == tile:
-                $ score += 1
+    for i, tile in enumerate(tiles):
+        if i == tile:
+            $ score += 1
 
-        if score >= 15:
-            timer 0.1 action Return(True)
+    if score >= 15:
+        timer 0.1 action Return(True)
+
+    vbox:
+        align (0.5, 0.9)
+        textbutton "-Hint-" xalign 0.5 action ToggleScreenVariable("hint", True, False)
+        if tries >= 50:
+            textbutton "-Force it open-" xalign 0.5 action Return(False)
 
 label puzzle_minigame:
     call screen puzzle_minigame()
