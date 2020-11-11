@@ -134,6 +134,14 @@ default ton_robe_silk = DollCloth("tonks", ("misc", "robes"), "robe", "silk_robe
 
 default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, ton_robe_silk], price=350)
 
+#################
+## Skimpy Dress ##
+#################
+
+default ton_top_skimpy_dress = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress", [[147, 1, 1, 255]], blacklist=["bottom"], armfix=True)
+
+default ton_outfit_skimpy_dress = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress], price=200)
+
 #####################
 ## Succubus Outfit ##
 #####################
