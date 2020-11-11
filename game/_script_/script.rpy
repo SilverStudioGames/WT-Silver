@@ -19,6 +19,7 @@ label game_init:
     call wardrobe_init
     $ save_internal_version = config.version
     $ achievement_fix()
+    $ parse_mods()
     if not renpy.android:
         show screen tooltip
     return

@@ -1,67 +1,75 @@
+default mods_enabled = set()
+default mods_parsed = set()
+
 init python:
     import json
 
-    mods_enabled = False
     mods_list = {}
 
-    def mods_module():
+    def import_mods():
         global mods_enabled, mods_list
-        _count = 0
 
-        if renpy.loadable("mods/DISABLEMODS.txt"):
+        mods = filter(lambda x: x.endswith(".json"), renpy.list_files())
+
+        for i, manifest in enumerate(mods):
+            path = os.path.split(manifest)[0]
+            files = filter(lambda x: path in x, renpy.list_files())
+            scripts = filter(lambda x: x.endswith(".rpym"), files)
+            manifest = renpy.file(manifest)
+            logo = "{}/logo.webp".format(path)
+
+            if not renpy.loadable(logo):
+                logo = "#000"
+
+            # Read manifest
+            with manifest as f:
+                data = json.load(f)
+
+            modname = data["Name"]
+            mods_list[modname] = data
+            mods_list[modname]["Files"] = files
+            mods_list[modname]["Path"] = path
+            mods_list[modname]["LoadOrder"] = i # TODO: Make load order customisable
+            mods_list[modname]["Logo"] = logo
+
+    def parse_mods():
+        for mod in mods_list.itervalues():
+            modname = mod["Name"]
+            if not modname in mods_enabled or modname in mods_parsed:
+                continue
+
+            path = mod["Path"]
+
+            for file in mod["Files"]:
+                if not file.endswith(".rpym"):
+                    continue
+
+                filename = os.path.split(file)[1]
+                fileobj = renpy.file(file)
+
+                with fileobj as s:
+                    data = s.read()
+
+                renpy.load_string(data, "{}/{}".format(path, filename))
+
+            mods_parsed.add(modname)
+        return
+
+    def toggle_mod(mod):
+        global mods_enabled
+
+        if not main_menu:
+            renpy.notify("Mods can be enabled or disabled in the main menu only.")
             return
 
-        mods_enabled = True
+        if mod in mods_enabled:
+            renpy.notify("Mod disabled.")
+            mods_enabled.remove(mod)
+        else:
+            renpy.notify("Mod Enabled.")
+            mods_enabled.add(mod)
 
-        for dp, dn, fn in os.walk(config.gamedir+"/mods/"):
-            for i, mod in enumerate([f for f in fn if f.endswith(".rpym")]):
-                _count += 1
-                _path = os.path.join(dp, mod).replace("\\", "/").split("/game/")[1][:-5]
-                _manifest = _path.split(mod[:-5])[0]+"manifest.json"
+    import_mods()
+    config.after_load_callbacks.append(parse_mods)
 
-                if renpy.loadable(_manifest):
-                    # Load JSON file
-                    with open(config.basedir+"/game/"+_manifest) as fp:
-                        _data = json.load(fp)
-                    _name = _data["Name"]
-                    mods_list[_name] = _data
 
-                    # Load mod files
-                    if float(mods_list[_name]["GameVer"]) >= float(compatible_version):
-                        print "Found mod \"{}\" loading...".format(_name)
-                        renpy.load_module(_path)
-                    else:
-                        _count -= 1
-                        print "ERROR: Mod \"{}\" is outdated! Reported compatible game version {}, current game version {}".format(_name, mods_list[_name]["GameVer"], config.version)
-                else:
-                    _count -= 1
-                    print "ERROR: Mod \"{}\" is missing manifest.json".format(str(dp))
-
-        print "{} Mods Enabled".format(_count)
-        return
-
-    mods_module()
-
-label splashscreen:
-    if not mods_enabled:
-        return
-
-    call screen mods_warning with dissolve
-    return
-
-screen mods_warning():
-
-    default bg = At("title/00.webp", gaussianblur(15.0))
-    add bg
-
-    text "!" size 300 color "#7a0000" ypos 2 xalign 0.5 outlines [(1, "#00000080", 1, 0)]
-    frame:
-        style "empty"
-        align (0.5, 0.7)
-        xsize 800
-        text "Mods Warning" align (0.5, 0.46) size 40 color "#7a0000" outlines [(1, "#00000080", 1, 0)]
-        text "Unofficial content has been detected in your game files. Mods are not officially supported and might cause unexpected behaviour. If you come across any issues please uninstall all mods." align (0.5, 0.58) color "#fff" outlines [(1, "#00000080", 1, 0)]
-        textbutton "Got it.":
-            align (0.5, 0.7)
-            text_size 32
-            action Return()

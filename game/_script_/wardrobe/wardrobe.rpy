@@ -471,7 +471,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                 $ warnings = []
 
                 if is_modded:
-                    $ warnings.append("Item belongs to a mod:\n{size=-4}{color=#35aae2}"+ item.get_modname() + "{/color}{/size}")
+                    $ warnings.append("Outfit contains items from these mods:\n{size=-4}{color=#35aae2}"+ "\n".join(item.get_modname()) + "{/color}{/size}")
 
                 if current_subcategory == "delete":
                     $ action = Return(["deloutfit", item])

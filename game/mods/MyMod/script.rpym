@@ -1,13 +1,13 @@
-﻿# Add new hairstyle for character as an instance of DollCloth, 
+# Add new hairstyle for character as an instance of DollCloth,
 # make sure the variable name is unique, preferably starting with mod name.
 default MyMod_ponytail = DollCloth(
     modpath="mods/mymod/",                             # shortened filepath to this file
     name="hermione",                                   # Character name (case sensitive)
-    categories=("head","hair"),                        # Main category and subcategory of the item  
+    categories=("head","hair"),                        # Main category and subcategory of the item
     type="hair",                                       # Item type
     id="ponytail",                                     # Item identificator
     unlocked=True,                                     # True=Item is unlocked by default, False=Item is a part of the outfit and requries to be bought
     level=0,                                           # Character whoring/friendship level required to wear this cloth. (Optional)
     armfix=False,                                      # If cloth images intersect with arm layers, set to True. (Optional)
-    color=[[52, 59, 80, 255], [70, 90, 147, 255]]      # Python list with default colours in RGBA format applicable for each colourable file layer
+    color=[[152, 89, 48, 255], [195, 137, 89, 255]]      # Python list with default colours in RGBA format applicable for each colourable file layer
     )
