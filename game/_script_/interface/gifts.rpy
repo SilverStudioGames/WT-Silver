@@ -1,6 +1,6 @@
 label gift_menu:
 
-    show screen bottom_menu("gift_menu", (("Gift Items", "ui_gifts"), ("Quest Items", "ui_quest_items")), Item.get_instances_of_type("gift"))
+    show screen bottom_menu("gift_menu", (("Gift Items", "ui_gifts"), ("Quest Items", "ui_quest_items")), inventory.get_instances_of_type("gift"))
 
     label .interact:
     $ _return = ui.interact()

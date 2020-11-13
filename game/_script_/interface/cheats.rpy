@@ -202,7 +202,7 @@ label cheats:
 
                 "-Get all gifts-" (icon="interface/icons/small/gift.webp"):
                     python:
-                        for i in Item.get_instances_of_type("gift"):
+                        for i in inventory.get_instances_of_type("gift"):
                             i.owned = 100
                     jump cheats.devroom
                 "-Get all scrolls-" (icon="interface/icons/small/spell.webp"):
@@ -216,7 +216,7 @@ label cheats:
                     jump cheats.devroom
                 "-Get all books-" (icon="interface/icons/small/book.webp"):
                     python:
-                        for i in Item.get_instances_of_type("book"):
+                        for i in inventory.get_instances_of_type("book"):
                             i.owned = 1
                     jump cheats.devroom
                 "-Get all decorations-" (icon="interface/icons/small/gold.webp"):
@@ -234,7 +234,7 @@ label cheats:
                     jump cheats.devroom
                 "-Get all quest items-":
                     python:
-                        for i in Item.get_instances_of_type("qitem"):
+                        for i in inventory.get_instances_of_type("qitem"):
                             i.owned = 1
                     jump cheats.devroom
                     jump cheats.devroom

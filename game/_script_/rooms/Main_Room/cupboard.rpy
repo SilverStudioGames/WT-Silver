@@ -103,7 +103,7 @@ label rum_block(item):
 
 init python:
     def drop_item_from_cupboard(random_percent):
-        drop_list = [item for item in Item.get_instances_of_type("gift") if item.unlocked]
+        drop_list = [item for item in inventory.get_instances_of_type("gift") if item.unlocked]
 
         dr = max(rum_times - game.day, 0) * 2 # Frequent rummaging penalty
         progress_factor = math.log(her_tier + cho_tier + ton_tier + lun_tier + game.day)

@@ -1,8 +1,23 @@
-
 init python:
 
+    class Inventory(object):
+        def __init__(self):
+            self.items = set()
+
+        def add(self, item):
+            self.items.add(item)
+
+        def remove(self, item):
+            self.items.remove(item)
+
+        def get_instances(self):
+            return self.items
+
+        def get_instances_of_type(self, type):
+            return filter(lambda x: x.type == type, self.get_instances())
+
     class Item(object):
-        _instances = set() # TODO: Somehow the object references change after renpy restart, but doesn't crash?
+        _instances = [] # TODO: Somehow the object references change after renpy restart, but doesn't crash?
 
         def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default"):
             self.id = id
@@ -19,7 +34,8 @@ init python:
             self.usable = bool(self.func or self.label)
             self.used = False
             self._owned = 0
-            self._instances.add(self)
+
+            inventory.add(self)
 
         def use(self):
             if not self.usable:
@@ -45,14 +61,6 @@ init python:
             else:
                 return self.image()
 
-        @classmethod
-        def get_instances(cls):
-            return list(cls._instances)
-
-        @classmethod
-        def get_instances_of_type(cls, type):
-            return filter(lambda x: x.type == type, cls.get_instances())
-
         @property
         def owned(self):
             return self._owned
@@ -63,3 +71,7 @@ init python:
                 self.unlocked = True
 
             self._owned = max(min(value, self.limit), 0)
+
+init offset = -5
+
+default inventory = Inventory()

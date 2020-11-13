@@ -21,10 +21,10 @@ label inventory:
 label inventory_menu(xx=150, yy=90):
     # Inventory dictionary
     $ inventory_dict = {
-        "Gifts": Item.get_instances_of_type("gift"),
-        "Books": Item.get_instances_of_type("book"),
-        "Potions": Item.get_instances_of_type("potion"),
-        "Quest Items": Item.get_instances_of_type("quest"),
+        "Gifts": inventory.get_instances_of_type("gift"),
+        "Books": inventory.get_instances_of_type("book"),
+        "Potions": inventory.get_instances_of_type("potion"),
+        "Quest Items": inventory.get_instances_of_type("quest"),
     }
 
     $ items_shown = 36

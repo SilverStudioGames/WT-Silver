@@ -304,7 +304,7 @@ screen weasley_store_menu():
 label gift_shop_menu:
     show screen weasley_store_menu
 
-    $ item_list = filter(lambda x : x.unlocked, Item.get_instances_of_type("gift"))
+    $ item_list = filter(lambda x : x.unlocked, inventory.get_instances_of_type("gift"))
 
     show screen list_menu("gift_shop_menu", "Gifts", ("Beverages", "Candy", "Mags", "Toys"), item_list)
     with d3
