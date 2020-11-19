@@ -1,5 +1,8 @@
-transform sepia:
+transform sepia():
     matrixcolor SepiaMatrix()
+
+transform uvlight():
+    matrixcolor SepiaMatrix("#590098", desat=(1.0, 1.5, 1.0))
 
 transform move_in(x, t):
     xpos x

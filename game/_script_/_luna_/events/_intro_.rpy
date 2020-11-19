@@ -1,366 +1,722 @@
 
-# The Sorting Hat makes himself (and his intentions) known
-label hat_intro:
-    $ hat_known = True
-    anon "Hey."
-    m "What? who said that?"
+label luna_intro_E1:
+
+    # Setup
+    $ luna_name = "???"
+    $ d_flag_01 = False
+    $ d_flag_02 = None
+    $ d_flag_03 = [False, False, False, False, False]
+
+    pause .8
+    $ renpy.sound.play("sounds/snore1.mp3")
+
+    m "*Snore*{w=2.0}{nw}"
+    m "Yes..."
+
+    pause 1.0
+    $ renpy.sound.play("sounds/snore3.mp3")
+
+    m "*Sn{cps=8}oooooooreeee*{/cps}{w=2.0}{nw}"
+    m "Let's weigh those melons then shall we..."
+
+    pause 1.0
+    $ renpy.sound.play("sounds/snore2.mp3")
+
+    m "......{w=0.5}*Snore*{w=1.0}{nw}"
+    g9 "Can't find the scales... will have to use my hands..."
+
+    stop music fadeout 8.0
+
+    call lun_walk(action="enter")
+    call chibi_emote("thought", "luna")
+    pause 1
+    call chibi_emote("hide", "luna")
+    call lun_walk("410", speed=0.7)
+    call play_sound("kick")
+    show screen gfx_effect(428, 365, img="smoke", zoom=0.25)
+    with hpunch
+
+    pause 0.5
+
+    $ renpy.sound.play("sounds/MaleGasp.mp3")
+    g4 "M-My cabbages!"
+    m "..............."
+    m "...Hello?"
+
+    lun "*Mmh*"
+
+    m "What the hell are you doing in my office?"
+    lun "I can't find them, daddy..."
+    g4 "Daddy?"
+    lun "My glasses..."
+    m "You're...{w=0.4} looking for your glasses?"
+    m "Why would your glasses be in here?"
+    m "Hold on..."
+
+    call play_music("luna")
+
+    show screen chair_left
+    show screen desk
+    call gen_chibi("stand", 225, "base")
+    with fade
+
+    pause 1
+
+    call gen_walk(path=[(230, 470), (440, 470), (450, 430)])
+    call gen_chibi("stand", 450, "base", flip=False)
+    with d3
+
+    pause 0.5
+
+    #Genie walks over behind Luna who doesn't turn around
+    m "(Is this girl sleepwalking?)"
+    g9 "Whoa, check out these melons!"
+    g4 "(Shit.... I said that out loud.)"
+    m "(Guess she really must be sleepwalking...)"
+    m "(Although, maybe I could test it somehow just to be sure...)"
+
     menu:
-        "-Look behind you-":
-            ">You turn around and look in the general direction of the voice."
-            m "There's no one there..."
-            anon "..."
-            anon "You're looking straight at me Dumbledore."
+        m "(What kind of {i}examination{/i} should I perform?)"
+        "-Oral examination-":
+            $ d_flag_01 = True
+            m "So... What's your name?"
+            lun "...Wrackspurts..."
+            m "Charming..."
+            m "(I suppose that is a plausible name in this world...)"
+            $ luna_name = "Miss Backspurts?"
 
-        "-Look under the desk-":
-            ">You take a quick look under your desk."
-            m "There's no one there..."
-            anon "......"
-            anon "Behind you."
-            ">You turn around."
-            g4 "Who's there?! {w=0.5} Show yourself!"
-            anon "You're looking straight at me Dumbledore."
+        "-Hands-on examination-":
+            pause 0.5
+            $ mouse_slap()
+            lun "No!"
+            g4 "..."
+            lun "The Nargles..."
+            m "The what now?"
+            lun "*Inaudible mumbling*..."
+            m "*Hmm*..."
 
-    hat "Or should I say {i}Genie{/i}."
-    g4 "(The hat is talking!)"
-    m "(Wait, is it supposed to talk? Is this normal?)"
-    m "What do you want...{w=0.5} hat?"
-    hat "I'm the {i}sorting{/i} hat, and I Just want to talk."
-    m "Well go ahead then, it's not like I've got anything better to do in this room."
-    hat "So, about what you've been doing to Hermione Granger..."
-    m "Oh, that, *Ummmmmm*... It's not what it--"
-    hat "I want in."
-    g4 "What?"
-    hat "I want to help you corrupt another girl."
-    m "Another girl?"
-    hat "Well it wouldn't be much fun messing around with the Granger girl anymore, she's too far gone."
-    m "so What's in it for you, hat?"
-    hat "Entertainment. Do you understand how boring it is to sit in this room all day, staring at the wall with nothing to do?"
-    m "..."
-    hat "Oh yeah, of course you do...{w=0.3} Well, you should appreciate my offer to fight off the boredom for you then."
-    m "How do you plan to \"corrupt a girl\" from up there on the shelf?"
-    hat "I'm the sorting hat, I sort people."
-    m "..."
-    m "And how does that help?"
-    hat "Well, normally I'm placed on students' heads at the beginning of the year."
-    hat "I then read their personality using {i}Legilimency{/i} to decide what house they go in."
-    m "Legili-what?"
-    hat "Legilimency."
-    m "And how does that legilifancy help us?"
-    hat "I can do more than just read personalities, I can alter them as well."
-    g9 "Really?"
-    hat "I mean... in theory... The real Dumbledore never let me try it out. Not even on him."
-    g9 "So you're saying if I get a student in here, you can turn them into whatever I want?"
-    hat "To an extent."
-    m "What's that supposed to mean?"
-    hat "I can change what house they're in, and their personalities will change to suit that, but I can't completely alter a person's mind."
-    m "So I still have to do all the hard work?"
-    hat "If you call sexually harassing the students hard work..."
-    m "I'll think about it."
-    hat "Go ahead, I'm sure you'll have plenty of time to think it over while you sit there by yourself..."
-    hat "But... {w=0.3}if you want to have some real fun, get that Miss Granger girl to bring one of her slutty little friends up here."
-    hat "Then put me on their head and we'll have some fun."
-    hat "Until then..."
-    m "What?"
-    hat "{size=+5}z{/size}{size=+4}z{/size}{size=+3}z{/size}{size=+2}z{/size}{size=+1}z{/size}"
-    m "Oh..."
+        "-Shock therapy-":
+            $ renpy.sound.play("sounds/zipper.mp3")
+            call gen_chibi("dick_out", 450, "base", flip=False)
+            with d3
+            pause 0.5
+            g9 "What do you think about this?"
+            lun "...Crumple-Horned Snorkack..."
+            m "...Well, that's just rude..."
+            pause 0.5
+            $ renpy.sound.play("sounds/zipper.mp3")
+            call gen_chibi("stand", 450, "base", flip=False)
+            with d3
 
-    jump main_room
+    # Genie walks back to his chair and sits down
+    m "(What a strange girl...)"
+    m "(Although the crazies usually give the best blowjobs...)"
+    m "(Well, now I'm hard...)"
 
-# Genie asks Hermione for a new student
-label hat_intro_2:
-    $ luna_known = True
-    m "[hermione_name], I wanted to talk to you about something."
-    call her_main("Okay, what is it [genie_name]?", "open", "base", "base", "mid")
-    m "Do you feel that any of your friends are in the wrong house?"
-    call her_main("What do you mean \"In the wrong house\"?", "soft", "base", "base", "mid")
-    m "well, do you know anyone who'd be better suited being in a different house?"
-    call her_main("That's a weird question [genie_name].", "open", "base", "base", "mid")
-    call her_main("I suppose that Neville Longbottom isn't very courageous, Maybe he'd be better off in Hufflepuff...", "open", "squint", "base", "mid")
-    m "(Probably don't want him...)"
-    m "Does anyone else come to mind?"
-    call her_main("I don't think so...", "open", "base", "worried", "R")
-    m "Oh well, just--"
-    call her_main("Wait, I know! Luna Lovegood!", "scream", "closed", "angry", "mid")
-    m "And why is that?"
-    call her_main("Well, surely you've seen her grades [genie_name]...", "open", "closed", "base", "mid")
-    call her_main("Suffice to say, she's hardly Ravenclaw material. She'd probably be better suited to Hufflepuff as well.", "annoyed", "squint", "base", "mid")
-    m "Fantastic. Could you please tell her to come to my office later this afternoon?"
-    call her_main("Why? You're not going to ask her for favours are you?", "annoyed", "narrow", "annoyed", "mid")
-    m "Nothing of the sort. This is strictly school business."
-    call her_main("...", "annoyed", "narrow", "annoyed", "mid")
-    call her_main("Fine... Just don't do anything too bad...", "annoyed", "squint", "base", "mid")
-    m "Scout's honour!"
-    call her_main("...{w=0.3} If that's all then, [genie_name], I better head to class.", "open", "closed", "base", "mid")
+    menu:
+        "-Jerk off-":
+            m "(Even after thousands of years, this is a new one even for me...)"
+
+            $ renpy.sound.play("sounds/zipper.mp3")
+            call gen_chibi("jerk_off", 450, "base", flip=False)
+            with d3
+
+            m "..."
+            m "Hey, you could at least talk dirty or something."
+            lun "I feel...{w} tingling..."
+            g9 "Nice..."
+            lun "Crawling on my skin..."
+
+            $ renpy.sound.play("sounds/zipper.mp3")
+            call gen_chibi("stand", 450, "base", flip=False)
+            with d3
+
+            g4 "..."
+            m "(Yeah, this is not going to work...)"
+            m "(Better let someone else deal with this one...)"
+
+        "-Don't-":
+            m "(This is so weird, she's just standing there...)"
+            m "(I better get someone to deal with this...)"
+
+    hide screen chair_left
+    hide screen desk
+    call gen_chibi("sit_behind_desk")
+    with fade
+
+    label luna_intro_E1.choices:
+
+    menu:
+        "-Summon Snape-" if not d_flag_03[0]:
+            $ d_flag_02 = d_flag_02 or "snape"
+            $ d_flag_03[0] = True
+            "> You put your palms on your temples, attempting to summon Snape, but nothing happens." # X-Man reference
+            m "*Hmm*... He must be dead..."
+            g4 "Dead drunk..."
+
+            jump .choices
+
+        "-Summon Tonks-" if not d_flag_03[1]:
+            $ d_flag_02 = d_flag_02 or "tonks"
+            $ d_flag_03[1] = True
+            "> You try to summon Tonks."
+            pause 0.2
+            $ renpy.sound.play("sounds/magic3.mp3")
+            "> The spell fizzles."
+            m "*Hmm*..."
+            m "(Don't think that worked... Is she sleeping?)"
+
+            jump .choices
+
+        "-Summon Satan-" if not d_flag_03[2]:
+            $ d_flag_02 = d_flag_02 or "satan"
+            $ d_flag_03[2] = True
+
+            m "I summon thee... Satan."
+            pause 1
+            m "*heh* I just as I exp--"
+            $ renpy.play('sounds/attack_snape2.ogg')
+            show pentogram onlayer screens at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            with d5
+
+            pause 0.5
+            m "Uh-oh..."
+            call blkfade
+            hide pentogram onlayer screens
+            centered "{size=+7}{color=#cbcbcb}20 minutes later...{/color}{/size}"
+
+            g9 "*Ha-ha*... Good one! Alright, talk to you later Belzebub!"
+            "Belzebub" "Ah, don't be so formal, just call me Bub."
+            "Belzebub" "If you ever need some latest {i}hot{/i} news, I'm your guy."
+            call give_reward("> Satan's phone number has been added to your contacts list.", "interface/icons/phone.webp")
+            g9 "Thanks Bub, will do!"
+
+            "Bub" "Take care!"
+            $ renpy.play('sounds/attack_snape2.ogg')
+
+            call hide_blkfade
+
+            m "..."
+            m "He's such a nice guy, I don't understand why people hate him so much."
+
+            if d_flag_03[3]:
+                m "(And he at least answered the call, unlike the guy upstairs...)"
+                $ renpy.sound.play("sounds/thunder.ogg")
+                with flash
+                g4 "!!!"
+                m "...Sorry."
+
+            m "Anyway... What was I doing?"
+
+            lun "*Snore*..."
+            m "Right..."
+
+            jump .choices
+
+        "-Summon God-" if not d_flag_03[3]:
+            $ d_flag_03[3] = True
+            "> Nothing happened."
+            m "Figures..."
+
+            jump .choices
+
+        "-Summon Hermione-":
+            $ d_flag_02 = d_flag_02 or "hermione"
+            pass
+
+        "-Summon Jafar-" if not d_flag_03[4]:
+            $ d_flag_03[4] = True
+            g4 "Who the fuck made this an option?!"
+
+            jump .choices
+
+    call blkfade
+    "> You summon Hermione to your office."
+    call hide_blkfade
+
+    call her_walk("mid", action="enter")
+
+    m "Ah, Miss Granger..."
+    her "[genie_name]... do you know what time it is--" #Eyes closed, looking tired
+    her "Luna? what are you doing here?!?" #shocked
+
+    if d_flag_01:
+        m "(Didn't she say her name was backspurts or something?)"
+
+    $ luna_name = "Miss Luna?"
+
+    her "Don't tell me--"
+    m "Quiet, girl."
+    m "She's sleepwalking..."
+    her "She's...{w=0.4} Oh, I see..."
+    lun "So warm..."
+    her "..." #weirded out
+    m "Can you do something?"
+    her "Do what exactly? I have heard you're not supposed to wake up someone that is sleepwalking..."
+    m "Then just escort her back to her bed..."
+    her "She's from Ravenclaw, I don't have access to their dormitory, so why me?"
+
+    if d_flag_02 == "hermione":
+        m "You were the obvious choice, Miss Granger."
+    elif d_flag_02 == "satan":
+        m "Nobody else seemed to be picking up my calls..."
+        m "Well, except..."
+        her "Except?"
+        m "Satan."
+        her "Satan...?"
+        m "Never mind."
+        her "..........."
+    else:
+        m "Nobody else seemed to be picking up my calls..."
+
+    m "Anyway,{w=0.2} how am I supposed to know that she's a Ravenclaw?"
+    m "She's not wearing her school uniform, is she?"
+    her "I thought our headmaster was supposed to know all of our students..."
+    m "Even my knowledge has its limits, dear child."
+    her "Oh I know exactly what's occupying your mind." # Rolls eyes
+    her "Anyhow, why didn't you escort her back yourself, professor?"
+
+
+    menu:
+        "\"I don't know where this Ravenglove dormitory is...\"":
+            her "It's Ravenclaw, [genie_name]..."
+            m "Tomato, tomatoe."
+            her "Anyway, what do you mean you don't know where their dormitory is, that doesn't make sense."
+            m "Girl, I'm starting to lose my patience..."
+            m "Just get this weirdo out of here, will you?"
+        "-Dismiss the question-":
+            m "Just get this weirdo out of here, please."
+
+    her "[genie_name]!" # Gasp
+    lun "It tickles..."
+    her "......" # Looks at Luna, puzzled.
+    her "She...{w=0.4} She's not a weirdo... She's just a bit... Loony..."
+    m "I don't care how you call it, just escort miss {i}Loony{/i} back to her bed...."
+    her "I can't, I'm not allowed in their dormitory as I have already said..."
+    g4 "Bloody hell, there's always {i}something{/i}..."
+
+    if d_flag_02 == "tonks":
+        # tonks enters (wearing something sexy)
+        call ton_walk("mid", 460, action="enter")
+
+        ton "*Yawn* Sorry I'm late, [ton_genie_name]."
+        m "You took your damn time."
+        ton "I was in the middle of... something important."
+        m "Important, hmm..."
+    else:
+        her "I suggest you should summon a teacher to escort her back."
+        m "Very well... I will summon--"
+        her "Anyone but Snape!"
+        lun "*wah* *wah*... *wah*."
+        her "Shush! You're okay Luna, professor Snake is not allowed here."
+        m "..."
+        m "Fine. I'll just get Professor Tonks up here..."
+
+        call blkfade
+        nar "> You attempt to summon Tonks to your office."
+        call hide_blkfade
+
+        m "..."
+        call ton_walk("mid", 460, action="enter")
+        ton "You called..."
+
+    her "Professor!" #Wide eyed
+    ton "*Oooh* What's this? A slumber party?"
+    g9 "It is now!"
+    g9 "Let me search for my bathrobe real quick."
+    her "Professor, that's not why we asked her here."
+    m "Right... Tonks, we may require your assistance here..."
+    ton "Assistance? With what--"
+    lun "Wrackspurts!"
+    ton "Ah... Miss Lovegood."
+
+    if d_flag_01:
+        g9 "Luna Love-good... *heh*, that's funny."
+        ton "What's funny?"
+        m "I said it out loud, didn't I..."
+        m "Anyway--"
+
+    $ luna_name = "Miss Lovegood"
+
+    m "This so called Miss {i}Lovegood{/i} sleep-walked in here."
+    ton "How am I not surprised."
+    her "P-Professor, what are you wearing?!"
+    g4 "Yes, Miss Tonks. What in the great desert sands are you wearing?"
+    g9 "Is this a school or a brothel?"
+
+    # Fun option
+    menu:
+        ton "It's my nightgown... You don't like it?" # Flirtatious
+
+        "\"I love it!\"":
+            g9 "You look like a slut!"
+
+        "\"You look like a slut!\"":
+            g9 "I love it!"
+
+    her "Professor!"
+    her "How could you say such a thing!"
+    ton "Yes, what a rude thing to say to your staff. {heart}"
+    m "I'm a man of simple truths, simply stating the obvious."
+    ton "So my current attire is too slutty for you, huh?"
+    g9 "I didn't say that, Miss Tonks..."
+    g9 "I said you look like a slut. Big difference."
+    her "What if a student would see you professor?! You can't walk around the castle wearing... this!"
+    ton "Quit worrying. Nobody is going to see me this late at night..."
+    ton "After all, it's already past curfew."
+    ton "Students should be in their beds, including you, Miss Granger."
+    her "But professor Dumbledore asked me to--"
+    ton "You just head back to bed, and I'll make sure Miss Lovegood gets back safe and sound to her dormitory..."
+    her "Okay..." #annoyed
+    ton "Good girl."
+
+    call her_walk("door")
+
+    her "Good night then..." #annoyed, flipped
+    ton "Sleep tight, Miss Granger..." # Tongue in cheek
 
     call her_walk(action="leave")
 
-    jump end_hermione_event
+    # Tonks should maybe talk to Genie about the situation some more here.
 
-# Luna introduces herself (choice between Slytherin and normal path)
-label hat_intro_3:
-    $ lun_hair_style = "playful"
-    #call update_lun_uniform
+    ton "Very well then..."
+    ton "Come on, Miss Lovegood, let's get you back to bed..."
 
+    #Tonks walks to the door
+
+    lun "But I'm not tired mummy..."
+    ton "..." #wide eyed
+    m "What a weirdo..."
+    ton "Just...{w=0.4} be a good girl and follow me back to bed..."
+    lun "Yes, mummy..."
+
+    call lun_walk("door")
+
+    ton "Don't worry about her, she'll be fine."
+    m "I won't."
+
+    call ton_walk("door", action="leave")
+    call lun_walk(action="leave")
+
+    m "This place never ceases to amaze me..."
+    m "..."
+    m "At least that weirdo isn't my problem anymore..."
+    m "Time to get back to sleep."
+
+    jump day_start
+
+label luna_intro_E2:
+    #Next morning
+    #Luna knocks on door
+
+    stop music fadeout 1.0
     call play_sound("knocking")
-    "*knock* *knock* *knock*"
+    "*knock-knock-knock*"
 
-    lun "It's Luna Lovegood, sir..."
-    m "come in, come in..."
+    m "Who is it?"
+    lun "Luna."
+    m "Who?"
+    lun "Luna Lovegood, Sir."
+    m "Love... good?"
+    lun "Yes!"
+    m "(I don't remember ordering any foreign prostitutes...)"
+    g9 "(Maybe Snape has finally sent one of his Slytherin whores.)"
 
-    call lun_walk("mid", action="enter")
-    pause.5
-
-    call lun_main("Hermione said you wanted to see me?","normal","base","base","R",xpos="right",ypos="base")
-    m "Yes. It's about your school house."
-    call lun_main("Ravenclaw?","normal","base","raised","mid")
-    m "Yes. I've been speaking with the sorting hat recently and I've been worried that he may have gotten a few students' houses wrong over the years."
-    call lun_main("Really? So am I going to have to change house?","upset","base","sad","mid")
-    m "Of course not!"
-    call lun_main("*Phew*!","base","happyCl","base","mid")
     menu:
-        "-Let the hat mess with her-\n{size=-4}(Slytherin Luna Path){/size}":
-            pass
-        "-Let her go-\n{size=-4}(Regular Luna Path){/size}":
-            $ ll_event_pause += renpy.random.randint(2, 5)
-            $ luna_reverted = True
-            m "Actually, on second thought, I better not put the hat on."
-            call lun_main("Oh... Why not?","base","wink","sad","mid")
-            m "Well, if I let you change house then half the school will probably want a second go."
-            m "Better to keep the status quo."
-            hat "Wait, I don't get to--"
-            ">You slam the hat into a drawer in your desk to silence it."
-            call lun_main("oh, alright then!","base","base","base","R")
-            call lun_main("But now that I'm here sir, I need to talk to you.","base","base","base","mid")
-            m "You do?"
-            m "(Maybe this won't be a waste of time after all!)"
-            call lun_main("It's about the school being in great danger!","open","wide","angry", "mid")
-            m "Oh..."
-            m "In that case, you'll have to come speak to me later."
-            call lun_main("Oh, um alright then... You must be very busy at the moment!","base","wink","sad","R")
-            m "Yeah, busy..."
-            m "(Too busy to hear about something that dull.)"
-            call lun_main("I'll come back later then, this really is something you need to hear about!","base","closed","angry","R")
-            call lun_walk(action="leave")
-            $ luna_busy = True
+        "-Invite them in-":
+            g9 "Enter!"
 
-            $ luna_unlocked = True
-            $ achievement.unlock("unlocklun", True)
-            call popup("{size=-4}You can now summon Luna into your office.{/size}", "Character unlocked!", "interface/icons/head/luna.webp")
+        "\"I'm busy!\"":
+            m "Come back tomorrow."
+            lun "Oh, okay."
+            lun "I'll come back tomorrow then."
 
             jump main_room
 
-    m "I just wanted to put the hat on your head to see if he made the right choice."
-    call lun_main("oh, alright then!","base","base","base","R")
-    ">You turn around and reach for the hat."
-    m "Almost there... Just grab the edge and..."
-    hat "Careful!"
-    ">You pull the heavy hat down from the cupboard."
-    hat "*Psst*{size=-4}Nice work! Now just put me on her head.{/size}"
-    m "Here we are, Miss Lovegood..."
-    ">You place the hat gingerly on her head."
-    call lun_main("...","upset","base","base","R")
-    call lun_main("Is it--","upset","base","raised","R")
-    hat "{size=+4}*HMMMM*{/size} yes...{w=0.3} {size=-4}yes...{/size} I see.{w=0.3} Very interesting...{w=0.3} {size=+4}Very{w=0.3} interesting...{/size}"
-    call lun_main("What's interesting?","normal","base","raised","mid")
-    hat "What? Oh nothing, nothing. Just close your eyes, try and get a bit of sleep..."
-    call lun_main("Sleep?","normal","suspicious","raised","R")
-    call lun_main("Why would I... want to...","normal","closed","sad","mid")
-    call lun_main("...","normal","base","sad","empty")
-    m "is she alright?"
-    hat "She's fine. Just having a bit of a rest. Now, about that personality..."
-    hat "Oh yes... {w=0.3}*Hmmmm*, well I suppose that could work..."
-    hat "{size=-4}yes... I'm sure Salazar would be proud...{/size}"
-    hat "Just a little longer..."
-    call lun_main("...","normal","base","sad","empty")
-    call lun_main("...","normal","base","base","empty")
+    call lun_walk(action="enter")
+    pause 0.5
 
-    hide screen luna_main
-    $ luna_pupil_color = "green"
+    m "{size=-4}Oh... It's miss Loony.{/size}"
+    call play_music("luna")
+    #lun "Please don't call me that, Sir.."
+    #m "My apologies, child."
+    #m "Please come closer."
 
-    call lun_main("...","normal","base","base","empty")
-    m "Wait what happened?! Her eyes just changed colour!"
-    hat "Really? *Hmm*... Didn't expect that... what colour are they?"
-    m "Green."
-    hat "*Hmm*... that seems rather fitting."
-    m "Why, what did you do to her personality?"
-    hat "Not much, just made it a bit more Snake like..."
-    m "What now?"
-    hat "Well, she's going to be a little... out of sorts..."
-    hat "It would probably be in your best interest to send her to her room and let her sleep it off."
-    m "Will she be able to hear me?"
-    hat "Yes, she's in a fairly... lucid state..."
-    ">You take the hat off Luna's head."
-    m "Thank you very much, Miss Lovegood. I think you better be off to bed now "
-    call lun_main("yes... bed...","normal","base","base","empty")
+    call lun_walk("desk")
+
+    call lun_main("", "base", "base", "base", "mid", trans=d3)
+    pause 1
+
+    g4 "(Look at the baby blues on that girl!)"
+    g9 "(She looks even better awake!)"
+    m "(I think I'm getting a boner...)"
+
+    menu:
+        "-Jerk off-":
+            call gen_chibi("jerk_off_behind_desk")
+            with d3
+            "> You drop down your pants and start jerking off."
+            $ masturbating = True
+
+        "-Behave-":
+            $ masturbating = False
+
+    if masturbating:
+        g9 "Miss *ah* Love-good... What can I do you for?"
+    else:
+        m "Miss Lovegood... What can I help you with?"
+
+    lun "*Hmm*..."
+
+    if masturbating:
+        "> *fap-fap-fap*!"
+        g4 "(Look at the breasts on this girl, such a lovely profile!)"
+        g9 "(And that lush blonde hair! I'd love to wrap it around my dick!)"
+    else:
+        m "Miss Lovegood?"
+
+    call lun_walk(600, 460)
+    call lun_chibi(flip=True)
+    ">Luna absent-mindedly starts looking around your room."
+
+    if not masturbating:
+        m "*Uhh* Hello?"
+
+    call lun_walk("mid", "base")
+
+    m "(What's wrong with this girl?)"
+
+    if masturbating:
+        g9 "(Whatever. As long as I can beat my meat in peace.)"
+        "> *fap-fap-fap*"
+
+    call lun_walk("desk", "base")
+    pause 0.25
+    call lun_chibi(flip=True)
+    with d3
+
+    "> Luna turns around and bends down slightly, examining the floor tiles, giving you an eyeful of her round butt without realising."
+
+    if masturbating:
+        with hpunch
+        g4 "(Holy shit that ass!)"
+        "> {size=+3}*{b}fap{/b}-fap-{b}fap{/b}*{/size}"
+        g4 "*Ugh*... (I'm getting close.)"
+        lun "There's such a strange aura in here..."
+        g4 "(Yes! It's the aura of me going crazy for you, you fucking slut!)"
+        "> {size=+3}*{b}fap{/b}-fap-{b}fap{/b}*{/size}"
+    else:
+        lun "There's such a strange aura in here..."
+        lun "It's like a big hollow tree..."
+        m "(Oh, good... She's a hippie...)"
+
+    call lun_chibi(flip=False)
+    with d3
+
+    ">Luna finally turns to face you."
+
+    if masturbating:
+        g4 "(Yes, yes! You little slut! Here it comes!)"
+        call gen_chibi("cum_behind_desk")
+        call cum_block
+        lun "Whoa!"
+        call cum_block
+        lun "There's so much!"
+        g4 "*Argh*... (It's all yours...)"
+        lun "They're flying everywhere! How impressive!"
+        g4 "Yes! (All because of you, you silly-hot bimbo!)"
+        call cum_block
+        g4 "*Argh*-- fuck! *heavy panting*"
+        call gen_chibi("cum_behind_desk_done")
+        with d3
+        m "That was... that was awesome."
+    else:
+        lun "Whoa!"
+        m "What? Is there something on my face?"
+        m "Actually, first of all... What are you even wearing?" # Luna ignores him.
+        pause 1
+        lun "This room is full of them!"
+        m "(She ignored my question...)"
+        m "Full of what?"
+        lun "Wrackspurts!"
+        m "Not this again..."
+
+    lun "I've never seen anything like this before, and never so clear..."
+
+    if masturbating:
+        g9 "There's more where that came from."
+        lun "So you can see {i}them{/i} too Professor?"
+        m "I can't see anything."
+        m "(Besides the residue of my cum, but she doesn't need to know that.)"
+        lun "*sigh* Just as expected."
+        lun "You could see them if you had one of these."
+    else:
+        m "I can't see anything."
+        lun "Of course you can't, Professor."
+        lun "Because you don't have these!"
+
+    "> Luna points to the oddly shaped glasses on her nose."
+    m "These goofy looking glasses?"
+    m "Are you planning on winning the masquerade ball or what?"
+    lun "Don't be fooled by their look professor, these glasses are infused with magic."
+    lun "They are called {i}Spectrespecs{/i}!"
+
+    menu:
+        "\"Spectre-- what?\"":
+            lun "Spectrespecs!"
+            lun "They allow the wielder to see things that are there, but hidden."
+            m "And that vapor ware thing on your nose is supposed to help you with that?"
+            lun "*uh-huh!*"
+            m "Great..."
+
+        "\"Spectres as in ghosts?\"":
+            g4 "There are ghosts in here?!"
+            lun "Well, I don't know about ghosts--"
+            m "Quick, I need to call someone..."
+            lun "Oh, who you gonna call?"
+            g9 "Luigi, he's clearly the superior choice when it comes to fighting ghosts."
+            lun "Who, sir?"
+            m "Never mind."
+
+        "\"The theory of the parable fourth dimensional tuples.\"":
+            lun "I'm sorry, sir?"
+            m "*sigh* I'm talking about the four-dimensional space, {size=-1}a mathematical{/size} {size=-2}extension of the concept{/size} {size=-3}of three-dimensional or 3D space.{/size} {size=-5}Three-dimensional space{/size}{size=-7} is the simplest possible abstraction of the observation that one only needs three numbers, called dimensions, to describe the sizes or locations of objects in the everyday world.{/size}{size=-10}For example, the volume of a rectangular box is found by measuring and multiplying its length, width, and height (often labeled x, y, and z)...{/size}"
+            call blkfade
+            centered "{size=+7}{color=#cbcbcb}5 minutes later...{/color}{/size}"
+            call hide_blkfade
+            m "...and this is how your glasses work, right?"
+            lun "I... Maybe?" # Puzzled
+            m "Don't they teach you basic physics in this school?"
+            m "No matter."
+
+    m "So, can you see any Wickedysports in this room?"
+    lun "Wrackspurts, sir, and yes, there's many of them."
+    lun "Why don't you try wearing the glasses yourself, sir?"
+
+    menu:
+        "\"Sure, why the hell not.\"":
+            m "Give me those glasses and I'll have a look..."
+
+        "\"You're not pulling my leg?\"":
+            lun "I am not, Sir."
+            m "*Hm*, Fine."
+
+        "\"I am not wearing {b}THAT{/b}\"":
+            m "*Nuh-uh* Not a chance. They look silly."
+            lun "It doesn't matter how they look as long as they're practical."
+            m "I'm not putting them on."
+            lun "Please sir, can't you make an exception?" # Pouts
+            lun "It's really important to me..."
+            m "(Damn, she's cute when she's pouting.)"
+            m "Fine, but just this once."
+
+    $ renpy.play('sounds/magic1.ogg')
+    show layer screens at uvlight
+    show screen spectrevision
+    if not renpy.mobile:
+        show screen spectrevision_cursor
+    with d9
+
+    pause 0.5
+    "> The world around you starts shifting."
+
+    g9 "Holy shit, that's so cool!"
+    g9 "I'm keeping them!"
+    lun "Sir, those are my Spectrespecs..."
+    m "So? I'll give them back soon enough."
+    lun "But..."
+    m "They aren't {i}soulbound{/i}, are they?" # Did we make a joke like this before?
+    lun "I'm sorry, Sir, but I don't like lending my personal belongings to other people."
+    lun "Usually I never get them back when I do..."
+    m "Not even for a day? Surely you can trust me."
+    lun "Professor, you should get your own pair of Spectrespecs."
+    m "..."
+    $ renpy.play('sounds/magic1.ogg')
+    show layer screens
+    hide screen spectrevision
+    hide screen spectrevision_cursor
+    with d9
+    "> You take the glasses off and hand them over."
+    m "Here, you Scrooge McDuck..."
+    lun "Thank you professor."
+    lun "If you'd like the get a pair of your own, you can get them with the newest issue of the Quibbler."
+    lun "On page 6 they have a whole section on Wrackspurts! It's quite fascinating to read through."
+    m "The what now?"
+    m "(Is she making all that shit up, or should I know about these things?)"
+    m "So, how do I get them again?"
+    lun "*sigh* Let me repeat."
+    lun "First you have to buy the latest issue of The Quibbler."
+    lun "And you should really read through all of it."
+    lun "There's quite the informative article about Womps on page 9!"
+    lun "I was blown away when I found out that womps can sometimes--"
+    m "(I'm starting to lose my patience with this girl.)"
+    g4 "Yes, yes... but what about the glasses? How do I actually {b}get{/b} them?"
+    lun "Oh, that's quite easy!"
+    lun "There's a quiz on the last page you'll need to complete."
+    lun "Once filled in, cut it out and send it to the address mentioned in the article talking about Wrackspurts."
+    lun "A day or two later you'll receive your glasses."
+    lun "It's that simple."
+    m "That simple *huh*..."
+
+    menu:
+        "\"Too much effort...\"":
+            lun "Well."
+            lun "They're a reward for proving your wit and cunning, after all."
+            m "Pass..."
+            lun "Give it a chance, Professor. Quizzes are fun!"
+            m "Agree to disagree."
+            lun "Surely an esteemed wizard like yourself would have no trouble but with a simple quiz."
+            m "(She got me there...)"
+            m "I guess..."
+            lun "That's settled then."
+
+        "\"How about I buy yours instead.\"":
+            m "I can give you anything you want."
+            m "Gold... house points... I got it all, just name me your price."
+            lun "I'm afraid they are not for sale, Sir."
+            m "{size=-4}Dammit...{/size}" # small text
+            lun "If you want them, you got to earn them."
+            lun "Okay then."
+
+    ####
+    # Shouldn't Luna be used to being a loner?
+    # I don't like this part in particular because she's too honest about herself. ~Loafy
+    #
+    # TODO: Delete this comment once this is resolved.
+    ####
+
+    lun "Please call me once you got the glasses, Professor."
+    lun "Or... call me any time, really. I'd love to talk to somebody from time to time."
+    m "Don't you have any friends?"
+    lun "Well, not friends in a conventional sense, but I manage."
+    m "(Damn. That's the saddest thing I've heard all day.)"
+    lun "Anyway, let me know what you think of the paper once you've read it."
+    m "What paper?"
+    lun "The quibbler!"
+    #">Luna gestures towards the magazine."
+    lun "Hopefully you'll be able to find some more information on how to deal with them in there."
+    m "You can count on me."
+    #lun "Or maybe we could get daddy to help?"
+    #g4 "No!"
+    # lun "..."
+    #m "I mean...{w} I'm sure the paper shall suffice..."
+    #m "In fact, I plan reading it in just a moment."
+    #lun "Oh, of course sir!"
+    lun "I'll leave you to it then."
+    m "You do that..."
+
+    call lun_walk("door", "base")
+    call lun_chibi(flip=False)
+    with d3
+
+    lun "If you find yourself with any time spare, then there's a great article about shungite on page thirty-seven."
+    m "Let's focus on those spurts for now."
+    lun "Okay, see you later then!"
 
     call lun_walk(action="leave")
 
-    #$ luna_wear_accs = False
-    $ lun_hair_style = "curly"
-
-    ">You place the hat back on the cupboard."
-    m "So what did you do to her personality?"
-    hat "Now now... let's not spoil the fun. You'll just have to wait..."
-    m "*Hmph*..."
-
-    $ luna_unlocked = True
-    $ achievement.unlock("unlocklun", True)
-    call popup("{size=-4}You can now summon Luna into your office.{/size}", "Character unlocked!", "interface/icons/head/luna.webp")
-
-    $ luna_busy = True
+    m "(No wonder Hermione called her Loony.)"
+    m "Where could I get that magazine from? The Twins?"
+    m "Maybe they have it in stock. I should ask them..."
 
     jump main_room
-
-# Luna explains the Wrackspurt problem (intro after reversion or skipping conversion)
-label luna_reverted_greeting_1:
-    # Revert Luna variables
-    $ luna_reverted_intro = False
-    $ ll_event_pause += renpy.random.randint(2, 5)
-    $ lun_whoring = 0
-
-    #call reset_luna_base
-    #call reset_luna_clothing
-
-    $ lun_hair_style = "playful"
-    $ luna_pupil_color = "blue"
-    $ luna_l_arm = 1
-    $ luna_r_arm = 2
-
-    $ lun_glasses = "spectrespecs"
-    #$ luna_wear_glasses = True
-    $ lun_request_wear_glasses = True
-
-    call update_luna
-
-    # Reset names
-    $ reset_variables("lun_genie_name", "luna_name")
-
-    # Start the event
-    call play_sound("knocking")
-    "*Knock* *Knock* *Knock*"
-    lun "Hello?"
-    m "(Sounds like Luna...)"
-
-    menu:
-        "-Let her in-":
-            m "Come in!"
-
-        "-Tell her to go away-":
-            m "(She's probably here because of that thing with the hat!)"
-            m "Ugh... I'm not here!"
-            lun "..."
-            ">Your door opens as Luna walks in."
-
-    call lun_walk("desk", action="enter")
-    pause.5
-
-    call lun_main("Hello...","base","base","sad","mid",xpos="mid",ypos="base")
-    m "Hello, [luna_name]."
-
-    $ luna_l_arm = 1
-    $ luna_r_arm = 1
-    call lun_main("...","base","base","sad","R")
-    call lun_main("......","normal","base","sad","down")
-    ">Luna starts looking around your room."
-    call lun_main("There's such a strange aura in here...","normal","suspicious","angry","R")
-    call lun_main("It's like a big hollow tree...","normal","base","sad","R")
-    m "..."
-    m "(What?)"
-    m "Can I help you with anything?"
-    call lun_main("Oh... there was something I came here for, wasn't there...","upset","base","sad","down")
-    m "(What's going on here?)"
-    call lun_main("I remember! The wrackspurt infestation!","base","happyCl","sad","R")
-
-    menu:
-        "\"Wrackspurts?... Is that some sort of wizard STD?\"":
-            call lun_main("*Ha-ha-ha*, I guess you could say that!","base","base","sad","R")
-            call lun_main("Wrackspurts are invisible creatures which float into a person's ear and make their brain go all fuzzy.","normal","base","sad","mid")
-            $ luna_l_arm = 2
-            call lun_main("You can only view them with these spectrespecs!","base","base","base","L")
-            $ luna_l_arm = 1
-            m "I see... (This bitch really is crazy!)"
-            m "(Maybe the hat did some good for her...)"
-            m "Well, [luna_name], what can we do about it?"
-            call lun_main("I'm not sure, professor... Normally, thinking positive thoughts is enough to remove them, but I am having trouble with these. If my father, Xenophilius--","normal","angry","sad","R")
-            g4 "Did you just cast a spell on me?!"
-            $ luna_l_arm = 2
-            $ luna_r_arm = 2
-            call lun_main("Sir?","upset","wide","sad","mid")
-            g4 "Explain yourself!"
-            $ luna_l_arm = 1
-            $ luna_r_arm = 1
-            call lun_main("I am sorry Sir, I am not sure what--","normal","wide","sad","R")
-            g4 "{i}Xenofius{/i}! What does it do?"
-            call lun_main("{i}Xenofius{/i}? I've not heard of that spell before, Sir.","normal","angry","sad","mid")
-            m "The spell... That you just... Never mind."
-            call lun_main("(A Secret spell?) Sir, your magic is the strongest there is and these wrackspurts are really getting to me.","upset","mad","sad","R")
-            m "I see... do go on."
-
-        "\"I am afraid I can't help you [luna_name].\"":
-            call lun_main("Oh please, Sir! You're the only one powerful enough to help.","open","wide","sad","mid")
-            ">You can see Luna is rocking her pelvis as if grinding the air."
-            m "[luna_name], I am afraid I don't know what a wrackspurt is, let alone how to cure it."
-            call lun_main("Well, professor, wrackspurts are detailed on page six of \"the Quibbler\"! Here!","normal","base","sad","mid")
-            ">Luna hands you an issue of \"the Quibbler\"."
-            m "*Hmm*... \"Rotfang conspiracy... Three hundred ways to tie up a ghost...\" Ah! Wrackspurts..."
-            "\"Invisible creatures which float into a person's ears, making his/her brain go fuzzy\""
-            ">Luna points to her spectrespecs."
-            call lun_main("I can see them, Sir.","base","happyCl","base","mid")
-            m "I see...(No wonder Hermione called her Loony Lovegood)"
-
-        "\"What in the world are you wearing?\"":
-            call lun_main("Oh! These are my spectrespecs, professor!","base","base","sad","crossed")
-            m "(Please don't be mind reading, please don't be mind reading.)"
-            call lun_main("They help me see the wrackspurts.","normal","base","sad","mid")
-            m "(Thank the great desert sands!)"
-            call lun_main("And these are my plum earrings.","base","base","sad","L")
-            m "Ah yes, very nice...{w=0.5} Wait, did you say {i}plumb{/i} earrings?"
-            call lun_main("Why yes.","normal","base","sad","mid")
-            m "I see, I thought I misheard you for a second."
-            m "So about these {i}wrecksputs{/i}..."
-
-    call lun_main("Yes, Sir, they're proving to be quite a pain.","normal","closed","sad","mid")
-    ">You watch Luna, who is visibly rubbing her thighs together."
-    m "(Is she really?... *Ohhh*){w=0.5} [luna_name], how exactly do these {i}wickspurts{/i} make you feel?"
-    call lun_main("They're Just like \"the Quibbler\" says sir, except...","normal","seductive","sad","R")
-    m "Go on..."
-    call lun_main("Well, it's not my brain they're making fuzzy.","soft","seductive","sad","down")
-    m "Where exactly is fuzzy, [luna_name]?"
-    call lun_main("*Umm*... I'm not sure if I can say...","normal","seductive","sad","R")
-    m "(YES!)"
-    m "Now now, [luna_name], as your headmaster there shouldn't be anything that you can't discuss with me."
-    call lun_main("Well, okay...","base","seductive","sad","down")
-    call lun_main("the fuzziness is between my legs, sir...","base","seductive","sad","mid")
-    m "Really? That seems quite strange..."
-    call lun_main("It is, sir! I've only ever heard of people's brains going fuzzy...","normal","base","sad","mid")
-    call lun_main("But this...","normal","angry","sad","mid")
-    call lun_main("It's like this unbearable itch I can't scratch...","upset","seductive","sad","down")
-    m "(I know that feeling)"
-    call lun_main("And I feel like I can't quite remember what I've been up to over the last few days...","normal","suspicious","sad","R")
-    m "Oh um... I wouldn't worry about that at all..."
-    m "Let's just focus on this fuzziness of yours."
-    call lun_main("... Alright, professor.","normal","seductive","sad","down")
-    call lun_main("As I was saying, this fuzziness has really been bothering me the last few days...","normal","seductive","sad","mid")
-    m "*Hmm*... Has it been affecting your studies at all?"
-    call lun_main("Yes it has, sir...","upset","seductive","sad","down")
-    m "Well, we can't have that now, can we?"
-    call lun_main("No, sir...","base","seductive","sad","mid")
-    m "Are you free at the moment?"
-    call lun_main("*Umm*... I'm about to go to divination class, sir...","normal","seductive","sad","down")
-    m "In that case, we can address that nasty itch of yours later."
-    m "Come to my office later tonight, and we'll see what we can do."
-    call lun_main("Oh, thank you, sir!","base","wide","sad","mid")
-    call lun_main("I can't wait!","base","seductive","sad","mid")
-    call lun_main("Do you think you could possibly stop the nargles stealing my shoes as well?","base","base","sad","down")
-    m "(The hell is a nargle?!)"
-    m "One step at a time, [luna_name]."
-    call lun_main("Yes, you're right... the nargles wouldn't like it if we were multitasking...","normal","closed","sad","mid")
-    m "..."
-    call lun_main("Well, I'd best be off... goodbye professor!","base","happyCl","base","mid")
-
-    call lun_walk(action="leave")
-
-    call bld
-    m "(This is going to be fun!)"
-
-    jump end_luna_event
