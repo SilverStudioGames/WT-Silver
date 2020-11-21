@@ -292,11 +292,11 @@ label hg_pr_blowjob_T6_E2:
     m "[hermione_name]..."
     m "You look like hell..."
     call play_music("hermione") # Music
-    call her_main("[genie_name], I have been raped.", "scream", "closed", "angry", "mid", tears="mascara")
-    g4 "Seriously?!"
+    call her_main("[genie_name], I... Yes, thanks to that Slytherin boy...", "scream", "closed", "angry", "mid", tears="mascara")
+    g4 "Slytherin...{w=0.4} Seriously?!"
     call her_main("Yes, [genie_name].", "annoyed", "narrow", "annoyed", "mid", tears="mascara")
-    her "That nasty boy from Slytherin raped me..."
-    call her_main("Or...{w=0.5} raped my face rather I suppose...", "open", "narrow", "worried", "down", tears="mascara")
+    her "That nasty boy from Slytherin seemed to take a fancy to my face..."
+    call her_main("Or...{w=0.5} My mouth rather I suppose...", "open", "narrow", "worried", "down", tears="mascara")
     her "And--"
     play sound "sounds/burp.mp3"
     call her_main("*Burp*!...", "shock", "happyCl", "worried", "mid", tears="mascara")

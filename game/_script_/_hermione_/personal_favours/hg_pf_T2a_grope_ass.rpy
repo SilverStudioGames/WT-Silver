@@ -455,7 +455,6 @@ label hg_pf_grope_ass_T3_continue:
         "-Prod her butthole instead-":
             call nar(">You place your one of your thumbs against the girls butthole...")
             call her_main("[genie_name]? No! What are you doing!?", "mad", "wide", "base", "stare", cheeks="blush")
-            call nar(">Hermione tries to pull away from you...")
             $ her_mood += 3
 
             menu:
@@ -474,49 +473,48 @@ label hg_pf_grope_ass_T3_continue:
             jump end_hg_pf_grope
 
 label hg_pf_grope_ass_T3_fail:
-    call her_main("NO! What have you done!!?", "angry", "happyCl", "worried", "mid", cheeks="blush", tears="soft_blink", ypos="head")
+    call her_main("Stop that at once!", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
     call nar(">Hermione gives you an unexpectedly strong shove...")
 
     call her_chibi_scene("behind_desk_front", trans=hpunch)
 
-    call her_main("Why would you do this to me, [genie_name]...?", "angry", "happyCl", "worried", "mid", cheeks="blush", tears="soft_blink")
-    call her_main("I never agreed to... to...", "angry", "happyCl", "worried", "mid", cheeks="blush", tears="crying_blink")
-    call her_main("You... you...", "angry", "happyCl", "worried", "mid", cheeks="blush", tears="crying_blink")
-    call her_main("{size=+7}YOU RAPED ME!{/size}", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy", trans=hpunch)
-    g4 "What? Don't be ridiculous, [hermione_name]! I did no such thing!"
-    call her_main("Yes you did. {size=+4}Yes you did!{/size}", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy")
-    g4 "I most certainly did not!"
-    call her_main("No, you {size=+4}did{/size}, [genie_name]!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy")
-    call her_main("Now, you will give me twenty--", "angry", "base", "angry", "mid", cheeks="blush", tears="soft")
-    call her_main("No, a hundred house points or I am reporting you to the Ministry of magic!", "angry", "base", "angry", "mid", cheeks="blush", tears="soft")
+    call her_main("This is not what we agreed on, [genie_name]...", "angry", "happyCl", "worried", "mid", cheeks="blush")
+    m "More points is it?"
+    call her_main("More...", "angry", "happyCl", "worried", "mid", cheeks="blush")
+    call her_main("{size=+7}Points?!{/size}", "scream", "happyCl", "worried", "mid", cheeks="blush", trans=hpunch)
+    g4 "That's not it?"
+    call her_main("No, it's definitely not because of the points!", "scream", "happyCl", "worried", "mid", cheeks="blush")
+    m "I see..."
+    g9 "So I assume you don't want any extra points before leaving then?"
+    call her_main("...", "mad", "base", "worried", "R", cheeks="blush")
+    call her_main("I'll have twenty--", "angry", "base", "angry", "mid", cheeks="blush")
+    m "Alright, twenty it--"
+    call her_main("No, a hundred extra house points!", "angry", "base", "angry", "mid", cheeks="blush")
 
     menu:
-        m "(Ah, crap...)"
+        m "(...)"
         "\"Alright, alright... One hundred points it is...\"":
             $ gryffindor += 100
             $ her_mood += 9
 
-            m "One hundred points to Gryffindor !"
+            m "One hundred points to Gryffindor!"
             m "There, it is done..."
-            m "Now would you calm yourself down, [hermione_name]?"
-            call her_main("No, I will not!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy", ypos="head")
-            call her_main("I've just been raped!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy")
-            g4 "Oh, snap out of it [hermione_name], I didn't rape you! All I did was--"
-            call her_main("{size=+7}You raped me!!!{/size}", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy" , trans=hpunch)
-            g4 "By the great desert sands, would you keep it down about the rapes?!"
-            g4 "Someone may hear you!"
-            call her_main("Good! I want them to hear!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy")
-            m "Why would you want that? I already paid you!"
-            call her_main("Oh... right...", "angry", "base", "base", "mid", cheeks="blush", tears="mascara")
-            call her_main("But I hate you! I hate you [genie_name]!", "scream", "closed", "angry", "mid", cheeks="blush", tears="mascara")
+            m "Not about the points... you make me--"
+            call her_main("Shut up!", "scream", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+            call her_main("{size=+7}The terms should've been stated before commencing the--{/size}", "scream", "happyCl", "worried", "mid", cheeks="blush", trans=hpunch)
+            m "Commencing--"
+            m "Oh, snap out of it [hermione_name], You got paid didn't you?"
+            call her_main("...", "mad", "happyCl", "worried", "mid", cheeks="blush")
+            m "Don't act like you're not benefiting from this..."
+            call her_main("What ever...", "angry", "base", "base", "R", cheeks="blush")
 
-        "\"You're bluffing, [hermione_name]!\"":
+        "\"Surely you can't be serious, [hermione_name]!\"":
             $ her_mood += 27
 
-            call her_main("No, I'm not! I'm gonna do it!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy", ypos="head")
-            g4 "By all means, go ahead..."
-            g4 "There was no rape!"
-            call her_main("I hate you, [genie_name]!", "scream", "happyCl", "worried", "mid", cheeks="blush", tears="messy")
+            call her_main("Yes... I Am!", "scream", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+            g4 "By the great desert..."
+            g4 "You get no points!"
+            call her_main("*Grr*... Fine!", "scream", "happyCl", "worried", "mid", cheeks="blush")
 
     call her_chibi_scene("reset","desk","base", trans=fade)
 

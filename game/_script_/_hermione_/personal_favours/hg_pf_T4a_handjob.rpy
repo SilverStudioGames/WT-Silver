@@ -761,7 +761,7 @@ label hg_pf_handjob_2_continue:
 
     menu:
         m "..."
-        "{size=-4}\"I fantasise about being raped by my father.\"{/size}":
+        "{size=-4}\"I fantasise about being touched by my father.\"{/size}":
             $ her_mood += 11
             call her_main("I do not!", "angry", "base", "angry", "mid")
             m "I know. Just say it."
@@ -769,12 +769,12 @@ label hg_pf_handjob_2_continue:
             m "Humour me."
             call her_main("...........", "annoyed", "narrow", "annoyed", "mid")
             call her_main("Well...", "open", "narrow", "worried", "down")
-            call her_main("Sometimes I fantasise about being raped...")
+            call her_main("Sometimes I fantasise about my father...")
             call her_main(".......")
             m "I see. And in those fantasies of yours..."
-            m "Who is doing the raping?"
+            m "He is touching you, right?"
             call her_main("My father...?", "angry", "base", "base", "mid")
-            m "Do you enjoy it?"
+            m "Yes... And you enjoy it, right?"
             call her_main("No. I cry and beg for him to stop!", "angry", "narrow", "base", "down")
             m "Heh... Nice."
             call her_main(".......", "angry", "narrow", "base", "down")

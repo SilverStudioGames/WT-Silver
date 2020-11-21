@@ -53,8 +53,6 @@ label luna_intro_E1:
     m "Why would your glasses be in here?"
     m "Hold on..."
 
-    call play_music("luna")
-
     show screen chair_left
     show screen desk
     call gen_chibi("stand", 225, "base")
@@ -70,6 +68,8 @@ label luna_intro_E1:
 
     #Genie walks over behind Luna who doesn't turn around
     m "(Is this girl sleepwalking?)"
+
+    call play_music("luna", fadein=5.0)
     g9 "Whoa, check out these melons!"
     g4 "(Shit.... I said that out loud.)"
     m "(Guess she really must be sleepwalking...)"
@@ -96,16 +96,15 @@ label luna_intro_E1:
             m "*Hmm*..."
 
         "-Shock therapy-":
-            $ renpy.sound.play("sounds/zipper.mp3")
+
+            call blkfade
             call gen_chibi("dick_out", 450, "base", flip=False)
-            with d3
-            pause 0.5
+            pause 1
+            call hide_blkfade
             g9 "What do you think about this?"
             lun "...Crumple-Horned Snorkack..."
             m "...Well, that's just rude..."
             pause 0.5
-            $ renpy.sound.play("sounds/zipper.mp3")
-            call gen_chibi("stand", 450, "base", flip=False)
             with d3
 
     # Genie walks back to his chair and sits down
@@ -117,9 +116,11 @@ label luna_intro_E1:
         "-Jerk off-":
             m "(Even after thousands of years, this is a new one even for me...)"
 
-            $ renpy.sound.play("sounds/zipper.mp3")
+            call blkfade
             call gen_chibi("jerk_off", 450, "base", flip=False)
-            with d3
+            pause 1
+            call nar("*Fap* *Fap* *Fap*...")
+            call hide_blkfade
 
             m "..."
             m "Hey, you could at least talk dirty or something."
@@ -127,15 +128,20 @@ label luna_intro_E1:
             g9 "Nice..."
             lun "Crawling on my skin..."
 
-            $ renpy.sound.play("sounds/zipper.mp3")
-            call gen_chibi("stand", 450, "base", flip=False)
-            with d3
-
+            call gen_chibi("dick_out", 450, "base", flip=False)
             g4 "..."
             m "(Yeah, this is not going to work...)"
+            call blkfade
+            call gen_chibi("stand", 450, "base", flip=False)
+            pause 1
+            call hide_blkfade
             m "(Better let someone else deal with this one...)"
 
         "-Don't-":
+            call blkfade
+            call gen_chibi("stand", 450, "base", flip=False)
+            call hide_blkfade
+            pause 1
             m "(This is so weird, she's just standing there...)"
             m "(I better get someone to deal with this...)"
 
@@ -174,7 +180,7 @@ label luna_intro_E1:
 
             m "I summon thee... Satan."
             pause 1
-            m "*heh* I just as I exp--"
+            m "*heh*... Just as I exp--"
             $ renpy.play('sounds/attack_snape2.ogg')
             show pentogram onlayer screens at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
             with d5
@@ -185,9 +191,9 @@ label luna_intro_E1:
             hide pentogram onlayer screens
             centered "{size=+7}{color=#cbcbcb}20 minutes later...{/color}{/size}"
 
-            g9 "*Ha-ha*... Good one! Alright, talk to you later Belzebub!"
-            "Belzebub" "Ah, don't be so formal, just call me Bub."
-            "Belzebub" "If you ever need some latest {i}hot{/i} news, I'm your guy."
+            g9 "*Ha-ha*... Good one! Alright, talk to you later Beelzebub!"
+            "Beelzebub" "Ah, don't be so formal, just call me Bub."
+            "Beelzebub" "If you ever need some latest {i}hot{/i} news, I'm your guy."
             call give_reward("> Satan's phone number has been added to your contacts list.", "interface/icons/phone.webp")
             g9 "Thanks Bub, will do!"
 
@@ -252,13 +258,13 @@ label luna_intro_E1:
     lun "So warm..."
     her "..." #weirded out
     m "Can you do something?"
-    her "Do what exactly? I have heard you're not supposed to wake up someone that is sleepwalking..."
+    her "Do what exactly? I thought you weren't supposed to wake somebody up that is sleepwalking..."
     m "Then just escort her back to her bed..."
     her "She's from Ravenclaw, I don't have access to their dormitory, so why me?"
 
     if d_flag_02 == "hermione":
         m "You were the obvious choice, Miss Granger."
-    elif d_flag_02 == "satan":
+    elif d_flag_02 == "satan": #TODO This flag doesn't seem to work it defaults to else (I picked all options before Hermione)
         m "Nobody else seemed to be picking up my calls..."
         m "Well, except..."
         her "Except?"
@@ -272,16 +278,17 @@ label luna_intro_E1:
     m "Anyway,{w=0.2} how am I supposed to know that she's a Ravenclaw?"
     m "She's not wearing her school uniform, is she?"
     her "I thought our headmaster was supposed to know all of our students..."
-    m "Even my knowledge has its limits, dear child."
-    her "Oh I know exactly what's occupying your mind." # Rolls eyes
-    her "Anyhow, why didn't you escort her back yourself, professor?"
+    m "Even my immense knowledge has its limits dear..."
+    her "(Clearly there's more important things occupying your mind...)" # Rolls eyes
+    her "How come you haven't escorted her back yourself, professor?"
 
 
     menu:
         "\"I don't know where this Ravenglove dormitory is...\"":
             her "It's Ravenclaw, [genie_name]..."
-            m "Tomato, tomatoe."
-            her "Anyway, what do you mean you don't know where their dormitory is, that doesn't make sense."
+            m "Yes, that's what I said..."
+            her "You said--"
+            her "What do you mean you don't know where their dormitory is?"
             m "Girl, I'm starting to lose my patience..."
             m "Just get this weirdo out of here, will you?"
         "-Dismiss the question-":
@@ -292,10 +299,12 @@ label luna_intro_E1:
     her "......" # Looks at Luna, puzzled.
     her "She...{w=0.4} She's not a weirdo... She's just a bit... Loony..."
     m "I don't care how you call it, just escort miss {i}Loony{/i} back to her bed...."
-    her "I can't, I'm not allowed in their dormitory as I have already said..."
+    her "I can't!"
+    m "..."
+    her "As I've already said, professor... I'm not allowed in their dormitory."
     g4 "Bloody hell, there's always {i}something{/i}..."
 
-    if d_flag_02 == "tonks":
+    if d_flag_02 == "tonks": #TODO This flag doesn't seem to work either. Is it cause it's not saving multiple flags?
         # tonks enters (wearing something sexy)
         call ton_walk("mid", 460, action="enter")
 
@@ -307,13 +316,13 @@ label luna_intro_E1:
         her "I suggest you should summon a teacher to escort her back."
         m "Very well... I will summon--"
         her "Anyone but Snape!"
-        lun "*wah* *wah*... *wah*."
-        her "Shush! You're okay Luna, professor Snake is not allowed here."
+        lun "*Sniff*..."
+        her "Shush now... It's okay Luna, professor Snape is not allowed here."
         m "..."
         m "Fine. I'll just get Professor Tonks up here..."
 
         call blkfade
-        nar "> You attempt to summon Tonks to your office."
+        call nar("> You attempt to summon Tonks to your office.")
         call hide_blkfade
 
         m "..."
@@ -321,10 +330,10 @@ label luna_intro_E1:
         ton "You called..."
 
     her "Professor!" #Wide eyed
-    ton "*Oooh* What's this? A slumber party?"
+    ton "*Oooooh* What's this? A slumber party?" #TODO can we have a mix of small and big letters in the "oooooh"?
     g9 "It is now!"
     g9 "Let me search for my bathrobe real quick."
-    her "Professor, that's not why we asked her here."
+    her "P-Professor, that's not why we asked her here."
     m "Right... Tonks, we may require your assistance here..."
     ton "Assistance? With what--"
     lun "Wrackspurts!"
@@ -333,8 +342,9 @@ label luna_intro_E1:
     if d_flag_01:
         g9 "Luna Love-good... *heh*, that's funny."
         ton "What's funny?"
-        m "I said it out loud, didn't I..."
-        m "Anyway--"
+        m "Love...{w=0.4} Good...{w=0.6} Get it?"
+        ton "..."
+        m "Anyway..."
 
     $ luna_name = "Miss Lovegood"
 
@@ -355,15 +365,15 @@ label luna_intro_E1:
             g9 "I love it!"
 
     her "Professor!"
-    her "How could you say such a thing!"
-    ton "Yes, what a rude thing to say to your staff. {heart}"
-    m "I'm a man of simple truths, simply stating the obvious."
+    her "How could you say such a thing!?"
+    ton "Yes... Such a rude thing to say to your staff. {heart}"
+    m "I'm a man of simple truths, I'm only stating the obvious."
     ton "So my current attire is too slutty for you, huh?"
     g9 "I didn't say that, Miss Tonks..."
-    g9 "I said you look like a slut. Big difference."
-    her "What if a student would see you professor?! You can't walk around the castle wearing... this!"
-    ton "Quit worrying. Nobody is going to see me this late at night..."
-    ton "After all, it's already past curfew."
+    g9 "I said you look like a slut... There's a difference."
+    her "What if a student saw you professor?! You can't walk around the castle wearing... This!"
+    ton "Quit worrying. Nobody is going to see me this late at night."
+    ton "After all, it's already past curfew..."
     ton "Students should be in their beds, including you, Miss Granger."
     her "But professor Dumbledore asked me to--"
     ton "You just head back to bed, and I'll make sure Miss Lovegood gets back safe and sound to her dormitory..."
@@ -375,7 +385,7 @@ label luna_intro_E1:
     her "Good night then..." #annoyed, flipped
     ton "Sleep tight, Miss Granger..." # Tongue in cheek
 
-    call her_walk(action="leave")
+    call her_walk(action="leave") #TODO Hermione pops above Tonks Chibi when leaving
 
     # Tonks should maybe talk to Genie about the situation some more here.
 
@@ -390,12 +400,12 @@ label luna_intro_E1:
     ton "Just...{w=0.4} be a good girl and follow me back to bed..."
     lun "Yes, mummy..."
 
-    call lun_walk("door")
+    call lun_walk("door") #TODO Luna moves above Tonks Chibi when leaving
 
     ton "Don't worry about her, she'll be fine."
     m "I won't."
 
-    call ton_walk("door", action="leave")
+    call ton_walk("door", action="leave") #TODO is it possible for both to leave at the same time?
     call lun_walk(action="leave")
 
     m "This place never ceases to amaze me..."
