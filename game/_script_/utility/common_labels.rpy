@@ -189,78 +189,78 @@ label play_sound(sound=""):
     return
 
 #TODO One keyword per theme (maybe define everything in a dictionary to simplify code further?)
-label play_music(music=""):
+label play_music(music="", fadein=1.0, fadeout=1.0):
     if music == "stop":
-        stop music fadeout 1.0
+        stop music fadeout fadeout
         return
 
     # Harry Potter
     if music == "prologue":
-        play music "music/01 Prologue.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/01 Prologue.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "ball":
-        play music "music/11 Neville's Waltz.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/11 Neville's Waltz.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "festive":
-        play music "music/07 Introducing Colin2.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/07 Introducing Colin2.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "quidditch":
-        play music "music/11 The Quidditch Match_original.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/11 The Quidditch Match_original.mp3" fadein fadein fadeout fadeout if_changed
 
     # Character Music
     elif music in ["snape", "dark_fog"]: # snape
-        play music "music/Dark Fog.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Dark Fog.mp3" fadein fadein fadeout fadeout if_changed
     elif music in ["hermione", "chipper_doodle"]: # hermione
-        play music "music/Chipper Doodle v2.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Chipper Doodle v2.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "cho":
-        play music "music/fuzzball-parade-by-kevin-macleod.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/fuzzball-parade-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "astoria":
-        play music "music/KMcL_OpenThoseBrightEyes.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/KMcL_OpenThoseBrightEyes.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "susan":
-        play music "music/teddy-bear-waltz-by-kevin-macleod.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/teddy-bear-waltz-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "tonks":
-        play music "music/scheming-weasel-slower-version-by-kevin-macleod.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/scheming-weasel-slower-version-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "luna":
-        play music "music/wallpaper-by-kevin-macleod.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/wallpaper-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "playful_tension":
-        play music "music/(Orchestral) Playful Tension by Shadow16nh.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/(Orchestral) Playful Tension by Shadow16nh.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "silly":
-        play music "music/silly_fun_loop.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/silly_fun_loop.mp3" fadein fadein fadeout fadeout if_changed
 
     # Store Music
     elif music == "weasley_store":
-        play music "music/weasley_store.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/weasley_store.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "clothing_store":
-        play music "music/clothing_store.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/clothing_store.mp3" fadein fadein fadeout fadeout if_changed
 
     # Background Music
     elif music == "day":
-        play music "music/Brittle Rille.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Brittle Rille.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "night":
-        play music "music/Music for Manatees.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Music for Manatees.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "night_outside":
-        play music "sounds/night.mp3" fadein 1 fadeout 1 if_changed
+        play music "sounds/night.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "jazz":
-        play music "sounds/jazz take 2.mp3" fadein 1 fadeout 1 if_changed
+        play music "sounds/jazz take 2.mp3" fadein fadein fadeout fadeout if_changed
 
     # Interface
     elif music == "wardrobe":
-        play music "music/Spring_In_My_Step.mp3" fadein 0.2 fadeout 0.2 if_changed
+        play music "music/Spring_In_My_Step.mp3" fadein fadein fadeout fadeout if_changed
 
     # Misc
     elif music == "hitman":
-        play music "music/hitman.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/hitman.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "boss":
-        play music "music/Final Fantasy VII Boss Theme.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Final Fantasy VII Boss Theme.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "cardgame":
-        play music "music/Juhani_Junkala.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Juhani_Junkala.mp3" fadein fadein fadeout fadeout if_changed
     elif music in ["sad","grape_soda"]: # sad
-        play music "music/GrapeSodaIsFuckingRawbyjrayteam6.mp3" fadein 0.2 fadeout 0.5 if_changed
+        play music "music/GrapeSodaIsFuckingRawbyjrayteam6.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "anguish":
-        play music "music/Anguish.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Anguish.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "trance":
-        play music "music/Under-the-Radar by PhobyAk.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Under-the-Radar by PhobyAk.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "despair":
-        play music "music/Despair_by_erenik.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/Despair_by_erenik.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "agenda":
-        play music "music/hidden-agenda-by-kevin-macleod.mp3" fadein 1 fadeout 1 if_changed
+        play music "music/hidden-agenda-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
 
     # Fallback
     else:
