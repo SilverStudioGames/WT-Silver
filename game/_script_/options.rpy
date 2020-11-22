@@ -5,6 +5,7 @@
 # Note: Only use default keyword for renpy preferences. Use settings.default for custom ones.
 default preferences.text_cps = 40
 default preferences.afm_time = 15
+default preferences.pad_enabled = False
 
 init python:
     settings.default('theme', 'auto')
@@ -15,7 +16,6 @@ init python:
     settings.default('confirm_delete', True)
     settings.default('tooltip', True)
     settings.default('tutorials', True)
-    settings.default('custom_cursor', False)
 
 # Configuration
 # https://www.renpy.org/doc/html/config.html
@@ -23,8 +23,8 @@ init python:
 # Pre-Release related flags and variables
 define is_release = False
 define version_stage = "" if is_release else "development"
+define bits = "{}-bit".format(renpy.bits)
 define config.autoreload = False
-define config.debug = not is_release
 define config.developer = "auto"
 
 # Game version and naming
@@ -34,7 +34,7 @@ define title_version = config.version if len(config.version) < 5 else (config.ve
 define config.name = "WT Silver" if is_release else "WT Silver {}".format(version_stage)
 
 # Application window settings
-define config.window_title = "Witch Trainer: Silver ({} {})".format(title_version, version_stage)
+define config.window_title = "Witch Trainer: Silver (v{} {}) ({})".format(title_version, version_stage, bits)
 define config.window_icon = "gui/window_icon.png"
 define config.screen_width = 1080
 define config.screen_height = 600
@@ -48,7 +48,7 @@ define config.quit_action = Quit(True)
 define config.narrator_menu = True
 define config.hard_rollback_limit = 150
 define config.history_length = 250
-define config.mouse = None # Broken in 7.4 nightly {"default": [("interface/cursor.webp", 0, 0)]} if settings.get('custom_cursor') else None
+define config.mouse = {"default": [("interface/cursor.webp", 0, 0)]}
 define config.help = None
 
 # Graphics and cache settings
@@ -59,7 +59,7 @@ define config.gl_clear_color = "#000"
 define config.hw_video = True
 define config.nearest_neighbor = False
 define config.cache_surfaces = False
-define config.image_cache_size_mb = 1024
+define config.image_cache_size_mb = 1024 if renpy.bits == 32 else 2048
 define config.load_before_transition = True
 define config.imagemap_cache = True
 define config.optimize_texture_bounds = True

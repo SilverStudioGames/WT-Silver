@@ -1,7 +1,7 @@
 
 init python early:
-    if renpy.version_tuple < (7,4,0,733):
-        raise RuntimeWarning("Your Ren'Py launcher is outdated, the current minimal requirement is 7.4.0.733+\nPlease perform an update and try launching the game again.")
+    if renpy.version_tuple < (7,4,0,1006):
+        raise RuntimeWarning("Your Ren'Py launcher is outdated, the current minimal requirement is 7.4.0.1006+\nPlease perform an update and try launching the game again.")
 
 init python:
     if not config.developer:
@@ -10,9 +10,6 @@ init python:
     else:
         config.lint_hooks.append(lint_char_main_calls)
         renpy.arguments.register_command("whitespace", save_whitespace)
-
-    if not renpy.android:
-        config.start_interact_callbacks.append(fix_intel_renderer)
 
 init -1 python:
 
@@ -46,7 +43,9 @@ init -1 python:
             "ast_main": astoria,
             "cho_main": cho,
             "her_main": hermione,
-            "ton_main": tonks
+            "ton_main": tonks,
+            "lun_main": luna,
+            "sus_main": susan
         }
 
         calls = [i for i in renpy.game.script.all_stmts if isinstance(i, renpy.ast.Call) and i.label in char_lookup]
@@ -118,28 +117,6 @@ init -1 python:
 
         print "\rCalculating whitespace... Done!"
         return False
-
-
-    def fix_intel_renderer():
-        # Called only once per session
-        config.start_interact_callbacks.remove(fix_intel_renderer)
-
-        if renpy.windows and renpy.game.preferences.renderer == "auto":
-            intel_detected = False
-
-            if renpy.display.log.file:
-                with open(renpy.display.log.file.name, "r") as file:
-                    for line in file:
-                        if line.startswith("Vendor:"):
-                            intel_detected = "intel" in line.lower()
-                            break
-
-            if intel_detected:
-                # Switch to Angle renderer
-                renpy.game.preferences.renderer = "angle"
-                renpy.display.draw.quit()
-                renpy.display.draw = None
-                renpy.display.interface.set_mode()
 
 label missing_label():
     $ renpy.choice_for_skipping()

@@ -11,8 +11,6 @@ init python:
 
 label update_ui_points:
     # Debug
-    #if config.debug:
-        #$ total_points = slytherin+gryffindor+ravenclaw+hufflepuff
 
     # Temp variables
     $ toggle_ui_lock = True
@@ -122,19 +120,6 @@ screen ui_top_bar():
                         hover image_hover(gui.format("interface/topbar/buttons/{}/ui_work.webp"))
                         tooltip "Work (w)"
                         action Jump("paperwork")
-
-        ## Toggle UI lock button
-        #imagebutton:
-        #    xpos 1047
-        #    idle gui.format("interface/topbar/buttons/{}/ui_%s.webp") % toggle_ui_lock
-        #    hover image_hover(gui.format("interface/topbar/buttons/{}/ui_%s.webp") % toggle_ui_lock)
-        #    action ToggleVariable("toggle_ui_lock", False, True)
-
-        #Debug
-        #if config.debug:
-            #hbox:
-                #xpos 10 ypos 40
-                #text "{size=-3}{color=#FFF}[total_points] [housepoints]\n[housepoints_y]\nToggle display:[persistent.toggle_points]\n\nSly:[slytherin_place]\nGry:[gryffindor_place]\nRav:[ravenclaw_place]\nHuf:[hufflepuff_place]\nUI lock:[toggle_ui_lock]{/color}{/size}"
 
 screen ui_points():
     tag ui
