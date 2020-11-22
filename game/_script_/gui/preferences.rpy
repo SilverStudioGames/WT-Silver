@@ -8,7 +8,7 @@
 
 init offset = -1
 
-screen preferences(page="options"):
+screen preferences(page="general"):
     tag menu
 
     use game_menu(_("Preferences"), scroll="viewport"):
@@ -18,26 +18,32 @@ screen preferences(page="options"):
             spacing gui.pref_spacing
             null # Tab margin
 
-            if page == 'options':
-                use preferences_options
-            elif page == 'graphics':
+            if page == "general":
+                use preferences_general
+            elif page == "graphics":
                 use preferences_graphics
+            elif page == "sound":
+                use preferences_sound
 
     hbox:
         style_prefix gui.theme("tab")
         pos (25 + 15, 100)
         yanchor 0.5
 
-        textbutton "Options" action [
-            SelectedIf(page == 'options'),
-            Show('preferences', config.intra_transition, 'options')
+        textbutton "General" action [
+            SelectedIf(page == "general"),
+            Show("preferences", config.intra_transition, "general")
         ]
         textbutton "Graphics"  action [
-            SelectedIf(page == 'graphics'),
-            Show('preferences', config.intra_transition, 'graphics')
+            SelectedIf(page == "graphics"),
+            Show("preferences", config.intra_transition, "graphics")
+        ]
+        textbutton "Sound" action [
+            SelectedIf(page == "sound"),
+            Show("preferences", config.intra_transition, "sound")
         ]
 
-screen preferences_options():
+screen preferences_general():
     hbox:
         box_wrap True
 
@@ -45,12 +51,9 @@ screen preferences_options():
             style_prefix gui.theme("check")
 
             label _("Interface")
-            textbutton "Tutorials" action settings.Toggle('tutorials')
-            textbutton _("Tooltips") action settings.Toggle('tooltip')
-            textbutton _("Custom Cursor") action [
-                settings.Toggle('custom_cursor'),
-                # Broken in 7.4 nightly: ToggleVariable("config.mouse", { 'default' : [ ('interface/cursor.webp', 0, 0)] }, None)
-            ]
+            textbutton "Tutorials" action settings.Toggle("tutorials")
+            textbutton _("Tooltips") action settings.Toggle("tooltip")
+            textbutton _("System Cursor") action Preference("system cursor", "toggle")
 
         default trans = config.intra_transition
 
@@ -59,17 +62,17 @@ screen preferences_options():
 
             label "Theme"
             textbutton "Auto" action [
-                settings.Set('theme', 'auto'),
+                settings.Set("theme", "auto"),
                 Function(renpy.transition, trans),
                 Function(renpy.restart_interaction)
             ]
             textbutton "Day" action [
-                settings.Set('theme', 'light'),
+                settings.Set("theme", "light"),
                 Function(renpy.transition, trans),
                 Function(renpy.restart_interaction)
             ]
             textbutton "Night" action [
-                settings.Set('theme', 'dark'),
+                settings.Set("theme", "dark"),
                 Function(renpy.transition, trans),
                 Function(renpy.restart_interaction)
             ]
@@ -77,8 +80,8 @@ screen preferences_options():
         vbox:
             style_prefix gui.theme("pref")
 
-            $ text_color_day = settings.get('text_color_day')
-            $ text_color_night = settings.get('text_color_night')
+            $ text_color_day = settings.get("text_color_day")
+            $ text_color_night = settings.get("text_color_night")
 
             label _("Text Colour")
             default color_square = "{font=[gui.glyph_font]}❖{/font}"
@@ -141,6 +144,91 @@ screen preferences_options():
                 textbutton "L" action Preference("font size", 1.2)
                 textbutton "XL" action Preference("font size", 1.4)
 
+    hbox:
+        box_wrap True
+
+        vbox:
+            style_prefix gui.theme("check")
+
+            label _("Advanced")
+            textbutton _("Autosave"):
+                action [
+                    settings.Toggle("autosave"),
+                    Notify("Autosave preference will take effect after restarting the game")
+                ]
+            textbutton _("Confirm Delete"):
+                action settings.Toggle("confirm_delete")
+            textbutton "Full reset":
+                style gui.theme("pref_button")
+                action Confirm(gui.CONFIRM_FULL_RESET, Function(delete_persistent))
+
+define gui.CONFIRM_FULL_RESET = """{color=#f00}Warning!{/color}\n
+\n
+{size=-4}You are about to reset all persistent data, which\n
+includes achievements, seen text, and preferences.{/size}\n
+\n
+Are you sure you want to do a full reset?"""
+
+screen preferences_graphics():
+    hbox:
+        box_wrap True
+
+        if renpy.variant("pc") or renpy.variant("web"):
+            vbox:
+                style_prefix gui.theme("radio")
+                label _("Display")
+                textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                textbutton _("Windowed") action Preference("display", "any window")
+
+                if not preferences.fullscreen:
+                    textbutton _("Reset window"):
+                        action Preference("display", "window")
+                        sensitive (renpy.get_physical_size() != (config.screen_width, config.screen_height))
+
+
+        vbox:
+            style_prefix gui.theme("radio")
+
+            default fps_msg = "Framerate preference may take effect after restarting the game"
+
+            label "Framerate"
+
+            textbutton ("{} fps".format(int(renpy.get_refresh_rate()))) action [Preference("gl framerate", None), Notify(fps_msg)]
+            if renpy.get_refresh_rate() > 60:
+                textbutton "60 fps" action [Preference("gl framerate", 60), Notify(fps_msg)]
+            textbutton "30 fps" action [Preference("gl framerate", 30), Notify(fps_msg)]
+
+        vbox:
+            style_prefix gui.theme("radio")
+
+            label "Renderer"
+
+            textbutton _("OpenGL"):
+                selected (preferences.renderer in ("auto", "gl2"))
+                action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "gl2"))
+            textbutton _("Angle"):
+                sensitive renpy.windows
+                selected (preferences.renderer == "angle2")
+                action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "angle2"))
+
+        vbox:
+            style_prefix gui.theme("check")
+
+            label "Advanced"
+
+            textbutton _("Power-saving"):
+                action Preference("gl powersave", "toggle")
+
+            textbutton _("Videos"):
+                action InvertSelected(Preference("video sprites", "toggle"))
+
+            textbutton _("Tearing"):
+                action [ ToggleField(_preferences, "gl_tearing"), _DisplayReset() ]
+
+screen preferences_sound():
+    hbox:
+        box_wrap True
+
         vbox:
             style_prefix gui.theme("slider")
             spacing gui.pref_spacing / 2
@@ -175,66 +263,7 @@ screen preferences_options():
 
                 textbutton _("Mute All"):
                     action Preference("all mute", "toggle")
-                    style "mute_all_button"
-    hbox:
-        box_wrap True
-
-        vbox:
-            style_prefix gui.theme("check")
-
-            label _("Advanced")
-            textbutton _("Autosave"):
-                action [
-                    settings.Toggle('autosave'),
-                    Notify("Autosave preference will take effect after restarting the game")
-                ]
-            textbutton _("Confirm Delete"):
-                action settings.Toggle('confirm_delete')
-            textbutton "Full reset":
-                style gui.theme("pref_button")
-                action Confirm(gui.CONFIRM_FULL_RESET, Function(delete_persistent))
-
-define gui.CONFIRM_FULL_RESET = """{color=#f00}Warning!{/color}\n
-\n
-{size=-4}You are about to reset all persistent data, which\n
-includes achievements, seen text, and preferences.{/size}\n
-\n
-Are you sure you want to do a full reset?"""
-
-screen preferences_graphics():
-    hbox:
-        box_wrap True
-
-        if renpy.variant("pc") or renpy.variant("web"):
-            vbox:
-                style_prefix gui.theme("radio")
-                label _("Display")
-                textbutton _("Default"):
-                    action Preference("display", "window")
-                    sensitive (renpy.get_physical_size() != (config.screen_width, config.screen_height))
-                textbutton _("Window") action Preference("display", "any window")
-                textbutton _("Fullscreen") action Preference("display", "fullscreen")
-
-        vbox:
-            style_prefix gui.theme("radio")
-
-            default fps_msg = "Framerate preference may take effect after restarting the game"
-
-            label "Framerate"
-            textbutton "Screen" action [Preference("gl framerate", None), Notify(fps_msg)]
-            textbutton "60 fps" action [Preference("gl framerate", 60), Notify(fps_msg)]
-            textbutton "30 fps" action [Preference("gl framerate", 30), Notify(fps_msg)]
-
-
-        vbox:
-            style_prefix gui.theme("pref")
-
-            label "Ren'Py"
-            textbutton "Accessibility" action Show("_accessibility")
-            textbutton "Rendering" action [
-                Function(renpy.call_in_new_context, "_choose_renderer"),
-                Notify("Rendering preferences may take effect after restarting the game")
-            ]
+                    style gui.theme("check_button")
 
 init python:
     def delete_persistent():
@@ -248,6 +277,10 @@ init python:
         r, g, b, _ = color_picker(get_rgb_list(color), False, title)
         color = get_hex_string(r/255.0, g/255.0, b/255.0)
         settings.set(setting_name, color)
+
+    def set_renderer(s):
+        preferences.renderer = s if s in ("gl2", "angle2") else "auto"
+        renpy.quit(relaunch=True)
 
 style mute_all_button is check_button
 style mute_all_button_text is check_button_text
