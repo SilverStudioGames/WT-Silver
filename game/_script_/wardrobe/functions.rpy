@@ -3,7 +3,7 @@ init python:
         """Returns the progression score (usually whoring) for a given girl"""
         if name == "tonks":
             return ton_friendship
-        elif name in ("cho", "hermione", "luna", "susan", "astoria"):
+        else:
             return getattr(store, "{}_whoring".format(name[:3]))
 
     def get_character_object(key):
@@ -95,7 +95,7 @@ init python:
     def wardrobe_fail_hint(value):
         """Displays required whoring/friendship/affection level."""
         word_list = {"tonks": "friendship", "astoria": "affection", "susan": "confidence", "luna": "corruption", "cho": "recklessness", "hermione": "whoring"}
-        word = word_list[active_girl]
+        word = word_list.get(active_girl, "whoring")
 
         if game.cheats or game.difficulty <= 2:
             renpy.show_screen("blktone")
