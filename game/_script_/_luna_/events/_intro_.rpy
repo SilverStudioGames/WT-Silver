@@ -480,7 +480,7 @@ label luna_intro_E2:
 
     if masturbating:
         "> *fap-fap-fap*!"
-        g4 "(Look at the breasts on this girl, such a lovely profile!)"
+        g4 "(Look at the tits on this girl, such a lovely profile!)"
         g9 "(And that lush blonde hair! I'd love to wrap it around my dick!)"
     else:
         m "Miss Lovegood?"
@@ -539,7 +539,6 @@ label luna_intro_E2:
         g4 "*Argh*-- fuck! *heavy panting*"
         call gen_chibi("cum_behind_desk_done")
         with d3
-        m "That was... that was awesome."
     else:
         lun "Whoa!"
         m "What? Is there something on my face?"
@@ -551,13 +550,12 @@ label luna_intro_E2:
         lun "Wrackspurts!"
         m "Not this again..."
 
-    lun "I've never seen anything like this before, and never so clear..."
+    lun "Why, I've never seen anything like this before, and never so clear..."
 
     if masturbating:
         g9 "There's more where that came from."
         lun "So you can see {i}them{/i} too Professor?"
-        m "I can't see anything."
-        m "(Besides the residue of my cum, but she doesn't need to know that.)"
+        m "See what?"
         lun "*sigh* Just as expected."
         lun "You could see them if you had one of these."
     else:
@@ -566,7 +564,7 @@ label luna_intro_E2:
         lun "Because you don't have these!"
 
     "> Luna points to the oddly shaped glasses on her nose."
-    m "These goofy looking glasses?"
+    m "Those goofy looking glasses?"
     m "Are you planning on winning the masquerade ball or what?"
     lun "Don't be fooled by their look professor, these glasses are infused with magic."
     lun "They are called {i}Spectrespecs{/i}!"
@@ -580,13 +578,16 @@ label luna_intro_E2:
             m "Great..."
 
         "\"Spectres as in ghosts?\"":
-            g4 "There are ghosts in here?!"
+            g4 "*G-G-Ghe* Ghosts!"
             lun "Well, I don't know about ghosts--"
             m "Quick, I need to call someone..."
             lun "Oh, who you gonna call?"
             g9 "Luigi, he's clearly the superior choice when it comes to fighting ghosts."
             lun "Who, sir?"
+            g4 "Who... How do you not know... The inventor of the Luigi board?"
+            lun "*Huh*?"
             m "Never mind."
+            m "If not ghosts..."
 
         "\"The theory of the parable fourth dimensional tuples.\"":
             lun "I'm sorry, sir?"
@@ -599,119 +600,66 @@ label luna_intro_E2:
             m "Don't they teach you basic physics in this school?"
             m "No matter."
 
-    m "So, can you see any Wickedysports in this room?"
-    lun "Wrackspurts, sir, and yes, there's many of them."
-    lun "Why don't you try wearing the glasses yourself, sir?"
+    m "What are you seeing in this room exactly?"
+    lun "Wrackspurts, sir, and lots of them too!"
 
-    menu:
-        "\"Sure, why the hell not.\"":
-            m "Give me those glasses and I'll have a look..."
+    #$ renpy.play('sounds/magic1.ogg')
+    #show layer screens at uvlight
+    #show screen spectrevision
+    #if not renpy.mobile:
+    #    show screen spectrevision_cursor
+    #with d9
 
-        "\"You're not pulling my leg?\"":
-            lun "I am not, Sir."
-            m "*Hm*, Fine."
+    #pause 0.5
+    #"> The world around you starts shifting."
 
-        "\"I am not wearing {b}THAT{/b}\"":
-            m "*Nuh-uh* Not a chance. They look silly."
-            lun "It doesn't matter how they look as long as they're practical."
-            m "I'm not putting them on."
-            lun "Please sir, can't you make an exception?" # Pouts
-            lun "It's really important to me..."
-            m "(Damn, she's cute when she's pouting.)"
-            m "Fine, but just this once."
+    #m "..."
+    #$ renpy.play('sounds/magic1.ogg')
+    #show layer screens
+    #hide screen spectrevision
+    #hide screen spectrevision_cursor
+    #with d9
 
-    $ renpy.play('sounds/magic1.ogg')
-    show layer screens at uvlight
-    show screen spectrevision
-    if not renpy.mobile:
-        show screen spectrevision_cursor
-    with d9
-
-    pause 0.5
-    "> The world around you starts shifting."
-
-    g9 "Holy shit, that's so cool!"
-    g9 "I'm keeping them!"
-    lun "Sir, those are my Spectrespecs..."
-    m "So? I'll give them back soon enough."
-    lun "But..."
-    m "They aren't {i}soulbound{/i}, are they?" # Did we make a joke like this before?
-    lun "I'm sorry, Sir, but I don't like lending my personal belongings to other people."
-    lun "Usually I never get them back when I do..."
-    m "Not even for a day? Surely you can trust me."
-    lun "Professor, you should get your own pair of Spectrespecs."
-    m "..."
-    $ renpy.play('sounds/magic1.ogg')
-    show layer screens
-    hide screen spectrevision
-    hide screen spectrevision_cursor
-    with d9
-    "> You take the glasses off and hand them over."
-    m "Here, you Scrooge McDuck..."
-    lun "Thank you professor."
-    lun "If you'd like the get a pair of your own, you can get them with the newest issue of the Quibbler."
-    lun "On page 6 they have a whole section on Wrackspurts! It's quite fascinating to read through."
-    m "The what now?"
-    m "(Is she making all that shit up, or should I know about these things?)"
-    m "So, how do I get them again?"
-    lun "*sigh* Let me repeat."
-    lun "First you have to buy the latest issue of The Quibbler."
-    lun "And you should really read through all of it."
-    lun "There's quite the informative article about Womps on page 9!"
-    lun "I was blown away when I found out that womps can sometimes--"
-    m "(I'm starting to lose my patience with this girl.)"
-    g4 "Yes, yes... but what about the glasses? How do I actually {b}get{/b} them?"
-    lun "Oh, that's quite easy!"
-    lun "There's a quiz on the last page you'll need to complete."
-    lun "Once filled in, cut it out and send it to the address mentioned in the article talking about Wrackspurts."
-    lun "A day or two later you'll receive your glasses."
-    lun "It's that simple."
-    m "That simple *huh*..."
-
-    menu:
-        "\"Too much effort...\"":
-            lun "Well."
-            lun "They're a reward for proving your wit and cunning, after all."
-            m "Pass..."
-            lun "Give it a chance, Professor. Quizzes are fun!"
-            m "Agree to disagree."
-            lun "Surely an esteemed wizard like yourself would have no trouble but with a simple quiz."
-            m "(She got me there...)"
-            m "I guess..."
-            lun "That's settled then."
-
-        "\"How about I buy yours instead.\"":
-            m "I can give you anything you want."
-            m "Gold... house points... I got it all, just name me your price."
-            lun "I'm afraid they are not for sale, Sir."
-            m "{size=-4}Dammit...{/size}" # small text
-            lun "If you want them, you got to earn them."
-            lun "Okay then."
-
-    ####
-    # Shouldn't Luna be used to being a loner?
-    # I don't like this part in particular because she's too honest about herself. ~Loafy
-    #
-    # TODO: Delete this comment once this is resolved.
-    ####
-
-    lun "Please call me once you got the glasses, Professor."
-    lun "Or... call me any time, really. I'd love to talk to somebody from time to time."
-    m "Don't you have any friends?"
-    lun "Well, not friends in a conventional sense, but I manage."
-    m "(Damn. That's the saddest thing I've heard all day.)"
-    lun "Anyway, let me know what you think of the paper once you've read it."
+    m "Brackspurts?"
+    lun "Wrackspurt sir..."
+    m "I see..."
+    m "(Is she making all this shit up, or am I supposed to know about these things?)"
+    m "Well I can't say I've ever come across these whackspurs you speak of."
+    lun "There's a whole section dedicated to them in the quibbler, it's a quite fascinating read you know."
+    m "Pretend that I don't know..."
+    lun "The quibbler is my daddy's magazine, sir."
+    m "So is that why you're here?"
+    m "To advertise your fathers magazine?"
+    m "Now I must say that's quite bold for a student to just waltz into their headmasters office and chill their--"
+    lun "Oh... No sir!"
+    lun "I'm just worried that we might have an infestation on our hands and--"
+    #Luna eyes down
+    pause .5
+    call nar("Luna gives you an uncomfortable look and then turns her gaze to floor.")
+    m "An infestation?"
+    lun "Yes sir. I've come across several swarms of them in a fair few places recently."
+    lun "They appeared quite docile at first but recently they've started to become quite problematic..."
+    m "Well I sure would love to be able to help Miss Lovegood, but as I said this is the first time I even heard about these things..."
+    lun "*Oh*... But you can help, sir!"
+    lun "You're the most powerful wizard there is so if anyone could deal with them it'd be you..."
+    m "Well... I'm not usually the person to brag but..."
+    g9 "I am known to have slung some seriously powerful spells around back in the day..."
+    lun "Oh thank you sir, I knew you'd be able to help!"
+    m "Why of course, anything for a student in--"
+    g4 "Hold on, I didn't actually say yes yet!"
+    lun "So I think what would be best is if you'd read my daddy's magazine..."
+    m "(Is she even listening?)"
+    lun "I'm sure once you've read through all of it you'll be able to use your immense knowledge to find a solution..."
+    g9 "Of course!"
+    g9 "I am all knowing after all!"
+    m "(Or am I? I don't even know anymore...)"
+    g4 "(Wait... She did it again!)"
+    lun "Thank you sir..."
+    m "Now hold on for a second..."
+    lun "Let me know what you think of the paper once you've read it!"
     m "What paper?"
     lun "The quibbler!"
-    #">Luna gestures towards the magazine."
-    lun "Hopefully you'll be able to find some more information on how to deal with them in there."
-    m "You can count on me."
-    #lun "Or maybe we could get daddy to help?"
-    #g4 "No!"
-    # lun "..."
-    #m "I mean...{w} I'm sure the paper shall suffice..."
-    #m "In fact, I plan reading it in just a moment."
-    #lun "Oh, of course sir!"
+    m "Oh... right..."
     lun "I'll leave you to it then."
     m "You do that..."
 
@@ -719,14 +667,18 @@ label luna_intro_E2:
     call lun_chibi(flip=False)
     with d3
 
-    lun "If you find yourself with any time spare, then there's a great article about shungite on page thirty-seven."
-    m "Let's focus on those spurts for now."
-    lun "Okay, see you later then!"
+    lun "See you later, sir."
 
     call lun_walk(action="leave")
 
-    m "(No wonder Hermione called her Loony.)"
-    m "Where could I get that magazine from? The Twins?"
-    m "Maybe they have it in stock. I should ask them..."
+    m "(No wonder Hermione called her Loony... Her mind might as well be in another dimension...)"
+    m "(Where am I even supposed to get that bloody magazine from?)"
+
+    if store_intro_done:
+        m "(*Hmm*... I'm sure someone's bound to have it.)"
+        m "(Maybe it's time to look around the castle a bit more...)"
+    else:
+        m "(Well... Hopefully the twins carries it...)"
+
 
     jump main_room
