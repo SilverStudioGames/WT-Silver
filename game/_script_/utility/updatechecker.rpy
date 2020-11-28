@@ -21,17 +21,6 @@ init -1 python:
                 pass
         return False
 
-    # Groundwork for future save compatibility patches
-    def check_save_compatibility(slot, page=None):
-        save_version = FileJson(slot, "_version", missing=0, page=page)
-        if save_version is not None:
-            try:
-                return float(save_version) >= compatible_version
-            except ValueError: # (Old version fallback with letters)
-                return False
-        else:
-            return True # Slot is empty
-
     # Save compatibility patches
     def update_savefile():
         global save_internal_version
