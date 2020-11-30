@@ -27,7 +27,6 @@ label summon_susan:
     label susan_requests:
 
     call sus_main(xpos="base", ypos="base")
-    $ hide_transitions = False
 
     menu:
 

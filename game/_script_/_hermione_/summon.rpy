@@ -20,7 +20,6 @@ label summon_hermione:
     # Reset
     call reset_menu_position
     call her_main(xpos="base",ypos="base")
-    $ hide_transitions = False
 
     menu:
 

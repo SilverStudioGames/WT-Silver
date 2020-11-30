@@ -25,7 +25,6 @@ label summon_cho:
     # Reset
     call reset_menu_position
     call cho_main(xpos="base",ypos="base")
-    $ hide_transitions = False
 
     menu:
 

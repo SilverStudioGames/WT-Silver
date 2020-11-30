@@ -25,7 +25,6 @@ label summon_luna:
 
     label luna_requests:
 
-    $ hide_transitions = False
     $ gave_luna_gift = True # Remove when adding gift texts!
 
     menu:

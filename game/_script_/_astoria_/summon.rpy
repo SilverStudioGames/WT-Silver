@@ -17,7 +17,6 @@ label summon_astoria:
     # Reset
     call reset_menu_position
     call ast_main(xpos="base",ypos="base")
-    $ hide_transitions = False
 
     menu:
 

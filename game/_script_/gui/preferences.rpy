@@ -125,7 +125,6 @@ screen preferences_general():
             label _("Skip")
             textbutton _("Unseen Text") action Preference("skip", "toggle")
             textbutton _("After Choices") action Preference("after choices", "toggle")
-            textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
     hbox:
         box_wrap True
@@ -192,7 +191,7 @@ screen preferences_graphic():
             textbutton _("OpenGL"):
                 selected (preferences.renderer in ("auto", "gl2"))
                 action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "gl2"))
-            textbutton _("Angle"):
+            textbutton _("DirectX"):
                 sensitive renpy.windows
                 selected (preferences.renderer == "angle2")
                 action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "angle2"))
@@ -202,14 +201,11 @@ screen preferences_graphic():
 
             label "Advanced"
 
-            textbutton _("Power-saving"):
-                action Preference("gl powersave", "toggle")
+            textbutton _("Transitions") action Preference("transitions", "toggle")
+            textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
+            textbutton _("Power-saving") action Preference("gl powersave", "toggle")
+            textbutton _("Tearing") action [ ToggleField(_preferences, "gl_tearing"), _DisplayReset() ]
 
-            textbutton _("Videos"):
-                action InvertSelected(Preference("video sprites", "toggle"))
-
-            textbutton _("Tearing"):
-                action [ ToggleField(_preferences, "gl_tearing"), _DisplayReset() ]
 
 screen preferences_sound():
     hbox:

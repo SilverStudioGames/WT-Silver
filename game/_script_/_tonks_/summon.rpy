@@ -20,7 +20,6 @@ label summon_tonks:
     # Reset
     call reset_menu_position
     call ton_main(xpos="base",ypos="base")
-    $ hide_transitions = False
 
     menu:
 
