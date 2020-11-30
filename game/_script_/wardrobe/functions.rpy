@@ -1,69 +1,61 @@
 init python:
-    def get_progression(name):
-        """Returns the progression score (usually whoring) for a given girl"""
-        if name == "tonks":
+    def get_character_progression(key):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        if key == "tonks":
             return ton_friendship
-        else:
-            return getattr(store, "{}_whoring".format(name[:3]))
+        return getattr(store, "{}_whoring".format(key[:3]))
 
     def get_character_object(key):
-        return character_list.get(key)
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return getattr(store, key)
 
-    def get_character_outfits_schedule(key):
-        """Returns a list of outfits applicable for the current day and weather"""
-        schedule = []
-        char = get_character_object(key)
-        outfits = char.outfits_schedule[game.daytime]
+    def get_character_outfit(key, type="default"):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return getattr(store, "{}_outfit_{}".format(key[:3], type))
 
-        for i in outfits:
-            if i.schedule[4] and game.weather in ("snow", "blizzard"):
-                schedule.append(i)
-                continue
-            if i.schedule[3] and game.weather == "rain":
-                schedule.append(i)
-                continue
-            if i.schedule[2] and game.weather in ("overcast", "storm"):
-                schedule.append(i)
-                continue
-            if not (i.schedule[2] or i.schedule[3] or i.schedule[4]) and game.weather in ("clear", "cloudy"):
-                schedule.append(i)
-                continue
-        return schedule
+    def get_character_screen(key):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return "{}_main".format(key)
 
-    def get_character_score(key):
-        """Returns character outfit outrage score number"""
-        score = 0
-        char = get_character_object(key)
-        for k, i in char.clothing.iteritems():
-            if i[0] != None:
-                if not i[0].type in ("tattoo0", "tattoo1", "piercing0", "piercing1", "buttplug"):
-                    score += i[0].whoring
-            else:
-                if k == "top":
-                    score += 30
-                    if not char.get_worn("bra"):
-                        score += 25
-                        if char.get_worn("piercing1"):
-                            score += 10
-                        if char.get_worn("tattoo1"):
-                            score += char.get_cloth("tattoo1").whoring
-                elif k == "bra" and char.get_worn("top"):
-                    score += 10
-                elif k == "bottom":
-                    score += 30
-                    if char.get_worn("buttplug"):
-                        score += 10
-                    if not char.get_worn("panties"):
-                        score += 25
-                        if char.get_worn("buttplug"):
-                            score += 25
-                        if char.get_worn("piercing0"):
-                            score += 10
-                        if char.get_worn("tattoo0"):
-                            score += char.get_cloth("tattoo0").whoring
-                elif k == "panties" and char.get_worn("bottom"):
-                    score += 15
-        return score
+    ### Outdated, kept for reference.
+    # def get_character_score(key):
+    #     """Returns character outfit outrage score number"""
+    #     score = 0
+    #     char = get_character_object(key)
+    #     for k, i in char.clothing.iteritems():
+    #         if i[0] != None:
+    #             if not i[0].type in ("tattoo0", "tattoo1", "piercing0", "piercing1", "buttplug"):
+    #                 score += i[0].whoring
+    #         else:
+    #             if k == "top":
+    #                 score += 30
+    #                 if not char.get_worn("bra"):
+    #                     score += 25
+    #                     if char.get_worn("piercing1"):
+    #                         score += 10
+    #                     if char.get_worn("tattoo1"):
+    #                         score += char.get_cloth("tattoo1").whoring
+    #             elif k == "bra" and char.get_worn("top"):
+    #                 score += 10
+    #             elif k == "bottom":
+    #                 score += 30
+    #                 if char.get_worn("buttplug"):
+    #                     score += 10
+    #                 if not char.get_worn("panties"):
+    #                     score += 25
+    #                     if char.get_worn("buttplug"):
+    #                         score += 25
+    #                     if char.get_worn("piercing0"):
+    #                         score += 10
+    #                     if char.get_worn("tattoo0"):
+    #                         score += char.get_cloth("tattoo0").whoring
+    #             elif k == "panties" and char.get_worn("bottom"):
+    #                 score += 15
+    #     return score
 
     def mouse_slap():
         """Causes the mouse to be moved away from current position and displays a smoke effect"""

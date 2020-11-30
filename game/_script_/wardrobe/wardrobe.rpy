@@ -18,8 +18,8 @@ define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 
 label wardrobe():
     python:
-        char_active = getattr(store, active_girl)
-        char_outfit = getattr(renpy.store, active_girl[:3] + "_outfit_last")
+        char_active = get_character_object(active_girl)
+        char_outfit = get_character_outfit(active_girl, type="last")
         char_outfit.save()
 
         wardrobe_subcategories = char_active.wardrobe
@@ -357,7 +357,7 @@ screen wardrobe_menuitem(xx, yy):
                 $ icon = item.get_icon()
                 $ is_seen = item.seen
                 $ is_equipped = char_active.is_equipped_item(item)
-                $ is_inadequate = bool(get_progression(active_girl) < item.level)
+                $ is_inadequate = bool(get_character_progression(active_girl) < item.level)
                 $ is_blacklisted = char_active.is_blacklisted(item.type)
                 $ is_blacklister = any(char_active.is_equipped(x) for x in item.blacklist)
                 $ is_modded = bool(item.modpath)

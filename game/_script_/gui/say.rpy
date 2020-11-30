@@ -101,8 +101,10 @@ screen choice(items):
 
     style_prefix gui.theme("menu")
 
+    default blacklist = set(get_character_screen(x) for x in CHARACTERS) | {"say", "letter"} # Combine sets
+
     # Dont add the fade if character or saybox is present (They have their own triggers for fading)
-    if not any(itertools.imap(renpy.get_screen, ["say", "hermione_main", "cho_main", "luna_main", "snape_main", "astoria_main", "tonks_main", "susan_main", "letter"])):
+    if not any(renpy.get_screen(x) for x in blacklist):
         add "interface/bld.webp" at fade_hide(0.15)
     window at fade_show_hide(0.15):
         style "empty"

@@ -1,10 +1,11 @@
-label wardrobe_init:
-    # Called at new game start.
-    python:
-        hermione.equip(her_outfit_default)
-        tonks.equip(ton_outfit_default)
-        astoria.equip(ast_outfit_default)
-        cho.equip(cho_outfit_default)
-        luna.equip(lun_outfit_default)
-        susan.equip(sus_outfit_default)
-    return
+# To add new doll character just add it to this named set inside your mod file
+init offset = 2
+define CHARACTERS = {"hermione", "tonks", "astoria", "cho", "luna", "susan"}
+
+init python:
+    def wardrobe_init():
+        for c in CHARACTERS:
+            char = get_character_object(c)
+            outfit = get_character_outfit(c)
+
+            char.equip(outfit)
