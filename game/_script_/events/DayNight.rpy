@@ -26,10 +26,6 @@ label common_start(set_daytime):
     call points_changes # Calculates points
     call update_ui_points
 
-    # Set save filename
-    $ temp_name = "Day - "+str(game.day)+"\nWhoring - "+str(her_whoring)
-    $ save_name = temp_name
-
     # Reset character appearances (chibis, clothing, etc.)
     call update_luna
     call update_astoria
