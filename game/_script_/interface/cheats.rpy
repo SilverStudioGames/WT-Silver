@@ -221,16 +221,8 @@ label cheats:
                     jump cheats.devroom
                 "-Get all decorations-" (icon="interface/icons/small/gold.webp"):
                     python:
-                        for i in wall_deco_list:
-                            i.unlocked = True
-                        for i in fireplace_deco_list:
-                            i.unlocked = True
-                        for i in cupboard_deco_list:
-                            i.unlocked = True
-                        for i in misc_deco_list:
-                            i.unlocked = True
-                        for i in misc_hat_list:
-                            i.unlocked = True
+                        for i in inventory.get_instances_of_type("decoration"):
+                            i.owned = 1
                     jump cheats.devroom
                 "-Get all quest items-":
                     python:

@@ -1,5 +1,4 @@
 
-
 # # Quest Items
 # default puzzle_box_quest_ITEM = Item(id="puzzle_box", name="Puzzle Box", type="quest item", image="icon_puzzle", description="A wooden box with a slide puzzle located on top of it. It was found hidden behind one of the loose bricks in the fireplace. Who knows what's inside.", event="start_slide_puzzle")
 # default collar_quest_ITEM = Item(id="collar_quest", name="Collar", type="quest item", image="icon_collar", description="Quest Item!")
@@ -7,75 +6,6 @@
 # default sealed_scroll_quest_ITEM = Scroll(id="sealed_scroll", name="Forbidden Scroll", cost=500, type="scroll", image="item_scroll_sealed", description="The scroll can be used to transmute one-self into.. something.", event="tentacle_scene_intro")
 
 # default forbidden_scroll_list = [sealed_scroll_quest_ITEM] # TODO: Replace with quest item list instead.
-
-# # Posters
-# default poster_agrabah_ITEM = Item(id="agrabah", name="Agrabah Poster", cost=2, type="poster", image="posters/agrabah", description="A remnant of a distant land and memories about different times. A reminder for when you just want to ponder about what could've been.")
-# default poster_gryffindor_ITEM = Item(id="gryffindor", name="Gryffindor Poster", cost=2, type="poster", image="posters/gryffindor", description="Make your stance that you support the house of Gryffindor with this themed poster.")
-# default poster_hufflepuff_ITEM = Item(id="hufflepuff", name="Hufflepuff Poster", cost=2, type="poster", image="posters/hufflepuff", description="Make your stance that you support the house of Hufflepuff with this themed poster.")
-# default poster_ravenclaw_ITEM = Item(id="ravenclaw", name="Ravenclaw Poster", cost=2, type="poster", image="posters/ravenclaw", description="Make your stance that you support the house of Ravenclaw with this themed poster.")
-# default poster_slytherin_ITEM = Item(id="slytherin", name="Slytherin Poster", cost=2, type="poster", image="posters/slytherin", description="Make your stance that you support the house of Slytherin with this themed poster.")
-# default poster_hermione_ITEM = Item(id="hermione", name="Hermione Chibi Poster", cost=2, type="poster", image="posters/hermione", description="A little lewdness for the office, don't worry. With a special illusion charm no one but you will notice a thing...")
-# default poster_harlots_ITEM = Item(id="harlots", name="Hogwarts Harlots Poster", cost=2, type="poster", image="posters/harlots", description="Hermione showing off her true colours at last with this special poster... illusion charm included...")
-# default poster_stripper_ITEM = Item(id="stripper", name="Stripper Poster", cost=2, type="poster", image="posters/stripper", description="Hermione showing off how to work the pole... illusion charm included...")
-# default poster_wanted_ITEM = Item(id="wanted", name="Wanted Poster", cost=2, type="poster", image="posters/wanted", description="A Wild West styled Wanted poster depicting our dear headmaster...")
-# default poster_tonks_ITEM = Item(id="tonks", name="Tonks Chibi Poster", hidden=True, cost=2, type="poster", image="posters/tonks", description="Somebody anonymous sent us this poster of what we can only suspect is Professor Tonks in the nude!")
-
-# # Trophies
-# default trophy_stag_ITEM = Item(id="stag", name="Stag Head Trophy", cost=3, type="trophy", image="trophies/stag", description="A perfect decoration over your mantelpiece to add a sense of masculinity to the office.")
-# default trophy_crest_ITEM = Item(id="crest", name="Hogwarts Crest", cost=5, type="trophy", image="trophies/crest", description="A perfect decoration for a headmaster.")
-
-# # Pinups & Misc
-# default pinup_girl_ITEM = Item(id="_deco_1", name="Girl Pinup", cost=0, type="pinup", image="pinups/girl", description="Spice up your cupboard with this sexy pinup model...\n(Shows up when rummaging through the cupboard).", unlocked=True)
-
-# # Hats
-# default owl_hat_ITEM = Item(id="owl_hat", name="Owl Hat", cost=1, type="owl", imagepath="interface/icons/misc/owl_hat.webp", description="A hat for an owl. Don't ask, just accept it..")
-# default phoenix_hat_ITEM = Item(id="phoenix_hat", name="Phoenix Hat", cost=1, type="phoenix", imagepath="interface/icons/misc/phoenix_hat.webp", description="A little something to make your friend look less depressed.")
-# default fireplace_hat_ITEM = Item(id="fireplace_hat", name="Skull Hat", cost=1, type="fireplace", imagepath="interface/icons/misc/fireplace_hat.webp", description="Don't let Johnny get a cold!")
-
-# default owl_black_ITEM = Item(id="owl_idle_black", name="Black Owl", cost=3, type="mail", imagepath="interface/icons/misc/owl_black.webp", description="Magically dye your mail courier black!")
-
-# # Xmas
-# default fireplace_xmas_ITEM = Item(id="fireplace_tree", name="Christmas Decorations", cost=1, type="fireplace", imagepath="interface/icons/misc/fireplace_xmas.webp", description="Don't let Johnny get a cold!")
-# default phoenix_xmas_ITEM = Item(id="phoenix_xmas", name="Phoenix Christmas Decorations", cost=1, type="phoenix", imagepath="interface/icons/misc/phoenix_xmas.webp", description="A little something to make your friend look less depressed.")
-# default owl_xmas_ITEM = Item(id="owl_xmas", name="Owl Christmas hat", cost=1, type="owl", imagepath="interface/icons/misc/owl_xmas.webp", description="A hat for an owl. Don't ask, just accept it..")
-
-# default cupboard_halloween_ITEM = Item(id="cupboard_halloween", name="Halloween decorations", cost=0, type="cupboard", imagepath="interface/icons/misc/halloween.webp", description="", unlocked=True)
-# default fireplace_halloween_ITEM = Item(id="fireplace_halloween", name="Halloween decorations", cost=0, type="fireplace", imagepath="interface/icons/misc/fireplace_halloween.webp", description="", unlocked=True)
-# default phoenix_halloween_ITEM = Item(id="phoenix_halloween", name="Halloween decorations", cost=0, type="phoenix", imagepath="interface/icons/misc/phoenix_halloween.webp", description="", unlocked=True)
-
-# default wall_deco_list = [
-#     poster_agrabah_ITEM,
-#     poster_gryffindor_ITEM,
-#     poster_hufflepuff_ITEM,
-#     poster_ravenclaw_ITEM,
-#     poster_slytherin_ITEM,
-#     poster_hermione_ITEM,
-#     poster_harlots_ITEM,
-#     poster_stripper_ITEM,
-#     poster_wanted_ITEM,
-#     poster_tonks_ITEM,
-# ]
-# default fireplace_deco_list = [
-#     trophy_crest_ITEM,
-#     trophy_stag_ITEM,
-# ]
-# default cupboard_deco_list = [
-#     pinup_girl_ITEM
-# ]
-# default misc_deco_list = [
-#     owl_black_ITEM,
-#     phoenix_xmas_ITEM,
-#     fireplace_xmas_ITEM,
-#     cupboard_halloween_ITEM,
-#     fireplace_halloween_ITEM,
-#     phoenix_halloween_ITEM,
-# ]
-# default misc_hat_list = [
-#     fireplace_hat_ITEM,
-#     phoenix_hat_ITEM,
-#     owl_hat_ITEM,
-#     owl_xmas_ITEM
-# ]
 
 # # Scroll Items
 # default scroll_1_ITEM = Scroll(id="scroll_1",   name="The room",           cost=1,   type="scroll", image="item_scroll", scroll_image="1", comments=["This is a first ever draft of the Dumbledore's office.","Not a very exciting thing to look at, sure. But holds great historical value."])

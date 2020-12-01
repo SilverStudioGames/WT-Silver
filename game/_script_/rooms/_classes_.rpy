@@ -1,39 +1,56 @@
 
 init -1 python:
 
+    class Room(object):
+        def __init__(self, id):
+            self.id = id
+            self.objects = set()
+
+        def add(self, obj):
+            self.objects.add(obj)
+
+        def remove(self, obj):
+            self.objects.remove(obj)
+
     class RoomObject(object):
 
-        def __init__(self, **kwargs):
-            self.type = ""
+        def __init__(self, room, id, pos, idle, hover=None, foreground=None, background=None, anchor=(0.5, 0.5), focus_mask=True, action=NullAction(), hovered=None, unhovered=None, tooltip=None, decoration=None):
+            self.room = room
+            self.id = id
+            self.pos = pos
+            self.idle = idle
+            self.hover = hover or self.idle
+            self.foreground = foreground
+            self.background = background
+            self.anchor = anchor
+            self.focus_mask = focus_mask
+            self.action = action
+            self.hovered = hovered
+            self.unhovered = unhovered
+            self.tooltip = tooltip
+            self.decoration = decoration
+            self.hidden = False
 
-            self.room_image = ""
-            self.room_image_path = ""
+            # Add to the main room if room was specified
+            if self.room:
+                self.room.add(self)
 
-            self.idle_image = ""
-            self.idle_image_path = ""
+            # Backwards compatibility, to be resolved if possible.
+            self.xpos, self.ypos = self.pos
 
-            self.hover_image = ""
-            self.hover_image_path = ""
+        def get_idle(self):
+            if self.hidden:
+                return Null()
 
-            self.xpos = 0
-            self.ypos = 0
+            if self.decoration:
+                return Fixed(self.idle, self.decoration.image)
+            return self.idle
 
-            self.__dict__.update(**kwargs)
+        def get_hover(self):
+            if self.hidden:
+                return Null()
 
-        def get_room_image(self):
-            if self.room_image_path != "":
-                return "" +str(self.room_image_path)+ "" +str(self.room_image)+ ".webp"
-            else:
-                return self.room_image #stored image already has an imagepath. Can be used for animations.
+            if self.decoration:
+                return Transform(Fixed(self.hover, self.decoration.image), shader="outline_shader")
+            return Transform(self.hover, shader="outline_shader")
 
-        def get_idle_image(self):
-            if self.idle_image_path != "":
-                return "" +str(self.idle_image_path)+ "" +str(self.idle_image)+ ".webp"
-            else:
-                return self.idle_image
-
-        def get_hover_image(self):
-            if self.hover_image_path != "":
-                return image_hover("" +str(self.hover_image_path)+ "" +str(self.hover_image)+ ".webp")
-            else:
-                return self.hover_image
