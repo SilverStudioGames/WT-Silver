@@ -34,7 +34,7 @@ label clothing_store:
 
     label clothing_store.end:
 
-    m "That's all for today, thank you."
+    m "Thank you very much."
     maf "You're welcome, sir. Come back any time."
 
     jump return_office

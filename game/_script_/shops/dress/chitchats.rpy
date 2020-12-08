@@ -555,6 +555,8 @@ label purchase_outfit(item):
         m "Excellent."
         maf "I'll get it done as soon as I can."
 
+    maf "Anything else?"
+
     $ game.gold -= item.price
     $ store_cart.add(item)
     $ menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
@@ -564,7 +566,7 @@ label purchase_outfit(item):
 
 label purchase_outfit_parcel:
     if store_cart:
-        $ transit_time = renpy.random.randint(2, len(store_cart)+1)
+        $ transit_time = len(store_cart)+1
 
         menu:
             maf "If you pay extra, I could hire a bunch of elves to speed things up..."
