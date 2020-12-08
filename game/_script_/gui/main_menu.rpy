@@ -264,15 +264,12 @@ screen navigation():
 
         textbutton _("Mods") sensitive bool(mods_list) action ShowMenu("mods")
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("Credits") action Jump("credits")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            # Help isn't necessary or relevant to mobile devices (or is it?)
             textbutton _("Help") action ShowMenu("help")
 
         if _in_replay:
-
             textbutton _("End Replay") action EndReplay(confirm=True)
 
         elif not main_menu:

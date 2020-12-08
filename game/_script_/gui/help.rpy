@@ -26,6 +26,8 @@ screen help(page='tutorials'):
                 use mouse_help
             elif page == "gamepad":
                 use gamepad_help
+            elif page == "about":
+                use about_help
 
     hbox:
         style_prefix gui.theme("tab")
@@ -43,6 +45,10 @@ screen help(page='tutorials'):
         textbutton _("Mouse") action [
             SelectedIf(page == 'mouse'),
             Show("help", config.intra_transition, "mouse")
+        ]
+        textbutton _("About") action [
+            SelectedIf(page == 'about'),
+            Show("help", config.intra_transition, "about")
         ]
 
         if GamepadExists():
@@ -162,6 +168,15 @@ screen gamepad_help():
         text _("Hides the user interface.")
 
     textbutton _("Calibrate") action GamepadCalibrate()
+
+screen about_help():
+    vbox:
+        spacing gui.pref_spacing
+
+        if gui.about:
+            text "[gui.about!t]\n"
+
+        text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]") size 12
 
 style help_button is gui_button:
     background None

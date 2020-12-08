@@ -10,7 +10,7 @@ define credits_text = "\n".join([
     credits_title("Director"),
     credits_group("MadMerlin"),
     credits_title("Artists"),
-    credits_group("Soggy", "CyniclePickle", "DostojevskijSTG", "LoafyLemon", "Noodle", "perniciousducks"),
+    credits_group("Soggy", "DostojevskijSTG", "LoafyLemon", "Noodle", "perniciousducks"),
     credits_title("Writers"),
     credits_group("Johnny", "MadMerlin", "Livvypoo", "Mo"),
     credits_title("Programmers"),

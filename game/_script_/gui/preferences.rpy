@@ -20,8 +20,8 @@ screen preferences(page="general"):
 
             if page == "general":
                 use preferences_general
-            elif page == "graphic":
-                use preferences_graphic
+            elif page == "visuals":
+                use preferences_visuals
             elif page == "sound":
                 use preferences_sound
             elif page == "accessibility":
@@ -36,9 +36,9 @@ screen preferences(page="general"):
             selected (page == "general")
             action Show("preferences", config.intra_transition, "general")
 
-        textbutton "Graphic":
-            selected (page == "graphic")
-            action Show("preferences", config.intra_transition, "graphic")
+        textbutton "Visuals":
+            selected (page == "visuals")
+            action Show("preferences", config.intra_transition, "visuals")
 
         textbutton "Sound":
             selected (page == "sound")
@@ -82,49 +82,51 @@ screen preferences_general():
                 Function(renpy.restart_interaction)
             ]
 
-        vbox:
-            style_prefix gui.theme("pref")
+        # Broken.
+        #
+        # vbox:
+        #     style_prefix gui.theme("pref")
 
-            $ text_color_day = settings.get("text_color_day")
-            $ text_color_night = settings.get("text_color_night")
+        #     $ text_color_day = settings.get("text_color_day")
+        #     $ text_color_night = settings.get("text_color_night")
 
-            label _("Text Colour")
-            default color_square = "{font=[gui.glyph_font]}❖{/font}"
+        #     label _("Text Colour")
+        #     default color_square = "{font=[gui.glyph_font]}❖{/font}"
 
-            hbox:
-                textbutton "Day" size_group "text_color" action [
-                        Function(renpy.invoke_in_new_context, pick_color_setting, "text_color_day", "Day text colour"),
-                        Function(renpy.transition, trans),
-                        Function(gui.rebuild_styles)
-                    ]
-                textbutton "{color=[text_color_day]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#d1a261"
-                textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
-                        settings.Reset("text_color_day"),
-                        Function(renpy.transition, trans),
-                        Function(gui.rebuild_styles)
-                    ]
+        #     hbox:
+        #         textbutton "Day" size_group "text_color" action [
+        #                 Function(renpy.invoke_in_new_context, pick_color_setting, "text_color_day", "Day text colour"),
+        #                 Function(renpy.transition, trans),
+        #                 Function(gui.rebuild_styles)
+        #             ]
+        #         textbutton "{color=[text_color_day]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#d1a261"
+        #         textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
+        #                 settings.Reset("text_color_day"),
+        #                 Function(renpy.transition, trans),
+        #                 Function(gui.rebuild_styles)
+        #             ]
 
-            hbox:
-                textbutton "Night" size_group "text_color" action [
-                        Function(renpy.invoke_in_new_context, pick_color_setting, "text_color_night", "Night text colour"),
-                        Function(renpy.transition, trans),
-                        Function(gui.rebuild_styles)
-                    ]
-                textbutton "{color=[text_color_night]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#5b4f4f"
-                textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
-                        settings.Reset("text_color_night"),
-                        Function(renpy.transition, trans),
-                        Function(gui.rebuild_styles)
-                    ]
+        #     hbox:
+        #         textbutton "Night" size_group "text_color" action [
+        #                 Function(renpy.invoke_in_new_context, pick_color_setting, "text_color_night", "Night text colour"),
+        #                 Function(renpy.transition, trans),
+        #                 Function(gui.rebuild_styles)
+        #             ]
+        #         textbutton "{color=[text_color_night]}[color_square!i]{/color}" yalign 0.5 style "empty" background "#5b4f4f"
+        #         textbutton "Reset" text_size 14 yalign 0.5 padding (0, 0) action [
+        #                 settings.Reset("text_color_night"),
+        #                 Function(renpy.transition, trans),
+        #                 Function(gui.rebuild_styles)
+        #             ]
 
-            hbox:
-                textbutton "Outline" size_group "text_color" action Function(print, "text_shadow")
+        #     hbox:
+        #         textbutton "Outline" size_group "text_color" action Function(print, "text_shadow")
 
-        vbox:
-            style_prefix gui.theme("check")
-            label _("Skip")
-            textbutton _("Unseen Text") action Preference("skip", "toggle")
-            textbutton _("After Choices") action Preference("after choices", "toggle")
+        # vbox:
+        #     style_prefix gui.theme("check")
+        #     label _("Skip")
+        #     textbutton _("Unseen Text") action Preference("skip", "toggle")
+        #     textbutton _("Until dialog option") action InvertSelected(Preference("after choices", "toggle"))
 
     hbox:
         box_wrap True
@@ -154,7 +156,7 @@ screen preferences_general():
             textbutton _("Confirm Delete"):
                 action settings.Toggle("confirm_delete")
 
-screen preferences_graphic():
+screen preferences_visuals():
     hbox:
         box_wrap True
 
@@ -204,7 +206,7 @@ screen preferences_graphic():
             textbutton _("Transitions") action Preference("transitions", "toggle")
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
-            textbutton _("Tearing") action [ ToggleField(_preferences, "gl_tearing"), _DisplayReset() ]
+            textbutton _("V-Sync") action [ InvertSelected(ToggleField(_preferences, "gl_tearing")), _DisplayReset() ]
 
 
 screen preferences_sound():
@@ -250,7 +252,7 @@ screen preferences_sound():
 screen preferences_accessibility():
 
     text "Disclaimer" size 18 xalign 0.5
-    text "The options on this menu are intended to improve accessibility. They may not work well in all cases, and some combinations of options may render the game unplayable. This is not an issue with the game. For the best results when changing fonts, try to keep the text size the same as it originally was." size 14
+    text "These menu options are intended to improve accessibility and may not work well in all cases where text might overflow. When changing font, text size or spacing try to keep it close to the default size." size 14
 
     hbox:
         box_wrap True
