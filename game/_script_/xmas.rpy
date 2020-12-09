@@ -1,6 +1,12 @@
 label xmas_2020:
 
     # Setup
+    $ ton_outfit_last.save() # Store current outfit.
+    $ her_outfit_last.save() # Store current outfit.
+
+    $ tonks.equip(ton_outfit_elf)
+    $ hermione.equip(her_outfit_ribbon)
+
     $ hermione_chibi.zorder = 4
 
     $ fire_in_fireplace = True
@@ -228,6 +234,26 @@ label xmas_2020:
     call sna_main("Santa, You're the worst!", "snape_01", trans=d3)
     nar "With the man's final words left echoing across the halls."
     nar "He had to spend another Christmas with the bluest of blue balls..."
+
+    call hide_characters
+    with d5
+
+    # Unlock outfit message. Should only appear once.
+    if her_bra_ribbon.unlocked == False:
+        call unlock_clothing(text=">Several new clothing items for Hermione have been unlocked!", item=her_outfit_ribbon)
+    $ unlock_clothing_compat(item=her_hat_elf)
+    $ unlock_clothing_compat(item=her_outfit_xmas)
+    if ton_bra_ribbon.unlocked == False:
+        call unlock_clothing(text=">Several new clothing items for Tonks have been unlocked!", item=ton_outfit_ribbon)
+    $ unlock_clothing_compat(item=ton_outfit_elf)
+    $ unlock_clothing_compat(item=ton_top_elf2)
+    $ unlock_clothing_compat(item=ton_outfit_xmas)
+    $ unlock_clothing_compat(item=ton_bra_pasties2)
+    $ unlock_clothing_compat(item=ton_piercing1_nipple_bells)
+
+    # Reset clothing.
+    $ tonks.equip(ton_outfit_last)
+    $ hermione.equip(her_outfit_last)
 
     $ hermione_chibi.zorder = 3 # reset to default.
     hide screen xmas_bagfloor

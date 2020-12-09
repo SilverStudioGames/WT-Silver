@@ -385,6 +385,26 @@ default her_gloves_cheerleader = DollCloth("hermione", ("misc", "gloves"), "glov
 default her_outfit_cheerleader_1 = DollOutfit([her_hair_base, her_top_cheerleader1, her_bottom_cheerleader1, her_gloves_cheerleader], price=450)
 default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleader2, her_bottom_cheerleader2], price=650)
 
+################# ~*~Ä~*~*~*~*~ #################
+## Xmas Stuff ###   /%\  ___&__ ###  Ho Ho Ho  ##
+#################  /% \ |=I~I=| #################
+
+default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "hat", "antlers", [[234, 187, 170, 255]], level=4)
+default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "hat", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=4)
+default her_neckwear_choker1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "choker_1", [[229, 0, 10, 255]], level=4)
+default her_neckwear_bell1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "bell_1", [[229, 0, 10, 255], [244, 181, 82, 255]], zorder=16, level=10)
+
+default her_bra_ribbon = DollCloth("hermione", ("bras", "other"), "bra", "ribbon", [[229, 0, 10, 255]], blacklist=["top"], level=14)
+default her_panties_ribbon = DollCloth("hermione", ("panties", "other"), "panties", "ribbon", [[229, 0, 10, 255]], blacklist=["bottom"], level=14)
+
+default her_top_xmas = DollCloth("hermione", ("tops", "other"), "top", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255], [109, 194, 101, 255]], level=10)
+default her_bottom_xmas = DollCloth("hermione", ("bottoms", "other"), "bottom", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255]], level=10)
+default her_gloves_xmas = DollCloth("hermione", ("misc", "gloves"), "gloves", "xmas", [[255, 239, 248, 255]])
+default her_stockings_xmas = DollCloth("hermione", ("legwear", "stockings"), "stockings", "xmas",[[255, 255, 255, 255], [255, 255, 255, 255]], level=10)
+
+default her_outfit_ribbon = DollOutfit([her_hair_base, her_neckwear_choker1, her_bra_ribbon, her_panties_ribbon], price=0)
+default her_outfit_xmas   = DollOutfit([her_hair_base, her_hat_antlers, her_neckwear_bell1, her_top_xmas, her_bottom_xmas, her_gloves_xmas, her_stockings_xmas], price=0)
+
 ##########
 ## MISC ##
 ##########
