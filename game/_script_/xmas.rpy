@@ -27,15 +27,15 @@ label xmas_2020:
 
     call sna_walk(action="enter")
     pause 0.5
-    call sna_main("Genie I wanted--", "snape_01", trans=d3)
+    call sna_main("Genie I wanted--", "snape_06", trans=d3)
     hide screen snape_main
     with d3
     nar "Said the man as he entered."
     call sna_walk("desk", "base")
     call sna_main("Never here when you need him...", "snape_01", trans=d3)
-    call sna_main("Are genies always this self-centred?", "snape_01")
-    call sna_main("Another walk to the pub if I want to get pissed...", "snape_01")
-    call sna_main("Another--", "snape_01")
+    call sna_main("Are genies always this self-centred?", "snape_29")
+    call sna_main("Another walk to the pub if I want to get pissed...", "snape_06")
+    call sna_main("Another--", "snape_04")
 
     hide screen snape_main
     hide screen bld1
@@ -52,7 +52,7 @@ label xmas_2020:
     call teleport((620+75, 440))
     call sna_chibi(flip=True)
     with d3
-    call sna_main("Genie of course... You think I'd fall for that fake beard again?", "snape_01", trans=d3)
+    call sna_main("Genie of course... You think I'd fall for that fake beard?", "snape_05", trans=d3)
 
     san_[1] "I think you must be mistaken."
     hide screen snape_main
@@ -63,7 +63,7 @@ label xmas_2020:
     with d3
     san_[1] "I'm not Genie, I'm Santa!"
     san_[1] "I deliver presents!"
-    san_[1] "That's the plan!"
+    san_[2] "That's the plan!"
 
     san_[1] "I bring cheers and presents, to all across the land."
     call sna_main("Are you sure about that? I don't see a sack in your hand...", "snape_01", trans=d3)
@@ -82,20 +82,20 @@ label xmas_2020:
 
     show screen bld1
     with d3
-    san_[1] "Now check out this girl!"
+    san_[2] "Now check out this girl!"
 
     call ton_main("", "horny", "narrow", "base", "mid", hair="happy", xpos="mid", trans=d3)
     call ctc
     hide screen tonks_main
-    call sna_main("Now that is a present!", "snape_01", trans=d3)
-    call sna_main("You've outdone yourself.", "snape_01")
+    call sna_main("Now that is a present!", "snape_13", trans=d3)
+    call sna_main("You've outdone yourself.", "snape_20")
     hide screen snape_main
     san_[1] "That's not your present, that's my sexy helper elf..."
 
-    call ton_main("Eye's up here boy...", "base", "base", "base", "mid", trans=d3)
-    call ton_main("Your present is in this sack...", "base", "base", "base", "mid")
-    call ton_main("These milkers belong to Santa!", "base", "base", "base", "mid")
-    san_[1] "They're my after-work Christmas snack!"
+    call ton_main("Eye's up here boy...", "base", "base", "base", "mid", hair="happy", trans=dissolve)
+    call ton_main("Your present is in this sack...", "soft", "narrow", "base", "down", hair="happy")
+    call ton_main("These milkers belong to Santa!", "horny", "narrow", "base", "L", hair="horny")
+    san_[2] "They're my after-work Christmas snack!"
 
     hide screen tonks_main
     hide screen bld1
@@ -114,26 +114,26 @@ label xmas_2020:
     call ton_chibi(flip=False)
     with d3
 
-    call her_main("", "base", "base", "base", "mid", trans=d3)
+    call her_main("", "soft", "base", "base", "mid", cheeks="blush", trans=dissolve)
     nar "In front of him a girl, no longer concealed."
     nar "With a bow around her pussy and ribbons around her tits."
 
     hide screen hermione_main
     with d3
 
-    call sna_main("Now that's a proper present!", "snape_01", trans=d3)
+    call sna_main("Now that's a proper present!", "snape_13", trans=d3)
     hide screen snape_main
     with d3
-    san_[1] "Now unwrap those naughty bits!"
+    san_[2] "Now unwrap those naughty bits!"
 
-    call ton_main("Wait, I just remembered, don't unwrap the present yet!", "base", "base", "base", "mid", trans=d3)
-    call ton_main("If he's not been good this year then a gift he cannot get.", "base", "base", "base", "mid")
+    call ton_main("Wait, I just remembered, don't unwrap the present yet!", "mad", "shocked", "base", "L", hair="happy", trans=dissolve)
+    call ton_main("If he's not been good this year then a gift he cannot get.", "open", "closed", "shocked", "mid", hair="happy")
     hide screen tonks_main
     with d3
 
-    san_[1] "I'm certain he's been good... Now unwrap her I insist!"
+    san_[2] "I'm certain he's been good... Now unwrap her I insist!"
 
-    call ton_main("I'm not so sure myself... His offences fill this list.", "base", "base", "base", "mid", trans=d3)
+    call ton_main("I'm not so sure myself... His offences fill this list.", "upset", "narrow", "base", "down", hair="happy", trans=dissolve)
     hide screen tonks_main
     with d3
 
@@ -142,69 +142,69 @@ label xmas_2020:
     with d3
     nar "The elf then unrolled it... A scroll six inches thick."
 
-    call ton_main("Inflating the points gained to put the Slytherins in the lead...", "base", "base", "base", "mid", trans=d3)
+    call ton_main("Inflating the points gained to put the Slytherins in the lead...", "open", "base", "raised", "down", hair="happy", trans=dissolve)
     hide screen tonks_main
     with d3
 
-    call her_main("What?", "base", "base", "base", "mid", trans=d3)
+    call her_main("What?", "clench", "happy", "angry", "mid", trans=dissolve)
     hide screen hermione_main
     with d3
 
     san_[1] "That can't be true!"
-    call sna_main("Mere fabrications that, indeed...", "snape_01", trans=d3)
+    call sna_main("Mere fabrications that, indeed...", "snape_35", trans=d3)
     hide screen snape_main
     with d3
 
-    call ton_main("Teaching plenty of classes despite that he's blind drunk.", "base", "base", "base", "mid", trans=d3)
-    call sna_main("I can't believe they bought that it was {i}\"Essence du Skunk\"{/i}...", "snape_01", trans=d3)
+    call ton_main("Teaching plenty of classes despite that he's blind drunk.", "upset", "base", "shocked", "down", hair="happy", trans=dissolve)
+    call sna_main("I can't believe they bought that it was {i}\"Essence du Skunk\"{/i}...", "snape_45", trans=d3)
     hide screen snape_main
     with d3
 
-    call ton_main("Punishing students for talking in class...", "base", "base", "base", "mid")
-    call sna_main("They were breaking the rules!", "snape_01", trans=d3)
+    call ton_main("Punishing students for talking in class...", "open", "closed", "base", "mid", hair="happy")
+    call sna_main("They were breaking the rules!", "snape_07", trans=d3)
     hide screen snape_main
     with d3
 
-    call ton_main("So is slapping their ass...", "base", "base", "base", "mid")
+    call ton_main("So is slapping their ass...", "disgust", "narrow", "base", "mid", hair="happy")
     san_[1] "Well I'm sure they're all right... It was only a slap..."
-    call ton_main("I'm not done yet santa, there's more...", "base", "base", "base", "mid")
+    call ton_main("I'm not done yet santa, there's more...", "annoyed", "narrow", "base", "L", hair="happy")
     san_[1] "What the crap..."
 
-    call ton_main("Stealing mounds of sweets and sniffing girls hair...", "base", "base", "base", "mid")
-    call sna_main("Now let's be reasonable for a minute, this list isn't fair!", "snape_01",trans=d3)
+    call ton_main("Stealing mounds of sweets and sniffing girls hair...", "normal", "base", "raised", "down", hair="happy")
+    call sna_main("Now let's be reasonable for a minute, this list isn't fair!", "snape_18",trans=d3)
     hide screen snape_main
     with d3
 
     san_[1] "I think he's got a point, at least he didn't curse..."
-    call ton_main("You say that but now, is when the list is getting worse...", "base", "base", "base", "mid")
+    call ton_main("You say that but now, is when the list is getting worse...", "disgust", "base", "base", "mid", hair="happy")
 
-    call ton_main("He's bought blowjobs with house points... Now that doesn't sound great...", "base", "base", "base", "mid")
-    san_[1] "A misprint I'm sure!"
-    call ton_main("The list says thirty-eight...", "base", "base", "base", "mid")
+    call ton_main("He's bought blowjobs with house points... Now that doesn't sound great...", "open", "narrow", "base", "down", hair="happy")
+    san_[2] "A misprint I'm sure!"
+    call ton_main("The list says thirty-eight...", "mad", "wide", "base", "down", hair="happy")
 
-    call ton_main("Wrapped around his finger... This is making me sick...", "base", "base", "base", "mid")
-    call ton_main("This list is massive!", "base", "base", "base", "mid")
+    call ton_main("Wrapped around his finger... This is making me sick...", "upset", "base", "base", "down", hair="upset")
+    call ton_main("This list is massive!", "clench", "wide", "annoyed", "down", hair="angry")
     san_[1] "Then just skim it real quick..."
 
-    call ton_main("Taking girls books and replacing it with smut...", "base", "base", "base", "mid")
-    call ton_main("Punishing them for it by spanking their butt...", "base", "base", "base", "mid")
+    call ton_main("Taking girls books and replacing it with smut...", "disgust", "narrow", "base", "down", hair="happy")
+    call ton_main("Then punishing them for it by spanking their butt...", "annoyed", "narrow", "annoyed", "mid", hair="happy")
 
-    call sna_main("She had it coming I tell you... That girl was a whore...", "snape_01", trans=d3)
+    call sna_main("She had it coming I tell you... That girl was a whore...", "snape_12", trans=d3)
     hide screen snape_main
     with d3
 
-    call ton_main("See what I mean Santa?", "base", "base", "base", "mid")
-    call ton_main("And this list has even more...", "base", "base", "base", "mid")
+    call ton_main("See what I mean Santa?", "disgust", "base", "base", "L", hair="disgusted")
+    call ton_main("And this list has even more...", "upset", "base", "base", "down", hair="happy")
 
-    call ton_main("Confiscating panties... Cumming on floors...", "base", "base", "base", "mid")
-    call ton_main("Spying in the toilets...", "base", "base", "base", "mid")
-    call ton_main("Never knocks on any doors...", "base", "base", "base", "mid")
+    call ton_main("Confiscating panties... Cumming on floors...", "soft", "base", "annoyed", "down", hair="happy")
+    call ton_main("Spying in the toilets...", "disgust", "narrow", "base", "down", hair="disgusted")
+    call ton_main("Never knocks on any doors...", "open", "closed", "base", "mid", hair="happy")
 
     san_[1] "Never knocks on any doors?!"
     nar "Said Santa at last."
     san_[1] "Now that's a big offence!"
-    call ton_main("You really think so Santa?", "base", "base", "base", "mid")
-    call sna_main("Blast...", "snape_01", trans=d3)
+    call ton_main("You really think so Santa?", "annoyed", "wide", "raised", "mid", hair="happy")
+    call sna_main("Blast...", "snape_11", trans=d3)
     hide screen snape_main
     with d3
 
@@ -215,11 +215,11 @@ label xmas_2020:
 
     san_[1] "Now ladies it's time to leave, it is a busy time of year..."
     san_[1] "Let us empty this sack and spread my Christmas cheer."
-    call ton_main("This meeting took way too long so we better spread it quick...", "base", "base", "base", "mid")
-    call ton_main("I hope I get overtime for this...", "base", "base", "base", "mid")
+    call ton_main("This meeting took way too long so we better spread it quick...", "mad", "base", "base", "L", hair="happy")
+    call ton_main("I hope I get overtime for this...", "annoyed", "base", "base", "R", hair="happy")
     hide screen tonks_main
     with d3
-    san_[1] "I'll let you ride my magic di--"
+    san_[2] "I'll let you ride my magic di--"
 
     call gen_chibi("hide")
     call ton_chibi("hide")
@@ -231,7 +231,7 @@ label xmas_2020:
     #Effect and then they're gone
 
     nar "Smoke then filled the room and then slowly dispersed, his present now gone..."
-    call sna_main("Santa, You're the worst!", "snape_01", trans=d3)
+    call sna_main("Santa, You're the worst...", "snape_03", trans=d3)
     nar "With the man's final words left echoing across the halls."
     nar "He had to spend another Christmas with the bluest of blue balls..."
 
