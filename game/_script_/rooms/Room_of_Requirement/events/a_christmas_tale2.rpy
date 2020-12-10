@@ -1,4 +1,48 @@
-label xmas_2020:
+
+default persistent.xmas_2020 = False
+
+label a_christmas_tale2:
+    # Proxy label to allow launching the story from within mirror of erised
+    # because it's not possible to jump directly including parameters. Sadface.
+    call santas_little_helper(False)
+    jump enter_room_of_req
+
+label santas_little_helper(dream=True):
+    if not dream:
+        $ temp_date = day
+        $ temp_gold = gold
+        $ temp_day = daytime
+        $ temp_color = interface_color
+        $ temp_weather = weather
+
+        call play_music("stop")
+        call room("main_room")
+        show screen blkfade
+        with d5
+        hide screen owl
+
+        centered "{size=+7}{color=#cbcbcb}Santa's Little Helper{/color}{/size}"
+
+        $ daytime = False
+        call update_interface_color
+    else:
+        $ renpy.sound.play("sounds/snore1.mp3")
+        gen "*Snore*{w=2.0}{nw}"
+        call blkfade
+
+    # Unlock and apply deco
+    $ fireplace_xmas_ITEM.unlocked = True
+    $ phoenix_xmas_ITEM.unlocked = True
+    $ owl_xmas_ITEM.unlocked = True
+
+    $ fireplace_deco_OBJ.room_image = fireplace_xmas_ITEM.id
+    $ fireplace_xmas_ITEM.active = True
+
+    $ phoenix_deco_OBJ.room_image = phoenix_xmas_ITEM.id
+    $ phoenix_xmas_ITEM.active = True
+
+    $ owl_deco_OBJ.room_image = owl_xmas_ITEM.id
+    $ owl_xmas_ITEM.active = True
 
     # Setup
     $ ton_outfit_last.save() # Store current outfit.
@@ -11,14 +55,14 @@ label xmas_2020:
 
     $ fire_in_fireplace = True
     show screen fireplace_fire
-    $ set_weather("overcast")
+    $ set_weather("snow")
     play weather "sounds/wind_long_loop.mp3" fadein 2 fadeout 2
     play bg_sounds "sounds/fire02.mp3" fadeout 1.0 fadein 1.0
     call play_music("anguish")
-    call hide_blkfade
     show screen chair_left
     show screen desk
     call gen_chibi("hide")
+    call hide_blkfade
 
     nar "T'was the night before Christmas on a cold winter night."
     nar "We see the headmasters room but there's no one in sight."
@@ -76,7 +120,7 @@ label xmas_2020:
 
     nar "With a big puff of smoke and a whiz and a whirl, an elf stood before them."
 
-    call ton_chibi(xpos=700, ypos="base")
+    show ch_ton elf zorder tonks_chibi.zorder at Transform(pos=(750, 430))
     show screen xmas_bag((750, 290))
     call teleport((680+75, 460))
 
@@ -100,18 +144,19 @@ label xmas_2020:
     hide screen tonks_main
     hide screen bld1
 
-    call ton_chibi(flip=True)
+    show ch_ton elf zorder tonks_chibi.zorder at Transform(pos=(750, 430), xzoom=-1)
     with d3
 
     nar "And with a swish of her wand his present was revealed."
 
     hide screen xmas_bag
     show screen xmas_bagfloor((750, 290))
-    call her_chibi(xpos=750, ypos=460)
+    show ch_hem ribbon zorder hermione_chibi.zorder at Transform(pos=(785, 450), xzoom=1)
+    #call her_chibi(xpos=750, ypos=460)
     call play_sound("magic")
     with flash
 
-    call ton_chibi(flip=False)
+    show ch_ton elf zorder tonks_chibi.zorder at Transform(pos=(750, 430), xzoom=1)
     with d3
 
     call her_main("", "soft", "base", "base", "mid", cheeks="blush", trans=dissolve)
@@ -222,8 +267,10 @@ label xmas_2020:
     san_[2] "I'll let you ride my magic di--"
 
     call gen_chibi("hide")
-    call ton_chibi("hide")
-    call her_chibi("hide")
+    #call ton_chibi("hide")
+    #call her_chibi("hide")
+    hide ch_hem ribbon
+    hide ch_ton elf
     call play_sound("magic")
     show screen xmas_smoke
     with flash
@@ -239,17 +286,17 @@ label xmas_2020:
     with d5
 
     # Unlock outfit message. Should only appear once.
-    if her_bra_ribbon.unlocked == False:
+    if not her_outfit_ribbon.unlocked or not ton_outfit_ribbon.unlocked:
         call unlock_clothing(text=">Several new clothing items for Hermione have been unlocked!", item=her_outfit_ribbon)
-    $ unlock_clothing_compat(item=her_hat_elf)
-    $ unlock_clothing_compat(item=her_outfit_xmas)
-    if ton_bra_ribbon.unlocked == False:
-        call unlock_clothing(text=">Several new clothing items for Tonks have been unlocked!", item=ton_outfit_ribbon)
-    $ unlock_clothing_compat(item=ton_outfit_elf)
-    $ unlock_clothing_compat(item=ton_top_elf2)
-    $ unlock_clothing_compat(item=ton_outfit_xmas)
-    $ unlock_clothing_compat(item=ton_bra_pasties2)
-    $ unlock_clothing_compat(item=ton_piercing1_nipple_bells)
+        call unlock_clothing(text=">Several new clothing items for Tonks have been unlocked!", item=ton_outfit_elf)
+
+        $ unlock_clothing_compat(item=her_hat_elf)
+        $ unlock_clothing_compat(item=her_outfit_xmas)
+        $ unlock_clothing_compat(item=ton_outfit_ribbon)
+        $ unlock_clothing_compat(item=ton_top_elf2)
+        $ unlock_clothing_compat(item=ton_outfit_xmas)
+        $ unlock_clothing_compat(item=ton_bra_pasties2)
+        $ unlock_clothing_compat(item=ton_piercing1_nipple_bells)
 
     # Reset clothing.
     $ tonks.equip(ton_outfit_last)
@@ -258,6 +305,17 @@ label xmas_2020:
     $ hermione_chibi.zorder = 3 # reset to default.
     hide screen xmas_bagfloor
     hide screen xmas_smoke
+
+    # Mark as complete
+    $ persistent.xmas_2020 = True
+
+    if not dream:
+        $ daytime = temp_day
+        $ weather = temp_weather
+        call update_interface_color
+
+        return
+
     jump day_start
 
 screen xmas_bag(pos):

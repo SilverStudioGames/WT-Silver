@@ -185,3 +185,23 @@ image ch_ton bj_desk_shocked:
     "characters/tonks/chibis/bj_desk/shocked_02.webp"
     pause .3
     repeat
+
+image ch_ton elf:
+    zoom 0.5
+    anchor (0.5, 1.0)
+
+    "characters/tonks/chibis/elf/default.webp"
+    pause 2
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause 5
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause.08
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause 3
+    repeat

@@ -533,3 +533,23 @@ image ch_hem reading sleep:
     "characters/hermione/chibis/reading/1_sleep.webp"
     pause.15
     repeat
+
+image ch_hem ribbon:
+    zoom 0.5
+    anchor (0.5, 1.0)
+
+    "characters/hermione/chibis/ribbon/default.webp"
+    pause 2
+    "characters/hermione/chibis/ribbon/blink.webp"
+    pause.08
+    "characters/hermione/chibis/ribbon/default.webp"
+    pause 5
+    "characters/hermione/chibis/ribbon/blink.webp"
+    pause.08
+    "characters/hermione/chibis/ribbon/default.webp"
+    pause.08
+    "characters/hermione/chibis/ribbon/blink.webp"
+    pause.08
+    "characters/hermione/chibis/ribbon/default.webp"
+    pause 3
+    repeat

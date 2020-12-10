@@ -61,6 +61,7 @@ define config.optimize_texture_bounds = True
 define config.debug_image_cache = False
 define config.use_drawable_resolution = preferences.use_drawable_resolution
 define config.drawable_resolution_text = preferences.use_drawable_resolution
+define config.default_tag_layer = "screens"
 
 # Disable automatic image scanning
 define config.automatic_images = None
