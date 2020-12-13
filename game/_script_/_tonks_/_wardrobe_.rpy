@@ -125,22 +125,15 @@ default ton_neckwear_bunny1 = DollCloth("tonks", ("head", "neckwear"), "neckwear
 
 default ton_outfit_bunny = DollOutfit([ton_hair_base_new, ton_top_bunny1, ton_stockings_bunny1, ton_hat_bunny1, ton_neckwear_bunny1], price=350)
 
-#################
-## Silky Dress ##
-#################
+#############
+## Dresses ##
+#############
 
 default ton_top_silk_dress = DollCloth("tonks", ("tops", "dresses"), "top", "silk_dress", [[240, 237, 250, 255], [234, 234, 234, 255]], blacklist=["bra", "bottom"], armfix=True)
 default ton_robe_silk = DollCloth("tonks", ("misc", "robes"), "robe", "silk_robe", [[240, 237, 250, 255]], armfix=True)
 
-default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, ton_robe_silk], price=350)
-
-#################
-## Skimpy Dress ##
-#################
-
-default ton_top_skimpy_dress = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress", [[147, 1, 1, 255]], armfix=True) # blacklist=["bottom"]
-
-default ton_outfit_skimpy_dress = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress], price=200)
+default ton_top_skimpy_dress = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress", [[147, 1, 1, 255]], blacklist=["bottom"], armfix=True, level=40)
+default ton_top_skimpy_dress2 = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress_2", [[108, 0, 105, 255]], blacklist=["bottom"], armfix=True, level=20)
 
 #####################
 ## Succubus Outfit ##
@@ -157,6 +150,14 @@ default ton_accessory1_succubus = DollCloth("tonks", ("misc", "accessory"), "acc
 
 default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, ton_neckwear_succubus, ton_gloves_succubus, ton_top_succubus, ton_panties_succubus, ton_accessory0_succubus, ton_accessory1_succubus], price=666)
 
+#####################
+## Cavegirl Outfit ##
+#####################
+
+default ton_earring_pearls = DollCloth("tonks", ("head", "earrings"), "earring", "pearls", [[223, 240, 255, 255]])
+default ton_neckwear_pearls = DollCloth("tonks", ("head", "neckwear"), "neckwear", "pearls_1", [[223, 240, 255, 255]], zorder=16)
+default ton_top_cavegirl = DollCloth("tonks", ("tops", "dresses"), "top", "cavegirl_dress", [[223, 240, 255, 255]], armfix=True)
+
 ################# ~*~Ä~*~*~*~*~ #################
 ## Xmas Stuff ###   /%\  ___$__ ### Elf Outfit ##
 #################  /% \ |=I~I=| #################
@@ -167,28 +168,35 @@ default ton_hat_antlers = DollCloth("tonks", ("head", "headgear"), "hat", "antle
 default ton_hat_elf = DollCloth("tonks", ("head", "headgear"), "hat", "elf", [[2, 116, 71, 255], [255, 239, 248, 255]])
 default ton_neckwear_choker1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "choker_1", [[255, 43, 149, 255]], unlocked=True)
 default ton_neckwear_bell1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "bell_1", [[2, 116, 71, 255], [244, 181, 82, 255]], zorder=16)
+default ton_accessory4_bells = DollCloth("tonks", ("misc", "accessory"), "accessory4", "bells_1", [[244, 181, 82, 255]], zorder=16)
 default ton_accessory3_belt1 = DollCloth("tonks", ("misc", "accessory"), "accessory3", "belt_1", [[42, 42, 42, 255], [185, 135, 73, 255]], zorder=16)
 default ton_earring_bells = DollCloth("tonks", ("head", "earrings"), "earring", "bells", [[244, 181, 82, 255]])
 default ton_piercing1_nipple_bells = DollCloth("tonks", ("breasts", "piercing"), "piercing1", "nipple_bells", [[244, 181, 82, 255]])
 # Main Clothing
-default ton_top_elf = DollCloth("tonks", ("tops", "dresses"), "top", "elf_dress_1",[[2, 116, 71, 255], [244, 181, 82, 255]], armfix=True)
-default ton_top_elf2 = DollCloth("tonks", ("tops", "dresses"), "top", "elf_dress_2",[[2, 116, 71, 255]], armfix=True)
+default ton_top_elf = DollCloth("tonks", ("tops", "dresses"), "top", "elf_dress",[[2, 116, 71, 255]], armfix=True)
 default ton_bra_ribbon = DollCloth("tonks", ("bras", "other"), "bra", "ribbon", [[255, 43, 149, 255]], blacklist=["top"])
 default ton_panties_ribbon = DollCloth("tonks", ("panties", "other"), "panties", "ribbon", [[255, 43, 149, 255]], blacklist=["bottom"], armfix=True)
 default ton_bra_pasties = DollCloth("tonks", ("bras", "other"), "bra", "pasties_1",[[255, 43, 149, 255]], unlocked=True)
 default ton_bra_pasties2 = DollCloth("tonks", ("bras", "other"), "bra", "pasties_2",[[2, 116, 71, 255], [244, 181, 82, 255]])
 default ton_bottom_xmas = DollCloth("tonks", ("bottoms", "other"), "bottom", "xmas",[[2, 116, 71, 255], [255, 239, 248, 255]], armfix=True)
 default ton_gloves_xmas = DollCloth("tonks", ("misc", "gloves"), "gloves", "xmas", [[255, 239, 248, 255]])
-# Stockings
-default ton_stockings_long = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_basic",[[255, 255, 255, 255]], unlocked=True)
-#default ton_stockings_long2 = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_meshed",[[255, 255, 255, 255]], unlocked=True)
-default ton_stockings_long3 = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_sports",[[255, 255, 255, 255], [23, 23, 23, 255]], unlocked=True)
-default ton_stockings_long4 = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_striped",[[255, 233, 246, 255], [180, 18, 36, 255]])
 default ton_stockings_xmas = DollCloth("tonks", ("legwear", "stockings"), "stockings", "xmas",[[255, 255, 255, 255], [255, 255, 255, 255]], armfix=True)
 
-default ton_outfit_elf    = DollOutfit([ton_hair_base_new, ton_makeup3_elf_ears, ton_earring_bells, ton_hat_elf, ton_neckwear_bell1, ton_top_elf, ton_accessory3_belt1, ton_stockings_long4], price=200)
-default ton_outfit_ribbon = DollOutfit([ton_hair_base_new, ton_neckwear_choker1, ton_bra_ribbon, ton_panties_ribbon], price=0)
-default ton_outfit_xmas   = DollOutfit([ton_hair_base_new, ton_hat_antlers, ton_earring_bells, ton_neckwear_bell1, ton_bra_pasties2, ton_bottom_xmas, ton_gloves_xmas, ton_stockings_xmas], price=0)
+#############################
+## Stockings & Garterbelts ##
+#############################
+
+# Short
+
+# Medium
+
+# Long
+default ton_stockings_long = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_basic_1",[[255, 255, 255, 255]], unlocked=True)
+default ton_stockings_long2 = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_basic_2",[[0, 0, 0, 255], [16, 16, 16, 255]]) # Skimpy Outfit
+default ton_stockings_long_meshed = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_meshed",[[0, 0, 0, 255], [0, 0, 0, 255]]) # Referee Outfit - SOON
+default ton_stockings_long_sports = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_sports",[[255, 255, 255, 255], [23, 23, 23, 255]], unlocked=True)
+default ton_stockings_long_striped = DollCloth("tonks", ("legwear", "stockings"), "stockings", "long_striped",[[255, 233, 246, 255], [180, 18, 36, 255]]) # Elf Outfit
+default ton_garterbelt_long_basic = DollCloth("tonks", ("legwear", "garterbelts"), "garterbelt", "long_basic_1", [[255, 255, 255, 255]], armfix=True)
 
 ##########
 ## Misc ##
@@ -225,3 +233,20 @@ default ton_pubes_unshaved = DollCloth("tonks", ("pelvis", "pubes"), "pubes", "u
 
 # Lipstick (DollLipstick)
 default ton_makeup4_lipstick = DollLipstick("tonks", ("makeup", "slot5"), "makeup4", "lipstick", [[255, 70, 70, 255]], unlocked=True)
+
+
+
+#############
+## Outfits ##
+#############
+
+# Dresses
+default ton_outfit_silky        = DollOutfit([ton_hair_base_new, ton_top_silk_dress, ton_robe_silk], price=100)
+default ton_outfit_club_dress   = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress2, ton_stockings_long_meshed], price=300)
+default ton_outfit_skimpy_dress = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress, ton_stockings_long2], price=300)
+default ton_outfit_cavegirl     = DollOutfit([ton_hair_base_new, ton_top_cavegirl, ton_earring_pearls, ton_neckwear_pearls], price=200)
+
+# Xmas
+default ton_outfit_elf    = DollOutfit([ton_hair_base_new, ton_makeup3_elf_ears, ton_earring_bells, ton_hat_elf, ton_neckwear_bell1, ton_top_elf, ton_accessory3_belt1, ton_accessory4_bells, ton_garterbelt_long_basic, ton_stockings_long_striped])
+default ton_outfit_ribbon = DollOutfit([ton_hair_base_new, ton_neckwear_choker1, ton_bra_ribbon, ton_panties_ribbon])
+default ton_outfit_xmas   = DollOutfit([ton_hair_base_new, ton_hat_antlers, ton_earring_bells, ton_neckwear_bell1, ton_bra_pasties2, ton_bottom_xmas, ton_gloves_xmas, ton_stockings_xmas])

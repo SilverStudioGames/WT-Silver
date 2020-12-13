@@ -26,6 +26,7 @@ label santas_little_helper(dream=True):
         $ daytime = False
         call update_interface_color
     else:
+        call play_music("stop")
         $ renpy.sound.play("sounds/snore1.mp3")
         gen "*Snore*{w=2.0}{nw}"
         call blkfade
@@ -58,12 +59,17 @@ label santas_little_helper(dream=True):
     $ set_weather("snow")
     play weather "sounds/wind_long_loop.mp3" fadein 2 fadeout 2
     play bg_sounds "sounds/fire02.mp3" fadeout 1.0 fadein 1.0
-    call play_music("anguish")
+
     show screen chair_left
     show screen desk
     call gen_chibi("hide")
-    call hide_blkfade
 
+    hide screen blkfade
+    with d5
+
+    call play_music("anguish")
+    show screen bld1
+    with d3
     nar "T'was the night before Christmas on a cold winter night."
     nar "We see the headmasters room but there's no one in sight."
     nar "No sound but the wind as the storm outside roars."
@@ -288,12 +294,11 @@ label santas_little_helper(dream=True):
     # Unlock outfit message. Should only appear once.
     if not her_outfit_ribbon.unlocked or not ton_outfit_ribbon.unlocked:
         call unlock_clothing(text=">Several new clothing items for Hermione have been unlocked!", item=her_outfit_ribbon)
-        call unlock_clothing(text=">Several new clothing items for Tonks have been unlocked!", item=ton_outfit_elf)
+        call unlock_clothing(text=">Several new clothing items for Tonks have been unlocked!", item=ton_outfit_ribbon)
 
         $ unlock_clothing_compat(item=her_hat_elf)
         $ unlock_clothing_compat(item=her_outfit_xmas)
-        $ unlock_clothing_compat(item=ton_outfit_ribbon)
-        $ unlock_clothing_compat(item=ton_top_elf2)
+        $ unlock_clothing_compat(item=ton_outfit_elf)
         $ unlock_clothing_compat(item=ton_outfit_xmas)
         $ unlock_clothing_compat(item=ton_bra_pasties2)
         $ unlock_clothing_compat(item=ton_piercing1_nipple_bells)
