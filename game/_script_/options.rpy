@@ -35,11 +35,10 @@ define config.name = "WT Silver" if is_release else "WT Silver {}".format(versio
 
 # Application window settings
 define config.window_title = "Witch Trainer: Silver (v{} {}) ({})".format(title_version, version_stage, bits)
-define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "gui/icon.webp"
 define config.screen_width = 1080
 define config.screen_height = 600
 define config.save_physical_size = True
-define config.window_icon = "interface/icon.webp"
 
 # User interface settings
 define config.layers = ["master", "transient", "screens", "interface", "overlay"]
