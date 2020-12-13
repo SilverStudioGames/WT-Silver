@@ -28,7 +28,13 @@ label santas_little_helper(dream=True):
     else:
         call play_music("stop")
         $ renpy.sound.play("sounds/snore1.mp3")
-        gen "*Snore*{w=2.0}{nw}"
+        m "*Snore*{w=2.0}{nw}"
+        pause 1.0
+        $ renpy.sound.play("sounds/snore3.mp3")
+        m "*Sn{cps=8}oooooooreeee*{/cps}{w=2.0}{nw}"
+        pause 1.0
+        $ renpy.sound.play("sounds/snore2.mp3")
+        m "......{w=0.5}*Snore*{w=1.0}{nw}"
         call blkfade
 
     # Unlock and apply deco

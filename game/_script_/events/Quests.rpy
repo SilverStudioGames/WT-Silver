@@ -114,11 +114,11 @@ label quests:
         if daytime:
             if her_tier >= 2 and not cho_intro.E1_complete:
                 jump cho_intro_E1
-        else:
-            if not persistent.xmas_2020 and time.time() < 1609459200:
-                # Valid until 00:00 1st January 2021 , then available from within mirror only.
-                jump santas_little_helper
 
+    if day >= 24:
+        if not persistent.xmas_2020 and not daytime and time.time() < 1609459200:
+            # Valid until 00:00 1st January 2021 , then available from within mirror only.
+            jump santas_little_helper
 
     if day >= 25:
         if not deck_unlocked:
