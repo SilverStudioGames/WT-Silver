@@ -809,8 +809,10 @@ label purchase_outfit(item):
 
     elif item == nt_club_dress:
         m "Have you ever been out clubbing Miss Mafkin?"
-        maf "It's been a while but indeed I have."
-        maf "They used to call me the--"
+        maf "By merlin no... I wouldn't dare hurt an animal."
+        m "Not that... Clubbing Is when you go to a club, listen to music whilst moving your arms around awkwardly."
+        maf "Oh... In that case yes, although it's been a while."
+        maf "They used to call me the dancing--"
         m "Yes yes, very interesting... Loud music with no way of chatting anyone up... Love it."
         m "Anyway..."
         maf "..."
