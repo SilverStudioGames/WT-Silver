@@ -446,8 +446,8 @@ default nt_bikini_2 = Item(id="nt_bikini_2", name="Striped Bikini", type="outfit
 default nt_bikini_3 = Item(id="nt_bikini_3", name="Simple Bikini", type="outfit", items=["bra", "panties"], image=ton_outfit_bikini_3, cost=ton_outfit_bikini_3.price, wait_time=2, description="Show your national integrity by wearing this -- authorised by the Ministry Of Magic -- bikini set!")
 default nt_bikini_4 = Item(id="nt_bikini_4", name="Simple Bikini", type="outfit", items=["bra", "panties"], image=ton_outfit_bikini_4, cost=ton_outfit_bikini_4.price, wait_time=2, description="Label yourself a national traitor by wearing this -- authorised by the Ministry of Magic -- bikini set!")
 default nt_club_dress = Item(id="nt_club_dress", name="Club Dress", type="outfit", items=["top", "stockings"], image=ton_outfit_club_dress, cost=ton_outfit_club_dress.price, wait_time=2, description="> A sultry muggle dress like this will turn heads at any wizard pub.")
-default nt_skimpy_dress = Item(id="nt_skimpy_dress", name="Very Revealing Dress", type="outfit", items=["top", "stockings"], image=ton_outfit_skimpy_dress, cost=ton_outfit_skimpy_dress.price, wait_time=2, description="> This dress shows quite a bit of cleavage... have you noticed?")
-default nt_cavegirl = Item(id="nt_cavegirl", name="Cavegirl Dress", type="outfit", items=["top", "earrings", "necklace"], image=ton_outfit_cavegirl, cost=ton_outfit_cavegirl.price, wait_time=2, description="> The perfect dress for your Bosom Buddy, Close Friend, And Lifelong Pal!")
+default nt_skimpy_dress = Item(id="nt_skimpy_dress", name="Very Revealing Dress", type="outfit", items=["top", "stockings"], image=ton_outfit_skimpy_dress, cost=ton_outfit_skimpy_dress.price, wait_time=2, description="> This dress shows quite a bit of cleavage... All of it in fact.")
+default nt_cavegirl = Item(id="nt_cavegirl", name="Cavegirl Dress", type="outfit", items=["top", "earrings", "necklace"], image=ton_outfit_cavegirl, cost=ton_outfit_cavegirl.price, wait_time=2, description="> A stone age inspired dress that brings you back to the age of rocking knockers.")
 
 default tonks_clothing_sets_list = [
     nt_school,

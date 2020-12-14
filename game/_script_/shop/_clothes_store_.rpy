@@ -791,6 +791,53 @@ label purchase_outfit(item):
         maf "Okay then..."
         maf "One United states of America patterned bikini-bra coming up."
 
+    elif item == nt_cavegirl:
+        m "I'm looking for something primal."
+        maf "Primal, sir?"
+        m "Yes... Ever watched the flintstones?"
+        maf "The what, sorry?"
+        m "*Sigh*..."
+        $ renpy.play("sounds/scribble.mp3")
+        m "Could you make me something like this? *Scribbles*"
+        maf "I see..."
+        maf "Are you sure you've drawn it correctly?"
+        maf "There seem to be some fabric missing."
+        m "Positive."
+        maf "Okay then."
+        maf "One... Flintstone outfit it is."
+        g9 "yabadababoob!"
+
+    elif item == nt_club_dress:
+        m "Have you ever been out clubbing Miss Mafkin?"
+        maf "It's been a while but indeed I have."
+        maf "They used to call me the--"
+        m "Yes yes, very interesting... Loud music with no way of chatting anyone up... Love it."
+        m "Anyway..."
+        maf "..."
+        m "You think you could provide me with something a woman might wear when going clubbing?"
+        maf "Something tightfitting I assume."
+        m "Wow, you really do know your craft!"
+        maf "Certainly sir, I'll start working on it as soon as I can."
+
+    elif item == nt_skimpy_dress:
+        m "Could you make me something skimpy?"
+        maf "Skimpy, sir?"
+        m "Yes, something with loose hanging fabric."
+        m "Something that makes the nipples part of the integral structure of the piece."
+        maf "..."
+        maf "This is for a lady I assume?"
+        m "I mean my nipples could probably cut glass when hard but yes it's for a lady..."
+        maf "Was that extra information necessary, sir?"
+        m "Is it normal or do I need to get them checked?"
+        maf "I'm not a medical expert, sir... I'm a tailor."
+        m "Ever had to repair a piece of clothing due to nipple damage?"
+        maf "Can't say that I have..."
+        m "..."
+        m "Then forget what I just said."
+        maf "I'll just get to it then, shall I?"
+        m "Yes please..."
+
+
     #
     # Universal
     #
