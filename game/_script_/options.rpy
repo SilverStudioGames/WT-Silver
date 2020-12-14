@@ -16,6 +16,7 @@ init python:
     settings.default('confirm_delete', True)
     settings.default('tooltip', True)
     settings.default('tutorials', True)
+    settings.default('preserve_aspect_ratio', True)
 
 # Configuration
 # https://www.renpy.org/doc/html/config.html

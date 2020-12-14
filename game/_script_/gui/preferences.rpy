@@ -207,6 +207,7 @@ screen preferences_visuals():
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
             textbutton _("V-Sync") action [ InvertSelected(ToggleField(_preferences, "gl_tearing")), _DisplayReset() ]
+            textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
 
 
 screen preferences_sound():
