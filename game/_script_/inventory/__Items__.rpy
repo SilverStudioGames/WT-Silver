@@ -463,7 +463,7 @@ default tonks_clothing_sets_list = [
     nt_bikini_3,
     nt_bikini_4
 ]
-# TODO: 1.39.4 Make sure nt_club_dress and nt_skimpy_dress get added to the list in previous saves
+
 init offset = 0 # Back to normal
 
 # Old outfits linked to new outfits (using the variable names)

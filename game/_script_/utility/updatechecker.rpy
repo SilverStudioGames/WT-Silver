@@ -153,3 +153,16 @@ init -1 python:
 
             save_internal_version = 1.393
             renpy.block_rollback()
+
+        if float(save_internal_version) < 1.394:
+            global her_reputation
+
+            if her_reputation < 6 and hg_pr_flirt.is_event_complete(1, 1):
+                her_reputation = 6
+
+            mr_evs_list.insert(0, mr_ev_AXmasTale2)
+            tonks_clothing_sets_list.extend([nt_club_dress, nt_skimpy_dress, nt_cavegirl])
+            outfit_linking.update({nt_club_dress.id: "ton_outfit_club_dress", nt_skimpy_dress.id: "ton_outfit_skimpy_dress", nt_cavegirl.id: "ton_outfit_cavegirl"})
+
+            save_internal_version = 1.394
+            renpy.block_rollback()
