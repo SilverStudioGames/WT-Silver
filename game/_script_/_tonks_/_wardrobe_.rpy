@@ -174,7 +174,7 @@ default ton_earring_bells = DollCloth("tonks", ("head", "earrings"), "earring", 
 default ton_piercing1_nipple_bells = DollCloth("tonks", ("breasts", "piercing"), "piercing1", "nipple_bells", [[244, 181, 82, 255]])
 # Main Clothing
 default ton_top_elf = DollCloth("tonks", ("tops", "dresses"), "top", "elf_dress",[[2, 116, 71, 255]], armfix=True)
-default ton_bra_ribbon = DollCloth("tonks", ("bras", "other"), "bra", "ribbon", [[255, 43, 149, 255]], blacklist=["top"])
+default ton_bra_ribbon = DollCloth("tonks", ("bras", "other"), "bra", "ribbon", [[255, 43, 149, 255]], blacklist=["top", "piercing1"])
 default ton_panties_ribbon = DollCloth("tonks", ("panties", "other"), "panties", "ribbon", [[255, 43, 149, 255]], blacklist=["bottom"], armfix=True)
 default ton_bra_pasties = DollCloth("tonks", ("bras", "other"), "bra", "pasties_1",[[255, 43, 149, 255]], unlocked=True)
 default ton_bra_pasties2 = DollCloth("tonks", ("bras", "other"), "bra", "pasties_2",[[2, 116, 71, 255], [244, 181, 82, 255]])
