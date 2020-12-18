@@ -1,5 +1,5 @@
 label start_wt:
-    play music "music/aquarium-by-kevin-macleod" fadein 1 fadeout 1
+    play music "music/aquarium-by-kevin-macleod.mp3" fadein 1 fadeout 1
     show screen blkfade
     with d3
     pause 1

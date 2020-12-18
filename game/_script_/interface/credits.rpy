@@ -58,7 +58,7 @@ define credits_chibis = (
 
 label credits:
     if not _menu:
-        play music "music/02 - Shanghai Honey.mp3" fadein 1 fadeout 1 noloop
+        play music "music/Only 115 (Electro Loop)_125 BPM.mp3" fadein 1 fadeout 1
     call hide_screens
     show screen credits(credits_text)
     with dissolve

@@ -1987,7 +1987,7 @@ label ball_ending_E2:
         pause.5
         call hide_blkfade
 
-        call play_music("festive")
+        play music "music/Brandenburg No4-1 BWV1049 Kevin-McKleod.mp3" fadein 1 fadeout 1
         call ctc
 
         m "*Hmm*..."
@@ -2388,7 +2388,7 @@ label ball_ending_E2:
         call hide_blktone_top
         $ dynamic_cg("ball/sex", "background2", "base", "mouth_open_tongue2", "eyes_r", "lashes", "blush", "spit")
 
-        call play_music("festive")
+        play music "music/Brandenburg No4-1 BWV1049 Kevin-McKleod.mp3" fadein 1 fadeout 1
         m "Don't you worry about missing out on your dance, whore."
         m "We will do a little bit of dancing of our own..."
         her "*Ah*..."
@@ -2925,7 +2925,7 @@ Farewell, my little [word_03].{/size}
     jump ending_after
 
 label original_credits:
-    play music "music/02 - Shanghai Honey.mp3" fadein 1 fadeout 1
+    play music "music/Only 115 (Electro Loop)_125 BPM.mp3" fadein 1 fadeout 1
 
     centered """{cps=20}{size=+5}{color=#ea91b0}-Witch Trainer-{/color}{/size}\n\n
     {size=+5}{color=#cbcbcb}The following credits are the creators of the original game, Witch Trainer,\nand did not take part in creating, or are affiliated in any way with the Silver mod.{/color}{/size}\n\n

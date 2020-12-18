@@ -542,7 +542,7 @@ label tonks_intro_E3:
     # Glass break animation.
     # Duel won't happen and Tonks just casts a spell.
 
-    call play_music("boss")
+    play music "music/boss_battle_#2_metal_loop.mp3" fadein 1 fadeout 1
     call play_sound("glass_break")
     pause.1
 

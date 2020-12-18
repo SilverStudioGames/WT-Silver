@@ -520,7 +520,8 @@ label snape_lost:
 
 ### GENIE LOSES ###
 label genie_lost:
-    play music "music/Final Fantasy 7 Game Over Theme.mp3" fadein 1 fadeout 1
+    stop music
+    $ renpy.sound.play("sounds/level_failed.mp3")
 
     hide screen duel
     hide screen hp_bar
@@ -534,7 +535,7 @@ label genie_lost:
         "-Try again-":
             stop music
             $ renpy.play('sounds/glass_break.mp3')
-            play music "music/Final Fantasy VII Boss Theme.mp3" fadein 1 fadeout 1
+            play music "music/boss_battle_#2_metal_loop.mp3" fadein 1 fadeout 1
             hide screen cg
             if rum_times <= 1: # Give a healing potion for bad players
                 $ potions = 1

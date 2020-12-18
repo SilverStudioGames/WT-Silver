@@ -427,7 +427,7 @@ label snape_intro_E3:
         jump snape_lost
 
     stop music
-    call play_music("boss")
+    play music "music/boss_battle_#2_metal_loop.mp3" fadein 1 fadeout 1
     call play_sound("glass_break")
 
     pause.1

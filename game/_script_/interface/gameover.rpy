@@ -21,7 +21,7 @@ label gameover(fake=False):
 
         $ renpy.pause(0.9, hard=True)
 
-        play music "music/02 - Shanghai Honey.mp3" fadein 0.5 fadeout 1
+        play music "music/Only 115 (Electro Loop)_125 BPM.mp3" fadein 0.5 fadeout 1
 
         hide screen gameover
         hide screen blkfade

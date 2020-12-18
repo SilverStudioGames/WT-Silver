@@ -194,11 +194,9 @@ label play_music(music="", fadein=1.0, fadeout=1.0):
         stop music fadeout fadeout
         return
 
-    # Harry Potter
-    if music == "festive":
-        play music "music/07 Introducing Colin2.mp3" fadein fadein fadeout fadeout if_changed
+
     # Character Music
-    elif music in ["snape", "dark_fog"]: # snape
+    if music in ["snape", "dark_fog"]: # snape
         play music "music/Dark Fog.mp3" fadein fadein fadeout fadeout if_changed
     elif music in ["hermione", "chipper_doodle"]: # hermione
         play music "music/Chipper Doodle v2.mp3" fadein fadein fadeout fadeout if_changed
@@ -240,8 +238,6 @@ label play_music(music="", fadein=1.0, fadeout=1.0):
     # Misc
     elif music == "hitman":
         play music "music/hitman.mp3" fadein fadein fadeout fadeout if_changed
-    elif music == "boss":
-        play music "music/Final Fantasy VII Boss Theme.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "cardgame":
         play music "music/Juhani_Junkala.mp3" fadein fadein fadeout fadeout if_changed
     elif music in ["sad","grape_soda"]: # sad
