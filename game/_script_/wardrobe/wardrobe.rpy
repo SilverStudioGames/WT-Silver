@@ -458,7 +458,15 @@ screen wardrobe_outfit_menuitem(xx, yy):
             pos (8, 192)
             ysize 308
 
-            for item in menu_items:
+            # Add empty slot
+            if current_subcategory == "save":
+                textbutton "Save":
+                    xysize icon_size
+                    idle_background "#00000033"
+                    text_align (0.5, 0.5)
+                    action Return(["addoutfit", None])
+
+            for item in reversed(menu_items):
                 if current_subcategory == "import":
                     $ icon = "/outfits/{}".format(item)
                     $ is_modded = False
@@ -523,15 +531,6 @@ screen wardrobe_outfit_menuitem(xx, yy):
 
                     if is_equipped:
                         add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
-
-            # Add empty slot
-            $ slot = len(menu_items)+1
-            if current_subcategory == "save":
-                textbutton "Save\n{size=-5}Slot [slot]{/size}":
-                    xysize icon_size
-                    idle_background "#00000033"
-                    text_align (0.5, 0.5)
-                    action Return(["addoutfit", None])
 
 style wardrobe_window is empty
 

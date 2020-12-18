@@ -75,23 +75,24 @@ screen shop_dress_menu():
         vbox:
             pos (6, 6)
             for category in category_items.iterkeys():
-                $ icon = Fixed(icon_bg, Frame( Transform("interface/icons/head/{}.webp".format(category), fit="contain"), xysize=(42, 42), offset=(3, 3)), "interface/achievements/glass_iconbox.webp")
+                if getattr(renpy.store, category+"_unlocked"):
+                    $ icon = Fixed(icon_bg, Frame( Transform("interface/icons/head/{}.webp".format(category), fit="contain"), xysize=(42, 42), offset=(3, 3)), "interface/achievements/glass_iconbox.webp")
 
-                vbox:
-                    textbutton category:
-                        style "empty"
-                        xysize (195, 48)
-                        text_align (0.6, 0.5)
-                        text_xanchor 0.5
-                        text_size 20
+                    vbox:
+                        textbutton category:
+                            style "empty"
+                            xysize (195, 48)
+                            text_align (0.6, 0.5)
+                            text_xanchor 0.5
+                            text_size 20
 
-                        foreground icon
-                        hover_background highlight
-                        selected_background highlight
-                        selected (current_category == category)
-                        action Return(["category", category])
+                            foreground icon
+                            hover_background highlight
+                            selected_background highlight
+                            selected (current_category == category)
+                            action Return(["category", category])
 
-                    add gui.format("interface/frames/{}/spacer_left.webp")
+                        add gui.format("interface/frames/{}/spacer_left.webp")
 
         vbox:
             style_prefix gui.theme('achievements_filters')

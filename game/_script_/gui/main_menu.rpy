@@ -264,7 +264,8 @@ screen navigation():
 
         textbutton _("Mods") sensitive bool(mods_list) action ShowMenu("mods")
 
-        textbutton _("Credits") action Jump("credits")
+        if main_menu:
+            textbutton _("Credits") action Jump("credits")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
             textbutton _("Help") action ShowMenu("help")
