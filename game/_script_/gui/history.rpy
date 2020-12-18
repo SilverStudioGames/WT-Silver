@@ -35,8 +35,7 @@ screen history():
                 $ g = list(g)
                 if "icon" in g[0].show_args:
                     $ icon = g[0].show_args["icon"]
-                    # FIXME xzoom -1 doesn't work inside viewport (7.4 bug?). Using im.Flip as workaround.
-                    add im.Flip("interface/icons/head/{}.webp".format(icon), horizontal=True) size (50, 50)
+                    add Transform("interface/icons/head/{}.webp".format(icon), xzoom=-1) size (50, 50)
                 elif g[0].who:
                     label g[0].who:
                         style "history_name"

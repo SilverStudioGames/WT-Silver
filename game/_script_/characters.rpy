@@ -21,7 +21,7 @@ init -1401 python:
     adv.window_args.pop("style", None)
 
     # Default icon
-    adv.show_args["icon"] = "scroll"
+    adv.show_args["icon"] = "narrator"
 
 # Characters
 define gen = Character("Genie", show_icon="genie")
