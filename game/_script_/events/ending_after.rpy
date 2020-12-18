@@ -109,7 +109,7 @@ label ending_after:
             stop music fadeout 3
 
             if public_whore_ending:
-                call play_music("ball")
+                play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
                 ">Arriving at the great hall you glance through the doors and spot Hermione who's currently enjoying the attention she's receiving from some of the other students."
                 ">You decide it's probably best to head back to your office. But before you get the chance to slip into the shadows Hermione has already begun making her way in your direction."
                 ">As she steps through the door you notice some Slytherin students looking in your direction, smirks spreading across their faces."
@@ -218,7 +218,7 @@ label ending_after:
 
                 jump main_room
             else:
-                call play_music("ball") #How do I add fade in to this?/can we make the music a bit lower since they're outside the doors
+                play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
                 ">Arriving at the great hall you decide to take a quick glance through the doors before heading back to your office."
                 ">Hermione is currently occupied looking out one of the windows and doesn't notice your presence."
                 ">You glance over at the teachers table and lock eyes with Snape who hastily stands up and quickly slides towards you."

@@ -543,7 +543,7 @@ label slytherin_match:
 
     play bg_sounds "sounds/crowd_low.mp3" fadeout 1.0 fadein 3.0
     $ renpy.sound.play("sounds/referee.mp3")
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     call nar(">The grey haired lady glances up to the podium, and gives Hermione a wink as she throws the quaffle into the air.")
 
     call her_main("And we're off!", "base", "happyCl", "base", "mid", trans=d3)
@@ -708,7 +708,7 @@ label slytherin_match:
     $ game.weather = "overcast"
     play bg_sounds "sounds/wind_long_loop.mp3" fadein 5 fadeout 2
     call weather_sound
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     call quidditch_stands(rain=False, crowd_bj=False, tree_fire=False) # Disable Blowjob Silhouette
     hide screen blkfade
     with d5
@@ -1086,7 +1086,7 @@ label slytherin_match:
     pause 0.5
 
     $ renpy.sound.play("sounds/referee.mp3")
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     pause 1.5
     hide screen hermione_main
     with d3

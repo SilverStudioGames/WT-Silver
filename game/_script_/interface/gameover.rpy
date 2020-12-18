@@ -48,7 +48,7 @@ define fake_credits_text = "\n".join([
     credits_group("The Engineer of ecstasy", "A Tits Techie", "A guy that gets erect from calculator spelling boobs"),
     credits_title("Music"),
     credits_group(
-        "Happy Rooster OST\n{size=-5}{color=#808080}{k=0.7}\"Prologue\"\n\"Shanghai Honey\"\n\"Introducing Colin\"\n\"Neville's Waltz\"\n\"The Quidditch Match\"{/k}{/color}{/size}\n",
+        "Happy Rooster OST\n{size=-5}{color=#808080}{k=0.7}\"Shanghai Honey\"\n\"Introducing Colin\"{/k}{/color}{/size}\n",
         "Music Dude#1\n{size=-5}{color=#808080}{k=0.7}\"Anguish\"\n\"Awkward Meeting\"\n\"Brittle Rille\"\n\"Chipper Doodle v2\"\n\"Dark Fog\"\n\"Despair\"\n\"Game Over Theme\"\n\"Boss Theme\"\n\"Hitman\"\n\"Music for Manatees\"\n\"Plaint\"\n\"Fuzzball Parade\"\n\"Teddy Bear Waltz\"\n\"Scheming Weasel (Slower version)\"\n\"Open Those Bright Eyes\"{/k}{/color}{/size}\n",
         "Music Dude#2\n{size=-5}{color=#808080}{k=0.7}\"Under-the-radar\"{/k}{/color}{/size}\n",
         "Music Dude#3\n{size=-5}{color=#808080}{k=0.7}\"Playful Tension (Orchestral)\"{/k}{/color}{/size}\n",

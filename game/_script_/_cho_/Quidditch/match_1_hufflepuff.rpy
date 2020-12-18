@@ -304,7 +304,7 @@ label hufflepuff_match:
     call her_main("Thank you...", "open", "happy", "base", "mid_soft")
     call her_main("L-let's begin!", "base", "base", "base", "mid")
 
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
 
     call her_main("Hufflepuff versus Ravenclaw!", "smile", "base", "base", "mid_soft")
 
@@ -565,7 +565,7 @@ label hufflepuff_match:
 
             call gen_main("Tough crowd... Anyway, let the games begin!",face="base")
 
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
 
     play bg_sounds "sounds/crowd_low.mp3" fadein 3 fadeout 2
     play sound "sounds/crowd_cheer.mp3"
@@ -701,7 +701,7 @@ label hufflepuff_match:
 
     # Start of the game
     $ renpy.sound.play("sounds/referee.mp3")
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     ">A Grey haired woman then throws the quaffle into the air -- which signals the start of the match -- and the players quickly take off!"
 
     call her_main("Oh, wow... They're going quite f-fast...", "normal", "wide", "worried", "shocked", flip=True, xpos="290", ypos="base", trans=d3)
@@ -797,7 +797,7 @@ label hufflepuff_match:
     with d3
 
     # Back to commentating
-    call play_music("quidditch")
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     play bg_sounds "sounds/crowd_low.mp3" fadein 0.5 fadeout 0.5
     call her_main("...", "normal", "squint", "angry", "mid", flip=True, xpos="290", ypos="base", trans=d3)
     call her_main("Oh, apparently Ravenclaw scored during that... \"captivating\" bit of distraction...", "open", "narrow", "annoyed", "mid")

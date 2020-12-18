@@ -65,7 +65,7 @@ label ball_ending_E1:
     show screen chair_left
     show screen genie_snape_shake_hands(False)
 
-    play music "music/11 The Quidditch Match.mp3" fadein 1 fadeout 1 # EPIC THEME.
+    play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
     pause 1
     call hide_blkfade
 
@@ -391,7 +391,7 @@ label ball_ending_E2:
     # Event replay starts here
 
     call blkfade
-    call play_music("ball")
+    play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
 
     centered "{size=+7}{color=#cbcbcb}The Annual Hogwarts Autumn Ball{/color}{/size}"
 
@@ -1082,7 +1082,7 @@ label ball_ending_E2:
         her ".................................."
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "eyes_closed", "overlay")
 
-        call play_music("ball")
+        play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
         her "Hello, everyone!"
         her "Thank you for making me your ball queen for two years in a row!"
 
@@ -1192,7 +1192,7 @@ label ball_ending_E2:
         call sna_main("!!!","snape_11")
         hide screen blktone
 
-        call play_music("ball")
+        play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
         her "Thank you, everyone..."
         her "Let me say this again..."
         her "Thank you for making me your ball queen this year..."
@@ -2023,7 +2023,7 @@ label ball_ending_E2:
         her ".................................."
         her ".........................................................................."
 
-        call play_music("ball")
+        play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "blush", "cum_mouth", "eyes_squint", "brows", "mascara", "sweat", "overlay")
         her "Ah-a........."
 
@@ -2057,7 +2057,7 @@ label ball_ending_E2:
         g4 "YOU WHORE!!!"
         g4 "When did you get this nasty!?"
 
-        call play_music("ball")
+        play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "blush", "cum_nose2", "mascara", "brows", "sweat", "overlay")
         her "I would also like to thank my parents..."
         her "And I would like to thank my fellow students!"
@@ -2619,7 +2619,7 @@ label ball_ending_E2:
 
         pause 2
 
-        call play_music("ball")
+        play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
 
         $ dynamic_cg("ball/intro", "background", "bloom", "hermione2", "foreground", "overlay")
 
@@ -2814,17 +2814,17 @@ label ball_ending_E2:
 
         call play_music("hermione")
         call her_main("Sir, if this is about yesterday...", "upset", "closed", "base", "mid", xpos="right", ypos="base")
-        dum_[1]"Good morning, Miss Granger."
+        dum1 "Good morning, Miss Granger."
         call her_main("It's not like I actually enjoyed it or anything, you know...", "annoyed", "narrow", "annoyed", "mid")
-        dum_[1]"Miss Granger, I found this letter on my desk..."
-        dum_[1]"It's addressed to you..."
+        dum1 "Miss Granger, I found this letter on my desk..."
+        dum1 "It's addressed to you..."
         call her_main("A letter, sir?", "soft", "base", "base", "mid")
         call her_main("Oh, of course! The one you wrote for me, sir.", "grin", "happyCl", "worried", "mid",emote="sweat")
-        dum_[1]"This letter is not from me, miss Granger."
+        dum1 "This letter is not from me, miss Granger."
         call her_main("It is not?", "annoyed", "squint", "base", "mid")
         call her_main("Oh, I see...", "grin", "happyCl", "worried", "mid",emote="sweat")
         call her_main("There is no need to be so shy about this, sir. It's alright.")
-        dum_[1]"*ahem*... here it is."
+        dum1 "*ahem*... here it is."
         call her_main("Thank you, sir.", "base", "base", "base", "mid")
         call her_main("Let's see...", "annoyed", "narrow", "worried", "down")
         hide screen hermione_main
@@ -2941,11 +2941,8 @@ label original_credits:
     {size=+5}{color=#e5e297}-\{Sound Effects\}-{/color}{/size}\n{color=#cbcbcb} http://www.freesound.org/ {/color}\n\n
     {size=+5}{color=#e5e297}-\{Music provided by\}-{/color}{/size}\n{color=#cbcbcb} http://incompetech.com/ {/color}\n\n
     {size=+5}{color=#e5e297}-\{MUSIC\}-{/color}{/size}\n{color=#e5e297}\"(Orchestral) Playful Tension\" {/color}{color=#cbcbcb}by Shadow16nh.{/color}\n
-    {color=#e5e297}\"Prologue\" {/color}{color=#cbcbcb}Harry Potter OST.{/color}\n
     {color=#e5e297}\"Shanghai Honey\"{/color} {color=#cbcbcb}by orange range.{/color}\n
     {color=#e5e297}\"Introducing Colin\"{/color} {color=#cbcbcb}Harry Potter OST.{/color}\n
-    {color=#e5e297}\"Neville's Waltz\" {/color}{color=#cbcbcb}Harry Potter OST.{/color}\n
-    {color=#e5e297}\"The Quidditch Match\" {/color}{color=#cbcbcb}Harry Potter OST.{/color}\n
     {color=#e5e297}\"Anguish\" {/color}{color=#cbcbcb}by  Kevin MacLeod.{/color}\n
     {color=#e5e297}\"Awkward Meeting\" {/color}{color=#cbcbcb}by  Kevin MacLeod.{/color}\n
     {color=#e5e297}\"Brittle Rille\" {/color}{color=#cbcbcb}by  Kevin MacLeod.{/color}\n

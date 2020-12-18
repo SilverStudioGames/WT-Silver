@@ -195,15 +195,8 @@ label play_music(music="", fadein=1.0, fadeout=1.0):
         return
 
     # Harry Potter
-    if music == "prologue":
-        play music "music/01 Prologue.mp3" fadein fadein fadeout fadeout if_changed
-    elif music == "ball":
-        play music "music/11 Neville's Waltz.mp3" fadein fadein fadeout fadeout if_changed
-    elif music == "festive":
+    if music == "festive":
         play music "music/07 Introducing Colin2.mp3" fadein fadein fadeout fadeout if_changed
-    elif music == "quidditch":
-        play music "music/11 The Quidditch Match_original.mp3" fadein fadein fadeout fadeout if_changed
-
     # Character Music
     elif music in ["snape", "dark_fog"]: # snape
         play music "music/Dark Fog.mp3" fadein fadein fadeout fadeout if_changed

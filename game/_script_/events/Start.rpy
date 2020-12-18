@@ -1,5 +1,5 @@
 label start_wt:
-    call play_music("prologue")
+    play music "music/aquarium-by-kevin-macleod" fadein 1 fadeout 1
     show screen blkfade
     with d3
     pause 1

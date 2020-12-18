@@ -84,7 +84,7 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
 define config.sound_sample_rate = 48000
-define config.main_menu_music = "music/01 Prologue.mp3"
+define config.main_menu_music = "music/aquarium-by-kevin-macleod.mp3"
 
 # Transitions
 define config.enter_transition = f3
