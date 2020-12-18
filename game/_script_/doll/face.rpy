@@ -21,7 +21,7 @@ init python:
                     sprites.append(("{}{}/{}.webp".format(self.imagepath, k, v[0]), v[1]))
 
             eyes = self.face["eyes"][0]
-            if self.blink and eyes not in self.blacklist_blink:
+            if settings.get('blinking') and self.blink and eyes not in self.blacklist_blink and not renpy.get_screen("studio"):
                 sprites.append((self.blink, 10))
 
             path = "{}eyes/{}_mask.webp".format(self.imagepath, eyes)

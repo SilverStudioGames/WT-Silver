@@ -17,6 +17,7 @@ init python:
     settings.default('tooltip', True)
     settings.default('tutorials', True)
     settings.default('preserve_aspect_ratio', True)
+    settings.default('blinking', True)
 
 # Configuration
 # https://www.renpy.org/doc/html/config.html

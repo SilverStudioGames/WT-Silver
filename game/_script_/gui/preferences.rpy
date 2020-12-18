@@ -166,11 +166,13 @@ screen preferences_visuals():
                 label _("Display")
                 textbutton _("Fullscreen") action Preference("display", "fullscreen")
                 textbutton _("Windowed") action Preference("display", "any window")
+                textbutton _("V-Sync") action [ InvertSelected(ToggleField(_preferences, "gl_tearing")), _DisplayReset() ] style gui.theme("check_button")
 
-                if not preferences.fullscreen:
-                    textbutton _("Reset window"):
-                        action Preference("display", "window")
-                        sensitive (renpy.get_physical_size() != (config.screen_width, config.screen_height))
+                # Probably redundant now that we have aspect ratio preservation.
+                # if not preferences.fullscreen:
+                #     textbutton _("Reset window"):
+                #         action Preference("display", "window")
+                #         sensitive (renpy.get_physical_size() != (config.screen_width, config.screen_height))
 
 
         vbox:
@@ -206,8 +208,8 @@ screen preferences_visuals():
             textbutton _("Transitions") action Preference("transitions", "toggle")
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
-            textbutton _("V-Sync") action [ InvertSelected(ToggleField(_preferences, "gl_tearing")), _DisplayReset() ]
             textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
+            textbutton _("Character blinking") action settings.Toggle("blinking")
 
 
 screen preferences_sound():

@@ -75,7 +75,7 @@ screen puzzle_minigame():
     vbox:
         align (0.5, 0.9)
         textbutton "-Hint-" xalign 0.5 action ToggleScreenVariable("hint", True, False)
-        if tries >= 50:
+        if tries >= 25:
             textbutton "-Force it open-" xalign 0.5 action Return(False)
 
 label puzzle_minigame:

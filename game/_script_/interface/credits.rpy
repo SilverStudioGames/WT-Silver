@@ -18,7 +18,7 @@ define credits_text = "\n".join([
     credits_title("Music"),
     credits_group(
         "Harry Potter OST\n{size=-5}{color=#808080}{k=0.7}\"Shanghai Honey\"\n\"Introducing Colin\"{/k}{/color}{/size}\n",
-        "Kevin MacLeod\n{size=-5}{color=#808080}{k=0.7}\"Anguish\"\n\"Awkward Meeting\"\n\"Brittle Rille\"\n\"Chipper Doodle v2\"\n\"Dark Fog\"\n\"Despair\"\n\"Game Over Theme\"\n\"Boss Theme\"\n\"Hitman\"\n\"Music for Manatees\"\n\"Plaint\"\n\"Fuzzball Parade\"\n\"Teddy Bear Waltz\"\n\"Scheming Weasel (Slower version)\"\n\"Open Those Bright Eyes\"\n\"Wallpaper\"\n\"Hidden Agenda\"{/k}{/color}{/size}\n",
+        "Kevin MacLeod\n{size=-5}{color=#808080}{k=0.7}\"Anguish\"\n\"Awkward Meeting\"\n\"Brittle Rille\"\n\"Chipper Doodle v2\"\n\"Dark Fog\"\n\"Despair\"\n\"Game Over Theme\"\n\"Boss Theme\"\n\"Hitman\"\n\"Music for Manatees\"\n\"Plaint\"\n\"Fuzzball Parade\"\n\"Teddy Bear Waltz\"\n\"Scheming Weasel (Slower version)\"\n\"Open Those Bright Eyes\"\n\"Wallpaper\"\n\"Hidden Agenda\"\n\"Aquarium\"\n\"Court of the Queen\"\n\"Machinations\"{/k}{/color}{/size}\n",
         "PhobyAk\n{size=-5}{color=#808080}{k=0.7}\"Under-the-radar\"{/k}{/color}{/size}\n",
         "Shadow16nh\n{size=-5}{color=#808080}{k=0.7}\"Playful Tension (Orchestral)\"{/k}{/color}{/size}\n",
         "controllerhead\n{size=-5}{color=#808080}{k=0.7}\"Item Shop\"{/k}{/color}{/size}\n",
@@ -111,7 +111,7 @@ transform credits_scroll(duration):
     xalign 0.5
     yanchor 0.0
     ypos (config.screen_height / 2 - 125)
-    pause 1
+    pause 2
     parallel:
         linear (duration - 1) yanchor 1.0
     parallel:
