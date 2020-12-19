@@ -119,7 +119,7 @@ label end_hg_pr_handjob:
         show screen blktone
         with d3
 
-        call her_main("..........", "upset", "narrow", "angry", "R", flip=True, trans=d3)
+        call her_main("..........", "upset", "narrow", "angry", "R", ypos="head", flip=False, trans=d3)
         call her_main("(Do I really have to do this?)", "upset", "closed", "angry", "mid")
         call her_main("*sigh*", "soft", "closed", "angry", "mid")
 
@@ -616,7 +616,7 @@ label hg_pr_handjob_T6_E3:
     show screen dual_hand_job # CG
     with d5
 
-    call her_main("I was trying to act as nonchalant as I could...", xpos="base", ypos="head")
+    call her_main("I was trying to act as nonchalant as I could...", ypos="head", flip=False)
     her "But, I suddenly had this incredibly pleasant urge to do it during Professor Snape's class."
     her "I couldn't even take notes with my other hand..."
     her "It was wrapped around another thick hot cock too."

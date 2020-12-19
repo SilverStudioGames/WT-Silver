@@ -231,9 +231,9 @@ label hg_pf_handjob_1:
     pause.8
 
     call play_music("playful_tension") # SEX THEME.
-    call her_main("...........", "disgust", "narrow", "worried", "down", xpos="base", ypos="head")
+    call her_main("...........", "disgust", "narrow", "worried", "down", ypos="head", flip=False)
     m "Whenever you're ready, [hermione_name]."
-    call her_main(".......................", "disgust", "happyCl", "worried", "mid", ypos="head")
+    call her_main(".......................", "disgust", "happyCl", "worried", "mid")
     pause.1
 
     call her_chibi_scene("hj_pause", trans=d9)
@@ -617,7 +617,7 @@ label hg_pf_handjob_2:
     call her_chibi_scene("hj", trans=fade)
     pause.8
 
-    call her_main("Do you like it when I do it like this, [genie_name]?", "grin", "base", "base", "R", xpos="base", ypos="head")
+    call her_main("Do you like it when I do it like this, [genie_name]?", "grin", "base", "base", "R", ypos="head", flip=False)
     g9 "Actually, yes! Very nice!"
 
     call play_music("chipper_doodle") # HERMIONE'S THEME.
@@ -920,7 +920,7 @@ label hg_pf_handjob_2_cumming:
             g4 "{size=+5}ARGH! YES!!!{/size}"
 
             call play_music("chipper_doodle") # HERMIONE'S THEME.
-            call her_main("!!!!!!!!!!!", "shock", "wide", "base", "stare", ypos="head")
+            call her_main("!!!!!!!!!!!", "shock", "wide", "base", "stare", ypos="head", flip=False)
             hide screen bld1
             call ctc
 
@@ -1000,7 +1000,7 @@ label hg_pf_handjob_2_cumming:
             g4 "*ARGH*!"
             $ hermione.set_cum(breasts="light", body="light")
 
-            call her_main("WHAT?!", "shock", "wide", "base", "stare", ypos="head")
+            call her_main("WHAT?!", "shock", "wide", "base", "stare", ypos="head", flip=False)
             g4 "Take this!"
 
             call cum_block
@@ -1051,7 +1051,7 @@ label hg_pf_handjob_2_cumming:
         "-Cum in her mouth!-" if hg_blowjob.trigger == True: # Has done blowjobs already.
             call bld
             m "Open your mouth, [hermione_name]!"
-            call her_main("What?!", "open", "wide", "base", "stare", ypos="head")
+            call her_main("What?!", "open", "wide", "base", "stare", ypos="head", flip=False)
             if hermione.is_worn("top"):
                 g4 "Open your mouth, or I'll have to cover your clothes!"
             else:

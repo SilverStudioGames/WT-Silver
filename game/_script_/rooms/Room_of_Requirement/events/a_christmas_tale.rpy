@@ -65,7 +65,7 @@ label a_christmas_tale:
     call sna_walk("mid", "base")
     pause.2
 
-    call sna_main("Genie? Where are you... I came here, to vent...",face="snape_03",ypos="head")
+    call sna_main("Genie? Where are you... I came here, to vent...",face="snape_03", ypos="head")
     nar "He wondered if the genie had found a way home..."
     call sna_main("Seems like a normal Christmas, spent all alone...",face="snape_06")
 

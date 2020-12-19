@@ -8,7 +8,7 @@ label hg_anal_sex_1:
     with d3
     call bld
     m "[hermione_name]..."
-    call her_main("[genie_name]...?", "annoyed", "squint", "base", "mid", xpos="base", ypos="head")
+    call her_main("[genie_name]...?", "annoyed", "squint", "base", "mid", ypos="head", flip=False)
     m "How familiar you are with the term \"Anal Sex\"?"
     call her_main("What?!", "soft", "wide", "worried", "shocked")
     m "I asked you a question..."
@@ -529,7 +529,7 @@ label hg_anal_sex_2:
 
     call bld
     m "How about another assfuck, [hermione_name]?"
-    call her_main("Of course, [genie_name].", "base", "narrow", "base", "up", xpos="base", ypos="head")
+    call her_main("Of course, [genie_name].", "base", "narrow", "base", "up", ypos="head", flip=False)
     g4 "*Hngh*! You little minx!"
 
     stop music fadeout 1.0

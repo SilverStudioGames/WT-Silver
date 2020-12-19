@@ -121,7 +121,7 @@ label hg_wager_bj:
         hide screen blkfade
         with fade
         call ctc
-        call her_main("*Urk*, *Slurp*, *Gobble*",ypos="head", "open_wide_tongue", "closed", "base", "mid") #should have her head showing while sucking his cock.
+        call her_main("*Urk*, *Slurp*, *Gobble*", "open_wide_tongue", "closed", "base", "mid", ypos="head", flip=False) #should have her head showing while sucking his cock.
         m "Oh, that's great!"
         g4 "Put some work into it."
         call her_main("*Gulp*, *Gobble*, *Gltch*", "open_wide_tongue", "narrow", "worried", "mid_soft")
@@ -144,7 +144,7 @@ label hg_wager_bj:
         m "{size=-5}Don't stop, [hermione_name]...{/size}"
         g4 "What do you mean, rematch? I beat you fair and square!"
         call her_chibi_scene("bj")
-        call her_main("*Slurp*, *Gulp*, *Urk*", ypos="head", "open_wide_tongue", "happyCl", "worried", "mid", cheeks="blush")
+        call her_main("*Slurp*, *Gulp*, *Urk*", "open_wide_tongue", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False)
         call sna_main("I'm certain you were cheating, my deck is way better than yours.", face="snape_06")
         call sna_main("Hold on... what's that noise?", face="snape_03")
         m "Probably ghosts...{w} This place must be haunted."

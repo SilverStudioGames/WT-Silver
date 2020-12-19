@@ -330,7 +330,7 @@ label hg_pf_blowjob_1:
     call her_chibi_scene("bj", trans=d9)
     call ctc
 
-    call her_main("*Slurp*! *Gulp*! *Slurp*!","open_wide_tongue", xpos="base", ypos="head")
+    call her_main("*Slurp*! *Gulp*! *Slurp*!","open_wide_tongue", ypos="head", flip=False)
     m "Yes..."
     m "Try to take it deeper now..."
     call her_main("*Gulp*! *Gobble*! *Gobble*!")
@@ -647,7 +647,7 @@ label hg_pf_hidden_blowjob:
     call her_chibi_scene("bj", trans=d9)
     call ctc
 
-    call her_main("*Slurp*! *Slurp*! *Gulp*!", "open_wide_tongue", "narrow", "annoyed", "up", xpos="base", ypos="head")
+    call her_main("*Slurp*! *Slurp*! *Gulp*!", "open_wide_tongue", "narrow", "annoyed", "up", ypos="head", flip=False)
     m "Yes, good girl..."
     call her_main("*Slurp*! *Gobble*! *Slurp*!", "open_wide_tongue", "narrow", "annoyed", "up")
 
@@ -738,7 +738,7 @@ label hg_hidden_blowjob_snape:
     pause.2
 
     call play_music("snape")
-    call sna_main("Good, you are here.","snape_01", xpos="base", ypos="head")
+    call sna_main("Good, you are here.","snape_01", xpos="base", ypos="base")
     call her_chibi_scene("bj")
     call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "slit", "worried", "ahegao")
     call sna_main("Listen, there is something I want to discuss...","snape_06")
@@ -1490,7 +1490,7 @@ label hg_pf_blowjob_2:
     call ctc
 
     call play_music("playful_tension") #HERMIONE
-    call her_main("*Slurp*! *Slurp*! *Gulp*!", "open_wide_tongue", "narrow", "annoyed", "up", xpos="base", ypos="head")
+    call her_main("*Slurp*! *Slurp*! *Gulp*!", "open_wide_tongue", "narrow", "annoyed", "up", ypos="head", flip=False)
     m "Yes, good girl..."
     call her_main("*Slurp*! *Gobble*! *Slurp*!", "open_wide_tongue", "narrow", "base", "up")
     m "lick the shaft..."

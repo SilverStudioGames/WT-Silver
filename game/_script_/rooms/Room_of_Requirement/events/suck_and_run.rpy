@@ -107,7 +107,7 @@ label suck_and_run:
 
         call bld
         m "Getting into the Halloween spirit?"
-        call ton_main("Of course!", "grin", "wide", "base", "mid", ypos="head")
+        call ton_main("Of course!", "grin", "wide", "base", "mid", ypos="head", flip=False)
         call ton_main("I've been looking forward to the Halloween feast ever since I got here.", "crooked_smile", "closed", "base", "mid")
         call ton_main("Brings back memories.", "base", "base", "base", "downR")
         m "*Ha-hah*, yeah... That food thing that I do all the time. Love it!"
@@ -263,13 +263,13 @@ label suck_and_run:
         $ renpy.music.play("music/determined_pursuit_loop.mp3")
         hide screen tonks_main
         with d3
+        pause .5
 
-        call ton_main(xpos="base", ypos="head")
         g4 "ARGH!"
         call play_sound("punch01")
         with vpunch
         g4 "Unhand me, foul demon!"
-        call ton_main("Of course, Sir...", "grin", "base", "base", "L", hair="angry", xpos="base", ypos="head")
+        call ton_main("Of course, Sir...", "grin", "base", "base", "L", hair="angry", ypos="head", flip=False)
         call play_sound("giggle")
         pause .8
         call ton_main("Right away, Sir...", "crooked_smile", "base", "angry", "mid", hair="angry")

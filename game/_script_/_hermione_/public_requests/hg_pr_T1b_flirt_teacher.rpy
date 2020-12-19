@@ -530,7 +530,7 @@ label hg_pr_flirt_teacher_T3_E2: # Snape +CG
     with fade
     call ctc
 
-    call her_main("As soon as the class was over, professor Snape grabbed my buttocks, [genie_name]!", "angry", "base", "angry", "mid", xpos="base", ypos="head")
+    call her_main("As soon as the class was over, professor Snape grabbed my buttocks, [genie_name]!", "angry", "base", "angry", "mid", ypos="head", flip=False)
     g9 "The fiend!"
     m "Did you enjoy it, though?"
     call her_main("[genie_name], I am only doing this--", "scream", "closed", "angry", "mid")
