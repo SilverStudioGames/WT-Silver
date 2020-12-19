@@ -98,7 +98,7 @@ label end_hg_pr_flirt:
         show screen blktone
         with d3
 
-        call her_main("(........)", "disgust", "base", "worried", "down", flip=True, trans=d3)
+        call her_main("(........)", "disgust", "base", "worried", "down", ypos="head", flip=False, trans=d3)
         call her_main("(I'll need to read about this whole \"flirting\" thing...)", "annoyed", "base", "angry", "L")
 
         hide screen blktone

@@ -181,15 +181,16 @@ label quests:
                     # Gryffindor
                     #jump cc_gt_return
 
-            if hufflepuff_match == "return":
-                $ hufflepuff_match = "end"
-                jump hufflepuff_match_return
-            elif slytherin_match == "return":
-                $ slytherin_match = "completed"
-                jump slytherin_match_return
-            #elif gryffindor_match == "return":
-                #$ gryffindor_match = "completed"
-                #jump gryffindor_match_return
+            # Note: The return events now get jumped to right after the main match events.
+            #if hufflepuff_match == "return" and not cho_quid.hufflepuff_complete:
+            #    $ hufflepuff_match = "completed"
+            #    jump hufflepuff_match_return
+            #elif slytherin_match == "return" and not cho_quid.slytherin_complete:
+            #    $ slytherin_match = "completed"
+            #    jump slytherin_match_return
+            #elif gryffindor_match == "return" and not cho_quid.gryffindor_complete:
+            #    #$ gryffindor_match = "completed"
+            #    #jump gryffindor_match_return
 
     #
     # SUSAN BONES - EVENTS

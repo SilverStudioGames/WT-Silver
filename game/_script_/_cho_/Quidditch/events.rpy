@@ -210,7 +210,7 @@ label cho_quid_E2:
                     m "Looking good, now turn away from me..."
                     call cho_chibi("fly", "mid", "base", flip=True)
                     with d5
-                call cho_main("Like this?", "soft", "base", "base", "R", xpos="base", ypos="head")
+                call cho_main("Like this?", "soft", "base", "base", "R", ypos="head", flip=False)
                 m "A bit higher maybe..."
                 call cho_walk(550, 200+180)
 
@@ -228,7 +228,7 @@ label cho_quid_E2:
 
                 m "Move a bit higher."
                 call cho_walk(600, 150+180)
-                call cho_main("Like this?", "soft", "base", "base", "downR", xpos="base", ypos="head")
+                call cho_main("Like this?", "soft", "base", "base", "downR", ypos="head", flip=False)
                 m "Great, you've got some excellent control over that stick."
 
                 jump cho_quid_E2.choices
@@ -800,7 +800,7 @@ label cho_quid_E8:
     # Genie hangouts with Tonks, asks her for help with the Slytherins.
 
     m "I wanted to ask you for a favour..."
-    call ton_main("Me? Selling a favour to you?", "grin", "closed", "base", "mid", ypos="head")
+    call ton_main("Me? Selling a favour to you?", "grin", "closed", "base", "mid", ypos="head", flip=False)
     call ton_main("You sure you can afford me?","base","base","raised","mid") #Horny
     m "Not that kind of favour."
     call ton_main("*Aww*...", "annoyed", "base", "raised", "down")

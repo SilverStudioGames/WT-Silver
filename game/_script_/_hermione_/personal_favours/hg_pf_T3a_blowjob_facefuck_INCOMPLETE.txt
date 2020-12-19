@@ -235,7 +235,7 @@ label hg_pf_facefuck_1: # Bondage facefuck scene (NOT IMPLEMENTED)
             with fade
             ">You quickly pull your cock out of her throat before placing it up against her left nostril."
             #TODO Cum in nose layer?
-            call her_main("aaaaaaahhh.... *pant*wait...*pant* not there...", "open_tongue", "wide", "base", "stare", xpos="base", ypos="head", tears="mascara")
+            call her_main("aaaaaaahhh.... *pant*wait...*pant* not there...", "open_tongue", "wide", "base", "stare", tears="mascara", ypos="head", flip=False)
             ">Helpless to stop you, Hermione is unable to prevent you from firing a huge load up her nose."
             g9 "FUCK YES! TAKE THIS, WHORE!"
             call her_main("Ah... no... it's so hot! I can feel it! Ugh... it's coming down my throat...", "open_tongue", "narrow", "annoyed", "up")

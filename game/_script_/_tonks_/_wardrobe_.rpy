@@ -166,7 +166,7 @@ default ton_top_cavegirl = DollCloth("tonks", ("tops", "dresses"), "top", "caveg
 default ton_makeup3_elf_ears = DollCloth("tonks", ("makeup", "slot4"), "makeup3", "elf_ears", [[255, 255, 255, 255]], zorder=5)
 default ton_hat_antlers = DollCloth("tonks", ("head", "headgear"), "hat", "antlers", [[234, 187, 170, 255]])
 default ton_hat_elf = DollCloth("tonks", ("head", "headgear"), "hat", "elf", [[2, 116, 71, 255], [255, 239, 248, 255]])
-default ton_neckwear_choker1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "choker_1", [[255, 43, 149, 255]], unlocked=True)
+default ton_neckwear_choker1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "choker_1", [[255, 43, 149, 255]])
 default ton_neckwear_bell1 = DollCloth("tonks", ("head", "neckwear"), "neckwear", "bell_1", [[2, 116, 71, 255], [244, 181, 82, 255]], zorder=16)
 default ton_accessory4_bells = DollCloth("tonks", ("misc", "accessory"), "accessory4", "bells_1", [[244, 181, 82, 255]], zorder=16)
 default ton_accessory3_belt1 = DollCloth("tonks", ("misc", "accessory"), "accessory3", "belt_1", [[42, 42, 42, 255], [185, 135, 73, 255]], zorder=16)
@@ -202,7 +202,7 @@ default ton_garterbelt_long_basic = DollCloth("tonks", ("legwear", "garterbelts"
 ## Misc ##
 ##########
 
-default ton_top_corset = DollCloth("tonks", ("tops", "other"), "top", "corset",[[247, 206, 146, 255]], blacklist=["bra"], armfix=True, unlocked=True)
+default ton_top_corset = DollCloth("tonks", ("tops", "other"), "top", "corset",[[247, 206, 146, 255]], blacklist=["bra", "piercing1"], armfix=True, unlocked=True)
 default ton_bottoms_jeans = DollCloth("tonks", ("bottoms", "trousers"), "bottom", "jeans",[[51, 104, 105, 255]], armfix=True, unlocked=True)
 default ton_panties_base = DollCloth("tonks", ("panties", "bikini panties"), "panties", "base",[[94, 67, 67, 255], [251, 247, 246, 255]], armfix=True, unlocked=True)
 default ton_bra_base = DollCloth("tonks", ("bras", "bikini bras"), "bra", "bikini",[[124, 42, 50, 255], [177, 168, 172, 255]], unlocked=True)

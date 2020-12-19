@@ -583,7 +583,7 @@ label ball_quest_E3:
     call her_walk("door", "base")
     pause.3
 
-    call her_main("(My life is ruined...)", "angry", "squint", "base", "mid", cheeks="blush", tears="messy", ypos="head")
+    call her_main("(My life is ruined...)", "angry", "squint", "base", "mid", cheeks="blush", tears="messy", ypos="head", flip=False)
     pause.1
 
     call her_chibi("leave")

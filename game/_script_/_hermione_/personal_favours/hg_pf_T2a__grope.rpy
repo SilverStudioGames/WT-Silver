@@ -140,7 +140,7 @@ label hg_pf_grope_T2_intro_E1:
     call her_chibi_scene("behind_desk_front", trans=fade)
     pause.5
 
-    call her_main("[genie_name].....?", "annoyed", "base", "worried", "R", ypos="head")
+    call her_main("[genie_name].....?", "annoyed", "base", "worried", "R", ypos="head", flip=False)
     m "..."
 
     menu:
@@ -162,7 +162,7 @@ label hg_pf_grope_T2_E1:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head")
+    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
     m "..."
 
     menu:
@@ -217,7 +217,7 @@ label hg_pf_grope_T3_intro_E1:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head")
+    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
     m "..."
 
     menu:
@@ -243,7 +243,7 @@ label hg_pf_grope_T3_E1:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head")
+    call her_main("[genie_name].....?", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
     m "..."
 
     menu:
@@ -278,7 +278,7 @@ label hg_pf_grope_T4_intro_E1:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("[genie_name].....?", "base", "narrow", "worried", "down", ypos="head")
+    call her_main("[genie_name].....?", "base", "narrow", "worried", "down", ypos="head", flip=False)
     m "..."
 
     menu:
@@ -299,7 +299,7 @@ label hg_pf_grope_T4_intro_E2:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("[genie_name].....?", "soft", "narrow", "worried", "down", ypos="head")
+    call her_main("[genie_name].....?", "soft", "narrow", "worried", "down", ypos="head", flip=False)
     m "Yes?"
     call her_main("Are you going to grope my breasts again?", "soft", "base", "base", "mid")
     call her_main("Or my bum?....", "soft", "narrow", "base", "mid_soft")
@@ -329,7 +329,7 @@ label hg_pf_grope_T4_E2:
 
     call her_chibi_scene("behind_desk_front", trans=fade)
 
-    call her_main("Are you going to grope my breasts today, Sir?", "soft", "narrow", "base", "R_soft", ypos="head")
+    call her_main("Are you going to grope my breasts today, Sir?", "soft", "narrow", "base", "R_soft", ypos="head", flip=False)
     call her_main("Or my bum?....", "soft", "narrow", "base", "mid_soft")
 
     m "*Hmm*... What would you like?"

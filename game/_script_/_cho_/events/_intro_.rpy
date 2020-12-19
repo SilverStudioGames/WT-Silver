@@ -178,8 +178,8 @@ label cho_intro_E1:
     call play_sound("door")
     call her_chibi("stand", "door", "base")
 
-    call her_main("Professor I'm sorry to bother you but I wanted to...", "open", "closed", "base", "mid", xpos="base", ypos="head")
-    call her_main("!!!", "normal", "wide", "base", "stare", xpos="base", ypos="head", trans=hpunch)
+    call her_main("Professor I'm sorry to bother you but I wanted to...", "open", "closed", "base", "mid", ypos="head", flip=False)
+    call her_main("!!!", "normal", "wide", "base", "stare", trans=hpunch)
 
     call her_walk(570, "base")
     call her_chibi("stand",570,"base",flip=True)
@@ -886,7 +886,7 @@ label cho_intro_E3:
     with d3
     pause .2
 
-    call her_main("*glare*", "normal", "base", "angry", "mid", xpos="base", ypos="head")
+    call her_main("*glare*", "normal", "base", "angry", "mid", ypos="head", flip=False)
     # Add Cho glaring back with her 'head' image.
 
     call her_chibi("stand", "door", "base",flip=True)

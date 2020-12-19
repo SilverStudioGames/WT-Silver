@@ -95,7 +95,7 @@ label hg_pf_strip_T2_fail_intro: # Hermione starts dancing, but it will fail any
     pause.2
 
     m "*Hmm*..."
-    call her_main("{size=-5}(...........................................){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+    call her_main("{size=-5}(...........................................){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
     call her_main("{size=-5}(This is silly...){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call nar(">Hermione looks embarrassed but she keeps on \"dancing\"...")
     m "..................."
@@ -176,7 +176,7 @@ label hg_pf_strip_T3_intro_E1: # Complete
     pause.2
 
     m "*Hmm*..."
-    call her_main("{size=-5}(...........................................){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+    call her_main("{size=-5}(...........................................){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
     call her_main("{size=-5}(This is silly...){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call nar(">Hermione looks embarrassed but she keeps on \"dancing\"...")
     m "..................."
@@ -625,7 +625,7 @@ label hg_pf_strip_T3_intro_E2:
 
     call her_walk("mid", "base")
 
-    call her_main("................................", "disgust", "narrow", "base", "down", ypos="head")
+    call her_main("................................", "disgust", "narrow", "base", "down", ypos="head", flip=False)
     pause.2
 
     $ hermione.wear("all")
@@ -694,7 +694,7 @@ label hg_pf_strip_T3_E2:
     call her_walk("mid", "base")
     pause.2
 
-    call her_main("Just in case...", "annoyed", "narrow", "angry", "R", ypos="head")
+    call her_main("Just in case...", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
     stop music fadeout 1.0
 
     call her_walk("desk", "base", reduce=0.8)
@@ -810,7 +810,7 @@ label hg_pf_strip_T3_watch:
     with d5
     call ctc
 
-    call her_main("I'm sorry, Sir. Was this good enough?...", "disgust", "narrow", "base", "down", emote="sweat", ypos="head")
+    call her_main("I'm sorry, Sir. Was this good enough?...", "disgust", "narrow", "base", "down", emote="sweat", ypos="head", flip=False)
 
     menu:
         m "..."
@@ -837,7 +837,7 @@ label hg_pf_strip_T3_masturbate:
     show screen blkfade
     with d5
 
-    call her_main("[genie_name]?!", "open", "wide", "base", "stare", ypos="head")
+    call her_main("[genie_name]?!", "open", "wide", "base", "stare", ypos="head", flip=False)
     m "It's alright, [hermione_name]. Don't mind me..."
 
     show screen chair_left
@@ -850,7 +850,7 @@ label hg_pf_strip_T3_masturbate:
     call ctc
 
     call bld
-    call her_main("B-but...", "angry", "wide", "base", "stare", ypos="head")
+    call her_main("B-but...", "angry", "wide", "base", "stare", ypos="head", flip=False)
     call her_main("Your...")
     m "Yes... Ah, yes, this is good..."
     call her_main("[genie_name]!!!", "scream", "happyCl", "worried", "mid")
@@ -862,7 +862,7 @@ label hg_pf_strip_T3_masturbate:
         "\"I said, keep on dancing, [hermione_name]!\"":
             stop music fadeout 1.0
 
-            call her_main("No, [genie_name]!", "annoyed", "narrow", "angry", "R", ypos="head")
+            call her_main("No, [genie_name]!", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
             m "*huh*?"
             show screen blkfade
             with d5
@@ -884,7 +884,7 @@ label hg_pf_strip_T3_masturbate:
             jump end_hg_pf_strip
 
         "\"Fine. There is no need for drama!\"":
-            call her_main("......................", "annoyed", "narrow", "angry", "R", ypos="head")
+            call her_main("......................", "annoyed", "narrow", "angry", "R", ypos="head", flip=False)
             pause.1
 
             hide screen chair_left
@@ -1180,7 +1180,7 @@ label hg_pf_strip_T4_watch:
     with d5
     call ctc
 
-    call her_main("Whew... This was rather exciting...", "silly", "happyCl", "worried", "mid", emote="sweat", ypos="head")
+    call her_main("Whew... This was rather exciting...", "silly", "happyCl", "worried", "mid", emote="sweat", ypos="head", flip=False)
 
     menu:
         m "..."
@@ -1285,7 +1285,7 @@ label hg_pf_strip_T4_masturbate:
     with d5
     call ctc
 
-    call her_main("Whew... This was--", "open", "closed", "base", "mid", ypos="head")
+    call her_main("Whew... This was--", "open", "closed", "base", "mid", ypos="head", flip=False)
     with hpunch
     g4 "ARGH! YOU FUCKING CUNT!"
 
@@ -1307,7 +1307,7 @@ label hg_pf_strip_T4_masturbate:
     call gen_chibi("cum_done","behind_desk","base")
 
     if d_flag_07: #Promised to hold it.
-        call her_main("No, [genie_name]! You promised!", "angry", "happyCl", "worried", "mid", ypos="head")
+        call her_main("No, [genie_name]! You promised!", "angry", "happyCl", "worried", "mid", ypos="head", flip=False)
         g4 "Oh, man... This was pretty intense..."
         call her_main("You went back on your word, [genie_name]!", "scream", "happyCl", "worried", "mid")
         m "*huh*? What are you talking about?"
@@ -1330,7 +1330,7 @@ label hg_pf_strip_T4_masturbate:
         jump end_hg_pf_strip
 
     else:
-        call her_main("it's so hot...", "angry", "happyCl", "worried", "mid", ypos="head")
+        call her_main("it's so hot...", "angry", "happyCl", "worried", "mid", ypos="head", flip=False)
         call gen_chibi("hold_dick","behind_desk","base")
         m "Aha... Yeah... This feels great..."
         call her_main("You came all over me...", "soft", "happy", "base", "R")

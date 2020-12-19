@@ -201,7 +201,7 @@ label hg_sex_1:
     call her_chibi_scene("grope_ass_back", trans=fade)
     pause.5
 
-    call her_main(".............", "upset", "closed", "base", "mid", xpos="base", ypos="head")
+    call her_main(".............", "upset", "closed", "base", "mid", ypos="head", flip=False)
     call her_main("!!!!!!!!!!!!!!!", "angry", "wide", "base", "stare")
     if hermione.is_worn("panties"):
         m "Relax, [hermione_name]. I'm Just gonna take off your panties."
@@ -398,7 +398,7 @@ label hg_sex_1:
     call ctc
 
     call her_main("No...{heart} *ah*...{heart}", "silly", "narrow", "annoyed", "up")
-    call her_main("I think I will...{heart} pass out...{heart}", ypos="head")
+    call her_main("I think I will...{heart} pass out...{heart}", ypos="head", flip=False)
     g4 "*ARGH*! YOU WHORE!"
 
     menu:
@@ -526,7 +526,7 @@ label hg_sex_2:
     else:
         call her_chibi_scene("sex", trans=fade)
 
-    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare", xpos="base", ypos="head")
+    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare", ypos="head", flip=False)
     hide screen bld1
     call ctc
 
@@ -652,7 +652,7 @@ label hg_sex_2:
     call her_main("..............", "silly", "narrow", "base", "dead")
     call nar(">You start fucking Hermione with renewed determination!")
     $ ccg1 = 18
-    call her_main("*Ah*! No! I can't...{heart} I...{heart} *ah*...{heart}{heart}{heart}", "shock", "base", "base", "R", cheeks="blush", tears="soft", ypos="head")
+    call her_main("*Ah*! No! I can't...{heart} I...{heart} *ah*...{heart}{heart}{heart}", "shock", "base", "base", "R", cheeks="blush", tears="soft", ypos="head", flip=False)
     m "Shut it whore!"
     g4 "*Argh*!"
 
@@ -785,7 +785,7 @@ label hg_sex_luna:
     $ renpy.play('sounds/gltch.mp3')
     with hpunch
     with kissiris
-    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare", ypos="head") #HERMIONE
+    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare", ypos="head", flip=False) #HERMIONE
 
     call her_chibi_scene("sex", trans=fade)
     call ctc
