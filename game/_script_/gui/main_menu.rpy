@@ -125,6 +125,11 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     frame:
         style "game_menu_outer_frame"
 
+        if gui.theme() == "light":
+            background "#00000040"
+        else:
+            background "#00000080"
+
         hbox:
             box_reverse True
             spacing 25
@@ -168,25 +173,17 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                         padding (15, 15, 15, 15)
                         transclude
 
-    use navigation:
-        textbutton _("Return"):
-            style "navigation_button"
-            action Return()
+    use navigation(title)
 
-    label title
+    label title anchor (0.5, 0.5) align (0.86, 0.15)
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
 
 style game_menu_outer_frame is empty:
-    background "game_menu_bg"
     padding (25, 100, 25, 25)
     xfill True
     yfill True
-
-image game_menu_bg:
-    alpha 0.5
-    "#000"
 
 style game_menu_navigation_frame is empty:
     xsize 250
@@ -225,7 +222,7 @@ style game_menu_label_text is gui_label_text:
 # This screen is included in the main and game menus, and provides navigation
 # to other menus, and to start the game.
 
-screen navigation():
+screen navigation(title=None):
 
     default show_quick_start = False
 
@@ -247,10 +244,13 @@ screen navigation():
 
         if main_menu:
 
-            if not show_quick_start:
-                textbutton _("Start") action Start()
+            if not title:
+                if not show_quick_start:
+                    textbutton _("Start") action Start()
+                else:
+                    textbutton _("Quick Start") action Start("start_dev")
             else:
-                textbutton _("Quick Start") action Start("start_dev")
+                textbutton _("Return") action Return()
 
         else:
 
