@@ -557,6 +557,7 @@ label purchase_outfit(item):
 
     maf "Anything else?"
 
+    $ renpy.play("sounds/money.mp3")
     $ game.gold -= item.price
     $ store_cart.add(item)
     $ menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)

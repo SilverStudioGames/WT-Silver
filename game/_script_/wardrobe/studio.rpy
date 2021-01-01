@@ -1,3 +1,5 @@
+init offset = 3
+
 default studio.faces = None
 default studio.choices = None
 default studio.drags = None
@@ -6,12 +8,13 @@ init python in studio:
     Transform = renpy.store.Transform
     Flatten = renpy.store.Flatten
     Drag = renpy.store.Drag
+    CHARACTERS = renpy.store.CHARACTERS
 
     def get_faces():
         filters = ("_mask", "_skin")
         d = {}
 
-        for i in ("hermione", "tonks", "cho", "luna", "astoria", "susan"):
+        for i in CHARACTERS:
             d[i] = {}
             for j in ("eyebrows", "eyes", "mouth", "pupils", "cheeks", "tears"):
                 path = "{}/characters/{}/face/{}/".format(renpy.config.gamedir, i, j)
@@ -24,7 +27,7 @@ init python in studio:
     def get_choices():
         d = {}
 
-        for i in ("hermione", "tonks", "cho", "luna", "astoria", "susan"):
+        for i in CHARACTERS:
             d[i] = {}
             d[i]["eyebrows"] = faces[i]["eyebrows"].index("base")
             d[i]["eyes"] = faces[i]["eyes"].index("base")
@@ -61,7 +64,7 @@ init python in studio:
         active_girl = renpy.store.active_girl
         d = {}
 
-        for i in ("hermione", "tonks", "cho", "luna", "astoria", "susan"):
+        for i in CHARACTERS:
             d[i] = [drag_init(getattr(renpy.store, i)), (i == active_girl)]
         return d
 
@@ -298,6 +301,7 @@ screen studio():
                 vbox:
                     for k, v in studio.drags.iteritems():
                         $ active = (active_girl == k and v[1])
+                        $ unlocked = getattr(renpy.store, k+"_unlocked")
 
                         if not v[1]:
                             $ action = [ SetDict(studio.drags[k], 1, True), Function(studio.drag_activated, [v[0]]), renpy.restart_interaction ]
@@ -306,12 +310,13 @@ screen studio():
                         else:
                             $ action = [ SetDict(studio.drags[k], 1, False), renpy.restart_interaction ]
 
-                        textbutton k:
-                            action action
-                            selected v[1] text_color ("#009900" if active else "#f9d592")
-                            text_hover_color "#fff"
-                            text_first_indent 12
-                            background Transform("interface/icons/head/{}.webp".format(k), size=(16, 16), xoffset=12)
+                        if unlocked:
+                            textbutton k:
+                                action action
+                                selected v[1] text_color ("#009900" if active else "#f9d592")
+                                text_hover_color "#fff"
+                                text_first_indent 12
+                                background Transform("interface/icons/head/{}.webp".format(k), size=(16, 16), xoffset=12)
 
         vbox:
             align (1.0, 1.0)

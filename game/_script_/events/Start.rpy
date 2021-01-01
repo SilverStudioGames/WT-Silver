@@ -1,5 +1,4 @@
 label start_wt:
-    play music "music/aquarium-by-kevin-macleod.mp3" fadein 1 fadeout 1
     show screen blkfade
     with d3
     pause 1
@@ -18,37 +17,19 @@ label start_wt:
     label choose_your_difficulty:
     menu:
         "Difficulty" ">How difficult do you want the game to be?"
-        "-Play with easy difficulty-":
-            menu:
-                "Easy" "{cps=*2}>Increased gold and Slytherin-points gain.\nYou will always find items or gold in your cupboard.\nBad mood will decrease faster.\nBooks can be read in one go.{/cps}"
-                "-Confirm-":
-                    ">Game set to easy!"
-                    $ game.difficulty = 1
-                "-Choose something else-":
-                    jump choose_your_difficulty
-        "-Play with normal difficulty-":
-            menu:
-                "Normal" "{cps=*2}>Balanced gold and Slytherin-points gain.\nRandom chance of finding items or gold in your cupboard.\nBad mood will decrease gradually.\nBooks take time to read.{/cps}"
-                "-Confirm-":
-                    ">Game set to normal!"
-                    $ game.difficulty = 2
-                "-Choose something else-":
-                    jump choose_your_difficulty
-        "-Play with hardcore difficulty-" if persistent.game_complete:
-            menu:
-                "Hardcore" "{cps=*2}>Reduced gold and Slytherin-points gain.\nAll hints and guides are disabled.\nAdditional rewards and dialogue choices are added.{/cps}"
-                "-Confirm-":
-                    ">Game set to hardcore!"
-                    $ game.difficulty = 3
-                "-Choose something else-":
-                    jump choose_your_difficulty
+        "-Easy-{size=-8}\nIncreased gold, item drop rate and Slytherin-points gains.\nMood will improve faster.{/size}":
+            $ game.difficulty = 1
+        "-Normal-{size=-8}\nBalanced gold, item drop rate and Slytherin-points gains.\nMood will improve normally.{/size}":
+            $ game.difficulty = 2
+        "-Hardcore-{size=-8}\nReduced gold, item drop rate and Slytherin-points gains.\nMood will not improve over time.\nHints and guides are disabled.{/size}" if persistent.game_complete:
+            $ game.difficulty = 3
 
-    if persistent.game_complete and game.difficulty <= 2: # Offer for game+
+    if persistent.game_complete:
         menu:
-            "NEW GAME +" ">Would you like to carry over your hard earned gold from your previous playthrough?"
+            "NEW GAME+" ">Would you like to carry over your hard earned gold from your previous playthrough?"
             "-Yes please-":
-                $ game.gold += persistent.gold
-                ">[persistent.gold] gold has been added to your founds."
+                $ game.gold += (persistent.gold or 0)
+                ">[persistent.gold] gold has been added to your funds."
 
             "-No need-":
                 pass
@@ -60,13 +41,6 @@ label start_wt:
                 $ game.cheats = True
             "-Disable Cheats-":
                 $ game.cheats = False
-
-    menu:
-        "Animations" ">Would you like to use chibi animations, or CG images when available?\nThis can be changed in the preferences menu."
-        "-Use chibis-":
-            $ use_cgs = False
-        "-Use CG images-":
-            $ use_cgs = True
 
     if game.cheats or persistent.game_complete:
         menu:
@@ -94,7 +68,8 @@ label start_wt:
     ### START ANIMATION ###
     call stop_sound_effects
     $ game.weather = "clear"
-    $ game.daytime = True
+    $ game.daytime = False
+    $ game.day = 0
     call update_interface_color
     call room("main_room")
     call gen_chibi("hide")

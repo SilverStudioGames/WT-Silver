@@ -137,7 +137,6 @@ screen shop_dress_menuitem():
                 textbutton "Buy":
                     xalign 0.95
                     text_size 16
-                    activate_sound "sounds/money.mp3"
                     action Return(["buy", current_item])
 
         vpgrid:

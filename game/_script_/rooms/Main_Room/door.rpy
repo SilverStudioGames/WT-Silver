@@ -24,7 +24,7 @@ label examine_door:
     label examining_the_door:
     menu:
         "-Knock on the door-":
-            show screen blktone(0.8)
+            show screen blktone
             with d3
             call play_sound("knocking")
             "*Knock-knock-knock*"
@@ -34,7 +34,7 @@ label examine_door:
             m "No reply..."
             jump examining_the_door
         "-Put your ear on it-":
-            show screen blktone(0.8)
+            show screen blktone
             with d3
             ">You put your ear on the door and listen intently..."
             m "I don't hear anything."
@@ -42,7 +42,7 @@ label examine_door:
             with d3
             jump examining_the_door
         "-Kick the door-":
-            show screen blktone(0.8)
+            show screen blktone
             with d3
             $ renpy.play('sounds/kick.ogg')
             pause.2

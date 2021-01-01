@@ -277,7 +277,7 @@ label potions_menu:
                 potion_inv.remove(ingredient)
         $ potion_inv.add(potion_choice.id)
     else:
-        show screen blktone(0.8)
+        show screen blktone
         ">You lack the required materials to make this."
         $ missing_items = []
         $ tmp_txt = "You still need "

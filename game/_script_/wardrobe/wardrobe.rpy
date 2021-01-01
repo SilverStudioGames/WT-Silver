@@ -124,10 +124,10 @@ label wardrobe():
                 if _return[1]:
                     _indx = char_active.outfits.index(_return[1])
                     char_active.outfits.remove(_outfit)
-                    renpy.call_screen("confirm", "Overwrite outfit?", [SetDict(char_active.outfits, _indx, _outfit), Return()], [Function(_outfit.delete), Return()])
-
+                    renpy.call_screen("confirm", "Overwrite outfit?", [SetDict(char_active.outfits, _indx, _outfit), Notify("Overwritten."), Return()], [Function(_outfit.delete), Return()])
+                else:
+                    renpy.notify("Saved.")
                 menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
-                renpy.notify("Saved.")
 
         elif _return[0] == "deloutfit":
             _return[1].delete()
@@ -142,6 +142,8 @@ label wardrobe():
             if _outfit and _outfit.exists():
                 _outfit.delete()
                 renpy.notify("Import failed: Outfit already exists.")
+        elif _return[0] == "schedule":
+            renpy.call_screen("wardrobe_schedule_menuitem", _return[1])
         elif _return == "music":
             if wardrobe_music:
                 wardrobe_music = False
@@ -492,7 +494,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                 elif current_subcategory == "export":
                     $ action = Return(["export", item])
                 elif current_subcategory == "schedule":
-                    $ action = None
+                    $ action = Return(["schedule", item])
 
                 button:
                     xysize icon_size
@@ -510,27 +512,36 @@ screen wardrobe_outfit_menuitem(xx, yy):
 
                     if current_subcategory == "schedule" and getattr(renpy.store, active_girl+"_outfits_schedule"):
                         vbox:
-                            spacing 5
-                            for x in wardrobe_outfit_schedule:
-                                $ _ico = "interface/wardrobe/icons/outfits/{}.webp".format(x)
-                                $ _on = item.schedule[x]
-                                $ _yesno = "yes" if _on else "no"
-
-                                if x in ("Day", "Night"):
-                                    $ _tooltip = "Worn during the "+x+":\n{size=-4}"+_yesno+"{/size}"
-                                else:
-                                    $ _tooltip = "Worn during "+x+" weather:\n{size=-4}"+_yesno+"{/size}"
-
-                                button:
-                                    xysize (25, 25)
-                                    background image_alpha(gray_tint(_ico))
-                                    hover_background white_tint(_ico)
-                                    selected_background _ico
-                                    tooltip _tooltip
-                                    action ToggleDict(item.schedule, x, True, False)
+                            pos (6, 6)
+                            spacing 1
+                            for i in wardrobe_outfit_schedule:
+                                if item.schedule[i]:
+                                    add Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(16, 16))
 
                     if is_equipped:
                         add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
+
+screen wardrobe_schedule_menuitem(item):
+    zorder 16
+
+    add "#00000080"
+
+    use invisible_button
+
+    vbox:
+        align (0.5, 0.5)
+        style_prefix "wardrobe_button"
+
+        text "Placeholder" color "#fff"
+        for i in wardrobe_outfit_schedule:
+            $ caption = "Worn during the {}".format(i) if i in ("day", "night") else "Worn during {} weather".format(i)
+            textbutton caption:
+                foreground Transform(gray_tint("interface/wardrobe/icons/outfits/{}.webp".format(i)), size=(24, 24))
+                selected_foreground Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(24, 24))
+                text_first_indent 24
+                action ToggleDict(item.schedule, i, True, False)
+
+        textbutton "Done" action Return()
 
 style wardrobe_window is empty
 

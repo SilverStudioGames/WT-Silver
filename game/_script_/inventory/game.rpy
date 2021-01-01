@@ -15,7 +15,7 @@ init python:
         weather_types = ("clear", "cloudy", "overcast", "blizzard", "snow", "storm", "rain")
         weather_weights = (35, 35, 20, 5, 10, 10, 15)
 
-        def __init__(self, gold=0, day=1):
+        def __init__(self, gold=0, day=0):
             # Protected values
             self._gold = gold
             self._day = day
@@ -50,7 +50,7 @@ init python:
 
         @day.setter
         def day(self, value):
-            self._day = max(1, min(value, 99999))
+            self._day = max(0, min(value, 99999))
 
         @property
         def weather(self):

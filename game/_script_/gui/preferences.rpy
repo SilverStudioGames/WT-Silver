@@ -122,11 +122,11 @@ screen preferences_general():
         #     hbox:
         #         textbutton "Outline" size_group "text_color" action Function(print, "text_shadow")
 
-        # vbox:
-        #     style_prefix gui.theme("check")
-        #     label _("Skip")
-        #     textbutton _("Unseen Text") action Preference("skip", "toggle")
-        #     textbutton _("Until dialog option") action InvertSelected(Preference("after choices", "toggle"))
+        vbox:
+            style_prefix gui.theme("check")
+            label _("Skipping")
+            textbutton _("Skip Unseen Text") action Preference("skip", "toggle")
+            textbutton _("Until dialog menu") action InvertSelected(Preference("after choices", "toggle"))
 
     hbox:
         box_wrap True
