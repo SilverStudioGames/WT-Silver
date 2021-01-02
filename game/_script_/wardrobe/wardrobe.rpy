@@ -29,9 +29,12 @@ label wardrobe():
         else:
             wardrobe_subcategories.update( { "outfits": { k:char_active.outfits for k in {"load", "save", "delete", "schedule", "import", "export"} } } )
 
-        current_category = None
-        current_subcategory = None
-        current_item = None
+        # Defaults
+        current_category = "head"
+        category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
+        current_subcategory = category_items.keys()[0] if category_items else ""
+        menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
+        current_item = char_active.get_equipped_item(menu_items)
 
     if wardrobe_music:
         call play_music("wardrobe")

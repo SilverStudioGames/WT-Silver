@@ -109,6 +109,8 @@ transform credits_chibi_fade(start, duration):
     linear 0.5 alpha 0.0
 
 transform credits_scroll(duration):
+    subpixel True
+
     xalign 0.5
     yanchor 0.0
     ypos (config.screen_height / 2 - 125)

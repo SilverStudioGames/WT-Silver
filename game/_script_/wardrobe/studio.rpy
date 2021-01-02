@@ -148,14 +148,16 @@ label studio(char):
     # Add character drag offset based on zoom.
 
     python:
-        studio.faces = studio.get_faces()
-        studio.choices = studio.get_choices()
-        studio.drags = studio.get_drags()
-
         last_char = char_active
         last_girl = active_girl
         last_face = last_char.get_face()
-        last_char.set_face(**studio.get_face(last_girl))
+
+        studio.choices = studio.get_choices()
+        studio.faces = studio.get_faces()
+        char_active.set_face(**studio.get_face(active_girl))
+        studio.drags = studio.get_drags()
+
+
 
     call screen studio
 

@@ -58,6 +58,7 @@ init python in gui:
         """
         Calls label in a new context with captured background.
         """
+        renpy.choice_for_skipping()
         renpy.pause(0.001) # Give renderer the chance to catch up with transitions
         bg = ScreenshotImage.capture()
         renpy.call_in_new_context("gui_init_context", bg, label, *args, **kwargs)
