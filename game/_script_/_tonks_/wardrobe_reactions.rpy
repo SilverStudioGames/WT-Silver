@@ -1,273 +1,209 @@
 define ton_requirements = {
-    "change_underwear": 10,
-    "unequip_underwear": 0,
-    "unequip_clothes": 20,
-    "tattoos": 60,
-    "headpat": 50,
-    "touch_boobs": 20,
-    "touch_pussy": 40
+    "category upper undergarment": 5,
+    "category lower undergarment": 5,
+    "category piercings & tattoos": 16,
+    "touch head": 4,
+    "touch breasts": 12,
+    "touch vagina": 18,
+    #"unequip panties": 6, # Tonks does not use panties unequip limits.
+    #"unequip bra": 6, # Tonks does not use bra unequip limits.
+    "unequip top": 3,
+    "unequip bottom": 3,
     }
 
-label tonks_wardrobe_check(section, arg=None):
-    if isinstance(arg, DollOutfit):
-        python:
-            temp_count = [0, 0, 0]
-            temp_score = 0
-            for item in arg.group:
-                if ton_friendship < item.level and temp_count[0] < item.level:
-                    temp_count[0] = item.level
-                if item.type in ("bra", "panties"):
-                    temp_count[2] += 1
-                    if char_active.get_equipped(item.type) != None:
-                        if not char_active.get_equipped(item.type).id == item.id:
-                            if ton_friendship < ton_requirements["change_underwear"]:
-                                temp_count[1] += 1
+define ton_responses = {
+    "category_fail": "ton_reaction_category_fail",
+    "equip": "ton_reaction_equip",
+    "equip_fail": "ton_reaction_equip_fail",
+    "unequip": "ton_reaction_unequip",
+    "unequip_fail": "ton_reaction_unequip_fail",
+    "touch": "ton_reaction_touch",
+    "touch_fail": "ton_reaction_touch_fail",
+    "equip_outfit": "ton_reaction_equip_outfit",
+    "equip_outfit_fail": "ton_reaction_equip_outfit_fail",
+    "blacklist": "ton_reaction_blacklist",
+}
 
-        # Outfit outrage score check
-        if ton_friendship < temp_count[0]:
-            call ton_main("It looks lovely, but you'd have to prove yourself a bit more before I put that on...",face="annoyed",eyebrows="angry",mouth="grin")
-            $ temp_score += 1
-        if temp_count[2] < 2 and ton_friendship < ton_requirements["unequip_underwear"]:
-            if temp_score > 0:
-                call ton_main("... especially something without underwear",face="annoyed",eyebrows="angry",mouth="horny")
-            else:
-                call ton_main("No panties? I like that, but no thanks, I'm at work.",face="annoyed",eyebrows="angry",mouth="base")
-            $ temp_score += 1
-        elif temp_count[1] > 0:
-            call ton_main("I feel perfectly fine NOT having to wear underwear.",face="neutral")
-            $ temp_score += 1
+label ton_reaction_category_fail(category):
+    ### Examples
+    # if category == "upper undergarment":
+    #     ton "Not in this century."
+    # elif category == "lower undergarment":
+    #     ton "Not in this millennium!"
+    # elif category == "piercings & tattoos":
+    #     ton "Not in this... Eternity!"
+    return
 
-        if temp_score > 0:
-            call ton_main("Sorry, [ton_genie_name] but I can't wear that.",face="annoyed")
-            #Hint
-            $ wardrobe_fail_hint(max(temp_count[0], ton_requirements["change_underwear"], ton_requirements["unequip_underwear"]))
-            return
+label ton_reaction_touch(what):
+    if what == "head":
+        $ mouse_headpat()
     else:
-        if section == "tabswitch":
-            if ton_friendship < ton_requirements["tattoos"]:
-                if wardrobe_chitchats:
-                    call ton_main("As much as I'd like to get a new piercing or a tattoo I can't simply let you modify my body like that.",face="annoyed")
-                #Hint
-                $ wardrobe_fail_hint(ton_requirements["tattoos"])
-                return False
-            return True
-        elif section == "category":
+        $ mouse_heart()
 
-            # Haircolour Fix
-            if arg[1] == "head":
-                $ tonks.get_equipped("hair").set_color(tonks_haircolor)
-            else:
-                if tonks_haircolor != tonks.get_equipped("hair").color:
-                    $ tonks_haircolor = tonks.get_equipped("hair").color
+    ### Examples
+    # if what == "head":
+    #     ton "Rawrrrr, pet me master. :3"
+    # elif what == "breasts":
+    #     ton "Yes, squeeze my slutty tits, [genie_name]!"
+    # elif what == "vagina":
+    #     ton "Grab me by the pussy!"
+    return
 
-            # TODO: Simplify
-            python:
-                _value = arg
-                _failure = False
-                if arg[1] in ("bras", "panties"): # Intentional double check.
-                    if ton_friendship < ton_requirements["change_underwear"]:
-                        _value = ("category", None)
-                        _failure = True
+label ton_reaction_touch_fail(what):
+    if what == "head":
+        $ mouse_slap()
+        $ random_number = renpy.random.randint(1, 5)
 
-            if _failure:
-                $ renpy.play('sounds/fail.mp3')
-                call ton_main("Underwear? Puh-lease, only a prude would wear something silly like that.", face="neutral")
-                $ wardrobe_fail_hint(ton_requirements["change_underwear"])
-            return _value
-        elif section == "touching":
-            $ random_number = renpy.random.randint(1, 6)
-            if arg == "head":
-                if ton_friendship < ton_requirements["headpat"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call ton_main("Stop that.", face="annoyed")
-                        elif random_number == 2:
-                            call ton_main("Do you know how long it takes to model my hair like that?", face="neutral")
-                        elif random_number == 3:
-                            call ton_main("There's two things a man shouldn't touch, her wallet and her hair.", face="angry")
-                        elif random_number == 4:
-                            call ton_main("Don't get any funny ideas.", face="horny")
-                        elif random_number == 5:
-                            call ton_main("Hey, don't do that!", face="annoyed")
-                            call ton_main("Let me pet you instead.", face="neutral")
-                            $ mouse_headpat()
-                            pause 0.35
-                            $ mouse_headpat()
-                            pause 0.35
-                            $ mouse_headpat()
-                            call ton_main("Good boy!", face="happy")
-                        return
-                else:
-                    $ mouse_headpat()
-                    call ton_main("", face="happy")
-                    return
-            elif arg == "boobs":
-                if ton_friendship < ton_requirements["touch_boobs"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call ton_main("That's not how a headmaster should treat their subordinates.",face="annoyed")
-                        elif random_number == 2:
-                            call ton_main("It's inappropriate, let's keep it civil okay?",face="annoyed")
-                        elif random_number == 3:
-                            call ton_main("Someone fancy themselves a bit of a bad boy?",face="annoyed",mouth="base")
-                        elif random_number == 4:
-                            call ton_main("Hey, those are my fun bags... Don't be naughty.",face="annoyed",mouth="horny")
-                        elif random_number == 5:
-                            call ton_main("Hey now, someone's getting a bit ahead of themselves.",face="annoyed")
-                        elif random_number == 6:
-                            call ton_main("Those aren't for you to play with...",face="annoyed")
-                    return
-            elif arg == "pussy":
-                if ton_friendship < ton_requirements["touch_pussy"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call ton_main("You have to to earn it first.",face="annoyed")
-                        elif random_number == 2:
-                            call ton_main("If you'd like to keep these hands intact I suggest you stop it right now, [ton_genie_name].",face="annoyed")
-                        elif random_number == 3:
-                            call ton_main("Hey, who said you had permission to approach the chamber of secrets?",face="annoyed",eyebrows="angry",mouth="grin")
-                        elif random_number == 4:
-                            call ton_main("That place is reserved for good boys and girls...",face="annoyed",eyebrows="angry",mouth="grin")
-                        elif random_number == 5:
-                            call ton_main("That forest is forbidden entry for first years... let's get to know each other a bit better first...",face="annoyed",eyebrows="angry",mouth="grin")
-                    return
-            $ mouse_heart()
-            call ton_main("", face="horny")
-            return
-        elif section == "toggle":
-            if arg in ("bra", "panties"):
-                if ton_friendship < ton_requirements["unequip_underwear"]:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 2)
-                        if random_number == 1:
-                            call ton_main("Maybe another time...",face="annoyed",eyebrows="raised")
-                        elif random_number == 2:
-                            call ton_main("I like my underwear in its proper place.",face="annoyed",eyebrows="base",mouth="angry")
-                    #Hint
-                    $ wardrobe_fail_hint(ton_requirements["unequip_underwear"])
-                    return
-            elif arg in ("top", "bottom"):
-                if ton_friendship < ton_requirements["unequip_clothes"]:
-                    if wardrobe_chitchats:
-                        call ton_main("Someone's being naughty... I might have to give you a spanking for that.",face="annoyed",eyebrows="angry",mouth="grin")
-                        call ton_main("Just kidding! Sure, have a quick look, [ton_genie_name].",face="annoyed",eyebrows="raised",mouth="horny")
-                        $ char_active.toggle_wear(arg)
-                        $ char_active.strip("robe")
-                        call ton_main("",face="happy")
-                        pause 1.0
-                        call ton_main("",face="happy")
-                        pause 1.0
-                        call ton_main("",face="happy")
-                        $ char_active.toggle_wear(arg)
-                        $ char_active.wear("robe")
-                        g4 "What gives?!"
-                        call ton_main("Time's up.",face="annoyed",eyebrows="angry",mouth="grin")
-                        m "......"
-                    #Hint
-                    $ wardrobe_fail_hint(ton_requirements["unequip_clothes"])
-                    return
-            $ char_active.toggle_wear(arg)
-            return
-        elif section == "equip":
-            if arg.type in ("bra", "panties"):
-                if ton_friendship < ton_requirements["unequip_underwear"]:
-                    if char_active.get_equipped("bra"):
-                        if arg.id == char_active.get_equipped("bra").id:
-                            if wardrobe_chitchats:
-                                call ton_main("If you behave maybe I'll let you take a peek later, [ton_genie_name].",face="annoyed",eyebrows="angry",mouth="grin")
-                            #Hint
-                            $ wardrobe_fail_hint(ton_requirements["unequip_underwear"])
-                            return
-                    if char_active.get_equipped("panties"):
-                        if arg.id == char_active.get_equipped("panties").id:
-                            if wardrobe_chitchats:
-                                call ton_main("",face="happy")
-                                nar "> Tonks clicks her tongue, staring at you in a disapproving manner."
-                                call ton_main("Getting ahead of ourselves are we? You're bold, I'll give you that much.",face="annoyed",eyebrows="angry",mouth="grin")
-                            #Hint
-                            $ wardrobe_fail_hint(ton_requirements["unequip_underwear"])
-                            return
-                if ton_friendship < arg.level:
-                    call .too_much
-                    return
-            else:
-                if ton_friendship < ton_requirements["unequip_clothes"]:
-                    if arg.type in ("top", "bottom"):
-                        if char_active.get_equipped("top"):
-                            if arg.id == char_active.get_equipped("top").id:
-                                if wardrobe_chitchats:
-                                    call ton_main("*Mmm*... I like where your head is at, but I have to refuse.",face="annoyed",eyebrows="angry",mouth="grin")
-                                #Hint
-                                $ wardrobe_fail_hint(ton_requirements["unequip_clothes"])
-                                return
-                        if char_active.get_equipped("bottom"):
-                            if arg.id == char_active.get_equipped("bottom").id:
-                                if wardrobe_chitchats:
-                                    call ton_main("Really... doing that would be quite uncouth don't you think?",face="annoyed",eyebrows="angry",mouth="horny")
-                                #Hint
-                                $ wardrobe_fail_hint(ton_requirements["unequip_clothes"])
-                                return
+        if random_number == 1:
+            call ton_main("Stop that.", face="annoyed")
+        elif random_number == 2:
+            call ton_main("Do you know how long it takes to model my hair like that?", face="neutral")
+        elif random_number == 3:
+            call ton_main("There's two things a man shouldn't touch, her wallet and her hair.", face="angry")
+        elif random_number == 4:
+            call ton_main("Don't get any funny ideas.", face="horny")
+        elif random_number == 5:
+            call ton_main("Hey, don't do that!", face="annoyed")
+            call ton_main("Let me pet you instead.", face="neutral")
+            $ mouse_headpat()
+            pause 0.35
+            $ mouse_headpat()
+            pause 0.35
+            $ mouse_headpat()
+            call ton_main("Good boy!", face="happy")
 
-                label .too_much:
-                if ton_friendship < arg.level:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 3)
-                        if random_number == 1:
-                            call ton_main("Not yet big boy, perhaps once this scheme of ours comes more into fruition...",face="annoyed",eyebrows="angry",mouth="grin")
-                        elif random_number == 2:
-                            call ton_main("It does look nice but you need to deserve it...",face="annoyed",eyebrows="angry",mouth="grin")
-                        else:
-                            call ton_main("*Hmm*... What would you think of me if I wore this?... Later perhaps.",face="annoyed",eyebrows="raised",mouth="horny")
-                    #Hint
-                    $ wardrobe_fail_hint(arg.level)
-                    return
+    elif what == "breasts":
+        $ mouse_slap()
+        $ random_number = renpy.random.randint(1, 6)
 
-                # Blacklist support
-                if arg.blacklist:
-                    if ton_friendship < ton_requirements["unequip_underwear"] and any(x in arg.blacklist for x in ("bra", "panties")):
-                        call ton_main("I like how it accents my figure and forbids me from wearing underwear.", face="horny")
-                    elif ton_friendship < ton_requirements["unequip_clothes"] and any(x in arg.blacklist for x in ("top", "bottom")):
-                        call ton_main("You really want me to whore myself up *huh*? Fine, but I'm putting my old clothes back on once you change your mind.", face="happy")
+        if random_number == 1:
+            call ton_main("That's not how a headmaster should treat their subordinates.",face="annoyed")
+        elif random_number == 2:
+            call ton_main("It's inappropriate, let's keep it civil okay?",face="annoyed")
+        elif random_number == 3:
+            call ton_main("Someone fancy themselves a bit of a bad boy?",face="annoyed",mouth="base")
+        elif random_number == 4:
+            call ton_main("Hey, those are my fun bags... Don't be naughty.",face="annoyed",mouth="horny")
+        elif random_number == 5:
+            call ton_main("Hey now, someone's getting a bit ahead of themselves.",face="annoyed")
+        elif random_number == 6:
+            call ton_main("Those aren't for you to play with...",face="annoyed")
 
-    $ renpy.play('sounds/equip.ogg')
-    $ current_item = arg
-    if isinstance(current_item, DollCloth) and char_active.is_equipped_item(current_item):
-        $ char_active.unequip(current_item.type)
-        $ current_item = None
+    elif what == "vagina":
+        $ mouse_slap()
+        $ random_number = renpy.random.randint(1, 5)
+
+        if random_number == 1:
+            call ton_main("You have to to earn it first.",face="annoyed")
+        elif random_number == 2:
+            call ton_main("If you'd like to keep these hands intact I suggest you stop it right now, [ton_genie_name].",face="annoyed")
+        elif random_number == 3:
+            call ton_main("Hey, who said you had permission to approach the chamber of secrets?",face="annoyed",eyebrows="angry",mouth="grin")
+        elif random_number == 4:
+            call ton_main("That place is reserved for good boys and girls...",face="annoyed",eyebrows="angry",mouth="grin")
+        elif random_number == 5:
+            call ton_main("That forest is forbidden entry for first years... let's get to know each other a bit better first...",face="annoyed",eyebrows="angry",mouth="grin")
+
+    return
+
+label ton_reaction_equip(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     ton "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+    return
+
+label ton_reaction_equip_fail(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     ton "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
+
+    $ random_number = renpy.random.randint(1, 3)
+    if random_number == 1:
+        call ton_main("Not yet big boy, perhaps once this scheme of ours comes more into fruition...",face="annoyed",eyebrows="angry",mouth="grin")
+    elif random_number == 2:
+        call ton_main("It does look nice but you need to deserve it...",face="annoyed",eyebrows="angry",mouth="grin")
     else:
-        $ char_active.equip(current_item)
+        call ton_main("*Hmm*... What would you think of me if I wore this?... Later perhaps.",face="annoyed",eyebrows="raised",mouth="horny")
 
-    # NOTE: Tonks does not utilize underwear checks, she's supposed to not wear them and will refuse to wear any underwear until higher friendship level.
-    # Blacklist fallbacks
-    # if ton_friendship < ton_requirements["unequip_underwear"]:
 
-        # $ underwear_pass = True
+    return
 
-        # if not "bra" in char_active.blacklist and not char_active.is_equipped("bra"):
-            # $ underwear_pass = False
-            # $ char_active.equip(ton_bra_base)
+label ton_reaction_unequip(item):
+    ### Example
+    # if item.type == "panties":
+    #    if ton_whoring > 15:
+    #        ton "You want to see my snatch?"
+    #        ton "You got it [genie_name]!"
+    #
+    return
 
-        # if not char_active.is_equipped("panties") and not "panties" in char_active.blacklist:
-            # $ underwear_pass = False
-            # $ char_active.equip(ton_panties_base)
+label ton_reaction_unequip_fail(item):
 
-        # if not underwear_pass:
-            # call ton_main("Time to put back on my undies.", face="neutral")
+    ### Bra and panties checks are not in use as Tonks doesn't mind NOT wearing underwear.
+    # if item.type == "panties":
+    #     ton "I'm n-not comfortable with that, sir..."
 
-    if ton_friendship < ton_requirements["unequip_clothes"]:
-        $ clothes_pass = True
+    # elif item.type == "bra":
+    #     ton "P-please I don't want to.."
 
-        if not "top" in char_active.blacklist and not char_active.is_equipped("top"):
-            $ clothes_pass = False
-            $ char_active.equip(ton_top_auror)
+    if item.type == "top":
+        call ton_main("Someone's being naughty... I might have to give you a spanking for that.",face="annoyed",eyebrows="angry",mouth="grin")
+        call ton_main("Just kidding! Sure, have a quick look, [ton_genie_name].",face="annoyed",eyebrows="raised",mouth="horny")
+        $ char_active.strip("top", "robe")
+        call ton_main("",face="happy")
+        pause 1.0
+        call ton_main("",face="happy")
+        pause 1.0
+        call ton_main("",face="happy")
+        $ char_active.wear("top", "robe")
+        g4 "What gives?!"
+        call ton_main("Time's up.",face="annoyed",eyebrows="angry",mouth="grin")
+        m "......"
 
-        if not char_active.is_equipped("bottom") and not "bottom" in char_active.blacklist:
-            $ clothes_pass = False
-            $ char_active.equip(ton_bottoms_leggings)
+    elif item.type == "bottom":
+        call ton_main("*Mmm*... I like where your head is at, but I have to refuse.",face="annoyed",eyebrows="angry",mouth="grin")
+    return
 
-        if not clothes_pass:
-            call ton_main("Time to put back on my clothes.", face="neutral")
+label ton_reaction_equip_outfit(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     ton "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+
+    # TODO: Blacklist fallbacks have to be added.
+    return
+
+label ton_reaction_equip_outfit_fail(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     ton "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
+
+    call ton_main("It looks lovely, but you'd have to prove yourself a bit more before I put that on...", face="annoyed",eyebrows="angry",mouth="grin")
+
+    return
+
+label ton_reaction_blacklist(item):
+    ton "*oooh* that's racy!"
+
+    if "top" in item.blacklist and tonks.is_worn("top"):
+        ton "I'd need to take off my top."
+
+    if "bottom" in item.blacklist and tonks.is_worn("bottom"):
+        ton "It would be very unfashionable wearing bottom garment with that."
+
+    if "bra" in item.blacklist and tonks.is_worn("bra"):
+        ton "My girls would definitely appreciate me letting them breathe."
+        g9 "Your tits you mean."
+        ton "Now, now, don't get needy my dear headmaster."
+
+    if "panties" in item.blacklist and tonks.is_worn("panties"):
+        ton "There's not a single pair of panties in the world that would fit this."
+
+    m "Well, what's the verdict?"
+    ton "Simply put-- I love it."
+    g9 "Jackpot!"
+
     return

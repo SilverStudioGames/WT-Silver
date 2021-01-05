@@ -1,240 +1,212 @@
 define her_requirements = {
-    "change_underwear": 5,
-    "unequip_underwear": 15,
-    "unequip_clothes": 3,
-    "tattoos": 18,
-    "headpat": 4,
-    "touch_boobs": 12,
-    "touch_pussy": 18
+    "category upper undergarment": 5,
+    "category lower undergarment": 5,
+    "category piercings & tattoos": 16,
+    "touch head": 4,
+    "touch breasts": 12,
+    "touch vagina": 18,
+    "unequip panties": 6,
+    "unequip bra": 6,
+    "unequip top": 3,
+    "unequip bottom": 3,
     }
 
-label hermione_wardrobe_check(section, arg=None):
-    if isinstance(arg, DollOutfit):
-        python:
-            temp_count = [0, 0, 0]
-            temp_score = 0
-            for item in arg.group:
-                if her_whoring < item.level and temp_count[0] < item.level:
-                    temp_count[0] = item.level
-                if item.type in ("bra", "panties"):
-                    temp_count[2] += 1
-                    if char_active.get_equipped(item.type) != None:
-                        if not char_active.get_equipped(item.type).id == item.id:
-                            if her_whoring < her_requirements["change_underwear"]:
-                                temp_count[1] += 1
+define her_responses = {
+    "category_fail": "her_reaction_category_fail",
+    "equip": "her_reaction_equip",
+    "equip_fail": "her_reaction_equip_fail",
+    "unequip": "her_reaction_unequip",
+    "unequip_fail": "her_reaction_unequip_fail",
+    "touch": "her_reaction_touch",
+    "touch_fail": "her_reaction_touch_fail",
+    "equip_outfit": "her_reaction_equip_outfit",
+    "equip_outfit_fail": "her_reaction_equip_outfit_fail",
+    "blacklist": "her_reaction_blacklist",
+}
 
-        # Outfit outrage score check
-        if her_whoring < temp_count[0]:
-            call her_main("It's too "+random.choice(("slutty", "revealing", "much", "breezy"))+"...",face="annoyed")
-            $ temp_score += 1
-        if temp_count[2] < 2 and her_whoring < her_requirements["unequip_underwear"]:
-            if temp_score > 0:
-                call her_main("... not to mention missing underwear!",face="annoyed")
-            else:
-                call her_main("It's missing underwear!",face="annoyed")
-            $ temp_score += 1
-        elif temp_count[1] > 0:
-            call her_main("I have told you before, I'm not letting you pick any underwear for me!",face="angry")
-            $ temp_score += 1
+label her_reaction_category_fail(category):
+    ### Examples
+    # if category == "upper undergarment":
+    #     her "Not in this century."
+    # elif category == "lower undergarment":
+    #     her "Not in this millennium!"
+    # elif category == "piercings & tattoos":
+    #     her "Not in this... Eternity!"
+    return
 
-        if temp_score > 0:
-            call her_main("I am NOT wearing it!",face="annoyed")
-            #Hint
-            $ wardrobe_fail_hint(max(temp_count[0], her_requirements["change_underwear"], her_requirements["unequip_underwear"]))
-            return
+label her_reaction_touch(what):
+    if what == "head":
+        $ mouse_headpat()
     else:
-        if section == "category":
-            # TODO: Simplify
-            python:
-                _value = arg
-                _failure = False
-                if arg[1] in ("bras", "panties"): # Intentional double check.
-                    if her_whoring < her_requirements["change_underwear"]:
-                        _value = ("category", None)
-                        _failure = True
+        $ mouse_heart()
 
-                    for i in char_active.clothes.itervalues():
-                        if i[0]:
-                            if i[0].blacklist and "bra" in i[0].blacklist and arg[1] == "bras":
-                                _value = ("category", None)
-                                break
-                            if i[0].blacklist and "panties" in i[0].blacklist and arg[1] == "panties":
-                                _value = ("category", None)
-                                break
-            if _failure:
-                $ renpy.play('sounds/fail.mp3')
-                call her_main("I won't let you pick underwear for me!", face="angry")
-                $ wardrobe_fail_hint(her_requirements["change_underwear"])
-            return _value
-        elif section == "touching":
-            $ random_number = renpy.random.randint(1, 5)
-            if arg == "head":
-                if her_whoring < her_requirements["headpat"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call her_main("Hey!", "open", "narrow", "angry", "L")
-                        elif random_number == 2:
-                            call her_main("Bad [genie_name]!", "annoyed", "happyCl", "angry", "L", cheeks="blush")
-                        elif random_number == 3:
-                            call her_main("*Grrr*...", "clench", "base", "angry", "R")
-                        elif random_number == 4:
-                            call her_main("Cut it out..", "open", "narrow", "angry", "mid")
-                        elif random_number == 5:
-                            call her_main("Hands off me.", "mad", "wide", "angry", "mid")
-                        return
-                else:
-                    $ mouse_headpat()
-                    call her_main("", face="happy")
-                    return
-            elif arg == "boobs":
-                if her_whoring < her_requirements["touch_boobs"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call her_main("No touching!", "open", "narrow", "angry", "L")
-                        elif random_number == 2:
-                            call her_main("Bad [genie_name]!", "annoyed", "happyCl", "angry", "L", cheeks="blush")
-                        elif random_number == 3:
-                            call her_main("Hands to yourself.", "clench", "base", "angry", "R")
-                        elif random_number == 4:
-                            call her_main("Cut it out..", "open", "narrow", "angry", "mid")
-                        elif random_number == 5:
-                            call her_main("Hands off me.", "mad", "wide", "angry", "mid")
-                    return
-            elif arg == "pussy":
-                if her_whoring < her_requirements["touch_pussy"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call her_main("Stop that!", "angry", "wide", "angry", "mid")
-                        elif random_number == 2:
-                            call her_main("[genie_name]!", "open", "narrow", "angry", "L")
-                        elif random_number == 3:
-                            call her_main("Unhand me..", "mad", "wide", "angry", "mid")
-                        elif random_number == 4:
-                            call her_main("Stop it please..", "open", "happyCl", "angry", "mid", cheeks="blush")
-                        elif random_number == 5:
-                            call her_main("Hands off me.", "clench", "narrow", "angry", "mid")
-                    return
-            $ mouse_heart()
-            call her_main("", face="horny")
-            return
-        elif section == "toggle":
-            if arg in ("bra", "panties"):
-                if her_whoring < her_requirements["unequip_underwear"]:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 3)
-                        if random_number == 1:
-                            call her_main("I'm not gonna flash you anything!", "clench", "narrow", "angry", "mid")
-                            call her_main("{size=-4}Pervert..{/size}", "annoyed", "narrow", "angry", "R")
-                        elif random_number == 2:
-                            call her_main("Take off my [arg]?! No way!", "clench", "narrow", "angry", "mid")
-                            call her_main("", "annoyed", "narrow", "angry", "down")
-                        else:
-                            call her_main("I am not taking off my [arg]!", "clench", "narrow", "angry", "mid")
-                            call her_main("", "annoyed", "narrow", "angry", "mid")
-                    #Hint
-                    $ wardrobe_fail_hint(her_requirements["unequip_underwear"])
-                    return
-            elif arg in ("top", "bottom"):
-                if her_whoring < her_requirements["unequip_clothes"]:
-                    if wardrobe_chitchats:
-                        if arg == "top":
-                            call her_main("Take my top off? Are you crazy?", "annoyed", "narrow", "angry", "L")
-                        elif arg == "bottom":
-                            call her_main("Take my bottoms off so you can ogle my ass? No thank you.", "open", "narrow", "angry", "mid")
-                    #Hint
-                    $ wardrobe_fail_hint(her_requirements["unequip_clothes"])
-                    return
-            $ char_active.toggle_wear(arg)
-            return
-        elif section == "equip":
-            if arg.type in ("bra", "panties"):
-                if her_whoring < her_requirements["unequip_underwear"]:
-                    if char_active.is_equipped_item(arg):
-                        if wardrobe_chitchats:
-                            call her_main("No, I'm not taking off my [arg.type]!", "clench", "wide", "angry", "mid")
-                        #Hint
-                        $ wardrobe_fail_hint(her_requirements["unequip_underwear"])
-                        return
+    ### Examples
+    # if what == "head":
+    #     her "Rawrrrr, pet me master. :3"
+    # elif what == "breasts":
+    #     her "Yes, squeeze my slutty tits, [genie_name]!"
+    # elif what == "vagina":
+    #     her "Grab me by the pussy!"
+    return
 
-                if her_whoring < arg.level:
-                    call .too_much
-                    return
-            elif arg.type in ("top", "bottom"):
-                if her_whoring < her_requirements["unequip_clothes"]:
-                    if char_active.is_equipped_item(arg):
-                        if wardrobe_chitchats:
-                            call her_main("I am not taking off my clothes, forget it!", "annoyed", "narrow", "angry", "L", cheeks="blush")
-                        #Hint
-                        $ wardrobe_fail_hint(her_requirements["unequip_clothes"])
-                        return
-            else:
+label her_reaction_touch_fail(what):
+    $ random_number = renpy.random.randint(1, 5)
 
-                label .too_much:
-                if her_whoring < arg.level:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 5)
-                        if random_number == 1:
-                            call her_main("I'm not wearing that.", "annoyed", "base", "angry", "down")
-                        elif random_number == 2:
-                            call her_main("It's too slutty..", "annoyed", "happyCl", "angry", "R")
-                        elif random_number == 3:
-                            call her_main("I would look like a tramp, I refuse.", "annoyed", "wide", "angry", "mid")
-                        elif random_number == 4:
-                            call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement..", "open", "narrow", "angry", "L")
-                        elif random_number == 5:
-                            call her_main("This is too much.", "annoyed", "narrow", "angry", "R")
-                    #Hint
-                    $ wardrobe_fail_hint(arg.level)
-                    return
+    if what == "head":
+        $ mouse_slap()
+        if random_number == 1:
+            call her_main("Stop that!", "angry", "wide", "angry", "mid")
+        elif random_number == 2:
+            call her_main("[genie_name]!", "open", "narrow", "angry", "L")
+        elif random_number == 3:
+            call her_main("Unhand me..", "mad", "wide", "angry", "mid")
+        elif random_number == 4:
+            call her_main("Stop it please..", "open", "happyCl", "angry", "mid", cheeks="blush")
+        elif random_number == 5:
+            call her_main("Hands off me.", "clench", "narrow", "angry", "mid")
+    elif what == "breasts":
+        $ mouse_slap()
+        if random_number == 1:
+            call her_main("No touching!", "open", "narrow", "angry", "L")
+        elif random_number == 2:
+            call her_main("Bad [genie_name]!", "annoyed", "happyCl", "angry", "L", cheeks="blush")
+        elif random_number == 3:
+            call her_main("Hands to yourself.", "clench", "base", "angry", "R")
+        elif random_number == 4:
+            call her_main("Cut it out..", "open", "narrow", "angry", "mid")
+        elif random_number == 5:
+            call her_main("Hands off me.", "mad", "wide", "angry", "mid")
+    elif what == "vagina":
+        $ mouse_slap()
+        if random_number == 1:
+            call her_main("Stop that!", "angry", "wide", "angry", "mid")
+        elif random_number == 2:
+            call her_main("[genie_name]!", "open", "narrow", "angry", "L")
+        elif random_number == 3:
+            call her_main("Unhand me..", "mad", "wide", "angry", "mid")
+        elif random_number == 4:
+            call her_main("Stop it please..", "open", "happyCl", "angry", "mid", cheeks="blush")
+        elif random_number == 5:
+            call her_main("Hands off me.", "clench", "narrow", "angry", "mid")
+    return
 
-                # Blacklist support
-                if arg.blacklist:
-                    if her_whoring < her_requirements["unequip_underwear"] and any(x in arg.blacklist for x in ("bra", "panties")):
-                        call her_main("I can't wear underwear with this!", "annoyed", "narrow", "angry", "L", cheeks="blush")
-                        call her_main("Fine! I'll wear this stupid thing.", "disgust", "narrow", "angry", "down", cheeks="blush")
-                    elif her_whoring < her_requirements["unequip_clothes"] and any(x in arg.blacklist for x in ("top", "bottom")):
-                        call her_main("Do I have to wear this?", "open", "narrow", "angry", "mid")
-                        call her_main("Fine, I'll wear it... but I'm putting my old clothes back on once you change your mind.", "annoyed", "narrow", "angry", "R", cheeks="blush")
+label her_reaction_equip(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     her "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+    return
 
-    $ renpy.play('sounds/equip.ogg')
-    $ current_item = arg
-    if isinstance(current_item, DollCloth) and char_active.is_equipped_item(current_item):
-        $ char_active.unequip(current_item.type)
-        $ current_item = None
-    else:
-        $ char_active.equip(current_item)
+label her_reaction_equip_fail(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     her "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
 
-    # Blacklist fallbacks
-    if her_whoring < her_requirements["unequip_underwear"]:
-        $ underwear_pass = True
+    $ random_number = renpy.random.randint(1, 5)
 
-        if not "bra" in char_active.blacklist and not char_active.is_equipped("bra"):
-            $ underwear_pass = False
-            $ char_active.equip(her_bra_base1)
+    if random_number == 1:
+        call her_main("I'm not wearing that.", "annoyed", "base", "angry", "down")
+    elif random_number == 2:
+        call her_main("It's too slutty..", "annoyed", "happyCl", "angry", "R")
+    elif random_number == 3:
+        call her_main("I would look like a tramp, I refuse.", "annoyed", "wide", "angry", "mid")
+    elif random_number == 4:
+        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement..", "open", "narrow", "angry", "L")
+    elif random_number == 5:
+        call her_main("This is too much.", "annoyed", "narrow", "angry", "R")
 
-        if not char_active.is_equipped("panties") and not "panties" in char_active.blacklist:
-            $ underwear_pass = False
-            $ char_active.equip(her_panties_base1)
+    return
 
-        if not underwear_pass:
-            call her_main("I'm putting my underwear back on then!", "open", "closed", "angry", "mid", cheeks="blush")
-            call her_main("", "normal", "base", "worried", "mid", cheeks="blush")
+label her_reaction_unequip(item):
+    ### Example
+    # if item.type == "panties":
+    #    if her_whoring > 15:
+    #        her "You want to see my snatch?"
+    #        her "You got it [genie_name]!"
+    #
+    return
 
-    if her_whoring < her_requirements["unequip_clothes"]:
-        $ clothes_pass = True
+label her_reaction_unequip_fail(item):
+    if item.type == "panties":
+        $ random_number = renpy.random.randint(1, 3)
 
-        if not "top" in char_active.blacklist and not char_active.is_equipped("top"):
-            $ clothes_pass = False
-            $ char_active.equip(her_top_school1)
+        if random_number == 1:
+            call her_main("I'm not gonna flash you anything!", "clench", "narrow", "angry", "mid")
+            call her_main("{size=-4}Pervert..{/size}", "annoyed", "narrow", "angry", "R")
+        elif random_number == 2:
+            call her_main("Take off my panties?! No way!", "clench", "narrow", "angry", "mid")
+            call her_main("", "annoyed", "narrow", "angry", "down")
+        elif random_number == 3:
+            call her_main("I am not taking off my panties!", "clench", "narrow", "angry", "mid")
+            call her_main("", "annoyed", "narrow", "angry", "mid")
 
-        if not char_active.is_equipped("bottom") and not "bottom" in char_active.blacklist:
-            $ clothes_pass = False
-            $ char_active.equip(her_bottom_school1)
+    elif item.type == "bra":
+        $ random_number = renpy.random.randint(1, 3)
 
-        if not clothes_pass:
-            call her_main("In that case I'm putting my old clothes back on!", "open", "closed", "angry", "mid", cheeks="blush")
-            call her_main("", "normal", "base", "worried", "mid", cheeks="blush")
+        if random_number == 1:
+            call her_main("I'm not gonna flash you anything!", "clench", "narrow", "angry", "mid")
+            call her_main("{size=-4}Pervert..{/size}", "annoyed", "narrow", "angry", "R")
+        elif random_number == 2:
+            call her_main("Take off my bra?! No way!", "clench", "narrow", "angry", "mid")
+            call her_main("", "annoyed", "narrow", "angry", "down")
+        elif random_number == 3:
+            call her_main("I am not taking off my bra!", "clench", "narrow", "angry", "mid")
+            call her_main("", "annoyed", "narrow", "angry", "mid")
+
+    elif item.type == "top":
+        call her_main("Take my top off? Are you crazy?", "annoyed", "narrow", "angry", "L")
+
+    elif item.type == "bottom":
+        call her_main("Take my bottoms off so you can ogle my ass? No thank you.", "open", "narrow", "angry", "mid")
+    return
+
+label her_reaction_equip_outfit(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     her "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+
+    # TODO: Blacklist fallbacks have to be added.
+    return
+
+label her_reaction_equip_outfit_fail(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     her "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
+
+    $ random_number = renpy.random.randint(1, 5)
+
+    if random_number == 1:
+        call her_main("I'm not wearing that.", "annoyed", "base", "angry", "down")
+    elif random_number == 2:
+        call her_main("It's too slutty..", "annoyed", "happyCl", "angry", "R")
+    elif random_number == 3:
+        call her_main("I would look like a tramp, I refuse.", "annoyed", "wide", "angry", "mid")
+    elif random_number == 4:
+        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement..", "open", "narrow", "angry", "L")
+    elif random_number == 5:
+        call her_main("This is too much.", "annoyed", "narrow", "angry", "R")
+
+    return
+
+label her_reaction_blacklist(item):
+    call her_main("I would have to take off some my clothes to fit into this...", "disgust", "base", "base", "down")
+
+    if "top" in item.blacklist and hermione.is_worn("top"):
+        call her_main("My top won't fit at all.", "open", "narrow", "angry", "mid")
+
+    if "bottom" in item.blacklist and hermione.is_worn("bottom"):
+        call her_main("The skirt I'm wearing won't be of much use.", "open", "narrow", "angry", "mid")
+
+    if "bra" in item.blacklist and hermione.is_worn("bra"):
+        call her_main("Wearing a bra with this would be impossible.", "annoyed", "narrow", "angry", "L", cheeks="blush")
+
+    if "panties" in item.blacklist and hermione.is_worn("panties"):
+        call her_main("And how in the world am I supposed to wear panties with this?", "angry", "narrow", "angry", "mid", cheeks="blush")
+
+    m "Pretty please?"
+    call her_main("Fine, I'll wear it... but I'm putting my old clothes back on once you change your mind.", "annoyed", "narrow", "angry", "R", cheeks="blush")
+
     return

@@ -6,6 +6,12 @@ init python:
             return ton_friendship
         return getattr(store, "{}_whoring".format(key[:3]))
 
+    def get_character_requirement(char, type):
+        return getattr(renpy.store, char[:3]+"_requirements").get(type, 0)
+
+    def get_character_response(char, type):
+        return getattr(renpy.store, char[:3]+"_responses").get(type)
+
     def get_character_object(key):
         if not key in CHARACTERS:
             raise KeyError("'{}' character is undefined.".format(key))
@@ -16,10 +22,22 @@ init python:
             raise KeyError("'{}' character is undefined.".format(key))
         return getattr(store, "{}_outfit_{}".format(key[:3], type))
 
+    def get_character_outfit_hash(key):
+        ### Untested ###
+        char = get_character_object(key)
+        clothes = [x[0] for x in char.clothes.itervalues() if x[0]]
+        salt = str( sorted([ sorted([x.name, x.type, x.id, x.color]) for x in clothes ]) )
+        return hash(salt)
+
     def get_character_screen(key):
         if not key in CHARACTERS:
             raise KeyError("'{}' character is undefined.".format(key))
         return "{}_main".format(key)
+
+    def get_character_label(key):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key[:3]))
+        return "{}_main".format(key[:3])
 
     ### Outdated, kept for reference.
     # def get_character_score(key):

@@ -1,282 +1,163 @@
 define lun_requirements = {
-    "change_underwear": 5,
-    "unequip_underwear": 15,
-    "unequip_clothes": 3,
-    "tattoos": 18,
-    "headpat": 4,
-    "touch_boobs": 12,
-    "touch_pussy": 18
+    "category upper undergarment": 5,
+    "category lower undergarment": 5,
+    "category piercings & tattoos": 16,
+    "touch head": 4,
+    "touch breasts": 12,
+    "touch vagina": 18,
+    "unequip panties": 6,
+    "unequip bra": 6,
+    "unequip top": 3,
+    "unequip bottom": 3,
     }
 
-label luna_wardrobe_check(section, arg=None):
-    if isinstance(arg, DollOutfit):
-        python:
-            temp_count = [0, 0, 0]
-            temp_score = 0
-            for item in arg.group:
-                if lun_whoring < item.level and temp_count[0] < item.level:
-                    temp_count[0] = item.level
-                if item.type in ("bra", "panties"):
-                    temp_count[2] += 1
-                    if char_active.get_equipped(item.type) != None:
-                        if not char_active.get_equipped(item.type).id == item.id:
-                            if lun_whoring < lun_requirements["change_underwear"]:
-                                temp_count[1] += 1
+define lun_responses = {
+    "category_fail": "lun_reaction_category_fail",
+    "equip": "lun_reaction_equip",
+    "equip_fail": "lun_reaction_equip_fail",
+    "unequip": "lun_reaction_unequip",
+    "unequip_fail": "lun_reaction_unequip_fail",
+    "touch": "lun_reaction_touch",
+    "touch_fail": "lun_reaction_touch_fail",
+    "equip_outfit": "lun_reaction_equip_outfit",
+    "equip_outfit_fail": "lun_reaction_equip_outfit_fail",
+    "blacklist": "lun_reaction_blacklist",
+}
 
-        # Outfit outrage score check
-        if lun_whoring < temp_count[0]:
-            call lun_main("You're joking right? Why would you think I would ever put this on...",face="annoyed")
-            $ temp_score += 1
-        if temp_count[2] < 2 and lun_whoring < lun_requirements["unequip_underwear"]:
-            if temp_score > 0:
-                call lun_main("... There's no underwear on that... What kind of pervert created this?",face="annoyed")
-            else:
-                call lun_main("No panties? I'd rather keep mine on thank you very much...",face="annoyed")
-            $ temp_score += 1
-        elif temp_count[1] > 0:
-            call lun_main("I prefer wearing the underwear I have on already...",face="annoyed")
-            $ temp_score += 1
+label lun_reaction_category_fail(category):
+    ### Examples
+    # if category == "upper undergarment":
+    #     lun "Not in this century."
+    # elif category == "lower undergarment":
+    #     lun "Not in this millennium!"
+    # elif category == "piercings & tattoos":
+    #     lun "Not in this... Eternity!"
+    return
 
-        if temp_score > 0:
-            call lun_main("Sorry, [ast_genie_name] but I won't wear that.",face="annoyed")
-            #Hint
-            $ wardrobe_fail_hint(max(temp_count[0], lun_requirements["change_underwear"], lun_requirements["unequip_underwear"]))
-            return
+label lun_reaction_touch(what):
+    if what == "head":
+        $ mouse_headpat()
     else:
-        if section == "tabswitch":
-            if lun_whoring < lun_requirements["tattoos"]:
-                if wardrobe_chitchats:
-                    call lun_main("Cool idea!",face="happy")
-                    call lun_main("Maybe for an idiot like you!",face="angry")
-                #Hint
-                $ wardrobe_fail_hint(lun_requirements["tattoos"])
-                return False
-            return True
-        elif section == "category":
-            # TODO: Simplify
-            python:
-                _value = arg
-                _failure = False
-                if arg[1] in ("bras", "panties"): # Intentional double check.
-                    if lun_whoring < lun_requirements["change_underwear"]:
-                        _value = ("category", None)
-                        _failure = True
+        $ mouse_heart()
 
-                    for i in char_active.clothes.itervalues():
-                        if i[0]:
-                            if i[0].blacklist and "bra" in i[0].blacklist and arg[1] == "bras":
-                                _value = ("category", None)
-                                break
-                            if i[0].blacklist and "panties" in i[0].blacklist and arg[1] == "panties":
-                                _value = ("category", None)
-                                break
-            if _failure:
-                $ renpy.play('sounds/fail.mp3')
-                call lun_main("Forget it old man.", face="annoyed")
-                $ wardrobe_fail_hint(lun_requirements["change_underwear"])
-            return _value
-        elif section == "touching":
-            $ random_number = renpy.random.randint(1, 7)
-            if arg == "head":
-                if lun_whoring < lun_requirements["headpat"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call lun_main("Hey!", face="angry")
-                        elif random_number == 2:
-                            call lun_main("I'm not your pet, [ast_genie_name]...", face="annoyed")
-                        elif random_number == 3:
-                            call lun_main("Oh sorry, my hand slipped.", face="happy")
-                        elif random_number == 4:
-                            call lun_main("Do that again and you'll regret it...", face="angry")
-                        elif random_number == 5:
-                            call lun_main("Stop...", face="angry")
-                        elif random_number == 6:
-                            call lun_main("Don't!", face="angry")
-                            $ mouse_slap()
-                            call lun_main("Don't!{fast} Do!", face="angry")
-                            $ mouse_slap()
-                            call lun_main("Don't! Do!{fast} That!", face="angry")
-                            $ mouse_slap()
-                            call lun_main("Don't! Do! That!{fast} Again!", face="angry")
-                            $ mouse_slap()
-                            call play_sound("kick")
-                            with hpunch
-                            pause 1.0
-                            g4 "(Ouch, that hurt!)"
-                        return
-                else:
-                    $ mouse_headpat()
-                    call lun_main("", face="happy")
-                    return
-            elif arg == "boobs":
-                if lun_whoring < lun_requirements["touch_boobs"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call lun_main("Hey, cut that out!",face="annoyed",mouth="clench")
-                        elif random_number == 2:
-                            call lun_main("Ouch, that hurts...",face="annoyed",mouth="scream")
-                        elif random_number == 3:
-                            call lun_main("Hey, no nipple twisters...",face="annoyed")
-                        elif random_number == 4:
-                            call lun_main("Bad Touch!",face="annoyed")
-                        elif random_number == 5:
-                            call lun_main("*EEEH* Don't you have better things to do?",face="annoyed")
-                        elif random_number == 6:
-                            call lun_main("{size=+5}What are you doing?{/size}",face="angry",mouth="scream")
-                        elif random_number == 7:
-                            call lun_main("Stop that!",face="annoyed")
-                    return
-            elif arg == "pussy":
-                if lun_whoring < lun_requirements["touch_pussy"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call lun_main("Hey, that's private property.",face="annoyed")
-                        elif random_number == 2:
-                            call lun_main("Get your filthy hands off me, [ast_genie_name].",face="annoyed")
-                        elif random_number == 3:
-                            call lun_main("Stop it, you creep.",face="annoyed")
-                        elif random_number == 4:
-                            call lun_main("Why would you do that... nasty old man...",face="annoyed")
-                        elif random_number == 5:
-                            call lun_main("Don't touch me...",face="annoyed")
-                        elif random_number == 6:
-                            call lun_main("Don't be gross, [ast_genie_name].",face="annoyed")
-                        elif random_number == 7:
-                            call lun_main("...",face="annoyed")
-                    return
-            $ mouse_heart()
-            call lun_main("", face="horny")
-            return
-        elif section == "toggle":
-            if arg in ("bra", "panties"):
-                if lun_whoring < lun_requirements["unequip_underwear"]:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 2)
-                        if random_number == 1:
-                            call lun_main("*Eeeh* No?",face="angry")
-                        elif random_number == 2:
-                            call lun_main("I'd rather keep my underwear on...",face="angry")
-                    #Hint
-                    $ wardrobe_fail_hint(lun_requirements["unequip_underwear"])
-                    return
-            elif arg in ("top", "bottom"):
-                if lun_whoring < lun_requirements["unequip_clothes"]:
-                    if wardrobe_chitchats:
-                        if arg == "top":
-                            call lun_main("You want me to take my clothes off... Oh sure, I'll just go ahead and bare my chest and all as well then shall I?",face="annoyed")
-                            g4 "Really?!"
-                            call lun_main("{size=+5}NO!{/size}",face="annoyed",mouth="scream")
-                            m "......"
-                        elif arg == "bottom":
-                            call lun_main("{size=+5}No, get away from me!{/size}",face="annoyed",mouth="scream")
-                    #Hint
-                    $ wardrobe_fail_hint(lun_requirements["unequip_clothes"])
-                    return
-            $ char_active.toggle_wear(arg)
-            return
-        elif section == "equip":
-            if arg.type in ("bra", "panties"):
-                if lun_whoring < lun_requirements["unequip_underwear"]:
-                    if char_active.get_equipped("bra"):
-                        if arg.id == char_active.get_equipped("bra").id:
-                            if wardrobe_chitchats:
-                                call lun_main("I'd rather not do that right now, [ast_genie_name].",face="angry")
-                            #Hint
-                            $ wardrobe_fail_hint(lun_requirements["unequip_underwear"])
-                            return
-                    if char_active.get_equipped("panties"):
-                        if arg.id == char_active.get_equipped("panties").id:
-                            if wardrobe_chitchats:
-                                call lun_main("",face="happy")
-                                nar "> Luna starts giggling."
-                                call lun_main("Yeah right...",face="angry")
-                            #Hint
-                            $ wardrobe_fail_hint(lun_requirements["unequip_underwear"])
-                            return
-                if lun_whoring < arg.level:
-                    call .too_much
-                    return
-            else:
-                if lun_whoring < lun_requirements["unequip_clothes"]:
-                    if arg.type in ("top", "bottom"):
-                        if char_active.get_equipped("top"):
-                            if arg.id == char_active.get_equipped("top").id:
-                                if wardrobe_chitchats:
-                                    call lun_main("I guess I could... but I'm not going to.",face="annoyed")
-                                #Hint
-                                $ wardrobe_fail_hint(lun_requirements["unequip_clothes"])
-                                return
-                        if char_active.get_equipped("bottom"):
-                            if arg.id == char_active.get_equipped("bottom").id:
-                                if wardrobe_chitchats:
-                                    call lun_main("Hey, that's a great idea... but not in this universe.",face="angry")
-                                #Hint
-                                $ wardrobe_fail_hint(lun_requirements["unequip_clothes"])
-                                return
+    ### Examples
+    # if what == "head":
+    #     lun "Rawrrrr, pet me master. :3"
+    # elif what == "breasts":
+    #     lun "Yes, squeeze my slutty tits, [genie_name]!"
+    # elif what == "vagina":
+    #     lun "Grab me by the pussy!"
+    return
 
-                label .too_much:
-                if lun_whoring < arg.level:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 3)
-                        if random_number == 1:
-                            call lun_main("Nuh uh, I'm not putting that on.",face="annoyed")
-                        elif random_number == 2:
-                            call lun_main("*Pfff* You want me to wear that? In your dreams old man...",face="annoyed")
-                        else:
-                            call lun_main("Don't be such a creep, thanks but no thanks.",face="annoyed")
-                    #Hint
-                    $ wardrobe_fail_hint(arg.level)
-                    return
+label lun_reaction_touch_fail(what):
+    if what == "head":
+        $ mouse_slap()
 
-                # Blacklist support
-                if arg.blacklist:
-                    if lun_whoring < lun_requirements["unequip_underwear"] and any(x in arg.blacklist for x in ("bra", "panties")):
-                        call lun_main("How am I supposed to wear my underwear with this?!", face="angry")
-                        call lun_main("I guess I could take it off for now...", face="annoyed")
-                    elif lun_whoring < lun_requirements["unequip_clothes"] and any(x in arg.blacklist for x in ("top", "bottom")):
-                        call lun_main("This looks stupid!", face="angry")
-                        call lun_main("...", face="annoyed")
-                        call lun_main("J-just give me that!", face="angry")
-                        call lun_main("", face="annoyed")
+        g4 "Ouch! Why would you do that?!"
+        lun "Oh! I'm terribly sorry, [lun_genie_name], I used to play this game with my father and..."
+        m "I don't need to hear it..."
+        lun "...as you wish sir."
 
-    $ renpy.play('sounds/equip.ogg')
-    $ current_item = arg
-    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.get_equipped(current_item.type) == current_item:
-        $ char_active.unequip(current_item.type)
-        $ current_item = None
-    else:
-        $ char_active.equip(current_item)
+    elif what == "breasts":
+        $ mouse_slap()
 
-    # Blacklist fallbacks
-    if lun_whoring < lun_requirements["unequip_underwear"]:
+        lun "*giggles* [lun_genie_name] stop that! It tickles."
 
-        $ underwear_pass = True
+    elif what == "vagina":
+        $ mouse_slap()
 
-        if not "bra" in char_active.blacklist and not char_active.is_equipped("bra"):
-            $ underwear_pass = False
-            $ char_active.equip(ast_bra_basic1)
+        lun "*Ah* Sir, please don't tease me, wrackspurts have been terribly active today and I'm barely able to withhold as it is."
 
-        if not char_active.is_equipped("panties") and not "panties" in char_active.blacklist:
-            $ underwear_pass = False
-            $ char_active.equip(ast_panties_basic1)
+    return
 
-        if not underwear_pass:
-            call lun_main("I'm glad to have my underwear back.", face="annoyed")
+label lun_reaction_equip(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     lun "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+    return
 
-    if lun_whoring < lun_requirements["unequip_clothes"]:
-        $ clothes_pass = True
+label lun_reaction_equip_fail(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     lun "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
 
-        if not "top" in char_active.blacklist and not char_active.is_equipped("top"):
-            $ clothes_pass = False
-            $ char_active.equip(ast_top_school1)
+    lun "*Hmm*"
+    m "What?"
+    lun "There's a weird aura surrounding this piece of garment."
+    lun "It seems to be affecting the wrackspurts, as if they're multiplying!"
+    lun "I'm sorry sir but I can't wear, not until I know how to fight them at least."
+    m "(I guess that means she's not yet ready.)"
 
-        if not char_active.is_equipped("bottom") and not "bottom" in char_active.blacklist:
-            $ clothes_pass = False
-            $ char_active.equip(ast_bottom_skirt1)
+    return
 
-        if not clothes_pass:
-            call lun_main("I missed my old clothes so much, thanks!", face="happy")
+label lun_reaction_unequip(item):
+    ### Example
+    # if item.type == "panties":
+    #    if lun_whoring > 15:
+    #        lun "You want to see my snatch?"
+    #        lun "You got it [genie_name]!"
+    #
+    return
+
+label lun_reaction_unequip_fail(item):
+    if item.type == "panties":
+        lun "I'm sorry [lun_genie_name] but my panties are my one and only defence against wrackspurts."
+
+    elif item.type == "bra":
+        lun "*giggles*"
+        m "What's so funny?"
+        lun "You remind me of my daddy."
+        m "(What the hell.....?)"
+
+    elif item.type == "top":
+        lun "I'm not sure how it would help me with my problem, sir."
+
+    elif item.type == "bottom":
+        lun "Wouldn't that make my wrackspurts problem worse, [lun_genie_name]?"
+    return
+
+label lun_reaction_equip_outfit(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     lun "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+
+    # TODO: Blacklist fallbacks have to be added.
+    return
+
+label lun_reaction_equip_outfit_fail(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     lun "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
+
+    lun "This outfit seems to have wrackspurts all over it!"
+    m "(I don't remember cumming on this piece of garment...)"
+    g4 "(!!!)"
+    g4 "(Could it be--...)"
+    lun "Are you okay sir? You look pale."
+    m "Yes, I'm fine. I guess you can stay in your clothes... for now."
+
+    return
+
+label lun_reaction_blacklist(item):
+    lun "Will that really help? With the wrackspurts I mean."
+
+    if "top" in item.blacklist and luna.is_worn("top"):
+        lun "I would need to lose my top."
+
+    if "bottom" in item.blacklist and luna.is_worn("bottom"):
+        lun "The bottoms I'm wearing wound need to go."
+
+    if "bra" in item.blacklist and luna.is_worn("bra"):
+        lun "It seems no bra can fit in this garment."
+
+    if "panties" in item.blacklist and luna.is_worn("panties"):
+        lun "Wrackspurts would have a feast as I would not be able to wear panties with this."
+
+    m "Trust me, I know what I'm doing."
+    lun "If you say so sir."
+
     return

@@ -1,6 +1,7 @@
 
 default wardrobe_music = False
 default wardrobe_chitchats = True
+default wardrobe_autosave = False
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
@@ -46,136 +47,184 @@ label wardrobe():
 
     label .after_init:
 
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    python:
-        if _return[0] == "category":
-            current_category = _return[1]
+    if _choice[0] == "category":
 
-            category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
-            current_subcategory = category_items.keys()[0] if category_items else ""
-            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
+        if wardrobe_check_category(_choice[1]):
+            $ current_category = _choice[1]
+
+            $ category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
+            $ current_subcategory = category_items.keys()[0] if category_items else ""
+            $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
 
             if current_category == "outfits":
-                _outfit = char_active.create_outfit()
-                current_item = next( (x for x in char_active.outfits if _outfit.hash == x.hash), None)
-                _outfit.delete()
+                $ _outfit = char_active.create_outfit(temp=True)
+                $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
             else:
-                current_item = char_active.get_equipped_item(menu_items)
+                $ current_item = char_active.get_equipped_item(menu_items)
 
-            char_active.wear("all")
+            $ char_active.wear("all")
             if current_category in ("lower undergarment", "upper undergarment"):
-                char_active.strip("top", "bottom", "robe", "accessory")
+                $ char_active.strip("top", "bottom", "robe", "accessory")
             elif current_category == "piercings & tattoos":
-                char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
-        elif _return[0] == "subcategory":
-            current_subcategory = _return[1]
+                $ char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
+        else:
+            $ wardrobe_react("category_fail", _choice)
 
-            if current_subcategory == "import":
-                menu_items = list_outfit_files()
+    elif _choice[0] == "subcategory":
+        $ current_subcategory = _choice[1]
+
+        if current_subcategory == "import":
+            $ menu_items = list_outfit_files()
+        else:
+            $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+
+        if current_category == "outfits":
+            $ _outfit = char_active.create_outfit(temp=True)
+            $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
+        else:
+            $ current_item = char_active.get_equipped_item(menu_items)
+
+    elif _choice[0] == "equip":
+        ### CLOTHING ###
+        if isinstance(_choice[1], DollCloth):
+            if _choice[1].type == "hair" and char_active.is_equipped_item(_choice[1]):
+                $ renpy.play("sounds/fail.mp3")
+                $ renpy.notify("Hair cannot be removed.")
             else:
-                menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
-
-            if current_category == "outfits":
-                _outfit = char_active.create_outfit()
-                current_item = next( (x for x in char_active.outfits if _outfit.hash == x.hash), None)
-                _outfit.delete()
-            else:
-                current_item = char_active.get_equipped_item(menu_items)
-        elif _return[0] == "equip":
-            if isinstance(_return[1], DollCloth):
-                if _return[1].type == "hair" and char_active.is_equipped_item(_return[1]):
-                    renpy.play("sounds/fail.mp3")
-                    renpy.notify("Hair cannot be removed.")
-                else:
-                    renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
-
-                # Lipstick Fix - Synchronize image with current mouth after equipping.
-                if isinstance(_return[1], DollLipstick):
-                    _return[1].rebuild_image()
-            elif isinstance(_return[1], DollOutfit):
-                _outfit = char_active.create_outfit()
-
-                if _outfit.hash == _return[1].hash:
-                    renpy.notify("Load failed: Outfit arleady equipped.")
-                    _outfit.delete()
-                    renpy.jump("wardrobe.after_init")
-
-                if not _outfit.exists():
-                    _confirmed = renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?")
-
-                    _outfit.delete()
-
-                    if _confirmed:
-                        renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
+                if char_active.is_equipped_item(_choice[1]):
+                    # UNEQUIP
+                    if wardrobe_check_unequip(_choice[1]):
+                        $ wardrobe_react("unequip", _choice[1])
+                        $ char_active.unequip(_choice[1].type)
                     else:
-                        renpy.notify("Load failed: Cancelled by user.")
+                        $ wardrobe_react("unequip_fail", _choice[1])
                 else:
-                    _outfit.delete()
-                    renpy.call(active_girl+"_wardrobe_check", "equip", _return[1])
-        elif _return[0] == "setcolor":
-            current_item.set_color(_return[1])
-        elif _return[0] == "touching":
-            renpy.call(active_girl+"_wardrobe_check", "touching", _return[1])
-        elif _return[0] == "addoutfit":
-            _outfit = char_active.create_outfit()
+                    # EQUIP
+                    if wardrobe_check_equip(_choice[1]):
+                        $ wardrobe_react("equip", _choice[1])
 
-            if _outfit.exists():
-                _outfit.delete()
-                renpy.notify("Save failed: Outfit already exists.")
+                        # Blacklist handling
+                        if not wardrobe_check_blacklist(_choice[1]):
+                            $ wardrobe_react("blacklist", _choice[1])
+
+                        $ char_active.equip(_choice[1])
+
+                        # Lipstick Fix - Synchronize image with the current mouth after equipping.
+                        if isinstance(_choice[1], DollLipstick):
+                            $ _choice[1].rebuild_image()
+                    else:
+                        $ wardrobe_react("equip_fail", _choice[1])
+
+        ### OUTFIT ###
+        elif isinstance(_choice[1], DollOutfit):
+            $ _outfit = char_active.create_outfit(temp=True)
+
+            if _outfit == _choice[1]:
+                $ renpy.notify("Load failed: Outfit arleady equipped.")
             else:
-                if _return[1]:
-                    _indx = char_active.outfits.index(_return[1])
-                    char_active.outfits.remove(_outfit)
-                    renpy.call_screen("confirm", "Overwrite outfit?", [SetDict(char_active.outfits, _indx, _outfit), Notify("Overwritten."), Return()], [Function(_outfit.delete), Return()])
+                if wardrobe_check_equip_outfit(_choice[1]):
+
+                    if not _outfit.exists():
+                        $ _confirmed = renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?")
+
+                        if _confirmed:
+                            $ wardrobe_react("equip_outfit", _choice[1])
+                            $ char_active.equip(_choice[1])
+                            $ current_item = _choice[1]
+                        else:
+                            $ renpy.notify("Load failed: Cancelled by user.")
+                    else:
+                        $ wardrobe_react("equip_outfit", _choice[1])
+                        $ char_active.equip(_choice[1])
+                        $ current_item = _choice[1]
                 else:
-                    renpy.notify("Saved.")
-                menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+                    $ wardrobe_react("equip_outfit_fail", _choice[1])
 
-        elif _return[0] == "deloutfit":
-            _return[1].delete()
-            menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
-            renpy.notify("Deleted.")
-        elif _return[0] == "export":
-            _return[1].export_data(datetime.datetime.now().strftime("%d %b %Y-%H%M%S"))
-            achievement.unlock("export")
-        elif _return[0] == "import":
-            _outfit = char_active.import_outfit(_return[1])
+    elif _choice[0] == "setcolor":
+        $ current_item.set_color(_choice[1])
 
-            if _outfit and _outfit.exists():
-                _outfit.delete()
-                renpy.notify("Import failed: Outfit already exists.")
-        elif _return[0] == "schedule":
-            renpy.call_screen("wardrobe_schedule_menuitem", _return[1])
-        elif _return == "music":
-            if wardrobe_music:
-                wardrobe_music = False
-                renpy.call("play_music", active_girl)
-                #renpy.call(char_label, face="annoyed")
+    elif _choice[0] == "touch":
+        if wardrobe_check_touch(_choice[1]):
+            $ wardrobe_react("touch", _choice[1])
+        else:
+            $ wardrobe_react("touch_fail", _choice[1])
+
+    elif _choice[0] == "addoutfit":
+        $ _outfit = char_active.create_outfit(temp=True)
+
+        if _outfit.exists():
+            $ renpy.notify("Save failed: Outfit already exists.")
+        else:
+            if _choice[1]:
+                $ _index = char_active.outfits.index(_choice[1])
+                $ _confirmed = renpy.call_screen("confirm", "Discard unsaved changes and load this outfit?")
+
+                if _confirmed:
+                    $ _outfit = char_active.create_outfit()
+                    $ _outfit.delete() # Removes it from list only
+                    $ char_active.outfits[_index] = _outfit
+                    $ renpy.notify("Overwritten.")
+                else:
+                    $ renpy.notify("Save failed: Cancelled by user.")
+
             else:
-                wardrobe_music = True
-                renpy.call("play_music", "wardrobe")
-                #renpy.call(char_label, face="happy")
-        else: #_return == "Close":
-            _confirmed = False
-            _outfit = char_active.create_outfit()
+                $ char_active.create_outfit()
+                $ renpy.notify("Outfit Saved.")
+
+        $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+        $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
+
+    elif _choice[0] == "deloutfit":
+        $ _confirmed = renpy.call_screen("confirm", "Delete this outfit?")
+
+        if _confirmed:
+            $ _choice[1].delete()
+            $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
+            $ renpy.notify("Outfit Deleted.")
+
+    elif _choice[0] == "export":
+        $ _choice[1].export_data(datetime.datetime.now().strftime("%d %b %Y-%H%M%S"))
+        $ achievement.unlock("export")
+
+    elif _choice[0] == "import":
+        $ _outfit = char_active.import_outfit(_choice[1])
+
+    elif _choice[0] == "schedule":
+        $ renpy.call_screen("wardrobe_schedule_menuitem", _choice[1])
+
+    elif _choice == "music":
+        if wardrobe_music:
+            $ wardrobe_music = False
+            $ renpy.call("play_music", active_girl)
+            $ renpy.call(get_character_label(active_girl), face="annoyed")
+        else:
+            $ wardrobe_music = True
+            $ renpy.call("play_music", "wardrobe")
+            $ renpy.call(get_character_label(active_girl), face="happy")
+
+    else: #_choice == "Close":
+        $ _confirmed = False
+
+        if wardrobe_autosave:
+            $ _outfit = char_active.create_outfit()
+        else:
+            $ _outfit = char_active.create_outfit(temp=True)
 
             if not _outfit.exists():
-                _outfit.delete()
-                renpy.notify("Advice: If you want to keep an outfit, save it.")
-                _confirmed = renpy.call_screen("confirm", "Exit without saving?\n{size=-6}Unsaved changes will be lost.{/size}")
+                $ renpy.notify("Advice: If you want to keep an outfit, save it.")
+                $ _confirmed = renpy.call_screen("confirm", "Exit without saving?\n{size=-6}Unsaved changes will be lost.{/size}")
 
                 if not _confirmed:
-                    renpy.jump("wardrobe.after_init")
-                char_active.equip(char_outfit)
+                    jump .after_init
+                $ char_active.equip(char_outfit)
 
-            _outfit.delete()
-            char_active.wear("all")
-            renpy.play('sounds/door2.mp3')
-            if wardrobe_music:
-                renpy.call("play_music", active_girl)
-
-            renpy.return_statement()
+        $ char_active.wear("all")
+        $ renpy.play('sounds/door2.mp3')
+        if wardrobe_music:
+            $ renpy.call("play_music", active_girl)
+        return
 
     jump .after_init
 
@@ -186,7 +235,6 @@ screen wardrobe_menu(xx, yy):
 
     add "gui_fade"
 
-    use invisible_button(action=Return("Close"))
     use close_button
 
     if current_category == "outfits":
@@ -213,7 +261,10 @@ screen wardrobe_menu(xx, yy):
             yspacing 18
 
             for i, category in enumerate(wardrobe_categories):
-                $ icon = Fixed(icon_bg, Transform("interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category), zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5)), icon_frame)
+                if wardrobe_check_category(category):
+                    $ icon = Fixed(icon_bg, Transform("interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category), zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5)), icon_frame)
+                else:
+                    $ icon = Fixed(icon_bg, Transform("interface/wardrobe/icons/categories/{}/{}.webp".format(active_girl, category), zoom=0.45, anchor=(0.5, 0.5), align=(0.5, 0.5), matrixcolor=SaturationMatrix(0.0)), icon_frame)
                 $ icon_xoffset = -18 if (i % 2) == 0 else 18
 
                 button:
@@ -225,6 +276,7 @@ screen wardrobe_menu(xx, yy):
                     if current_category == category:
                         xoffset icon_xoffset
 
+        # Outfits and Studio
         hbox:
             $ icon_yoffset = -18
 
@@ -249,7 +301,7 @@ screen wardrobe_menu(xx, yy):
 
         add panel
 
-        # Character
+        # Character image cut to the size of the wardrobe
         add char_active.get_image():
             yoffset -6
             corner1 (184, 218)
@@ -260,21 +312,9 @@ screen wardrobe_menu(xx, yy):
             events False
 
         # Easter Egg (Headpats, boobs, pussy)
-        button style "empty" xysize (120, 80) xalign 0.525 ypos 60 action Return(["touching", "head"])
-        button style "empty" xysize (120, 60) xalign 0.525 ypos 238 action Return(["touching", "boobs"])
-        button style "empty" xysize (120, 60) xalign 0.525 ypos 360 action Return(["touching", "pussy"])
-
-        #use dropdown_menu(name="Toggles", pos=(12, 56)):
-            #for item in character_toggles:
-                #$ item = item[0]
-                #$ is_worn = char_active.is_worn(item)
-                #$ is_equipped = char_active.is_equipped(item)
-                #textbutton "[item]":
-                    #style gui.theme("dropdown")
-                    #tooltip "Show/hide "+str(item)
-                    #selected is_worn
-                    #sensitive is_equipped
-                    #action Call(active_girl+"_wardrobe_check", "toggle", item)
+        button style "empty" xysize (120, 80) xalign 0.525 ypos 60 action Return(["touch", "head"])
+        button style "empty" xysize (120, 60) xalign 0.525 ypos 238 action Return(["touch", "breasts"])
+        button style "empty" xysize (120, 60) xalign 0.525 ypos 360 action Return(["touch", "vagina"])
 
         use dropdown_menu(name="Options", pos=(12, 56)):
             textbutton "Music":
@@ -290,6 +330,10 @@ screen wardrobe_menu(xx, yy):
                 style gui.theme("dropdown")
                 tooltip "{color=#35aae2}[active_girl]{/color} will automatically wear outfits\nbased on set schedule, time of day and weather."
                 action ToggleVariable(active_girl+"_outfits_schedule", True, False)
+            textbutton "Autosave Outfits":
+                style gui.theme("dropdown")
+                tooltip "Toggle auto-saving feature for Outfits"
+                action ToggleVariable("wardrobe_autosave", True, False)
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
@@ -480,6 +524,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     $ icon = Crop((210, 200, 700, 1000), item.get_image())
                     $ is_modded = item.is_modded()
                     $ is_equipped = bool(current_item == item)
+                $ is_inadequate = (current_subcategory in {"save", "load"} and not wardrobe_check_equip_outfit(item))
 
                 $ warnings = []
 
@@ -504,6 +549,9 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     background Transform(icon, xsize=72, ysize=144, fit="contain", anchor=(0.5, 1.0), align=(0.5, 1.0), yoffset=-6)
                     tooltip ("\n".join(warnings))
                     action action
+                    if is_inadequate:
+                        foreground "#b2000040"
+                        hover_foreground "#CD5C5C40"
 
                     add icon_frame
 

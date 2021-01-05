@@ -1,280 +1,169 @@
 define sus_requirements = {
-    "change_underwear": 5,
-    "unequip_underwear": 15,
-    "unequip_clothes": 3,
-    "tattoos": 18,
-    "headpat": 4,
-    "touch_boobs": 12,
-    "touch_pussy": 18
+    "category upper undergarment": 5,
+    "category lower undergarment": 5,
+    "category piercings & tattoos": 16,
+    "touch head": 4,
+    "touch breasts": 12,
+    "touch vagina": 18,
+    "unequip panties": 6,
+    "unequip bra": 6,
+    "unequip top": 3,
+    "unequip bottom": 3,
     }
 
-label susan_wardrobe_check(section, arg=None):
-    if isinstance(arg, DollOutfit):
-        python:
-            temp_count = [0, 0, 0]
-            temp_score = 0
-            for item in arg.group:
-                if sus_whoring < item.level and temp_count[0] < item.level:
-                    temp_count[0] = item.level
-                if item.type in ("bra", "panties"):
-                    temp_count[2] += 1
-                    if char_active.get_equipped(item.type) != None:
-                        if not char_active.get_equipped(item.type).id == item.id:
-                            if sus_whoring < sus_requirements["change_underwear"]:
-                                temp_count[1] += 1
+define sus_responses = {
+    "category_fail": "sus_reaction_category_fail",
+    "equip": "sus_reaction_equip",
+    "equip_fail": "sus_reaction_equip_fail",
+    "unequip": "sus_reaction_unequip",
+    "unequip_fail": "sus_reaction_unequip_fail",
+    "touch": "sus_reaction_touch",
+    "touch_fail": "sus_reaction_touch_fail",
+    "equip_outfit": "sus_reaction_equip_outfit",
+    "equip_outfit_fail": "sus_reaction_equip_outfit_fail",
+    "blacklist": "sus_reaction_blacklist",
+}
 
-        # Outfit outrage score check
-        if sus_whoring < temp_count[0]:
-            call sus_main("You're joking right? Why would you think I would ever put this on...",face="annoyed")
-            $ temp_score += 1
-        if temp_count[2] < 2 and sus_whoring < sus_requirements["unequip_underwear"]:
-            if temp_score > 0:
-                call sus_main("... There's no underwear on that... What kind of pervert created this?",face="annoyed")
-            else:
-                call sus_main("No panties? I'd rather keep mine on thank you very much...",face="annoyed")
-            $ temp_score += 1
-        elif temp_count[1] > 0:
-            call sus_main("I prefer wearing the underwear I have on already...",face="annoyed")
-            $ temp_score += 1
+label sus_reaction_category_fail(category):
+    ### Examples
+    # if category == "upper undergarment":
+    #     sus "Not in this century."
+    # elif category == "lower undergarment":
+    #     sus "Not in this millennium!"
+    # elif category == "piercings & tattoos":
+    #     sus "Not in this... Eternity!"
+    return
 
-        if temp_score > 0:
-            call sus_main("Sorry, [ast_genie_name] but I won't wear that.",face="annoyed")
-            #Hint
-            $ wardrobe_fail_hint(max(temp_count[0], sus_requirements["change_underwear"], sus_requirements["unequip_underwear"]))
-            return
+label sus_reaction_touch(what):
+    if what == "head":
+        $ mouse_headpat()
     else:
-        if section == "tabswitch":
-            if sus_whoring < sus_requirements["tattoos"]:
-                if wardrobe_chitchats:
-                    call sus_main("Cool idea!",face="happy")
-                    call sus_main("Maybe for an idiot like you!",face="angry")
-                #Hint
-                $ wardrobe_fail_hint(sus_requirements["tattoos"])
-                return False
-            return True
-        elif section == "category":
-            # TODO: Simplify
-            python:
-                _value = arg
-                _failure = False
-                if arg[1] in ("bras", "panties"): # Intentional double check.
-                    if sus_whoring < sus_requirements["change_underwear"]:
-                        _value = ("category", None)
-                        _failure = True
+        $ mouse_heart()
 
-                    for i in char_active.clothes.itervalues():
-                        if i[0]:
-                            if i[0].blacklist and "bra" in i[0].blacklist and arg[1] == "bras":
-                                _value = ("category", None)
-                                break
-                            if i[0].blacklist and "panties" in i[0].blacklist and arg[1] == "panties":
-                                _value = ("category", None)
-                                break
-            if _failure:
-                $ renpy.play('sounds/fail.mp3')
-                call sus_main("Forget it old man.", face="annoyed")
-                $ wardrobe_fail_hint(sus_requirements["change_underwear"])
-            return _value
-        elif section == "touching":
-            $ random_number = renpy.random.randint(1, 7)
-            if arg == "head":
-                if sus_whoring < sus_requirements["headpat"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call sus_main("Hey!", face="angry")
-                        elif random_number == 2:
-                            call sus_main("I'm not your pet, [ast_genie_name]...", face="annoyed")
-                        elif random_number == 3:
-                            call sus_main("Oh sorry, my hand slipped.", face="happy")
-                        elif random_number == 4:
-                            call sus_main("Do that again and you'll regret it...", face="angry")
-                        elif random_number == 5:
-                            call sus_main("Stop...", face="angry")
-                        elif random_number == 6:
-                            call sus_main("Don't!", face="angry")
-                            $ mouse_slap()
-                            call sus_main("Don't!{fast} Do!", face="angry")
-                            $ mouse_slap()
-                            call sus_main("Don't! Do!{fast} That!", face="angry")
-                            $ mouse_slap()
-                            call sus_main("Don't! Do! That!{fast} Again!", face="angry")
-                            $ mouse_slap()
-                            call play_sound("kick")
-                            with hpunch
-                            pause 1.0
-                            g4 "(Ouch, that hurt!)"
-                        return
-                else:
-                    $ mouse_headpat()
-                    call sus_main("", face="happy")
-                    return
-            elif arg == "boobs":
-                if sus_whoring < sus_requirements["touch_boobs"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call sus_main("Hey, cut that out!",face="annoyed",mouth="clench")
-                        elif random_number == 2:
-                            call sus_main("Ouch, that hurts...",face="annoyed",mouth="scream")
-                        elif random_number == 3:
-                            call sus_main("Hey, no nipple twisters...",face="annoyed")
-                        elif random_number == 4:
-                            call sus_main("Bad Touch!",face="annoyed")
-                        elif random_number == 5:
-                            call sus_main("*EEEH* Don't you have better things to do?",face="annoyed")
-                        elif random_number == 6:
-                            call sus_main("{size=+5}What are you doing?{/size}",face="angry",mouth="scream")
-                        elif random_number == 7:
-                            call sus_main("Stop that!",face="annoyed")
-                    return
-            elif arg == "pussy":
-                if sus_whoring < sus_requirements["touch_pussy"]:
-                    $ mouse_slap()
-                    if wardrobe_chitchats:
-                        if random_number == 1:
-                            call sus_main("Hey, that's private property.",face="annoyed")
-                        elif random_number == 2:
-                            call sus_main("Get your filthy hands off me, [ast_genie_name].",face="annoyed")
-                        elif random_number == 3:
-                            call sus_main("Stop it, you creep.",face="annoyed")
-                        elif random_number == 4:
-                            call sus_main("Why would you do that... nasty old man...",face="annoyed")
-                        elif random_number == 5:
-                            call sus_main("Don't touch me...",face="annoyed")
-                        elif random_number == 6:
-                            call sus_main("Don't be gross, [ast_genie_name].",face="annoyed")
-                        elif random_number == 7:
-                            call sus_main("...",face="annoyed")
-                    return
-            $ mouse_heart()
-            call sus_main("", face="horny")
-            return
-        elif section == "toggle":
-            if arg in ("bra", "panties"):
-                if sus_whoring < sus_requirements["unequip_underwear"]:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 2)
-                        if random_number == 1:
-                            call sus_main("*Eeeh* No?",face="angry")
-                        elif random_number == 2:
-                            call sus_main("I'd rather keep my underwear on...",face="angry")
-                    #Hint
-                    $ wardrobe_fail_hint(sus_requirements["unequip_underwear"])
-                    return
-            elif arg in ("top", "bottom"):
-                if sus_whoring < sus_requirements["unequip_clothes"]:
-                    if wardrobe_chitchats:
-                        if arg == "top":
-                            call sus_main("You want me to take my clothes off... Oh sure, I'll just go ahead and bare my chest and all as well then shall I?",face="annoyed")
-                            g4 "Really?!"
-                            call sus_main("{size=+5}NO!{/size}",face="annoyed",mouth="scream")
-                            m "......"
-                        elif arg == "bottom":
-                            call sus_main("{size=+5}No, get away from me!{/size}",face="annoyed",mouth="scream")
-                    #Hint
-                    $ wardrobe_fail_hint(sus_requirements["unequip_clothes"])
-                    return
-            $ char_active.toggle_wear(arg)
-            return
-        elif section == "equip":
-            if arg.type in ("bra", "panties"):
-                if sus_whoring < sus_requirements["unequip_underwear"]:
-                    if char_active.get_equipped("bra"):
-                        if arg.id == char_active.get_equipped("bra").id:
-                            if wardrobe_chitchats:
-                                call sus_main("I'd rather not do that right now, [ast_genie_name].",face="angry")
-                            #Hint
-                            $ wardrobe_fail_hint(sus_requirements["unequip_underwear"])
-                            return
-                    if char_active.get_equipped("panties"):
-                        if arg.id == char_active.get_equipped("panties").id:
-                            if wardrobe_chitchats:
-                                call sus_main("I can't do that...",face="angry")
-                            #Hint
-                            $ wardrobe_fail_hint(sus_requirements["unequip_underwear"])
-                            return
-                if sus_whoring < arg.level:
-                    call .too_much
-                    return
-            else:
-                if sus_whoring < sus_requirements["unequip_clothes"]:
-                    if arg.type in ("top", "bottom"):
-                        if char_active.get_equipped("top"):
-                            if arg.id == char_active.get_equipped("top").id:
-                                if wardrobe_chitchats:
-                                    call sus_main("I guess I could... but I'm not going to.",face="annoyed")
-                                #Hint
-                                $ wardrobe_fail_hint(sus_requirements["unequip_clothes"])
-                                return
-                        if char_active.get_equipped("bottom"):
-                            if arg.id == char_active.get_equipped("bottom").id:
-                                if wardrobe_chitchats:
-                                    call sus_main("Hey, that's a great idea... but not in this universe.",face="angry")
-                                #Hint
-                                $ wardrobe_fail_hint(sus_requirements["unequip_clothes"])
-                                return
+    ### Examples
+    # if what == "head":
+    #     sus "Rawrrrr, pet me master. :3"
+    # elif what == "breasts":
+    #     sus "Yes, squeeze my slutty tits, [genie_name]!"
+    # elif what == "vagina":
+    #     sus "Grab me by the pussy!"
+    return
 
-                label .too_much:
-                if sus_whoring < arg.level:
-                    if wardrobe_chitchats:
-                        $ random_number = renpy.random.randint(1, 3)
-                        if random_number == 1:
-                            call sus_main("Nuh uh, I'm not putting that on.",face="annoyed")
-                        elif random_number == 2:
-                            call sus_main("*Pfff* You want me to wear that? In your dreams old man...",face="annoyed")
-                        else:
-                            call sus_main("Don't be such a creep, thanks but no thanks.",face="annoyed")
-                    #Hint
-                    $ wardrobe_fail_hint(arg.level)
-                    return
+label sus_reaction_touch_fail(what):
+    if what == "head":
+        $ mouse_slap()
 
-                # Blacklist support
-                if arg.blacklist:
-                    if sus_whoring < sus_requirements["unequip_underwear"] and any(x in arg.blacklist for x in ("bra", "panties")):
-                        call sus_main("How am I supposed to wear my underwear with this?!", face="angry")
-                        call sus_main("I guess I could take it off for now...", face="annoyed")
-                    elif sus_whoring < sus_requirements["unequip_clothes"] and any(x in arg.blacklist for x in ("top", "bottom")):
-                        call sus_main("This looks stupid!", face="angry")
-                        call sus_main("...", face="annoyed")
-                        call sus_main("J-just give me that!", face="angry")
-                        call sus_main("", face="annoyed")
+        sus "*Eeek!*"
+        sus "I'm sorry sir, you scared me..."
+        m "(Poor thing isn't used to human touch...)"
 
-    $ renpy.play('sounds/equip.ogg')
-    $ current_item = arg
-    if isinstance(current_item, DollCloth) and current_item.type != "hair" and char_active.is_equipped(current_item.type) and char_active.get_equipped(current_item.type) == current_item:
-        $ char_active.unequip(current_item.type)
-        $ current_item = None
-    else:
-        $ char_active.equip(current_item)
+    elif what == "breasts":
+        $ mouse_slap()
 
-    # Blacklist fallbacks
-    if sus_whoring < sus_requirements["unequip_underwear"]:
+        sus "Please don't bully me sir..."
 
-        $ underwear_pass = True
+    elif what == "vagina":
+        $ mouse_slap()
 
-        if not "bra" in char_active.blacklist and not char_active.is_equipped("bra"):
-            $ underwear_pass = False
-            $ char_active.equip(sus_bra_base1)
+        sus "No! Please don't make me do this in front of everyone again..."
+        m "Do what?"
+        sus "N-nothing, sir, forgive me."
+        m "(...)"
 
-        if not char_active.is_equipped("panties") and not "panties" in char_active.blacklist:
-            $ underwear_pass = False
-            $ char_active.equip(sus_panties_base1)
+    return
 
-        if not underwear_pass:
-            call sus_main("I'm glad to have my underwear back.", face="annoyed")
+label sus_reaction_equip(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     sus "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+    return
 
-    if sus_whoring < sus_requirements["unequip_clothes"]:
-        $ clothes_pass = True
+label sus_reaction_equip_fail(item):
+    ### Add specific clothing reactions here.
+    # if item == <DollCloth Object>:
+    #     sus "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
 
-        if not "top" in char_active.blacklist and not char_active.is_equipped("top"):
-            $ clothes_pass = False
-            $ char_active.equip(sus_top_school1)
+    sus "I-I..."
+    m "You don't like it?"
+    sus "It's not like t-that, I just..."
+    m "Not comfortable wearing it?"
+    sus "*Uh-huh*"
+    m "Okay, maybe later then."
 
-        if not char_active.is_equipped("bottom") and not "bottom" in char_active.blacklist:
-            $ clothes_pass = False
-            $ char_active.equip(sus_bottom_school1)
+    return
 
-        if not clothes_pass:
-            call sus_main("I missed my old clothes so much, thanks!", face="happy")
+label sus_reaction_unequip(item):
+    ### Example
+    # if item.type == "panties":
+    #    if sus_whoring > 15:
+    #        sus "You want to see my snatch?"
+    #        sus "You got it [genie_name]!"
+    #
+    return
+
+label sus_reaction_unequip_fail(item):
+    if item.type == "panties":
+        sus "I'm n-not comfortable with that, sir..."
+
+    elif item.type == "bra":
+        sus "P-please I don't want to.."
+
+    elif item.type == "top":
+        sus "I don't know if this is a good idea..."
+        m "You have nothing to be ashamed of."
+        sus "S-Sorry but no..."
+
+    elif item.type == "bottom":
+        sus "I don't want to..."
+        m "It's okay, we'll work on your confidence first."
+        sus "Thank you..."
+    return
+
+label sus_reaction_equip_outfit(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     sus "This <specific item description> looks awesome! I'll wear this <specific item description> with pride!"
+
+    # TODO: Blacklist fallbacks have to be added.
+    return
+
+label sus_reaction_equip_outfit_fail(item):
+    ### Add specific Outfit reactions here.
+    # if item == <DollOutfit Object>:
+    #     sus "I won't wear <specific item description> because!"
+    # else:
+    # <indent code below to be used as a fallback>
+
+    sus "Oh wow it's..."
+    m "You like it? How about you wear it?"
+    sus "I couldn't, I..."
+    m "(Perhaps it was a little too soon for that.)"
+
+    return
+
+label sus_reaction_blacklist(item):
+    sus "B-but..."
+    m "But what?"
+
+    if "top" in item.blacklist and susan.is_worn("top"):
+        sus "I would feel cold without my top..."
+
+    if "bottom" in item.blacklist and susan.is_worn("bottom"):
+        sus "I can't t-take off my skirt."
+        m "Can't or won't?"
+        sus "Won't..."
+
+    if "bra" in item.blacklist and susan.is_worn("bra"):
+        m "Let me guess, you aren't comfortable without a bra?"
+        sus "*uh-huh*"
+
+    if "panties" in item.blacklist and susan.is_worn("panties"):
+        sus "The panties are e-essential for me..."
+
+    m "How about just giving it a try?"
+    m "If you don't like it you can always change back, that okay?"
+    sus "Alright..."
+
     return

@@ -317,9 +317,9 @@ init python:
             """Takes string cloth type. Returns a list of clothing types that report incompatibility."""
             return [x[0].type for x in self.clothes.itervalues() if x[0] and type in x[0].blacklist]
 
-        def create_outfit(self):
+        def create_outfit(self, temp=False):
             """Creates a copy of the current character clothes and stores it."""
-            return DollOutfit([x[0] for x in self.clothes.itervalues() if x[0]], True)
+            return DollOutfit([x[0] for x in self.clothes.itervalues() if x[0]], True, temp=temp)
 
         def import_outfit(self, path, fromfile=True):
             """Imports outfit from .png file or clipboard text."""

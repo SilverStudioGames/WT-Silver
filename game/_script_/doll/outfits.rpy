@@ -1,6 +1,6 @@
 init python:
     class DollOutfit(DollMethods):
-        def __init__(self, group, unlocked=False, name="", desc="", price=0):
+        def __init__(self, group, unlocked=False, name="", desc="", price=0, temp=False):
             self.group = [x.clone() if not x.parent else x for x in group]
             self.name = name
             self.desc = desc
@@ -9,22 +9,33 @@ init python:
             self.unlocked = unlocked
             self.schedule = {"day": False, "night": False, "cloudy": False, "rainy": False, "snowy": False}
             self.hash = self.generate_hash()
+            self.temp = temp
 
-            if unlocked:
-                self.unlock()
+            if not self.temp:
 
-            # Append to character outfits list
-            self.char.outfits.append(self)
+                if unlocked:
+                    self.unlock()
 
-            self.rebuild_image()
+                if not self in self.char.outfits:
+                    self.char.outfits.append(self)
+
+                self.rebuild_image()
 
         def __del__(self):
             print("Outfit with hash: {} has been garbage collected.".format(self.hash))
 
+        def __eq__(self, obj):
+            if not isinstance(obj, DollOutfit):
+                return NotImplemented
+            return self.hash == obj.hash
+
+        def generate_hash(self):
+            salt = str( sorted([ sorted([x.name, x.type, x.id, x.color]) for x in self.group ]) )
+            return hash(salt)
+
         def delete(self):
             if self in self.char.outfits:
                 self.char.outfits.remove(self)
-            del self
 
         def build_image(self):
             masks = []
@@ -79,15 +90,8 @@ init python:
                     self.cached = True
             return self.sprite
 
-        def generate_hash(self):
-            salt = str( [(x.name, x.type, x.id, x.color) for x in self.group] )
-            return hash(salt)
-
         def exists(self):
-            for i in self.char.outfits:
-                if i.unlocked and not i == self and i.hash == self.hash:
-                    return True
-            return False
+            return (self in self.char.outfits)
 
         def export_data(self, filename, tofile=True):
             """Exports outfit to .png file or clipboard text."""

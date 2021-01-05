@@ -152,12 +152,10 @@ label studio(char):
         last_girl = active_girl
         last_face = last_char.get_face()
 
-        studio.choices = studio.get_choices()
         studio.faces = studio.get_faces()
+        studio.choices = studio.get_choices()
         char_active.set_face(**studio.get_face(active_girl))
         studio.drags = studio.get_drags()
-
-
 
     call screen studio
 
