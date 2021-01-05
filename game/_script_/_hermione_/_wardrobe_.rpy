@@ -123,7 +123,7 @@ default her_neckwear_maid1 = DollCloth("hermione", ("head", "neckwear"), "neckwe
 default her_neckwear_maid2 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "maid_choker_2", [[236, 243, 244, 255]], level=4)
 default her_gloves_maid1 = DollCloth("hermione", ("upper body", "gloves"), "gloves", "maid_gloves_1", [[40, 51, 61, 255], [236, 243, 244, 255], [53, 63, 84, 255]], level=4)
 
-default her_outfit_maid = DollOutfit([her_hair_base, her_top_maid1, her_stockings_maid1, her_hat_maid1, her_neckwear_maid1, her_neckwear_maid2, her_gloves_maid1], price=450, name="French Maid Costume", desc="A classic Maids Outfit for a classy Witch.")
+default her_outfit_maid = DollOutfit([her_hair_base, her_top_maid1, her_stockings_maid1, her_hat_maid1, her_neckwear_maid1, her_neckwear_maid2, her_gloves_maid1, her_panties_base1, her_bra_base1], price=450, name="French Maid Costume", desc="A classic Maids Outfit for a classy Witch.")
 
 ##################
 ## Poker Outfit ##
@@ -165,7 +165,7 @@ default her_earring_pearls1 = DollCloth("hermione", ("head", "earrings"), "earri
 default her_neckwear_pearls1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "ball_pearls_1", [[233, 166, 253, 255]], level=4)
 default her_accessory_ball_sash1 = DollCloth("hermione", ("misc", "accessory"), "accessory4", "ball_sash", [[247, 222, 231, 255], [161, 82, 159, 255]], zorder=16, level=4)
 
-default her_outfit_ball = DollOutfit([her_hair_updo, her_neckwear_pearls1, her_top_ball1, her_earring_pearls1, her_accessory_ball_sash1], price=1000, name="Classy Ball Dress", desc="A fancy dress for a fancy witch.")
+default her_outfit_ball = DollOutfit([her_hair_updo, her_neckwear_pearls1, her_top_ball1, her_earring_pearls1, her_accessory_ball_sash1, her_panties_base1], price=1000, name="Classy Ball Dress", desc="A fancy dress for a fancy witch.")
 
 #####################
 ## Yennefer Outfit ##
@@ -204,7 +204,7 @@ default her_top_bioshock = DollCloth("hermione", ("upper body", "other"), "top",
 default her_neckwear_bioshock = DollCloth("hermione", ("head", "neckwear"), "neckwear", "bioshock_choker", [[12, 1, 72, 255]], level=4)
 default her_robe_bioshock = DollCloth("hermione", ("upper body", "robes"), "robe", "bioshock_robe", [[12, 1, 72, 255], [232, 232, 232, 255]], level=4)
 
-default her_outfit_bioshock = DollOutfit([her_hair_bioshock, her_robe_bioshock, her_bottom_bioshock, her_top_bioshock, her_neckwear_bioshock], price=400, name="Elizabeth Costume", desc="Flick some coins for this shockingly inspirational outfit.")
+default her_outfit_bioshock = DollOutfit([her_hair_bioshock, her_robe_bioshock, her_bottom_bioshock, her_top_bioshock, her_neckwear_bioshock, her_panties_base1], price=400, name="Elizabeth Costume", desc="Flick some coins for this shockingly inspirational outfit.")
 
 ##############
 ## Swimsuit ##
@@ -259,7 +259,7 @@ default her_accessory_tifa_suspenders = DollCloth("hermione", ("misc", "accessor
 default her_gloves_tifa = DollCloth("hermione", ("upper body", "gloves"), "gloves", "tifa_gloves", [[72, 63, 70, 255], [228, 107, 98, 255], [125, 120, 127, 255], [189, 167, 158, 255]], level=4)
 default her_bottom_tifa = DollCloth("hermione", ("lower body", "skirts"), "bottom", "tifa_skirt", [[72, 63, 70, 255]], level=10)
 
-default her_outfit_tifa = DollOutfit([her_hair_base, her_top_tifa, her_accessory_tifa_belt, her_accessory_tifa_suspenders, her_gloves_tifa, her_bottom_tifa], price=400, name="Tifa Costume", desc="An outfit for when your sexual fantasies are just getting started.")
+default her_outfit_tifa = DollOutfit([her_hair_base, her_top_tifa, her_accessory_tifa_belt, her_accessory_tifa_suspenders, her_gloves_tifa, her_bottom_tifa, her_panties_base1], price=400, name="Tifa Costume", desc="An outfit for when your sexual fantasies are just getting started.")
 
 #######################
 ## Ms. Marvel Outfit ##
@@ -296,7 +296,7 @@ default her_bottom_croft = DollCloth("hermione", ("lower body", "shorts"), "bott
 default her_accessory_croft_belt = DollCloth("hermione", ("misc", "accessory"), "accessory3", "croft_belt", [[111, 86, 66, 255], [116, 123, 114, 255], [252, 192, 4, 255]], level=4)
 default her_accessory_croft_suspenders = DollCloth("hermione", ("misc", "accessory"), "accessory4", "croft_suspenders", [[111, 86, 66, 255], [116, 123, 114, 255]], zorder=16, level=4)
 
-default her_outfit_croft = DollOutfit([her_hair_base, her_top_croft, her_bottom_croft, her_accessory_croft_belt, her_accessory_croft_suspenders], price=400, name="Lora Craft Costume", desc="An outfit perfectly suited for exploring deep, dark and moist caverns.\n{size=-4}Disclaimer: This outfit has no association with a character known as Lara Croft. Totally.{/size}")
+default her_outfit_croft = DollOutfit([her_hair_base, her_top_croft, her_bottom_croft, her_accessory_croft_belt, her_accessory_croft_suspenders, her_panties_base1], price=400, name="Lora Craft Costume", desc="An outfit perfectly suited for exploring deep, dark and moist caverns.\n{size=-4}Disclaimer: This outfit has no association with a character known as Lara Croft. Totally.{/size}")
 
 ##################
 ## Witch Outfit ##
@@ -383,8 +383,8 @@ default her_bottom_cheerleader2 = DollCloth("hermione", ("lower body", "skirts")
 
 default her_gloves_cheerleader = DollCloth("hermione", ("upper body", "gloves"), "gloves", "cheerleader_armband", [[167, 77, 42, 255], [237, 179, 14, 255]])
 
-default her_outfit_cheerleader_1 = DollOutfit([her_hair_base, her_top_cheerleader1, her_bottom_cheerleader1, her_gloves_cheerleader], price=450, name="Gryffindor Cheerleader", desc="So daring and bold, sporting red and gold!")
-default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleader2, her_bottom_cheerleader2], price=650, name="Gryffindor Cheerleader Plus", desc="For when your teammates need an extra push.")
+default her_outfit_cheerleader_1 = DollOutfit([her_hair_base, her_top_cheerleader1, her_bottom_cheerleader1, her_gloves_cheerleader, her_panties_base1, her_bra_base1], price=450, name="Gryffindor Cheerleader", desc="So daring and bold, sporting red and gold!")
+default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleader2, her_bottom_cheerleader2, her_panties_base1, her_bra_base1], price=650, name="Gryffindor Cheerleader Plus", desc="For when your teammates need an extra push.")
 
 ##########
 ## MISC ##

@@ -75,6 +75,21 @@ default cho_robe_school_3 = DollCloth("cho", ("upper body", "robes"), "robe", "r
 default cho_outfit_last = DollOutfit([cho_hair_ponytail1])
 default cho_outfit_default = DollOutfit([cho_hair_ponytail1, cho_top_school1, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_house], True)
 
+########################
+## Cheerleader Outfit ##
+########################
+
+#default cho_hair_pigtails = DollCloth("cho", ("head", "hair"), "hair", "pigtails", [[52, 59, 80, 255], [70, 90, 147, 255], [242, 162, 73, 255]], level=8)
+default cho_earring_snitch = DollCloth("cho", ("head", "earrings"), "earrings", "snitch", [[220, 220, 221, 255], [213, 161, 13, 255]])
+default cho_stockings_quid1 = DollCloth("cho", ("legwear", "socks"), "stockings", "quid1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10)
+default cho_panties_sport2 = DollCloth("cho", ("lower undergarment", "panties"), "panties", "sport_panties_2", [[156, 204, 249, 255]], level=4)
+default cho_bra_sports1 = DollCloth("cho", ("upper undergarment", "bras"), "bra", "sport_bra_1", [[156, 204, 249, 255]], unlocked=True)
+default cho_top_quid1 = DollCloth("cho", ("upper body", "shirts"), "top", "top_quid_1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10)
+default cho_bottom_quid1 = DollCloth("cho", ("lower body", "skirts"), "bottom", "quid_skirt_1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10, armfix=True)
+default cho_makeup0_blush = DollCloth("cho", ("makeup", "blush"), "makeup0", "blush", [[238, 113, 196, 255]], level=2)
+
+default cho_outfit_cheerleader = DollOutfit([cho_hair_ponytail1, cho_earring_snitch, cho_stockings_quid1, cho_panties_sport2, cho_bra_sports1, cho_bottom_quid1, cho_top_quid1, cho_makeup0_blush], price=500, name="Ravenclaw Cheerleader Outfit", desc="Ravenclaw! Ravenclaw!")
+
 ##################
 ## Misty Outfit ##
 ##################
@@ -83,7 +98,7 @@ default cho_top_shirt1 = DollCloth("cho", ("upper body", "shirts"), "top", "top_
 default cho_bottom_shorts3 = DollCloth("cho", ("lower body", "shorts"), "bottom", "pants_short_3", [[47, 150, 136, 255], [175, 220, 191, 255], [247, 152, 38, 255]], level=10, armfix=True)
 default cho_accessory3_suspenders = DollCloth("cho", ("misc", "accessory"), "accessory3", "suspenders", [[137, 22, 17, 255], [229, 140, 33, 255]])
 
-default cho_outfit_misty = DollOutfit([cho_hair_ponytail1, cho_accessory3_suspenders, cho_top_shirt1, cho_bottom_shorts3], price=500, name="Misty Costume", desc="For trainers that want to be the very best! To train them is your cause!")
+default cho_outfit_misty = DollOutfit([cho_hair_ponytail1, cho_accessory3_suspenders, cho_top_shirt1, cho_bottom_shorts3, cho_panties_sport2], price=500, name="Misty Costume", desc="For trainers that want to be the very best! To train them is your cause!")
 
 ##################
 ## Party Outfit ##
@@ -113,7 +128,7 @@ default cho_top_j_school1 = DollCloth("cho", ("upper body", "shirts"), "top", "t
 default cho_bottom_j_skirt1 = DollCloth("cho", ("lower body", "skirts"), "bottom", "j_school_skirt_1", [[161, 161, 164, 255]], level=4, armfix=True)
 default cho_stockings_j_kneehigh1 = DollCloth("cho", ("legwear", "socks"), "stockings", "kneehigh", [[253, 254, 250, 255]], level=0)
 
-default cho_outfit_j_school = DollOutfit([cho_hair_ponytail1, cho_top_j_school1, cho_bottom_j_skirt1, cho_stockings_j_kneehigh1], price=300, name="Japanese School Uniform", desc="A school girl uniform inspired by the land of culture.")
+default cho_outfit_j_school = DollOutfit([cho_hair_ponytail1, cho_top_j_school1, cho_bottom_j_skirt1, cho_stockings_j_kneehigh1, cho_panties_basic1, cho_bra_basic1], price=300, name="Japanese School Uniform", desc="A school girl uniform inspired by the land of culture.")
 
 ###################
 ## Bikini Outfit ##
@@ -144,21 +159,6 @@ default cho_outfit_lacelingerie = DollOutfit([cho_hair_ponytail1, cho_neckwear_l
 default cho_top_dress1 = DollCloth("cho", ("upper body", "dresses"), "top", "dress_1", [[231, 29, 41, 255], [242, 162, 73, 255]], armfix=True, level=12, blacklist=["bottom"])
 
 default cho_outfit_dress1 = DollOutfit([cho_hair_ponytail1, cho_top_dress1, cho_panties_basic1, cho_bra_basic1], price=500, name="Traditional Chinese Dress", desc="A traditional dress inspired by Chinese culture.")
-
-########################
-## Cheerleader Outfit ##
-########################
-
-#default cho_hair_pigtails = DollCloth("cho", ("head", "hair"), "hair", "pigtails", [[52, 59, 80, 255], [70, 90, 147, 255], [242, 162, 73, 255]], level=8)
-default cho_earring_snitch = DollCloth("cho", ("head", "earrings"), "earrings", "snitch", [[220, 220, 221, 255], [213, 161, 13, 255]])
-default cho_stockings_quid1 = DollCloth("cho", ("legwear", "socks"), "stockings", "quid1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10)
-default cho_panties_sport2 = DollCloth("cho", ("lower undergarment", "panties"), "panties", "sport_panties_2", [[156, 204, 249, 255]], level=4)
-default cho_bra_sports1 = DollCloth("cho", ("upper undergarment", "bras"), "bra", "sport_bra_1", [[156, 204, 249, 255]], unlocked=True)
-default cho_top_quid1 = DollCloth("cho", ("upper body", "shirts"), "top", "top_quid_1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10)
-default cho_bottom_quid1 = DollCloth("cho", ("lower body", "skirts"), "bottom", "quid_skirt_1", [[64, 84, 141, 255], [213, 161, 13, 255]], level=10, armfix=True)
-default cho_makeup0_blush = DollCloth("cho", ("makeup", "blush"), "makeup0", "blush", [[238, 113, 196, 255]], level=2)
-
-default cho_outfit_cheerleader = DollOutfit([cho_hair_ponytail1, cho_earring_snitch, cho_stockings_quid1, cho_panties_sport2, cho_bra_sports1, cho_bottom_quid1, cho_top_quid1, cho_makeup0_blush], price=500, name="Ravenclaw Cheerleader Outfit", desc="Ravenclaw! Ravenclaw!")
 
 ####################
 ## Trainee Outfit ##

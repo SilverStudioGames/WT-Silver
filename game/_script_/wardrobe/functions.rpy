@@ -6,11 +6,15 @@ init python:
             return ton_friendship
         return getattr(store, "{}_whoring".format(key[:3]))
 
-    def get_character_requirement(char, type):
-        return getattr(renpy.store, char[:3]+"_requirements").get(type, 0)
+    def get_character_requirement(key, type):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return getattr(renpy.store, key[:3]+"_requirements").get(type, 0)
 
-    def get_character_response(char, type):
-        return getattr(renpy.store, char[:3]+"_responses").get(type)
+    def get_character_response(key, type):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return getattr(renpy.store, key[:3]+"_responses").get(type)
 
     def get_character_object(key):
         if not key in CHARACTERS:
@@ -21,6 +25,26 @@ init python:
         if not key in CHARACTERS:
             raise KeyError("'{}' character is undefined.".format(key))
         return getattr(store, "{}_outfit_{}".format(key[:3], type))
+
+    def get_character_outfit_req(key, item):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+
+        if not isinstance(item, DollOutfit):
+            raise TypeError("'{}' is not a DollOutfit instance.".format(item))
+
+        req = max((i.level for i in item.group))
+        flag = get_character_progression(key)
+
+        has_bra = any(i.type == "bra" for i in item.group)
+        has_panties = any(i.type == "panties" for i in item.group)
+
+        if not has_bra:
+            req = max(req, wardrobe_check_category("upper undergarment"))
+
+        if not has_panties:
+            req = max(req, wardrobe_check_category("lower undergarment"))
+        return req
 
     def get_character_outfit_hash(key):
         ### Untested ###

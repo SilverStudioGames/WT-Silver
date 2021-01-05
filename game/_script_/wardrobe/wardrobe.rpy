@@ -450,6 +450,9 @@ screen wardrobe_menuitem(xx, yy):
                         if is_blacklisted or is_blacklister:
                             text "!" color "#b20000"
 
+                        if config.developer:
+                            text "\nReq. {}".format(item.level) size 10 color "#00ffff" outlines [(1, "#000000", 1, 1)]
+
                     # Bottom-Right
                     if is_equipped:
                         add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
