@@ -33,18 +33,16 @@ init python:
         if not isinstance(item, DollOutfit):
             raise TypeError("'{}' is not a DollOutfit instance.".format(item))
 
-        req = max((i.level for i in item.group))
-        flag = get_character_progression(key)
-
+        req = ["{}: {}".format(i.type, i.level) for i in item.group]
         has_bra = any(i.type == "bra" for i in item.group)
         has_panties = any(i.type == "panties" for i in item.group)
 
         if not has_bra:
-            req = max(req, wardrobe_check_category("upper undergarment"))
+            req += ["NO BRA: {}".format(get_character_requirement(key, "category upper undergarment"))]
 
         if not has_panties:
-            req = max(req, wardrobe_check_category("lower undergarment"))
-        return req
+            req += ["NO PANTIES: {}".format(get_character_requirement(key, "category lower undergarment"))]
+        print "\n".join(req)
 
     def get_character_outfit_hash(key):
         ### Untested ###
