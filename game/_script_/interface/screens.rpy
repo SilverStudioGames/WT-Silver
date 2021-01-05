@@ -1,4 +1,4 @@
-screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), background="#00000080"):
+screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), background="#00000080", style="empty"):
     modal True
     default visible = False
     default icon = "▾"
@@ -10,7 +10,7 @@ screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), backgr
         style "empty"
         pos pos
         textbutton "[name] {unicode}{size=+1}[icon]{/size}{/unicode}":
-            style "empty"
+            style style
             ysize 24
             text_yalign 0.5
             text_size 12

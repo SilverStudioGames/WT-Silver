@@ -202,14 +202,14 @@ init python:
                 sprites.append(imagepath+"/game/characters/"+char+"/face/mouth/"+args["mouth"]+".webp")
 
                 # Hair
-                sprites.extend(hair.get_back())
+                sprites.append(hair.get_back())
                 if hair.back_outline:
                     sprites.append(hair.back_outline)
                 sprites.append(hair.get_image())
 
                 sprites = tuple(itertools.chain.from_iterable(((0,0), x) for x in sprites))
 
-                self.changes[file][line][4] =  At(Crop(box, Composite((1010, 1200), *sprites)), Transform(zoom=0.5))
+                self.changes[file][line][4] = At(Crop(box, Composite((1010, 1200), *sprites)), Transform(zoom=0.5))
             return self.changes[file][line][4]
 
         def set_expressions(self):
@@ -281,6 +281,7 @@ screen editor():
     layer "interface"
     tag editor
     zorder 0
+    style_prefix "editor"
 
     default minimised = False
     default minimised_history = False
@@ -296,6 +297,7 @@ screen editor():
             drag_handle (0, 0, 1.0, 26)
             pos (50, 50)
             frame:
+                background "#00000080"
                 xysize (frame_size if not minimised else (250, 28))
                 button action NullAction() style "empty" xysize (frame_size if not minimised else (250, 28)) ypos 18
 
@@ -320,26 +322,26 @@ screen editor():
                         textbutton "Reload" action Function(_reload_game) xanchor 1.0 align (1.0, 1.0)
 
                         if not False in (editor.args["pupils"], editor.args["eyebrows"], editor.args["eyes"], editor.args["mouth"]):
-                            use dropdown_menu(name="Tears: "+str(editor.args["tears"]), pos=(0, 140), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Tears: "+str(editor.args["tears"]), pos=(0, 140), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("tears"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["tears"])), Function(editor.set_data, "tears", i)]
-                            use dropdown_menu(name="Cheeks: "+str(editor.args["cheeks"]), pos=(0, 120), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Cheeks: "+str(editor.args["cheeks"]), pos=(0, 120), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("cheeks"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["cheeks"])), Function(editor.set_data, "cheeks", i)]
                             if editor.label == "ton_main":
-                                use dropdown_menu(name="Hair: "+str(editor.args["hair"]), pos=(0, 100), items_offset=(0, 0), background="#FFFFFF80"):
+                                use dropdown_menu(name="Hair: "+str(editor.args["hair"]), pos=(0, 100), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                     for i in editor.get_expressions("hair"):
                                         textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["hair"])), Function(editor.set_data, "hair", i)]
-                            use dropdown_menu(name="Pupils: "+str(editor.args["pupils"]), pos=(0, 80), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Pupils: "+str(editor.args["pupils"]), pos=(0, 80), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("pupils"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["pupils"])), Function(editor.set_data, "pupils", i)]
-                            use dropdown_menu(name="Eyebrows: "+str(editor.args["eyebrows"]), pos=(0, 60), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Eyebrows: "+str(editor.args["eyebrows"]), pos=(0, 60), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("eyebrows"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["eyebrows"])), Function(editor.set_data, "eyebrows", i)]
-                            use dropdown_menu(name="Eyes: "+str(editor.args["eyes"]), pos=(0, 40), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Eyes: "+str(editor.args["eyes"]), pos=(0, 40), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("eyes"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["eyes"])), Function(editor.set_data, "eyes", i)]
-                            use dropdown_menu(name="Mouth: "+str(editor.args["mouth"]), pos=(0, 20), items_offset=(0, 0), background="#FFFFFF80"):
+                            use dropdown_menu(name="Mouth: "+str(editor.args["mouth"]), pos=(0, 20), items_offset=(0, 0), background="#333333E6", style="editor_button"):
                                 for i in editor.get_expressions("mouths"):
                                     textbutton "[i]" text_size 10 action [SelectedIf(i==str(editor.args["mouth"])), Function(editor.set_data, "mouth", i)]
                         else:
@@ -355,6 +357,7 @@ screen editor():
             drag_handle (0, 0, 1.0, 26)
             pos (300, 50)
             frame:
+                background "#00000080"
                 xysize (frame_size if not minimised_history else (250, 28))
                 button action NullAction() style "empty" xysize (frame_size if not minimised_history else (250, 28)) ypos 18
 
@@ -409,3 +412,11 @@ screen editor():
                                 vbar value YScrollValue("editor_history") xsize 10
                     else:
                         text "No history." size 15 color "#FFF" align (0.5, 0.5) outlines [(1, "#00000080", 1, 0)]
+
+style editor_button is empty:
+    margin (3, 3)
+
+style editor_button_text:
+    color "#cccccc"
+    hover_color "#ffffff"
+    outlines [(1, "#00000080", 1, 0)]
