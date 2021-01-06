@@ -97,11 +97,11 @@ label cho_reaction_unequip(item):
 
 label cho_reaction_unequip_fail(item):
     if item.type == "panties":
-        cho "I can't be taking off my panties [cho_genie_name]."
-        cho "It would cause a serious case of chafing during my trainings."
+        cho "You want me to take off my underwear?"
+        cho "How is that supposed to help with my training exactly?"
 
     elif item.type == "bra":
-        cho "I may not have breasts as big as that Gryffindor cow but that does not mean I'll accept everything, [cho_genie_name]."
+        cho "I bet that Gryffindor cow happily shows you her tits but that doesn't mean I will..."
 
     elif item.type == "top":
         cho "I'm sorry if you don't like my choice of clothes, [cho_genie_name]..." # Sarcastic
