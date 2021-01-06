@@ -45,66 +45,87 @@ label her_reaction_category_fail(category):
         elif random_number == 3:
             call her_main("[genie_name], I don't believe this was part of our arrangement...", "base", "base", "base", "mid")
     elif category == "piercings & tattoos":
-        if her_whoring < 6: #under naked level
-            call her_main("You want me to what?", "base", "base", "base", "mid")
-            call her_main("I will not put such things on my body...", "base", "base", "base", "mid")
-        elif her_whoring < 12:
-            call her_main("You can look all you want but I will not have such things done to my body...", "base", "base", "base", "mid")
-        else: #Under 16
+        if her_whoring >= 12:
             call her_main("*Ehm*... Do I have to?", "base", "base", "base", "mid")
             call her_main("Isn't it supposed to hurt?", "base", "base", "base", "mid")
+        elif her_whoring >= 6:
+            call her_main("You can look all you want but I will not have such things done to my body...", "base", "base", "base", "mid")
+        else:
+            #under naked level
+            call her_main("You want me to what?", "base", "base", "base", "mid")
+            call her_main("I will not put such things on my body...", "base", "base", "base", "mid")
+
     return
 
 label her_reaction_touch(what):
     if what == "head":
         $ mouse_headpat()
-        if her_whoring >= 4: #annoyed but letting you
-            $ random_number = renpy.random.randint(1, 3)
-            if random_number == 1:
-                call her_main("Are you petting me?", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("Did you just...{w=0.4} Whatever...", "base", "base", "base", "mid")
-            elif random_number == 3:
-                call her_main("Why are you doing that?", "base", "base", "base", "mid")
-        elif her_whoring >= 8: #confused
-            $ random_number = renpy.random.randint(1, 3)
-            if random_number == 1:
-                call her_main("*Ehm*... Isn't petting your student a bit weird?", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("Okay then... I guess this is what we're doing now...", "base", "base", "base", "mid")
-            elif random_number == 3:
-                call her_main("Is there something in my hair?", "base", "base", "base", "mid")
-        elif her_whoring >= 12: #enjoying it a bit
-            $ random_number = renpy.random.randint(1, 3)
-            if random_number == 1:
-                call her_main("...", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("I'm only letting you do this because I have to...", "base", "base", "base", "mid")
-            elif random_number == 3:
-                call her_main("*Ehm*... Do you do this to every student?", "base", "base", "base", "mid")
-        elif her_whoring >= 16: #enjoying it
-            $ random_number = renpy.random.randint(1, 3)
-            if random_number == 1:
-                call her_main("I guess I could get used to this...", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("*Hmm*... This does feel kind of nice...", "base", "base", "base", "mid")
-            elif random_number == 3:
-                call her_main("...", "base", "base", "base", "mid")
-        elif her_whoring >= 20: #craving it
-            $ random_number = renpy.random.randint(1, 3)
+        $ random_number = renpy.random.randint(1, 3)
+
+        if her_whoring >= 20:
+            #craving it
             if random_number == 1:
                 call her_main("*Mmm*...", "base", "base", "base", "mid")
             elif random_number == 2:
                 call her_main("Does this mean I've been a good girl, [genie_name]?", "base", "base", "base", "mid")
             elif random_number == 3:
                 call her_main("Thank you [genie_name]...", "base", "base", "base", "mid")
+        elif her_whoring >= 16:
+            #enjoying it
+            if random_number == 1:
+                call her_main("I guess I could get used to this...", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("*Hmm*... This does feel kind of nice...", "base", "base", "base", "mid")
+            elif random_number == 3:
+                call her_main("...", "base", "base", "base", "mid")
+        elif her_whoring >= 12:
+            #enjoying it a bit
+            if random_number == 1:
+                call her_main("...", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("I'm only letting you do this because I have to...", "base", "base", "base", "mid")
+            elif random_number == 3:
+                call her_main("*Ehm*... Do you do this to every student?", "base", "base", "base", "mid")
+        elif her_whoring >= 8:
+            #confused
+            if random_number == 1:
+                call her_main("*Ehm*... Isn't petting your student a bit weird?", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("Okay then... I guess this is what we're doing now...", "base", "base", "base", "mid")
+            elif random_number == 3:
+                call her_main("Is there something in my hair?", "base", "base", "base", "mid")
+        else:
+            #annoyed but letting you
+            if random_number == 1:
+                call her_main("Are you petting me?", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("Did you just...{w=0.4} Whatever...", "base", "base", "base", "mid")
+            elif random_number == 3:
+                call her_main("Why are you doing that?", "base", "base", "base", "mid")
 
     elif what == "breasts":
         $ mouse_heart()
-    #     her "Yes, squeeze my slutty tits, [genie_name]!"
     elif what == "vagina":
         $ mouse_heart()
-        if not hermione.is_worn("bottom", "panties"): #Showing pussy
+
+        if hermione.is_worn("bottom"):
+            # Bottoms only OR Bottoms AND panties
+            $ random_number = renpy.random.randint(1, 3)
+            if random_number == 1:
+                call her_main("Naughty...", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("*Mmm*... Want to see what's underneath do you?", "base", "base", "base", "mid")
+            elif random_number == 3:
+                call her_main("Got your eye on something?", "base", "base", "base", "mid")
+        elif hermione.is_worn("panties"):
+            # Panties only
+            $ random_number = renpy.random.randint(1, 2)
+            if random_number == 1:
+                call her_main("*Mmm*... Shall I take off my panties?", "base", "base", "base", "mid")
+            elif random_number == 2:
+                call her_main("You're going to make my panties wet if you keep doing that...", "base", "base", "base", "mid")
+        else:
+            # NO bottoms AND NO panties
             $ random_number = renpy.random.randint(1, 4)
             if random_number == 1:
                 call her_main("*Ah*...", "base", "base", "base", "mid")
@@ -115,24 +136,8 @@ label her_reaction_touch(what):
             elif random_number == 4:
                 call her_main("Keep going [genie_name]...", "base", "base", "base", "mid")
             ##This could play after touching her enough times this wardrobe session##
-                #call her_main("*Nnngh*...", "base", "base", "base", "mid")
-                #with kissiris
-        elif not hermione.is_worn("bottom") and hermione.is_worn("panties"): # Panties ONLY
-            $ random_number = renpy.random.randint(1, 2)
-            if random_number == 1:
-                call her_main("*Mmm*... Shall I take off my panties?", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("You're going to make my panties wet if you keep doing that...", "base", "base", "base", "mid")
-        else: #clothed
-            $ random_number = renpy.random.randint(1, 3)
-            if random_number == 1:
-                call her_main("Naughty...", "base", "base", "base", "mid")
-            elif random_number == 2:
-                call her_main("*Mmm*... Want to see what's underneath do you?", "base", "base", "base", "mid")
-            elif random_number == 3:
-                call her_main("Got your eye on something?", "base", "base", "base", "mid")
-
-    #     her "Grab me by the pussy!"
+            #call her_main("*Nnngh*...", "base", "base", "base", "mid")
+            #with kissiris
     return
 
 label her_reaction_touch_fail(what):
@@ -214,9 +219,9 @@ label her_reaction_unequip(item):
     return
 
 label her_reaction_unequip_fail(item):
-    if item.type == "panties":
-        $ random_number = renpy.random.randint(1, 3)
+    $ random_number = renpy.random.randint(1, 3)
 
+    if item.type == "panties":
         if random_number == 1:
             call her_main("I'm not gonna flash you anything!", "clench", "narrow", "angry", "mid")
             call her_main("{size=-4}Pervert..{/size}", "annoyed", "narrow", "angry", "R")
@@ -228,8 +233,6 @@ label her_reaction_unequip_fail(item):
             call her_main("", "annoyed", "narrow", "angry", "mid")
 
     elif item.type == "bra":
-        $ random_number = renpy.random.randint(1, 3)
-
         if random_number == 1:
             call her_main("I'm not gonna flash you anything!", "clench", "narrow", "angry", "mid")
             call her_main("{size=-4}Pervert..{/size}", "annoyed", "narrow", "angry", "R")

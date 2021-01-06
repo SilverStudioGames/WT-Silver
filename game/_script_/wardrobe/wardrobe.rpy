@@ -70,7 +70,7 @@ label wardrobe():
             elif current_category == "piercings & tattoos":
                 $ char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
         else:
-            $ wardrobe_react("category_fail", _choice)
+            $ wardrobe_react("category_fail", _choice[1])
 
     elif _choice[0] == "subcategory":
         $ current_subcategory = _choice[1]
