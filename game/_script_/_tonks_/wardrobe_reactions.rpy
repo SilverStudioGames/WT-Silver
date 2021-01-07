@@ -25,28 +25,81 @@ define ton_responses = {
 }
 
 label ton_reaction_category_fail(category):
-    ### Examples
-    # if category == "upper undergarment":
-    #     ton "Not in this century."
-    # elif category == "lower undergarment":
-    #     ton "Not in this millennium!"
-    # elif category == "piercings & tattoos":
-    #     ton "Not in this... Eternity!"
+
+    $ random_number = renpy.random.randint(1, 4)
+    if category == "upper undergarment":
+        if random_number == 1:
+            call ton_main("*Hmm*... You'd like that wouldn't you?", "horny", "narrow", "base", "mid")
+        elif random_number == 2:
+            call ton_main("If you behave maybe I'll let you take a peek later, [ton_genie_name]...", "soft", "narrow", "base", "mid")
+        elif random_number == 3:
+            call ton_main("Patience dear...", "grin", "wink", "raised", "mid")
+        elif random_number == 4:
+            call ton_main("These crystal orbs are yet to predict that I would ever allow you to ask such a thing...", "open", "closed", "shocked", "mid")
+            m "They might just need a good dusting..."
+            call ton_main("Perhaps... But not right now...", "soft", "narrow", "base", "mid")
+    elif category == "lower undergarment":
+        if random_number == 1:
+            call ton_main("You want me to put on underwear? Now that's asking a bit much don't you think?", "crooked_smile", "narrow", "base", "mid")
+        elif random_number == 2:
+            call ton_main("Like the Scottish say, I'd rather let it feel the breeze.", "grin", "narrow", "base", "mid")
+        elif random_number == 3:
+            call ton_main("Underwear? Don't make me laugh...", "base", "base", "base", "down")
+        elif random_number == 4:
+            call ton_main("You'd have to do better than that if you want this kitty to come out and play...", "base", "narrow", "base", "mid")
+    elif category == "piercings & tattoos":
+        if random_number == 1:
+            call ton_main("I decide where such things go...", "open", "base", "base", "mid")
+        elif random_number == 2:
+            call ton_main("You'd like that wouldn't you? I think I'd keep such decisions for myself thank you.", "soft", "base", "base", "R")
+        elif random_number == 3:
+            call ton_main("*Hmm*... I'd be such a bad girl if I let you do that...", "annoyed", "closed", "base", "mid")
+        elif random_number == 4:
+            call ton_main("What would you think of me if I let you do that?", "horny", "narrow", "base", "down")
     return
 
 label ton_reaction_touch(what):
     if what == "head":
         $ mouse_headpat()
-    else:
-        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 5)
 
-    ### Examples
-    # if what == "head":
-    #     ton "Rawrrrr, pet me master. :3"
-    # elif what == "breasts":
-    #     ton "Yes, squeeze my slutty tits, [genie_name]!"
-    # elif what == "vagina":
-    #     ton "Grab me by the pussy!"
+        if random_number == 1:
+            call ton_main("Is this what you do to our students? A bit tame don't you think?", "soft", "narrow", "base", "mid")
+        elif random_number == 2:
+            call ton_main("Surely this is not an appropriate method of rewarding your subordinate...", "horny", "narrow", "base", "R")
+        elif random_number == 3:
+            call ton_main("Does this mean I'm your favourite student?", "grin", "base", "raised", "mid")
+            call ton_main("Teacher, I mean...", "base", "narrow", "base", "downR")
+        elif random_number == 4:
+            call ton_main("How naughty... How could I ever have allowed such indecent behaviour...", "disgust", "narrow", "base", "mid")
+            call ton_main("Don't you dare touch my elbows next...", "soft", "narrow", "base", "mid")
+        elif random_number == 5:
+            call ton_main("Such a weird custom but I'll allow it...", "horny", "closed", "base", "mid")
+    elif what == "breasts":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 4)
+
+        if random_number == 1:
+            call ton_main("*Mmm*...", "base", "narrow", "base", "up")
+        elif random_number == 2:
+            call ton_main("Trying to get put in detention are we?", "grin", "narrow", "base", "mid")
+        elif random_number == 3:
+            call ton_main("*Tsk*... How naughty... And with an employee no less.", "horny", "narrow", "base", "mid")
+        elif random_number == 4:
+            call ton_main("I don't remember this being part of the job description...", "horny", "narrow", "shocked", "down")
+            call ton_main("But I'll look the other way for now...", "grin", "closed", "base", "mid")
+    elif what == "vagina":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 4)
+
+        if random_number == 1:
+            call ton_main("A gentleman usually doesn't kiss on the lips but I'll allow it...", "soft", "closed", "base", "mid")
+        elif random_number == 2:
+            call ton_main("*Hmm*...{w=0.3} Did I feel some tongue? Must've been my imagination...", "horny", "narrow", "base", "down")
+        elif random_number == 3:
+            call ton_main("Is this one part of the extra curricular activities in my work contract?", "grin", "narrow", "raised", "mid")
+        elif random_number == 4:
+            call ton_main("I didn't expect to receive a bonus today... What a nice surprise...", "grin", "narrow", "raised", "mid")
     return
 
 label ton_reaction_touch_fail(what):
@@ -94,7 +147,7 @@ label ton_reaction_touch_fail(what):
         $ random_number = renpy.random.randint(1, 5)
 
         if random_number == 1:
-            call ton_main("You have to to earn it first.",face="annoyed")
+            call ton_main("You have to earn it first.",face="annoyed")
         elif random_number == 2:
             call ton_main("If you'd like to keep these hands intact I suggest you stop it right now, [ton_genie_name].",face="annoyed")
         elif random_number == 3:
@@ -102,7 +155,7 @@ label ton_reaction_touch_fail(what):
         elif random_number == 4:
             call ton_main("That place is reserved for good boys and girls...",face="annoyed",eyebrows="angry",mouth="grin")
         elif random_number == 5:
-            call ton_main("That forest is forbidden entry for first years... let's get to know each other a bit better first...",face="annoyed",eyebrows="angry",mouth="grin")
+            call ton_main("That forest is forbidden entry for first years... Let's get to know each other a bit better first...",face="annoyed",eyebrows="angry",mouth="grin")
 
     return
 
@@ -163,7 +216,15 @@ label ton_reaction_unequip_fail(item):
         m "......"
 
     elif item.type == "bottom":
-        call ton_main("*Mmm*... I like where your head is at, but I have to refuse.",face="annoyed",eyebrows="angry",mouth="grin")
+        $ random_number = renpy.random.randint(1, 4)
+        if random_number == 1:
+            call ton_main("I thought patience came with old age...", "base", "base", "raised", "R")
+        elif random_number == 2:
+            call ton_main("What's the point in that? You already know what's under there don't you?", "soft", "narrow", "base", "mid")
+        elif random_number == 3:
+            call ton_main("You could do with learning some restraint... Perhaps I need to teach you a thing or two...", "grin", "narrow", "base", "mid")
+        elif random_number == 4:
+            call ton_main("Eager are we? Well I can't say I blame you...", "open", "closed", "base", "mid")
     return
 
 label ton_reaction_equip_outfit(item):

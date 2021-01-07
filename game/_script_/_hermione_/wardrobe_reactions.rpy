@@ -25,7 +25,7 @@ define her_responses = {
 }
 
 label her_reaction_category_fail(category):
-    ### Examples
+
     if category == "upper undergarment":
         $ random_number = renpy.random.randint(1, 3)
         if random_number == 1:
