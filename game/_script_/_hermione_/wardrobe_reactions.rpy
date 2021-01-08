@@ -39,7 +39,7 @@ label her_reaction_category_fail(category):
     elif category == "lower undergarment":
         $ random_number = renpy.random.randint(1, 3)
         if random_number == 1:
-            call her_main("I'm not going to let you oogle at my underwear...", "angry", "happy", "angry", "mid")
+            call her_main("I'm not going to let you ogle at my underwear...", "angry", "happy", "angry", "mid")
         elif random_number == 2:
             call her_main("I don't believe there's anything wrong with my current underwear...", "open", "base", "annoyed", "mid")
         elif random_number == 3:
@@ -168,6 +168,7 @@ label her_reaction_touch(what):
             ##This could play after touching her enough times this wardrobe session##
             #call her_main("*Nnngh*...", "base", "base", "base", "mid")
             #with kissiris
+
     return
 
 label her_reaction_touch_fail(what):
@@ -227,13 +228,13 @@ label her_reaction_equip_fail(item):
     $ random_number = renpy.random.randint(1, 5)
 
     if random_number == 1:
-        call her_main("I'm not wearing that.", "annoyed", "base", "angry", "down")
+        call her_main("I am not wearing that...", "annoyed", "base", "angry", "down")
     elif random_number == 2:
-        call her_main("It's too slutty..", "annoyed", "happyCl", "angry", "R")
+        call her_main("Thanks but no thanks...", "annoyed", "happyCl", "angry", "R")
     elif random_number == 3:
-        call her_main("I would look like a tramp, I refuse.", "annoyed", "wide", "angry", "mid")
+        call her_main("You actually think I'd put on something like that?", "annoyed", "wide", "angry", "mid")
     elif random_number == 4:
-        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement..", "open", "narrow", "angry", "L")
+        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement...", "open", "narrow", "angry", "L")
     elif random_number == 5:
         call her_main("This is too much.", "annoyed", "narrow", "angry", "R")
 
@@ -298,13 +299,13 @@ label her_reaction_equip_outfit_fail(item):
     $ random_number = renpy.random.randint(1, 5)
 
     if random_number == 1:
-        call her_main("I'm not wearing that.", "annoyed", "base", "angry", "down")
+        call her_main("I am not wearing that...", "annoyed", "base", "angry", "down")
     elif random_number == 2:
-        call her_main("It's too slutty..", "annoyed", "happyCl", "angry", "R")
+        call her_main("Thanks but no thanks...", "annoyed", "happyCl", "angry", "R")
     elif random_number == 3:
-        call her_main("I would look like a tramp, I refuse.", "annoyed", "wide", "angry", "mid")
+        call her_main("You actually think I'd put on something like that?", "annoyed", "wide", "angry", "mid")
     elif random_number == 4:
-        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement..", "open", "narrow", "angry", "L")
+        call her_main("I'm not some Slytherin skank [genie_name], ask them to humiliate themselves for your amusement...", "open", "narrow", "angry", "L")
     elif random_number == 5:
         call her_main("This is too much.", "annoyed", "narrow", "angry", "R")
 
