@@ -92,7 +92,7 @@ label rum_block(item):
             ">You found a bottle of firewhisky from professor Dumbledore's personal stash..."
         else:
             ">You found [item.name]..."
-            ">[item.description]"
+            ">[item.desc]"
 
         call tutorial("inventory")
 
