@@ -107,7 +107,7 @@ label give_lun_gift(gift_item):
     with d5
     call lun_main(xpos="base",ypos="base",trans=d5)
 
-    jump luna_requests
+    $ renpy.jump_out_of_context("luna_requests")
 
 label lun_mood(value=0):
     show screen blktone

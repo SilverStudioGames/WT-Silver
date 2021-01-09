@@ -509,7 +509,7 @@ label give_ast_gift(gift_item):
 
     call ast_main(xpos="base",ypos="base", trans=d5)
 
-    jump astoria_requests
+    $ renpy.jump_out_of_context("astoria_requests")
 
 
 label ast_mood(value=0):
