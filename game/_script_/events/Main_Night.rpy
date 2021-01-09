@@ -6,6 +6,8 @@ label night_start:
 
     label night_resume:
 
+    $ renpy.choice_for_skipping()
+
     # Favors
     python:
         for i in nt_requests_list:

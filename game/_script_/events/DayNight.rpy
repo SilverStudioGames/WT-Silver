@@ -10,6 +10,8 @@ label defer_daytime_change(set_daytime):
     return
 
 label common_start(set_daytime):
+    $ renpy.choice_for_skipping()
+
     show screen blkfade
     with dissolve
 
