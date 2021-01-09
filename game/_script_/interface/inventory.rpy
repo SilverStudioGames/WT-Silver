@@ -10,6 +10,8 @@ init python:
             item = sorted(item, key=lambda x: x.name)
         return item
 
+default inventory_mode = 0 # 0 - Inventory, 1 - gifts
+
 ####################################
 ############# Menu #################
 ####################################
@@ -76,6 +78,13 @@ label inventory_menu(xx=150, yy=90):
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = None
+    elif _return == "use":
+        $ current_item.use
+    elif _return == "give":
+        hide screen inventory
+        $ renpy.call(get_character_gift_label(active_girl), current_item)
+        show screen inventory(xx, yy)
+        with d3
     else:
         hide screen inventory
         return
@@ -201,17 +210,9 @@ screen inventory_menuitem(xx, yy):
                     if current_category == "Gifts":
                         if menu_items[i].owned > 0:
                             text str(menu_items[i].owned) size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
-                        #else:
-                            #text str(menu_items[i].owned) size 10 align (0.9, 0.9) color "#FFFFFF80" outlines [ (1, "#00000080", 0, 0) ]
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24
-
-        # Add empty items
-        #for i in xrange(menu_items_length, items_shown):
-            #$ row = (i // 9) % 4
-            #$ col = i % 9
-            #button xsize 48 ysize 48 style "empty" background "#00000033" xpos 24+58*(col) ypos 113+58*(row)
 
         if current_item:
             frame:
@@ -235,14 +236,25 @@ screen inventory_menuitem(xx, yy):
                 xalign 0.5
                 text current_item.name ypos 380 size 16 xoffset 45
 
-            if current_item.usable and current_item.owned > 0:
+            if inventory_mode == 0 and current_item.usable:
                 textbutton "Use":
                     xysize (90, 26)
                     xalign 0.89
                     xoffset 45
                     ypos 374
                     text_size 16
-                    action Function(current_item.use)
+                    sensitive (current_item.owned > 0)
+                    action Return("use")
+            elif inventory_mode == 1 and current_item.givable:
+                textbutton "Give":
+                    xysize (90, 26)
+                    xalign 0.89
+                    xoffset 45
+                    ypos 374
+                    text_size 16
+                    sensitive (current_item.owned > 0)
+                    action Return("give")
+
             hbox:
                 pos (132, 407)
                 xsize 410

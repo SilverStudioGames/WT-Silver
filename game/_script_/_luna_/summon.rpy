@@ -54,6 +54,7 @@ label summon_luna:
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_luna_gift:
+            hide screen luna_main with d1
             call gift_menu
             jump luna_requests
 

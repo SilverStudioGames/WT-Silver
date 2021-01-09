@@ -112,6 +112,7 @@ label summon_cho:
             jump cho_requests
 
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_cho_gift:
+            hide screen cho_main with d1
             call gift_menu
             jump cho_requests
 

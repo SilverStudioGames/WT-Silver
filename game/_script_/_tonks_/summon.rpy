@@ -65,6 +65,7 @@ label summon_tonks:
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_tonks_gift:
+            hide screen tonks_main with d1
             call gift_menu
             jump tonks_requests
 

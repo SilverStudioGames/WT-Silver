@@ -101,6 +101,7 @@ label summon_hermione:
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_hermione_gift:
+            hide screen hermione_main with d1
             call gift_menu
             jump hermione_requests
 

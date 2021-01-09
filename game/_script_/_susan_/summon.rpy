@@ -55,6 +55,7 @@ label summon_susan:
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_susan_gift:
+            hide screen susan_main with d1
             call gift_menu
             jump susan_requests
 

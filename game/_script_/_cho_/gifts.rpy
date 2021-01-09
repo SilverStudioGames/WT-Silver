@@ -534,7 +534,8 @@ label give_cho_gift(gift_item):
         call cho_mood(0)
 
     call cho_main(xpos="base", ypos="base", trans=d5)
-    return
+
+    jump cho_requests
 
 label cho_mood(value=0):
     show screen blktone

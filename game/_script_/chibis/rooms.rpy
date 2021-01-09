@@ -46,11 +46,6 @@ init python:
         "base": (None, 430),
     })
 
-    ChibiRoom("potions_room", 1.0, {
-        "left": (100, None),
-        "base": (None, 430),
-    })
-
     ChibiRoom("floor_seven", 1.0, {
         "base": (None, 430),
         "right": (750, None),

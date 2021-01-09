@@ -72,27 +72,20 @@ label rummaging:
 
 label rum_block(item):
     if isinstance(item, int):
-        $ the_gift = "interface/icons/gold.webp"
-        show screen gift(True)
-        with d3
         $ game.gold += item
-        ">You found [item] gold..."
+        call give_reward(">You found [item] gold...", "interface/icons/gold.webp")
 
     elif item == "nothing":
         ">You found nothing of value..."
-
     else:
         $ item.owned += 1
-        $ the_gift = item.get_image()
-        show screen gift(True)
-        with d3
+
         if item == wine_ITEM:
-            ">You found a bottle of wine from professor Dumbledore's personal stash..."
+            call give_reward(">You found a bottle of wine from professor Dumbledore's personal stash...", item)
         elif item == firewhisky_ITEM:
-            ">You found a bottle of firewhisky from professor Dumbledore's personal stash..."
+            call give_reward(">You found a bottle of firewhisky from professor Dumbledore's personal stash...", item)
         else:
-            ">You found [item.name]..."
-            ">[item.desc]"
+            call give_reward(">You found [item.name]...", item)
 
         call tutorial("inventory")
 
@@ -135,9 +128,9 @@ init python:
                 filtered_list = filter(lambda x: x.owned <= 3, drop_list)
                 random_item = renpy.random.choice(filtered_list if filtered_list else drop_list)
 
-                if int(120 * math.log(game.day)) / 3 < random_item.cost:
+                if int(120 * math.log(game.day)) / 3 < random_item.price:
                     chance = max(6 - (random_item.owned * 5), 1)
-                elif game.gold > random_item.cost:
+                elif game.gold > random_item.price:
                     chance = max(65 - (random_item.owned * 15), 5)
                 else:
                     chance = max(95 - (random_item.owned * 10), 15)
@@ -155,9 +148,9 @@ init python:
             else:
                 random_item = renpy.random.choice(drop_list)
 
-                if int(90 * math.log(game.day)) / 3 < random_item.cost:
+                if int(90 * math.log(game.day)) / 3 < random_item.price:
                     chance = max(3 - (random_item.owned * 5), 1)
-                elif game.gold > random_item.cost:
+                elif game.gold > random_item.price:
                     chance = max(40 - (random_item.owned * 15), 0)
                 else:
                     chance = max(75 - (random_item.owned * 10), 5)

@@ -34,13 +34,6 @@ screen notes():
     add "notes" xpos 320+140 ypos 330
     zorder 1
 
-screen gift(win=False):
-    zorder 30
-    if win:
-        use notes
-        on "show" action Play("sound", "sounds/win2.mp3")
-    add the_gift align (0.5, 0.4) zoom get_zoom(the_gift, (320, 320))
-
 screen clothing_unlock(item):
     zorder 30
     modal True

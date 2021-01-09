@@ -17,9 +17,7 @@ init python:
             return filter(lambda x: x.type == type, self.get_instances())
 
     class Item(object):
-        _instances = [] # TODO: Somehow the object references change after renpy restart, but doesn't crash?
-
-        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default"):
+        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default", givable=False):
             self.id = id
             self.type = type
             self.name = name
@@ -31,6 +29,7 @@ init python:
             self.limit = limit
             self.image = "interface/icons/{}.webp".format(self.id) if image == "default" else image
 
+            self.givable = givable
             self.usable = bool(self.func or self.label)
             self.used = False
             self._owned = 0

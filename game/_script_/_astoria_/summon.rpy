@@ -55,6 +55,7 @@ label summon_astoria:
 
         # Gifts
         "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_astoria_gift:
+            hide screen astoria_main with d1
             call gift_menu
             jump astoria_requests
 

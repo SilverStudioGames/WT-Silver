@@ -600,7 +600,7 @@ label give_her_gift(gift_item):
     with d5
     call her_main(xpos="base",ypos="base",trans=d5)
 
-    return
+    jump hermione_requests
 
 label her_mood(value=0):
     show screen blktone

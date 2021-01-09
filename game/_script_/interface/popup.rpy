@@ -17,23 +17,21 @@ screen popup_window(string="", xpos=0, ypos=60):
 
         text string align (0.5, 0.5) size 12
 
-label give_reward(text=None, gift=None, sound=True):
-    if gift:
-        $ the_gift = gift
-    else:
-        $ the_gift = "interface/icons/box_blue_2.webp"
+label give_reward(text="You found something!", gift="interface/icons/box_blue_2.webp", sound=True):
+    if sound:
+        $ renpy.play("sounds/win2.mp3")
 
-    show screen gift(sound)
+    show screen gift(gift)
     show screen blktone
+    show screen notes
     with d3
 
-    if text:
-        $ renpy.say(None, text)
-    else:
-        call ctc
+    # It has to be a renpy.say function in order to evaluate text tags i.e "You found [item.name]".
+    $ renpy.say(None, text)
 
     hide screen gift
     hide screen blktone
+    hide screen notes
     with d3
 
     return

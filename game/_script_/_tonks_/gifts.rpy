@@ -146,7 +146,7 @@ label give_ton_gift(gift_item):
             call ton_main("I was hoping for something with a bit more \'punch\'.",mouth="open", pupils="R", face="neutral")
             call ton_friendship(0)
         else:
-            call ton_main("I had told you before I don't particularly like wine..", face="sad", xpos="mid",ypos="base", trans=d5)
+            call ton_main("I had told you before I don't particularly like wine..", mouth="open", pupils="R", face="neutral", xpos="mid",ypos="base", trans=d5)
             call ton_friendship(-1)
 
     elif gift_item == firewhisky_ITEM:
@@ -156,7 +156,7 @@ label give_ton_gift(gift_item):
 
     call ton_main(xpos="base", ypos="base",trans=d5)
 
-    return
+    jump tonks_requests
 
 label ton_friendship(value=0):
     show screen blktone

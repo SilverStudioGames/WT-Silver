@@ -100,7 +100,7 @@ label give_sus_gift(gift_item):
     with d5
     call sus_main(xpos="base",ypos="base",trans=d5)
 
-    return
+    jump susan_requests
 
 label sus_mood(value=0):
     show screen blktone

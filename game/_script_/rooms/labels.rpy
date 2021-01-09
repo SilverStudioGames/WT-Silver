@@ -48,9 +48,6 @@ label room(room=None, hide_screens=True, stop_sound=True):
     if room == "weasley_store":
         show screen weasley_store_room
 
-    if room == "potions_room":
-        show screen potions_room
-
     if room == "clothing_store":
         show screen clothing_store
 
