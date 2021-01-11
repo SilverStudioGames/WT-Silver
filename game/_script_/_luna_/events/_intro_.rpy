@@ -680,5 +680,7 @@ label luna_intro_E2:
     else:
         m "(Well... Hopefully the twins carries it...)"
 
+    #TODO unlock luna Summon. Keep all options locked except for Talk which provides hints if you get stuck (buy quibbler etc written in spectrequest file). Luna's other options unlocks after finishing those quests once private favours start.
+    #TODO she also looks mad in her summon menu atm
 
     jump main_room
