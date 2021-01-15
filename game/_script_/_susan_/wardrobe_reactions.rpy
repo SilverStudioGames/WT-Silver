@@ -25,13 +25,13 @@ define sus_responses = {
 }
 
 label sus_reaction_category_fail(category):
-    ### Examples
-    # if category == "upper undergarment":
-    #     sus "Not in this century."
-    # elif category == "lower undergarment":
-    #     sus "Not in this millennium!"
-    # elif category == "piercings & tattoos":
-    #     sus "Not in this... Eternity!"
+
+    if category == "upper undergarment":
+        sus "M-my my underwear? W-Why do you require me to-- *Ehm*..."
+    elif category == "lower undergarment":
+        sus "M-my my underwear? W-Why do you require me to-- *Ehm*..."
+    elif category == "piercings & tattoos":
+        sus "W-what would people... Sir, I don't want to be made f-fun of..."
     return
 
 label sus_reaction_touch(what):
@@ -40,13 +40,38 @@ label sus_reaction_touch(what):
     else:
         $ mouse_heart()
 
-    ### Examples
-    # if what == "head":
-    #     sus "Rawrrrr, pet me master. :3"
-    # elif what == "breasts":
-    #     sus "Yes, squeeze my slutty tits, [genie_name]!"
-    # elif what == "vagina":
-    #     sus "Grab me by the pussy!"
+    if what == "head":
+        $ mouse_headpat()
+        $ random_number = renpy.random.randint(1, 3)
+
+        if random_number == 1:
+            sun "S-Sir..."
+        elif random_number == 2:
+            sun "A-Are you s-sure this is appropriate?"
+        elif random_number == 3:
+            sun "Professor, p-please..."
+
+    elif what == "breasts":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 3)
+
+        if random_number == 1:
+            sun "W-Why are you..."
+        elif random_number == 2:
+            sun "P-please, it's embarrassing..."
+        elif random_number == 3:
+            sun "D-don't... Don't look at me sir..."
+    elif what == "vagina":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 3)
+
+        if random_number == 1:
+            sun "M-My..."
+        elif random_number == 2:
+            sun "S-Sir..."
+        elif random_number == 3:
+            sun "P-please sir, it's embarrassing..."
+
     return
 
 label sus_reaction_touch_fail(what):
@@ -108,15 +133,15 @@ label sus_reaction_unequip_fail(item):
         sus "I'm n-not comfortable with that, sir..."
 
     elif item.type == "bra":
-        sus "P-please I don't want to.."
+        sus "P-please, I can't be w-wearing this sir.."
 
     elif item.type == "top":
         sus "I don't know if this is a good idea..."
         m "You have nothing to be ashamed of."
-        sus "S-Sorry but no..."
+        sus "S-Sorry, I can't..."
 
     elif item.type == "bottom":
-        sus "I don't want to..."
+        sus "I can't..."
         m "It's okay, we'll work on your confidence first."
         sus "Thank you..."
     return
@@ -136,10 +161,10 @@ label sus_reaction_equip_outfit_fail(item):
     # else:
     # <indent code below to be used as a fallback>
 
-    sus "Oh wow it's..."
+    sus "Oh wow... It's... *Ehm*..."
     m "You like it? How about you wear it?"
     sus "I couldn't, I..."
-    m "(Perhaps it was a little too soon for that.)"
+    m "(Perhaps I'm being a little too forward for something that.)"
 
     return
 

@@ -25,28 +25,63 @@ define ast_responses = {
 }
 
 label ast_reaction_category_fail(category):
-    ### Examples
-    # if category == "upper undergarment":
-    #     ast "Not in this century."
-    # elif category == "lower undergarment":
-    #     ast "Not in this millennium!"
-    # elif category == "piercings & tattoos":
-    #     ast "Not in this... Eternity!"
+    if category == "upper undergarment":
+        ast "Good one sir!"
+        m "I wasn't--"
+        m "..."
+    elif category == "lower undergarment":
+        ast "Why would I do that?"
+        m "I don't know, why wouldn't you do it?"
+        ast "..."
+    elif category == "piercings & tattoos":
+        ast "Sounds awesome but you'll just make it something stupid."
+        m "I'd never..."
+        ast "Lies..."
     return
 
 label ast_reaction_touch(what):
     if what == "head":
         $ mouse_headpat()
-    else:
-        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 3)
 
-    ### Examples
-    # if what == "head":
-    #     ast "Rawrrrr, pet me master. :3"
-    # elif what == "breasts":
-    #     ast "Yes, squeeze my slutty tits, [genie_name]!"
-    # elif what == "vagina":
-    #     ast "Grab me by the pussy!"
+        if random_number == 1:
+            ast "Whatever..."
+        elif random_number == 2:
+            ast "I'm only letting you do this cause you didn't snitch on me..."
+            m "Sure..."
+        elif random_number == 3:
+            ast "What's this obsession with petting coming from?"
+            m "*Err*..."
+            ast "When people called you eccentric I didn't think they meant bonkers mad..."
+    elif what == "breasts":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 3)
+
+        if random_number == 1:
+            ast "You're really enjoying that aren't you?"
+            ast "Well I guess you're just a man after all..."
+        elif random_number == 2:
+            ast "Hey!"
+            m "What?"
+            ast "..."
+        elif random_number == 3:
+            ast "Gross..."
+    elif what == "vagina":
+        $ mouse_heart()
+        $ random_number = renpy.random.randint(1, 3)
+
+        if random_number == 1:
+            ast "What do you think you're doing?"
+            m "Kissing you?"
+            ast "Surely that's against some rule..."
+            m "Worried about rule breaking all of a sudden are we?"
+            ast "No..."
+        elif random_number == 2:
+            ast "Aren't you a bold one..."
+        elif random_number == 3:
+            ast "Thought you could slip past my wards did you?"
+            ast "I'll have you know I felt none of that!"
+
     return
 
 label ast_reaction_touch_fail(what):
@@ -173,7 +208,7 @@ label ast_reaction_unequip_fail(item):
         with d5
 
         g4 "Did you really have to slap me?"
-        ast "You deserved it you perverted pervert!"
+        ast "You deserved it you perverted... Pervert!"
 
     elif item.type == "bra":
         ast "Why would you even suggest that?"
