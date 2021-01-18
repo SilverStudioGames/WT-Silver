@@ -1,7 +1,7 @@
 init python:
     def catch_character_call(label, called):
         if called:
-            if label.startswith(("her_main", "cho_main", "ast_main", "ton_main")):
+            if label.startswith(("her_main", "cho_main", "ast_main", "ton_main", "sus_main", "lun_main")):
                 editor.catch(label)
 
     class ExpressionEditor(NoRollback):
@@ -12,7 +12,9 @@ init python:
         char = {"her_main": "hermione",
                 "ton_main": "tonks",
                 "ast_main": "astoria",
-                "cho_main": "cho"}
+                "cho_main": "cho",
+                "sus_main": "susan",
+                "lun_main": "luna"}
 
         def __init__(self):
             self.label = None
