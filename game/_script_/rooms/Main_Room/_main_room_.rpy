@@ -67,33 +67,6 @@ screen main_room():
     if cupboard_deco_OBJ.room_image:
         add cupboard_deco_OBJ.get_room_image() xpos cupboard_OBJ.xpos ypos cupboard_OBJ.ypos xanchor 0.5 yanchor 0.5 zoom 0.5
 
-    # Scrolls (interactive overlay)
-    if renpy.android:
-        imagemap:
-            xpos cupboard_top_OBJ.xpos
-            ypos cupboard_top_OBJ.ypos
-            xanchor "center"
-            yanchor "center"
-            ground cupboard_top_OBJ.get_idle_image()
-            if store_intro_done:
-                hover cupboard_top_OBJ.get_hover_image()
-                hotspot (77, 81, 70, 76):
-                    action Jump("read_scroll_menu")
-                    sensitive room_menu_active
-    else:
-        imagebutton:
-            xpos cupboard_top_OBJ.xpos
-            ypos cupboard_top_OBJ.ypos
-            focus_mask True
-            xanchor "center"
-            yanchor "center"
-            idle cupboard_top_OBJ.get_idle_image()
-            if store_intro_done:
-                hover cupboard_top_OBJ.get_hover_image()
-                tooltip "Scrolls"
-                action Jump("read_scroll_menu")
-                sensitive room_menu_active
-
     # Cupboard (interactive overlay)
     if renpy.android:
         imagemap:

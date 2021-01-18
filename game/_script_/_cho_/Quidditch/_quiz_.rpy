@@ -279,7 +279,7 @@ label cho_quiz:
             m "(Why didn't I just follow the book? Serves me right...)"
         elif quidditchguide_ITEM.owned > 0:
             m "(Maybe I should read that book they gave me...)"
-        elif store_intro_done:
+        elif item_store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
 
@@ -341,7 +341,7 @@ label cho_quiz:
             m "(Maybe I should read that book they gave me...)"
 
         # Visited their shop before.
-        elif store_intro_done:
+        elif item_store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
     $ cho_busy = True
@@ -619,7 +619,7 @@ label cho_quiz_checkpoint:
             m "(Maybe I should read that book they gave me...)"
 
         # Visited their shop before.
-        elif store_intro_done:
+        elif item_store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
     jump main_room
@@ -647,7 +647,7 @@ label ss_he_cho_E2:
     call sna_main("Good point...", "snape_06")
     call sna_main("Well, I guess it wouldn't be too harmful if you made yourself to the Weasley Twins...", "snape_05")
 
-    if store_intro_done:
+    if item_store_intro_done:
         m "And how would they be able to help me?"
         call sna_main("Well, they're both on the Gryffindor team...", "snape_03")
         call sna_main("And as much as it pains me to say this...", "snape_06")

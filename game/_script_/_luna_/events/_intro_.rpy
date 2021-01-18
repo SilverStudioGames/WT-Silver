@@ -674,7 +674,7 @@ label luna_intro_E2:
     m "(No wonder Hermione called her Loony... Her mind might as well be in another dimension...)"
     m "(Where am I even supposed to get that bloody magazine from?)"
 
-    if store_intro_done:
+    if item_store_intro_done:
         m "(*Hmm*... I'm sure someone's bound to have it.)"
         m "(Maybe it's time to look around the castle a bit more...)"
     else:

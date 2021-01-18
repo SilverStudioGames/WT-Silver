@@ -45,8 +45,7 @@ screen hotkeys_main():
         key hkey_map action Jump("desk")
     if letter_work_unlock.read:
         key hkey_work action Jump("paperwork")
-    if store_intro_done:
-        key hkey_book action Jump("read_book_menu")
+
     key hkey_stats action Jump("stats")
     key hkey_inventory action Jump("inventory")
     key hkey_fap action Jump("jerk_off")

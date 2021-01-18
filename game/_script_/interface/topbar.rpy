@@ -181,20 +181,13 @@ screen ui_stats():
 
             add gui.format("interface/topbar/{}/stats.webp") xalign 0.5 yalign 1.0
 
-            # Add overlay token icon if needed
-            if renpy.get_screen("weasley_store_room") and store_category == 3:
-                add "interface/topbar/icon_token.webp" ypos 8 xpos 118
-
             hbox:
                 xpos 40 ypos 11
                 text "{size=-4}[game.day]{/size}"
             hbox:
                 xpos 140 ypos 11
                 # Display tokens in token shop
-                if renpy.get_screen("weasley_store_room") and store_category == 3:
-                    text "{size=-4}[tokens]{/size}"
-                else:
-                    text "{size=-4}[game.gold]{/size}"
+                text "{size=-4}[game.gold]{/size}"
 
 style light_ui_stats_text:
     color "#000"

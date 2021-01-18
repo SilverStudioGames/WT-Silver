@@ -1,36 +1,24 @@
 init python:
-    def inventory_sortfilter(item, sortby="A-z", filtering=None):
-        if filtering == "Owned":
-            item = filter(lambda x: x.owned > 1, item)
+    def shop_item_sortfilter(item, sortby="Price (Asc)", filtering=None):
+        #if filtering == "Locked":
+            #item = filter(lambda x: x[1][3] is False, item)
 
-        if sortby == "z-A":
-            item = sorted(item, key=lambda x: x.name, reverse=True)
-        elif current_sorting == "Available":
-            item = sorted(item, key=lambda x: x.owned, reverse=True)
-        elif current_sorting == "Unavailable":
-            item = sorted(item, key=lambda x: x.owned)
-        else:
-            item = sorted(item, key=lambda x: x.name)
+        if sortby == "Price (Asc)":
+            item = sorted(item, key=lambda x: x.price, reverse=False)
+        elif current_sorting == "Price (Desc)":
+            item = sorted(item, key=lambda x: x.price, reverse=True)
         return item
 
-default inventory_mode = 0 # 0 - Inventory, 1 - gifts
+label shop_item:
+    $ gui.in_context("shop_item_menu")
+    return
 
-####################################
-############# Menu #################
-####################################
-
-label inventory:
-    $ gui.in_context("inventory_menu")
-    jump main_room_menu
-
-label inventory_menu(xx=150, yy=90):
-    # Inventory dictionary
+label shop_item_menu(xx=150, yy=90):
     $ inventory_dict = {
         "Gifts": inventory.get_instances_of_type("gift"),
         "Books": inventory.get_instances_of_type("book"),
         "Scrolls": inventory.get_instances_of_type("scroll"),
         "Ingredients": inventory.get_instances_of_type("ingredient"),
-        "Potions": inventory.get_instances_of_type("potion"),
         "Decorations": inventory.get_instances_of_type("decoration"),
         "Quest Items": inventory.get_instances_of_type("quest"),
     }
@@ -39,17 +27,20 @@ label inventory_menu(xx=150, yy=90):
     $ current_page = 0
     $ current_item = None
     $ current_category = next(iter(inventory_dict.iterkeys()))
-    $ current_filter = "Owned"
-    $ current_sorting = "Available"
+    $ current_sorting = "Price (Asc)"
 
-    $ category_items = inventory_dict[current_category]
-    $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
+    if current_category in {"Gifts", "Ingredients"}:
+        $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+    elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
+        $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+
+    $ menu_items = shop_item_sortfilter(category_items, current_sorting)
     $ menu_items_length = len(menu_items)
 
     if not renpy.android:
         show screen tooltip
 
-    show screen inventory(xx, yy)
+    show screen shop_item(xx, yy)
     with d3
 
     label .after_init:
@@ -62,8 +53,11 @@ label inventory_menu(xx=150, yy=90):
             $ current_item = _return[1]
     elif _return[0] == "category":
         $ current_category = _return[1]
-        $ category_items = inventory_dict[current_category]
-        $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
+        if current_category in {"Gifts", "Ingredients"}:
+            $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+        elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+        $ menu_items = shop_item_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = None
@@ -73,42 +67,31 @@ label inventory_menu(xx=150, yy=90):
     elif _return == "dec":
         $ current_page += -1
     elif _return == "sort":
-        if current_sorting == "A-z":
-            $ current_sorting = "z-A"
-        elif current_sorting == "z-A":
-            $ current_sorting = "Available"
-        elif current_sorting == "Available":
-            $ current_sorting = "Unavailable"
-        else:
-            $ current_sorting = "A-z"
-        $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
+        if current_sorting == "Price (Asc)":
+            $ current_sorting = "Price (Desc)"
+        elif current_sorting == "Price (Desc)":
+            $ current_sorting = "Price (Asc)"
+
+        $ menu_items = shop_item_sortfilter(category_items, current_sorting)
+    elif _return == "buy":
+        $ current_item.owned += 1
+        $ game.gold -= current_item.price
+        $ renpy.play("sounds/money.mp3")
+
+        if current_category in {"Gifts", "Ingredients"}:
+            $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+        elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+        $ menu_items = shop_item_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
-        $ current_page = 0
-        $ current_item = None
-    elif _return == "filter":
-        if current_filter == None:
-            $ current_filter = "Owned"
-        else:
-            $ current_filter = None
-        $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
-        $ menu_items_length = len(menu_items)
-        $ current_page = 0
-        $ current_item = None
-    elif _return == "use":
-        $ current_item.use
-    elif _return == "give":
-        hide screen inventory
-        $ renpy.call(get_character_gift_label(active_girl), current_item)
-        show screen inventory(xx, yy)
-        with d3
     else:
         hide screen inventory
         return
 
     jump .after_init
 
-screen inventory(xx, yy):
-    tag inventory
+screen shop_item(xx, yy):
+    tag shop_item
     zorder 30
     modal True
 
@@ -117,10 +100,10 @@ screen inventory(xx, yy):
     use invisible_button(action=Return("Close"))
     use close_button
 
-    use inventory_menu(xx, yy)
-    use inventory_menuitem(xx, yy)
+    use shop_item_menu(xx, yy)
+    use shop_item_menuitem(xx, yy)
 
-screen inventory_menu(xx, yy):
+screen shop_item_menu(xx, yy):
     frame:
         style "empty"
         style_prefix gui.theme('achievements')
@@ -145,24 +128,13 @@ screen inventory_menu(xx, yy):
                             hover_background gui.format("interface/achievements/{}/highlight_left.webp")
                             action Return(["category", category])
                     add gui.format("interface/achievements/{}/spacer_left.webp")
-
-            # Gold & Tokens
-            null height 16
-            text "{color=#daa520}Gold{/color} {outlinecolor=#ffffff00}[game.gold]{/outlinecolor}" size 12 outlines [ (2, "#000", 0, 0) ] xalign 0.1 xanchor 0
-            add gui.format("interface/achievements/{}/spacer_left.webp")
-            text "{color=#2055da}Tokens{/color} {outlinecolor=#ffffff00}[tokens]{/outlinecolor}" size 12 outlines [ (2, "#000", 0, 0) ] xalign 0.1 xanchor 0
-            add gui.format("interface/achievements/{}/spacer_left.webp")
-
         vbox:
             style_prefix gui.theme('achievements_filters')
             pos (6, 384)
-            if current_filter == None:
-                textbutton "Show: All" action Return("filter")
-            else:
-                textbutton "Show: [current_filter]" action Return("filter")
+            button action NullAction() style "empty" xsize 195 ysize 32
             textbutton "Sort by: [current_sorting]" action Return("sort")
 
-screen inventory_menuitem(xx, yy):
+screen shop_item_menuitem(xx, yy):
     frame:
         style "empty"
         style_prefix gui.theme()
@@ -177,9 +149,12 @@ screen inventory_menuitem(xx, yy):
         #Western Egg
         button xsize 90 ysize 60 action Function(renpy.play, "sounds/plushie.mp3") xalign 0.5 style "empty"
 
-        text "Inventory" size 22 xalign 0.5 ypos 65
+        text "Store" size 22 xalign 0.5 ypos 65
 
-        #text "Unlocked: "+str(len(filter(lambda x: x[1][3] is True, menu_items)))+"/[menu_items_length]" size 12 pos (24, 70)
+        if current_category == "Decorations":
+            text "{color=#2055da}T{/color} {outlinecolor=#ffffff00}[tokens]{/outlinecolor}" size 16 pos (24, 70) outlines [ (2, "#000", 0, 0) ]
+        else:
+            text "{color=#daa520}G{/color} {outlinecolor=#ffffff00}[game.gold]{/outlinecolor}" size 16 pos (24, 70) outlines [ (2, "#000", 0, 0) ]
 
         # Page counter
         if menu_items_length > items_shown:
@@ -207,7 +182,10 @@ screen inventory_menuitem(xx, yy):
 
         # Add items
         for i in xrange(current_page*items_shown, (current_page*items_shown)+items_shown):
+
             if i < menu_items_length:
+                $ price = menu_items[i].price
+
                 $ row = (i // 9) % 4
                 $ col = i % 9
                 frame:
@@ -220,7 +198,7 @@ screen inventory_menuitem(xx, yy):
                     if not current_item == None and current_item.id == menu_items[i].id:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
 
-                    if menu_items[i].owned > 0:
+                    if (menu_items[i].owned < 99 and game.gold >= menu_items[i].price):
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42)
                     else:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42, True)
@@ -234,9 +212,13 @@ screen inventory_menuitem(xx, yy):
                         action Return(["select", menu_items[i]])
                         tooltip menu_items[i].name
 
-                    if current_category in {"Gifts", "Ingredients", "Potions"}:
-                        if menu_items[i].owned > 0:
-                            text str(menu_items[i].owned) size 10 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                    if menu_items[i].owned > 0:
+                        text str(menu_items[i].owned) size 10 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+
+                    if game.gold >= menu_items[i].price:
+                        text "{color=#daa520}G{/color} [price]" size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                    else:
+                        text "{color=#daa520}G{/color} {color=#ff0000}[price]{/color}" size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24
@@ -248,13 +230,20 @@ screen inventory_menuitem(xx, yy):
                 ysize 96
                 pos (24, 375)
                 add gui.format("interface/achievements/{}/icon_selected.webp")
-                if current_item.owned > 0:
+                if (current_item.owned < 99 and game.gold >= current_item.price):
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84)
                 else:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
                 add image_zoom align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
-                text str(current_item.owned) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+
+                if current_item.owned > 0:
+                    text "[current_item.owned]" size 14 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+
+                if game.gold >= current_item.price:
+                    text "{color=#daa520}G{/color} [current_item.price]" size 14 align (0.9, 0.9) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                else:
+                    text "{color=#daa520}G{/color} {color=#ff0000}[current_item.price]{/color}" size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
             add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
             add gui.format("interface/achievements/{}/spacer.webp") pos (120, 398)
@@ -263,24 +252,14 @@ screen inventory_menuitem(xx, yy):
                 xalign 0.5
                 text current_item.name ypos 380 size 16 xoffset 45
 
-            if inventory_mode == 0 and current_item.usable:
-                textbutton "Use":
-                    xysize (90, 26)
-                    xalign 0.89
-                    xoffset 45
-                    ypos 374
-                    text_size 16
-                    sensitive (current_item.owned > 0)
-                    action Return("use")
-            elif inventory_mode == 1 and current_item.givable:
-                textbutton "Give":
-                    xysize (90, 26)
-                    xalign 0.89
-                    xoffset 45
-                    ypos 374
-                    text_size 16
-                    sensitive (current_item.owned > 0)
-                    action Return("give")
+            textbutton "Buy":
+                xysize (90, 26)
+                xalign 0.89
+                xoffset 45
+                ypos 374
+                text_size 16
+                sensitive (current_item.owned < 99 and game.gold >= current_item.price)
+                action Return("buy")
 
             hbox:
                 pos (132, 407)

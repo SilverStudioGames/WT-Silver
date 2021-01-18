@@ -112,7 +112,7 @@ screen map_buttons():
         #action Return("slytherin_dormitories")
 
     #Weasley Store 15 x 15
-    if not store_intro_done:
+    if not item_store_intro_done:
         add "interface/achievements/glow.webp" pos (UI_xpos_offset+246, UI_ypos_offset+231) align (0.5, 0.5) offset (15, 15) zoom 0.15 alpha 0.5 at rotate_circular
     imagebutton:
         xpos UI_xpos_offset +246
@@ -121,7 +121,7 @@ screen map_buttons():
         hover "interface/map/room_weasley_store_hover.webp"
         hovered SetVariable("ball_hint", "weasley_store")
         unhovered SetVariable("ball_hint", None)
-        action Return("open_weasley_store")
+        action Return("item_store")
 
     #Clothing Store
     if not clothing_store_intro_done:
@@ -142,7 +142,7 @@ screen map_buttons():
         # ypos UI_ypos_offset +331
         # idle "interface/map/room_potions_idle.webp"
         # unhovered SetVariable("ball_hint", None)
-        # if store_intro_done:
+        # if item_store_intro_done:
             # hover "interface/map/room_potions_hover.webp"
             # hovered SetVariable("ball_hint", "potions")
             # action Return("potions_room")

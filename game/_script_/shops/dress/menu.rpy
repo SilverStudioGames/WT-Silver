@@ -1,6 +1,6 @@
 
 init python:
-    def shop_sortfilter(item, sortby="Price (Asc)", filtering=None):
+    def shop_dress_sortfilter(item, sortby="Price (Asc)", filtering=None):
         #if filtering == "Locked":
             #item = filter(lambda x: x[1][3] is False, item)
 
@@ -17,7 +17,7 @@ label shop_dress():
         category_items = {"hermione": hermione.outfits, "tonks": tonks.outfits, "cho": cho.outfits, "luna": luna.outfits, "astoria": astoria.outfits, "susan": susan.outfits}
         current_category = "hermione"
         store_cart = set()
-        menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+        menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
         current_item = next(iter(menu_items), None)
 
     if not renpy.android:
@@ -32,7 +32,7 @@ label shop_dress():
     python:
         if _return[0] == "category":
             current_category = _return[1]
-            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+            menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
             current_item = next(iter(menu_items), None)
         elif _return[0] == "buy":
             renpy.call("purchase_outfit", _return[1])
@@ -42,7 +42,7 @@ label shop_dress():
             elif current_sorting == "Price (Desc)":
                 current_sorting = "Price (Asc)"
 
-            menu_items = shop_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+            menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
         else: # Close
             renpy.call("purchase_outfit_parcel")
 
@@ -165,9 +165,9 @@ screen shop_dress_menuitem():
                     add icon_frame
 
                     if is_affordable:
-                        text "G [item.price]" xalign 0.5 ypos 10
+                        text "{color=#daa520}G{/color} [item.price]" xalign 0.5 ypos 10 color "#ffffff" outlines [ (1, "#000", 0, 0) ]
                     else:
-                        text "G {color=#ff0000}[item.price]{/color}" xalign 0.5 ypos 10
+                        text "{color=#daa520}G{/color} {color=#ff0000}[item.price]{/color}" xalign 0.5 ypos 10 color "#ffffff" outlines [ (1, "#000", 0, 0) ]
 
                     hbox:
                         offset (5, -5)

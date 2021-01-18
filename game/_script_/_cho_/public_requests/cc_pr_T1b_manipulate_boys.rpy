@@ -773,7 +773,7 @@ label cc_pr_manipulate_boys_T3_twins:
     m "So, why did you come straight to me and not go to your dorm?"
     call cho_main("And pass through my common room?", "soft", "base", "angry", "mid")
     call cho_main("No thank you... your office was the closest thing to their stupid shop.", "clench", "base", "angry", "R")
-    if not store_intro_done:
+    if not item store_intro_done:
         m "Shop? What shop?"
         call cho_main("Are you kidding me? Surely you must know about them and their shady businesses.", "soft", "base", "angry", "mid")
         m "I have no clue what you're talking about."

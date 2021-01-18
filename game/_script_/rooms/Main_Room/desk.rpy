@@ -178,7 +178,7 @@ screen desk_menu():
     use watch
 
     #Book
-    if store_intro_done:
+    if item_store_intro_done:
         add "interface/desk/book.webp" xalign 1.0 xpos 1080 ypos 0
         imagebutton:
             xpos 1080
