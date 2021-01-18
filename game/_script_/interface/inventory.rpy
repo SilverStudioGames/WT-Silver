@@ -1,7 +1,7 @@
 init python:
     def inventory_sortfilter(item, sortby="A-z", filtering=None):
         if filtering == "Owned":
-            item = filter(lambda x: x.owned > 1, item)
+            item = filter(lambda x: x.owned > 0, item)
 
         if sortby == "z-A":
             item = sorted(item, key=lambda x: x.name, reverse=True)
