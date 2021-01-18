@@ -188,6 +188,12 @@ init python:
                 elif char == "cho":
                     hair = cho_hair_ponytail1
                     box = (450, 310, 280, 240)
+                elif char == "susan":
+                    hair = sus_hair_base
+                    box = (450, 310, 280, 240)
+                elif char == "luna":
+                    hair = lun_hair_base
+                    box = (450, 310, 280, 240)
 
 
                 sprites = [imagepath+"/game/characters/"+char+"/body/base/front.webp"]
