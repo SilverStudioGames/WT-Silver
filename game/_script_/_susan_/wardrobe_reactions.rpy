@@ -27,11 +27,11 @@ define sus_responses = {
 label sus_reaction_category_fail(category):
 
     if category == "upper undergarment":
-        sus "M-my my underwear? W-Why do you require me to-- *Ehm*..."
+        call sus_main("M-my my underwear? W-Why do you require me to-- *Ehm*...", "open", "eager", "worried", "R")
     elif category == "lower undergarment":
-        sus "M-my my underwear? W-Why do you require me to-- *Ehm*..."
+        call sus_main("M-my my underwear? W-Why do you require me to-- *Ehm*...", "upset", "closed", "worried", "mid")
     elif category == "piercings & tattoos":
-        sus "W-what would people... Sir, I don't want to be made f-fun of..."
+        call sus_main("W-what would people... Sir, I don't want to be made f-fun of...", "upset", "wide", "worried", "mid")
     return
 
 label sus_reaction_touch(what):
@@ -45,32 +45,32 @@ label sus_reaction_touch(what):
         $ random_number = renpy.random.randint(1, 3)
 
         if random_number == 1:
-            sun "S-Sir..."
+            call sus_main("S-Sir...", "base", "eager", "base", "up")
         elif random_number == 2:
-            sun "A-Are you s-sure this is appropriate?"
+            call sus_main("A-Are you s-sure this is appropriate?", "grin", "narrow", "base", "down")
         elif random_number == 3:
-            sun "Professor, p-please..."
+            call sus_main("Professor, p-please...", "base", "closed", "base", "mid")
 
     elif what == "breasts":
         $ mouse_heart()
         $ random_number = renpy.random.randint(1, 3)
 
         if random_number == 1:
-            sun "W-Why are you..."
+            call sus_main("W-Why are you...", "upset", "happyCl", "base", "mid")
         elif random_number == 2:
-            sun "P-please, it's embarrassing..."
+            call sus_main("P-please, it's embarrassing...", "scream", "closed", "worried", "mid")
         elif random_number == 3:
-            sun "D-don't... Don't look at me sir..."
+            call sus_main("D-don't... Don't look at me sir...", "base", "closed", "worried", "mid")
     elif what == "vagina":
         $ mouse_heart()
         $ random_number = renpy.random.randint(1, 3)
 
         if random_number == 1:
-            sun "M-My..."
+            call sus_main("M-My...", "open", "wide", "worried", "down")
         elif random_number == 2:
-            sun "S-Sir..."
+            call sus_main("S-Sir...", "upset", "happyCl", "base", "mid")
         elif random_number == 3:
-            sun "P-please sir, it's embarrassing..."
+            call sus_main("P-please sir, it's embarrassing...", "base", "closed", "worried", "mid")
 
     return
 
@@ -78,21 +78,21 @@ label sus_reaction_touch_fail(what):
     if what == "head":
         $ mouse_slap()
 
-        sus "*Eeek!*"
-        sus "I'm sorry sir, you scared me..."
+        call sus_main("*Eeek!*", "scream", "wide", "base", "wide")
+        call sus_main("I'm sorry sir, you scared me...", "open", "eager", "worried", "mid")
         m "(Poor thing isn't used to human touch...)"
 
     elif what == "breasts":
         $ mouse_slap()
 
-        sus "Please don't bully me sir..."
+        call sus_main("Please don't bully me sir...", "open", "happyCl", "worried", "mid")
 
     elif what == "vagina":
         $ mouse_slap()
 
-        sus "No! Please don't make me do this in front of everyone again..."
+        call sus_main("No! Please don't make me do this in front of everyone again...", "scream", "happyCl", "base", "mid")
         m "Do what?"
-        sus "N-nothing, sir, forgive me."
+        call sus_main("N-nothing, sir, forgive me.", "open", "narrow", "base", "wide")
         m "(...)"
 
     return
@@ -110,11 +110,11 @@ label sus_reaction_equip_fail(item):
     # else:
     # <indent code below to be used as a fallback>
 
-    sus "I-I..."
+    call sus_main("I-I...", "open", "narrow", "worried", "mid")
     m "You don't like it?"
-    sus "It's not like t-that, I just..."
+    call sus_main("It's not like t-that, I just...", "open", "happyCl", "base", "mid")
     m "Not comfortable wearing it?"
-    sus "*Uh-huh*"
+    call sus_main("*Uh-huh*", "base", "eager", "worried", "mid")
     m "Okay, maybe later then."
 
     return
@@ -130,20 +130,20 @@ label sus_reaction_unequip(item):
 
 label sus_reaction_unequip_fail(item):
     if item.type == "panties":
-        sus "I'm n-not comfortable with that, sir..."
+        call sus_main("I'm n-not comfortable with that, sir...", "open", "happyCl", "base", "mid")
 
     elif item.type == "bra":
-        sus "P-please, I can't be w-wearing this sir.."
+        call sus_main("P-please, I can't be w-wearing this sir..", "open", "closed", "worried", "mid")
 
     elif item.type == "top":
-        sus "I don't know if this is a good idea..."
+        call sus_main("I don't know if this is a good idea...", "open", "narrow", "worried", "mid")
         m "You have nothing to be ashamed of."
-        sus "S-Sorry, I can't..."
+        call sus_main("S-Sorry, I can't...", "open", "closed", "worried", "mid")
 
     elif item.type == "bottom":
-        sus "I can't..."
+        call sus_main("I can't...", "open", "happyCl", "base", "mid")
         m "It's okay, we'll work on your confidence first."
-        sus "Thank you..."
+        call sus_main("Thank you...", "base", "eager", "worried", "mid")
     return
 
 label sus_reaction_equip_outfit(item):
@@ -161,34 +161,34 @@ label sus_reaction_equip_outfit_fail(item):
     # else:
     # <indent code below to be used as a fallback>
 
-    sus "Oh wow... It's... *Ehm*..."
+    call sus_main("Oh wow... It's... *Ehm*...", "open", "narrow", "worried", "mid")
     m "You like it? How about you wear it?"
-    sus "I couldn't, I..."
+    call sus_main("I couldn't, I...", "open", "happyCl", "base", "mid")
     m "(Perhaps I'm being a little too forward for something that.)"
 
     return
 
 label sus_reaction_blacklist(item):
-    sus "B-but..."
+    call sus_main("B-but...", "base", "base", "base", "mid")
     m "But what?"
 
     if "top" in item.blacklist and susan.is_worn("top"):
-        sus "I would feel cold without my top..."
+        call sus_main("I would feel cold without my top...", "open", "happyCl", "base", "mid")
 
     if "bottom" in item.blacklist and susan.is_worn("bottom"):
-        sus "I can't t-take off my skirt."
+        call sus_main("I can't t-take off my skirt.", "open", "narrow", "worried", "mid")
         m "Can't or won't?"
-        sus "Won't..."
+        call sus_main("Won't...", "open", "happyCl", "base", "mid")
 
     if "bra" in item.blacklist and susan.is_worn("bra"):
         m "Let me guess, you aren't comfortable without a bra?"
-        sus "*uh-huh*"
+        call sus_main("*uh-huh*", "base", "eager", "worried", "mid")
 
     if "panties" in item.blacklist and susan.is_worn("panties"):
-        sus "The panties are e-essential for me..."
+        call sus_main("The panties are e-essential for me...", "open", "happyCl", "base", "mid")
 
     m "How about just giving it a try?"
     m "If you don't like it you can always change back, that okay?"
-    sus "Alright..."
+    call sus_main("Alright...", "base", "eager", "worried", "mid")
 
     return

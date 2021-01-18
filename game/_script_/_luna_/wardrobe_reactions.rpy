@@ -1,14 +1,14 @@
 define lun_requirements = {
-    "category upper undergarment": 5, #TODO happens after first event of T2 (inspect body)  (would need to be set to first lvl of T3)
-    "category lower undergarment": 5, #TODO happens after first event of T2 (inspect body)  (would need to be set to first lvl of T3)
-    "category piercings & tattoos": 16, #TODO First level of Tier 4
+    "category upper undergarment": 7,
+    "category lower undergarment": 7,
+    "category piercings & tattoos": 13,
     # "touch head":
     # "touch breasts":
     # "touch vagina":
-    "unequip panties": 6, #TODO she strips first event of T2 (inspect body)                 (would need to be set to first lvl of T3)
-    "unequip bra": 6, #TODO she strips first event of T2 (inspect body)                     (would need to be set to first lvl of T3)
-    "unequip top": 3, #TODO happens end of T1                                               (would need to be set to first lvl of T2)
-    "unequip bottom": 3, #TODO happens end of T1                                            (would need to be set to first lvl of T2)
+    "unequip panties": 7,
+    "unequip bra": 7,
+    "unequip top": 4,
+    "unequip bottom": 4,
     }
 
 define lun_responses = {
