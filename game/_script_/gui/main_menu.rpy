@@ -253,6 +253,7 @@ screen navigation(title=None):
                 textbutton _("Return") action Return()
 
         else:
+            textbutton _("Return") action Return()
 
             textbutton _("History") action ShowMenu("history")
 

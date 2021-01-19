@@ -254,7 +254,7 @@ screen inventory_menuitem(xx, yy):
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
                 add image_zoom align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
-                text str(current_item.owned) size 14 align (0.90, 0.90) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                text str(current_item.owned) size 14 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
             add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
             add gui.format("interface/achievements/{}/spacer.webp") pos (120, 398)
