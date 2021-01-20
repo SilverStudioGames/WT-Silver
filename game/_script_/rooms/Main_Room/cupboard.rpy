@@ -48,7 +48,7 @@ label rummaging:
     if not map_unlocked:
         if hermione_favors:
             $ map_unlocked = True
-            call give_reward(">You found a map of the school grounds...\n>You can now leave the office.","interface/icons/item_scroll.webp")
+            call give_reward(">You found a map of the school grounds...\n>You can now leave the office.","interface/icons/generic_scroll.webp")
             jump main_room_menu
 
         elif wine_ITEM.owned < 1:

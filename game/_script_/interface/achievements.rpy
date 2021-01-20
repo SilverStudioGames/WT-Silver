@@ -10,7 +10,7 @@ define achievements_dict = {
     "mirror": ["Mirror", "Mirror, mirror on the wall..", "Awarded for unlocking the Room of Requirements.", False, "images/rooms/room_of_requirement/mirror_hover.webp", False],
     "gold": ["General", "Gold Digger", "Awarded for collecting 10000 gold coins.", False, "interface/icons/gold.webp", False],
     "drunkard": ["General", "Drunken Master", "Collected 25 bottles of wine.", False, "interface/icons/wine.webp", True],
-    "workaholic": ["General", "Workaholic", "Completed 5 full reports.", False, "interface/icons/item_scroll.webp", False],
+    "workaholic": ["General", "Workaholic", "Completed 5 full reports.", False, "interface/icons/generic_scroll.webp", False],
     "fireplace": ["General", "Feel the Heat", "Started fire 5 times or more.", False, "images/rooms/_objects_/fireplace/fireplace_idle.webp", True],
     "peta": ["General", "I think I forgot something...", "Awarded for not feeding the bird for 50 days.... \nYou monster.\n{size=-4}Disclaimer: No real nor fictional animals were harmed in the process.{/size}", False, "images/rooms/_objects_/phoenix/phoenix_01.webp", True],
     "petpal": ["General", "Regular stroking", "Awarded for petting the bird 25 times.", False, "images/rooms/_objects_/phoenix/phoenix_01.webp", False],

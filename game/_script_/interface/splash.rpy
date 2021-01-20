@@ -17,7 +17,7 @@ screen splashscreen():
     vbox:
         align (0.5, 0.9)
         text "The game contains strong language, nudity, explicit scenes, drinkin', smokin', bangin', use of drugs, and just about everything your mother ever told you not to do."
-        text "{color=#ff0000}{b}NOT SUITABLE FOR CHILDREN{/u}{/color}!" size 22
+        text "{color=#ff0000}{b}NOT SUITABLE FOR CHILDREN{/b}{/color}!" size 22
 
     timer 7.0 action Return()
 

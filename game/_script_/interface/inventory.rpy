@@ -95,7 +95,7 @@ label inventory_menu(xx=150, yy=90):
         $ current_page = 0
         $ current_item = None
     elif _return == "use":
-        $ current_item.use
+        $ current_item.use()
     elif _return == "give":
         hide screen inventory
         $ renpy.call(get_character_gift_label(active_girl), current_item)
