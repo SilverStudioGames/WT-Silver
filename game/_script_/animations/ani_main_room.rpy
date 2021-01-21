@@ -126,9 +126,8 @@ image phoenix_hover:
 
     "images/rooms/_objects_/phoenix/phoenix_hover.webp"
 
-image feather:
+image phoenix_feather:
     zoom 0.5
-
     pause 10
     alpha 1.0
     "images/rooms/_objects_/phoenix/feather_ani/pho_01.webp"
@@ -168,7 +167,6 @@ image feather:
     "images/rooms/_objects_/phoenix/feather_ani/pho_18.webp"
     pause 10
     linear .5 alpha 0.0
-    pause 20
     repeat
 
 # Door
@@ -269,5 +267,49 @@ image owl_letter_black:
 
 image owl_letter_hover_black:
     zoom 0.5
-
     "images/rooms/_objects_/mail/owl_hover_black.webp"
+
+image cupboard_idle:
+    zoom 0.5
+    "images/rooms/_objects_/cupboard/cupboard_w_shadow.webp"
+
+image main_room_idle_day:
+    zoom 0.5
+    "images/rooms/_bg_/main_room_day.webp"
+
+image main_room_idle_night:
+    zoom 0.5
+    "images/rooms/_bg_/main_room_night.webp"
+
+image candle_left:
+    zoom 0.5
+
+    "images/rooms/_objects_/candles/candleM.webp"
+
+image candle_right:
+    zoom 0.5
+
+    "images/rooms/_objects_/candles/candle.webp"
+
+image candle_fire: #Candle fire.
+    "images/rooms/_objects_/candles/fire_01.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_04.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_03.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_02.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_08.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_06.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_07.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_05.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_10.webp"
+    pause.1
+    "images/rooms/_objects_/candles/fire_09.webp"
+    pause.1
+    repeat

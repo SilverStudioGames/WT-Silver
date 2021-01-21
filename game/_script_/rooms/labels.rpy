@@ -20,18 +20,18 @@ label room(room=None, hide_screens=True, stop_sound=True):
 
         # Show main_room and (optional) objects
         show screen main_room
-        show screen chair_right
-        show screen fireplace
+        #show screen chair_right
+        # show screen fireplace
 
-        if fire_in_fireplace:
-            show screen fireplace_fire
-        else:
-            hide screen fireplace_fire
+        # if fire_in_fireplace:
+        #     show screen fireplace_fire
+        # else:
+        #     hide screen fireplace_fire
 
-        if phoenix_is_fed:
-            show screen phoenix_food
-        else:
-            hide screen phoenix_food
+        # if phoenix_is_fed:
+        #     show screen phoenix_food
+        # else:
+        #     hide screen phoenix_food
 
         if mailbox.get_letters() and not owl_away:
             show screen owl
@@ -39,7 +39,7 @@ label room(room=None, hide_screens=True, stop_sound=True):
         if mailbox.get_parcels():
             show screen package
 
-        call gen_chibi("sit_behind_desk")
+        #call gen_chibi("sit_behind_desk")
 
         # User interface
         call update_ui_points

@@ -71,6 +71,13 @@ init python:
 
             self._owned = max(min(value, self.limit), 0)
 
+    class Decoration(Item):
+
+        def __init__(self, placement, *args, **kwargs):
+            super(Decoration, self).__init__(self, *args, **kwargs)
+
+            self.placement = placement
+
 init offset = -5
 
 default inventory = Inventory()

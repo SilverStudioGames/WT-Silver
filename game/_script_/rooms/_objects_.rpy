@@ -1,95 +1,43 @@
-default deco_list = []
-default deco_overlay_list = []
+default main_room = Room("main_room")
 
-default fireplace_OBJ = RoomObject(type="fireplace",
-    room_image="fireplace_idle_shadow", room_image_path="",
-    idle_image="fireplace_idle", idle_image_path="",
-    hover_image="fireplace_hover", hover_image_path="",
-    xpos=693, ypos=277)
+default fireplace_OBJ = RoomObject(main_room, "fireplace", pos=(693, 277), idle="fireplace_idle_shadow", focus_mask="fireplace_hover", foreground="fireplace_fire", action=ToggleVariable("fireplace_OBJ.foreground", "fireplace_fire", None))
+default cupboard_OBJ = RoomObject(main_room, "cupboard", pos=(260, 280), idle="cupboard_idle", action=Jump("cupboard"), tooltip="Rummage")
+default phoenix_OBJ = RoomObject(main_room, "phoenix", pos=(557, 272), idle="phoenix_idle", hover="phoenix_hover", focus_mask="phoenix_idle", foreground="phoenix_feather", action=Jump("phoenix"), tooltip="Interact")
+default door_OBJ = RoomObject(main_room, "door", pos=(898, 315), idle="door_idle", focus_mask="door_hover", action=Jump("door"), tooltip="Summon")
+default candleL_OBJ = RoomObject(main_room, "candle_left", pos=(350, 160), idle="candle_left", focus_mask="candle_left", foreground="candle_fire", action=ToggleVariable("candleL_OBJ.foreground", "candle_fire", None))
+default candleR_OBJ = RoomObject(main_room, "candle_right", pos=(833, 225), idle="candle_right", focus_mask="candle_right", foreground="candle_fire", action=ToggleVariable("candleR_OBJ.foreground", "candle_fire", None))
+default desk_OBJ = RoomObject(main_room, "desk", pos=(370, 336), idle="ch_gen sit_behind_desk", hover="ch_gen sit_behind_desk_hover", focus_mask="ch_gen sit_behind_desk", action=Jump("desk"), hovered=Show("gui_tooltip", img="emo_exclaim", xx=335, yy=210), unhovered=Hide("gui_tooltip"), tooltip="Desk")
 
-default cupboard_top_OBJ = RoomObject(type="cupboard",
-    idle_image="idle_scroll", idle_image_path="images/rooms/_objects_/cupboard/",
-    hover_image="hover_scroll", hover_image_path="images/rooms/_objects_/cupboard/",
-    xpos=260, ypos=280)
+default room_menu_active = False
 
-default cupboard_OBJ = RoomObject(type="cupboard",
-    room_image="cupboard_w_shadow", room_image_path="images/rooms/_objects_/cupboard/",
-    idle_image="cupboard_idle", idle_image_path="images/rooms/_objects_/cupboard/",
-    hover_image="cupboard_hover", hover_image_path="images/rooms/_objects_/cupboard/",
-    xpos=260, ypos=280)
+screen main_room_menu():
+    tag room_menu
+    on "show" action SetVariable("room_menu_active", True)
+    on "hide" action SetVariable("room_menu_active", False)
 
-default hat_OBJ = RoomObject(type="hat",
-    room_image="hat_idle", room_image_path="images/rooms/_objects_/cupboard/",
-    idle_image="hat_idle", idle_image_path="images/rooms/_objects_/cupboard/",
-    hover_image="hat_hover", hover_image_path="images/rooms/_objects_/cupboard/",
-    xpos=260, ypos=280)
+screen main_room():
+    tag room
+    zorder 0
+    sensitive room_menu_active
 
-default phoenix_OBJ = RoomObject(type="phoenix",
-    room_image="phoenix_idle", room_image_path="",
-    idle_image="phoenix_idle", idle_image_path="",
-    hover_image="phoenix_hover", hover_image_path="",
-    xpos=557, ypos=272)
+    use weather
 
-default door_OBJ = RoomObject(type="door",
-    room_image="door_idle", room_image_path="",
-    idle_image="door_idle", idle_image_path="",
-    hover_image="door_hover", hover_image_path="",
-    xpos=898, ypos=315)
+    # Walls
+    if game.daytime:
+        add "main_room_idle_day"
+    else:
+        add "main_room_idle_night"
 
-default door_night_OBJ = RoomObject(type="door",
-    room_image="door_idle_night", room_image_path="",
-    idle_image="door_idle_night", idle_image_path="",
-    hover_image="door_hover_night", hover_image_path="",
-    xpos=898, ypos=315
-)
-
-#default carpet_OBJ = RoomObject(type="carpet", room_image="", xpos=0, ypos=0)
-
-default candle_left_OBJ = RoomObject(type="candle",
-    room_image="candle", room_image_path="images/rooms/_objects_/candles/",
-    xpos=350, ypos=160)
-
-default candle_right_OBJ = RoomObject(type="candle",
-    room_image="candle", room_image_path="images/rooms/_objects_/candles/",
-    xpos=833, ypos=225)
-
-default owl_OBJ = RoomObject(type="mail",
-    room_image="owl_idle", room_image_path="",
-    idle_image="owl_letter", idle_image_path="",
-    hover_image="owl_letter_hover", hover_image_path="",
-    xpos=455, ypos=289)
-
-default package_OBJ = RoomObject(type="mail",
-    room_image="package_idle", room_image_path="images/rooms/_objects_/mail/",
-    idle_image="package_idle", idle_image_path="images/rooms/_objects_/mail/",
-    hover_image="package_hover", hover_image_path="images/rooms/_objects_/mail/",
-    xpos=402, ypos=290)
-
-default xmas_fireplace_deco_ITEM = RoomObject(type="fireplace", image="deco/fireplace_xmas",
-    room_image="fireplace_deco_xmas", room_image_path="images/rooms/_objects_/fireplace/")
-
-# New Decorations
-default poster_OBJ = RoomObject(type="poster",
-    room_image="", room_image_path="images/rooms/_objects_/posters/",
-    xpos=332, ypos=260)
-
-default trophy_OBJ = RoomObject(type="trophy",
-    room_image="", room_image_path="images/rooms/_objects_/trophies/",
-    xpos=690, ypos=150)
-
-# Phoenix hat
-default phoenix_deco_OBJ = RoomObject(type="phoenix_deco",
-    room_image="", room_image_path="images/rooms/_objects_/phoenix/",
-    xpos=phoenix_OBJ.xpos, ypos=phoenix_OBJ.ypos-42)
-
-default fireplace_deco_OBJ = RoomObject(type="fireplace_deco",
-    room_image="", room_image_path="images/rooms/_objects_/fireplace/",
-    xpos=fireplace_OBJ.xpos, ypos=fireplace_OBJ.ypos)
-
-default owl_deco_OBJ = RoomObject(type="owl_deco",
-    room_image="", room_image_path="images/rooms/_objects_/mail/",
-    xpos=owl_OBJ.xpos, ypos=owl_OBJ.ypos)
-
-default cupboard_deco_OBJ = RoomObject(type="cupboard_deco",
-    room_image="", room_image_path="images/rooms/_objects_/cupboard/",
-    xpos=cupboard_OBJ.xpos, ypos=cupboard_OBJ.ypos)
+    for obj in main_room.objects:
+        imagebutton:
+            pos obj.pos
+            anchor obj.anchor
+            idle obj.get_idle()
+            hover obj.get_hover()
+            foreground obj.foreground
+            background obj.background
+            focus_mask obj.focus_mask
+            tooltip obj.tooltip
+            hovered obj.hovered
+            unhovered obj.unhovered
+            action obj.action
