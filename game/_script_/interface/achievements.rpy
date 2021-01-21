@@ -14,18 +14,18 @@ define achievements_dict = {
     "fireplace": ["General", "Feel the Heat", "Started fire 5 times or more.", False, "images/rooms/_objects_/fireplace/fireplace_idle.webp", True],
     "peta": ["General", "I think I forgot something...", "Awarded for not feeding the bird for 50 days.... \nYou monster.\n{size=-4}Disclaimer: No real nor fictional animals were harmed in the process.{/size}", False, "images/rooms/_objects_/phoenix/phoenix_01.webp", True],
     "petpal": ["General", "Regular stroking", "Awarded for petting the bird 25 times.", False, "images/rooms/_objects_/phoenix/phoenix_01.webp", False],
-    "postman": ["Cardgame", "Poster Boy", "Bought all posters from the token shop.", False, "interface/icons/posters/agrabah.webp", False],
+    "postman": ["Cardgame", "Poster Boy", "Bought all posters from the token shop.", False, "interface/icons/agrabah_poster.webp", False],
     "hats": ["Cardgame", "Mad Hatter", "Bought all hat decorations from the token shop.", False, "interface/icons/icon_gambler_hat.webp", False],
     "daddy": ["Characters", "Who's your daddy?", "Let Hermione call you a {size=-5}(sugar){/size} daddy.", False, "interface/icons/head/hermione.webp", True],
     "pantiesfap": ["Characters", "I sneezed on them...", "Rubbed one out on Hermione's panties.", False, "characters/genie/chibis/jerk_off/02.webp", False],
     "pantiesfapcho": ["Characters", "Exercise is important", "Rubbed one out on Cho's panties.", False, "characters/genie/chibis/jerk_off/02.webp", False],
     "bros": ["Characters", "Bros before hoes", "Became best pals with Snape.", False, "interface/icons/head/snape.webp", False],
     "knock": ["Characters", "*Knock* *knock*", "Go away! I'm busy.", False, "images/rooms/_objects_/doors/door_idle.webp", True],
-    "decorator": ["Cardgame", "Decorator", "Applied decoration in the office.", False, "interface/icons/trophies/stag.webp", False],
+    "decorator": ["Cardgame", "Decorator", "Applied decoration in the office.", False, "interface/icons/stag_trophy.webp", False],
     "flashback": ["Cardgame", "Flashback", "Totally what happened...", False, "interface/icons/cards.webp", True],
     "start": ["General", "Welcome to Hogwarts!", "Awarded upon finishing the intro.", False, "interface/icon.webp", False],
     "export": ["General", "Sharing is caring", "Exported an outfit through the wardrobe menu.", False, "interface/wardrobe/icons/load.webp", False],
-    "Credits":  ["General", "New game, who this?", "Checked out the Credits Menu", False, "interface/icons/item_scroll_silver.webp", False],
+    "Credits":  ["General", "New game, who this?", "Checked out the Credits Menu", False, "interface/icons/silver_scroll.webp", False],
     "Cardwin":  ["Cardgame", "Time to duel", "Awarded for winning your first Cardgame duel", False, "interface/icons/cards.webp", False],
     "puzzle": ["General", "Down the hatch!", "Wasted a bottle of unbelievably rare phoenix tears by drinking it.", False, "interface/icons/item_potion.webp", True],
     "ending": ["General", "Bittersweet Farewell", "Finished the game.", False, "interface/icons/book_silver.webp", True],
@@ -75,7 +75,7 @@ init python:
             # Resets achievements
             if reset:
                 value[3] = False
-        return True
+        return
 
 
     class Achievements(object):

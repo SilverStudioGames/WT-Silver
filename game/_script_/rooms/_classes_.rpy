@@ -14,7 +14,7 @@ init -1 python:
 
     class RoomObject(object):
 
-        def __init__(self, room, id, pos, idle, hover=None, foreground=None, background=None, anchor=(0.5, 0.5), focus_mask=True, action=NullAction(), hovered=None, unhovered=None, tooltip=None, decoration=None):
+        def __init__(self, room, id, pos, idle, hover=None, foreground=None, background=None, anchor=(0.5, 0.5), focus_mask=True, action=NullAction(), hovered=None, unhovered=None, tooltip=None, decoration=None, zorder=0):
             self.room = room
             self.id = id
             self.pos = pos
@@ -30,6 +30,7 @@ init -1 python:
             self.tooltip = tooltip
             self.decoration = decoration
             self.hidden = False
+            self.zorder = zorder
 
             # Add to the main room if room was specified
             if self.room:

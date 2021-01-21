@@ -6,7 +6,7 @@ default phoenix_OBJ = RoomObject(main_room, "phoenix", pos=(557, 272), idle="pho
 default door_OBJ = RoomObject(main_room, "door", pos=(898, 315), idle="door_idle", focus_mask="door_hover", action=Jump("door"), tooltip="Summon")
 default candleL_OBJ = RoomObject(main_room, "candle_left", pos=(350, 160), idle="candle_left", focus_mask="candle_left", foreground="candle_fire", action=ToggleVariable("candleL_OBJ.foreground", "candle_fire", None))
 default candleR_OBJ = RoomObject(main_room, "candle_right", pos=(833, 225), idle="candle_right", focus_mask="candle_right", foreground="candle_fire", action=ToggleVariable("candleR_OBJ.foreground", "candle_fire", None))
-default desk_OBJ = RoomObject(main_room, "desk", pos=(370, 336), idle="ch_gen sit_behind_desk", hover="ch_gen sit_behind_desk_hover", focus_mask="ch_gen sit_behind_desk", action=Jump("desk"), hovered=Show("gui_tooltip", img="emo_exclaim", xx=335, yy=210), unhovered=Hide("gui_tooltip"), tooltip="Desk")
+default desk_OBJ = RoomObject(main_room, "desk", pos=(370, 336), idle="ch_gen sit_behind_desk", hover="ch_gen sit_behind_desk_hover", focus_mask="ch_gen sit_behind_desk", action=Jump("desk"), hovered=Show("gui_tooltip", img="emo_exclaim", xx=335, yy=210), unhovered=Hide("gui_tooltip"), tooltip="Desk", zorder=1)
 
 default room_menu_active = False
 
@@ -20,6 +20,12 @@ screen main_room():
     zorder 0
     sensitive room_menu_active
 
+    default objects = sorted(main_room.objects, key=lambda x: x.zorder)
+
+    # Hotkeys
+    if room_menu_active and game.day > 1 and not renpy.android:
+        use hotkeys_main
+
     use weather
 
     # Walls
@@ -28,7 +34,7 @@ screen main_room():
     else:
         add "main_room_idle_night"
 
-    for obj in main_room.objects:
+    for obj in objects:
         imagebutton:
             pos obj.pos
             anchor obj.anchor
