@@ -156,6 +156,7 @@ label hg_pf_admire_breasts_T1_intro_E1:
 
     call play_music("chipper_doodle") # HERMIONE'S THEME.
     call her_main("(................)", "annoyed", "narrow", "angry", "R")
+    call play_sound("equip")
     $ hermione.strip("robe", "accessory")
     pause .4
 
@@ -166,7 +167,7 @@ label hg_pf_admire_breasts_T1_intro_E1:
     m "*Hmmmmm*"
     m "..........."
     call her_main("Sir?", "clench", "base", "angry", "mid")
-    g4 "(I wonder what cup size those are.)"
+    m "(I wonder what cup size those are.)"
 
     $ hermione.wear("top")
     pause .5

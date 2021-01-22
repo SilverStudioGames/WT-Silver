@@ -78,6 +78,7 @@ label update_genie:
     $ genie_flip = 1
     $ genie_zorder = 15
     $ use_genie_head = False
+    call gen_chibi("sit_behind_desk")
 
     return
 

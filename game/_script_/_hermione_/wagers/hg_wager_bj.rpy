@@ -115,7 +115,6 @@ label hg_wager_bj:
         call blkfade
         call play_music("playful_tension")
         hide screen hermione_main
-        show screen chair_left
         call her_chibi_scene("bj")
         hide screen bld1
         hide screen blkfade
@@ -212,7 +211,6 @@ label hg_wager_bj:
                     stop music fadeout 2
 
                 else: #if hermione has stripped twice (so snape walked in on her)
-                    show screen desk(437) # Desk was shifted during blowjob
                     call gen_chibi("dick_out", 260, 205+250)
                     call her_chibi("stand",220,"base", flip=True)
                     call sna_main("Miss Granger?! I thou-- I...", face="snape_14", wand=True)

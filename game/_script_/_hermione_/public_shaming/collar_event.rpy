@@ -246,7 +246,6 @@ label whore_scene: #(locked behind the public her_whoring flag)
     call blkfade
 
     call her_chibi_scene("sex_pause")
-    show screen chair_left
     call hide_blkfade
 
     $ hermione_zorder = 18
@@ -378,7 +377,6 @@ label slave_scene:
     call blkfade
 
     call her_chibi_scene("sex_pause")
-    show screen chair_left
     call her_chibi("hide")
     call hide_blkfade
 

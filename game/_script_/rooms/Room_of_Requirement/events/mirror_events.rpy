@@ -25,7 +25,6 @@ label prev_at_hogwarts:
 
     call gen_chibi("hide")
     show screen dumbledore
-    hide screen owl
 
     centered "{size=+7}{color=#cbcbcb}Previously, at Hogwarts{w=1.0}\nschool of Witchcraft and Wizardry...{/color}{/size}"
 
@@ -144,9 +143,7 @@ label a_spaced_out_conversation:
 
     call gen_chibi("hide")
     hide screen chair_right
-    hide screen owl
     show screen fireplace_fire
-    show screen desk
     show screen with_snape(ani=False)
 
     centered "{size=+7}{color=#cbcbcb}A spaced out conversation.{/color}{/size}"

@@ -737,8 +737,6 @@ label luna_favour_3:
             $ luna_chibi.zorder = 2
             call gen_chibi("stand_alt",440,"base")
             call lun_chibi("stand",535,"base")
-            show screen chair_left
-            show screen desk
 
             hide screen blkfade
             with fade
@@ -910,8 +908,6 @@ label luna_favour_3:
             ">You stand up and walk in front of luna, feeling the pressure of her gaze."
 
             hide screen bld1
-            show screen chair_left
-            show screen desk
             hide screen luna_main
             call gen_chibi("stand_alt",400,"base")
             call lun_chibi("stand",535,"base")

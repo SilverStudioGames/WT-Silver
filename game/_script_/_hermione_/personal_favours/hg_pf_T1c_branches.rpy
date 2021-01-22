@@ -496,7 +496,6 @@ label hg_pf_admire_breasts_T4_look: # Call label
     $ hermione.wear("all")
     #End Admiring
     hide screen hermione_main
-    hide screen chair_left
     hide screen blktone
     hide screen bld1
 

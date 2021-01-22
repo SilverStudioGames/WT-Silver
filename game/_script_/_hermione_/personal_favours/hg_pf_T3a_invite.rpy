@@ -472,9 +472,7 @@ label hg_pf_strip_T4_snape_masturbate:
     call sna_main("Well, don't mind if I do...","snape_12")
     call her_main("!!!", animation=None)
 
-    show screen chair_left
     call gen_chibi("jerk_off","behind_desk","base")
-    show screen desk
     call her_chibi("dance_pause","on_desk","on_desk")
     call sna_chibi("jerk_off","desk_close", "desk_close")
     hide screen blktone

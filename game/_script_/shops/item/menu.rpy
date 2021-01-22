@@ -1,7 +1,7 @@
 init python:
     def shop_item_sortfilter(item, sortby="Price (Asc)", filtering=None):
         # Always sort alphabetically first.
-        item = sorted(item)
+        item = sorted(item, key=lambda x: x.name)
 
         if sortby == "Price (Asc)":
             item = sorted(item, key=lambda x: x.price, reverse=False)

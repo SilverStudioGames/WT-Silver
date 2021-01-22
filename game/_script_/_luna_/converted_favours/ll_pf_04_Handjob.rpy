@@ -23,8 +23,6 @@ label luna_favour_4:
         ">You stand up and walk around your desk."
         ">Standing in front of Luna, you open your cloak and pull out your cock."
         hide screen bld1
-        show screen chair_left
-        show screen desk
         call gen_chibi("dick_out", "desk", "base")
         call lun_chibi("stand", "mid", "base")
         with fade
@@ -327,8 +325,6 @@ label luna_favour_4:
             ">You stand up and walk around your desk."
             ">Standing in front of Luna, you open your cloak and pull out your cock."
             hide screen bld1
-            show screen chair_left
-            show screen desk
             call gen_chibi("dick_out", "desk", "base")
             call lun_chibi("stand", "mid", "base")
             with fade
@@ -544,8 +540,6 @@ label luna_favour_4:
             ">You stand up and walk around your desk."
             ">Standing in front of Luna, you open your cloak and pull out your cock."
             hide screen bld1
-            show screen chair_left
-            show screen desk
             call gen_chibi("dick_out", "desk", "base")
             call lun_chibi("stand", "mid", "base")
             with fade

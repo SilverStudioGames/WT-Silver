@@ -536,15 +536,15 @@ label DRgame_random_event:
 screen dark_room():
     add "images/rooms/_bg_/main_room_night.webp"
 
-    add "images/rooms/_objects_/doors/door_idle_night.webp" at Position(xpos=898, ypos=315, xanchor="center", yanchor="center")
-    add "images/rooms/_objects_/fireplace/fireplace_w_shadow.webp" at Position(xpos=693, ypos=277, xanchor="center", yanchor="center")
+    add "images/rooms/objects/doors/door_idle_night.webp" at Position(xpos=898, ypos=315, xanchor="center", yanchor="center")
+    add "images/rooms/objects/fireplace/fireplace_w_shadow.webp" at Position(xpos=693, ypos=277, xanchor="center", yanchor="center")
     if read_book:
         if DRgame.fire == 0:
             add "ch_gen read" xpos 350 ypos 205
         else:
             add "ch_gen read_near_fire" xpos 350 ypos 205
-    else:
-        use chair_left
+    #else:
+        #use chair_left
     add "images/rooms/main_room/desk_with_shadow.webp" xpos 370 ypos 336 xanchor 0.5 yanchor 0.5
 
     zorder 0
@@ -567,8 +567,8 @@ screen DRgame_menu():
         focus_mask True
         xanchor "center"
         yanchor "center"
-        idle "images/rooms/_objects_/doors/door_idle.webp"
-        hover "images/rooms/_objects_/doors/door_hover.webp"
+        idle "images/rooms/objects/doors/door_idle.webp"
+        hover "images/rooms/objects/doors/door_hover.webp"
         action [Hide("DRgame_menu"), Jump("DRgame_door")]
 
     #Fireplace
@@ -578,8 +578,8 @@ screen DRgame_menu():
         focus_mask True
         xanchor "center"
         yanchor "center"
-        idle "images/rooms/_objects_/fireplace/fireplace_idle.webp"
-        hover "images/rooms/_objects_/fireplace/fireplace_hover.webp"
+        idle "images/rooms/objects/fireplace/fireplace_idle.webp"
+        hover "images/rooms/objects/fireplace/fireplace_hover.webp"
         action [Hide("DRgame_menu"), Jump("DRgame_fireplace")]
 
     #Chair left chair_left

@@ -18,28 +18,13 @@ label room(room=None, hide_screens=True, stop_sound=True):
         call weather_sound
         call fireplace_sound
 
-        # Show main_room and (optional) objects
         show screen main_room
-        #show screen chair_right
-        # show screen fireplace
-
-        # if fire_in_fireplace:
-        #     show screen fireplace_fire
-        # else:
-        #     hide screen fireplace_fire
-
-        # if phoenix_is_fed:
-        #     show screen phoenix_food
-        # else:
-        #     hide screen phoenix_food
 
         if mailbox.get_letters() and not owl_away:
-            show screen owl
+            $ owl_OBJ.hidden = False
 
         if mailbox.get_parcels():
-            show screen package
-
-        #call gen_chibi("sit_behind_desk")
+            $ parcel_OBJ.hidden = False
 
         # User interface
         call update_ui_points
@@ -74,12 +59,11 @@ label room(room=None, hide_screens=True, stop_sound=True):
 # Used to return from event sequences
 label main_room:
     call room("main_room", stop_sound=False)
-    if not desk_examined:
-        show screen letter_on_desk
-    with d3
-
     call reset_menu_position
     call music_block
+    call gen_walk(action="enter", xpos="desk", ypos="base", speed=1.5)
+    call gen_chibi("sit_behind_desk")
+    with d3
 
     if defer_daytime_change:
         if game.daytime:
@@ -95,7 +79,8 @@ label main_room:
 # Return to main_room at menu point (after quests and events)
 # Used to return from main room interactions
 label main_room_menu:
-    call room("main_room", stop_sound=False)
+    #call room("main_room", stop_sound=False)
+    hide screen bld1
     with d3
 
     call reset_menu_position

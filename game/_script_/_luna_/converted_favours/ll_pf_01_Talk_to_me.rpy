@@ -588,9 +588,6 @@ label luna_favour_1:
         call lun_main(xpos=390, flip=True)
         with d3
 
-        call update_her_uniform
-        pause.8
-
         call her_main("Hello Professor!", "base", "happyCl", "base", "mid", xpos="base", ypos="base")
         call her_main("Hi Luna! what's he want now? another blowjob.", "grin", "base", "base", "R")
         call lun_main("no, he just wants to talk...","base","seductive","angry","mid")

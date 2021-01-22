@@ -9,7 +9,6 @@ label a_christmas_tale:
     call room("main_room")
     show screen blkfade
     with d5
-    hide screen owl
 
     centered "{size=+7}{color=#cbcbcb}A Christmas tale{/color}{/size}"
 
@@ -20,8 +19,6 @@ label a_christmas_tale:
     $ game.weather = "snow"
 
     call gen_chibi("hide")
-    show screen chair_left
-    show screen desk
     show screen fireplace_fire
 
     # unlock decorations and add to room

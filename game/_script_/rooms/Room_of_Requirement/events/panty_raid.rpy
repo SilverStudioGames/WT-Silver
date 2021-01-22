@@ -6,7 +6,6 @@ label panty_raid:
     $ game.daytime = True
     call update_interface_color
     call room("main_room")
-    hide screen owl
     show screen blkfade
     with d5
 

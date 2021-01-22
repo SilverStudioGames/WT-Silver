@@ -118,7 +118,6 @@ label genie_intro_E1:
 
     jump main_room
 
-
 label genie_intro_E2:
     call bld
     m "It's getting darker already..."
@@ -129,12 +128,11 @@ label genie_intro_E2:
 
     jump night_start
 
-
 # Owl intro.
 label genie_intro_E3:
     pause.2
     call play_sound("owl")
-    show screen owl
+    $ owl_OBJ.hidden = False
     with d1
     pause.6
 

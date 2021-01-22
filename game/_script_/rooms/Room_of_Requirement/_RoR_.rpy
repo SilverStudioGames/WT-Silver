@@ -18,10 +18,10 @@ screen room_of_requirement():
         add mirror_chibi.copy() xzoom -1 xoffset 450-config.screen_width
 
     add "images/rooms/room_of_requirement/empty_room.webp"
-    add "images/rooms/_objects_/doors/door_idle_night.webp" xpos 898 ypos 315 xanchor 0.5 yanchor 0.5 zoom 0.5
+    add "images/rooms/objects/doors/door_idle_night.webp" xpos 898 ypos 315 xanchor 0.5 yanchor 0.5 zoom 0.5
     add "images/rooms/room_of_requirement/mirror.webp" xpos 100 ypos 180
 
-    add "images/rooms/_objects_/candles/candleM.webp" xpos 700  ypos 200  xanchor 0.5 yanchor 0.5 zoom 0.5
+    add "images/rooms/objects/candles/candleM.webp" xpos 700  ypos 200  xanchor 0.5 yanchor 0.5 zoom 0.5
 
     use ui_top_bar
 
@@ -83,21 +83,21 @@ label mirror_menu:
     jump .interact
 
 screen floor_7th_door():
-    add "images/rooms/_objects_/doors/front_door.webp" xpos 420 ypos 105
+    add "images/rooms/objects/doors/front_door.webp" xpos 420 ypos 105
     zorder -1
 
 screen floor_7th_screen():
     add "images/rooms/room_of_requirement/corridor_edit.webp"
-    add "images/rooms/_objects_/candles/candle.webp" xpos 0 ypos 95 zoom 0.5
+    add "images/rooms/objects/candles/candle.webp" xpos 0 ypos 95 zoom 0.5
     add "candle_fire_02" xpos 0 ypos 95
-    add "images/rooms/_objects_/candles/candleM.webp" xpos 900 ypos 95 zoom 0.5
+    add "images/rooms/objects/candles/candleM.webp" xpos 900 ypos 95 zoom 0.5
     add "candle_fire_01" xpos 900 ypos 95
-    add "images/rooms/_objects_/deco/hogwarts_banner.webp" xpos 800 ypos 105
+    add "images/rooms/objects/deco/hogwarts_banner.webp" xpos 800 ypos 105
     add "fireplace_fire" xpos 575 ypos 60
-    add "images/rooms/_objects_/deco/owlbasin.webp" xpos 660 ypos 255 zoom 0.3
+    add "images/rooms/objects/deco/owlbasin.webp" xpos 660 ypos 255 zoom 0.3
     add "fireplace_fire" xpos 265 ypos 60
-    add "images/rooms/_objects_/deco/owlbasin.webp" xpos 350 ypos 255 zoom 0.3
-    add "images/rooms/_objects_/deco/hogwarts_banner.webp" xpos 200 ypos 105
+    add "images/rooms/objects/deco/owlbasin.webp" xpos 350 ypos 255 zoom 0.3
+    add "images/rooms/objects/deco/hogwarts_banner.webp" xpos 200 ypos 105
     zorder -1
 
     use ui_top_bar
@@ -133,8 +133,8 @@ screen floor_7th_menu():
     imagebutton:
         xpos 420
         ypos 105
-        idle "images/rooms/_objects_/doors/front_door.webp"
-        hover "images/rooms/_objects_/doors/front_door_hover.webp"
+        idle "images/rooms/objects/doors/front_door.webp"
+        hover "images/rooms/objects/doors/front_door_hover.webp"
         tooltip "Enter"
 
         action Jump("enter_room_of_req")

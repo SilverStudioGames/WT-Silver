@@ -176,8 +176,6 @@ label tentacle_scene_intro:
     with d5
     centered "{size=+7}{color=#cbcbcb}A few moments later...{/color}{/size}"
     call gen_chibi("hide")
-    show screen desk
-    show screen chair_left
     show screen letter_on_desk
     show screen plant_on_desk
     hide screen blkfade

@@ -87,7 +87,7 @@ label parcel_open_all:
     while mailbox.get_parcels():
         $ mailbox.get_parcels()[0].open()
 
-    hide screen package
+    $ parcel_OBJ.hidden = True
     call tutorial("inventory")
 
     jump main_room_menu

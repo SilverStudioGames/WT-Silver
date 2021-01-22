@@ -72,11 +72,12 @@ init python:
             self._owned = max(min(value, self.limit), 0)
 
     class Decoration(Item):
+        room_scale = 0.5
 
-        def __init__(self, placement, *args, **kwargs):
-            super(Decoration, self).__init__(self, *args, **kwargs)
+        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default", room_image="default", givable=False):
+            super(Decoration, self).__init__(id, type, name, price, desc, unlocked, func, label, limit, image, givable)
 
-            self.placement = placement
+            self.room_image = Transform("images/rooms/objects/decorations/{}.webp".format(self.id), zoom=self.room_scale) if room_image == "default" else Transform(room_image, zoom=self.room_scale)
 
 init offset = -5
 

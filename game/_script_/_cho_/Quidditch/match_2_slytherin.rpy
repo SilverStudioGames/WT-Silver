@@ -141,8 +141,6 @@ label slytherin_match:
 
     # Teleport to door
     call play_sound("kick")
-    show screen chair_left
-    show screen desk
     call gen_chibi("hide")
     with d3
 
@@ -1420,8 +1418,6 @@ label slytherin_match_return:
     #show screen blkfade
     call room("main_room")
     call gen_chibi("hide")
-    show screen chair_left
-    show screen desk
 
     $ cho_outfit_last.save()
     $ her_outfit_last.save()

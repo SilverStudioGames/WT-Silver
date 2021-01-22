@@ -7,7 +7,6 @@ label an_odd_circumstance:
     stop weather
     call play_music("stop")
     call room("main_room")
-    hide screen owl
     show screen add_overlay
 
     show screen blkfade
@@ -83,8 +82,6 @@ label an_odd_circumstance:
     pause 1
     "A few seconds later I tried to ask where that voice and bright light had come from... But as I did, I could only feel my lips moving with no sound emerging..."
     call gen_chibi("stand",270,"base")
-    show screen chair_left
-    show screen desk(437)
     with d3
     "Taken aback by this, I jumped out of my chair while clutching at my vocal cords..."
     call gen_chibi("stand",270,"base", flip=False)
@@ -102,7 +99,6 @@ label an_odd_circumstance:
     "But it never came..."
     hide screen hermione_main
     $ hermione_chibi.zorder = 3
-    hide screen desk
     call her_chibi_scene("bj_pause")
     with d3
     her "I hope this should suffice... I couldn't stand the thought of discussing this any further..."
@@ -163,8 +159,6 @@ label an_odd_circumstance:
     show screen blkfade
     with d3
     call gen_chibi("stand",270,"base")
-    show screen chair_left
-    show screen desk(437)
     call her_chibi("stand","mid",flip=False)
     "The girl stood up and walked around the desk."
     hide screen blkfade

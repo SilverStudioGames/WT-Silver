@@ -527,11 +527,9 @@ label ball_quest_E2:
     call gen_chibi("hide")
     show screen with_snape(ani=False)
     hide screen chair_right
-    hide screen desk
-    show screen desk
 
     $ fire_in_fireplace = True
-    show screen fireplace_fire
+    $ fireplace_OBJ.foreground = "fireplace_fire"
     call sna_chibi("hide")
     hide screen bld1
     call hide_blkfade

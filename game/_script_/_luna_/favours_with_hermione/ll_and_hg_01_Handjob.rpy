@@ -42,7 +42,6 @@ label luna_favour_5:
 
         $ luna_flip = -1
         $ luna_r_arm = 2
-        call update_her_uniform
 
         call her_main("hello Prof--", "soft", "base", "base", "R",xpos="base",ypos="base")
         call her_main("Luna! what are you doing here?", "angry", "wide", "base", "stare")
@@ -135,8 +134,6 @@ label luna_favour_5:
 
         ">You get up out of your chair and walk over to the two girls."
 
-        show screen chair_left
-        show screen desk
         call gen_chibi("stand", "desk", "base")
         hide screen blkfade
         with d3
@@ -556,8 +553,6 @@ label luna_favour_5:
         call her_chibi("sit_naked", "mid", "base")
         call lun_chibi("stand", "right", "base")
 
-        show screen chair_left
-        show screen desk
         call gen_chibi("dick_out", "desk", "base")
 
         hide screen blkfade
@@ -859,8 +854,6 @@ label luna_favour_5:
         call her_chibi("sit_naked", "mid", "base")
         call lun_chibi("stand", "right", "base")
 
-        show screen chair_left
-        show screen desk
         call gen_chibi("dick_out", "desk", "base")
 
         hide screen blkfade
@@ -1029,7 +1022,6 @@ label luna_favour_5:
 
         call gen_chibi("sit_behind_desk")
         call her_chibi("stand","mid","base")
-        call update_her_uniform
 
         hide screen blkfade
         with d3

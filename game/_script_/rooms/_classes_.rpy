@@ -14,7 +14,7 @@ init -1 python:
 
     class RoomObject(object):
 
-        def __init__(self, room, id, pos, idle, hover=None, foreground=None, background=None, anchor=(0.5, 0.5), focus_mask=True, action=NullAction(), hovered=None, unhovered=None, tooltip=None, decoration=None, zorder=0):
+        def __init__(self, room, id, pos, idle, hover=None, foreground=None, background=None, anchor=(0.5, 0.5), focus_mask=True, action=NullAction(), hovered=None, unhovered=None, tooltip=None, decoration=None, zorder=0, hidden=False):
             self.room = room
             self.id = id
             self.pos = pos
@@ -29,8 +29,8 @@ init -1 python:
             self.unhovered = unhovered
             self.tooltip = tooltip
             self.decoration = decoration
-            self.hidden = False
             self.zorder = zorder
+            self.hidden = hidden
 
             # Add to the main room if room was specified
             if self.room:
@@ -44,7 +44,7 @@ init -1 python:
                 return Null()
 
             if self.decoration:
-                return Fixed(self.idle, self.decoration.image)
+                return Fixed(self.idle, self.decoration.room_image, fit_first=True)
             return self.idle
 
         def get_hover(self):
@@ -52,6 +52,6 @@ init -1 python:
                 return Null()
 
             if self.decoration:
-                return Transform(Fixed(self.hover, self.decoration.image), shader="outline_shader")
+                return Transform(Fixed(self.hover, self.decoration.room_image, fit_first=True), shader="outline_shader")
             return Transform(self.hover, shader="outline_shader")
 

@@ -1086,8 +1086,6 @@ label cc_pr_manipulate_boys_twins_branch:
     call room("main_room")
     call play_music("stop")
     call gen_chibi("hide")
-    show screen chair_left
-    show screen desk
     call cho_chibi(xpos="desk", ypos="base", flip=True)
     call hide_blkfade
     pause 1.0

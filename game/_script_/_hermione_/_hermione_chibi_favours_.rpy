@@ -42,7 +42,6 @@ label her_chibi_scene(action="reset", xpos="mid", ypos="base", trans=None):
 
     # Grope tits
     elif action in ("grope_tits", "grope_tits_jerk_off", "grope_tits_cum", "grope_tits_cum_done"):
-        show screen chair_left
         show screen grope_tits(action)
 
     # Grope on podium (Quidditch pitch)
@@ -61,30 +60,23 @@ label her_chibi_scene(action="reset", xpos="mid", ypos="base", trans=None):
         show screen lie_on_desk("fingering_pause")
 
     elif action == "lie_on_desk_jerk_off":
-        show screen chair_left
         $ masturbating = True
         show screen lie_on_desk("jerk_off")
 
     elif action == "lie_on_desk_cum":
-        show screen chair_left
         $ masturbating = True
         show screen lie_on_desk("cum")
 
     # Handjob
     elif action in ("hj", "hj_pause", "hj_cum_in", "hj_cum_in_done", "hj_cum_on", "hj_cum_on_done", "hj_kiss", "hj_kiss_cum"):
-        show screen chair_left
-        show screen desk
         show screen hermione_chibi_hj(action, xpos=230, ypos=0)
 
     # Titjob
     elif action in ("tj", "tj_pause", "tj_idle", "tj_cum_on", "tj_cum_on_done", "tj_mouth", "tj_cum_in", "tj_cum_in_done"):
-        show screen chair_left
-        show screen desk
         show screen hermione_chibi_tj(action, xpos=450, ypos=200)
 
     # Blowjob
     elif action in ("bj", "bj_pause", "bj_cum_in", "bj_cum_out", "bj_cum_out_done"):
-        show screen chair_left
         show screen hermione_chibi_bj(action)
 
     # Sex
@@ -94,7 +86,6 @@ label her_chibi_scene(action="reset", xpos="mid", ypos="base", trans=None):
         "sex_naked", "sex_naked_pause", "sex_naked_slow", "sex_naked_fast",
         "sex_naked_cum_out", "sex_naked_cum_out_done", "sex_naked_cum_in", "sex_naked_cum_in_done"
     ):
-        show screen chair_left
         show screen hermione_chibi_sex(action)
 
     if trans:

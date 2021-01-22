@@ -1,35 +1,29 @@
 
-
-### Cupboard ###
-
 label cupboard:
-    if not cupboard_examined:
-        $ cupboard_examined = True
-        $ searched = True
-        show screen chair_left
-        call gen_chibi("stand","behind_desk","base", flip=False)
-        show screen desk
-        with d5
-        pause.2
+    if game.day == 1:
+        if not cupboard_examined:
+            $ cupboard_examined = True
+            call gen_chibi("stand","behind_desk","base", flip=False)
+            with d5
+            pause.2
 
-        call bld
-        m "*Hmm*..."
-        m "A cupboard..."
-        m "Maybe I should rummage through this one later..."
+            call bld
+            m "*Hmm*..."
+            m "A cupboard..."
+            m "Maybe I should rummage through this one later..."
+        else:
+            m "Looks like any other cupboard, maybe a bit dustier."
         jump main_room_menu
 
-    jump rummaging
+    if cupboard_searched:
+        ">You already searched the cupboard today."
+        jump main_room_menu
 
-
-label rummaging:
-
-    $ searched = True # Resets every day/night.
+    $ cupboard_searched = True # Resets every day/night.
     $ rum_times += 1  # Stat counter.
 
-    show screen chair_left
-    show screen desk
-    show screen cupboard_open
-    call gen_chibi("rummage", 160, 110+349, flip=False) # Note: Flip is inconsistent
+    $ cupboard_OBJ.idle = "cupboard_open"
+    call gen_chibi("rummage", 160, 459, flip=False) # Note: Flip is inconsistent
     with d3
     show screen bld1
     with d3
@@ -42,33 +36,31 @@ label rummaging:
     if game.day <= 3 and rum_times in [1,2]:
         $ potions += 1
         call give_reward(">You found some sort of healing potion...","interface/icons/item_potion.webp")
+        $ cupboard_OBJ.idle = "cupboard_idle"
+        call gen_chibi("sit_behind_desk")
         jump main_room_menu
-
-    # Map and beverages (prologue only)
-    if not map_unlocked:
-        if hermione_favors:
-            $ map_unlocked = True
-            call give_reward(">You found a map of the school grounds...\n>You can now leave the office.","interface/icons/generic_scroll.webp")
-            jump main_room_menu
-
-        elif wine_ITEM.owned < 1:
-            call rum_block(wine_ITEM)
-            jump main_room_menu
-
-        elif firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1:
-            call rum_block(firewhisky_ITEM)
-            jump main_room_menu
 
     # Dumbledore card
     if game.day >= 26 and deck_unlocked and random_percent <= 40 and not card_exist(unlocked_cards,card_dumbledore) :
         call give_reward("You have found a special card!", "images/cardgame/t1/special/dumbledore_v1.webp")
         $ unlocked_cards += [card_dumbledore]
+        $ cupboard_OBJ.idle = "cupboard_idle"
+        call gen_chibi("sit_behind_desk")
+        jump main_room_menu
+
+    # Map
+    if not map_unlocked and hermione_favors:
+        $ map_unlocked = True
+        call give_reward(">You found a map of the school grounds...\n>You can now leave the office.", "interface/icons/generic_scroll.webp")
+        $ cupboard_OBJ.idle = "cupboard_idle"
+        call gen_chibi("sit_behind_desk")
         jump main_room_menu
 
     # Randomly drop something
     call rum_block(drop_item_from_cupboard(random_percent))
+    $ cupboard_OBJ.idle = "cupboard_idle"
+    call gen_chibi("sit_behind_desk")
     jump main_room_menu
-
 
 label rum_block(item):
     if isinstance(item, int):
@@ -77,6 +69,7 @@ label rum_block(item):
 
     elif item == "nothing":
         ">You found nothing of value..."
+
     else:
         $ item.owned += 1
 

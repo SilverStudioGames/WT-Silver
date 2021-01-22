@@ -63,8 +63,6 @@ label eating_for_pleasure:
     show screen blkfade
     with d5
     $ renpy.play('sounds/08_hop_on_desk.mp3')
-    show screen desk
-    show screen chair_left
     pause 1.4
     call gen_chibi("stand", "desk", "base", flip=True)
     hide screen blkfade
@@ -197,8 +195,6 @@ label eating_for_pleasure:
     centered "{size=+7}{color=#cbcbcb}Some time later...{/color}{/size}"
 
     call gen_chibi("sit_behind_desk")
-    hide screen desk
-    hide screen chair_left
 
     hide screen blkfade
     with d5
@@ -295,20 +291,20 @@ screen fireplace_greenfire():
 
 ### Fireplace ###
 image fireplace_greenfire: #Fireplace fire.
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_01.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_01.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_02.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_02.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_03.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_03.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_04.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_04.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_05.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_05.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_06.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_06.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_07.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_07.webp", im.matrix.hue(100))
     pause.1
-    im.MatrixColor("images/rooms/_objects_/fireplace/fireplace_fire_08.webp", im.matrix.hue(100))
+    im.MatrixColor("images/rooms/objects/fireplace/fireplace_fire_08.webp", im.matrix.hue(100))
     pause.1
     repeat

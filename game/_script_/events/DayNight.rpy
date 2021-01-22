@@ -58,6 +58,7 @@ label update_day_values:
     $ fire_in_fireplace = False
     $ phoenix_is_fed = False
     $ phoenix_is_petted = False
+    $ phoenix_OBJ.foreground = None
     $ owl_away = False
 
     # Snape
@@ -209,7 +210,7 @@ label update_day_and_night_values:
     $ sus_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
     call set_sus_map_location()
 
-    $ searched  = False # Cupboard.
+    $ cupboard_searched  = False # Cupboard.
 
     $ random_gold = renpy.random.randint(8, 40) # Money you find in the cupboard.
 

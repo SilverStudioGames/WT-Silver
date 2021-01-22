@@ -2567,7 +2567,7 @@ label cc_pf_strip_T3_intro_E3:
         play bg_sounds "sounds/fire02.mp3" fadeout 1.0 fadein 1.0
         pause .2
         $ fire_in_fireplace = True
-        show screen fireplace_fire
+        $ fireplace_OBJ.foreground = "fireplace_fire"
         with d5
         pause .8
 

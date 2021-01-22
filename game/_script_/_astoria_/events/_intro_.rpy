@@ -104,8 +104,6 @@ label astoria_intro_E1:
                     $ tonks_chibi.zorder = 1
                     call ton_chibi("stand",275,"behind_desk")
                     call gen_chibi("stand",190,"behind_desk")
-                    show screen chair_left
-                    show screen desk
                     hide screen blkfade
                     with fade
                     pause.8

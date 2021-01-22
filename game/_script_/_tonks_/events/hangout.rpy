@@ -62,13 +62,11 @@ label tonks_hangout:
 
     $ d_flag_01 = "afternoon" if game.daytime else "evening"
 
-    call bld
     if ton_friendship < 100:
         call notes
         ">You spend the [d_flag_01] hanging out with Tonks.\n>Your relationship with her has improved."
     else:
         ">You spend the [d_flag_01] hanging out with Tonks."
-    call bld("hide")
 
     label end_tonks_hangout_points:
 
@@ -103,7 +101,7 @@ label nt_he_wine_intro:
     pause.1
 
     # Show wine
-    call give_reward(">You hand over a bottle of wine you found in the cupboard to Tonks...", gift="interface/icons/wine.webp", sound=False)
+    call give_gift(">You hand over the bottle you found in the cupboard to professor Tonks...", wine_ITEM)
 
     call ton_main("Wine?","open","base","raised","down")
     call ton_main("Don't you have anything stronger?","upset","base","base","R")
@@ -115,7 +113,6 @@ label nt_he_wine_intro:
 
     # Make firewhisky available in the cupboard and store
     $ firewhisky_ITEM.unlocked = True
-    $ wine_ITEM.owned -= 1
 
     jump tonks_hangout_continue
 

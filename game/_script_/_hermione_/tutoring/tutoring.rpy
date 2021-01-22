@@ -742,7 +742,6 @@ label hg_tutor_E8:
 
     call set_her_action("none","update")
 
-    hide screen chair_left
     call her_chibi_scene("behind_desk_front")
     call hide_blkfade
 
@@ -1496,7 +1495,6 @@ label hg_tutor_E12:
     ">She comes back and does not seem particularly upset."
 
     call her_chibi_scene("bj")
-    show screen chair_left
     call hide_blkfade
     call ctc
 
@@ -1890,7 +1888,6 @@ label hg_tutor_E14:
     hide screen hermione_main
     call blkfade
 
-    hide screen chair_left
     hide screen hermione_main
     call her_chibi_scene("lie_on_desk")
     pause 1

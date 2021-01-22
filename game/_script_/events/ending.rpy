@@ -62,7 +62,6 @@ label ball_ending_E1:
     hide screen bld1
     call gen_chibi("hide")
     call sna_chibi("hide")
-    show screen chair_left
     show screen genie_snape_shake_hands(False)
 
     play music "music/machinations-by-kevin-macleod.mp3" fadein 1 fadeout 1
@@ -280,8 +279,6 @@ label ball_ending_E1:
 
     call blkfade
 
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand","desk","base")
     hide screen bld1
     call hide_blkfade
@@ -2739,14 +2736,12 @@ label ball_ending_E2:
     call update_interface_color
 
     $ hermione.equip(her_outfit_default)
-    call reset_hermione
 
     hide screen ccg
     hide screen blktone
     stop bg_sounds
     stop weather
     hide screen notes
-    hide screen chair_left
     hide screen bld1
 
     $ game.weather = "random"
@@ -2757,7 +2752,7 @@ label ball_ending_E2:
     show screen chair_right
 
     call gen_chibi("hide")
-    hide screen owl
+    $ owl_OBJ.hidden = True
     hide screen with_snape
 
     show screen chair_right

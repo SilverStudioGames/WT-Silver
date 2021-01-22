@@ -8,7 +8,6 @@ label a_bad_time_to_disrobe:
     stop weather
     call play_music("stop")
     call room("main_room")
-    hide screen owl
     show screen blkfade
     with d5
 

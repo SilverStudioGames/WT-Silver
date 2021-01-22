@@ -103,7 +103,11 @@ label summon_snape:
 
             $ snape_busy = True
 
-            jump main_room
+            hide screen snape_main
+            call sna_chibi("hide")
+            with d3
+
+            jump main_room_menu
 
 # Potion Menu
 label snape_potion_menu:

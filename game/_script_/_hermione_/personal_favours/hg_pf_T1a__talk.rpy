@@ -125,7 +125,7 @@ label hg_pf_talk_T1: # Call label
             with d3
             pause.8
 
-            call her_main("[genie_name], what are you doing?", "open", "base", "base", "mid", xpos="mid")
+            call her_main("[genie_name], what are you doing?", "open", "base", "base", "mid", xpos="mid", trans=d3)
             m "What? Oh, it's nothing. Just scratching my leg."
             m "You were saying?"
             call her_main("Yes... Well, that test I failed...", "open", "base", "base", "mid")
@@ -142,9 +142,9 @@ label hg_pf_talk_T1: # Call label
     call her_main("And now I sort of feel like sometimes I know more than professor Sprout herself...", "base", "base", "base", "mid")
 
     if masturbating:
-        m "{size=-4}(Yes... ah...){/size}"
+        m "{size=-4}(Yes... *ah*...){/size}"
     else:
-        m "(Professor Sprout... He-he, what a ridiculous name...)"
+        m "(Professor Sprout... *He-he*, what a ridiculous name...)"
 
     call her_main("Did you say something, [genie_name]?", "normal", "squint", "angry", "mid")
     m "It's nothing, keep going..."

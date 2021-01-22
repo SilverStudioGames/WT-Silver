@@ -46,8 +46,6 @@ label ll_pf_sex_T1_intro:
     call lun_main("Great! Please follow me, Sir...","base","happyCl","sad","mid")
 
     # Roll out...
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand","desk","base")
     hide screen bld1
     with d3

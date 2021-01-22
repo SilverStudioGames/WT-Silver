@@ -172,8 +172,6 @@ label cho_quid_E2:
     pause .8
 
     # Scene Setup
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand", "desk", "base")
     call cho_chibi("stand", "right", "base")
 

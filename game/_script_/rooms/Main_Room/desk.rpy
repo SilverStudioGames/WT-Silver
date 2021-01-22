@@ -2,12 +2,12 @@ screen letter_on_desk():
     tag letter_on_desk
     zorder 3
 
-    add "/images/rooms/_objects_/desk/letter.webp" zoom 0.5 xpos 334 ypos 356
+    add "/images/rooms/objects/desk/letter.webp" zoom 0.5 xpos 334 ypos 356
 
 screen plant_on_desk():
     zorder 3
 
-    add "/images/rooms/_objects_/desk/plant.webp" zoom 0.5 xpos 364 ypos 306
+    add "/images/rooms/objects/desk/plant.webp" zoom 0.5 xpos 364 ypos 306
 
 label desk:
     if game.day == 1:
@@ -34,21 +34,13 @@ label desk:
             m "Ehm........."
             m "What?"
             m "................................."
+        else:
+            m "I already have checked the desk."
 
         jump main_room_menu
 
     #Define hints variable
     $ ball_hint = None
-
-    #Updates
-    $ summon_list = []
-    $ summon_list.append(["hermione", 0 if hermione_busy else 1]) if hermione_unlocked else 0
-    $ summon_list.append(["luna", 0 if luna_busy else 1]) if luna_unlocked else 0
-    $ summon_list.append(["astoria", 0 if astoria_busy else 1]) if astoria_unlocked else 0
-    $ summon_list.append(["susan", 0 if susan_busy else 1]) if susan_unlocked else 0
-    $ summon_list.append(["cho", 0 if cho_busy else 1]) if cho_unlocked else 0
-    $ summon_list.append(["snape", 0 if snape_busy else 1]) if snape_unlocked else 0
-    $ summon_list.append(["tonks", 0 if tonks_busy else 1]) if tonks_unlocked else 0
 
     call update_character_map_locations
 
@@ -158,7 +150,12 @@ label desk:
     elif _return == "Close":
         jump main_room_menu
 
-    $ renpy.jump(_return)
+    $ room = _return
+
+    call gen_chibi("stand", "desk", "base")
+    with d3
+    call gen_walk(action="leave", speed=1.5)
+    $ renpy.jump(room)
 
 screen desk_menu():
     tag desk_interface

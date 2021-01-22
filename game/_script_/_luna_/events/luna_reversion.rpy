@@ -136,8 +136,6 @@ label luna_reversion_event:
 # Result: Ability to redo all Luna's favours with the real Luna
 label luna_revert_1:
     hide screen bld1
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand", "desk", "base")
     call lun_chibi("stand", "mid", "base")
     with fade
@@ -500,8 +498,6 @@ label luna_revert_2:
     with d5
     ">You stand up and walk around your desk, standing in front of Luna."
     hide screen bld1
-    show screen chair_left
-    show screen desk
     $ luna_chibi.zorder = 4
     call gen_chibi("stand", "desk", "base")
     call lun_chibi("stand", "mid", "base")

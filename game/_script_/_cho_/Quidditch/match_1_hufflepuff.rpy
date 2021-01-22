@@ -86,7 +86,7 @@ label hufflepuff_match:
     with d3
 
     # Show wine
-    call give_reward(text=">Not grape-juice.",gift="interface/icons/wine.webp")
+    call give_reward(text=">Not grape-juice.", gift="interface/icons/wine.webp")
 
     m "That's all the persuasion I needed my friend!"
     hide screen bld1
@@ -95,8 +95,6 @@ label hufflepuff_match:
 
     # Teleport to door
     call play_sound("kick")
-    show screen chair_left
-    show screen desk
     call gen_chibi("hide")
     with d3
 
@@ -1040,8 +1038,6 @@ label hufflepuff_match:
     call update_interface_color
     call room("main_room")
     call gen_chibi("hide")
-    show screen chair_left
-    show screen desk
     call hide_blkfade
     pause 1.0
 

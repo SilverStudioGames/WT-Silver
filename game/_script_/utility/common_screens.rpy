@@ -13,16 +13,14 @@ screen blktone(alpha=0.5):
     zorder 10
     add Color("#000", alpha=alpha)
 
-screen blktone(): #For narrator. (label nar) #Don't add tag blktone!
-    zorder 20
-    add Color("#000", alpha=0.5)
-
 screen white():
     zorder 20
     add Color("#fff")
 
 screen bld1():
     zorder 10
+    tag bld1
+
     if not current_room == "quidditch_stands":
         add "interface/bld.webp"
 

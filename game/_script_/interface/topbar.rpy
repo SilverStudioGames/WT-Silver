@@ -229,8 +229,6 @@ screen ui_menu():
                 textbutton "Preferences" action ShowMenu("preferences") background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
             if game.day > 1 and persistent.game_complete:
                 textbutton "Gallery" action [SetVariable("toggle_menu", False), Jump("scene_gallery")] background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
-            if game.day > 1:
-                textbutton "Decorate" action [SetVariable("toggle_menu", False), Jump("decorate_room_menu")] background None xalign 0.5 text_outlines [ (2, "#00000080", 1, 0) ]
 
             #if game.day > 1 and config.developer:
             #    textbutton "{size=-11}Show Chars{/size}" action [SetVariable("toggle_menu", False), Jump("summon_characters")] background "#000"

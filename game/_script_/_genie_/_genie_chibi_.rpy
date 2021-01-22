@@ -10,60 +10,51 @@
 
 # Note: The flip parameter defaults to True, because Genie is most often facing right
 label gen_chibi(action=None, xpos=None, ypos=None, flip=True, pic=None):
-    hide screen favor # screen tag
-    hide screen luna_chibi_scene # screen tag
-
-    #TODO Check if needed. These hide screen calls are not in other chibi labels
-    # hide screen blktone
-    # hide screen bld1
-
-    # Rarely used position
-    if xpos == "on_girl": # Girl has to stand at mid # TODO: remove this and replace with the number during call.
-        $ xpos = 470
 
     $ genie_chibi.position(xpos, ypos, flip)
 
     if action == "hide":
+        $ desk_OBJ.hidden = False
+        $ desk_OBJ.idle = "desk_empty"
         $ genie_chibi.hide()
         return
+
     elif action == "leave":
         hide screen genie_main
         hide screen bld1
         hide screen blktone
         call play_sound("door")
+
+        $ desk_OBJ.hidden = False
+        $ desk_OBJ.idle = "desk_empty"
         $ genie_chibi.hide()
         with d3
         pause .5
         return
-    elif action == "reset":
-        $ genie_chibi.do(None)
-        return
-
-    # Special setup for certain actions (these ignore the flip parameter)
 
     elif action == "sit_behind_desk":
+        $ desk_OBJ.hidden = False
+        $ desk_OBJ.idle = "ch_gen sit_behind_desk"
         $ genie_chibi.hide()
-        hide screen chair_left
-        hide screen desk
-        show screen genie_sit_behind_desk
         return
 
     elif action in ("jerk_off_behind_desk", "cum_behind_desk", "cum_behind_desk_done"):
-        hide screen chair_left
-        hide screen desk
-        $ masturbating = True #TODO Set this flag in events for clarity (only when needed)
+        $ desk_OBJ.hidden = True
         $ genie_chibi.position(218, 205+262, False)
-
-    elif action in ("read", "read_done", "read_near_fire", "read_near_fire_done"):
-        show screen chair_left
-        show screen desk
-        $ genie_chibi.position(430, 205+340, False)
+        $ genie_chibi.do(action)
+        return
 
     elif action in ("paperwork", "paperwork_idle"):
-        hide screen chair_left
-        hide screen desk
+        $ desk_OBJ.hidden = True
         $ genie_chibi.position(224, 205+262, False)
+        $ genie_chibi.do(action)
+        return
 
+    elif action in ("read", "read_done", "read_near_fire", "read_near_fire_done"):
+        $ genie_chibi.position(430, 205+340, False)
+
+    $ desk_OBJ.hidden = False
+    $ desk_OBJ.idle = "desk_empty"
     $ genie_chibi.do(action)
 
     return
@@ -96,15 +87,6 @@ label gen_walk(xpos=None, ypos=None, speed=1.0, action=None, reduce=False, path=
         $ genie_chibi.do()
 
     return
-
-# Screen with interactive option
-screen genie_sit_behind_desk():
-    tag genie_chibi
-    zorder desk_zorder
-    if room_menu_active:
-        use genie_desk_interactive
-    else:
-        add "ch_gen sit_behind_desk" xpos 370 ypos 336 xanchor 0.5 yanchor 0.5
 
 # Chibi definition
 default genie_chibi = Chibi("genie", ["base"], update_genie_chibi)

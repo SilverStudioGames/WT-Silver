@@ -29,8 +29,6 @@ label cho_training:
 
     call cho_chibi("stand", "right", "base")
 
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand", "desk", "base")
 
     hide screen bld1

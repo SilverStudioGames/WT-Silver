@@ -840,8 +840,6 @@ label hg_pf_strip_T3_masturbate:
     call her_main("[genie_name]?!", "open", "wide", "base", "stare", ypos="head")
     m "It's alright, [hermione_name]. Don't mind me..."
 
-    show screen chair_left
-    show screen desk
     call gen_chibi("jerk_off","behind_desk","base")
     call her_chibi("dance","on_desk","on_desk")
     hide screen blktone
@@ -887,8 +885,6 @@ label hg_pf_strip_T3_masturbate:
             call her_main("......................", "annoyed", "narrow", "angry", "R", ypos="head")
             pause.1
 
-            hide screen chair_left
-            hide screen desk
             call gen_chibi("sit_behind_desk")
             call her_chibi("dance","on_desk","on_desk")
             hide screen blktone
@@ -1206,9 +1202,7 @@ label hg_pf_strip_T4_masturbate:
     show screen blkfade
     with d5
 
-    show screen chair_left
     call gen_chibi("jerk_off","behind_desk","base")
-    show screen desk
     hide screen blkfade
     with fade
 

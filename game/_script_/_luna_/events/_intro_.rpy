@@ -53,8 +53,6 @@ label luna_intro_E1:
     m "Why would your glasses be in here?"
     m "Hold on..."
 
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand", 225, "base")
     with fade
 
@@ -145,8 +143,6 @@ label luna_intro_E1:
             m "(This is so weird, she's just standing there...)"
             m "(I better get someone to deal with this...)"
 
-    hide screen chair_left
-    hide screen desk
     call gen_chibi("sit_behind_desk")
     with fade
 

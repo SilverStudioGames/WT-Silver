@@ -15,7 +15,8 @@ label item_store:
     with d3
 
     call room("weasley_store")
-    call gen_chibi("stand", "left", "base")
+    call gen_chibi("stand", 0, "base")
+    call gen_walk(xpos="left", ypos="base")
     call play_music("weasley_store")
 
     hide screen blkfade
@@ -189,5 +190,7 @@ label item_store:
     call shop_item
 
     twi "Come again!"
+
+    call gen_walk(xpos=0, ypos="base", speed=1.5)
 
     jump main_room

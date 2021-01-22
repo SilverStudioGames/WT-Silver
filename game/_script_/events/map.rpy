@@ -64,8 +64,6 @@ label map_attic:
         m "(I guess I could check it out.)"
 
         call blkfade
-        show screen chair_left
-        show screen desk
         call gen_chibi("stand","desk","base")
         call hide_blkfade
 
@@ -114,8 +112,6 @@ label map_attic:
         call play_sound("walking")
         "> You hastily make your way towards your office."
 
-        show screen chair_left
-        show screen desk
         call gen_walk(action="enter")
         call hide_blkfade
 
@@ -134,8 +130,6 @@ label map_attic:
                         m "I'll just grab a seat first."
 
                         call blkfade
-                        hide screen chair_left
-                        hide screen desk
                         call gen_chibi("sit_behind_desk")
                         call hide_blkfade
 
@@ -150,8 +144,6 @@ label map_attic:
         m "(I'll just store this in my inventory for now...)"
 
         call blkfade
-        hide screen chair_left
-        hide screen desk
         call gen_chibi("sit_behind_desk")
         call hide_blkfade
 
@@ -317,8 +309,6 @@ label map_pitch:
 
 label outskirts_of_hogwarts:
     call blkfade
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand","desk","base")
     call hide_blkfade
 
@@ -345,8 +335,6 @@ label outskirts_of_hogwarts:
 
 label dormitories:
     call blkfade
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand","desk","base")
     call hide_blkfade
 

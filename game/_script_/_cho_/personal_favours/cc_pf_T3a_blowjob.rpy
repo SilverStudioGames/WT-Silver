@@ -305,8 +305,6 @@ label cc_pf_blowjob_1:
 
             # Genie standing with his dick out, all alone, blue balled, all aloooooooone
             call gen_chibi("dick_out", 230, "base")
-            show screen chair_left
-            show screen desk
 
             hide screen animatedCG
             with fade
@@ -324,8 +322,6 @@ label cc_pf_blowjob_1:
             $ cho_bj_choice = "failed"
 
             call gen_chibi("sit_behind_desk")
-            hide screen chair_left
-            hide screen desk
             with fade
 
             jump end_cho_event

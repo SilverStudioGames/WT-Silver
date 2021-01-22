@@ -4,27 +4,26 @@ label setup_fireplace_hangout(char=None):
         show screen blkfade
 
         $ fire_in_fireplace = True
+        $ fireplace_OBJ.foreground = "fireplace_fire"
 
         call hide_characters
         call gen_chibi("hide")
         call sna_chibi("hide")
         call ton_chibi("hide")
         hide screen chair_right
-        show screen desk
 
-        show screen fireplace_fire
     else: # game.daytime
         stop bg_sounds
         show screen blkfade
 
         $ fire_in_fireplace = False
+        $ fireplace_OBJ.foreground = None
 
         call hide_characters
         call gen_chibi("hide")
         call sna_chibi("hide")
         call ton_chibi("hide")
         hide screen chair_right
-        show screen desk
 
     # Proceed as usual
     if char == "snape":
@@ -127,7 +126,6 @@ label teleport(position=None,effect=True,poof_label=None):
         $ teleport_xpos = 320
         $ teleport_ypos = 450
         $ teleport_zorder = 5
-        show screen desk
     else:
         $ teleport_xpos = position[0]
         $ teleport_ypos = position[1]
@@ -173,19 +171,8 @@ screen heal_animation():
     zorder teleport_zorder
 
 # Dummy labels. To prevent crashes. # TODO: Remove later.
-label update_her_uniform:
-    $ hermione_wear_top=False
-    $ hermione_wear_bottom=False
-    $ hermione_wear_bra=False
-    $ hermione_wear_panties=False
-    return
-label reset_hermione:
-    return
-label h_equip_temp_outfit(outfit=None):
-    return
-label h_unequip_temp_outfit(outfit=None):
-    return
 default hermione_action = None
+
 label set_her_action(action=None, update=None):
     $ hermione_action = action
     return

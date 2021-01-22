@@ -101,11 +101,12 @@ screen choice(items):
 
     style_prefix gui.theme("menu")
 
-    default blacklist = set(get_character_screen(x) for x in CHARACTERS) | {"say", "letter"} # Combine sets
+    default blacklist = set(get_character_screen(x) for x in CHARACTERS) | {"say", "letter", "bld1"} # Combine sets
 
     # Dont add the fade if character or saybox is present (They have their own triggers for fading)
     if not any(renpy.get_screen(x) for x in blacklist):
         add "interface/bld.webp" at fade_hide(0.15)
+
     window at fade_show_hide(0.15):
         style "empty"
         xalign menu_x

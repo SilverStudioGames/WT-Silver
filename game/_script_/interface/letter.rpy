@@ -127,7 +127,7 @@ label letter_nt_1:
     call nar(">You roll out the poster completely - getting a good look of it.")
     g9 "Nice!"
 
-    call give_reward(text="{heart} {heart} {heart}", gift="interface/icons/posters/tonks.webp", sound=True)
+    call give_reward(text="{heart} {heart} {heart}", gift="interface/icons/tonks_poster.webp", sound=True)
     $ poster_tonks_ITEM.unlocked = True
     $ poster_tonks_ITEM.hidden = False
 
@@ -215,11 +215,11 @@ label letter_open_all:
     while mailbox.get_letters():
         $ mailbox.get_letters()[0].open()
 
+    $ owl_OBJ.hidden = True
+
     jump main_room_menu
 
 label letter_delay:
-    show screen chair_left
-    show screen desk
     call gen_chibi("stand_alt", 420, 410, flip=False)
     with d5
     pause.2
@@ -229,7 +229,7 @@ label letter_delay:
 
     call gen_chibi("rummage", 360, 429, flip=False)
     call play_sound("owl")
-    hide screen owl
+    $ owl_OBJ.hidden = True
     with hpunch
     pause.8
 

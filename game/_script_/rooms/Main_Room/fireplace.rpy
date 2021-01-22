@@ -1,19 +1,18 @@
 label fireplace:
-    if not fireplace_examined:
-        $ fireplace_examined = True
-        call gen_chibi("stand","mid","base")
-        show screen chair_left #Empty chair near the desk.
-        show screen desk
-        with d5
-        m "*Hmm*... Looks like an ordinary fireplace..."
-        call gen_chibi("sit_behind_desk")
-        with d5
+    if game.day == 1:
+        if not fireplace_examined:
+            $ fireplace_examined = True
+            call gen_chibi("stand","mid","base")
+            with d5
+            m "*Hmm*... Looks like an ordinary fireplace..."
+            call gen_chibi("sit_behind_desk")
+            with d5
+        else:
+            m "Looks like a normal fireplace to me."
         jump main_room_menu
 
     if is_puzzle_box_in_fireplace():
         call gen_chibi("stand", "fireplace", "fireplace")
-        show screen chair_left
-        show screen desk
         with d3
         m "(*Hmm*... There's something glimmering in the fireplace.)"
         m "(A loose brick... If only I could..{nw}{w=1.0}"
@@ -38,11 +37,11 @@ label fireplace:
     else:
         if fire_in_fireplace:
             $ fire_in_fireplace = False
-            hide screen fireplace_fire
+            $ fireplace_OBJ.foreground = None
         else:
             $ fire_in_fireplace = True
+            $ fireplace_OBJ.foreground = "fireplace_fire"
             $ stat_fireplace_counter += 1
-            show screen fireplace_fire
 
     jump main_room_menu
 

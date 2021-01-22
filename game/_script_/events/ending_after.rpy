@@ -176,8 +176,6 @@ label ending_after:
                 # Back in the office
                 call room("main_room")
                 call gen_chibi("hide")
-                show screen chair_left
-                show screen desk
                 call hide_blkfade
                 pause 1.0
                 call play_sound("door")
@@ -305,8 +303,6 @@ label ending_after:
                 # Back in the office
                 call room("main_room")
                 call gen_chibi("hide")
-                show screen chair_left
-                show screen desk
                 call hide_blkfade
                 pause 1.0
                 call play_sound("door")

@@ -33,7 +33,6 @@ label duel:
     # Hide all the screens.
 
     hide screen notes #A bunch of notes poping out with a "win" sound effect.
-    hide screen owl
     hide screen ui_top_bar
     hide screen ctc
     hide screen snape_defends
@@ -423,7 +422,6 @@ label snape_attack_guard:
 screen duel():
     zorder 2
 
-    use chair_left
     use chair_right
     add "duel_table" xpos 335 ypos 336 xanchor 0.5 yanchor 0.5
 
