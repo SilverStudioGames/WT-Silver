@@ -78,13 +78,6 @@ screen skip_indicator():
         at blink
         style "skip_text"
 
-
-    if room_menu_active:
-        if game.daytime:
-            timer 10 action Jump("night_start")
-        else:
-            timer 10 action Jump("day_start")
-
 style skip_text is default:
     size 22
     text_align 0.5

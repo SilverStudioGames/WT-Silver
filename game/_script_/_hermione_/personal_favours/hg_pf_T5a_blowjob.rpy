@@ -87,7 +87,7 @@ label hg_pf_blowjob_fail:
     m "I plan to grant Gryffindor {number=current_payout} house points today..."
     m "If you suck me off..."
 
-    $ hg_pf_blowjob.fail()
+    $ hg_pf_blowjob.fail_intentional()
 
     jump too_much
 

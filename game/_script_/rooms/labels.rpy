@@ -16,12 +16,12 @@ label room(room=None, hide_screens=True, stop_sound=True):
     if room == "main_room":
         # Update sound effects
         call weather_sound
-        call fireplace_sound
 
         show screen main_room
 
         if mailbox.get_letters() and not owl_away:
             $ owl_OBJ.hidden = False
+            call play_sound("owl")
 
         if mailbox.get_parcels():
             $ parcel_OBJ.hidden = False
@@ -54,9 +54,6 @@ label room(room=None, hide_screens=True, stop_sound=True):
 
     return
 
-# Return to main_room at resume point (after quests, before events)
-# If game.daytime change was deferred during an event, return to the start of the current game.daytime
-# Used to return from event sequences
 label main_room:
     call room("main_room", stop_sound=False)
     call reset_menu_position
@@ -65,21 +62,14 @@ label main_room:
     call gen_chibi("sit_behind_desk")
     with d3
 
-    if defer_daytime_change:
-        if game.daytime:
-            jump day_start
-        else:
-            jump night_start
+    if game.daytime:
+        jump day_resume
     else:
-        if game.daytime:
-            jump day_resume
-        else:
-            jump night_resume
+        jump night_resume
 
 # Return to main_room at menu point (after quests and events)
 # Used to return from main room interactions
 label main_room_menu:
-    #call room("main_room", stop_sound=False)
     hide screen bld1
     with d3
 
@@ -87,13 +77,6 @@ label main_room_menu:
     call music_block
 
     if game.daytime:
-        jump day_main_menu
+        jump day_resume
     else:
-        jump night_main_menu
-
-label fireplace_sound:
-    if fire_in_fireplace:
-        play bg_sounds "sounds/fire02.mp3" fadeout 0.5 fadein 0.5 if_changed
-    else:
-        stop bg_sounds fadeout 0.5
-    return
+        jump night_resume

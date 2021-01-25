@@ -67,7 +67,7 @@ label hg_pf_strip_fail:
 
     call her_main("... dance for you, [genie_name]?", "open", "wide", "base", "stare")
 
-    $ hg_pf_strip.fail()
+    $ hg_pf_strip.fail_intentional()
 
     jump too_much
 

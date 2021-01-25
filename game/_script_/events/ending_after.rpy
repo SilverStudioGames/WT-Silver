@@ -188,7 +188,10 @@ label ending_after:
                 call blkfade
 
                 # Next day
-                call defer_daytime_change(True)
+                $ game.daytime = True
+                call update_interface_color
+                call music_block
+
                 centered "{size=+7}{color=#cbcbcb}The next morning...{/color}{/size}"
                 call hide_blkfade
 

@@ -114,38 +114,38 @@ label snape_duel_menu:
                 m "(I should see if I could find some more wine in that cupboard, or perhaps check the local store...)"
                 jump snape_ready
 
-            $ one_of_ten = renpy.random.randint(1, 10)
+            $ random_number = renpy.random.randint(1, 10)
 
-            if one_of_ten == 1:
+            if random_number == 1:
                 call sna_main("Sure, let's do it!","snape_02")
-            elif one_of_ten == 2:
+            elif random_number == 2:
                 call sna_main("Is there another bottle in it for me?","snape_05")
                 g9 "If you win..."
                 call sna_main("Good.","snape_02")
                 call sna_main(" Then let's begin...","snape_02")
-            elif one_of_ten == 3:
+            elif random_number == 3:
                 call sna_main("Same wager?","snape_05")
                 m "Sure."
                 call sna_main("Okay then...","snape_01")
                 call sna_main("Let's do it.","snape_02")
-            elif one_of_ten == 4:
+            elif random_number == 4:
                 call sna_main("Always!","snape_02")
                 call sna_main("I'll make sure you lose this time Genie...","snape_01")
-            elif one_of_ten == 5:
+            elif random_number == 5:
                 call sna_main("My stock is filled so why not...","snape_03")
                 g9 "Great."
                 call sna_main("Good luck... you'll need it.","snape_02")
-            elif one_of_ten == 6:
+            elif random_number == 6:
                 call sna_main("You don't have to ask me twice.","snape_02")
-            elif one_of_ten == 7:
+            elif random_number == 7:
                 call sna_main("Prepare to lose!","snape_10")
                 m "..."
                 m "Let's just play..."
-            elif one_of_ten == 8:
+            elif random_number == 8:
                 call sna_main("I've been practising, there's no way I'll lose.","snape_10")
                 m "Are you sure about that?"
                 call sna_main("Yes, I came here to win...","snape_08")
-            elif one_of_ten == 9:
+            elif random_number == 9:
                 call sna_main("You're going to lose this time...","snape_04")
                 g9 "In your dreams..."
             else:
@@ -490,29 +490,29 @@ label snape_duel_lost:
     if geniecard_level == 1:
         sna "Cards not in your favour today? Maybe next time..."
     else: # Rub it in
-        $ rndm_one_of_three = renpy.random.randint(1, 7)
-        if rndm_one_of_three == 1:
+        $ random_number = renpy.random.randint(1, 7)
+        if random_number == 1:
             sna "Thanks for the bottle... Genie"
             g4 "...."
-        elif rndm_one_of_three == 2:
+        elif random_number == 2:
             m "..."
             m "Good game..."
             sna "Forgetting something?"
             m "Fine, here's your bottle..."
-        elif rndm_one_of_three == 3:
+        elif random_number == 3:
             call sna_main("Another win for me...","snape_02")
             m "And your last..."
             call sna_main("Sorry, can't hear you over the sound of my victory.","snape_01")
             m "..."
-        elif rndm_one_of_three == 4:
+        elif random_number == 4:
             call sna_main("Child's play...","snape_02")
             m "I'm hundreds of years old you know..."
             call sna_main("And I beat you...","snape_02")
             m "just shows how luck based the game is honestly..."
-        elif rndm_one_of_three == 5:
+        elif random_number == 5:
             call sna_main("...","snape_02")
             m "Just take your prize and go."
-        elif rndm_one_of_three == 6:
+        elif random_number == 6:
             call sna_main("Nice one...","snape_02")
             m "Hey, don't be a bad winner"
             call sna_main("Hey, I was just...","snape_03")

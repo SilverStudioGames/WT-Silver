@@ -151,7 +151,6 @@ label a_spaced_out_conversation:
     hide screen blkfade
     with d5
 
-    call fireplace_sound
     call play_music("anguish")
 
     nar "The flames flickered higher up the fireplace."

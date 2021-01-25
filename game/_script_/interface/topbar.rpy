@@ -1,8 +1,4 @@
 init python:
-    def ui_dropped(drags, drops):
-        drags[0].snap(clamp(drags[0].target_x, 20, 740), 0)
-        return
-
     def text_points(points):
         if points < 1000:
             return str(points)
@@ -13,7 +9,6 @@ label update_ui_points:
     # Debug
 
     # Temp variables
-    $ toggle_ui_lock = True
     $ toggle_points = False
     $ toggle_menu = False
 
@@ -123,55 +118,46 @@ screen ui_top_bar():
 
 screen ui_points():
     tag ui
-    drag:
-        drag_name "ui_points"
-        draggable not toggle_ui_lock
-        dragged ui_dropped
-        drag_handle(0, 0, 1.0, 1.0)
-        xpos 540 ypos 0
+
+    fixed:
+        xalign 0.5
+        xsize 162
+        ysize 64
         xanchor 0.5
-        frame:
-            style "empty"
-            xsize 162
-            ysize 64
-            xanchor 0.5
 
-            if not persistent.toggle_points and not toggle_points:
-                add "interface/topbar/slytherin.webp" yanchor housepoints_y[slytherin_place]
-                add "interface/topbar/gryffindor.webp" yanchor housepoints_y[gryffindor_place]
-                add "interface/topbar/ravenclaw.webp" yanchor housepoints_y[ravenclaw_place]
-                add "interface/topbar/hufflepuff.webp" yanchor housepoints_y[hufflepuff_place]
-            else:
-                # Add empty banners
-                add "interface/topbar/slytherin_empty.webp" yanchor 0
-                add "interface/topbar/gryffindor_empty.webp" yanchor 0
-                add "interface/topbar/ravenclaw_empty.webp" yanchor 0
-                add "interface/topbar/hufflepuff_empty.webp" yanchor 0
-                # Show points
-                text "{size=-5}{color=#FFF}[slytherin_points]{/color}{/size}" outlines points_outline xpos 17 ypos 30 xanchor 0.5
-                text "{size=-5}{color=#FFF}[gryffindor_points]{/color}{/size}" outlines points_outline xpos 58 ypos 30 xanchor 0.5
-                text "{size=-5}{color=#FFF}[ravenclaw_points]{/color}{/size}" outlines points_outline xpos 98 ypos 30 xanchor 0.5
-                text "{size=-5}{color=#FFF}[hufflepuff_points]{/color}{/size}" outlines points_outline xpos 139 ypos 30 xanchor 0.5
-                # Show placement number
-                text "{size=16}{color=#FFF}[slytherin_place]{/color}{/size}" outlines points_outline xpos 17 ypos 10 xanchor 0.5
-                text "{size=16}{color=#FFF}[gryffindor_place]{/color}{/size}" outlines points_outline xpos 58 ypos 10 xanchor 0.5
-                text "{size=16}{color=#FFF}[ravenclaw_place]{/color}{/size}" outlines points_outline xpos 98 ypos 10 xanchor 0.5
-                text "{size=16}{color=#FFF}[hufflepuff_place]{/color}{/size}" outlines points_outline xpos 139 ypos 10 xanchor 0.5
+        if not persistent.toggle_points and not toggle_points:
+            add "interface/topbar/slytherin.webp" yanchor housepoints_y[slytherin_place]
+            add "interface/topbar/gryffindor.webp" yanchor housepoints_y[gryffindor_place]
+            add "interface/topbar/ravenclaw.webp" yanchor housepoints_y[ravenclaw_place]
+            add "interface/topbar/hufflepuff.webp" yanchor housepoints_y[hufflepuff_place]
+        else:
+            # Add empty banners
+            add "interface/topbar/slytherin_empty.webp" yanchor 0
+            add "interface/topbar/gryffindor_empty.webp" yanchor 0
+            add "interface/topbar/ravenclaw_empty.webp" yanchor 0
+            add "interface/topbar/hufflepuff_empty.webp" yanchor 0
+            # Show points
+            text "{size=-5}{color=#FFF}[slytherin_points]{/color}{/size}" outlines points_outline xpos 17 ypos 30 xanchor 0.5
+            text "{size=-5}{color=#FFF}[gryffindor_points]{/color}{/size}" outlines points_outline xpos 58 ypos 30 xanchor 0.5
+            text "{size=-5}{color=#FFF}[ravenclaw_points]{/color}{/size}" outlines points_outline xpos 98 ypos 30 xanchor 0.5
+            text "{size=-5}{color=#FFF}[hufflepuff_points]{/color}{/size}" outlines points_outline xpos 139 ypos 30 xanchor 0.5
+            # Show placement number
+            text "{size=16}{color=#FFF}[slytherin_place]{/color}{/size}" outlines points_outline xpos 17 ypos 10 xanchor 0.5
+            text "{size=16}{color=#FFF}[gryffindor_place]{/color}{/size}" outlines points_outline xpos 58 ypos 10 xanchor 0.5
+            text "{size=16}{color=#FFF}[ravenclaw_place]{/color}{/size}" outlines points_outline xpos 98 ypos 10 xanchor 0.5
+            text "{size=16}{color=#FFF}[hufflepuff_place]{/color}{/size}" outlines points_outline xpos 139 ypos 10 xanchor 0.5
 
-            if toggle_ui_lock and room_menu_active or renpy.get_screen("room_of_requirement_menu") or renpy.get_screen("floor_7th_menu"):
-                imagebutton:
-                    idle "interface/topbar/hover_zone.webp"
-                    tooltip "House Points\n{size=-2}Click to toggle{/size}"
-                    hovered SetVariable("toggle_points", True)
-                    unhovered SetVariable("toggle_points", False)
-                    action ToggleVariable("persistent.toggle_points", True, False)
+        if room_menu_active or renpy.get_screen("room_of_requirement_menu") or renpy.get_screen("floor_7th_menu"):
+            imagebutton:
+                idle "interface/topbar/hover_zone.webp"
+                tooltip "House Points\n{size=-2}Click to toggle style display{/size}"
+                hovered SetVariable("toggle_points", True)
+                unhovered SetVariable("toggle_points", False)
+                action ToggleVariable("persistent.toggle_points", True, False)
 
 screen ui_stats():
     tag ui
-    drag:
-        drag_name "ui_stats"
-        draggable not toggle_ui_lock
-        dragged ui_dropped
+    fixed:
         xpos 200
         frame:
             style "empty"
@@ -255,32 +241,9 @@ screen ui_menu():
             imagebutton:
                 idle Transform("interface/topbar/icon_bug.webp", alpha=0.5)
                 hover "interface/topbar/icon_bug.webp"
-                tooltip "Open bugfix menu"
-                action [SetVariable("toggle_menu", False), Jump("bugfix_menu")]
+                tooltip "PLACEHOLDER"
+                action NullAction()
                 yanchor 0.5
-
-label bugfix_menu:
-    menu:
-        "-Reset Everyone's Appearance-":
-            python:
-                for c in CHARACTERS:
-                    char = get_character_object(c)
-                    char.equip(get_character_outfit(c))
-                    char.rebuild()
-
-            "> Appearance of each girl set back to default."
-            jump bugfix_menu
-        "-Reset Cho public and personal favours-" if cho_unlocked:
-            python:
-                for ev in cc_favor_list:
-                    ev.reset()
-                for ev in cc_requests_list:
-                    ev.reset()
-            "> Events have been successfully reset."
-            jump bugfix_menu
-        "-Back-":
-            pass
-    jump main_room_menu
 
 label scene_gallery:
     menu:

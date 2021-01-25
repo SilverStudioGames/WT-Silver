@@ -28,7 +28,6 @@ init python:
     hkey_sleep = "s"
     hkey_fap = "f"
     hkey_summon = "d"
-    hkey_ui_lock = "L"
 
     hkey_hide = "h"
     hkey_mhide = "mouseup_2"
@@ -52,11 +51,9 @@ screen hotkeys_main():
     key hkey_summon action Jump("door")
 
     if game.daytime:
-        key hkey_sleep action Jump("night_start") #Skip to night
+        key hkey_sleep action Jump("night_start")
     else:
-        key hkey_sleep action Jump("day_start") #Skip to next day
-
-    key hkey_ui_lock action ToggleVariable("toggle_ui_lock", False, True)
+        key hkey_sleep action Jump("day_start")
 
 # Add hotkeys to say screen (screens.rpy)
 screen hotkeys_say():

@@ -143,8 +143,7 @@ label end_tonks_event:
     $ renpy.stop_predict("characters/tonks/face/*.webp")
 
     call music_block
-    jump main_room
-
+    jump main_room_menu
 
 screen tonks_main():
     tag tonks_main

@@ -104,7 +104,7 @@ label hg_pf_grope_T1_fail_intro:
     call her_main("My tits?!", "angry", "wide", "base", "mid")
     g9 "Or your butt! I haven't fully decided yet!"
 
-    $ hg_pf_grope.fail()
+    $ hg_pf_grope.fail_intentional()
 
     jump too_much
 
@@ -120,7 +120,7 @@ label hg_pf_grope_T1_fail_repeat:
 
     $ her_mood += 6
 
-    $ hg_pf_grope.fail()
+    $ hg_pf_grope.fail_intentional()
 
     jump end_hermione_event
 
@@ -333,9 +333,11 @@ label hg_pf_grope_T4_E2:
     call her_main("Or my bum?....", "soft", "narrow", "base", "mid_soft")
 
     m "*Hmm*... What would you like?"
-    if one_of_three == 1:
+    $ random_number = renpy.random.randint(1, 3)
+
+    if random_number == 1:
         call her_main("I wouldn't mind it if you massaged my breasts a little...", "soft", "narrow", "base", "R_soft")
-    elif one_of_three == 2:
+    elif random_number == 2:
         call her_main("I wouldn't mind it if you caressed my bum a bit, Sir...", "soft", "narrow", "worried", "down")
     else:
         call her_main("I wouldn't mind either today, Sir.", "soft", "narrow", "base", "R_soft")

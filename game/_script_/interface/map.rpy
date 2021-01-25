@@ -220,8 +220,11 @@ screen map_buttons():
         tooltip "Toggles map folding animation"
         action ToggleVariable("map_animated", True, False)
 
-label set_her_map_location(location = ""):
-    #her_random_number (1-5), gets defined once during the day and once during the nigh.
+label map_locations:
+
+
+label set_her_map_location(location=""):
+
     if location != "":
         if location == "library":
             $ her_map_location = "library"
@@ -236,29 +239,29 @@ label set_her_map_location(location = ""):
 
     else: #Random
         if her_whoring < 11:
-            if her_random_number in [1,2]: #Library
+            if random_map_loc in [1,2]: #Library
                 $ her_map_location = "library"
-            elif her_random_number in [3]: #Great Hall
+            elif random_map_loc in [3]: #Great Hall
                 $ her_map_location = "great_hall"
             else: #Gryff Room
                 $ her_map_location = "room_g"
         else:
             if her_reputation < 12:
-                if her_random_number == 1: #Great Hall
+                if random_map_loc == 1: #Great Hall
                     $ her_map_location = "great_hall"
-                elif her_random_number == 2: #Courtyard
+                elif random_map_loc == 2: #Courtyard
                     $ her_map_location = "courtyard"
                 else: #Gryff Room
                     $ her_map_location = "room_g"
             else:
-                if her_random_number == 1: #Slytherin Room
+                if random_map_loc == 1: #Slytherin Room
                     $ her_map_location = "room_s"
-                elif her_random_number == 2: #Courtyard
+                elif random_map_loc == 2: #Courtyard
                     $ her_map_location = "courtyard"
                 else: #Gryff Room
                     $ her_map_location = "room_g"
 
-            if hg_blowjob.trigger == True and one_of_five in [1,2,3] and game.weather in ("clear", "cloudy") and not game.daytime and not hermione_busy:
+            if hg_blowjob.trigger == True and game.weather in ("clear", "cloudy") and not game.daytime and not hermione_busy:
                 $ her_map_location = "forest"
 
     call update_character_map_locations
@@ -266,7 +269,7 @@ label set_her_map_location(location = ""):
     return
 
 label set_lun_map_location(location = ""):
-    #lun_random_number (1-5), gets defined once during the day and once during the nigh.
+
     if location != "":
         if location == "greenhouse":
             $ lun_map_location = "greenhouse"
@@ -276,9 +279,9 @@ label set_lun_map_location(location = ""):
             $ lun_map_location = "room_r"
 
     else: #Random
-        if lun_random_number in [1]:
+        if random_map_loc in [1]:
             $ lun_map_location = "greenhouse"
-        elif lun_random_number in [2,3]:
+        elif random_map_loc in [2,3]:
             $ lun_map_location = "forest"
         else: #Ravenclaw Room
             $ lun_map_location = "room_r"
@@ -288,7 +291,6 @@ label set_lun_map_location(location = ""):
     return
 
 label set_ast_map_location(location = ""):
-    #ast_random_number (1-5), gets defined once during the day and once during the nigh.
     if location != "":
         if location == "courtyard":
             $ ast_map_location = "courtyard"
@@ -298,7 +300,7 @@ label set_ast_map_location(location = ""):
             $ ast_map_location = "defense"
 
     else: #Random
-        if ast_random_number in [1,2]:
+        if random_map_loc in [1,2]:
             $ ast_map_location = "courtyard"
         else: #Slytherin Room
             $ ast_map_location = "room_s"
@@ -308,7 +310,6 @@ label set_ast_map_location(location = ""):
     return
 
 label set_sus_map_location(location = ""):
-    #sus_random_number (1-5), gets defined once during the day and once during the nigh.
     if location != "":
         if location == "great_hall":
             $ sus_map_location = "great_hall"
@@ -316,7 +317,7 @@ label set_sus_map_location(location = ""):
             $ sus_map_location = "room_r"
 
     else: #Random
-        if sus_random_number in [1,2]:
+        if random_map_loc in [1,2]:
             $ sus_map_location = "great_hall"
         else: #Hufflepuff Room
             $ sus_map_location = "room_h"
@@ -326,7 +327,6 @@ label set_sus_map_location(location = ""):
     return
 
 label set_cho_map_location(location = ""):
-    #cho_random_number (1-5), gets defined once during the day and once during the nigh.
     if location != "":
         if location == "training_grounds":
             $ cho_map_location = "training_grounds"
@@ -334,7 +334,7 @@ label set_cho_map_location(location = ""):
             $ cho_map_location = "room_r"
 
     else: #Random
-        if cho_random_number in [1,2]:
+        if random_map_loc in [1,2]:
             $ cho_map_location = "training_grounds"
         else: #Ravenclaw Room
             $ cho_map_location = "room_r"

@@ -40,16 +40,18 @@ label maid_responses:
     call her_main("", "base", "base", "base", "mid", xpos="right",ypos="base")
     pause.5
 
+    $ random_number = renpy.random.randint(0, 10)
+
     menu:
         "\"How was your day?\"":
-            if day_random <= 4:
+            if random_number <= 4:
                 her "It was as normal a day of cleaning rooms could be."
                 her "Although considering that I'm supposed to be in class during the day I guess it's not that normal."
                 m "Don't worry [hermione_name], you'll get your points."
                 m "Just think of how happy your friends will be when they win the house cup this year."
                 her "I suppose..."
                 m "Twenty points to Gryffindor"
-            elif day_random <= 8:
+            elif random_number <= 8:
                 call her_main("Do I really have to keep doing this?", "normal", "narrow", "base", "R_soft")
                 m "What do you mean, [hermione_name]?"
                 call her_main("It's so degrading... I have to clean other students rooms!", "open", "narrow", "worried", "down")
@@ -201,9 +203,11 @@ label gryffindor_cheer_responses:
     call her_main("", "base", "base", "base", "mid",xpos="right",ypos="base")
     pause.5
 
+    $ random_number = renpy.random.randint(0, 10)
+
     menu:
         "\"How was your day?\"":
-            if day_random <= 2:
+            if random_number <= 2:
                 call her_main("It was good [genie_name], I think that the team morale has really started to go up.", "base", "base", "base", "mid")
                 m "How so?"
                 call her_main("Well, since I've started they seem to have improved their tactics.", "open", "base", "base", "mid")
@@ -214,7 +218,7 @@ label gryffindor_cheer_responses:
                 call her_main("Well here's the money, [genie_name].", "base", "base", "base", "mid")
                 ">You receive [payment] gold coins."
                 m "Well done, [hermione_name], twenty points to Gryffindor."
-            elif day_random >= 3 and day_random <= 5:
+            elif random_number >= 3 and random_number <= 5:
                 call her_main("Tiring. This cheering thing really is quite exhausting.", "open", "base", "worried", "mid")
                 m "Anything interesting happen?"
                 call her_main("Not unless you count me almost dropping my pom pom.", "normal", "base", "base", "mid")
@@ -222,7 +226,7 @@ label gryffindor_cheer_responses:
                 call her_main("Of course, here you are [genie_name].", "open", "base", "base", "mid")
                 ">You receive [payment] gold coins."
                 m "Well done [hermione_name], twenty points to Gryffindor."
-            elif day_random >= 6 and day_random <= 8:
+            elif random_number >= 6 and random_number <= 8:
                 call her_main("Very well thank you, all the boys said that I helped keep their spirits up.", "open", "base", "base", "mid")
                 m "{size=-5}I'm sure that wasn't the only thing you've helped stay up...{/size}"
                 call her_main("What was that [genie_name]?", "open", "squint", "base", "mid")
@@ -232,7 +236,7 @@ label gryffindor_cheer_responses:
                 call her_main("Of course they did.", "open", "base", "base", "mid")
                 ">You receive [payment] gold coins."
                 m "Well done [hermione_name], twenty points to Gryffindor."
-            elif day_random >=9 and her_reputation <= 15:
+            elif random_number >=9 and her_reputation <= 15:
                 m "You seem very chipper today."
                 call her_main("Of course I am, we won!", "base", "base", "base", "mid")
                 m "Won?"
@@ -342,7 +346,9 @@ label slytherin_cheer_responses:
     else: #Normal
         call h_equip_temp_outfit(hg_cheer_s_ITEM)
 
-    if day_random >=9 and her_reputation > 15:
+    $ random_number = renpy.random.randint(0, 10)
+
+    if random_number >=9 and her_reputation > 15:
         $ uni_sperm = True
         call her_main("", "base", "narrow", "base", "up",xpos="right",ypos="base")
     else:
@@ -351,7 +357,7 @@ label slytherin_cheer_responses:
 
     menu:
         "-Ask her about her day-":
-            if day_random <= 2:
+            if random_number <= 2:
                 m "How was your day today [hermione_name]?"
                 call her_main("Exhausting... Those Slytherin pigs insisted that I cheer for their entire practice session.", "open", "closed", "angry", "mid")
                 her "They were hardly playing the game by the end. They were just standing there watching me."
@@ -361,7 +367,7 @@ label slytherin_cheer_responses:
                 call her_main("It isn't but it's what they insisted I do.", "annoyed", "narrow", "angry", "R")
                 m "Well it definitely sounds like you earned your points."
                 m "Thirty points to Gryffindor."
-            elif day_random >= 3 and day_random <= 5:
+            elif random_number >= 3 and random_number <= 5:
                 m "How was your day today [hermione_name]?"
                 call her_main("Uneventful. I completed my routine and then went back to my room...", "open", "squint", "base", "mid")
                 m "You didn't talk to anyone?"
@@ -370,7 +376,7 @@ label slytherin_cheer_responses:
                 call her_main("Yes...", "open", "closed", "angry", "mid")
                 m "Well, you earned your points."
                 m "Thirty points to Gryffindor."
-            elif day_random >= 6 and day_random <= 8:
+            elif random_number >= 6 and random_number <= 8:
                 m "Hello [hermione_name]."
                 call her_main("Hello [genie_name].", "normal", "base", "base", "mid")
                 m "How did everything go today?"
@@ -383,7 +389,7 @@ label slytherin_cheer_responses:
                 m "Of course I am... Now, did they pay you?"
                 call her_main("Yes [genie_name].", "base", "base", "base", "mid")
                 m "Well done [hermione_name], twenty points to Gryffindor."
-            elif day_random >=9 and her_reputation > 15:
+            elif random_number >=9 and her_reputation > 15:
                 call her_main("[genie_name], something must be done about those Slytherin boys...", "open", "closed", "angry", "mid")
                 call her_main("It's bad enough that I have to cheer for them but they are being a little bit touchy.", "annoyed", "narrow", "angry", "R")
                 m "Touchy?"

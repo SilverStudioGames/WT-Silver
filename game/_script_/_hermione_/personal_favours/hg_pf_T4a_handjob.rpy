@@ -77,7 +77,7 @@ label hg_pf_handjob_fail:
     call her_main("Yes, [genie_name]?", "base", "base", "base", "mid")
     m "Do you know what a \"handjob\" is?"
 
-    $ hg_pf_handjob.fail()
+    $ hg_pf_handjob.fail_intentional()
 
     jump too_much
 
@@ -824,9 +824,10 @@ label hg_pf_handjob_2_continue:
 
             # The phrase in the brackets is the text that the game will display to prompt
             # the player to enter the name they've chosen.
-
+            $ random_number = renpy.random.randint(1, 3)
             $ tmp_name = renpy.input("(Use keyboard to enter the phrase.)")
             $ tmp_name = tmp_name.strip()
+
             # The .strip() instruction removes any extra spaces the player may have typed by accident.
             #  If the player can't be bothered to choose a name, then we
             #  choose a suitable one for them:
@@ -839,19 +840,19 @@ label hg_pf_handjob_2_continue:
                 call her_main("[tmp_name]", "base", "base", "base", "mid")
                 m "A bit louder..."
                 call her_main("[tmp_name]!!!", "scream", "closed", "angry", "mid")
-            elif one_of_three == 1:
+            elif random_number == 1:
                 call her_main("I don't want to say that...", "annoyed", "base", "worried", "R")
                 m "Oh, just do it, [hermione_name]."
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("[tmp_name]", "scream", "closed", "angry", "mid")
-            elif one_of_three == 2:
+            elif random_number == 2:
                 call her_main("*huh*?", "annoyed", "base", "worried", "R")
                 call her_main("What does That have to do with anything?")
                 m "Just say it."
                 call her_main("......", "annoyed", "base", "worried", "R")
                 m "Come on, humour me."
                 call her_main("[tmp_name]", "scream", "closed", "angry", "mid")
-            elif one_of_three == 3:
+            elif random_number == 3:
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Do I really have to?")
                 m "Just say it."
@@ -859,19 +860,21 @@ label hg_pf_handjob_2_continue:
             g9 "He-he..."
 
         "{size=-4}\"-Manual user input-\"{/size}" if renpy.android:
-            if one_of_three == 1:
+            $ random_number = renpy.random.randint(1, 3)
+
+            if random_number == 1:
                 call her_main("I don't want to say that...", "annoyed", "base", "worried", "R")
                 m "Oh, just do it, [hermione_name]."
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Manual user input...", "scream", "closed", "angry", "mid")
-            elif one_of_three == 2:
+            elif random_number == 2:
                 call her_main("*huh*?", "annoyed", "base", "worried", "R")
                 call her_main("What does That have to do with anything?")
                 m "Just say it."
                 call her_main("......", "annoyed", "base", "worried", "R")
                 m "Come on, humour me."
                 call her_main("... Manual user input.", "scream", "closed", "angry", "mid")
-            elif one_of_three == 3:
+            elif random_number == 3:
                 call her_main("...........", "annoyed", "base", "worried", "R")
                 call her_main("Do I really have to?")
                 m "Just say it."

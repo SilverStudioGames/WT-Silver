@@ -14,15 +14,7 @@ label summon_susan:
     call sus_chibi("stand","mid","base")
     with d3
 
-    if one_of_ten < 4:
-        if game.daytime:
-            call sus_main("Good day, [sus_genie_name].","base","base","base","mid",xpos="base",ypos="base")
-        else:
-            call sus_main("Good evening, [sus_genie_name].","base","base","base","mid",xpos="base",ypos="base")
-    elif one_of_ten < 7:
-        call sus_main("How can I help you, [sus_genie_name]?","base","base","worried","R",xpos="base",ypos="base")
-    else:
-        call sus_main("You wanted to see me, [sus_genie_name]?","base","base","worried","down",xpos="base",ypos="base")
+    call sus_main("You wanted to see me, [sus_genie_name]?","base","base","worried","down",xpos="base",ypos="base")
 
     label susan_requests:
 

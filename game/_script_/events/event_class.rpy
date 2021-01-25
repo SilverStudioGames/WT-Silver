@@ -150,6 +150,11 @@ init python:
             self.events[self._tier][self._points][1] = False
             return
 
+        def fail_intentional(self):
+            self.counter = max(0, self.counter-1)
+            self.points -= 1
+            return
+
         # Reset the event completely
         def reset(self):
             for i in xrange(self._max_tiers):

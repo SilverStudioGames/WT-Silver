@@ -25,9 +25,9 @@ label summon_hermione:
 
         # Talk
         "-Talk-" (icon="interface/icons/small/talk.webp"):
-            if not chitchated_with_her:
+            if not chitchated_with_hermione:
                 if her_mood <= 3:
-                    $ chitchated_with_her = True
+                    $ chitchated_with_hermione = True
                     call chit_chat
                     jump hermione_talk
                 else:

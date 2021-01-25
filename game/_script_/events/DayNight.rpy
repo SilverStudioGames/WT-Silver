@@ -1,34 +1,102 @@
-# Common logic for day/night cycle
 
-default defer_daytime_change = False
-
-label defer_daytime_change(set_daytime):
-    $ game.daytime = set_daytime
-    $ defer_daytime_change = True
-    call update_interface_color
-    call music_block
-    return
-
-label common_start(set_daytime):
-    $ renpy.choice_for_skipping()
-
+label day_start:
     show screen blkfade
     with dissolve
 
-    $ game.daytime = set_daytime
-    $ defer_daytime_change = False
+    # Reset room objects
+    $ fire_in_fireplace = False
+    $ phoenix_is_fed = False
+    $ phoenix_is_petted = False
+    $ phoenix_OBJ.foreground = None # Removes seeds image
+    $ owl_away = False
+    $ cupboard_searched = False
 
-    call update_interface_color
+    # Reset gift flags
+    $ gave_tonks_gift = False
+    $ gave_hermione_gift = False
+    $ gave_luna_gift = False
+    $ gave_cho_gift = False
+    $ gave_astoria_gift = False
+    $ gave_susan_gift = False
 
-    # Update various time-based values
-    if game.daytime:
-        call update_day_values
-    call update_day_and_night_values
+    # Reset chit-chat flags
+    $ chitchated_with_snape = False
+    $ chitchated_with_tonks = False
+    $ chitchated_with_hermione = False
+    $ chitchated_with_luna = False
+    $ chitchated_with_cho = False
+    $ chitchated_with_astoria = False
+    $ chitchated_with_susan = False
 
-    call points_changes # Calculates points
-    call update_ui_points
+    # Tick Event timers
+    $ ss_event_pause = max(ss_event_pause-1, 0)
+    $ ss_summon_pause = max(ss_summon_pause-1, 0)
+    $ nt_event_pause = max(nt_event_pause-1, 0)
+    $ nt_summon_pause = max(nt_summon_pause-1, 0)
+    $ hg_event_pause = max(hg_event_pause-1, 0)
+    $ hg_summon_pause = max(hg_summon_pause-1, 0)
+    $ ll_event_pause = max(ll_event_pause-1, 0)
+    $ ll_summon_pause = max(ll_summon_pause-1, 0)
+    $ cc_event_pause = max(cc_event_pause-1, 0)
+    $ cc_summon_pause = max(cc_summon_pause-1, 0)
+    $ ag_event_pause = max(ag_event_pause-1, 0)
+    $ ag_summon_pause = max(ag_summon_pause-1, 0)
+    $ sb_event_pause = max(sb_event_pause-1, 0)
+    $ sb_summon_pause = max(sb_summon_pause-1, 0)
 
-    # Reset character appearances (chibis, clothing, etc.)
+    # Reset busy flags (Based on current tick)
+    $ snape_busy = bool(ss_summon_pause)
+    $ tonks_busy = bool(nt_summon_pause)
+    $ hermione_busy = bool(hg_summon_pause)
+    $ luna_busy = bool(ll_summon_pause)
+    $ cho_busy = bool(cc_summon_pause)
+    $ astoria_busy = bool(ag_summon_pause)
+    $ susan_busy = bool(sb_summon_pause)
+
+    # Improve Mood
+    if game.difficulty == 1:   # Easy difficulty
+        $ val = 3
+    elif game.difficulty == 2: # Normal difficulty
+        $ val = 2
+    elif game.difficulty == 3: # Hardcore difficulty
+        $ val = 1
+
+    $ ton_mood = max(ton_mood-val, 0)
+    $ her_mood = max(her_mood-val, 0)
+    $ lun_mood = max(lun_mood-val, 0)
+    $ cho_mood = max(cho_mood-val, 0)
+    $ ast_mood = max(ast_mood-val, 0)
+    $ sus_mood = max(sus_mood-val, 0)
+
+    # Game flags
+    $ game.day += 1
+    $ game.weather = "random"
+    $ game.daytime = True
+
+    # Randomisers
+    $ random_gold = renpy.random.randint(8, 40)
+    $ random_map_loc = renpy.random.randint(1, 5)
+
+    # Send salary every 7th day
+    if game.day % 7 == 0:
+        if reports_finished >= 1:
+            $ letter_work_report.send()
+        if not first_random_twins:
+            $ twins_interest = True
+
+    # Deliver mail
+    $ mailbox.tick()
+
+    # Update map locations
+    call set_her_map_location()
+    call set_lun_map_location()
+    call set_cho_map_location()
+    call set_ast_map_location()
+    call set_sus_map_location()
+    #TODO: Add Tonks map location
+    #TODO: Add Snape map location
+
+    # Reset appearances and sprites
     call update_luna
     call update_astoria
     call update_hermione
@@ -38,180 +106,85 @@ label common_start(set_daytime):
     call update_snape
     call update_genie
 
-    #call stop_sound_effects
+    # Reset and update interface
+    call update_interface_color
 
-    # Play owl arrival sound once per day/night start
-    if mailbox.get_letters() and not owl_away:
-        call play_sound("owl")
+    # Points gains
+    call points_changes
+    call update_ui_points
 
-    call room("main_room", stop_sound=False, hide_screens=True)
+    call room(current_room, stop_sound=False, hide_screens=True)
 
     hide screen blkfade
     with dissolve
 
-    if game.daytime:
-        $ renpy.force_autosave(True)
+    $ renpy.force_autosave(True)
 
-    return
+    # Start Quests
+    jump quests
 
-label update_day_values:
-    $ fire_in_fireplace = False
-    $ phoenix_is_fed = False
-    $ phoenix_is_petted = False
-    $ phoenix_OBJ.foreground = None
-    $ owl_away = False
+    label day_resume:
 
-    # Snape
-    if ss_event_pause > 0:
-        $ ss_event_pause -= 1
-    if ss_summon_pause > 0:
-        $ ss_summon_pause -= 1
+    $ renpy.choice_for_skipping()
 
-    # Tonks
-    if nt_event_pause > 0:
-        $ nt_event_pause -= 1
-    if nt_summon_pause > 0:
-        $ nt_summon_pause -= 1
-    $ gave_tonks_gift    = False
+    call screen main_room_menu
 
-    # Hermione
-    if hg_event_pause > 0:
-        $ hg_event_pause -= 1
-    if hg_summon_pause > 0:
-        $ hg_summon_pause -= 1
-    $ gave_hermione_gift = False
+label night_start:
 
-    # Luna
-    if ll_event_pause > 0:
-        $ ll_event_pause -= 1
-    if ll_summon_pause > 0:
-        $ ll_summon_pause -= 1
-    $ gave_luna_gift     = False
+    show screen blkfade
+    with dissolve
 
-    # Cho
-    if cc_event_pause > 0:
-        $ cc_event_pause -= 1
-    if cc_summon_pause > 0:
-        $ cc_summon_pause -= 1
-    $ gave_cho_gift      = False
-
-    # Astoria
-    if ag_event_pause > 0:
-        $ ag_event_pause -= 1
-    if ag_summon_pause > 0:
-        $ ag_summon_pause -= 1
-    $ gave_astoria_gift  = False
-
-    # Susan
-    if sb_event_pause > 0:
-        $ sb_event_pause -= 1
-    if sb_summon_pause > 0:
-        $ sb_summon_pause -= 1
-    $ gave_susan_gift    = False
-
-    # Nicknames
-    call set_random_nicknames
-
-    # Mood
-    if game.difficulty < 3:
-        if game.difficulty == 1:   # Easy difficulty
-            $ val = 3
-        elif game.difficulty == 2: # Normal difficulty
-            $ val = 2
-
-        $ ton_mood = max(ton_mood-val, 0)
-        $ her_mood = max(her_mood-val, 0)
-        $ lun_mood = max(lun_mood-val, 0)
-        $ cho_mood = max(cho_mood-val, 0)
-        $ ast_mood = max(ast_mood-val, 0)
-        $ sus_mood = max(sus_mood-val, 0)
-
-    # Set randomly awarded house points
-    $ generating_snape_bonus = renpy.random.randint(1, 2) #Determines whether ot not Snape bonus will be added to the Slytherin house.
-    $ generating_points = renpy.random.randint(1, 2) #Determines whether or not point will be awarded to Slytherin on this day. # MAKE NO CHANGES HERE. BEING USED AS "ONE_OUT_OF_TWO".
-    $ generating_points_gryffindor = renpy.random.randint(1, 10)
-    $ generating_points_hufflepuff = renpy.random.randint(1, 10)
-    $ generating_points_ravenclaw = renpy.random.randint(1, 10)
-
-    # Set random variables
-    $ one_of_three = renpy.random.randint(1, 3)
-    $ one_of_five = renpy.random.randint(1, 5)
-    $ one_of_ten = renpy.random.randint(1, 10)
-
-    $ day_random = renpy.random.randint(0, 10)
-
-    # Work money every seventh day of the week.
-    $ game.day += 1
-
-    if game.day % 7 == 0:
-        if reports_finished >= 1:
-            $ letter_work_report.send()
-        if not first_random_twins:
-            $ twins_interest = True
-
-    # Weather
-    if cc_event_pause == 0 and hufflepuff_match == "start":
-        $ game.weather = "clear"
-    elif cc_event_pause == 0 and slytherin_match == "start":
-        $ game.weather = "clear"
-    else:
-        $ game.weather = "random"
-
-    # Package delivery
-    $ mailbox.tick()
-
-    return
-
-
-label update_day_and_night_values:
-
-    # Snape
-    if ss_summon_pause == 0:
-        $ snape_busy = False
+    # Reset chit-chat flags
     $ chitchated_with_snape = False
-
-    # Tonks
-    if nt_summon_pause == 0:
-        $ tonks_busy = False
     $ chitchated_with_tonks = False
-
-    # Hermione
-    if hg_summon_pause == 0:
-        $ hermione_busy = False
-    $ chitchated_with_her = False
-    $ her_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
-    call set_her_map_location()
-
-    # Luna
-    if ll_summon_pause == 0:
-        $ luna_busy = False
+    $ chitchated_with_hermione = False
     $ chitchated_with_luna = False
-    $ lun_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
-    call set_lun_map_location()
-
-    # Cho
-    if cc_summon_pause == 0:
-        $ cho_busy = False
     $ chitchated_with_cho = False
-    $ cho_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
-    call set_cho_map_location()
-
-    # Astoria
-    if ag_summon_pause == 0:
-        $ astoria_busy = False
     $ chitchated_with_astoria = False
-    $ ast_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
-    call set_ast_map_location()
-
-    # Susan
-    if sb_summon_pause == 0:
-        $ susan_busy = False
     $ chitchated_with_susan = False
-    $ sus_random_number = renpy.random.randint(1, 5) #Used for Map screen. Gets defined once during day and night.
+
+    # Game flags
+    $ game.weather = "random"
+    $ game.daytime = False
+
+    # Randomisers
+    $ random_gold = renpy.random.randint(8, 40)
+    $ random_map_loc = renpy.random.randint(1, 5)
+
+    # Update map locations
+    call set_her_map_location()
+    call set_lun_map_location()
+    call set_cho_map_location()
+    call set_ast_map_location()
     call set_sus_map_location()
+    #TODO: Add Tonks map location
+    #TODO: Add Snape map location
 
-    $ cupboard_searched  = False # Cupboard.
+    # Reset appearances and sprites
+    call update_luna
+    call update_astoria
+    call update_hermione
+    call update_susan
+    call update_cho
+    call update_tonks
+    call update_snape
+    call update_genie
 
-    $ random_gold = renpy.random.randint(8, 40) # Money you find in the cupboard.
+    # Reset and update interface
+    call update_interface_color
 
-    return
+    call room(current_room, stop_sound=False, hide_screens=True)
+
+    hide screen blkfade
+    with dissolve
+
+    $ renpy.force_autosave(True)
+
+    # Start Quests
+    jump quests
+
+    label night_resume:
+
+    $ renpy.choice_for_skipping()
+
+    call screen main_room_menu

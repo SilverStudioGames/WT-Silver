@@ -443,12 +443,12 @@ label hg_ps_buttplug:
 
 
 label hg_ps_buttplug_complete:
-
+    $ random_number = renpy.random.randint(1, 3)
     call her_walk(action="enter", xpos="mid", ypos="base")
 
     call bld
     if her_whoring <= 15 and buttplug_size == 1:
-        if one_of_three == 1:
+        if random_number == 1:
             # Got distracted
             m "[hermione_name], how did it go?"
             call play_music("chipper_doodle")
@@ -479,7 +479,7 @@ label hg_ps_buttplug_complete:
             call her_main("Speaking of that...", "annoyed", "narrow", "annoyed", "mid", xpos="right",ypos="base",trans=fade)
             m "Oh yes, quite right."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Flashed a few Ravenclaw girls by accident
             m "[hermione_name], how did it go?"
             show screen blktone
@@ -497,7 +497,7 @@ label hg_ps_buttplug_complete:
             call her_main("No... But I did hear them giggling afterwards...", "clench", "narrow", "base", "down")
             m "Well, it sounds like a job well done..."
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Caught by Moaning Myrtle
             m "[hermione_name], how did it go?"
             call play_music("chipper_doodle")
@@ -516,7 +516,7 @@ label hg_ps_buttplug_complete:
             m "Well, it certainly sounds like you've earned your points."
 
     elif her_whoring <= 20 and buttplug_size == 1:
-        if one_of_three == 1:
+        if random_number == 1:
             # Flashed Luna in the library
             call play_music("chipper_doodle")
             m "[hermione_name], did you complete your task?"
@@ -546,7 +546,7 @@ label hg_ps_buttplug_complete:
             call her_main("I don't think I've seen anyone blush so hard...", "base", "narrow", "base", "mid_soft")
             m "Well it sounds like you've earned your points and then some."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Couldn't focus and touched herself during class
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -596,7 +596,7 @@ label hg_ps_buttplug_complete:
 
             m "Certainly."
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Nothing happened
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -620,7 +620,7 @@ label hg_ps_buttplug_complete:
 
 
     elif her_whoring >= 21 and buttplug_size == 1:
-        if one_of_three == 1:
+        if random_number == 1:
             # Pleasured herself in class
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -662,7 +662,7 @@ label hg_ps_buttplug_complete:
             call her_main(xpos="right",ypos="base",trans=fade)
             m "Nice work, [hermione_name]."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Colin Creevey took an upskirt photo
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -699,7 +699,7 @@ label hg_ps_buttplug_complete:
             call her_main("", "base", "narrow", "base", "mid_soft")
             m "It sounds like a job well done [hermione_name]."
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Flashed students on her way to class
             call play_music("chipper_doodle")
             m "[hermione_name], did you complete your task?"
@@ -725,7 +725,7 @@ label hg_ps_buttplug_complete:
             call her_main("", "base", "narrow", "worried", "down")
 
     elif her_whoring <= 19 and buttplug_size == 2:
-        if one_of_three == 1:
+        if random_number == 1:
             # Stood in front during potions class
             m "[hermione_name], how was it?"
             call play_music("chipper_doodle")
@@ -744,7 +744,7 @@ label hg_ps_buttplug_complete:
             m "Well it sounds like you earned your points."
             call her_main(".......", "annoyed", "narrow", "worried", "down")
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Flashed some Hufflepuffs
             m "[hermione_name], how did it go?"
             show screen blktone
@@ -762,7 +762,7 @@ label hg_ps_buttplug_complete:
             call her_main("No... But the looks on their faces...", "base", "narrow", "base", "mid_soft")
             m "Well, it sounds like a job well done..."
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Cat swatting it
             label buttplug_magic_show:
             $ buttplug_magic_known = True
@@ -791,7 +791,7 @@ label hg_ps_buttplug_complete:
             m "Well good work then [hermione_name]"
 
     elif her_whoring <= 23 and buttplug_size == 2:
-        if one_of_three == 1:
+        if random_number == 1:
             # Luna played with it in the library
             if not buttplug_magic_known:
                 jump buttplug_magic_show
@@ -821,7 +821,7 @@ label hg_ps_buttplug_complete:
             call her_main("I don't think I've ever had a better lesson...", "grin", "narrow", "base", "dead")
             m "Well it sounds like you've earned your points and then some."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Ginny played with it
             if not buttplug_magic_known:
                 jump buttplug_magic_show
@@ -857,7 +857,7 @@ label hg_ps_buttplug_complete:
                 her "but anything else..."
                 m "Very good [hermione_name]..."
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Called a slut by Slytherin girls
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -875,7 +875,7 @@ label hg_ps_buttplug_complete:
 
 
     elif her_whoring >= 24 and buttplug_size == 2:
-        if one_of_three == 1:
+        if random_number == 1:
             # Groped by first years
             if not buttplug_magic_known:
                 jump buttplug_magic_show
@@ -915,7 +915,7 @@ label hg_ps_buttplug_complete:
             call her_main("but they just kept going...", "grin", "narrow", "annoyed", "up")
             m "Nice work, [hermione_name]."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Glory hole with Astoria
             if not buttplug_magic_known:
                 jump buttplug_magic_show
@@ -952,7 +952,7 @@ label hg_ps_buttplug_complete:
             m "It sounds like you've earned your points today then [hermione_name]."
             call her_main("...{size=-7}(I would have done this for free...){/size}", "base", "narrow", "worried", "down")
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             call play_music("chipper_doodle")
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -969,7 +969,7 @@ label hg_ps_buttplug_complete:
             m "Very good, [hermione_name]!"
 
     elif buttplug_size == 3:
-        if one_of_three == 1:
+        if random_number == 1:
             # Groped by first years again...
             m "[hermione_name], how was your day?"
             show screen blktone
@@ -1007,7 +1007,7 @@ label hg_ps_buttplug_complete:
             call her_main("but they just kept going...", "grin", "narrow", "annoyed", "up")
             m "Nice work, [hermione_name]."
 
-        elif one_of_three == 2:
+        elif random_number == 2:
             # Speech in McGonagall's class
             m "[hermione_name], did you complete your task?"
             show screen blktone
@@ -1042,7 +1042,7 @@ label hg_ps_buttplug_complete:
             m "It sounds like you've earned your points today then [hermione_name]."
             call her_main("...{size=-7}(I would have done this for free...){/size}", "base", "narrow", "worried", "down")
 
-        elif one_of_three == 3:
+        elif random_number == 3:
             # Sits down in hall with it showing
             call play_music("chipper_doodle")
             m "[hermione_name], did you complete your task?"
@@ -1072,7 +1072,6 @@ label hg_ps_buttplug_complete:
     call set_hermione_plug(None)
 
     jump end_hermione_event
-
 
 default hermione_plug_img = "blank"
 

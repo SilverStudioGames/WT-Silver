@@ -564,7 +564,7 @@ label ll_pf_blowjob_T1_marathon: # Call label
     stop music fadeout 1.5
 
     # Next part of the day
-    call defer_daytime_change(not game.daytime)
+    #call defer_daytime_change(not game.daytime)
     centered "{size=+7}{color=#cbcbcb}An eternity later...{/color}{/size}"
     pause 0.5
     stop bg_sounds fadeout 3.0

@@ -7,6 +7,8 @@
 
 label quests:
 
+    $ renpy.choice_for_skipping()
+
     #
     # DAY-BASED EVENTS
     #
@@ -15,6 +17,9 @@ label quests:
         if game.daytime:
             if not genie_intro.E1_complete:
                 jump genie_intro_E1
+
+            if not genie_intro.E2_complete and bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+                jump genie_intro_E2
         else:
             if ss_event_pause == 0 and not snape_intro.E1_complete:
                 # Snape visits for the first time.
@@ -42,6 +47,7 @@ label quests:
     if game.day >= 4:
         if not letter_work_unlock.read:
             $ letter_work_unlock.send()
+
         if game.daytime:
             pass
         else:
@@ -64,6 +70,7 @@ label quests:
     if game.day >= 7:
         if hermione_intro.E2_complete and not letter_favors.read:
             $ letter_favors.send()
+
         if game.daytime:
             pass
         else:
@@ -138,15 +145,16 @@ label quests:
         if game.daytime:
 
             if hufflepuff_match == "start":
+                $ game.weather = "clear"
                 $ hufflepuff_match = "return" # Triggers the return during the evening.
                 jump hufflepuff_match
             elif slytherin_match == "start":
+                $ game.weather = "clear"
                 $ slytherin_match = "return"
                 jump slytherin_match
             #elif gryffindor_match == "start":
                 #$ gryffindor_match = "return"
                 #jump gryffindor_match
-
 
             if cho_tier == 1:
                 # Lee Jordan gets knocked out cold
@@ -186,6 +194,12 @@ label quests:
                 #$ gryffindor_match = "completed"
                 #jump gryffindor_match_return
 
+            python:
+                for i in cc_requests_list:
+                    if i.inProgress:
+                        i.inProgress = False
+                        i.start()
+
     #
     # SUSAN BONES - EVENTS
     #
@@ -212,6 +226,12 @@ label quests:
             # Introduction
             if susan_intro.E1_complete and not astoria_intro.E1_complete:
                 jump astoria_intro_E1
+
+            python:
+                for i in ag_spell_list: # Spell Training
+                    if i.inProgress:
+                        i.inProgress = False
+                        i.start()
 
     #
     # SEVERUS SNAPE - EVENTS
@@ -244,7 +264,11 @@ label quests:
                         poster_tonks_ITEM.hidden = False # Now available at the store.
                     tonks_mail_list.remove(i)
         else:
-            pass
+            python:
+                for i in nt_requests_list:
+                    if i.inProgress:
+                        i.inProgress = False
+                        i.start()
 
     #
     # HERMIONE GRANGER - EVENTS
@@ -264,6 +288,31 @@ label quests:
             if her_whoring >= 18 and ball_quest.E3_complete and not ball_quest.E4_complete:
                 # Hermione apologizes for the day (event) before.
                 jump ball_quest_E4
+
+            if hg_pr_sex_skip:
+                # Hermione does not show up. This sends to label where she shows up next morning.
+                $ hg_pr_sex.start() # hg_pr_sex_T1_intro_E2
+        else:
+            if current_job == 1:
+                jump maid_responses
+            elif current_job == 2:
+                jump barmaid_responses
+            elif current_job == 3:
+                jump gryffindor_cheer_responses
+            elif current_job == 4:
+                jump slytherin_cheer_responses
+            elif current_job == 5:
+                jump hermione_helping_selling_cards
+
+            python:
+                for i in hg_requests_list:
+                    if i.inProgress:
+                        i.inProgress = False
+                        i.start()
+
+                for i in hg_ps_list: #Call any public shaming event if it's in progress
+                    if i.inProgress:
+                        renpy.jump(i.complete_label)
 
     #
     # LUNA LOVEGOOD - EVENTS

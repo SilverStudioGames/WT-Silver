@@ -113,7 +113,7 @@ label end_hermione_event:
     $ renpy.stop_predict("characters/hermione/face/*.webp")
 
     call music_block
-    jump main_room
+    jump main_room_menu
 
 screen hermione_main():
     tag hermione_main

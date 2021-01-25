@@ -88,7 +88,8 @@ label ast_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, c
         hide screen astoria_main
     return
 
-label set_random_nicknames:
+label update_astoria:
+
     $ random_number = renpy.random.randint(0, 5)
     if random_number in [1,5]:
         $ ast_susan_name = renpy.random.choice(["Suzy","Cow","Cow Tits","Milk Bag","Slut","Whore","Piggy","Pig","Bessie","Moo Moo"])
@@ -96,10 +97,6 @@ label set_random_nicknames:
         $ ast_tonks_name = renpy.random.choice(["Hag","Old Hag","Punk","Dyke","Lesbo"])
     if random_number in [3,5]:
         $ ton_astoria_name = renpy.random.choice(["Cutie","Kitty","Princess","Cupcake","Honey"])
-
-    return
-
-label update_astoria:
 
     # Chibi Update
     $ astoria_chibi.update()

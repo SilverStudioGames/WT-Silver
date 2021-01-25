@@ -67,7 +67,7 @@ label hg_pf_sex_fail:
     m "Why don't you come over here and I pound your pussy for a bit..."
     g9 "With my cock!"
 
-    $ hg_pf_sex.fail()
+    $ hg_pf_sex.fail_intentional()
 
     jump too_much
 
