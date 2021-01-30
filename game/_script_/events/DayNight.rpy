@@ -143,6 +143,15 @@ label night_start:
     $ chitchated_with_astoria = False
     $ chitchated_with_susan = False
 
+    # Reset busy flags (Based on current tick)
+    $ snape_busy = bool(ss_summon_pause)
+    $ tonks_busy = bool(nt_summon_pause)
+    $ hermione_busy = bool(hg_summon_pause)
+    $ luna_busy = bool(ll_summon_pause)
+    $ cho_busy = bool(cc_summon_pause)
+    $ astoria_busy = bool(ag_summon_pause)
+    $ susan_busy = bool(sb_summon_pause)
+
     # Game flags
     $ game.weather = "random"
     $ game.daytime = False
