@@ -1,13 +1,15 @@
 init python:
     class DollOutfit(DollMethods):
-        def __init__(self, group, unlocked=False, name="", desc="", price=0, temp=False):
+        default_schedule = {"day": False, "night": False, "cloudy": False, "rainy": False, "snowy": False}
+
+        def __init__(self, group, unlocked=False, name="", desc="", price=0, temp=False, schedule={}):
             self.group = [x.clone() if not x.parent else x for x in group]
             self.name = name
             self.desc = desc
             self.price = price
             self.char = self.group[0].char
             self.unlocked = unlocked
-            self.schedule = {"day": False, "night": False, "cloudy": False, "rainy": False, "snowy": False}
+            self.schedule = dict(self.default_schedule.items() + schedule.items())
             self.hash = self.generate_hash()
             self.temp = temp
 

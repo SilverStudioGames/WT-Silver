@@ -447,3 +447,11 @@ default her_pubes_arrow = DollCloth("hermione", ("lower undergarment", "pubes"),
 default her_pubes_beaver = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "beaver", [[152, 89, 48, 255]], unlocked=True)
 default her_pubes_stuble = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "stuble", [[92, 54, 29, 255]], unlocked=True)
 default her_pubes_unshaved = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "unshaved", [[92, 54, 29, 255]], unlocked=True)
+
+### Default Schedules ###
+
+default her_outfit_s_clearday = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1], True, schedule={"day": True})
+default her_outfit_s_clearnight = DollOutfit([her_hair_base, her_top_casual1, her_bottom_jeans, her_panties_base1, her_bra_base1], True, schedule={"night": True})
+default her_outfit_s_snow = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_jeans, her_panties_base1, her_bra_base1], True, schedule={"day": True, "night": True, "snowy": True})
+default her_outfit_s_overcast = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True, schedule={"day": True, "night": True, "cloudy": True})
+default her_outfit_s_rain = DollOutfit([her_hair_base, her_robe_school_1, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True, schedule={"day": True, "night": True, "rainy": True})

@@ -115,6 +115,20 @@ label day_start:
 
     call room(current_room, stop_sound=False, hide_screens=True)
 
+    # Equip scheduled outfits
+    if luna_outfits_schedule:
+        $ luna.equip_random_outfit()
+    if astoria_outfits_schedule:
+        $ astoria.equip_random_outfit()
+    if hermione_outfits_schedule:
+        $ hermione.equip_random_outfit()
+    if susan_outfits_schedule:
+        $ susan.equip_random_outfit()
+    if cho_outfits_schedule:
+        $ cho.equip_random_outfit()
+    if tonks_outfits_schedule:
+        $ tonks.equip_random_outfit()
+
     hide screen blkfade
     with dissolve
 
@@ -183,6 +197,20 @@ label night_start:
     call update_interface_color
 
     call room(current_room, stop_sound=False, hide_screens=True)
+
+    # Equip scheduled outfits
+    if luna_outfits_schedule:
+        $ luna.equip_random_outfit()
+    if astoria_outfits_schedule:
+        $ astoria.equip_random_outfit()
+    if hermione_outfits_schedule:
+        $ hermione.equip_random_outfit()
+    if susan_outfits_schedule:
+        $ susan.equip_random_outfit()
+    if cho_outfits_schedule:
+        $ cho.equip_random_outfit()
+    if tonks_outfits_schedule:
+        $ tonks.equip_random_outfit()
 
     hide screen blkfade
     with dissolve

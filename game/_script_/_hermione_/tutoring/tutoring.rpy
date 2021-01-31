@@ -53,12 +53,12 @@ label hg_tutor_start:
         jump hg_tutor_E13
     elif her_tutoring == 14 and her_tier >= 6 and hg_sex.trigger and hg_anal.trigger:
         jump hg_tutor_E14
+    elif her_tutoring == 15:
+        m "(I have taught her everything there was to teach.)"
     else:
-        m "Not the right time. Soon..."
+        m "(She's not ready for her next lesson yet.)"
 
     jump hermione_requests
-
-
 
 label hg_tutor_E1:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -162,8 +162,7 @@ label hg_tutor_E1:
     call her_chibi("leave")
 
     $ her_tutoring = 2
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E2:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -207,8 +206,7 @@ label hg_tutor_E2:
     call her_chibi("leave")
 
     $ her_tutoring = 3
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E3:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -249,8 +247,7 @@ label hg_tutor_E3:
     call her_chibi("leave")
 
     $ her_tutoring = 4
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E4:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -329,8 +326,7 @@ label hg_tutor_E4:
     if her_whoring < 9:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E5:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -456,8 +452,7 @@ label hg_tutor_E5:
     if her_whoring < 9:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E6:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -549,8 +544,7 @@ label hg_tutor_E6:
     if her_whoring < 12:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E7:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -644,7 +638,7 @@ label hg_tutor_E7:
     if her_whoring < 12:
         $ her_whoring += 1
 
-    jump day_start
+    jump end_hermione_event
 
 
 label hg_tutor_E8:
@@ -781,8 +775,7 @@ label hg_tutor_E8:
     if her_whoring < 18:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E9:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -941,8 +934,7 @@ label hg_tutor_E9:
     if her_whoring < 18:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E10:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -1129,8 +1121,7 @@ label hg_tutor_E10:
     if her_whoring < 21:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E11:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -1313,8 +1304,7 @@ label hg_tutor_E11:
     if her_whoring < 21:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E12:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -1546,8 +1536,7 @@ label hg_tutor_E12:
     if her_whoring < 24:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E13:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -1762,8 +1751,7 @@ label hg_tutor_E13:
     if her_whoring < 24:
         $ her_whoring += 1
 
-    jump day_start
-
+    jump end_hermione_event
 
 label hg_tutor_E14:
     call her_main("", "base", "base", "base", "mid", xpos="mid", ypos="base", trans=fade)
@@ -1941,4 +1929,4 @@ label hg_tutor_E14:
     if her_whoring < 24:
         $ her_whoring += 1
 
-    jump day_start
+    jump end_hermione_event
