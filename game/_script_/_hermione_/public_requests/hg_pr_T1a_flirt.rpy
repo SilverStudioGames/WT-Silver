@@ -149,8 +149,6 @@ label hg_pr_flirt_intro:
                 pass
 
     stop music fadeout 3.0
-    show screen blktone
-    with d3
 
     if hg_pr_flirt.counter == 1:
         call her_main("......", "annoyed", "narrow", "angry", "R")
@@ -239,6 +237,7 @@ label hg_pr_flirt_T1_E2:
         "\"Well, at least you are trying.\"":
             call her_main("I truly am...", "angry", "happyCl", "worried", "mid")
             call her_main("But Apparently flirting is not my forte...", "angry", "base", "worried", "down", emote="sweat")
+            call her_main("", "base", "base", "worried", "mid",)
 
             jump end_hg_pr_flirt
 
@@ -282,7 +281,7 @@ label hg_pr_flirt_T1_E3:
         m "*Hmm*..."
         "\"Well, here are your points.\"":
             m "Maybe you didn't do exactly as was asked of you, you at least tried."
-            call her_main("Thank you, [genie_name]...", "open", "closed", "base", "mid")
+            call her_main("", "base", "closed", "base", "mid")
 
             jump end_hg_pr_flirt
 

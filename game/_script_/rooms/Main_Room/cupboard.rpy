@@ -16,7 +16,7 @@ label cupboard:
         jump main_room_menu
 
     if cupboard_searched:
-        ">You already searched the cupboard today."
+        ">You have already searched the cupboard today."
         jump main_room_menu
 
     $ cupboard_searched = True # Resets every day/night.
