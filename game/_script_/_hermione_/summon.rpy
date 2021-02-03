@@ -377,11 +377,17 @@ label hermione_favor_menu:
                     g4 "Explain yourself, [hermione_name]!"
                     call her_main("With the current points distribution, I am certain getting the house cup for Gryffindor will be just a formality.", "smile", "closed", "base", "mid")
                     call her_main("Thank you, [genie_name], but I don't need any more points.", "smile", "base", "base", "mid")
+
+                    call tutorial("points")
+
                     g4 "(That little...)"
                     m "(Perhaps I should hangout with that Snape dude tonight, he might know what to do.)"
                     call her_main("Do you need anything else, [genie_name]?", "smile", "base", "base", "mid")
                 else:
                     m "Right..."
+
+                    call tutorial("points")
+
                     m "(I guess another hangout with Snape is in order.)"
         jump hermione_requests
 
