@@ -6,11 +6,12 @@ screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), backgr
     default icon = iconset[0]
 
     if visible:
-        button style "empty" action [SetLocalVariable("visible", False), SetLocalVariable("icon", iconset[0])]
+        use invisible_button(action=[SetLocalVariable("visible", False), SetLocalVariable("icon", iconset[0])])
 
     window:
         style "empty"
         pos pos
+
         textbutton "[name] {unicode}{size=+1}[icon]{/size}{/unicode}":
             style style
             ysize 24

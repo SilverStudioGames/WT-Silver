@@ -60,13 +60,13 @@ screen main_menu():
         fixed:
             xysize (300, 30)
 
-            if not is_release:
-                text "{color=#c70000}[version_stage]{/color}":
-                    style "main_menu_version"
-                    xoffset -320 - gui.navigation_padding
-                    yanchor 1.0
+            # if not is_release:
+            #     text "{color=#c70000}[version_stage]{/color}":
+            #         style "main_menu_version"
+            #         xoffset -320 - gui.navigation_padding
+            #         yanchor 1.0
 
-            text "[title_version]":
+            text "[config.version]":
                 style "main_menu_version"
                 xoffset -320 - gui.navigation_padding
                 yalign 0.5

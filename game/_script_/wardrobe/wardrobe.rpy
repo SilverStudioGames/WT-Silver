@@ -558,6 +558,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     if is_inadequate:
                         foreground "#b2000040"
                         hover_foreground "#CD5C5C40"
+                        selected_foreground "#CD5C5C40"
 
                     add icon_frame
 
@@ -585,17 +586,18 @@ screen wardrobe_schedule_menuitem(item):
 
     default mpos = renpy.get_mouse_pos()
 
-    button style "empty" action Hide("wardrobe_schedule_menuitem")
+    use invisible_button(action=Return(), alternate=Show("wardrobe_schedule_menuitem", item=item))
 
     window:
         style "empty"
         pos mpos
+        use invisible_button(action=NullAction(), alternate=Return())
 
         frame:
             style "empty"
-            #pos (0, 24)
             background "#00000080"
             padding (5, 5, 5, 5)
+
             vbox:
                 spacing 0
                 for i in wardrobe_outfit_schedule:

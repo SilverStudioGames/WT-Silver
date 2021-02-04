@@ -16,7 +16,6 @@ label start_dev:
     jump skip_to_hermione
 
 label game_init:
-    $ save_internal_version = config.version
     $ wardrobe_init()
     $ achievement_fix()
     $ parse_mods()

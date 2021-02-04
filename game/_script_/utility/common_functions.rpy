@@ -17,6 +17,10 @@ init -1 python:
 
     get_volume_preference = renpy.game.preferences.get_volume
 
+    def version_float():
+        control, major, minor = config.version.split(" ")[0].split(".")
+        return float("{}.{}{}".format(control, major, minor))
+
     def num_to_word(n, readable=True):
         """Transcript numbers (integers) into readable words."""
         n = int(n)
