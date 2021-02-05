@@ -23,7 +23,10 @@ label suck_and_run:
             $ pathvalue = 0
         "-Part two-":
             $ pathvalue = 1
-        "-Part three-":
+        #"{color=[menu_disabled]}-Part three-{/color}" if not ton_top_succubus.unlocked:
+        #    call nar("You'll require a certain outfit for Tonks to play this part.")
+        #    jump suck_and_run.choices
+        "-Part three-": # if ton_top_succubus.unlocked:
             $ pathvalue = 2
         "-Go back-":
             # Return
@@ -43,7 +46,7 @@ label suck_and_run:
 
         call sna_main("*Ah*... Been looking forward to this...","snape_23", ypos="head")
         m "Rough day I take it?"
-        call sna_main("Bloody slackers all of them!","snape_17")
+        call sna_main("Bloody slackers, all of them!","snape_17")
         g4 "..."
         call sna_main("What's the point of me teaching them anything if they can't even bother staying awake?","snape_32")
         m "Are we talking about your Slytherin sluts again?"
@@ -55,7 +58,7 @@ label suck_and_run:
         call sna_main("Now they're lazy at the best of times, but catching someone sleeping in my class... That's a first.","snape_07")
         call sna_main("I wish I could hang them up by their ankles, like in the old days! That would show them!","snape_08")
         m "Come on man, it's Halloween!"
-        m "Cheer up a little will you."
+        m "Cheer up a little, will you."
         call sna_main("*Mmm*... The time of year when girls will put on any type of outfit with the word \"slutty\" written in front of it.","snape_23")
         g9 "Exactly!"
         call sna_main("Wait a minute...","snape_01")
@@ -66,9 +69,9 @@ label suck_and_run:
         m "I was around when they burnt your kind at the stake... And that wasn't even that long ago to me."
         call sna_main("Right...","snape_31")
         m "Besides... Nightmare before Christmas is like my favourite Halloween movie..."
-        call sna_main("Halloween... what?","snape_05") # Snape doesn't know what a movie is
+        call sna_main("*Uhm*... What?","snape_05") # Snape doesn't know what a movie is
         m "Christmas movie... Whatever."
-        call sna_main("You're such a mystery to me sometimes Genie...","snape_06")
+        call sna_main("You're such a mystery to me sometimes, Genie...","snape_06")
         g4 "Come on, you must have seen it! At least heard of it."
         call sna_main("I'm afraid I have not seen this Nightmare {i}moo-wee{/i} thing.","snape_09")
         m "Okay so there's this guy... Jack Skellington, and he's the \"Pumpkin King\" of Halloween Town."
@@ -101,26 +104,27 @@ label suck_and_run:
 
         call setup_fireplace_hangout(char="tonks")
 
+        call bld
         m "Getting into the Halloween spirit?"
         call ton_main("Of course!", "grin", "wide", "base", "mid", ypos="head")
         call ton_main("I've been looking forward to the Halloween feast ever since I got here.", "crooked_smile", "closed", "base", "mid")
         call ton_main("Brings back memories.", "base", "base", "base", "downR")
         m "*Ha-hah*, yeah... That food thing that I do all the time. Love it!"
-        call ton_main("It also gives me a great excuse to dress down!", "horny", "closed", "base", "mid")
+        call ton_main("It also gives me a great excuse to dress down!", "base", "happyCl", "base", "mid")
         m "Don't you mean dress up?"
         call ton_main("Same thing...", "horny", "narrow", "base", "mid")
         m "So, what will it be this year then?"
-        call ton_main("*Hmm*... Why don't you have a guess...", "soft", "base", "raised", "down")
+        call ton_main("*Hmm*... Why don't you have a guess...", "crooked_smile", "base", "base", "mid")
 
         menu:
             "\"A Slutty Nurse?\"":
                 call ton_main("Ohhh... that'd be fun. Do you have a fever?", "horny", "wink", "base", "mid")
                 call ton_main("I could take your temperature.", "grin", "narrow", "raised", "mid")
-                call ton_main("Orally, of course.", "horny", "closed", "base", "mid") #lewd wink
+                call ton_main("Orally, of course.", "soft", "narrow", "shocked", "mid")
                 g9 "You naughty--"
                 g4 "Wait, what do you mean about that exactly?"
-                call ton_main("Wouldn't you like to know...", "base", "base", "raised", "R")
-                call ton_main("But no, that's not it...", "soft", "narrow", "base", "R")
+                call ton_main("Wouldn't you like to know...", "soft", "base", "raised", "downR")
+                call ton_main("But no, that's not it...", "base", "narrow", "base", "mid")
             "\"A Slutty School girl?\"":
                 call ton_main("Someone's getting greedy.", "base", "narrow", "base", "mid")
                 call ton_main("Don't you have enough of those already?", "horny", "base", "raised", "mid")
@@ -133,41 +137,41 @@ label suck_and_run:
         call ton_main("*Hmm*... Not sure I should ruin the surprise.", "horny", "wink", "base", "mid")
         call ton_main("I'm sure you'll find out soon enough...", "base", "narrow", "base", "R", hair="horny") #Glance #hornyhair
         g9 "Looking forward to it."
-        call ton_main("Anyway...", "base", "base", "shocked", "mid")
-        call ton_main("Anything else going on that I should know of?", "soft", "base", "base", "down")
+        call ton_main("Anyway...", "open", "base", "shocked", "mid")
+        call ton_main("Anything else going on that I should know of?", "soft", "base", "base", "mid")
         m "*Err*... I had a little chat with Severus the other night."
         call ton_main("*Hmm*... Not really the kind of thing I was talking about...", "annoyed", "base", "base", "mid")
-        call ton_main("Although I'm always up for gossip.", "base", "base", "shocked", "R")
-        call ton_main("I assume you weren't talking about Halloween... Since I doubt Snape would care about it in the slightest.", "crooked_smile", "base", "base", "R")
+        call ton_main("Although I'm always up for gossip.", "crooked_smile", "narrow", "shocked", "mid")
+        call ton_main("I assume you weren't talking about Halloween... Since I doubt Snape would care about it in the slightest.", "open", "narrow", "base", "mid")
         m "Oh no, he absolutely loves it."
         call ton_main("Really?", "disgust", "wide", "shocked", "mid")
         call ton_main("Well... Colour me surprised...", "open", "closed", "base", "mid")
         m "Yes... He seemed quite eager to find out what the girls will be wearing this year in fact."
-        call ton_main("Oh, so it's like that is it?", "base", "base", "raised", "down")
-        m "He also mentioned that some Hufflepuff boys have been falling asleep during his lessons lately... What do you think--"
-        call ton_main("What?! Why do you think I'd know anything about Hufflepuff boys falling asleep in class!?", "mad", "wide", "base", "mid")
-        call ton_main("Are you implying that I'm sneaking into their room to fuck them? That I'm draining their cocks dry every night!?", "clench", "closed", "shocked", "mid")
+        call ton_main("Oh, so it's like that is it?", "base", "narrow", "raised", "mid")
+        m "He also mentioned that some Hufflepuff boys have been falling asleep during his lessons... What do you think--"
+        call ton_main("What?! Why do you think I'd know anything about Hufflepuff boys falling asleep in class!?", "silly", "happyCl", "worried", "mid", cheeks="heavy_blush", hair="horny")
+        call ton_main("Are you implying that I'm sneaking into their room to fuck them? That I'm draining their cocks dry every night!?", "scream", "base", "angry", "mid", cheeks="blush", hair="horny")
         m "What? I was just going to ask if you thought they'd been staying up late partying or something."
-        call ton_main("Oh.... No, I don't think they're doing anything like that.", "soft", "base", "base", "R", cheeks="blush")
+        call ton_main("Oh... No, I don't think they're doing anything like that.", "soft", "base", "base", "R", cheeks="blush", hair="horny")
         m "What was that about sucking them dry at night?"
-        call ton_main("Did I say that? Are you sure you didn't just hear what you wanted to hear Genie?", "disgust", "base", "base", "downR")
+        call ton_main("Did I say that? Are you sure you didn't just hear what you wanted to hear, Genie?", "disgust", "narrow", "base", "mid", cheeks="blush", hair="horny")
         m "I'm pretty sure I heard you ask if I thought you were fucking your students at night."
-        call ton_main("Then you must've misheard me..", "normal", "closed", "base", "mid", hair="horny")
+        call ton_main("Then you must've misheard me...", "normal", "closed", "base", "mid", hair="horny")
         m "... Are you drooling?"
         call ton_main("*Mhmm*?", "normal", "wide", "base", "down")
         call ton_main("Oh, this?", "mad", "base", "raised", "mid")
         call ton_main("I was just thinking about what I'll be having for dinner tonight...", "soft", "closed", "base", "R")
-        call ton_main("Creamy mushroom soup... Delicious!", "horny", "base", "base", "down", hair="horny")
+        call ton_main("Creamy mushroom soup... Delicious!", "horny", "narrow", "shocked", "up", cheeks="blush", hair="horny")
         m "I see...{w=0.3} Very well."
         m "Please keep an eye on those Hufflepuff boys, alright?"
         call ton_main("Of course.... I'll make sure to inspect their dorms thoroughly.", "open", "closed", "base", "mid")
-        call ton_main("I'll even give them a little pat down. Make sure they're not smuggling alcohol up there.", "grin", "closed", "base", "mid")
+        call ton_main("I'll even give them a little pat down. Make sure they're not smuggling alcohol up there.", "grin", "narrow", "base", "mid")
         call ton_main("Maybe a strip search or two.", "soft", "narrow", "base", "mid") #drooling ahegao face
         m "I don't think that will be necessary."
         m "Just make sure they're not staying up all night, alright?"
         call ton_main("*Aww*, You're no fun at all.", "annoyed", "narrow", "base", "mid") #pout
         m "*glares*"
-        call ton_main("*Sigh* Fiiiiiine... Goodnight [ton_genie_name].","base","base","base","mid")
+        call ton_main("*Sigh* Fiiiiiine... Goodnight [ton_genie_name].", "annoyed", "base", "base", "mid")
         m "Goodnight [tonks_name]."
 
         show screen blkfade with d3
@@ -214,7 +218,7 @@ label suck_and_run:
         call play_sound("giggle")
         pause 1.0
 
-        call ton_chibi("hide")
+        call ton_chibi_scene("bj_desk")
         hide screen blkfade
         with d9
 
@@ -227,38 +231,50 @@ label suck_and_run:
         "*Slurp* *Slurp* *Gulp*"
         m "*Snore*... *Sn--*"
         m "Princess--"
+        call ton_chibi_scene("bj_desk_shocked")
         g16 "Tonks?!"
 
         call play_music("tonks")
         call ton_main("*Slurp* *Slurp* *Gulp*!", face="horny", mouth="open_wide_tongue", xpos="far_right", ypos=200, trans=d3) # Explicit positions to avoid hiding the doll
 
+        call ton_chibi_scene("bj_desk")
         g4 "am I still dreaming?"
         call ton_main("*Slurp* *Slurp* *slurp*!", "open_wide_tongue", "narrow", "shocked", "stare")
         g4 "*Ngh*... But it feels so real!"
         stop bg_sounds
         call ton_main("...", "base", "closed", "annoyed", "up", hair="angry") #Hair turns red
+        call ton_chibi_scene("bj_desk_shocked")
         m "*Ah*... T-Tonks?!"
 
-        $ renpy.sound.play("sounds/magic3.mp3")
         stop music fadeout 0.5
-        $ tonks.equip(ton_outfit_succubus)
-        call ton_main("", face="horny", pupils="mid", mouth="horny", trans=flash)
+        call ton_main("", "base", "narrow", "base", "mid", xpos="mid", ypos="base")
+        with fade
+        pause .5
 
-        pause 0.5
+        $ renpy.sound.play("sounds/magic3.mp3")
+        $ tonks.equip(ton_outfit_succubus)
+        call ton_main("", "horny", "narrow", "base", "mid", trans=flash)
+
+        pause 0.8
         call play_sound("giggle")
         call ton_main("*giggles*")
 
         $ renpy.music.play("music/determined_pursuit_loop.mp3")
+        hide screen tonks_main
+        with d3
 
+        call ton_main(xpos="base", ypos="head")
         g4 "ARGH!"
-        g4 "Unhand me foul demon!"
-        call ton_main("Of course sir...", "grin", "base", "base", "L", hair="angry")
+        call play_sound("punch01")
+        with vpunch
+        g4 "Unhand me, foul demon!"
+        call ton_main("Of course, Sir...", "grin", "base", "base", "L", hair="angry", xpos="base", ypos="head")
         call play_sound("giggle")
         pause .8
-        call ton_main("Right away sir...", "crooked_smile", "base", "angry", "mid", hair="angry")
-        call ton_main("Once I've gotten what I want...", "normal", "base", "angry", "stare", hair="angry")
+        call ton_main("Right away, Sir...", "crooked_smile", "base", "angry", "mid", hair="angry")
+        call ton_main("Once I've gotten what I want...", "soft", "narrow", "shocked", "up", hair="angry")
 
-        g4 "You may not have my life essence foul--"
+        g4 "You may not have my life essence, you foul--"
 
 
         stop music fadeout 1.0
@@ -267,36 +283,35 @@ label suck_and_run:
         pause 1
         g4 "Temptress?"
         call play_sound("giggle")
-        call ton_main("", "grin", "base", "angry", "up", hair="angry")
-        pause 2
-
+        call ton_main("*giggles*", "grin", "base", "angry", "up", hair="angry")
         call ton_main("Just close your eyes and relax...", "normal", "narrow", "angry", "stare", hair="angry")
+        call ton_chibi_scene("bj_desk")
         m "*Ehm*..."
         m "So you don't want my soul?"
-        call ton_main("Me? Want a soul as tainted and corrupt as yours?", "base", "base", "angry", "stare", hair="angry")
-        call ton_main("Don't make me laugh...", "base", "base", "angry", "R", hair="angry")
+        call ton_main("Me? Want a soul as tainted and corrupt as yours?", "silly", "happyCl", "shocked", "stare", hair="angry", cheeks="blush")
+        call ton_main("Don't make me laugh...", "normal", "base", "angry", "mid", hair="angry")
         m "Then what do you--"
-        call ton_main("", "grin", "base", "angry", "up", hair="angry")
-        pause 2
+        call ton_main("{heart}", "soft", "narrow", "base", "up", hair="angry")
         m "I see..."
+        call ton_main("Now just relax and enjoy it...{heart}", "horny", "narrow", "base", "mid", hair="angry")
         m "Well I guess that could be arranged..."
         call play_sound("giggle")
         pause 1
-        call ton_main("Excellent... Now just relax and enjoy it...", "crooked_smile", "base", "base", "up", hair="angry")
+        m "Excellent..."
         play bg_sounds "sounds/slickloopfast.mp3" fadein 2
-        call ton_main("*Slurp* *Slurp* *slurp*!", face="horny", mouth="open_wide_tongue", ypos="head", hair="angry")
+        call ton_main("*Slurp* *Slurp* *slurp*!", "open_wide_tongue", "narrow", "base", "up", hair="angry")
         g4 "*Argh*!"
         g4 "So...{w=0.4} *Ah*... What is it then?"
-        call ton_main("*Slurp*?", "open_wide_tongue", "base", "base", "L", hair="angry")
+        call ton_main("*Slurp*?", "open_wide_tongue", "base", "base", "mid", hair="angry")
         m "What kind of foul creature am I dealing with?"
-        call ton_main("*Slurp* *Slurp* *slurp*", "open_wide_tongue", "closed", "base", "mid", cheeks="blush")
+        call ton_main("*Slurp*?", "open_wide_tongue", "base", "raised", "mid", hair="angry")
         m "Oh! Let me guess!"
         m "Are you a--"
 
         call play_music("tonks")
 
         stop bg_sounds
-        call ton_main("A succubus?", "crooked_smile", "base", "angry", "up", hair="angry")
+        call ton_main("A succubus?", "crooked_smile", "base", "angry", "mid", hair="angry")
         m "*Argh*... You're no fun, I was just about to--"
         play bg_sounds "sounds/slickloopveryfast.mp3" fadein 2
         call ton_main("*Slurp* *Slurp* *Slurp*", "open_wide_tongue2", "narrow", "base", "up", hair="horny", cheeks="blush")
@@ -308,7 +323,7 @@ label suck_and_run:
         g4 "Take this, foul demon!" #large text?
         stop bg_sounds
         $ renpy.sound.play("sounds/slick_02.mp3")
-        call ton_main("*mmhf*!", "open_wide_tongue", "wide", "shocked", "up", cheeks="blush")
+        call ton_main("*mmhf*!", "open_wide_tongue", "wide", "shocked", "mid", cheeks="blush")
 
         with hpunch
 
@@ -356,12 +371,15 @@ label suck_and_run:
         call ton_main("*giggles*", "base", "happyCl", "base", "mid")
 
         show screen blkfade with d3
-
-        call unlock_clothing(text=">New clothing items for Tonks have been unlocked!", item=ton_outfit_succubus)
-
         stop music fadeout 1.0
         hide screen add_overlay
+
+        # Unlock outfit message. Should only appear once.
+        if not ton_outfit_succubus.unlocked:
+            call unlock_clothing(text=">New clothing items for Tonks have been unlocked!", item=ton_outfit_succubus)
+
         $ game.daytime = temp_day
+
         centered "{size=+7}{color=#cbcbcb}End of part three{/color}{/size}"
 
         jump suck_and_run.choices
