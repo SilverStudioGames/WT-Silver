@@ -11,9 +11,14 @@ label cupboard:
             m "*Hmm*..."
             m "A cupboard..."
             m "Maybe I should rummage through this one later..."
+            call gen_chibi("sit_behind_desk")
         else:
             m "Looks like any other cupboard, maybe a bit dustier."
-        jump main_room_menu
+
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     if cupboard_searched:
         ">You have already searched the cupboard today."

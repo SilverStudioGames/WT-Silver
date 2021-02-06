@@ -17,7 +17,7 @@ init python:
         snape = ""
         genie = ""
 
-        def show(self,image=None,x=690,y=250,z=5):
+        def show(self,image=None,x=720,y=250,z=5):
             renpy.show(image,at_list=[Position(xpos=x, ypos=y, xanchor="center", yanchor="center")],layer="screens",zorder=z)
         def hide(self,image=None):
             renpy.hide(image,layer="screens")
@@ -26,9 +26,6 @@ label duel:
     ### DUEL ###
     $ d_flag_01 = False #Turns True after conversation triggered when Genie's HP runs low.
     $ d_flag_02 = False #Turns True after conversation triggered when Snape's HP runs low.
-
-    stop bg_sounds #Stops playing the fire SFX.
-    stop weather #Stops playing the rain SFX.
 
     # Hide all the screens.
 
@@ -51,11 +48,11 @@ label duel:
     $ in_action = False
 
     show screen duel
+    show screen hp_bar
 
     hide screen snape_glass
     hide screen bld1
-    with irisout
-    call ctc
+    with fade
 
     call bld
     m "This is foolish... You are no match for me..."
@@ -64,7 +61,7 @@ label duel:
     m "{size=-4}(But I should still be way more powerful than any human wizard...){/size}"
     call sna_main("Let the duel begin!","snape_01", wand=True)
     hide screen bld1
-    show screen hp_bar
+
     $ duel_OBJ.in_progress = True
     with d1
 
@@ -177,7 +174,7 @@ label main_defend:
     $ in_action = True
     $ blocking = True
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=690, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
     $ duel_OBJ.genie = "defend"
     pause 1
     jump snapes_turn
@@ -194,8 +191,8 @@ label main_potion:
 ### SNAPE DEFENDS ### (Snape -0 HP)
 label snape_defends:
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=690, y=250,z=5)
-    $ duel_OBJ.show("snape_defend",x=690, y=250,z=4)
+    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("snape_defend",x=720, y=250,z=4)
     $ duel_OBJ.snape = "block"
     pause 1
     $ renpy.play('sounds/attack_axe.mp3')
@@ -209,7 +206,7 @@ label snape_defends:
     $ duel_OBJ.genie = "barb"
     pause 1
 
-    $ duel_OBJ.show("smoke",x=690, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
     $ duel_OBJ.genie = ""
     pause 1
 
@@ -218,8 +215,8 @@ label snape_defends:
 ### GENIE ATTACK ### (Snape -100 HP)
 label genie_attack:
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=690,y=250,z=5)
-    $ duel_OBJ.show("genie_attack",x=690,y=250,z=4)
+    $ duel_OBJ.show("smoke",x=720,y=250,z=5)
+    $ duel_OBJ.show("genie_attack",x=720,y=250,z=4)
     $ duel_OBJ.genie = "attack"
     pause 1
     $ renpy.play('sounds/attack_axe.mp3')
@@ -242,17 +239,17 @@ label genie_attack:
             show screen duel_damage(300)
             $ snape_hp -= 300
         elif game.difficulty == 2: #Normal
-            show screen duel_damage(100)
-            $ snape_hp -= 100
+            show screen duel_damage(200)
+            $ snape_hp -= 200
         else: #Hardcore
             show screen duel_damage(100)
             $ snape_hp -= 100
 
     pause 1
-    if snape_hp < 50: #Check for gameover
+    if snape_hp <= 100: #Check for gameover
         jump snape_lost
 
-    $ duel_OBJ.show("smoke",x=690, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
     $ duel_OBJ.hide("genie_attack")
     $ duel_OBJ.genie = ""
     pause 1
@@ -265,7 +262,7 @@ label snapes_turn:
     if pentogram:
         $ pentogram = False
         $ duel_OBJ.snape = "hand"
-        $ duel_OBJ.show("hand",x=690, y=250,z=4)
+        $ duel_OBJ.show("hand",x=720, y=250,z=4)
         $ renpy.play('sounds/attack_snape3.ogg')
         pause 1.5
         $ renpy.play('sounds/attack_snape4.ogg')
@@ -274,7 +271,7 @@ label snapes_turn:
             $ blocking = False
             $ duel_OBJ.hide("hand")
             $ duel_OBJ.genie = "hand"
-            $ duel_OBJ.show("hand_guard",x=690, y=250,z=4)
+            $ duel_OBJ.show("hand_guard",x=720, y=250,z=4)
             pause 1.8
             $ duel_OBJ.hide("hand_guard")
             $ duel_OBJ.snape = ""
@@ -292,7 +289,7 @@ label snapes_turn:
             if genie_hp < 50: #Check for gameover
                 jump genie_lost
 
-            $ duel_OBJ.show("smoke",x=690, y=250,z=5)
+            $ duel_OBJ.show("smoke",x=720, y=250,z=5)
             $ duel_OBJ.genie = ""
             $ in_action = False
             jump duel_main
@@ -345,7 +342,7 @@ label snapes_turn:
 
         elif snape_decides in [2]:  #MAGIC. CASTS THE PICTOGRAM.
             $ duel_OBJ.snape = "hand"
-            $ duel_OBJ.show("snape_summon",690,250,4)
+            $ duel_OBJ.show("snape_summon",720,250,4)
             $ renpy.play('sounds/attack_snape2.ogg')
             pause.8
             $ pentogram = True
@@ -379,7 +376,7 @@ label potion:
 ### SNAPE ATTACK ### (Genie -100 HP)
 label snape_attack:
     hide screen duel_damage
-    $ duel_OBJ.show("snape_attack",x=690, y=250,z=5)
+    $ duel_OBJ.show("snape_attack",x=720, y=250,z=5)
     $ duel_OBJ.snape = "attack"
     $ renpy.play('sounds/attack_snape.ogg')
     pause 0.45
@@ -404,7 +401,7 @@ label snape_attack:
 
 ### SNAPE ATTACKS GUARD ### (-0 HP)
 label snape_attack_guard:
-    $ duel_OBJ.show("snape_attack_guard",x=690, y=250,z=5)
+    $ duel_OBJ.show("snape_attack_guard",x=720, y=250,z=5)
     $ duel_OBJ.snape = "attack"
     $ renpy.play('sounds/attack_snape.ogg')
     pause 0.5
@@ -416,17 +413,12 @@ label snape_attack_guard:
     $ in_action = False
     jump duel_main
 
-
-
 ### DUEL ###
 screen duel():
     zorder 2
 
-    use chair_right
-    add "duel_table" xpos 335 ypos 336 xanchor 0.5 yanchor 0.5
-
     if pentogram:
-        add "pentogram" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+        add "pentogram" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
 
     if duel_OBJ.genie in ["attack"] or duel_OBJ.snape in ["attack","block"]:
         pass
@@ -434,22 +426,22 @@ screen duel():
         if duel_OBJ.genie == "hand":
             pass
         elif duel_OBJ.genie == "no_magic":
-            add "genie_no_magic" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "genie_no_magic" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
         elif duel_OBJ.genie == "defend":
-            add "ch_gen guard" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "ch_gen guard" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
         elif duel_OBJ.genie == "barb":
-            add "ch_gen barb" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "ch_gen barb" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
         else:
-            add "ch_gen duel_01" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "ch_gen duel_01" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
 
         if duel_OBJ.snape == "hand":
             pass
         elif duel_OBJ.snape == "lost":
-            add "snape_lost" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "snape_lost" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
         elif duel_OBJ.snape == "defend":
-            add "ch_sna defend" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "ch_sna defend" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
         else:
-            add "ch_sna duel_01" at Position(xpos=690, ypos=250, xanchor="center", yanchor="center")
+            add "ch_sna duel_01" at Position(xpos=720, ypos=250, xanchor="center", yanchor="center")
 
 
 screen hp_bar():
@@ -503,13 +495,14 @@ screen duel_heal(value=300, player=True):
 ### SNAPE LOSES ###
 label snape_lost:
     $ pentogram = False
-    $ duel_OBJ.show("smoke",x=690, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
     $ duel_OBJ.hide("genie_attack")
     $ duel_OBJ.genie = ""
     $ duel_OBJ.snape = "lost"
     $ duel_OBJ.in_progress = False
     hide screen hp_bar
     hide screen duel_damage
+    show screen ui_top_bar
     with flashbulb
     pause 1
     $ snape_intro.duel_complete = True

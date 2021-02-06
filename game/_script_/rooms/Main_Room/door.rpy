@@ -18,7 +18,6 @@ label door:
                     hide screen blktone
                     with d3
                     m "No reply..."
-                    jump examining_the_door
                 "-Put your ear on it-":
                     show screen blktone
                     with d3
@@ -26,7 +25,6 @@ label door:
                     m "I don't hear anything."
                     hide screen blktone
                     with d3
-                    jump examining_the_door
                 "-Kick the door-":
                     show screen blktone
                     with d3
@@ -34,23 +32,25 @@ label door:
                     pause.2
                     with hpunch
                     "*Thump!*"
+                    $ renpy.sound.play("sounds/MaleGasp.mp3")
+                    g4 "Blimey! That hurts!"
                     ".............................."
                     hide screen blktone
                     with d3
-                    m "This door could take a thousand kicks like that and it still wouldn't break..."
-                    m "It doesn't look like it's locked though..."
-
-                    jump examining_the_door
+                    m "This door could take a thousand kicks and it still wouldn't break..."
                 "-Leave it alone-":
                     m "Who knows what kind of dangers could be lurking behind that door?"
                     m "I think I'll let it be for now..."
-                    pass
 
             call gen_chibi("sit_behind_desk")
             with d3
         else:
             m "I should leave this door alone for now."
-        jump main_room_menu
+
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     call update_character_map_locations
 

@@ -252,6 +252,8 @@ label play_music(music="", fadein=1.0, fadeout=1.0):
         play music "music/Despair_by_erenik.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "agenda":
         play music "music/hidden-agenda-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
+    elif music == "intro":
+        play music "music/the-chamber-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
 
     # Fallback
     else:

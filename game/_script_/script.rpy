@@ -16,6 +16,7 @@ label start_dev:
     jump skip_to_hermione
 
 label game_init:
+    $ version = version_float()
     $ wardrobe_init()
     $ achievement_fix()
     $ parse_mods()

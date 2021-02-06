@@ -3,7 +3,6 @@ default cheat_reading = False
 default cheat_wardrobe_alpha = False
 
 default skip_duel = False
-default skip_to_hermione = False
 
 label cheats:
     menu:
@@ -356,10 +355,6 @@ label .hermione_skip_intro:
     $ achievement.unlock("unlockher", True)
     $ tutoring_hermione_unlocked = True
     $ hermione_favors = True
-
-    python:
-        for i in xrange(0, 6):
-            hermione_diary.append("prologue_0"+str(i), "prologue_0"+str(i))
 
     return
 

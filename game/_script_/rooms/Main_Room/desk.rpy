@@ -1,13 +1,3 @@
-screen letter_on_desk():
-    tag letter_on_desk
-    zorder 3
-
-    add "/images/rooms/objects/desk/letter.webp" zoom 0.5 xpos 334 ypos 356
-
-screen plant_on_desk():
-    zorder 3
-
-    add "/images/rooms/objects/desk/plant.webp" zoom 0.5 xpos 364 ypos 306
 
 label desk:
     if game.day == 1:
@@ -29,6 +19,7 @@ label desk:
                     g9 "Of course I will read it!"
 
             # First letter from Hermione
+            $ desk_OBJ.foreground = None
             $ letter_hg_1.open()
 
             m "Ehm........."
@@ -37,7 +28,10 @@ label desk:
         else:
             m "I already have checked the desk."
 
-        jump main_room_menu
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     #Define hints variable
     $ ball_hint = None

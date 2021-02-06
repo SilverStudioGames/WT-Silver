@@ -370,6 +370,7 @@ label quests:
 
     # All quest events should somehow end with a jump to the main room day/night cycle
     # If no quest event is triggered, resume normally from the main room
+    call music_block
     jump main_room_menu
 
 

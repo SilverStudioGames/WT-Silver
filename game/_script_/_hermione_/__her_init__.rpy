@@ -29,6 +29,7 @@ default her_level_up = None
 
 # Names
 default genie_name = "Sir"
+default dumbledore_name = "Albus Dumbledore"
 default hermione_name = "Miss Granger"
 
 # Clothing Flags

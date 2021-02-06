@@ -84,11 +84,11 @@ define nar = Character("Narrator", show_side_image=Image("characters/misc/narrat
 define anon = Character("???")
 
 # Dumbledore
-define dum1 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_1.webp"), show_icon="dumbledore")
-define dum2 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_2.webp"), show_icon="dumbledore")
-define dum3 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_3.webp"), show_icon="dumbledore")
-define dum4 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_4.webp"), show_icon="dumbledore")
-define dum5 = Character("Dumbledore", show_side_image=Image("characters/misc/dumbledore/dum_5.webp"), show_icon="dumbledore")
+define dum1 = Character("[dumbledore_name]", show_side_image=Image("characters/misc/dumbledore/dum_1.webp"), show_icon="dumbledore")
+define dum2 = Character("[dumbledore_name]", show_side_image=Image("characters/misc/dumbledore/dum_2.webp"), show_icon="dumbledore")
+define dum3 = Character("[dumbledore_name]", show_side_image=Image("characters/misc/dumbledore/dum_3.webp"), show_icon="dumbledore")
+define dum4 = Character("[dumbledore_name]", show_side_image=Image("characters/misc/dumbledore/dum_4.webp"), show_icon="dumbledore")
+define dum5 = Character("[dumbledore_name]", show_side_image=Image("characters/misc/dumbledore/dum_5.webp"), show_icon="dumbledore")
 
 # Santa
 define san1 = Character("Santa", show_side_image=Image("characters/misc/santa/santa_1.webp"), show_icon="santa")

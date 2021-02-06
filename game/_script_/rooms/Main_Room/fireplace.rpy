@@ -9,7 +9,11 @@ label fireplace:
             with d5
         else:
             m "Looks like a normal fireplace to me."
-        jump main_room_menu
+
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     if is_puzzle_box_in_fireplace():
         call gen_chibi("stand", "fireplace", "fireplace")

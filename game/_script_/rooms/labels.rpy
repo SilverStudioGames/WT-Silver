@@ -74,7 +74,6 @@ label main_room_menu:
     with d3
 
     call reset_menu_position
-    call music_block
 
     if game.daytime:
         jump day_resume

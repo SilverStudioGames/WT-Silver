@@ -7,8 +7,14 @@ default letter_hg_1 = Letter(
 )
 
 default letter_hg_2 = Letter(
-    text = "{size=-7}From: Hermione Granger\nTo: Professor Dumbledore\n\n{/size}{size=-4}I am sorry to disturb you again, professor. I just want to make sure that you take this problem seriously.\n\nLast night another classmate confided in me... I gave my word to keep it a secret, so I cannot go into any details.\n\nAll I can say is that one of the Professors was involved.\n\nPlease take action soon.{/size}\n\n{size=-7}With deepest respect,\nHermione Granger.{/size}"
+    text = "{size=-7}From: Hermione Granger\nTo: Professor Dumbledore\n\n{/size}{size=-4}I am sorry to disturb you again, professor. I just want to make sure that you take this problem seriously.\n\nLast night another classmate confided in me... I gave my word to keep it a secret, so I cannot go into any details.\n\nAll I can say is that one of the Professors was involved.\n\nPlease take action soon.{/size}\n\n{size=-7}With deepest respect,\nHermione Granger.{/size}",
+    label = "letter_hg_2"
 )
+
+label letter_hg_2:
+    m "This again?"
+    m "..........."
+    return
 
 # Ministry of Magic Letters
 default letter_work_unlock = Letter(
@@ -182,7 +188,6 @@ label letter(text, label):
     with d3
 
     $ menu_x, menu_y = 0.5, 0.9
-    $ renpy.checkpoint()
 
     menu:
         "-Done reading-":
