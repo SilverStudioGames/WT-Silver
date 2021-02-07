@@ -390,21 +390,21 @@ default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleade
 ## Xmas Stuff ###   /%\  ___&__ ###  Ho Ho Ho  ##
 #################  /% \ |=I~I=| #################
 
-default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "hat", "antlers", [[234, 187, 170, 255]], level=4)
-default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "hat", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=4)
+default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "headgear", "antlers", [[234, 187, 170, 255]], level=4)
+default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "headgear", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=4)
 default her_neckwear_choker1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "choker_1", [[229, 0, 10, 255]], level=4)
 default her_neckwear_bell1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "bell_1", [[229, 0, 10, 255], [244, 181, 82, 255]], zorder=16, level=10)
 
-default her_bra_ribbon = DollCloth("hermione", ("bras", "other"), "bra", "ribbon", [[229, 0, 10, 255]], blacklist=["top"], level=14)
-default her_panties_ribbon = DollCloth("hermione", ("panties", "other"), "panties", "ribbon", [[229, 0, 10, 255]], blacklist=["bottom"], level=14)
+default her_bra_ribbon = DollCloth("hermione", ("upper undergarment", "other"), "bra", "ribbon", [[229, 0, 10, 255]], blacklist=["top"], level=14)
+default her_panties_ribbon = DollCloth("hermione", ("lower undergarment", "other"), "panties", "ribbon", [[229, 0, 10, 255]], blacklist=["bottom"], level=14)
 
-default her_top_xmas = DollCloth("hermione", ("tops", "other"), "top", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255], [109, 194, 101, 255]], level=10)
-default her_bottom_xmas = DollCloth("hermione", ("bottoms", "other"), "bottom", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255]], level=10)
-default her_gloves_xmas = DollCloth("hermione", ("misc", "gloves"), "gloves", "xmas", [[255, 239, 248, 255]])
+default her_top_xmas = DollCloth("hermione", ("upper body", "other"), "top", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255], [109, 194, 101, 255]], level=10)
+default her_bottom_xmas = DollCloth("hermione", ("lower body", "other"), "bottom", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255]], level=10)
+default her_gloves_xmas = DollCloth("hermione", ("upper body", "gloves"), "gloves", "xmas", [[255, 239, 248, 255]])
 default her_stockings_xmas = DollCloth("hermione", ("legwear", "stockings"), "stockings", "xmas",[[255, 255, 255, 255], [255, 255, 255, 255]], level=10)
 
-default her_outfit_ribbon = DollOutfit([her_hair_base, her_neckwear_choker1, her_bra_ribbon, her_panties_ribbon], price=0)
-default her_outfit_xmas   = DollOutfit([her_hair_base, her_hat_antlers, her_neckwear_bell1, her_top_xmas, her_bottom_xmas, her_gloves_xmas, her_stockings_xmas], price=0)
+default her_outfit_ribbon = DollOutfit([her_hair_base, her_neckwear_choker1, her_bra_ribbon, her_panties_ribbon])
+default her_outfit_xmas   = DollOutfit([her_hair_base, her_hat_antlers, her_neckwear_bell1, her_top_xmas, her_bottom_xmas, her_gloves_xmas, her_stockings_xmas])
 
 ##########
 ## MISC ##

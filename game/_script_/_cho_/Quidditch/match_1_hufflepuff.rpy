@@ -1073,7 +1073,7 @@ label hufflepuff_match_return:
     # Demands that you will find somebody to replace her.
 
     # The office, evening after the game
-    $ daytime = False
+    $ game.daytime = False
     call update_interface_color
 
     call play_music("stop")
