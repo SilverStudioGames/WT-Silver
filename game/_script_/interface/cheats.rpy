@@ -313,6 +313,7 @@ label .hermione_skip_intro:
     $ genie_intro.E1_complete = True
     $ genie_intro.E2_complete = True
     $ genie_intro.E3_complete = True
+    $ genie_intro.E4_complete = True
 
     $ snape_intro.E1_complete   = True
     $ snape_intro.E2_complete   = True

@@ -2,6 +2,7 @@ label door:
     if game.day == 1:
         if not door_examined:
             $ door_examined = True
+            $ door_OBJ.idle = "door_idle"
             call gen_chibi("stand","door","base")
             with d5
 

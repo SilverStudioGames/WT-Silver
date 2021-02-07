@@ -49,6 +49,8 @@ label genie_intro_E0:
     $ game.weather = "clear"
     $ game.daytime = False
     $ game.day = 0
+    call send_letters
+
     stop bg_sounds
     stop weather
 
@@ -58,6 +60,7 @@ label genie_intro_E0:
     call play_music("intro")
     $ desk_OBJ.idle = "desk_dumbledore"
     $ desk_OBJ.foreground = "letter_on_desk"
+    $ chair_OBJ.hidden = True
     hide screen blkfade
     with d5
 
@@ -74,7 +77,7 @@ label genie_intro_E0:
     call weather_sound
     with flashbulb
     dum3 "Oh my!"
-    dum2 "A storm at this time? But my watch is never wrong."
+    dum2 "A storm at this hour? But my watch is never wrong."
     dum1 "*Hmmm*... How curious."
     dum2 "It begins to dawn, maybe I should--"
 
@@ -111,6 +114,13 @@ label genie_intro_E1:
     m "Interesting..."
     m "I think I will stick around for a little bit..."
 
+    # Highlight important objects
+    $ fireplace_OBJ.idle = At("fireplace_idle_shadow", pulse_hover)
+    $ cupboard_OBJ.idle = At("cupboard_idle", pulse_hover)
+    $ phoenix_OBJ.idle = At("phoenix_idle", pulse_hover)
+    $ door_OBJ.idle = At("door_idle", pulse_hover)
+    $ desk_OBJ.idle = At("ch_gen sit_behind_desk", pulse_hover)
+
     $ achievement.unlock("start")
     $ genie_intro.E1_complete = True
 
@@ -131,9 +141,7 @@ label genie_intro_E2:
 # Owl intro.
 label genie_intro_E3:
     pause.2
-    call play_sound("owl")
     call play_music("day")
-    $ owl_OBJ.hidden = False
     with d1
     pause.6
 
@@ -142,6 +150,21 @@ label genie_intro_E3:
     call bld("hide")
 
     $ genie_intro.E3_complete = True
+
+    jump main_room_menu
+
+# Owl intro.
+label genie_intro_E4:
+    call play_music("day")
+
+    call bld
+    m ".............."
+    m "Another boring day in the office."
+    g4 "All I can do here is sleeping or jerking off."
+    m "..........."
+    call bld("hide")
+
+    $ genie_intro.E4_complete = True
 
     jump main_room_menu
 
@@ -154,5 +177,13 @@ label skip_to_hermione:
     $ enable_game_menu()
 
     call cheats.hermione_skip_intro
+    call send_letters
 
     jump day_start
+
+label send_letters:
+    $ letter_hg_2.send() # Arrives on day 2
+    $ letter_work_unlock.send() # Arrives on day 4
+    $ letter_favors.send() # Arrives on day 7
+    $ letter_cards_unlock.send() # Arrives on day 24
+    return

@@ -52,6 +52,11 @@ init -1 python:
                 return Null()
 
             if self.decoration:
-                return Transform(Fixed(self.hover, self.decoration.room_image, fit_first=True), shader="outline_shader")
-            return Transform(self.hover, shader="outline_shader")
+                return At(Fixed(self.hover, self.decoration.room_image, fit_first=True), pulse_hover)
+            return At(self.hover, pulse_hover)
+
+            ### Shader needs more work.
+            # if self.decoration:
+            #     return Transform(Fixed(self.hover, self.decoration.room_image, fit_first=True), shader="outline_shader")
+            # return Transform(self.hover, shader="outline_shader")
 

@@ -11,8 +11,6 @@ label start_dev:
     $ game.cheats = True
     $ use_cgs = True
 
-    call screen loading
-
     jump skip_to_hermione
 
 label game_init:

@@ -3,6 +3,7 @@ label desk:
     if game.day == 1:
         if not desk_examined:
             $ desk_examined = True
+            $ desk_OBJ.idle = "ch_gen sit_behind_desk"
             call bld
             m "A desk of some sort..."
             m "And a letter..."

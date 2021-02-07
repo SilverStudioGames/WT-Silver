@@ -2,6 +2,7 @@ label fireplace:
     if game.day == 1:
         if not fireplace_examined:
             $ fireplace_examined = True
+            $ fireplace_OBJ.idle = "fireplace_idle_shadow"
             call gen_chibi("stand","mid","base")
             with d5
             m "*Hmm*... Looks like an ordinary fireplace..."

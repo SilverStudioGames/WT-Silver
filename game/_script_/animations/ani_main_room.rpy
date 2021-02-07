@@ -331,6 +331,11 @@ image desk_empty:
 
     "images/rooms/main_room/desk_empty.webp"
 
+image chair_right:
+    zoom 0.5
+
+    "images/rooms/main_room/chair_right.webp"
+
 image letter_on_desk:
     zoom 0.5
 

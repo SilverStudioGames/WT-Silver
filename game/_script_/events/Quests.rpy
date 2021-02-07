@@ -21,13 +21,10 @@ label quests:
             if not genie_intro.E2_complete and bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
                 jump genie_intro_E2
         else:
-            if ss_event_pause == 0 and not snape_intro.E1_complete:
-                # Snape visits for the first time.
+            if not snape_intro.E1_complete:
                 jump snape_intro_E1
 
     if game.day >= 2:
-        if not letter_hg_2.read:
-            $ letter_hg_2.send()
         if game.daytime:
             if not genie_intro.E3_complete:
                 jump genie_intro_E3
@@ -38,16 +35,15 @@ label quests:
 
     if game.day >= 3:
         if game.daytime:
-            pass
+            if not genie_intro.E4_complete:
+                jump genie_intro_E4
         else:
             if ss_event_pause == 0 and not snape_intro.E3_complete:
                 # Day of the duel.
                 jump snape_intro_E3
 
-    if game.day >= 4:
-        if not letter_work_unlock.read:
-            $ letter_work_unlock.send()
 
+    if game.day >= 4:
         if game.daytime:
             pass
         else:
@@ -66,11 +62,10 @@ label quests:
             if hg_event_pause == 0 and ss_he.hermione_E1 and not hermione_intro.E2_complete:
                 # Second visit from Hermione. Says she sent a letter to the Ministry.
                 jump hermione_intro_E2
+        else:
+            pass
 
     if game.day >= 7:
-        if hermione_intro.E2_complete and not letter_favors.read:
-            $ letter_favors.send()
-
         if game.daytime:
             pass
         else:
@@ -122,20 +117,18 @@ label quests:
             if her_tier >= 2 and not cho_intro.E1_complete:
                 jump cho_intro_E1
 
-    if game.day >= 25:
-        if not deck_unlocked:
-            $ letter_cards_unlock.send()
-
     #
     # CARDGAME - EVENTS
     #
 
     if game.day >= twins_cards_delay:
         if deck_unlocked and twins_first_win and not twins_cards_stocked:
-            $ letter_cards_store.send()
+            if not game.daytime:
+                $ letter_cards_store.send()
 
     if geniecard_level < 2 and snape_third_win and her_third_win and twins_second_win:
-        $ letter_cards_tier2.send()
+        if not game.daytime:
+            $ letter_cards_tier2.send()
 
     #
     # CHO CHANG - EVENTS
@@ -373,6 +366,7 @@ default genie_intro = quest_class(
     E1_complete = False,
     E2_complete = False,
     E3_complete = False,
+    E4_complete = False,
 )
 
 # Snape

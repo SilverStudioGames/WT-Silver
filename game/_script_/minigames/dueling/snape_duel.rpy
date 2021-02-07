@@ -508,7 +508,6 @@ label snape_lost:
     $ snape_intro.duel_complete = True
     jump snape_intro_E4
 
-
 ### GENIE LOSES ###
 label genie_lost:
     stop music

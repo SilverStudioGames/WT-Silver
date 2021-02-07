@@ -3,6 +3,7 @@ label cupboard:
     if game.day == 1:
         if not cupboard_examined:
             $ cupboard_examined = True
+            $ cupboard_OBJ.idle = "cupboard_idle"
             call gen_chibi("stand","behind_desk","base", flip=False)
             with d5
             pause.2

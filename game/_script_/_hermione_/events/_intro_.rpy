@@ -8,6 +8,9 @@ label hermione_intro_E1:
     stop music fadeout 1.0
     pause 1
 
+    # Force default outfit for first event.
+    $ hermione.equip(her_outfit_default)
+
     call play_sound("knocking")
     call bld
     "*Knock-knock-knock*"
@@ -301,11 +304,9 @@ label hermione_intro_E1:
     with d3
 
     $ snape_busy = True # No point in calling him during the day.
-    $ hermione_busy = True
-
     $ hermione_intro.E1_complete = True
 
-    jump main_room
+    jump end_hermione_event
 
 
 ### Snape Hangout Event 1 ###

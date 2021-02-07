@@ -470,6 +470,8 @@ label snape_intro_E3:
     call sna_main("Since you refuse to cooperate, I'll be taking you \ninto custody by force!","snape_01", wand=True)
     g4 "What?! Wait!"
 
+    $ renpy.choice_for_skipping()
+
     $ snape_intro.E3_complete = True
     if skip_duel == True:
         $ snape_intro.duel_complete = True
@@ -494,6 +496,7 @@ label snape_intro_E3:
 
 label snape_intro_E4:
     $ potions = 0 #Makes sure there are no potions left in the possessions.
+    $ renpy.choice_for_skipping()
 
     stop music fadeout 2.0
 
@@ -528,7 +531,7 @@ label snape_intro_E4:
     call sna_main("..........................","snape_01")
     call sna_main("What became of the real Albus Dumbledore then?","snape_01")
     m "I'm sure he is fine."
-    m "He's Probably feeling as surprised about finding himself in my world as I am about finding myself here..."
+    m "He's Probably feeling just as surprised finding himself in my world as I am about finding myself here..."
     call sna_main("....................................","snape_01")
     call sna_main("When did this happen?","snape_01")
     m "Three days ago..."
@@ -552,25 +555,32 @@ label snape_intro_E4:
             call sna_main("Whoever you are, you are not from this plane of existence.","snape_01")
             call sna_main("Your very presence here upsets the natural order of things.","snape_01")
             call sna_main("And these days this school needs a proper headmaster more than ever.","snape_01")
+        "{size=-2}\"This is the worst resort I have ever visited.\"{/size}":
+            m "You don't even have a pool here."
+            m "Not to mention the attitude of the personnel..."
+            call sna_main("........","snape_05")
 
     call sna_main("Have a safe trip home now.","snape_01")
     m "*Ehm*... Thank you, Mr Servus."
     call sna_main("My name is {b}Severus{/b}, not Servus..","snape_43")
     m "Right..."
-    m "Good luck with your students and the \"potter gang\"."
+    m "Good luck with your students and the \"Potter Gang\"."
     call sna_main("\"The potter gang\"?","snape_01")
     call sna_main("Oh, right, those buggers...","snape_35")
 
     menu:
         "-Undo the spell-":
             $ renpy.play('sounds/fire_woosh.mp3')
+            show screen gfx_effect(510, 350, img="smoke", zoom=0.8)
     menu:
         "-Undo the spell-":
             $ renpy.play('sounds/fire_woosh.mp3')
+            show screen gfx_effect(510, 350, img="smoke", zoom=0.8)
             m "*Huh*?"
     menu:
         "-Undo the spell-":
             $ renpy.play('sounds/fire_woosh.mp3')
+            show screen gfx_effect(510, 350, img="smoke", zoom=0.8)
 
     m "(Something's not right, I can't undo the spell...)"
     call sna_main("Did it work? Albus, is that really you?","snape_01")
@@ -693,7 +703,7 @@ label snape_intro_E5:
     call sna_main("So we shall keep the charade going for now...","snape_03")
 
     m "By doing what exactly?"
-    call sna_main("Just act like Albus always does: never leave this tower and try to avoid any human contact...","snape_05")
+    call sna_main("Just act like Albus always does; Never leave this tower and avoid any human contact...","snape_05")
     m "That..."
     m "Sounds..."
     g4 "Incredibly boring!"
@@ -729,27 +739,73 @@ label snape_intro_E5:
     m "Instead of sitting here on my ass all day and being quiet I could explore your world..."
     call sna_main("*Hmm*...","snape_03")
     call sna_main("Well, alright, what do you want?","snape_01")
-    m "Teach me your magic..."
+
+    menu:
+        "\"I want another chair.\"":
+            call sna_main("What's wrong with your current chair?","snape_05")
+            m "Nothing. But I want another one in case I wanted to sit by the fire."
+            call sna_main("I guess that can be arranged...","snape_01")
+            sna "What else?"
+            m "I want to learn more about your magic..."
+        "\"A maid!\"":
+            g9 "Send me the cutest one!"
+            call sna_main("{size=-6}*Hmm*... I guess I could assign a house elf to clean this room.{/size}","snape_09")
+            call sna_main("Alright. Is that all?","snape_01")
+            m "I want you to teach me your magic..."
+        "\"I want three wishes.\"":
+            call sna_main("Three wishes?","snape_44")
+            call sna_main("Who do you think I am? A genie?","snape_24")
+            m "Three wishes or I'm walking through that door right now."
+            call sna_main("...Fine.","snape_31")
+            call sna_main("What do you want?","snape_35")
+            g9 "First, I want a maid!"
+            call sna_main("This isn't a motel--","snape_08")
+            call sna_main("{size=-6}*Hmm*... I guess I could assign a house elf to clean this room.{/size}","snape_09")
+            m "What was that?"
+            call sna_main("Nothing, go on.","snape_01")
+            m "Second, a chair."
+            call sna_main("A chair? What do you need the chair for?","snape_05")
+            call sna_main("You're already sitting on one.","snape_05")
+            m "I don't want my guests to just stand."
+            call sna_main("Guests? You're not supposed to have g--","snape_10")
+            call sna_main("*sigh* It's pointless reasoning with you, isn't it?","snape_06")
+            m "Yes."
+            call sna_main("Alright, you'll have your chair.","snape_03")
+            m "and lastly..."
+            m "Teach me your magic..."
+
     call sna_main("My magic?","snape_05")
     m "Yes... The way you conjure up your spells is..."
+
+    hide screen snape_main
+    call bld("hide")
+    call sna_chibi(flip=True)
+    with d3
+
+    $ renpy.play('sounds/fire_woosh.mp3')
+    show screen gfx_effect(780, 300, img="smoke", zoom=0.7)
+    $ chair_OBJ.hidden = False
+
+    "Snape takes out his magic wand and conjures a chair."
+
     m "Intriguing..."
-    call sna_main("*Hmm*...","snape_04")
-    call sna_main("Agreed.","snape_06")
-    m "Oh, and send me some of those Slytherin girls as well.."
+    call sna_chibi(flip=False)
+    call sna_main("*Hm*... Agreed","snape_37", trans=d3)
+    m "Oh, and I wouldn't mind if you sent me some of those Slytherin girls as well.."
     call sna_main("...............","snape_05")
     sna "........................."
-    call sna_main("Ha-ha-ha!!!","snape_28")
+    call sna_main("*Ha-ha-ha*!!!","snape_28")
     m "What? What did I say?"
-    call sna_main("A-ha-ha-ha-ha...","snape_28")
+    call sna_main("*A-ha-ha-ha-ha*...","snape_28")
     call sna_main("No, no, my apologies...","snape_02")
     sna "It's just that to me you still look and sound like Albus..."
     sna "To hear Professor Dumbledore say things like \"Send me some of those girls\"..."
     call sna_main("It's hysterical... ","snape_22")
     call sna_main("But you wouldn't understand...","snape_09")
-    m "Heh..."
+    m "*Heh*..."
     g9 "Send those whores up, Severus. I'm feeling lonely tonight."
-    call sna_main("Ha-ha-ha! Stop it, you're killing me!","snape_28")
-    sna "A-Ha-ha-ha!"
+    call sna_main("*Ha-ha-ha*! Stop it, you're killing me!","snape_28")
+    sna "*A-Ha-ha-ha*!"
     m "No, I'm serious... Is it possible?"
     call sna_main("*Hmm*...","snape_02")
     sna "We'll see..."

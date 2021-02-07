@@ -3,6 +3,7 @@ label phoenix:
     if game.day == 1:
         if not bird_examined:
             $ bird_examined = True
+            $ phoenix_OBJ.idle = "phoenix_idle"
             call gen_chibi("stand","mid","base",flip=False)
             with d5
             m "*Hmm*..."
