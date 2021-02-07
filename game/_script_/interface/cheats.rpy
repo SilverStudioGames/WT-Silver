@@ -164,8 +164,7 @@ label cheats:
                     python:
                         for i in {"hermione", "cho", "astoria", "tonks", "susan", "luna"}:
                             for x in getattr(renpy.store, i).outfits:
-                                if x.price > 0:
-                                    x.unlock()
+                                x.unlock()
 
                     jump cheats.devroom
 
