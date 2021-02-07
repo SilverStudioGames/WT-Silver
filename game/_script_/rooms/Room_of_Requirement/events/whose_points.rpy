@@ -39,7 +39,7 @@ label whose_points:
     g9 "The show where everything is made up and the points don't matter."
     g9 "Just like at Hogwarts."
     $ renpy.play("sounds/applause01.ogg")
-    call her_main("(I hope I win! I need those house points.)", "base", "happy", "base", "R", xpos="base", ypos="head")
+    call her_main("(I hope I win! I need those house points.)", "base", "happy", "base", "R", ypos="head", flip=False)
 
     play music "music/Under-the-Radar by PhobyAk.mp3" fadein 1 fadeout 1
 

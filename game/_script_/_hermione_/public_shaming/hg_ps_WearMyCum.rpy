@@ -67,7 +67,7 @@ label hg_ps_cumslut_Scene_1:
     call hide_blkfade
     call ctc
 
-    call her_main("Why are you making me do this, [genie_name]?", "angry", "base", "base", "mid", xpos="base", ypos="head")
+    call her_main("Why are you making me do this, [genie_name]?", "angry", "base", "base", "mid", ypos="head", flip=False)
     m "What do you mean?"
     call her_main("Why are you making me jerk you off...", "angry", "narrow", "base", "down")
     call her_main("So that you can cum on me...", "soft", "narrow", "annoyed", "up")
@@ -255,7 +255,7 @@ label hg_ps_cumslut_Scene_2:
     call hide_blkfade
     call ctc
 
-    call her_main("Why are you asking me to do this [genie_name]?", "angry", "base", "base", "mid", xpos="base", ypos="head")
+    call her_main("Why are you asking me to do this [genie_name]?", "angry", "base", "base", "mid", ypos="head", flip=False)
     m "This question again?"
     m "Let me answer your question with one of my own."
     call her_main("Okay...", "angry", "narrow", "base", "down")
@@ -450,7 +450,7 @@ label hg_ps_cumslut_Scene_3:
 
     call bld
     m "Gods, you're good at this, [hermione_name]!"
-    call her_main("Thank you... I've been thinking about what you asked me last time...", "soft", "narrow", "annoyed", "up",ypos="head")
+    call her_main("Thank you... I've been thinking about what you asked me last time...", "soft", "narrow", "annoyed", "up", ypos="head", flip=False)
     m "Last time?"
     call her_main("about why I do this... sell you these sort of favours.", "upset", "closed", "base", "mid")
     call her_main("At the start it was just to get points, so that gryffindor could win the house cup...", "angry", "wink", "base", "mid")
@@ -473,7 +473,7 @@ label hg_ps_cumslut_Scene_3:
         "\"Take it on your tits!\"":
             # Cum on shirt
             $ cum_location = 7
-            call her_main("Please cover my tits with your sticky cum! I need it, [genie_name]!", "grin", "narrow", "annoyed", "up",ypos="head")
+            call her_main("Please cover my tits with your sticky cum! I need it, [genie_name]!", "grin", "narrow", "annoyed", "up", ypos="head", flip=False)
             ">Hermione keeps jerking your cock, her eyes focused intently on it."
             g4 "Get ready whore, here i come!"
             call her_main("...", "silly", "narrow", "base", "dead")
@@ -506,7 +506,7 @@ label hg_ps_cumslut_Scene_3:
             $ cum_location = 8
             ">Hermione bends down and holds your cock in front of her face."
             m "Get ready slut, here it comes!"
-            call her_main("Please give it to me! I need it, [genie_name]!", "grin", "narrow", "annoyed", "up",ypos="head")
+            call her_main("Please give it to me! I need it, [genie_name]!", "grin", "narrow", "annoyed", "up", ypos="head", flip=False)
             g9 "{size=+5}ARGH! YES!!!{/size}"
             call her_main("...", "open_wide_tongue", "narrow", "annoyed", "up")
             ">You erupt onto her face, dousing her in your thick spunk."

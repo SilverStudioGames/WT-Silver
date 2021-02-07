@@ -6,7 +6,7 @@ label hg_pf_grope_ass_T2:
     stop music fadeout 5.0
     call her_chibi_scene("grope_ass_front", trans=d7)
 
-    call her_main("[genie_name]!?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+    call her_main("[genie_name]!?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
     m "Relax, [hermione_name]. It will be the easiest {number=current_payout} points you've ever made, I promise."
     m "All I am going to do is squeeze your little butt a couple of times..."
     call her_main("No! I demand you to stop!", "scream", "closed", "angry", "mid", cheeks="blush")
@@ -35,7 +35,7 @@ label hg_pf_grope_ass_T2:
 label hg_pf_grope_ass_T2_front:
     call her_chibi_scene("behind_desk_front", trans=d7)
 
-    call her_main("(...)", "disgust", "narrow", "worried", "down", cheeks="blush", ypos="head")
+    call her_main("(...)", "disgust", "narrow", "worried", "down", cheeks="blush", ypos="head", flip=False)
 
     call her_chibi_scene("grope_ass_front", trans=d5)
     call ctc
@@ -125,7 +125,7 @@ label hg_pf_grope_ass_T2_back:
     call her_main("No amount of points are worth this humiliation!", "scream", "base", "angry", "mid", cheeks="blush",emote="angry")
     call her_main("You are abusing your power, [genie_name]!", "scream", "base", "angry", "mid", cheeks="blush",emote="angry")
     g4 "What?"
-    call her_main("I'm leaving!", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+    call her_main("I'm leaving!", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False)
 
     call her_chibi_scene("reset", "desk", "base", trans=fade)
 
@@ -220,7 +220,7 @@ label hg_pf_grope_ass_T2_continue:
 label hg_pf_grope_ass_T3:
     call her_chibi_scene("behind_desk_front", trans=d7)
 
-    call her_main("Do you want me to turn around then, [genie_name]?", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("Do you want me to turn around then, [genie_name]?", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
 
     call play_music("playful_tension") # SEX THEME.
 
@@ -232,7 +232,7 @@ label hg_pf_grope_ass_T3:
             jump hg_pf_grope_ass_T3_back
 
         "\"No. Just stand still, [hermione_name].\"":
-            call her_main("As you say, [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head")
+            call her_main("As you say, [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head", flip=False)
 
             jump hg_pf_grope_ass_T3_front
 
@@ -241,7 +241,7 @@ label hg_pf_grope_ass_T3_front:
     with d7
     call ctc
 
-    call her_main("[genie_name], please hurry up, before someone discovers us like this...", "soft", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("[genie_name], please hurry up, before someone discovers us like this...", "soft", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
     m "What's the problem, [hermione_name]?"
     m "You know you are doing this for your house."
     call her_main("I do know.", "annoyed", "narrow", "angry", "R", cheeks="blush")
@@ -268,7 +268,7 @@ label hg_pf_grope_ass_T3_front:
     menu:
         m "..."
         "\"Fine. Just keep on standing still then.\"":
-            call her_main("Thank you, [genie_name]...", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+            call her_main("Thank you, [genie_name]...", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False)
 
             call nar(">You massage her ass-cheeks lightly...")
             call her_main("....................", "angry", "happyCl", "worried", "mid", cheeks="blush")
@@ -284,7 +284,7 @@ label hg_pf_grope_ass_T3_front:
         "\"Open your eyes, or you'll lose the points!\"":
             $ her_mood += 10
 
-            call her_main("*Tsk*! {size=-5}(You wretched old--{/size}", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+            call her_main("*Tsk*! {size=-5}(You wretched old--{/size}", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False)
             m "Did you say something, [hermione_name]?"
             call her_main("It's nothing, [genie_name].", "angry", "base", "angry", "mid")
 
@@ -360,7 +360,7 @@ label hg_pf_grope_ass_T3_continue:
     with d7
     call ctc
 
-    call her_main("...................", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("...................", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
     m "You are being awfully quiet today, [hermione_name]."
     call her_main("Am I...?", "base", "base", "base", "R", cheeks="blush")
 
@@ -376,7 +376,7 @@ label hg_pf_grope_ass_T3_continue:
 
     call her_main("................", "base", "base", "base", "R", cheeks="blush")
 
-    call her_main("!!!!!!?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+    call her_main("!!!!!!?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
     m "What is it, [hermione_name]?"
     call her_main("It's nothing [genie_name]...", "angry", "happyCl", "worried", "mid", cheeks="blush")
     call her_main("It's just... ", "angry", "happyCl", "worried", "mid", cheeks="blush")
@@ -417,7 +417,7 @@ label hg_pf_grope_ass_T3_continue:
     menu:
         "-Slide your hands under her panties-" if hermione.is_worn("panties"):
             call nar(">You slowly slide one of your hands under the fabric of the girl's panties...")
-            call her_main("[genie_name]... What are you...?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+            call her_main("[genie_name]... What are you...?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
             m "That's alright, just think about those {number=current_payout} points your house is about to receive..."
             call her_main(".............", "disgust", "narrow", "base", "down", cheeks="blush")
 
@@ -425,7 +425,7 @@ label hg_pf_grope_ass_T3_continue:
 
         "-Slide your hands across her pussy-" if not hermione.is_worn("panties"):
             call nar(">You slowly slide one of your hands across her pussy..")
-            call her_main("[genie_name]... What are you...?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+            call her_main("[genie_name]... What are you...?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
             m "That's alright, just think about those {number=current_payout} points your house is about to receive..."
             call her_main(".............", "disgust", "narrow", "base", "down", cheeks="blush")
 
@@ -520,7 +520,7 @@ label hg_pf_grope_ass_T3_fail:
 
     call her_walk("door", "base")
 
-    call her_main("...........................", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+    call her_main("...........................", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
 
     call her_chibi("leave")
 
@@ -531,7 +531,7 @@ label hg_pf_grope_ass_T3_fail:
 label hg_pf_grope_ass_T4:
     call her_chibi_scene("behind_desk_front", trans=d7)
 
-    call her_main("Do you want me to turn around then, [genie_name]?", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("Do you want me to turn around then, [genie_name]?", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
 
     call play_music("playful_tension")
 
@@ -542,14 +542,14 @@ label hg_pf_grope_ass_T4:
             jump hg_pf_grope_ass_T4_back
 
         "\"No. Just stand still, [hermione_name].\"":
-            call her_main("As you say, [genie_name]...", "soft", "base", "base", "mid", cheeks="blush", ypos="head")
+            call her_main("As you say, [genie_name]...", "soft", "base", "base", "mid", cheeks="blush", ypos="head", flip=False)
             jump hg_pf_grope_ass_T4_front
 
 label hg_pf_grope_ass_T4_front:
     call her_chibi_scene("behind_desk_front", trans=d7)
     pause.8
 
-    call her_main("...................", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("...................", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
     m "You seem more relaxed this time."
     call her_main("...................", "base", "narrow", "worried", "down", cheeks="blush")
     m "Could it be that you're enjoying this?"
@@ -637,7 +637,7 @@ label hg_pf_grope_ass_T4_back:
     call her_chibi_scene("behind_desk_back", trans=d7)
     pause.8
 
-    call her_main("...", "base", "narrow", "annoyed", "up", cheeks="blush", ypos="head")
+    call her_main("...", "base", "narrow", "annoyed", "up", cheeks="blush", ypos="head", flip=False)
     m "How does it feel?"
     call her_main("How does what feel?", "open", "narrow", "base", "mid_soft")
     m "How does it feel to be presenting your butt to your headmaster?"
@@ -702,7 +702,7 @@ label hg_pf_grope_ass_T4_continue:
         call nar(">You slowly slide one of your hands under the fabric of the girl's panties...")
     else:
         call nar(">You slowly slide one of your hands across her pussy..")
-    call her_main("[genie_name]... What are you...?", "open", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("[genie_name]... What are you...?", "open", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
 
     if her_tier <= 5:
         m "It's alright, just think about those {number=current_payout} points your house is about to receive..."

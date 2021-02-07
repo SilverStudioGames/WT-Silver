@@ -96,7 +96,7 @@ label tonks_hangout:
 label nt_he_wine_intro:
     call bld
     m "Care for a drink?"
-    call ton_main("Of course, [ton_genie_name].", "base", "base", "shocked", "mid", cheeks="blush", ypos="head")
+    call ton_main("Of course, [ton_genie_name].", "base", "base", "shocked", "mid", cheeks="blush", ypos="head", flip=False)
     call ton_main("Hit me!","horny","base","base","down")
     pause.1
 
@@ -125,7 +125,7 @@ label nt_he_firewhisky_intro:
     # Show firewhisky
     call give_reward(">You hand over a bottle of firewhisky to Tonks...", gift="interface/icons/item_whisky.webp", sound=False)
 
-    call ton_main("Finally, the good stuff!","horny","base","base","down", ypos="head")
+    call ton_main("Finally, the good stuff!","horny","base","base","down", ypos="head", flip=False)
     call ton_main("I'm glad you brought out some firewhisky this time...","base","base","base","down")
     call ton_main("Wine makes me giggly, and hinders my judgment.", "base", "base", "base", "L")
     m "..."
@@ -147,7 +147,7 @@ label nt_he_firewhisky_intro:
 label nt_he_firewhisky_E1:
     call bld
     m "Another glass of firewhisky?"
-    call ton_main("Fill 'er up.", "horny", "base", "base", "up", ypos="head")
+    call ton_main("Fill 'er up.", "horny", "base", "base", "up", ypos="head", flip=False)
     call ton_main("...", "base", "base", "shocked", "down")
     call ton_main("A little bit more...","open","base","raised","down")
     call ton_main("A bit more...","horny","base","angry","down")
@@ -175,7 +175,7 @@ label nt_he_firewhisky_E1:
 label nt_he_firewhisky_E2:
     call bld
     m "More firewhisky?"
-    call ton_main("Thought you'd never ask...","horny","base","base","down", ypos="head")
+    call ton_main("Thought you'd never ask...","horny","base","base","down", ypos="head", flip=False)
 
     jump tonks_hangout_continue
 
@@ -183,7 +183,8 @@ label nt_he_firewhisky_E2:
 label nt_he_firewhisky_E3:
     call bld
     m "Want to get drunk?"
-    call ton_main("Of course.", "base", "narrow", "shocked", "down", ypos="head")
+
+    call ton_main("Of course.", "base", "narrow", "shocked", "down", ypos="head", flip=False)
     if game.daytime:
         call ton_main("I'm not going to regret this, am I?", "clench", "base", "raised", "downR")
         call ton_main("Hopefully my students won't notice...", "grin", "narrow", "base", "downR")
@@ -194,7 +195,7 @@ label nt_he_firewhisky_E3:
 
 
 label nt_he_firewhisky_E4:
-    call ton_main("Bottoms up.", "base", "narrow", "base", "mid", ypos="head")
+    call ton_main("Bottoms up.", "base", "narrow", "base", "mid", ypos="head", flip=False)
     call play_sound("gulp")
     call ton_main("*Gulp*{w=0.8}{nw}","scream","closed","base","mid")
     call play_sound("gulp")
@@ -211,7 +212,7 @@ label nt_he_firewhisky_E4:
 ### Events ###
 
 label nt_he_favors_E1:
-    call ton_main("So, [ton_genie_name]... what's the going rate around here then?", "open", "base", "raised", "mid", ypos="head")
+    call ton_main("So, [ton_genie_name]... what's the going rate around here then?", "open", "base", "raised", "mid", ypos="head", flip=False)
     m "Going rate?"
     call ton_main("How much do you pay your students to fool around?", "base", "narrow", "annoyed", "mid")
     m "Oh... It depends on what you want them to do."
@@ -245,7 +246,7 @@ label nt_he_favors_E1:
 
 
 label nt_he_favors_E2:
-    call ton_main("You know, [ton_genie_name]... I overheard a couple of students whispering about me...", "open", "base", "raised", "mid", ypos="head")
+    call ton_main("You know, [ton_genie_name]... I overheard a couple of students whispering about me...", "open", "base", "raised", "mid", ypos="head", flip=False)
     g9 "Finally..."
     call ton_main("I walked past a group of boys the other day...","open","base","base","R")
     call ton_main("One straight up called me a slut, whilst the others snickered at me...","open","base","base","down")
@@ -273,7 +274,7 @@ label nt_he_favors_E2:
 ### Tonks Auror Stories ###
 
 label nt_he_story_intro_E1:
-    call ton_main("Thanks for accepting my job application by the way.","base","base","base","mid", ypos="head")
+    call ton_main("Thanks for accepting my job application by the way.","base","base","base","mid", ypos="head", flip=False)
     m "I didn't really have that much choice in the matter."
     call ton_main("Oh, yeah...", "grin", "narrow", "base", "downR")
     call ton_main("...", "annoyed", "base", "base", "R")
@@ -309,7 +310,7 @@ label nt_he_story_intro_E1:
 label nt_he_story_intro_E2:
     call bld
     m "You mentioned an auror last time if I'm not mistaken."
-    call ton_main("Moody?", "annoyed", "wide", "shocked", "mid", ypos="head")
+    call ton_main("Moody?", "annoyed", "wide", "shocked", "mid", ypos="head", flip=False)
     m "Not in particular."
     call ton_main("What?", "mad", "base", "raised", "mid")
     m "..."
@@ -373,7 +374,7 @@ label nt_he_story_intro_E3:
 
 
 label nt_he_story_intro_E4:
-    call ton_main("I've been so busy lately... The days here fly by faster than a Firebolt.", "open", "closed", "worried", "mid", ypos="head")
+    call ton_main("I've been so busy lately... The days here fly by faster than a Firebolt.", "open", "closed", "worried", "mid", ypos="head", flip=False)
     m "I'm not sure I know that... spell?"
     call ton_main("It's a broom...", "upset", "base", "base", "mid")
     m "Oh, I see... I'm not really that into brooms."
@@ -399,7 +400,7 @@ label nt_he_story_intro_E4:
 label nt_he_story_intro_E5:
     call bld
     m "You still haven't told me anything about your time as an auror..."
-    call ton_main("Well, what would you like to know?", "open", "wide", "raised", "mid", ypos="head")
+    call ton_main("Well, what would you like to know?", "open", "wide", "raised", "mid", ypos="head", flip=False)
     m "That \"moody\" guy taught you, you said. You could start there."
     call ton_main("Well, the job of an auror is a bit different now than how it was ten or so years ago.", "open", "base", "base", "R")
     call ton_main("I studied to become an auror with the hopes of taking down evil wizards.", "annoyed", "base", "annoyed", "down")
@@ -426,7 +427,7 @@ label nt_he_story_intro_E5:
 
 
 label nt_he_story_E6:
-    call ton_main("Did I ever tell you about the time we arrested a vampire?", "open", "wide", "base", "mid", ypos="head")
+    call ton_main("Did I ever tell you about the time we arrested a vampire?", "open", "wide", "base", "mid", ypos="head", flip=False)
     m "You haven't even told me about your \"defence against the dark arts\" training yet, but sure, go ahead..."
     call ton_main("Right... Well, there was this vampire guy.", "soft", "base", "base", "R")
     call ton_main("We spent ages looking for him, and found that he had been disguising himself as a headmaster of a muggle school.", "mad", "narrow", "base", "downR")
@@ -449,7 +450,7 @@ label nt_he_story_E6:
 label nt_he_story_intro_E7:
     call bld
     m "Now, I'm starting to feel like you've been avoiding the subject of your auror training."
-    call ton_main("Is it that obvious?", "mad", "base", "base", "R", ypos="head")
+    call ton_main("Is it that obvious?", "mad", "base", "base", "R", ypos="head", flip=False)
     m "You brought up vampires last time without even saying hello."
     call ton_main("Vampires are interesting...", "soft", "base", "worried", "downR")
     m "..."
@@ -470,7 +471,7 @@ label nt_he_story_intro_E7:
 
 
 label nt_he_story_E8:
-    call ton_main("I'll tell you about this one time where Moody went a bit too far.", "normal", "base", "base", "downR", ypos="head")
+    call ton_main("I'll tell you about this one time where Moody went a bit too far.", "normal", "base", "base", "downR", ypos="head", flip=False)
     m "Where did this sudden urge of sharing come from?"
     call ton_main("Oh, I've been wanting to spill the beans about this for ages. I just didn't want to get anyone in trouble at the ministry...", "normal", "closed", "base", "mid")
     m "What's to say I won't get you into trouble?"
@@ -507,7 +508,7 @@ label nt_he_story_E8:
 
 
 label nt_he_story_intro_E9:
-    call ton_main("Being an auror was quite a stressful job you know.", "open", "closed", "shocked", "mid", ypos="head")
+    call ton_main("Being an auror was quite a stressful job you know.", "open", "closed", "shocked", "mid", ypos="head", flip=False)
     m "I--"
     call ton_main("The ministry was mostly concerned about the criminals making up for their crimes.","open","base","angry","mid")
     call ton_main("But I was more concerned about the victims involved.","open","closed","base","mid")
@@ -545,7 +546,7 @@ label nt_he_story_intro_E9:
 label nt_he_story_intro_E10:
     call bld
     m "Settled in okay?"
-    call ton_main("Yes, I finally feel like I've found some sort of daily routine.", "grin", "wide", "base", "mid", ypos="head")
+    call ton_main("Yes, I finally feel like I've found some sort of daily routine.", "grin", "wide", "base", "mid", ypos="head", flip=False)
     call ton_main("This school brings back so many memories. It's like, every time I turn a corner I expect to see one of my old classmates.", "open", "base", "shocked", "R")
     m "So, good memories?"
     call ton_main("Mostly, it's a bit different now.", "base", "narrow", "shocked", "down")
@@ -565,7 +566,7 @@ label nt_he_story_E11:
     $ tonks_morph_known = True
     call bld
     m "Tell me more about your time at Hogwarts, as a student..."
-    call ton_main("Of course, [ton_genie_name].","base","base","base","mid", ypos="head")
+    call ton_main("Of course, [ton_genie_name].","base","base","base","mid", ypos="head", flip=False)
     call ton_main("Well, as you may or may not know. I'm a metamorphmagus.","open","base","base","R") #metamorphmagus is a latin based word, therefore "-us" is the singular version and "-i" is the plural
     call ton_main("It means I can change my physical appearance at will.", "base", "base", "raised", "mid")
     m "Sounds useful."
@@ -603,7 +604,7 @@ label nt_he_story_E11:
 label nt_he_story_E12:
     call bld
     m "Tell me more about that shapeshifting ability of yours..."
-    call ton_main("Of course...", "base", "wide", "shocked", "mid", ypos="head")
+    call ton_main("Of course...", "base", "wide", "shocked", "mid", ypos="head", flip=False)
     call ton_main("Most of my escapades were kind of one trick ponies.", "open", "base", "base", "R")
     m "Sounds pretty foolproof to me..."
     m "I mean how many other students could change their appearance?"

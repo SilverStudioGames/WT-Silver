@@ -115,7 +115,7 @@ label ending_after:
                 ">As she steps through the door you notice some Slytherin students looking in your direction, smirks spreading across their faces."
 
                 $ hermione.equip(her_outfit_ball)
-                call her_main("Back so soon?", "base", "happy", "base", "L", cheeks="blush", xpos="base", ypos="head")
+                call her_main("Back so soon?", "base", "happy", "base", "L", cheeks="blush", ypos="head", flip=False)
                 m "I um...{w=0.4} had a change of heart."
                 call her_main("Cold outside?", "base", "base", "base", "mid")
                 m "Yes...{w=0.5} that's it."
@@ -123,7 +123,7 @@ label ending_after:
                 ">Standing there in silence, looking at Hermione, you can't help but struggle with what to say."
                 ">Hermione looks at you expectantly and breaks the silence by extending one of her arms to you."
 
-                call her_main("Care for a dance?", "open", "squint", "base", "mid", cheeks="blush", xpos="base", ypos="head")
+                call her_main("Care for a dance?", "open", "squint", "base", "mid", cheeks="blush")
                 g9 "I...{w=0.5} of course!"
                 call her_main("...", "base", "base", "base", "mid", cheeks="blush")
                 ">With your arms wrapped around Hermione's waist the two of you begin moving along with the music."
@@ -198,23 +198,23 @@ label ending_after:
                 # Snape enters and walks up to desk
                 call sna_walk(action="enter", xpos="desk")
                 g4 "What did I tell you about knocking!"
-                call sna_main("Who rule...","snape_03",ypos="head")
-                call sna_main("You mother fucker...","snape_01",ypos="head")
-                call sna_main("I knew it!","snape_02",ypos="head")
-                call sna_main("I knew you couldn't make yourself leave yet.","snape_02",ypos="head")
+                call sna_main("Who rule...","snape_03", ypos="head")
+                call sna_main("You mother fucker...","snape_01")
+                call sna_main("I knew it!","snape_02")
+                call sna_main("I knew you couldn't make yourself leave yet.","snape_02")
                 g9 "Hey, it's not my fault this place has so many..."
                 g4 "I have urges okay!"
-                call sna_main("How very uncharacteristic of you...","snape_01",ypos="head")
-                call sna_main("But good news nonetheless...","snape_02",ypos="head")
-                call sna_main("So I take it you have... unfinished business before you depart?","snape_37",ypos="head")
+                call sna_main("How very uncharacteristic of you...","snape_01")
+                call sna_main("But good news nonetheless...","snape_02")
+                call sna_main("So I take it you have... unfinished business before you depart?","snape_37")
                 m "A headmaster can't just up and leave before the school year is over can he?"
                 m "Also I'm getting quite fond of the place... Not that I want to pick out curtains or anything."
-                call sna_main("...","snape_45",ypos="head")
-                call sna_main("Very well... our little scheme continues.","snape_02",ypos="head")
-                call sna_main("Although at the moment I've got a class to attend to.","snape_01",ypos="head")
+                call sna_main("...","snape_45")
+                call sna_main("Very well... our little scheme continues.","snape_02")
+                call sna_main("Although at the moment I've got a class to attend to.","snape_01")
                 call sna_walk("door")
                 m "Yes... I also have very important business to get on with..."
-                call sna_main("Sure you do...","snape_01",ypos="head")
+                call sna_main("Sure you do...","snape_01")
                 call sna_walk(action="leave")
 
                 jump main_room
@@ -223,50 +223,50 @@ label ending_after:
                 ">Arriving at the great hall you decide to take a quick glance through the doors before heading back to your office."
                 ">Hermione is currently occupied looking out one of the windows and doesn't notice your presence."
                 ">You glance over at the teachers table and lock eyes with Snape who hastily stands up and quickly slides towards you."
-                call sna_main("Good evening sir...{w=0.5} I...{w=0.8} I didn't expect you so soon.","snape_29",ypos="head")
+                call sna_main("Good evening sir...{w=0.5} I...{w=0.8} I didn't expect you so soon.","snape_29", ypos="head")
                 m "Hello again Severus."
                 m "I have returned..."
-                call sna_main ("*Ahem...*{w=0.4} I see...","snape_06",ypos="head")
-                call sna_main ("Well...{w=0.5} Here it goes...","snape_04",ypos="head")
-                call sna_main ("Who...{w=0.5} who rules?","snape_09",ypos="head")
+                call sna_main ("*Ahem...*{w=0.4} I see...","snape_06")
+                call sna_main ("Well...{w=0.5} Here it goes...","snape_04")
+                call sna_main ("Who...{w=0.5} who rules?","snape_09")
                 m "..."
-                call sna_main (".............","snape_25",ypos="head")
-                call sna_main ("...","snape_26",ypos="head")
+                call sna_main (".............","snape_25")
+                call sna_main ("...","snape_26")
                 g9 "Robin Williams."
-                call sna_main("You mother fucker!","snape_20",ypos="head") #Epic handshake meme (jk)
+                call sna_main("You mother fucker!","snape_20") #Epic handshake meme (jk)
                 g9 "..."
-                call sna_main("...","snape_12",ypos="head")
-                call sna_main("About the thing I said earlier.","snape_12",ypos="head")
+                call sna_main("...","snape_12")
+                call sna_main("About the thing I said earlier.","snape_12")
                 m "yes?"
-                call sna_main("The whole friend thing...","snape_14",ypos="head")
+                call sna_main("The whole friend thing...","snape_14")
                 m "*Ah*... yes..."
                 m "I mean, I was leaving and all that--"
-                call sna_main("No...{w=0.4} Even that being the case... I did mean it...{w=0.4} good ones are hard to come by.","snape_24",ypos="head")
+                call sna_main("No...{w=0.4} Even that being the case... I did mean it...{w=0.4} good ones are hard to come by.","snape_24")
                 g9 "Well... even if you didn't mean it, I bet you ain't never had a friend like me."
-                call sna_main ("Ain't that true...{w=0.3}","snape_45",ypos="head")
-                call sna_main ("So...{w=0.4} You're staying then?","snape_46",ypos="head")
+                call sna_main ("Ain't that true...{w=0.3}","snape_45")
+                call sna_main ("So...{w=0.4} You're staying then?","snape_46")
                 g9 "Can't just leave in the middle of the school year can I? What kind of headmaster would do that?"
-                call sna_main ("Is that so...","snape_47",ypos="head")
+                call sna_main ("Is that so...","snape_47")
                 g9 "There are still plenty of girls that haven't seen me at my best!"
-                call sna_main("There it is...","snape_02",ypos="head")
-                call sna_main("Well then...{w=0.4} Business as usual tomorrow?","snape_05",ypos="head")
+                call sna_main("There it is...","snape_02")
+                call sna_main("Well then...{w=0.4} Business as usual tomorrow?","snape_05")
                 m "Business as usual..."
-                call sna_main ("{size=-4}Fuck yes!{/size}","snape_47",ypos="head")
+                call sna_main ("{size=-4}Fuck yes!{/size}","snape_47")
                 m "What did you say?"
-                call sna_main ("Nothing...","snape_38",ypos="head")
+                call sna_main ("Nothing...","snape_38")
                 m "Okay then..."
                 m "In that case I'll head back to my office."
 
                 $ hermione.equip(her_outfit_ball)
                 ">As Snape slides back towards the teachers table, Hermione notices your presence and quickly starts walking towards you."
                 ">Before you can even attempt to slip into the shadows again, she's already come through the doorway with one of her arms held out in front of her."
-                call her_main("Care for a dance?", "base", "happy", "base", "L", cheeks="blush", xpos="base", ypos="head") # smiles
+                call her_main("Care for a dance?", "base", "happy", "base", "L", cheeks="blush", ypos="head", flip=False) # smiles
                 m "I...{w=0.4} Oh, what the hell... why not."
-                call her_main("...", "base", "narrow", "base", "down", cheeks="blush", xpos="base", ypos="head") # smiles
+                call her_main("...", "base", "narrow", "base", "down", cheeks="blush") # smiles
                 ">With your arms wrapped around Hermione's waist, the two of you begin moving along with the music."
                 ">After some time passes you can't help but look down on Hermione's butt sticking out below your hands."
                 m "Miss Granger..."
-                call her_main("Yes?", "open", "base", "base", "L", cheeks="blush", xpos="base", ypos="head")
+                call her_main("Yes?", "open", "base", "base", "L", cheeks="blush")
                 ">Hands now wandering down towards Hermione's butt she smiles and tightens her grip around you."
                 ">Gently resting your hands against her cheeks you return to slowly moving along with the music."
                 call her_main("Sir...", "base", "base", "base", "mid", cheeks="blush")

@@ -276,7 +276,7 @@ label hg_pf_titjob_1:
 
     call bld
     m "That's a start.{w=0.4} Now, up and down..."
-    call her_main("Alright...", "angry", "happyCl", "worried", "mid", emote="sweat", xpos="base", ypos="head")
+    call her_main("Alright...", "angry", "happyCl", "worried", "mid", emote="sweat", ypos="head", flip=False)
 
     call her_chibi_scene("tj", trans=d5)
     call ctc
@@ -581,7 +581,7 @@ label hg_pf_titjob_2:
     call her_chibi_scene("tj", trans=fade)
     call ctc
 
-    call her_main("Do you enjoy it when I move them like this, [genie_name]?", "grin", "base", "base", "R", xpos="base", ypos="head")
+    call her_main("Do you enjoy it when I move them like this, [genie_name]?", "grin", "base", "base", "R", ypos="head", flip=False)
     call nar(">Hermione starts alternating her breasts as she tit-fucks you.")
     g9 "Actually...{w=0.3} Yes! Very much!"
 
@@ -747,14 +747,14 @@ label hg_pf_titjob_2_continue:
     call bld
     m "Yes... Keep stroking it."
     $ ccg1 = 23
-    call her_main("..............", "angry", "wink", "base", "mid", ypos="head")
+    call her_main("..............", "angry", "wink", "base", "mid", ypos="head", flip=False)
     m "Now I want you to say..."
 
     menu:
         m "..."
         "{size=-4}\"I love teasing my father with my big tits.\"{/size}":
             $ ccg1 = 25
-            call her_main("I do not!", "angry", "narrow", "base", "down", ypos="head")
+            call her_main("I do not!", "angry", "narrow", "base", "down", ypos="head", flip=False)
             m "I know. Just say it."
             $ ccg1 = 22
             call her_main("My father? That's gross, [genie_name]! How could you suggest that I would want to fu--", "soft", "narrow", "annoyed", "up")
@@ -792,7 +792,7 @@ label hg_pf_titjob_2_continue:
 
         "{size=-4}\"I love teasing my schoolmates with my perfect tits.\"{/size}":
             $ ccg1 = 23
-            call her_main("I love teasing my schoolmates with my perfect tits...", "soft", "narrow", "annoyed", "up", ypos="head")
+            call her_main("I love teasing my schoolmates with my perfect tits...", "soft", "narrow", "annoyed", "up", ypos="head", flip=False)
             m "Of course you do..."
             call her_main("I love the jealous looks from the other girls...", "base", "narrow", "worried", "down")
             m "Why wouldn't they be jealous..."
@@ -836,7 +836,7 @@ label hg_pf_titjob_2_cumming:
     m "*Hmm*..."
     m "I love your perfect tits!"
     $ ccg1 = 22
-    call her_main("Thank you [genie_name].", "soft", "narrow", "annoyed", "up", ypos="head")
+    call her_main("Thank you [genie_name].", "soft", "narrow", "annoyed", "up", ypos="head", flip=False)
     $ ccg1 = 23
     call her_main("Shall I rub them some more then?")
     call nar(">Hermione presses her tits together against your cock and begins rubbing it rapidly...")
@@ -850,7 +850,7 @@ label hg_pf_titjob_2_cumming:
             call bld
             g4 "Take this, whore!"
             $ ccg1 = 25
-            call her_main("What are you--", "angry", "wink", "base", "mid", ypos="head")
+            call her_main("What are you--", "angry", "wink", "base", "mid", ypos="head", flip=False)
 
             call her_chibi_scene("tj_mouth", trans=d5)
             pause.8
@@ -922,7 +922,7 @@ label hg_pf_titjob_2_cumming:
             with hpunch
             g4 "*ARGH*!"
             $ ccg1 = 25
-            call her_main("What? Already?!", "shock", "wide", "base", "stare", ypos="head")
+            call her_main("What? Already?!", "shock", "wide", "base", "stare", ypos="head", flip=False)
             g4 "Yeah, your tits felt great slut!"
             call cum_block
 

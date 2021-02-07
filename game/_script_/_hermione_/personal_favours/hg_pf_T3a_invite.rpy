@@ -142,7 +142,7 @@ label hg_pf_strip_T4_snape:
     call sna_chibi("stand","desk_close","desk_close")
 
     # call her_main(animation=bob)
-    call her_main(".............", "open", "closed", "base", "mid", ypos="head")
+    call her_main(".............", "open", "closed", "base", "mid", ypos="head", flip=False)
     call sna_main("......................","snape_05")
     m ".........................."
 
@@ -450,7 +450,7 @@ label hg_pf_strip_T4_snape_watch:
 
     ">Professor Snape leaves..."
     stop music fadeout 1.0
-    call her_main("....................", "annoyed", "narrow", "base", "dead", ypos="head")
+    call her_main("....................", "annoyed", "narrow", "base", "dead", ypos="head", flip=False)
     pause.5
 
     call her_main("May I... may I get paid now... [genie_name]...?", "normal", "happyCl", "worried", "mid")
@@ -466,7 +466,7 @@ label hg_pf_strip_T4_snape_masturbate:
     with d5
     pause.2
 
-    call her_main("[genie_name]?!", "open", "wide", "base", "stare", ypos="head")
+    call her_main("[genie_name]?!", "open", "wide", "base", "stare", ypos="head", flip=False)
     m "It's alright, [hermione_name]. Don't mind me..."
     call sna_main("Oh, we're doing it like this then?","snape_12", ypos="head")
     call sna_main("Well, don't mind if I do...","snape_12")
@@ -524,7 +524,7 @@ label hg_pf_strip_T4_snape_masturbate:
         call sna_main("May as well leave now I suppose. I will talk to you later, Albus.","snape_03")
         m "Yes, later, Severus."
         call sna_main("Miss Granger...","snape_04")
-        call her_main("Professor...", "angry", "happyCl", "worried", "mid", ypos="head")
+        call her_main("Professor...", "angry", "happyCl", "worried", "mid", ypos="head", flip=False)
 
         call sna_chibi("hide")
         call her_chibi("stand","desk","base")
@@ -756,6 +756,6 @@ label hg_pf_strip_T4_snape_masturbate:
         show screen blkfade
         with d5
 
-        call her_main("... Can I get paid now, please?", "angry", "happyCl", "worried", "mid", emote="sweat", ypos="head")
+        call her_main("... Can I get paid now, please?", "angry", "happyCl", "worried", "mid", emote="sweat", ypos="head", flip=False)
 
         jump end_hg_pf_strip

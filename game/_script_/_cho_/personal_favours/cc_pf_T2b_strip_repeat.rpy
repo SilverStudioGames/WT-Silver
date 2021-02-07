@@ -1414,11 +1414,11 @@ label .end_event:
 
     call bld
     if game.daytime:
-        call ton_main("We should get going, Miss Chang. Classes are about to start...", "open", "base", "base", "L", xpos="far_right", ypos="head", flip=False)
-        call cho_main("Until next time, Professor.", "grin", "base", "base", "mid", xpos="far_right", ypos="head", flip=False)
+        call ton_main("We should get going, Miss Chang. Classes are about to start...", "open", "base", "base", "L", ypos="head", flip=False)
+        call cho_main("Until next time, Professor.", "grin", "base", "base", "mid", ypos="head", flip=False)
     else:
-        call ton_main("Let me escort you back to your dormitories, Miss Chang.", "open", "base", "base", "L", flip=False, xpos="far_right", ypos="head")
-        call cho_main("Good night, Professor.", "grin", "base", "base", "mid", flip=False, xpos="far_right", ypos="head")
+        call ton_main("Let me escort you back to your dormitories, Miss Chang.", "open", "base", "base", "L", ypos="head", flip=False)
+        call cho_main("Good night, Professor.", "grin", "base", "base", "mid", ypos="head", flip=False)
 
     call bld("hide")
     pause .1

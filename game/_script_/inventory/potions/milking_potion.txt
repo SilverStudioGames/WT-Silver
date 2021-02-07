@@ -251,7 +251,7 @@ label potion_scene_11_2:
         with d3
 
     call nar(">You notice hermione's breasts swell for the final time.")
-    call her_main("!!!", "upset", "happyCl", "worried", "mid",cheeks="blush",ypos="head")
+    call her_main("!!!", "upset", "happyCl", "worried", "mid",cheeks="blush", ypos="head", flip=False)
     pause
     $ ccg1 = 2
     call her_main("[genie_name], this is ridiculous!", "open", "happyCl", "worried", "mid",cheeks="blush")

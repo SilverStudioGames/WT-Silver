@@ -355,7 +355,7 @@ label cho_training:
             jump cho_training.choices
 
         "-Back-":
-            call cho_main("Very well, [cho_genie_name].", "open", "base", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Very well, [cho_genie_name].", "open", "base", "base", "mid", ypos="head", flip=False)
 
             hide screen cho_main
             show screen blkfade
@@ -419,9 +419,9 @@ label cho_tactics:
 
             call cho_walk(600, 150+180)
 
-            call cho_main("Is this good?", "open", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("Is this good?", "open", "base", "raised", "mid", ypos="head", flip=False)
             m "*Hmm*... No, that robe is in the way... I can't seem to get a good view from this angle..."
-            call cho_main("Good! Then the crowd shouldn't either!", "smile", "base", "base", "down", xpos="base", ypos="head")
+            call cho_main("Good! Then the crowd shouldn't either!", "smile", "base", "base", "down", ypos="head", flip=False)
             m "Yes, probably..."
             m "How about instead you..."
 
@@ -430,15 +430,15 @@ label cho_tactics:
 
             call cho_walk(600, 150+180)
 
-            call cho_main("How's this?", "open", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("How's this?", "open", "base", "raised", "mid", ypos="head", flip=False)
             m "Excellent, I told you getting rid of that coat would do it!"
             m "And those trousers sure emphasise the shape of your--"
 
             # Cho turns towards you
 
-            call cho_main("Good, then it's settled!", "soft", "base", "base", "down", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("Good, then it's settled!", "soft", "base", "base", "down", cheeks="blush", ypos="head", flip=False)
             m "But I didn't get a proper look yet!"
-            call cho_main("...", "clench", "base", "base", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("...", "clench", "base", "base", "mid", cheeks="blush", ypos="head", flip=False)
             m "Alright, you can come down then..."
 
             #Cho flies down
@@ -479,7 +479,7 @@ label cho_tactics:
             call cho_walk(600, 150+180)
 
             m "No, this won't do, you're way to far away from me."
-            call cho_main("Then where do you want me?", "annoyed", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("Then where do you want me?", "annoyed", "base", "raised", "mid", ypos="head", flip=False)
             m "Let's see..."
 
         jump cho_tactics.choices
@@ -495,17 +495,17 @@ label cho_tactics:
 
             call cho_walk(550, 200+180)
 
-            call cho_main("Like this?", "soft", "base", "base", "downR", xpos="base", ypos="head")
+            call cho_main("Like this?", "soft", "base", "base", "downR", ypos="head", flip=False)
             with hpunch
             g4 "Yes, and now...{w=0.4} Higher!"
-            call cho_main("Is this not high enough to see my--", "annoyed", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("Is this not high enough to see my--", "annoyed", "base", "raised", "mid", ypos="head", flip=False)
             g4 "Fly right above my head!"
             g4 "Show me those panties!"
-            call cho_main("Of course, [cho_genie_name]...", "base", "base", "base", cheeks="blush", "downR", xpos="base", ypos="head")
+            call cho_main("Of course, [cho_genie_name]...", "base", "base", "base", cheeks="blush", "downR", ypos="head", flip=False)
 
             call cho_walk(500, 100+180)
 
-            call cho_main("How is this?", "soft", "base", "base", "down", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("How is this?", "soft", "base", "base", "down", cheeks="blush", ypos="head", flip=False)
 
             # TODO: Panty shot CG?
 
@@ -516,12 +516,12 @@ label cho_tactics:
 
             g4 "Yes, fantastic!"
             g9 "You have very cute panties, girl!"
-            call cho_main("*Ehm*...{w=0.5} Thank you, [cho_genie_name].", "annoyed", "base", "base", "down", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("*Ehm*...{w=0.5} Thank you, [cho_genie_name].", "annoyed", "base", "base", "down", cheeks="blush", ypos="head", flip=False)
             m "(I have created the ultimate up-skirt!)"
             m "(Nothing can stop us now...)"
-            call cho_main("Can I come down now?", "soft", "base", "base", "downR", xpos="base", ypos="head")
+            call cho_main("Can I come down now?", "soft", "base", "base", "downR", ypos="head", flip=False)
             g9 "Give me another minute."
-            call cho_main("*Tsk*", "normal", "base", "raised", "L", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("*Tsk*", "normal", "base", "raised", "L", cheeks="blush", ypos="head", flip=False)
             m "Okay, you can come down now."
 
             #Cho flies down
@@ -566,28 +566,28 @@ label cho_tactics:
         elif cho_tier == 2:
             # Slytherin
 
-            call cho_main("Above you, [cho_genie_name]?", "annoyed", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("Above you, [cho_genie_name]?", "annoyed", "base", "raised", "mid", ypos="head", flip=False)
             m "Yes, above..."
-            call cho_main("Okay...", "upset", "base", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Okay...", "upset", "base", "base", "mid", ypos="head", flip=False)
 
             call cho_walk(500, 100+180)
 
             m "Hold on, that's a bit too high I think..."
-            call cho_main("You think?", "angry", "base", "raised", "mid", xpos="base", ypos="head") #annoyed
+            call cho_main("You think?", "angry", "base", "raised", "mid", ypos="head", flip=False) #annoyed
             m "Yeah, how about instead you..."
 
         elif cho_tier == 3:
             #Gryffindor
 
-            call cho_main("You want me to fly... above you?", "clench", "base", "raised", "mid", xpos="base", ypos="head")
+            call cho_main("You want me to fly... above you?", "clench", "base", "raised", "mid", ypos="head", flip=False)
             m "You heard what I said..."
-            call cho_main("Okay then...", "upset", "base", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Okay then...", "upset", "base", "base", "mid", ypos="head", flip=False)
 
             call cho_walk(500, 100+180)
 
             g4 "Hey, how am I supposed to reach you from up there?"
             m "That's not how you get intimate!"
-            call cho_main("Why did you tell me to fly above you then?", "annoyed", "base", "base", "down", xpos="base", ypos="head")
+            call cho_main("Why did you tell me to fly above you then?", "annoyed", "base", "base", "down", ypos="head", flip=False)
             m "..."
             m "Sorry, I can't hear you from all the way up there."
             m "I think it might be better if you..."
@@ -601,43 +601,43 @@ label cho_tactics:
         if cho_tier == 1:
             # Hufflepuff
 
-            call cho_main("Close? How would you be able to see my--", "annoyed", "base", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Close? How would you be able to see my--", "annoyed", "base", "base", "mid", ypos="head", flip=False)
             m "Come closer!"
 
             call cho_walk(450, 240+180)
 
             m "Wait a second, I can't see your panties at all from this angle..."
-            call cho_main("No shi--", "open", "narrow", "base", "mid", xpos="base", ypos="head")
+            call cho_main("No shi--", "open", "narrow", "base", "mid", ypos="head", flip=False)
             m "Let's try this instead..."
 
         elif cho_tier == 2:
             # Slytherin
 
-            call cho_main("Close?", "annoyed", "base", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Close?", "annoyed", "base", "base", "mid", ypos="head", flip=False)
             m "Yes close... did I stutter?"
 
             call cho_walk(450, 240+180)
 
             m "You smell nice..."
-            call cho_main("Yeah, this is not going to work...", "disgust", "narrow", "base", "mid", xpos="base", ypos="head")
+            call cho_main("Yeah, this is not going to work...", "disgust", "narrow", "base", "mid", ypos="head", flip=False)
             m "Fine, let's have you..."
 
         elif cho_tier == 3:
             # Gryffindor
 
             m "Come as close to me as you can..."
-            call cho_main("Yes, [cho_genie_name].", "soft", "base", "base", "R", xpos="base", ypos="head")
+            call cho_main("Yes, [cho_genie_name].", "soft", "base", "base", "R", ypos="head", flip=False)
 
             call cho_walk(450, 240+180)
 
-            call cho_main("How's this? Too close?", "soft", "wink", "raised", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("How's this? Too close?", "soft", "wink", "raised", "mid", cheeks="blush", ypos="head", flip=False)
             m "No! It's the perfect distance!"
             m "They should even be able to smell you if you are this close!"
-            call cho_main("I hope not!", "quiver", "closed", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("I hope not!", "quiver", "closed", "worried", "mid", cheeks="blush", ypos="head", flip=False)
             g9 "Why? You smell lovely, girl!"
-            call cho_main("*Ehm*...{w} Thank you, Sir.", "soft", "base", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("*Ehm*...{w} Thank you, Sir.", "soft", "base", "worried", "mid", cheeks="blush", ypos="head", flip=False)
 
-            call cho_main("Can I come down now?", "soft", "narrow", "base", "mid", cheeks="blush", xpos="base", ypos="head")
+            call cho_main("Can I come down now?", "soft", "narrow", "base", "mid", cheeks="blush", ypos="head", flip=False)
             m "Of course."
 
             #Cho flies down

@@ -91,7 +91,7 @@ label end_hg_pr_kiss:
         show screen blktone
         with d3
 
-        call her_main("(*Tsk*)", "mad", "base", "angry", "R", flip=True, trans=d3)
+        call her_main("(*Tsk*)", "mad", "base", "angry", "R", ypos="head", flip=False, trans=d3)
 
         hide screen blktone
         with d3

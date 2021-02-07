@@ -184,15 +184,7 @@ label quests:
                     # Gryffindor
                     #jump cc_gt_return
 
-            if hufflepuff_match == "return":
-                $ hufflepuff_match = "end"
-                jump hufflepuff_match_return
-            elif slytherin_match == "return":
-                $ slytherin_match = "completed"
-                jump slytherin_match_return
-            #elif gryffindor_match == "return":
-                #$ gryffindor_match = "completed"
-                #jump gryffindor_match_return
+                # Note: The return events now get jumped to right after the main match events.
 
             python:
                 for i in cc_requests_list:

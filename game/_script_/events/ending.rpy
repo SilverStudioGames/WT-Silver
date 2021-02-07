@@ -501,7 +501,7 @@ label ball_ending_E2:
     g9 "(There she is!)"
 
     mal "Hermione, hey..."
-    call her_main("Oh, hello.", "base", "base", "base", "mid", xpos="base", ypos="head")
+    call her_main("Oh, hello.", "base", "base", "base", "mid", ypos="head", flip=False)
     mal "You look... so beautiful tonight, Hermione."
     call her_main("Thank you, you are too sweet.", "base", "closed", "base", "mid")
     mal2 "Can I have the next dance?"
@@ -821,7 +821,7 @@ label ball_ending_E2:
         pause.5
 
         m "What on earth just happened, girl?!"
-        call her_main("What do you mean, sir?", "soft", "narrow", "base", "R_soft",cheeks="blush", ypos="head")
+        call her_main("What do you mean, sir?", "soft", "narrow", "base", "R_soft",cheeks="blush", ypos="head", flip=False)
         $ dynamic_cg("ball/bj", "background")
         call hide_blkfade
 
@@ -1055,15 +1055,15 @@ label ball_ending_E2:
 
     if public_whore_ending:
         # Public whore ending
-        call sna_main("Miss Granger...?","snape_03", xpos="base", ypos="head")
+        call sna_main("Miss Granger...?","snape_03", ypos="head")
         call sna_main("So you decided to show up after all","snape_04")
         call sna_main("What an unpleasant surprise...","snape_03")
 
-        call her_main("Professor...", "upset", "base", "base", "mid", xpos="base", ypos="head")
+        call her_main("Professor...", "upset", "base", "base", "mid", ypos="head", flip=False)
         call sna_main("Well, go ahead then...","snape_10")
         call sna_main("Here is the tiara...")
 
-        call her_main("Professor...", "upset", "base", "base", "mid", xpos="base", ypos="head")
+        call her_main("Professor...", "upset", "base", "base", "mid")
 
         call sna_main("And the stage is yours...")
         call her_main("Thank you, professor.", "base", "closed", "base", "mid")
@@ -1313,7 +1313,7 @@ label ball_ending_E2:
         call hide_blkfade
         call ctc
 
-        call her_main("[genie_name]...", "soft", "narrow", "base", "R_soft",cheeks="blush",ypos="head")
+        call her_main("[genie_name]...", "soft", "narrow", "base", "R_soft",cheeks="blush", ypos="head", flip=False)
         call her_main("There was something you wanted to discuss with me?")
         g4 "Not right now, whore!"
         call blkfade
@@ -1936,7 +1936,7 @@ label ball_ending_E2:
         sly1 "Yeah, let's go!"
         sly2 "Bye, mudblood whore!"
         sly1 "Yeah, thank you for being such a slut!"
-        call her_main("..........................", "soft", "narrow", "annoyed", "up", cheeks="blush", tears="mascara_soft", ypos="head")
+        call her_main("..........................", "soft", "narrow", "annoyed", "up", cheeks="blush", tears="mascara_soft", ypos="head", flip=False)
 
         call play_sound("footsteps")
         $ dynamic_cg("ball/sex", "background")
@@ -1999,7 +1999,7 @@ label ball_ending_E2:
         # Personal whore ending
         call sna_main("Miss Granger...?","snape_03", ypos="head")
         call sna_main("You decided to show up after all? What an unpleasant surprise...","snape_04")
-        call her_main("...............................", "full", "narrow", "annoyed", "up",cheeks="blush",tears="mascara", ypos="head")
+        call her_main("...............................", "full", "narrow", "annoyed", "up",cheeks="blush",tears="mascara", ypos="head", flip=False)
         call sna_main("What happened to your face, girl?","snape_13")
         call her_main(".......................................", "full", "narrow", "worried", "down",cheeks="blush",tears="mascara")
         call sna_main("*Hmm*... Well, go ahead then...","snape_13")
@@ -2131,7 +2131,7 @@ label ball_ending_E2:
         stop music fadeout 1.0
         m "Great speech..."
         m "Very arousing... *Ehm*... I mean inspiring."
-        call her_main("Thank you, sir.", "soft", "narrow", "base", "R_soft",cheeks="blush",ypos="head")
+        call her_main("Thank you, sir.", "soft", "narrow", "base", "R_soft",cheeks="blush", ypos="head", flip=False)
         m "Swallowing my load in front of the entire school?"
         g9 "A very nice touch."
         call her_main("........................................................", "crooked_smile", "happyCl", "worried", "mid", cheeks="blush")
@@ -2341,7 +2341,7 @@ label ball_ending_E2:
         pause.3
 
         # Insertion
-        call her_main("*Ah*...", "open", "wide", "worried", "stare",cheeks="blush",tears="soft", ypos="head")
+        call her_main("*Ah*...", "open", "wide", "worried", "stare",cheeks="blush",tears="soft", ypos="head", flip=False)
         call her_main("Sir, no. You must listen to me--", "open_tongue", "narrow", "worried", "mid_soft",cheeks="blush")
         $ renpy.play('sounds/gltch.mp3')
         with hpunch
@@ -2453,7 +2453,7 @@ label ball_ending_E2:
         with hpunch
         pause.3
 
-        call her_main("...........", "angry", "narrow", "annoyed", "up",cheeks="blush",tears="messy", ypos="head")
+        call her_main("...........", "angry", "narrow", "annoyed", "up",cheeks="blush",tears="messy", ypos="head", flip=False)
         m "There..."
 
 
@@ -2584,7 +2584,7 @@ label ball_ending_E2:
         with d9
 
         stop music fadeout 1.0
-        call her_main("*Ah*...", "silly", "narrow", "annoyed", "up",cheeks="blush",tears="mascara_soft", ypos="head")
+        call her_main("*Ah*...", "silly", "narrow", "annoyed", "up",cheeks="blush",tears="mascara_soft", ypos="head", flip=False)
         call her_main("I can... barely... stand...")
         g4 "I know what you mean, girl."
         g4 "This was our most intense fucking session yet!"

@@ -156,7 +156,7 @@ label slytherin_match:
     with d3
     pause .3
 
-    call ton_main("*huh*?... (When did he?)", "upset", "shocked", "raised", "L", xpos="base", ypos="head")
+    call ton_main("*huh*?... (When did he?)", "upset", "shocked", "raised", "L", ypos="head", flip=True)
     call ton_main("(Impressive. I wonder if his stamina can keep up with that speed...)", "mad", "narrow", "raised", "R")
     g9 "Ladies first."
     call ton_main("What a gentleman.", "base", "happyCl", "base", "mid")
@@ -208,7 +208,7 @@ label slytherin_match:
     call sna_main("Miss Tonks..", "snape_03", ypos="head")
     call sna_main("Geni--", "snape_03")
     call sna_main("*Ahem*... Albus, Glad you made it in time, I was about to call for you.", "snape_09")
-    call ton_main("I know who he is, Snape. There's no need for the pretence.", "open", "closed", "base", "L", xpos="far_left", ypos="head", flip=True)
+    call ton_main("I know who he is, Snape. There's no need for the pretence.", "open", "closed", "base", "L", ypos="head", flip=True)
     call sna_main("Of course there is. We're outside the headmaster's office, after all.", "snape_16")
     call sna_main("We have to keep up the act in front of the students...", "snape_01")
     call ton_main("*Hmm*... Good point...", "base", "base", "base", "R")
@@ -330,7 +330,7 @@ label slytherin_match:
     call ton_chibi("stand", flip=False)
     with d3
 
-    call ton_main("Mind your head!", "open", "shocked", "shocked", "down", xpos="base", ypos="head", flip="False")
+    call ton_main("Mind your head!", "open", "shocked", "shocked", "down", ypos="head", flip=False)
 
     call play_sound("kick")
     with hpunch
@@ -353,10 +353,10 @@ label slytherin_match:
     with d3
     pause 1
 
-    call ton_main("Oh, what a view! Much better than the one from the Hufflepuff stands!", "grin", "wide", "base", "L", xpos="far_left", ypos="head", flip=True)
+    call ton_main("Oh, what a view! Much better than the one from the Hufflepuff stands!", "grin", "wide", "base", "L", ypos="head", flip=True)
 
     m "Nice weather too."
-    call ton_main("Indeed!", "base", "wide", "base", "mid", xpos="far_left", ypos="head", flip=True)
+    call ton_main("Indeed!", "base", "wide", "base", "mid")
 
     $ renpy.sound.play("sounds/thunder.ogg")
     call quidditch_stands(weather="overcast", tree_fire=True, rain=True, puddles=True)
@@ -367,7 +367,7 @@ label slytherin_match:
     pause 1.0
     call sna_main("Indeed!", "snape_02", ypos="head")
 
-    call ton_main("You jinxed it..", "upset", "closed", "worried", "mid", flip=True, xpos="far_left", ypos="head")
+    call ton_main("You jinxed it..", "upset", "closed", "worried", "mid", ypos="head", flip=True)
     g4 "Hey!{w=0.4} That wasn't--"
 
     # Hermione walks up to the podium
@@ -383,7 +383,7 @@ label slytherin_match:
     with d3
     pause .1
 
-    call her_main("Oh, hello, Professor Tonks!", "soft", "base", "base", "L", flip=False, xpos="base", ypos="head")
+    call her_main("Oh, hello, Professor Tonks!", "soft", "base", "base", "L", ypos="head", flip=False)
     pause 1.0
     $ renpy.sound.play("sounds/MaleClearThroat.mp3")
     call sna_main("*ahem*", "snape_09", ypos="head")
@@ -398,14 +398,14 @@ label slytherin_match:
     #hide screen blktone
     #with d5
 
-    call ton_main("{size=-4}Do I hear some jealousy back there?{/size}", "grin", "narrow", "raised", "R", xpos="far_left", ypos="head", flip=True)
+    call ton_main("{size=-4}Do I hear some jealousy back there?{/size}", "grin", "narrow", "raised", "R", ypos="head", flip=True)
     call sna_main("{size=-4}Of course not... just a cough,{w=0.3} {cps=15}Nymphadora{/cps}.{/size}", "snape_03", ypos="head")
-    call ton_main("{size=-2}That's Tonks to you...{w=0.3} {i}dungeon dweller.{/i}{/size}", "open", "wide", "angry", "R", hair="angry", xpos="far_left", ypos="head", flip=True)
+    call ton_main("{size=-2}That's Tonks to you...{w=0.3} {i}dungeon dweller.{/i}{/size}", "open", "wide", "angry", "R", hair="angry")
     call sna_main("Dungeon dw--", "snape_32", ypos="head")
     call sna_main("I'll give you a dungeon dweller in a minute you--", "snape_08", ypos="head")
 
-    call her_main("Professor Tonks, your hair!", "soft", "base", "base", "L", flip=False, xpos="base", ypos="head")
-    call ton_main("Whoopsie...{w=0.5} Miss Granger, so glad to see you!", "base", "happyCl", "base", "L", hair="neutral", xpos="far_left", ypos="head", flip=True)
+    call her_main("Professor Tonks, your hair!", "soft", "base", "base", "L", ypos="head", flip=False)
+    call ton_main("Whoopsie...{w=0.5} Miss Granger, so glad to see you!", "base", "happyCl", "base", "L", hair="neutral", ypos="head", flip=True)
     call sna_main("{size=-2}*Hmph*{/size}", "snape_31", ypos="head")
     call her_main("Of course, as you know I take my responsibilities seriously!", "open", "base", "angry", "L")
 
@@ -457,7 +457,7 @@ label slytherin_match:
     with d3
     pause .3
 
-    call her_main("Sir, I'm trying to do my job here, and those Slytherin boys just can't keep their filthy mouths shut!", "soft", "narrow", "angry", "mid", flip=False, xpos="base", ypos="head")
+    call her_main("Sir, I'm trying to do my job here, and those Slytherin boys just can't keep their filthy mouths shut!", "soft", "narrow", "angry", "mid", ypos="head", flip=False)
     call sna_main("Surely you've been called worse Miss Granger...", "snape_05")
 
     call quidditch_stands(crowd_react=[None, None, None])
@@ -1019,7 +1019,7 @@ label slytherin_match:
 
     play bg_sounds "sounds/crowd_low.mp3" fadein 3 fadeout 2
 
-    call her_main("I'm back!", "soft", "base", "worried", "L", cheeks="blush", xpos="far_left", ypos="head", flip=True) #whispering #Blushing from this point forward
+    call her_main("I'm back!", "soft", "base", "worried", "L", cheeks="blush", ypos="head", flip=True) #whispering #Blushing from this point forward
     call sna_main("Miss Granger?", "snape_05", ypos="head")
     call her_main("It's...", "disgust", "base", "worried", "down", cheeks="blush")
 
@@ -1252,7 +1252,7 @@ label slytherin_match:
     hide screen blktone
     with d5
 
-    call her_main("*Ahh*...{w=0.3} *Ahh*...{w=0.5} Sir...{w=0.6} that was...{w=0.6} *Ahh*...", "open_tongue", "narrow", "worried", "up", cheeks="blush", flip=False, xpos="base", ypos="head")
+    call her_main("*Ahh*...{w=0.3} *Ahh*...{w=0.5} Sir...{w=0.6} that was...{w=0.6} *Ahh*...", "open_tongue", "narrow", "worried", "up", cheeks="blush", ypos="head", flip=False)
 
     # Start prediction
     $ renpy.start_predict("images/CG/cho_quidditch/*.*")
@@ -1797,7 +1797,8 @@ label slytherin_match_return:
     $ cho_quid.lock_training = False
     $ cho_quid.lock_practice = True
     $ cho_quid.lock_tactic   = False
-    $ cho_quid.slytherin_complete = True
+    $ slytherin_match = "completed" # Prevents this event from repeating.
+    $ cho_quid.slytherin_complete = True # Makes sure this event doesn't repeat on any saves.
 
     # Reset
     $ tonks.equip(ton_outfit_last)

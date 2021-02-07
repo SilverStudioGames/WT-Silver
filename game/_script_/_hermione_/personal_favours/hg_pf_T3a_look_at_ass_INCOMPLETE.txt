@@ -240,9 +240,9 @@ label hg_pr_strip_T2_rear:
     call hg_pr_strip_rear_transition
 
     if her_whoring < 18:
-        call her_main("....................................","annoyed","narrow", "annoyed", "mid", ypos="head")
+        call her_main("....................................","annoyed","narrow", "annoyed", "mid", ypos="head", flip=False)
     else:
-        call her_main("....................................", "base", "closed", "base", "mid", ypos="head")
+        call her_main("....................................", "base", "closed", "base", "mid", ypos="head", flip=False)
         call play_music("playful_tension") # SEX THEME.
     call ctc
 
@@ -266,10 +266,10 @@ label hg_pr_strip_T2_admire_rear:
     menu:
         "-\"You have a fantastic ass girl\"-":
             m "you should start wearing shorter skirts to show it off a little..."
-            call her_main(".....................", "base", "closed", "base", "mid", ypos="head")
+            call her_main(".....................", "base", "closed", "base", "mid", ypos="head", flip=False)
         "-\"Your ass is alright...\"-":
             ">You Look at her ass some more whilst making some disapproving tuts..."
-            call her_main(".....................", "annoyed", "squint", "angry", "mid", ypos="head")
+            call her_main(".....................", "annoyed", "squint", "angry", "mid", ypos="head", flip=False)
             $ her_mood += 3
 
     call nar(">You stare at her ass for a while longer...")
@@ -293,7 +293,7 @@ label hg_pr_strip_T2_grope_rear:
 
     call her_chibi_scene("grope_ass_back", trans=d5)
 
-    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
     m "Relax, [hermione_name]. Just stand still!"
 
     show screen blktone
@@ -316,7 +316,7 @@ label hg_pr_strip_T2_grope_rear:
 
     call set_her_action("none","update")
 
-    call her_main("I think I'd better go...", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head")
+    call her_main("I think I'd better go...", "angry", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False)
     call gen_chibi("sit_behind_desk")
     call her_chibi("stand","desk","base")
 
@@ -359,7 +359,7 @@ label hg_pr_strip_T2_masturbate_rear:
     #TODO Fix usage of missing screen hermione_ass
     #show screen blktone
     #show screen hermione_ass
-    call her_main("Are you enjoying the view [genie_name]", "angry", "wide", "base", "stare", ypos="head")
+    call her_main("Are you enjoying the view [genie_name]", "angry", "wide", "base", "stare", ypos="head", flip=False)
     m "yes I am [hermione_name]. just stand still and let me look a little longer..."
 
     call nar(">You stare at Hermione's ass with hunger...")
@@ -413,7 +413,7 @@ label hg_pr_strip_T3_admire_rear:
 
     menu:
         "\"Nice little ass you got there.\"":
-            call her_main("", "annoyed", "closed", "base", "mid", ypos="head")
+            call her_main("", "annoyed", "closed", "base", "mid", ypos="head", flip=False)
             call ctc
             call her_main("Thank you [genie_name].", "base", "closed", "base", "mid")
             call play_music("chipper_doodle") # HERMIONE'S THEME.
@@ -421,7 +421,7 @@ label hg_pr_strip_T3_admire_rear:
 
         "\"Hm... I've seen better.\"":
             $ her_mood += 9
-            call her_main("Tsk...", "clench", "base", "angry", "mid", ypos="head")
+            call her_main("Tsk...", "clench", "base", "angry", "mid", ypos="head", flip=False)
             call her_main("well in that case Are we done?", "open", "narrow", "annoyed", "mid")
 
     call nar(">You stare at her ass for a while longer...")
@@ -445,7 +445,7 @@ label hg_pr_strip_T3_grope_rear:
 
     call her_chibi_scene("grope_ass_back", trans=d5)
 
-    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
     m "Relax, [hermione_name]. Just stand still!"
 
     show screen blktone
@@ -455,9 +455,9 @@ label hg_pr_strip_T3_grope_rear:
 
     if current_payout < 100:
         $ her_mood += 3
-        call her_main("I didn't agree to this, [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head")
+        call her_main("I didn't agree to this, [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head", flip=False)
     else:
-        call her_main("I know I agreed to this [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head")
+        call her_main("I know I agreed to this [genie_name]...", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head", flip=False)
         call her_main("But as the headmaster of this school...", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call her_main("I don't know if you should be...", "annoyed", "narrow", "angry", "R", cheeks="blush")
     m "Don't you like it...?"
@@ -526,7 +526,7 @@ label hg_pr_strip_T3_masturbate_rear:
 
     show screen blktone
     show screen hermione_ass
-    call her_main("Are you enjoying the view [genie_name]", "angry", "wide", "base", "stare", ypos="head")
+    call her_main("Are you enjoying the view [genie_name]", "angry", "wide", "base", "stare", ypos="head", flip=False)
     m "I'm enjoying it immensely"
     call her_main("[genie_name], are you... touching yourself...", "shock", "happyCl", "worried", "mid")
     m "Don't blame me [hermione_name]..."
@@ -569,10 +569,10 @@ label hg_pr_strip_T4_admire_rear:
 
     menu:
         "\"You have an amazing ass, [hermione_name].\"":
-            call her_main("You really think so [genie_name]?", "annoyed", "base", "base", "mid", ypos="head")
+            call her_main("You really think so [genie_name]?", "annoyed", "base", "base", "mid", ypos="head", flip=False)
             call her_main("I am glad you like it, [genie_name]...", "base", "closed", "base", "mid")
         "\"Your ass is ok... I suppose...\"":
-            call her_main("Huh?", "annoyed", "base", "base", "mid", ypos="head")
+            call her_main("Huh?", "annoyed", "base", "base", "mid", ypos="head", flip=False)
             call her_main("Does this mean you don't like it, [genie_name]?", "annoyed", "base", "base", "mid")
             call her_main("I'm sorry... I'll try to work out some more.", "disgust", "narrow", "base", "down")
 
@@ -597,7 +597,7 @@ label hg_pr_strip_T4_grope_rear:
 
     call her_chibi_scene("grope_ass_back", trans=d5)
 
-    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+    call her_main("[genie_name], what are you doing?", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
     m "Relax, [hermione_name]. Just stand still!"
 
     show screen blktone
@@ -605,7 +605,7 @@ label hg_pr_strip_T4_grope_rear:
     with fade
     call ctc
 
-    call her_main("But...", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+    call her_main("But...", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
     call her_main("ah...{heart}", "shock", "happyCl", "worried", "mid")
 
     if current_payout < 100:
@@ -704,7 +704,7 @@ label hg_pr_strip_T4_masturbate_rear:
 
     show screen blktone
     show screen hermione_ass
-    call her_main("[genie_name]?", "base", "narrow", "base", "up", cheeks="blush", ypos="head")
+    call her_main("[genie_name]?", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False)
 
     if her_whoring >= 21:
         call her_main("ah...", "base", "narrow", "base", "up", cheeks="blush")
@@ -771,7 +771,7 @@ label hg_show_ass_cumming:
                 call blkfade
 
                 g4 "Argh! You fat-assed slut!"
-                call her_main("Proff-- ??", "scream", "wide", "base", "stare", cheeks="blush", ypos="head")
+                call her_main("Proff-- ??", "scream", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
                 call gen_chibi("cum_behind_desk")
                 call cum_block
 
@@ -818,7 +818,7 @@ label hg_show_ass_cumming:
                 call blkfade
 
                 g4 "Argh! You fat-assed whore!"
-                call her_main("Proff-- ??", "scream", "wide", "base", "stare", cheeks="blush", ypos="head")
+                call her_main("Proff-- ??", "scream", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
                 call cum_block
 
                 g4 "Argh! YES!"
@@ -880,7 +880,7 @@ label hg_show_ass_cumming:
             "-Hold it in-":
                 g4 "Oh, alright..."
                 g4 "I'd better stop now I suppose..."
-                call her_main("...............", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+                call her_main("...............", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
                 call her_main("Ehm... I mean I know I said not to cum on me...", "disgust", "narrow", "base", "down", cheeks="blush")
                 m "Huh?"
                 call her_main("But I wouldn't mind if you ...", "shock", "happyCl", "worried", "mid")
@@ -911,7 +911,7 @@ label hg_show_ass_cumming:
 
             "-Just start cumming-":
                 g4 "Argh! You fat-assed whore!"
-                call her_main("???", "mad", "wide", "base", "stare", cheeks="blush", ypos="head")
+                call her_main("???", "mad", "wide", "base", "stare", cheeks="blush", ypos="head", flip=False)
                 call cum_block
 
                 g4 "Argh! YES!"
@@ -1004,22 +1004,22 @@ label end_hg_show_ass:
 
     #First event.
     if her_whoring < 15:
-        call her_main("(How degrading... why do i keep agreeing to this...?)", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+        call her_main("(How degrading... why do i keep agreeing to this...?)", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
 
     #Second event.
     elif her_whoring < 18:
-        call her_main("........................", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head")
+        call her_main("........................", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False)
 
     #Third event.
     elif her_whoring >= 18 and aftersperm:
-        call her_main("{size=-5}(That was so exhilarating...){/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head")
-        call her_main("{size=-5}(i wonder what he'll ask me to do next...?){/size}", "open", "narrow", "base", "up", cheeks="blush", ypos="head")
+        call her_main("{size=-5}(That was so exhilarating...){/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False)
+        call her_main("{size=-5}(i wonder what he'll ask me to do next...?){/size}", "open", "narrow", "base", "up", cheeks="blush")
 
     else:
-        call her_main("{size=-5}(That was so exhilarating...) {/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head")
-        call her_main("{size=-5}(No, Hermione, you silly girl!) {/size}", "angry", "base", "angry", "mid", cheeks="blush", ypos="head")
-        call her_main("{size=-5}(it was shameful! good girls don't get turned on by stripping for their headmaster!) {/size}", "angry", "base", "angry", "mid", cheeks="blush", ypos="head")
-        call her_main(".................................", "base", "narrow", "base", "up", cheeks="blush", ypos="head")
+        call her_main("{size=-5}(That was so exhilarating...) {/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False)
+        call her_main("{size=-5}(No, Hermione, you silly girl!) {/size}", "angry", "base", "angry", "mid", cheeks="blush")
+        call her_main("{size=-5}(it was shameful! good girls don't get turned on by stripping for their headmaster!) {/size}", "angry", "base", "angry", "mid", cheeks="blush")
+        call her_main(".................................", "base", "narrow", "base", "up", cheeks="blush")
 
     call her_chibi("leave")
 

@@ -257,7 +257,7 @@ label purchase_outfit(item):
         maf "A fishnet... outfit, sir?"
         m "Yes, like the stockings but a whole outfit..."
         m "Actually, just a top and underwear shall do."
-        maf "Underwe--? surely something like that wouldn't be very effective as underwear, sir?"
+        maf "Underwear--? surely something like that wouldn't be very effective as underwear, sir?"
         m "Effective enough to catch a fish..."
         maf "What?"
         m "So, could you make this for me?"
@@ -315,13 +315,13 @@ label purchase_outfit(item):
     elif item == cho_outfit_misty:
         m "I'd like a cosplay outfit please."
         maf "Yes?"
-        m "Do you know Pokémon?"
+        m "Do you know Pokemon?"
         maf "Of course!"
         m "I... wait you do?"
         maf "No, I have no clue what you just said..."
         m "...{w}I'd like a Misty outfit..."
         maf "A misty outfit? I'm good, but I don't think even I could make an outfit out of mist!"
-        m "She's a character from Pokémon..."
+        m "She's a character from Pokemon..."
         maf "Oh... I see, maybe my grandson will know."
         m "I'm sure he will..."
     elif item == cho_outfit_j_school:
@@ -334,10 +334,10 @@ label purchase_outfit(item):
         maf "So why did they contact you about it?"
         m "*Err*... Their headmaster liked your work!"
         maf "Really? What did he say?"
-        m "*Eh*... Sugoi!"
+        m "*Eh*... {i}Sugoi!{/i}"
         maf "..."
         maf "I didn't know you spoke Japanese..."
-        m "*Ha-Hah*, Yeah... Subarashii pantsu!"
+        m "*Ha-Hah*, Yeah... {i}Subarashii pantsu!{/i}"
         maf "What does that mean?"
         m "Nice pants!"
         maf "Pants?!"
@@ -345,7 +345,7 @@ label purchase_outfit(item):
         maf "Oh, I see..."
         m "So... Can you make the outfit?"
         maf "Certainly... I'll get started right away."
-        m "Domo arigato Mr roboto."
+        m "{i}Domo Arigato Mr Roboto.{/i}"
     elif item == cho_outfit_dress1:
         m "Could you make me a traditional Chinese dress?"
         maf "Now, who on earth could this dress be for?"
@@ -462,7 +462,7 @@ label purchase_outfit(item):
         maf "Alright then, I'll see what I can do."
         m "Excellent."
     elif item  == ton_outfit_casual:
-        m "I'm looking for something casual and tightfitting."
+        m "I'm looking for something casual and tight-fitting."
         maf "That's pretty vague... could you be more specific of what you had in mind?"
         m "Well... it should be modern..."
         $ renpy.play("sounds/scribble.mp3")
@@ -524,7 +524,7 @@ label purchase_outfit(item):
         m "Something to show off our national heritage."
         maf "So a Scottish flag?"
         m "What, no.. I meant the union jack."
-        maf "Oh... righto..."
+        maf "Oh... {i}righto{/i}..."
         maf "One union jack bikini-bra it is..."
         m "(Scottish... As if I wouldn't know straight away that we were in Scotland...)"
     elif item == ton_outfit_bikini_4:
@@ -539,6 +539,55 @@ label purchase_outfit(item):
         m "Don't worry about it..."
         maf "Okay then..."
         maf "One United states of America patterned bikini-bra coming up."
+
+    elif item == nt_cavegirl:
+        m "I'm looking for something primal."
+        maf "Primal, sir?"
+        m "Yes... Ever watched the Flintstones?"
+        maf "The what, sorry?"
+        m "*Sigh*..."
+        $ renpy.play("sounds/scribble.mp3")
+        m "Could you make me something like this? *Scribbles*"
+        maf "I see..."
+        maf "Are you sure you've drawn it correctly?"
+        maf "There seem to be some fabric missing."
+        m "Positive."
+        maf "Okay then."
+        maf "One... Flintstone outfit it is."
+        g9 "Yabadababoob!"
+
+    elif item == nt_club_dress:
+        m "Have you ever been out clubbing Miss Mafkin?"
+        maf "By merlin no... I wouldn't dare hurt an animal."
+        m "Not that... Clubbing Is when you go to a club, listen to music whilst moving your arms around awkwardly."
+        maf "Oh... In that case yes, although it's been a while."
+        maf "They used to call me the dancing queen--"
+        m "Yes yes, very interesting... Loud music with no way of chatting anyone up... Love it."
+        m "Anyway..."
+        maf "..."
+        m "You think you could provide me with something a woman might wear when going clubbing?"
+        maf "Something tight-fitting I assume."
+        m "Wow, you really do know your craft!"
+        maf "Certainly sir, I'll start working on it as soon as I can."
+
+    elif item == nt_skimpy_dress:
+        m "Could you make me something skimpy?"
+        maf "Skimpy, sir?"
+        m "Yes, something with loose hanging fabric."
+        m "Something that makes the nipples part of the integral structure of the piece."
+        maf "..."
+        maf "This is for a lady I assume?"
+        m "I mean my nipples could probably cut glass when hard but yes it's for a lady..."
+        maf "Was that extra information necessary, sir?"
+        m "Is it normal or do I need to get them checked?"
+        maf "I'm not a medical expert, sir... I'm a tailor."
+        m "Ever had to repair a piece of clothing due to nipple damage?"
+        maf "Can't say that I have..."
+        m "..."
+        m "Then forget what I just said."
+        maf "I'll just get to it then, shall I?"
+        m "Yes please..."
+
 
     #
     # Universal

@@ -114,7 +114,7 @@ label end_hg_pr_grope:
         show screen blktone
         with d3
 
-        call her_main("(Why did I agree to this...)", "disgust", "base", "worried", "down", flip=True, trans=d3)
+        call her_main("(Why did I agree to this...)", "disgust", "base", "worried", "down", ypos="head", flip=False, trans=d3)
 
         hide screen blktone
         with d3

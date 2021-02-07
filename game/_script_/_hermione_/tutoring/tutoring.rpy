@@ -156,7 +156,7 @@ label hg_tutor_E1:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(I'm glad the professor agreed to tutor me!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", xpos="base", flip=True, trans=d3)
+    call her_main("{size=-4}(I'm glad the professor agreed to tutor me!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(But pleasure and pain? I don't understand where this is going...){/size}", "annoyed", "base", "base", "R")
 
     call her_chibi("leave")
@@ -200,7 +200,7 @@ label hg_tutor_E2:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Filthy whores...){/size}", "angry", "closed", "angry", "mid", cheeks="blush", xpos="base", flip=True, trans=d3)
+    call her_main("{size=-4}(Filthy whores...){/size}", "angry", "closed", "angry", "mid", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Oh, I should not talk like that...{w=0.5} but it feels so good!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush")
 
     call her_chibi("leave")
@@ -240,7 +240,7 @@ label hg_tutor_E3:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(*Hmm*... I wonder what he {b}was{/b} thinking about.){/size}", "base", "narrow", "base", "down", cheeks="blush", xpos="base", flip=True, trans=d3)
+    call her_main("{size=-4}(*Hmm*... I wonder what he {b}was{/b} thinking about.){/size}", "base", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Probably all the problems caused by those harlots.){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush")
     call her_main("{size=-4}(Well, I will never be like them, so no need to worry.){/size}", "silly", "narrow", "base", "mid_soft", cheeks="blush")
 
@@ -315,7 +315,7 @@ label hg_tutor_E4:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Well, I'll try to investigate those two girls again.){/size}", "disgust", "narrow", "base", "down", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(Well, I'll try to investigate those two girls again.){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Like a real anthropologist!){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush")
     call her_main("{size=-4}(Yes, that's right. Hermione the anthropologist!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush")
 
@@ -441,7 +441,7 @@ label hg_tutor_E5:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(I enjoyed it too much. Maybe I'm becoming a pervert as well){/size}", "base", "narrow", "base", "up", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(I enjoyed it too much. Maybe I'm becoming a pervert as well){/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(I lost control, it won't happen again!){/size}", "shock", "narrow", "base", "down", cheeks="blush")
     call her_main("{size=-4}(Good thing I'm not a degenerate like those filthy girls!){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush")
 
@@ -533,7 +533,7 @@ label hg_tutor_E6:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(This is wrong...){/size}", "disgust", "narrow", "base", "down", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(This is wrong...){/size}", "disgust", "narrow", "base", "down", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(I shouldn't listen to him.){/size}", "angry", "happyCl", "worried", "mid", cheeks="blush")
     call her_main("{size=-4}(And yet...){/size}", "base", "narrow", "base", "down", cheeks="blush")
 
@@ -614,21 +614,21 @@ label hg_tutor_E7:
     call blkfade
     call nar(">You abruptly stop.")
     pause .5
-    call her_main("*Hmph*...{w=0.3} Why did you stop, [genie_name]?", "clench", "base", "worried", "mid", cheeks="blush", emote="angry", xpos="base", ypos="head")
+    call her_main("*Hmph*...{w=0.3} Why did you stop, [genie_name]?", "clench", "base", "worried", "mid", cheeks="blush", emote="angry", ypos="head", flip=False, trans=d3)
     m "Lesson is over. Time to practise by yourself."
 
     call gen_chibi("sit_behind_desk")
     call her_chibi("stand","desk","base")
-    call hide_blkfade
+    hide screen blkfade
 
-    call her_main("...........", "annoyed", "narrow", "worried", "R", cheeks="blush")
+    call her_main("...........", "annoyed", "narrow", "worried", "R", cheeks="blush", xpos="mid", ypos="base", trans=fade)
     m "Good night, my little witch."
     call her_main("Good night, professor, and thank you for this lesson.", "base", "happyCl", "base", "mid")
     call her_main("{size=-2}(I just wish it had lasted longer...){/size}", "annoyed", "squint", "base", "mid", cheeks="blush")
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(\"My little witch?\"){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(\"My little witch?\"){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Why not, after all...){/size}", "base", "narrow", "base", "up", cheeks="blush")
 
     call her_chibi("leave")
@@ -764,7 +764,7 @@ label hg_tutor_E8:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(I'm such a slut...){/size}", "base", "narrow", "base", "up", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(I'm such a slut...){/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Cumming in front of my professor...){/size}", "base", "narrow", "base", "down", cheeks="blush")
     call her_main("{size=-4}(I definitely need to do that again!){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush")
 
@@ -808,12 +808,12 @@ label hg_tutor_E9:
     $ hermione.strip("top")
 
     if hermione.is_worn("bra"):
-        call her_main("...", ypos="head")
+        call her_main("...", ypos="head", flip=False, trans=d3)
         m "And your bra..."
 
         $ hermione.strip("bra")
 
-    call her_main("........", "annoyed", "closed", "base", "mid", cheeks="blush", ypos="head")
+    call her_main("........", "annoyed", "closed", "base", "mid", cheeks="blush", ypos="head", flip=False, trans=d3)
 
     call her_chibi_scene("behind_desk_front")
     call hide_blkfade
@@ -923,7 +923,7 @@ label hg_tutor_E9:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Favourite...){/size}", "base", "narrow", "base", "up", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(Favourite...){/size}", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(*Hmm*... Could there be another one?){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush")
     call her_main("{size=-4}(I better do my best to remain his favourite!){/size}", "base", "happyCl", "worried", "mid", cheeks="blush")
 
@@ -1110,7 +1110,7 @@ label hg_tutor_E10:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Rest...){/size}", "base", "narrow", "base", "down", cheeks="blush", tears="mascara", xpos="base", ypos="head")
+    call her_main("{size=-4}(Rest...){/size}", "base", "narrow", "base", "down", cheeks="blush", tears="mascara", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Not before I've played with this marvelous toy again){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush", tears="mascara")
     call her_main("{size=-4}(And again){/size}", "silly", "narrow", "base", "mid_soft", cheeks="blush", tears="mascara")
 
@@ -1293,7 +1293,7 @@ label hg_tutor_E11:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Finally tonight I'll just go to bed.){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(Finally tonight I'll just go to bed.){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(That was a little too intense...){/size}", "angry", "happyCl", "worried", "mid", cheeks="blush")
     call her_main("{size=-4}(Not that I'm complaining...){/size}", "silly", "narrow", "base", "mid_soft", cheeks="blush")
 
@@ -1525,7 +1525,7 @@ label hg_tutor_E12:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Sucking his cock without getting any points!){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(Sucking his cock without getting any points!){/size}", "annoyed", "narrow", "angry", "R", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(If he hadn't made me come so hard...){/size}", "base", "narrow", "base", "up", cheeks="blush")
     call her_main("{size=-4}(*sigh* Although I guess it's not that high a price...){/size}", "base", "narrow", "base", "down", cheeks="blush")
 
@@ -1672,7 +1672,7 @@ label hg_tutor_E13:
 
     call her_chibi_scene("lie_on_desk", trans=d5)
 
-    call her_main("I'm ready, [genie_name].", xpos="base", ypos="head")
+    call her_main("I'm ready, [genie_name].", ypos="head", flip=False, trans=d3)
 
     call give_gift(">You take an empty butterbeer bottle, spit on the neck, and push it inside her butthole.",butterbeer_ITEM)
 
@@ -1682,7 +1682,7 @@ label hg_tutor_E13:
     call hide_blkfade
     call ctc
 
-    call her_main("*Mmm*... Yes... like that.", "base", "narrow", "base", "up", cheeks="blush")
+    call her_main("*Mmm*... Yes... like that.", "base", "narrow", "base", "up", cheeks="blush", xpos="mid", ypos="base", flip=True)
     call her_main("My pussy feels lonely without your care.", "grin", "wink", "base", "mid", cheeks="blush")
     call nar(">You start to finger her pussy too.")
     m "Poor little thing."
@@ -1718,7 +1718,7 @@ label hg_tutor_E13:
     call hide_blkfade
     call ctc
 
-    call her_main("*Panting* *panting*", "grin", "narrow", "base", "dead", cheeks="blush", tears="messy", ypos="head")
+    call her_main("*Panting* *panting*", "grin", "narrow", "base", "dead", cheeks="blush", tears="messy", ypos="head", flip=False, trans=d3)
     call her_main("P-professor...{w=0.3} I'm so happy right now.", "base", "narrow", "worried", "mid_soft", cheeks="blush", tears="soft")
     g9 "Glad to hear it."
     hide screen hermione_main
@@ -1734,14 +1734,14 @@ label hg_tutor_E13:
 
     call bld
     m "Sweet dreams my little princess."
-    call her_main("You too, professor.", "open", "base", "base", "mid", cheeks="blush", xpos="mid", ypos="base")
+    call her_main("You too, professor.", "open", "base", "base", "mid", cheeks="blush", xpos="mid", ypos="base", flip=False)
     g9 "They are always sweet with you around."
     call her_main("Thank you.", "base", "narrow", "base", "up", cheeks="blush")
     m "And next time bring your books, I'll help you with your revisions."
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(Yes, sweet dreams...){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(Yes, sweet dreams...){/size}", "base", "happyCl", "worried", "mid", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(Sweet and wet!){/size}", "silly", "narrow", "base", "mid_soft", cheeks="blush")
 
     call her_chibi("leave")
@@ -1919,7 +1919,7 @@ label hg_tutor_E14:
 
     call her_walk("door", "base")
 
-    call her_main("{size=-4}(He's hardly Prince Charming but...){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush", xpos="base", ypos="head")
+    call her_main("{size=-4}(He's hardly Prince Charming but...){/size}", "base", "narrow", "base", "mid_soft", cheeks="blush", ypos="head", flip=False, trans=d3)
     call her_main("{size=-4}(I doubt Prince Charming could fuck me half as well as he can!){/size}", "grin", "narrow", "base", "up", cheeks="blush")
 
     call her_chibi("leave")
