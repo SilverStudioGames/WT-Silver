@@ -73,8 +73,8 @@ default ast_bra_basic2 = DollCloth("astoria", ("upper undergarment", "bras"), "b
 default ast_panties_basic1 = DollCloth("astoria", ("lower undergarment", "panties"), "panties", "basic_panties_1", [[213, 62, 65, 255], [234, 236, 234, 255]], armfix=True, unlocked=True)
 default ast_panties_basic2 = DollCloth("astoria", ("lower undergarment", "panties"), "panties", "basic_panties_2", [[213, 62, 65, 255]], armfix=True, unlocked=True)
 
-default ast_outfit_default = DollOutfit([ast_hair_base, ast_top_school1, ast_bottom_skirt1, ast_bra_basic1, ast_panties_basic1], True)
-default ast_outfit_last = DollOutfit([ast_hair_base])
+default ast_outfit_default = DollOutfit([ast_hair_base, ast_top_school1, ast_bottom_skirt1, ast_bra_basic1, ast_panties_basic1], unlocked=True)
+default ast_outfit_last = DollOutfit([ast_hair_base], hidden=True)
 
 ################
 ## Ann Outfit ##

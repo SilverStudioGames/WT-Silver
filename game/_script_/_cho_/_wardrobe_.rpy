@@ -72,8 +72,8 @@ default cho_robe_school_2 = DollCloth("cho", ("upper body", "robes"), "robe", "r
 default cho_robe_school_3 = DollCloth("cho", ("upper body", "robes"), "robe", "robe_school_3", color=[[96, 96, 96, 255], [206, 206, 209, 255], [89, 116, 194, 255]], level=8, unlocked=True)
 #default cho_neckwear_tie1  = DollCloth("cho", ("head", "neckwear"), "neckwear", "tie_1", [[216, 163, 10, 255], [89, 116, 194, 255]])
 
-default cho_outfit_last = DollOutfit([cho_hair_ponytail1])
-default cho_outfit_default = DollOutfit([cho_hair_ponytail1, cho_top_school1, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_house], True)
+default cho_outfit_last = DollOutfit([cho_hair_ponytail1], hidden=True)
+default cho_outfit_default = DollOutfit([cho_hair_ponytail1, cho_top_school1, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_house], unlocked=True)
 
 ########################
 ## Cheerleader Outfit ##
@@ -206,13 +206,13 @@ default choq_cloth_pantsshort4 = DollCloth("cho", ("lower body", "shorts"), "bot
 default choq_cloth_glovesquidditch1 = DollCloth("cho", ("upper body", "gloves"), "gloves", "quidditch", [[213, 161, 13, 255]], armfix=True)
 default choq_goggles = DollCloth("cho", ("head", "glasses"), "glasses", "goggles", [[137, 150, 193, 255], [165, 165, 166, 255]])
 #default choq_goggles_face = DollCloth("cho", ("head", "headgear"), "headgear", "goggles_face", [[137, 150, 193, 255], [165, 165, 166, 255]], unlocked=False) # Not in use
-default choq_cloth_schoolskirt3 = DollCloth("cho", ("lower body", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], unlocked=False, armfix=True)
+default choq_cloth_schoolskirt3 = DollCloth("cho", ("lower body", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], armfix=True)
 
-default cho_outfit_quidditch = DollOutfit([choq_cloth_topsweater1, choq_cloth_pantslong2, choq_cloth_robequidditch1, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1])
+default cho_outfit_quidditch = DollOutfit([choq_cloth_topsweater1, choq_cloth_pantslong2, choq_cloth_robequidditch1, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1], hidden=True)
 
-default cho_outfit_quidditch_hufflepuff = DollOutfit([choq_cloth_topsweater1, choq_cloth_schoolskirt3, choq_cloth_robequidditch1, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1])
-default cho_outfit_quidditch_slytherin = DollOutfit([choq_cloth_topsweater1, choq_cloth_pantslong2, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1])
-default cho_outfit_quidditch_gryffindor = DollOutfit([choq_cloth_topsweater1, choq_cloth_schoolskirt3, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1])
+default cho_outfit_quidditch_hufflepuff = DollOutfit([choq_cloth_topsweater1, choq_cloth_schoolskirt3, choq_cloth_robequidditch1, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1], hidden=True)
+default cho_outfit_quidditch_slytherin = DollOutfit([choq_cloth_topsweater1, choq_cloth_pantslong2, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1], hidden=True)
+default cho_outfit_quidditch_gryffindor = DollOutfit([choq_cloth_topsweater1, choq_cloth_schoolskirt3, choq_cloth_glovesquidditch1, cho_bra_basic1, cho_panties_basic1], hidden=True)
 
 ################
 ## Pubic Hair ##
@@ -234,9 +234,9 @@ default cho_stockings_slyt = DollCloth("cho", ("legwear", "socks"), "stockings",
 default cho_stockings_gryf = DollCloth("cho", ("legwear", "socks"), "stockings", "house", [[219, 165, 13, 255], [146, 63, 30, 255]])
 default cho_stockings_huff = DollCloth("cho", ("legwear", "socks"), "stockings", "house", [[251, 198, 10, 255], [51, 43, 54, 255]])
 
-default cho_outfit_slyt = DollOutfit([cho_hair_ponytail1, cho_top_school1_slyt, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_slyt])
-default cho_outfit_gryf = DollOutfit([cho_hair_ponytail1, cho_top_school1_gryf, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_gryf])
-default cho_outfit_huff = DollOutfit([cho_hair_ponytail1, cho_top_school1_huff, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_huff])
+default cho_outfit_slyt = DollOutfit([cho_hair_ponytail1, cho_top_school1_slyt, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_slyt], hidden=True)
+default cho_outfit_gryf = DollOutfit([cho_hair_ponytail1, cho_top_school1_gryf, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_gryf], hidden=True)
+default cho_outfit_huff = DollOutfit([cho_hair_ponytail1, cho_top_school1_huff, cho_bottom_school1, cho_bra_basic1, cho_panties_basic1, cho_stockings_huff], hidden=True)
 
 default smurfette_hair = DollCloth("cho", ("head", "hair"), "hair", "smurfette", [[255, 221, 71, 255],[255, 237, 158, 255]])
 default smurfette_hat = DollCloth("cho", ("head", "headgear"), "headgear", "smurfette", [[251, 251, 251, 255]])

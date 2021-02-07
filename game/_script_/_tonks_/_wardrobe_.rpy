@@ -64,8 +64,8 @@ default ton_bottoms_leggings = DollCloth("tonks", ("lower body", "leggings"), "b
 default ton_bottoms_leggings_hole = DollCloth("tonks", ("lower body", "leggings"), "bottom", "leggings_hole",[[45, 45, 48, 255]], level=60, armfix=True, unlocked=True)
 default ton_stockings_auror = DollCloth("tonks", ("legwear", "stockings"), "stockings", "auror",[[45, 45, 48, 255], [177, 168, 172, 255]], armfix=True, unlocked=True)
 
-default ton_outfit_default = DollOutfit([ton_hair_base_new, ton_neckwear_beads, ton_gloves_auror, ton_top_auror, ton_robe_auror, ton_bottoms_leggings, ton_stockings_auror], True)
-default ton_outfit_last = DollOutfit([ton_hair_base_new])
+default ton_outfit_default = DollOutfit([ton_hair_base_new, ton_neckwear_beads, ton_gloves_auror, ton_top_auror, ton_robe_auror, ton_bottoms_leggings, ton_stockings_auror], unlocked=True)
+default ton_outfit_last = DollOutfit([ton_hair_base_new], hidden=True)
 
 ###################
 ## School Outfit ##
@@ -171,7 +171,7 @@ default ton_panties_succubus = DollCloth("tonks", ("lower undergarment", "bikini
 default ton_accessory0_succubus = DollCloth("tonks", ("misc", "accessory"), "accessory0", "succubus_wings", [[62, 51, 57, 255], [181, 86, 84, 255], [136, 134, 134, 255]], zorder=-160, blacklist=["robe"])
 default ton_accessory1_succubus = DollCloth("tonks", ("misc", "accessory"), "accessory1", "succubus_tail", [[62, 51, 57, 255], [181, 86, 84, 255]])
 
-default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, ton_neckwear_succubus, ton_gloves_succubus, ton_top_succubus, ton_panties_succubus, ton_accessory0_succubus, ton_accessory1_succubus], price=666, name="Succubus Costume", desc="Hot as hell.")
+default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, ton_neckwear_succubus, ton_gloves_succubus, ton_top_succubus, ton_panties_succubus, ton_accessory0_succubus, ton_accessory1_succubus], name="Succubus Costume", desc="Hot as hell.")
 
 #####################
 ## Cavegirl Outfit ##

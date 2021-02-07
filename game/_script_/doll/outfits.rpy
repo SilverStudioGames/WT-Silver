@@ -2,7 +2,7 @@ init python:
     class DollOutfit(DollMethods):
         default_schedule = {"day": False, "night": False, "cloudy": False, "rainy": False, "snowy": False}
 
-        def __init__(self, group, unlocked=False, name="", desc="", price=0, temp=False, schedule={}):
+        def __init__(self, group, unlocked=False, name="", desc="", price=0, temp=False, schedule={}, hidden=False):
             self.group = [x.clone() if not x.parent else x for x in group]
             self.name = name
             self.desc = desc
@@ -12,13 +12,14 @@ init python:
             self.schedule = dict(self.default_schedule.items() + schedule.items())
             self.hash = self.generate_hash()
             self.temp = temp
+            self.hidden = hidden
 
             if not self.temp:
 
                 if unlocked:
                     self.unlock()
 
-                if not self in self.char.outfits:
+                if not self.hidden and not self in self.char.outfits:
                     self.char.outfits.append(self)
 
                 self.rebuild_image()

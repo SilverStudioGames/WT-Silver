@@ -5,87 +5,48 @@ default cheat_wardrobe_alpha = False
 default skip_duel = False
 
 label cheats:
+
+    if not config.developer and not renpy.is_seen(False):
+        "Uncle Good Advice" "{b}Attention!{/b}\nSome cheats can cause bugs and writing inconsistencies, use at your own risk."
+
     menu:
+        "-Tonks Cheats-" (icon="interface/icons/small/tonks.webp") if tonks_unlocked:
+            label .tonks:
+            menu:
+                "-Reset Tonks' mood-" if lun_mood != 0:
+                    $ lun_mood = 0
+                    ">Tonks is no longer mad at you."
+                "-Max Friendship-" if ton_friendship < 100:
+                    $ ton_friendship = 100
+                    ">Tonks has hots for you."
+                "-Increase Friendship-" if ton_friendship < 100:
+                    $ ton_friendship += 1
+                    ">Tonks likes you more..."
+                "-Decrease Friendship-" if ton_friendship > 0:
+                    $ ton_friendship += -1
+                    "Tonks likes you less..."
+                "-Back-":
+                    jump cheats
+            jump cheats.tonks
+
         "-Hermione Cheats-" (icon="interface/icons/small/hermione.webp") if hermione_unlocked:
             label .hermione:
             menu:
                 "-Reset Hermione's mood-" if her_mood != 0:
                     $ her_mood = 0
                     ">Hermione is no longer mad at you."
-                    jump cheats.hermione
                 "-Max Whoring-" if her_whoring < 24:
                     $ her_whoring = 24
                     ">Hermione is now a giant slut."
-                    jump cheats.hermione
-
                 "-Increase Whoring-" if her_whoring < 24:
                     $ her_whoring += 1
                     ">Hermione became more depraved..."
-                    jump cheats.hermione
                 "-Decrease Whoring-" if her_whoring > 0:
                     $ her_whoring += -1
                     "Hermione recovered some of her dignity"
-                    jump cheats.hermione
-
                 "-Back-":
                     jump cheats
-
-        "-Astoria Cheats-" (icon="interface/icons/small/astoria.webp") if astoria_unlocked:
-            label .astoria:
-            menu:
-                "-Reset Astoria's mood-" if ast_mood != 0:
-                    $ ast_mood = 0
-                    ">Astoria is no longer mad at you."
-                    jump cheats.astoria
-                "-Max Whoring-" if ast_whoring < 24:
-                    $ ast_whoring = 24
-                    ">Astoria has hots for you."
-                    jump cheats.astoria
-
-                "-Increase Whoring-" if ast_whoring < 24:
-                    $ ast_whoring += 1
-                    ">Astoria likes you more..."
-                    jump cheats.astoria
-                "-Decrease Whoring-" if ast_whoring > 0:
-                    $ ast_whoring += -1
-                    "Astoria likes you less..."
-                    jump cheats.astoria
-                "-Back-":
-                    jump cheats
-
-        "-Luna Cheats-" (icon="interface/icons/small/luna.webp") if luna_unlocked:
-            label cheats_luna:
-            menu:
-                "-Unlock all outfits & sets-":
-                    python:
-                        for item in luna_outfits_list:
-                            unlock_clothing_compat(item)
-                        for item in luna_costumes_list:
-                            unlock_clothing_compat(item)
-                        for item in luna_dresses_list:
-                            unlock_clothing_compat(item)
-                        for item in luna_clothing_sets_list:
-                            unlock_clothing_compat(item)
-                    ">All of Luna's outfits and clothing sets have been unlocked."
-                    jump cheats_luna
-
-                "-Sub Luna-":
-                    $ lun_sub = 8
-                    $ lun_whoring = 10
-                    "Set to Sub Luna"
-                    jump cheats_luna
-                "-Dom Luna-":
-                    $ lun_dom = 8
-                    $ lun_whoring = 10
-                    "Set to Dom Luna"
-                    jump cheats_luna
-
-                "-Reset ALL Luna content-":
-                    call reset_luna_progress
-                    ">Luna content reset!"
-                    jump cheats
-                "-never mind-":
-                    jump cheats
+            jump cheats.hermione
 
         "-Cho Cheats-" (icon="interface/icons/small/cho.webp") if her_tier >= 2 or cho_unlocked:
             label .cho:
@@ -93,44 +54,56 @@ label cheats:
                 "-Reset Cho's mood-" if cho_mood != 0:
                     $ cho_mood = 0
                     ">Cho is no longer mad at you."
-                    jump cheats.cho
-
-                "-Skip Cho Intro-" if not cho_intro.E3_complete:
-                    call cheats.cho_skip_intro
-                    "Cho is now unlocked."
-                    if game.day < 16:
-                        "Sixteen days have passed since you arrived here."
-                    jump cheats.cho
-                "-Skip Cho Quiz-" if cho_intro.E3_complete and not cho_quiz.complete:
-                    call cheats.cho_skip_quiz
-                    "You can now start training Cho."
-                    jump cheats.cho
-
                 "-Max Whoring-" if cho_whoring < 24:
                     $ cho_whoring = 24
                     ">Cho is now a giant slut."
-                    jump cheats.cho
                 "-Increase Whoring-" if cho_whoring < 24:
                     $ cho_whoring += 1
                     ">Cho became more depraved..."
-                    jump cheats.cho
                 "-Decrease Whoring-" if cho_whoring > 0:
                     $ cho_whoring += -1
                     "Cho recovered some of her dignity"
-                    jump cheats.cho
-
                 "-Back-":
                     jump cheats
+            jump cheats.cho
 
-        "-Potion Cheats-" (icon="interface/icons/small/potion.webp"):
-            label cheats_potions:
+        "-Luna Cheats-" (icon="interface/icons/small/luna.webp") if luna_unlocked:
+            label .luna:
             menu:
-                "-Add all normal potions-":
-                    $ potion_inv.extend(["p_cum_addiction","p_ass_expansion","p_breast_expansion","p_cat_transformation","p_luna_transformation","p_transparency","p_hypno"])
-                    ">All potions added (Does not include Snape's potions)"
-                    jump cheats_potions
+                "-Reset Astoria's mood-" if lun_mood != 0:
+                    $ lun_mood = 0
+                    ">Astoria is no longer mad at you."
+                "-Max Whoring-" if lun_whoring < 24:
+                    $ lun_whoring = 24
+                    ">Astoria has hots for you."
+                "-Increase Whoring-" if lun_whoring < 24:
+                    $ lun_whoring += 1
+                    ">Astoria likes you more..."
+                "-Decrease Whoring-" if lun_whoring > 0:
+                    $ lun_whoring += -1
+                    "Astoria likes you less..."
                 "-Back-":
                     jump cheats
+            jump cheats.luna
+
+        "-Astoria Cheats-" (icon="interface/icons/small/astoria.webp") if astoria_unlocked:
+            label .astoria:
+            menu:
+                "-Reset Astoria's mood-" if ast_mood != 0:
+                    $ ast_mood = 0
+                    ">Astoria is no longer mad at you."
+                "-Max Whoring-" if ast_whoring < 24:
+                    $ ast_whoring = 24
+                    ">Astoria has hots for you."
+                "-Increase Whoring-" if ast_whoring < 24:
+                    $ ast_whoring += 1
+                    ">Astoria likes you more..."
+                "-Decrease Whoring-" if ast_whoring > 0:
+                    $ ast_whoring += -1
+                    "Astoria likes you less..."
+                "-Back-":
+                    jump cheats
+            jump cheats.astoria
 
         "-Add Gold-" (icon="interface/icons/small/gold.webp"):
             $ game.gold += 500
@@ -160,7 +133,7 @@ label cheats:
 
                 "-Unequip all clothes-":
                     python:
-                        for i in ("hermione", "cho", "astoria", "tonks"):
+                        for i in {"hermione", "cho", "astoria", "tonks", "susan", "luna"}:
                             getattr(renpy.store, i).unequip("all")
                     jump cheats.devroom
 
@@ -187,9 +160,9 @@ label cheats:
                     # voldemort_wardrobe_unlocked = True
                     # hagrid_wardrobe_unlocked = True
                     jump cheats.devroom
-                "-Unlock all characters clothes-" (icon="interface/icons/small/wardrobe.webp"):
+                "-Unlock all outfits-" (icon="interface/icons/small/wardrobe.webp"):
                     python:
-                        for i in ("hermione", "cho", "astoria", "tonks", "susan", "luna"):
+                        for i in {"hermione", "cho", "astoria", "tonks", "susan", "luna"}:
                             for x in getattr(renpy.store, i).outfits:
                                 if x.price > 0:
                                     x.unlock()
@@ -206,12 +179,8 @@ label cheats:
                     jump cheats.devroom
                 "-Get all scrolls-" (icon="interface/icons/small/spell.webp"):
                     python:
-                        for i in scroll_list_A:
-                            i.unlocked = True
-                        for i in scroll_list_B:
-                            i.unlocked = True
-                        for i in scroll_list_C:
-                            i.unlocked = True
+                        for i in inventory.get_instances_of_type("scroll"):
+                            i.owned = 1
                     jump cheats.devroom
                 "-Get all books-" (icon="interface/icons/small/book.webp"):
                     python:
@@ -228,22 +197,21 @@ label cheats:
                         for i in inventory.get_instances_of_type("qitem"):
                             i.owned = 1
                     jump cheats.devroom
-                    jump cheats.devroom
-                "-Read Hermione's Diary-" (icon="interface/icons/small/hermione.webp"):
-                    call book_handle(book=hermione_diary)
-                    jump cheats.devroom
-                "Lootbox":
-                    call card_lootbox
-                    jump cheats.devroom
-                "Dueling - Prototype sign drawing":
-                    jump magic_tutorial
-                "Cho CG demo":
-                    call cho_main(xpos="base",ypos="base")
-                    call play_music("cho")
-                    call play_sound("door")
-                    call cho_chibi("stand", "mid", "base")
-                    with d3
-                    jump cc_pf_blowjob
+                # "-Read Hermione's Diary-" (icon="interface/icons/small/hermione.webp"):
+                #     call book_handle(book=hermione_diary)
+                #     jump cheats.devroom
+                # "Lootbox":
+                #     call card_lootbox
+                #     jump cheats.devroom
+                # "Dueling - Prototype sign drawing":
+                #     jump magic_tutorial
+                # "Cho CG demo":
+                #     call cho_main(xpos="base",ypos="base")
+                #     call play_music("cho")
+                #     call play_sound("door")
+                #     call cho_chibi("stand", "mid", "base")
+                #     with d3
+                #     jump cc_pf_blowjob
                 "-Back-":
                     jump cheats
 

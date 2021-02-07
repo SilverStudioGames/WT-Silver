@@ -82,10 +82,10 @@ default her_accessory_house_emblem = DollCloth("hermione", ("misc", "accessory")
 default her_accessory4_reading_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "reading_glasses", [[240, 240, 241, 255]], unlocked=True)
 default her_accessory4_vintage_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "vintage_glasses", [[255, 255, 255, 50], [36, 36, 36, 255], [116, 116, 116, 255]], unlocked=True, zorder=3)
 
-default her_outfit_default = DollOutfit([her_hair_base, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True)
-default her_outfit_default_no_vest = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1])
-default her_outfit_default_no_tie_open_shirt = DollOutfit([her_hair_base, her_top_school5, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1])
-default her_outfit_last = DollOutfit([her_hair_base])
+default her_outfit_default = DollOutfit([her_hair_base, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], unlocked=True)
+default her_outfit_default_no_vest = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_outfit_default_no_tie_open_shirt = DollOutfit([her_hair_base, her_top_school5, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_outfit_last = DollOutfit([her_hair_base], hidden=True)
 
 ########################
 ## Rave Bikini Outfit ##
@@ -192,7 +192,7 @@ default her_bottom_pizza = DollCloth("hermione", ("lower body", "skirts"), "bott
 default her_top_pizza = DollCloth("hermione", ("upper body", "other"), "top", "pizza_top", [[180, 50, 10, 255]], level=19)
 default her_panties_pizza = DollCloth("hermione", ("lower undergarment", "other"), "panties", "pizza_panties", [[180, 50, 10, 255]], level=19)
 
-default her_outfit_pizza = DollOutfit([her_hair_base, her_bottom_pizza, her_top_pizza, her_panties_pizza])
+default her_outfit_pizza = DollOutfit([her_hair_base, her_bottom_pizza, her_top_pizza, her_panties_pizza], price=0)
 
 #####################
 ## Bioshock Outfit ##
@@ -351,7 +351,7 @@ default her_stockings_pantyhose_1= DollCloth("hermione", ("legwear", "pantyhose"
 default her_stockings_pantyhose_2= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_2", [[177, 144, 131, 255]], unlocked=True, level=10)
 default her_stockings_pantyhose_3= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_3", [[177, 144, 131, 255]], unlocked=True, level=19)
 
-default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_winter_1, her_stockings_pantyhose_1])
+default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_winter_1, her_stockings_pantyhose_1], hidden=True)
 
 ###################
 ## Spring Outfit ##
