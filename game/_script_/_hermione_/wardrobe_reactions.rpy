@@ -719,7 +719,7 @@ label her_reaction_equip_outfit(item):
             m "You heard me..."
             call her_main("*Hmm*... Well I suppose I could put it on...", "soft", "squint", "base", "R")
             call her_main("One moment please...", "open", "squint", "base", "mid")
-            call her_main("One moment please...", "normal", "squint", "base", "mid")
+            call her_main("", "normal", "squint", "base", "mid")
         else: #22+
             call her_main("Cosplay, [genie_name]?", "base", "squint", "base", "mid")
             m "Yes, this Miss Marvel cosplay..."
@@ -884,7 +884,7 @@ label her_reaction_equip_outfit(item):
     #####################
     ## Yennefer Outfit ##
     #####################
-    #elif item == her_outfit_yennefer: #Req 13 (should lower accessory to 10 maybe) (accessory4)
+    #elif item == her_outfit_yennefer: #Req 10
 
     ################
     ## Ball Dress ##
@@ -909,24 +909,24 @@ label her_reaction_equip_outfit(item):
     #########################
     ## Sling Bikini Outfit ##
     #########################
-    #elif item == her_outfit_bikini3: #Req 19 (panties, bra)
+    #elif item == her_outfit_bikini3: #Req 17 (panties, bra)
 
     ###########################
     ## Leather Bikini Outfit ##
     ###########################
-    #elif item == her_outfit_bikini2: #Req 19 (panties, bra)
+    #elif item == her_outfit_bikini2: #Req 16 (panties, bra)
 
     ########################
     ## Rave Bikini Outfit ##
     ########################
-    #elif item == her_outfit_bikini1: #Req 19 (panties, bra)
+    #elif item == her_outfit_bikini1: #Req 18 (panties, bra)
 
     ################################
     ## Pizza Slut Outfit (mirror) ##
     ################################
     #elif item == her_outfit_pizza: #Req 19 (top, panties)
 
-    # TODO: Christmas outfits (once re-implemented)
+    # TODO: Christmas outfits  her_outfit_ribbon her_outfit_xmas
     # TODO: Blacklist fallbacks have to be added.
     return
 
