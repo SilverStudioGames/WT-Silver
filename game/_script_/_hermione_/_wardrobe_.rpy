@@ -90,8 +90,8 @@ default her_outfit_last = DollOutfit([her_hair_base], hidden=True)
 ########################
 ## Rave Bikini Outfit ##
 ########################
-default her_panties_bikini1 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_1", [[138, 0, 0, 255], [252, 135, 0, 255]], level=19)
-default her_bra_bikini1 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "bikini_bra_1", [[138, 0, 0, 255], [252, 135, 0, 255]], level=19)
+default her_panties_bikini1 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_1", [[138, 0, 0, 255], [252, 135, 0, 255]], level=18)
+default her_bra_bikini1 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "bikini_bra_1", [[138, 0, 0, 255], [252, 135, 0, 255]], level=18)
 
 default her_outfit_bikini1 = DollOutfit([her_hair_base, her_panties_bikini1, her_bra_bikini1], price=350, name="Rave Bikini", desc="A Bunch of straps for a bunch of gold!")
 
@@ -99,16 +99,16 @@ default her_outfit_bikini1 = DollOutfit([her_hair_base, her_panties_bikini1, her
 ## Leather Bikini Outfit ##
 ###########################
 
-default her_panties_bikini2 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_2", [[55, 55, 55, 255], [197, 142, 35, 255]], level=19)
-default her_bra_bikini2 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "bikini_bra_2", [[55, 55, 55, 255], [197, 142, 35, 255]], level=19)
+default her_panties_bikini2 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "bikini_panties_2", [[55, 55, 55, 255], [197, 142, 35, 255]], level=16)
+default her_bra_bikini2 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "bikini_bra_2", [[55, 55, 55, 255], [197, 142, 35, 255]], level=16)
 
 default her_outfit_bikini2 = DollOutfit([her_hair_base, her_panties_bikini2, her_bra_bikini2], price=350, name="Leathered Bikini", desc="Emits a slight squeaking sound when rubbed.")
 
 #########################
 ## Sling Bikini Outfit ##
 #########################
-default her_panties_bikini3 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "sling_panties", [[48, 69, 164, 255], [212, 164, 32, 255]], level=19)
-default her_bra_bikini3 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "sling_bra", [[48, 69, 164, 255], [212, 164, 32, 255]], level=19)
+default her_panties_bikini3 = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "sling_panties", [[48, 69, 164, 255], [212, 164, 32, 255]], level=17)
+default her_bra_bikini3 = DollCloth("hermione", ("upper undergarment", "bikini bras"), "bra", "sling_bra", [[48, 69, 164, 255], [212, 164, 32, 255]], level=17)
 
 default her_outfit_bikini3 = DollOutfit([her_hair_base, her_panties_bikini3, her_bra_bikini3], price=350, name="Sling Bikini", desc="Slingshot your dignity with one simple trick.")
 
@@ -174,7 +174,7 @@ default her_outfit_ball = DollOutfit([her_hair_updo, her_neckwear_pearls1, her_t
 default her_top_yen1 = DollCloth("hermione", ("upper body", "sweaters"), "top", "yen_top", [[9, 32, 47, 255]], level=10)
 default her_bottom_yen_skirt1 = DollCloth("hermione", ("lower body", "skirts"), "bottom", "yen_skirt", [[26, 26, 26, 255]], level=4)
 default her_stockings_yen1 = DollCloth("hermione", ("legwear", "stockings"), "stockings", "yen_stockings", [[76, 76, 76, 255]], level=10)
-default her_accessory_yen_sash1 = DollCloth("hermione", ("misc", "accessory"), "accessory4", "yen_sash", [[25, 25, 25, 255], [51, 51, 51, 255]], zorder=9, level=13)
+default her_accessory_yen_sash1 = DollCloth("hermione", ("misc", "accessory"), "accessory4", "yen_sash", [[25, 25, 25, 255], [51, 51, 51, 255]], zorder=9, level=10)
 default her_accessory_yen_belt1 = DollCloth("hermione", ("misc", "accessory"), "accessory3", "yen_belt", [[52, 37, 31, 255], [146, 142, 137, 255]], zorder=10, level=4)
 default her_accessory_yen_feathers1 = DollCloth("hermione", ("misc", "accessory"), "accessory2", "yen_feathers", [[42, 190, 199, 255]], zorder=16, level=4)
 default her_accessory_yen_scarf1 = DollCloth("hermione", ("misc", "accessory"), "accessory1", "yen_scarf", [[9, 32, 47, 255]], zorder=17, level=4)
@@ -325,7 +325,7 @@ default her_outfit_slutty_schoolgirl = DollOutfit([her_hair_base, her_top_slutty
 default her_top_latex = DollCloth("hermione", ("upper body", "shirts"), "top", "latex_top", [[55, 55, 55, 255]], level=19)
 default her_gloves_latex = DollCloth("hermione", ("upper body", "gloves"), "gloves", "latex_gloves", [[55, 55, 55, 255]], level=10)
 default her_stockings_latex = DollCloth("hermione", ("legwear", "stockings"), "stockings", "latex_stockings", [[55, 55, 55, 255]], level=10)
-default her_panties_latex = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "latex_panties", [[55, 55, 55, 255]], level=13)
+default her_panties_latex = DollCloth("hermione", ("lower undergarment", "bikini panties"), "panties", "latex_panties", [[55, 55, 55, 255]], level=19)
 default her_neckwear_latex = DollCloth("hermione", ("head", "neckwear"), "neckwear", "latex_choker", [[55, 55, 55, 255]], level=13)
 
 default her_outfit_latex = DollOutfit([her_hair_base, her_top_latex, her_gloves_latex, her_stockings_latex, her_panties_latex, her_neckwear_latex], price=350, name="Latex Set", desc="A tight fitting outfit that takes approximately twenty minutes to put on properly.")
