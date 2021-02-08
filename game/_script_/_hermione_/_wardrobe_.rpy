@@ -82,10 +82,10 @@ default her_accessory_house_emblem = DollCloth("hermione", ("misc", "accessory")
 default her_accessory4_reading_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "reading_glasses", [[240, 240, 241, 255]], unlocked=True)
 default her_accessory4_vintage_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "vintage_glasses", [[255, 255, 255, 50], [36, 36, 36, 255], [116, 116, 116, 255]], unlocked=True, zorder=3)
 
-default her_outfit_default = DollOutfit([her_hair_base, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True)
-default her_outfit_default_no_vest = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1])
-default her_outfit_default_no_tie_open_shirt = DollOutfit([her_hair_base, her_top_school5, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1])
-default her_outfit_last = DollOutfit([her_hair_base])
+default her_outfit_default = DollOutfit([her_hair_base, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], unlocked=True)
+default her_outfit_default_no_vest = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_outfit_default_no_tie_open_shirt = DollOutfit([her_hair_base, her_top_school5, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_outfit_last = DollOutfit([her_hair_base], hidden=True)
 
 ########################
 ## Rave Bikini Outfit ##
@@ -192,7 +192,7 @@ default her_bottom_pizza = DollCloth("hermione", ("lower body", "skirts"), "bott
 default her_top_pizza = DollCloth("hermione", ("upper body", "other"), "top", "pizza_top", [[180, 50, 10, 255]], level=19)
 default her_panties_pizza = DollCloth("hermione", ("lower undergarment", "other"), "panties", "pizza_panties", [[180, 50, 10, 255]], level=19)
 
-default her_outfit_pizza = DollOutfit([her_hair_base, her_bottom_pizza, her_top_pizza, her_panties_pizza])
+default her_outfit_pizza = DollOutfit([her_hair_base, her_bottom_pizza, her_top_pizza, her_panties_pizza], price=0)
 
 #####################
 ## Bioshock Outfit ##
@@ -351,7 +351,7 @@ default her_stockings_pantyhose_1= DollCloth("hermione", ("legwear", "pantyhose"
 default her_stockings_pantyhose_2= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_2", [[177, 144, 131, 255]], unlocked=True, level=10)
 default her_stockings_pantyhose_3= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_3", [[177, 144, 131, 255]], unlocked=True, level=19)
 
-default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_winter_1, her_stockings_pantyhose_1])
+default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_winter_1, her_stockings_pantyhose_1], hidden=True)
 
 ###################
 ## Spring Outfit ##
@@ -385,6 +385,26 @@ default her_gloves_cheerleader = DollCloth("hermione", ("upper body", "gloves"),
 
 default her_outfit_cheerleader_1 = DollOutfit([her_hair_base, her_top_cheerleader1, her_bottom_cheerleader1, her_gloves_cheerleader, her_panties_base1, her_bra_base1], price=450, name="Gryffindor Cheerleader", desc="So daring and bold, sporting red and gold!")
 default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleader2, her_bottom_cheerleader2, her_panties_base1, her_bra_base1], price=650, name="Gryffindor Cheerleader Plus", desc="For when your teammates need an extra push.")
+
+################# ~*~Ä~*~*~*~*~ #################
+## Xmas Stuff ###   /%\  ___&__ ###  Ho Ho Ho  ##
+#################  /% \ |=I~I=| #################
+
+default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "headgear", "antlers", [[234, 187, 170, 255]], level=4)
+default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "headgear", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=4)
+default her_neckwear_choker1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "choker_1", [[229, 0, 10, 255]], level=4)
+default her_neckwear_bell1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "bell_1", [[229, 0, 10, 255], [244, 181, 82, 255]], zorder=16, level=10)
+
+default her_bra_ribbon = DollCloth("hermione", ("upper undergarment", "other"), "bra", "ribbon", [[229, 0, 10, 255]], blacklist=["top"], level=14)
+default her_panties_ribbon = DollCloth("hermione", ("lower undergarment", "other"), "panties", "ribbon", [[229, 0, 10, 255]], blacklist=["bottom"], level=14)
+
+default her_top_xmas = DollCloth("hermione", ("upper body", "other"), "top", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255], [109, 194, 101, 255]], level=10)
+default her_bottom_xmas = DollCloth("hermione", ("lower body", "other"), "bottom", "xmas",[[229, 0, 10, 255], [255, 239, 248, 255]], level=10)
+default her_gloves_xmas = DollCloth("hermione", ("upper body", "gloves"), "gloves", "xmas", [[255, 239, 248, 255]])
+default her_stockings_xmas = DollCloth("hermione", ("legwear", "stockings"), "stockings", "xmas",[[255, 255, 255, 255], [255, 255, 255, 255]], level=10)
+
+default her_outfit_ribbon = DollOutfit([her_hair_base, her_neckwear_choker1, her_bra_ribbon, her_panties_ribbon])
+default her_outfit_xmas   = DollOutfit([her_hair_base, her_hat_antlers, her_neckwear_bell1, her_top_xmas, her_bottom_xmas, her_gloves_xmas, her_stockings_xmas])
 
 ##########
 ## MISC ##
@@ -447,3 +467,11 @@ default her_pubes_arrow = DollCloth("hermione", ("lower undergarment", "pubes"),
 default her_pubes_beaver = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "beaver", [[152, 89, 48, 255]], unlocked=True)
 default her_pubes_stuble = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "stuble", [[92, 54, 29, 255]], unlocked=True)
 default her_pubes_unshaved = DollCloth("hermione", ("lower undergarment", "pubes"), "pubes", "unshaved", [[92, 54, 29, 255]], unlocked=True)
+
+### Default Schedules ###
+
+default her_outfit_s_clearday = DollOutfit([her_hair_base, her_top_school3, her_bottom_school1, her_panties_base1, her_bra_base1], True, schedule={"day": True})
+default her_outfit_s_clearnight = DollOutfit([her_hair_base, her_top_casual1, her_bottom_jeans, her_panties_base1, her_bra_base1], True, schedule={"night": True})
+default her_outfit_s_snow = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_jeans, her_panties_base1, her_bra_base1], True, schedule={"day": True, "night": True, "snowy": True})
+default her_outfit_s_overcast = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True, schedule={"day": True, "night": True, "cloudy": True})
+default her_outfit_s_rain = DollOutfit([her_hair_base, her_robe_school_1, her_top_school1, her_bottom_school1, her_panties_base1, her_bra_base1, her_stockings_base1], True, schedule={"day": True, "night": True, "rainy": True})

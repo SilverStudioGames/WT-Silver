@@ -152,7 +152,7 @@ label hg_pf_admire_breasts_T1_intro_E1:
 
             m "Well.. Next time I guess."
 
-            jump main_room
+            jump main_room_menu
 
     call play_music("chipper_doodle") # HERMIONE'S THEME.
     call her_main("(................)", "annoyed", "narrow", "angry", "R")
@@ -234,7 +234,7 @@ label hg_pf_admire_breasts_T1_intro_E2:
 
             m "Bummer.."
 
-            jump main_room
+            jump main_room_menu
 
     call hg_pf_admire_breasts_T1
 

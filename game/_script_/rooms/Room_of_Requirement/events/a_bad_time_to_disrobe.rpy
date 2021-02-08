@@ -178,8 +178,8 @@ label a_bad_time_to_disrobe_part_1:
 
     call her_walk ("door", "base")
 
-    call her_main("\"He's right, they wouldn't recognise me if I didn't show my face...\"", "base", "base", "base", "mid", cheeks="blush", tears="mascara",ypos="head")
-    call her_main("\"would they?\"", "base", "base", "base", "mid", cheeks="blush", tears="mascara",ypos="head")
+    call her_main("\"He's right, they wouldn't recognise me if I didn't show my face...\"", "base", "base", "base", "mid", cheeks="blush", tears="mascara", ypos="head", flip=False)
+    call her_main("\"would they?\"", "base", "base", "base", "mid", cheeks="blush", tears="mascara")
 
     call her_chibi("leave")
 

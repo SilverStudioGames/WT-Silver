@@ -8,6 +8,9 @@ label hermione_intro_E1:
     stop music fadeout 1.0
     pause 1
 
+    # Force default outfit for first event.
+    $ hermione.equip(her_outfit_default)
+
     call play_sound("knocking")
     call bld
     "*Knock-knock-knock*"
@@ -301,11 +304,9 @@ label hermione_intro_E1:
     with d3
 
     $ snape_busy = True # No point in calling him during the day.
-    $ hermione_busy = True
-
     $ hermione_intro.E1_complete = True
 
-    jump main_room
+    jump end_hermione_event
 
 
 ### Snape Hangout Event 1 ###
@@ -959,7 +960,7 @@ label hermione_intro_E5:
 # Tonks will help convince Hermione to buy favours.
 
 label nt_he_hermione_E1:
-    call ton_main("So, that Granger girl is causing you two trouble?","open","base","base","mid", ypos="head")
+    call ton_main("So, that Granger girl is causing you two trouble?","open","base","base","mid", ypos="head", flip=False)
     m "Quite a bit. She's not too thrilled on the idea of favour trading."
     call ton_main("Maybe I can be of help with her?", "base", "base", "base", "mid")
     call ton_main("I can be very convincing.", "horny", "narrow", "annoyed", "mid")
@@ -1327,26 +1328,31 @@ label hermione_intro_E6:
     pause.3
 
     # Hermione inner thoughts
+    show screen blktone
+    with d3
+
     if current_favor == "show_tongue":
-        call her_main("{size=-4}(*Hmm*...){/size}", "annoyed", "narrow", "worried", "down", xpos="base", flip=True, trans=d3)
+        call her_main("{size=-4}(*Hmm*...){/size}", "annoyed", "narrow", "worried", "down", ypos="head", flip=False, trans=d3)
         call her_main("{size=-4}(Students show teachers their tongues all the time...){/size}", "soft", "base", "base", "R")
         call her_main("{size=-4}(Although that's usually when the teacher is not looking...){/size}", "base", "narrow", "base", "R_soft")
         call her_main("{size=-4}(But there is nothing wrong with what I did today...){/size}", "annoyed", "base", "base", "L")
         call her_main("{size=-4}(I earned my house extra points...){/size}", "smile", "happyCl", "base", "mid")
     elif current_favor == "stand_there":
-        call her_main("{size=-4}(I can just stand there and let the professor look at me...){/size}", "annoyed", "base", "base", "R", xpos="base", flip=True, trans=d3)
+        call her_main("{size=-4}(I can just stand there and let the professor look at me...){/size}", "annoyed", "base", "base", "R", ypos="head", flip=False, trans=d3)
         call her_main("{size=-4}(There is nothing wrong with that... nothing at all...){/size}", "base", "closed", "base", "mid")
     elif current_favor == "silly_face":
-        call her_main("{size=-4}(Stupid face...){/size}", "silly", "base", "base", "squint", xpos="base", flip=True, trans=d3)
+        call her_main("{size=-4}(Stupid face...){/size}", "silly", "base", "base", "squint", ypos="head", flip=False, trans=d3)
         call her_main("{size=-4}(Stupid face...){/size}", "disgust", "happy", "base", "squint")
         call her_main("{size=-4}(I need to practise this.){/size}", "base", "happyCl", "base", "mid")
     elif current_favor == "bad_girl":
-        call her_main("{size=-4}(I'm a bad girl...){/size}", "angry", "base", "angry", "stare", xpos="base", flip=True, trans=d3)
+        call her_main("{size=-4}(I'm a bad girl...){/size}", "angry", "base", "angry", "stare", ypos="head", flip=False, trans=d3)
         call her_main("{size=-4}(I am a very bad girl...){/size}", "base", "base", "angry", "stare")
         call her_main("{size=-4}(Yes, I can say things like that easily...){/size}", "smile", "happyCl", "base", "mid")
         call her_main("{size=-4}(I guess I'm a born actress...){/size}", "base", "happyCl", "base", "mid")
 
+    hide screen blktone
     call her_chibi("leave")
+    with d3
 
     stop music fadeout 1.0
 

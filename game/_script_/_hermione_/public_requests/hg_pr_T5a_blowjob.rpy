@@ -111,7 +111,7 @@ label end_hg_pr_blowjob:
         show screen blktone
         with d3
 
-        call her_main("(I did it...)", "base", "narrow", "base", "dead", flip=True, trans=d3)
+        call her_main("(I did it...)", "base", "narrow", "base", "dead", ypos="head", flip=False, trans=d3)
         call her_main("(I sucked off one of my classmates...)", "angry", "narrow", "base", "dead")
 
         hide screen blktone

@@ -17,6 +17,7 @@ default susan_busy              = False
 default susan_unlocked          = False
 default susan_wardrobe_unlocked = False
 default chitchated_with_susan   = False
+default susan_outfits_schedule = True
 
 # Favour stuff
 default susan_imperio_influence = False

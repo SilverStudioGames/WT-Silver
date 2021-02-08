@@ -25,7 +25,11 @@ init python:
             with manifest as f:
                 data = json.load(f)
 
-            modname = data["Name"]
+            modname = data.get("Name", None)
+
+            if not modname:
+                continue
+
             mods_list[modname] = data
             mods_list[modname]["Files"] = files
             mods_list[modname]["Path"] = path

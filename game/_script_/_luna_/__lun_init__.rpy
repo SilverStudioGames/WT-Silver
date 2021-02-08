@@ -23,6 +23,7 @@ default luna_known = False
 default luna_busy = False
 default luna_unlocked = False
 default luna_wardrobe_unlocked = False
+default luna_outfits_schedule = True
 
 default luna_herm_talk = False
 default luna_reverted = False # True if Luna is on normal path

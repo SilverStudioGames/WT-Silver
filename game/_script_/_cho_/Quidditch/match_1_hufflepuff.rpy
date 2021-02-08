@@ -245,7 +245,7 @@ label hufflepuff_match:
     call sna_chibi("stand", flip=False)
     with d3
 
-    sna "Careful at the top. Don't hit your head."
+    call sna_main("Careful at the top. Don't hit your head.", "snape_35", ypos="head")
     call play_sound("kick")
     with hpunch
     pause .6
@@ -257,8 +257,8 @@ label hufflepuff_match:
     pause .5
     call sna_chibi("stand", flip=True)
     with d3
-    sna "Well, here we are..."
-    sna "Now we are only waiting for--"
+    call sna_main("Well, here we are...", "snape_09")
+    call sna_main("Now we are only waiting for--", "snape_03")
     call play_sound("footsteps")
     call her_chibi("stand", flip=True, 40, 295)
     with d3
@@ -266,8 +266,8 @@ label hufflepuff_match:
     call sna_chibi("stand", flip=False)
     with d3
     pause .2
-    her "Professors."
-    sna "Granger..."
+    call her_main("Professors.", "open", "closed", "base", "mid", ypos="head", flip=True)
+    call sna_main("Granger...", "snape_35")
     call sna_chibi("stand", flip=True)
     with d3
     pause .2
@@ -720,7 +720,7 @@ label hufflepuff_match:
     pause .8
 
     $ hermione_zorder=17 # 15 is default
-    call her_main("Higher up, Cho seems to have caught an eye on the snitch and is chasing after it, directly followed by Cedric who...", "open", "slit", "low", "stare", flip=True, xpos=-80, ypos="head")
+    call her_main("Higher up, Cho seems to have caught an eye on the snitch and is chasing after it, directly followed by Cedric who...", "open", "slit", "low", "stare", ypos="head", flip=True)
     show screen hufflepuff_match_cho_chase(0.8, 0.5)
     pause 1.5
     call her_main("Hold on a minute... Is Cho wearing a skirt?", "scream", "wide", "worried", "stare")
@@ -752,7 +752,7 @@ label hufflepuff_match:
     with d3
     pause .3
 
-    call her_main("Professor, why won't you say something?{w=0.8} She's clearly breaking the very basics of Quidditch rules!", "clench", "narrow", "angry", "mid", flip=False, xpos="base", ypos="head")
+    call her_main("Professor, why won't you say something?{w=0.8} She's clearly breaking the very basics of Quidditch rules!", "clench", "narrow", "angry", "mid", ypos="head", flip=False)
     m "I fail to see anything wrong with the way she's dressed."
     call her_main("But... she's wearing a skirt!", "clench", "wide", "base", "stare", cheeks="blush")
     call her_main("Surely that must be against some kind of regulation...", "annoyed", "narrow", "angry", "mid")
@@ -892,7 +892,7 @@ label hufflepuff_match:
     call quidditch_stands(crowd_react=["sur", "emo02", None])
     with d3
 
-    call her_main("Professors, could you please keep it down a little?", "normal", "base", "angry", "mid", flip=False, xpos="base", ypos="head") #, xpos="80", ypos="base")
+    call her_main("Professors, could you please keep it down a little?", "normal", "base", "angry", "mid", ypos="head", flip=False)
     call sna_main("Why? It's not like we're interrupting anything important.", "snape_18", ypos="head")
 
     call quidditch_stands(crowd_react=["sur", None, None])
@@ -1052,10 +1052,19 @@ label hufflepuff_match:
     m "Anyway, I'm beat, time to hit the hay."
 
     call gen_walk("desk", "base")
+    with d3
+    #pause .5
 
-    call blkfade
+    # Fade to black
+    show screen blkfade
+    with d9
+    pause .5
 
-    jump night_start
+    # Reset
+    $ hermione.equip(her_outfit_last) # Equip player outfit.
+    $ cho.equip(cho_outfit_last) # Equip player outfit.
+
+    jump hufflepuff_match_return
 
 
 label hufflepuff_match_return:
@@ -1063,8 +1072,28 @@ label hufflepuff_match_return:
     # She's outraged about Hermione.
     # Demands that you will find somebody to replace her.
 
+    # The office, evening after the game
+    $ game.daytime = False
+    call update_interface_color
+
+    call play_music("stop")
+    #show screen blkfade
+    call room("main_room")
+    #call gen_chibi("hide")
+    #show screen chair_left
+    #show screen desk
+
+
+    $ cho_outfit_last.save()
+
+    $ cho.equip(cho_outfit_quidditch)
+
     call music_block
-    pause .8
+    hide screen blkfade
+    with d9
+    pause 0.8
+
+    call bld
     $ renpy.sound.play("sounds/snore1.mp3")
     m "*Snore*{w=2.0}{nw}"
     pause 1.0
@@ -1134,6 +1163,7 @@ label hufflepuff_match_return:
     $ cho_quid.lock_training = False
     $ cho_quid.lock_practice = True
     $ cho_quid.lock_tactic   = False
+    $ hufflepuff_match = "completed"
     $ cho_quid.hufflepuff_complete = True
 
     jump end_cho_event

@@ -176,8 +176,7 @@ label tentacle_scene_intro:
     with d5
     centered "{size=+7}{color=#cbcbcb}A few moments later...{/color}{/size}"
     call gen_chibi("hide")
-    show screen letter_on_desk
-    show screen plant_on_desk
+    $ desk_OBJ.foreground = "letter_and_plant_on_desk"
     hide screen blkfade
     with d5
 
@@ -221,7 +220,7 @@ label tentacle_scene_intro:
     call her_main("Oh, there's also a note, I better read it...", "open", "base", "base", "down", flip=False, trans=d3)
 
     m "(Can't help herself but snoop in other peoples business can she...)"
-    hide screen letter_on_desk
+    $ desk_OBJ.foreground = "plant_on_desk"
     with d3
     $ renpy.play("sounds/pageflip.mp3")
     call her_main("Oh... It's actually addressed to me...", "soft", "base", "base", "stare")

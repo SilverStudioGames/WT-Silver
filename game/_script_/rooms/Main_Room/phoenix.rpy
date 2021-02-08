@@ -3,15 +3,20 @@ label phoenix:
     if game.day == 1:
         if not bird_examined:
             $ bird_examined = True
+            $ phoenix_OBJ.idle = "phoenix_idle"
             call gen_chibi("stand","mid","base",flip=False)
             with d5
             m "*Hmm*..."
             m "Even this weird-looking bird radiates magic..."
-            call gen_chibi("hide")
+            call gen_chibi("sit_behind_desk")
             with d5
         else:
             m "It's just a bird. Nothing more to say."
-        jump main_room_menu
+
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     if not phoenix_is_fed:
         $ phoenix_is_fed = True

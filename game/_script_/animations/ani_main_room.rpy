@@ -330,3 +330,35 @@ image desk_empty:
     zoom 0.5
 
     "images/rooms/main_room/desk_empty.webp"
+
+image chair_right:
+    zoom 0.5
+
+    "images/rooms/main_room/chair_right.webp"
+
+image letter_on_desk:
+    zoom 0.5
+
+    "/images/rooms/objects/desk/letter.webp"
+
+image plant_on_desk:
+    zoom 0.5
+
+    "/images/rooms/objects/desk/plant.webp"
+
+image letter_and_plant_on_desk:
+
+    contains:
+        zoom 0.5
+
+        "/images/rooms/objects/desk/letter.webp"
+
+    contains:
+        zoom 0.5
+
+        "/images/rooms/objects/desk/plant.webp"
+
+image desk_dumbledore:
+    zoom 0.5
+
+    "images/rooms/main_room/dum.webp"

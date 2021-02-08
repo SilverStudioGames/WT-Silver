@@ -1180,7 +1180,7 @@ label luna_revert_2:
     call lun_walk(action="leave")
 
     m "[hermione_name]? Are you OK?"
-    call her_main("*agh*... what happened?", "open", "narrow", "worried", "down",ypos="head",xpos="base")
+    call her_main("*agh*... what happened?", "open", "narrow", "worried", "down", ypos="head", flip=False)
     call her_main("Was Luna Lovegood here?", "upset", "wink", "base", "mid")
     m "Who?"
     call her_main("never mind...", "normal", "happyCl", "worried", "mid")

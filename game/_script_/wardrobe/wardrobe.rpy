@@ -534,6 +534,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                 if is_modded:
                     $ warnings.append("Outfit contains items from these mods:\n{size=-4}{color=#35aae2}"+ "\n".join(item.get_modname()) + "{/color}{/size}")
 
+                $ alternate = None
                 if current_subcategory == "delete":
                     $ action = Return(["deloutfit", item])
                 elif current_subcategory == "load":
@@ -546,15 +547,18 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     $ action = Return(["export", item])
                 elif current_subcategory == "schedule":
                     $ action = Return(["schedule", item])
+                    $ alternate = Return(["schedule", item])
 
                 button:
                     xysize icon_size
                     background Transform(icon, xsize=72, ysize=144, fit="contain", anchor=(0.5, 1.0), align=(0.5, 1.0), yoffset=-6)
                     tooltip ("\n".join(warnings))
                     action action
+                    alternate alternate
                     if is_inadequate:
                         foreground "#b2000040"
                         hover_foreground "#CD5C5C40"
+                        selected_foreground "#CD5C5C40"
 
                     add icon_frame
 
@@ -564,7 +568,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
                         if is_modded:
                             text "M" color "#00b200"
 
-                    if current_subcategory == "schedule" and getattr(renpy.store, active_girl+"_outfits_schedule"):
+                    if not current_subcategory in {"import", "export"} and getattr(renpy.store, active_girl+"_outfits_schedule"):
                         vbox:
                             pos (6, 6)
                             spacing 1
@@ -576,26 +580,33 @@ screen wardrobe_outfit_menuitem(xx, yy):
                         add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
 
 screen wardrobe_schedule_menuitem(item):
-    zorder 16
+    tag dropdown
+    zorder 17
+    modal True
 
-    add "#00000080"
+    default mpos = renpy.get_mouse_pos()
 
-    use invisible_button
+    use invisible_button(action=Return(), alternate=Show("wardrobe_schedule_menuitem", item=item))
 
-    vbox:
-        align (0.5, 0.5)
-        style_prefix "wardrobe_button"
+    window:
+        style "empty"
+        pos mpos
+        use invisible_button(action=NullAction(), alternate=Return())
 
-        text "Placeholder" color "#fff"
-        for i in wardrobe_outfit_schedule:
-            $ caption = "Worn during the {}".format(i) if i in ("day", "night") else "Worn during {} weather".format(i)
-            textbutton caption:
-                foreground Transform(gray_tint("interface/wardrobe/icons/outfits/{}.webp".format(i)), size=(24, 24))
-                selected_foreground Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(24, 24))
-                text_first_indent 24
-                action ToggleDict(item.schedule, i, True, False)
+        frame:
+            style "empty"
+            background "#00000080"
+            padding (5, 5, 5, 5)
 
-        textbutton "Done" action Return()
+            vbox:
+                spacing 0
+                for i in wardrobe_outfit_schedule:
+                    $ boolean = "" if item.schedule[i] else "Not "
+                    $ caption = "{}worn during the {}".format(boolean, i) if i in ("day", "night") else "{}worn in {} weather".format(boolean, i)
+                    textbutton i:
+                        style gui.theme("dropdown")
+                        tooltip caption
+                        action ToggleDict(item.schedule, i, True, False)
 
 style wardrobe_window is empty
 

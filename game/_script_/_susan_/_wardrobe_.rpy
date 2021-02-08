@@ -80,5 +80,5 @@ default sus_panties_lace1 = DollCloth("susan", ("lower undergarment", "panties")
 
 default sus_neckwear_choker = DollCloth("susan", ("head", "neckwear"), "neckwear", "choker", [[0, 0, 0, 0]], unlocked=True)
 
-default sus_outfit_default = DollOutfit([sus_hair_base, sus_top_school1, sus_bottom_school1, sus_bra_base1, sus_panties_base1, sus_stockings_base1], True)
-default sus_outfit_last = DollOutfit([sus_hair_base])
+default sus_outfit_default = DollOutfit([sus_hair_base, sus_top_school1, sus_bottom_school1, sus_bra_base1, sus_panties_base1, sus_stockings_base1], unlocked=True)
+default sus_outfit_last = DollOutfit([sus_hair_base], hidden=True)

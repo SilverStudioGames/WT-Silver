@@ -11,12 +11,10 @@ label start_dev:
     $ game.cheats = True
     $ use_cgs = True
 
-    call screen loading
-
     jump skip_to_hermione
 
 label game_init:
-    $ save_internal_version = config.version
+    $ version = version_float()
     $ wardrobe_init()
     $ achievement_fix()
     $ parse_mods()

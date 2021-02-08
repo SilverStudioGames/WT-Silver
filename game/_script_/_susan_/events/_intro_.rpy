@@ -2,7 +2,7 @@
 ### Susan Intro ###
 
 label nt_he_susan_E1:
-    call ton_main(".................", "annoyed", "base", "shocked", "down", ypos="head")
+    call ton_main(".................", "annoyed", "base", "shocked", "down", ypos="head", flip=False)
     m "Something on your mind?"
     call ton_main("Yes, there's this student in my class. She seems to be having a bad time.", "open", "narrow", "worried", "mid")
     m "Education isn't meant to be enjoyable."

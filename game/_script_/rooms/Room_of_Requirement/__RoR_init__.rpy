@@ -77,6 +77,15 @@ default mr_ev_AXmasTale = MirrorStory(
     ach_desc = "",
     content_characters = []
 )
+default mr_ev_AXmasTale2 = MirrorStory(
+    name = "Santa's Little Helper",
+    story_description = "Tall broody guy is about to get his present.",
+    start_label = "a_christmas_tale2",
+    authors = ["TeamSilver"],
+    categories= [],
+    ach_desc = "",
+    content_characters = []
+)
 # Story Unlock requirements: Finish the first 3 Wizard Cards challenges.
 default mr_ev_PaH = MirrorStory(
     name = "Previously at Hogwarts",
@@ -119,8 +128,10 @@ default mr_ev_SNR = MirrorStory(
 )
 
 default mr_evs_list = [
+    mr_ev_SNR,
     mr_ev_PaH,
     mr_ev_AXmasTale,
+    mr_ev_AXmasTale2,
     mr_ev_WPIIA,
     mr_ev_GHE,
     mr_ev_ABTTD,
@@ -129,8 +140,7 @@ default mr_evs_list = [
     mr_ev_PR,
     mr_ev_AOC,
     mr_ev_EFP,
-    mr_ev_SNR
-    ]
+]
 
 default current_page = 0
 

@@ -5,7 +5,7 @@
 label hg_pf_grope_ass_T5: # Not in the game yet.
     call her_chibi_scene("behind_desk_front", trans=d7)
 
-    call her_main("Do you want me to turn around then, [genie_name]?", "soft", "narrow", "base", "mid_soft", cheeks="blush", ypos="head")
+    call her_main("Do you want me to turn around then, [genie_name]?", "soft", "narrow", "base", "mid_soft", cheeks="blush", ypos="head", flip=False)
 
     call play_music("playful_tension") # SEX THEME.
 
@@ -16,7 +16,7 @@ label hg_pf_grope_ass_T5: # Not in the game yet.
             jump hg_pf_grope_ass_T4_back
 
         "\"No. Just stand still, [hermione_name].\"":
-            call her_main("As you say, [genie_name]...", "soft", "base", "base", "mid", cheeks="blush", ypos="head")
+            call her_main("As you say, [genie_name]...", "soft", "base", "base", "mid", cheeks="blush", ypos="head", flip=False)
             jump hg_pf_grope_ass_T4_front
 
 
@@ -204,7 +204,7 @@ label hg_pf_grope_ass_T5_back:
     call her_chibi_scene("grope_ass_back")
     with d7
 
-    call her_main("wait I juuuus--!!!", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("wait I juuuus--!!!", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
     call nar(">Her voice trails off to a squeak as you start to knead her big, round ass")
     m "*Hmm*? what's that? i couldn't hear you, [hermione_name]."
     call her_main("You bastard{heart}", "grin", "narrow", "base", "up", cheeks="blush")
@@ -243,7 +243,7 @@ label hg_pf_grope_T5_continue:
     menu:
         "-Prod her pussy with one of your fingers-":
             ">You slide one of your fingers down and place it against the girl's little slit..."
-            call her_main("[genie_name]?", "base", "narrow", "base", "up", cheeks="blush", ypos="head")
+            call her_main("[genie_name]?", "base", "narrow", "base", "up", cheeks="blush", ypos="head", flip=False)
 
             ">You force one of your fingers into her little pussy..."
             ">It's very tight and warm..."
@@ -294,7 +294,7 @@ label hg_pf_grope_T5_continue:
 
         "-Prod her butthole instead-":
             ">You place your one of your thumbs against the girl's little butthole..."
-            call her_main("[genie_name]? you're not planning to--", "open", "base", "base", "R", cheeks="blush", ypos="head")
+            call her_main("[genie_name]? you're not planning to--", "open", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
 
             ">You force one of your thumbs into her little butthole..."
             with hpunch

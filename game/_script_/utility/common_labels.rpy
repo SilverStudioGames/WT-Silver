@@ -153,6 +153,8 @@ label play_sound(sound=""):
     # Magic
     elif sound == "spell":
         $ renpy.play('sounds/magic2.mp3')
+    elif sound == "morph":
+        $ renpy.sound.play("sounds/magic3.mp3")
     elif sound == "magic":
         $ renpy.play('sounds/magic4.ogg')
 
@@ -250,6 +252,8 @@ label play_music(music="", fadein=1.0, fadeout=1.0):
         play music "music/Despair_by_erenik.mp3" fadein fadein fadeout fadeout if_changed
     elif music == "agenda":
         play music "music/hidden-agenda-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
+    elif music == "intro":
+        play music "music/the-chamber-by-kevin-macleod.mp3" fadein fadein fadeout fadeout if_changed
 
     # Fallback
     else:

@@ -667,7 +667,7 @@ label cc_pf_strip_T2_intro_E2:
     with d3
     pause .2
 
-    call cho_main("Yes?", "soft", "base", "raised", "mid", xpos="base", ypos="head")
+    call cho_main("Yes?", "soft", "base", "raised", "mid", ypos="head", flip=False)
     m "Aren't you forgetting about something?"
     call cho_main("Sir?", "soft", "narrow", "base", "mid")
     m "You're still naked...{w} I wouldn't go out there if I were you..."
@@ -942,7 +942,7 @@ label cc_pf_strip_T2_intro_E3:
     call cho_walk(570, "base")
     pause 2.0
 
-    call cho_main("Call her already!", "annoyed", "narrow", "angry", "R", xpos="far_left", ypos="head", flip=True)
+    call cho_main("Call her already!", "annoyed", "narrow", "angry", "R", ypos="head", flip=True)
     m "I'm on it..."
 
     hide screen bld1
@@ -958,7 +958,7 @@ label cc_pf_strip_T2_intro_E3:
     with d3
     pause .5
 
-    call her_main("You wanted to see me, Sir?", "soft", "closed", "base", "mid", xpos="base", ypos="head", trans=d3)
+    call her_main("You wanted to see me, Sir?", "soft", "closed", "base", "mid", ypos="head", flip=False, trans=d3)
     call her_main("Cho?", "soft", "wide", "worried", "shocked")
     call cho_main("Hey there, Granger!", "horny", "narrow", "angry", "mid") # Grinning
     call her_main("What? Why are you--", "disgust", "wide", "worried", "shocked")
@@ -1175,7 +1175,7 @@ label cc_pf_strip_T2_hermione:
                 with d3
             pause .6
 
-            call cho_main("What are you doing?", "soft", "narrow", "base", "L", xpos="base", ypos="head", flip=False)
+            call cho_main("What are you doing?", "soft", "narrow", "base", "L", ypos="head", flip=False)
 
             # Hermione picks them up and runs off.
             call bld("hide")
@@ -1194,8 +1194,8 @@ label cc_pf_strip_T2_hermione:
             call cho_chibi(flip=True)
             with d3
 
-            call her_main("Hey seeker, looks like someone will have to seek their way to their dorm without any clothes tonight.", "open", "base", "angry", "mid", xpos="base", ypos="head")
-            call cho_main("Hey!", "clench", "narrow", "angry", "L", xpos="far_left", ypos="head", flip=True)
+            call her_main("Hey seeker, looks like someone will have to seek their way to their dorm without any clothes tonight.", "open", "base", "angry", "mid", ypos="head", flip=False)
+            call cho_main("Hey!", "clench", "narrow", "angry", "L", ypos="head", flip=True)
 
             # Hermione leaves out of the door.
             hide screen bld1
@@ -1218,7 +1218,7 @@ label cc_pf_strip_T2_hermione:
                 with d3
                 pause .2
 
-                call cho_main("{size=+4}Give them back, you bitch!{/size}", "scream", "narrow", "angry", "L", xpos="far_left", ypos="head", flip=True, trans=hpunch)
+                call cho_main("{size=+4}Give them back, you bitch!{/size}", "scream", "narrow", "angry", "L", ypos="head", flip=True, trans=hpunch)
 
                 call play_sound("running")
                 call cho_walk(action="leave", speed=2)
@@ -1229,7 +1229,7 @@ label cc_pf_strip_T2_hermione:
                 with d3
                 pause .2
 
-                call cho_main("{size=+4}Give them back, you bitch!{/size}", "scream", "narrow", "angry", "L", xpos="far_left", ypos="head", flip=True, trans=hpunch)
+                call cho_main("{size=+4}Give them back, you bitch!{/size}", "scream", "narrow", "angry", "L", ypos="head", flip=True, trans=hpunch)
 
                 call play_sound("running")
                 call cho_walk(action="leave", speed=2)
@@ -2190,10 +2190,10 @@ label cc_pf_strip_T3_intro_E2:
     with hpunch
     g4 "{b}Balls!{/b}"
     call sna_main("...", "snape_47", ypos="head") #smirk
-    call ton_main("What? No I was talking about her--", "soft", "narrow", "base", "mid", ypos="head")
+    call ton_main("What? No I was talking about her--", "soft", "narrow", "base", "mid", ypos="head", flip=False)
     call play_sound("scratch")
     with hpunch
-    call cho_main("Professor Snape?!", "open", "wide", "raised", "L", xpos="far_left", ypos="head") # shock
+    call cho_main("Professor Snape?!", "open", "wide", "raised", "L", ypos="head", flip=True) # shock
     call sna_main("Oh-- now what do we have here?...", "snape_13", ypos="head")
     call bld("hide")
     pause .2
@@ -2406,7 +2406,7 @@ label cc_pf_strip_T3_intro_E2:
 
     call sna_main("Until then, Albus... Miss Chang...", "snape_20", xpos="base", ypos="head")
     call sna_main("{cps=7}Nymphadora...{/cps}", "snape_41", xpos="base", ypos="head")
-    call ton_main("Stop calling me--", "clench", "closed", "angry", "mid", hair="angry", xpos="far_left", ypos="head")
+    call ton_main("Stop calling me--", "clench", "closed", "angry", "mid", hair="angry", ypos="head", flip=True)
 
     # Snape leaves.
     call sna_chibi("stand", "door", "base", flip=True)
@@ -2475,11 +2475,11 @@ label cc_pf_strip_T3_intro_E2:
     with d5
     pause .5
 
-    call ton_main("Thank you for your time, Professor.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
+    call ton_main("Thank you for your time, Professor.", "base", "base", "base", "mid", ypos="head", flip=False)
     if game.daytime:
-        call cho_main("Good day, Sir.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
+        call cho_main("Good day, Sir.", "base", "base", "base", "mid", ypos="head", flip=False)
     else:
-        call cho_main("Good night, Sir.", "base", "base", "base", "mid", xpos="far_right", ypos="head")
+        call cho_main("Good night, Sir.", "base", "base", "base", "mid", ypos="head", flip=False)
     g9 "Until next time."
     call bld("hide")
     pause .1
@@ -2559,7 +2559,7 @@ label cc_pf_strip_T3_intro_E3:
 
     call bld
     m "..."
-    call cho_main("...", "quiver", "narrow", "base", "L", xpos="far_left", ypos="head", flip=True)
+    call cho_main("...", "quiver", "narrow", "base", "L", ypos="head", flip=True)
 
 
     # Fireplace turns on.
@@ -3204,17 +3204,17 @@ label cc_pf_strip_T3_intro_E3:
 
     call bld
     g9 "And Tonks, next time we do this, wear the clothes I usually ask you to wear around my office."
-    call ton_main("With pleasure.", "base", "narrow", "base", "mid", hair="horny", flip=False, xpos="far_right", ypos="head")
+    call ton_main("With pleasure.", "base", "narrow", "base", "mid", hair="horny", ypos="head", flip=False)
 
     if game.daytime:
-        call ton_main("I'll escort you back to classes, Miss Chang.", "open", "narrow", "base", "L", hair="horny", xpos="far_right", ypos="head")
-        call ton_main("Have a good day, Professor.", "base", "narrow", "base", "mid", hair="horny", xpos="far_right", ypos="head")
+        call ton_main("I'll escort you back to classes, Miss Chang.", "open", "narrow", "base", "L", hair="horny")
+        call ton_main("Have a good day, Professor.", "base", "narrow", "base", "mid", hair="horny")
     else:
-        call ton_main("I'll escort you back to your dormitories, Miss Chang.", "open", "narrow", "base", "L", hair="horny", xpos="far_right", ypos="head")
-        call ton_main("Have a good night, Professor.", "base", "narrow", "base", "mid", hair="horny", xpos="far_right", ypos="head")
+        call ton_main("I'll escort you back to your dormitories, Miss Chang.", "open", "narrow", "base", "L", hair="horny")
+        call ton_main("Have a good night, Professor.", "base", "narrow", "base", "mid", hair="horny")
 
     g9 "Until next time."
-    call cho_main("...", "upset", "happyCl", "worried", "mid", cheeks="heavy_blush", flip=False, xpos="far_right", ypos="head")
+    call cho_main("...", "upset", "happyCl", "worried", "mid", cheeks="heavy_blush", ypos="head", flip=False)
     call bld("hide")
     pause .1
 

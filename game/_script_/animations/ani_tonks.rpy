@@ -169,3 +169,39 @@ image ch_ton sit_top:
 image ch_ton sit_choker:
     zoom 0.5
     "characters/tonks/chibis/drinking/nt_choker.webp"
+
+image ch_ton bj_desk:
+    zoom 0.5
+    "characters/tonks/chibis/bj_desk/01.webp"
+    pause .3
+    "characters/tonks/chibis/bj_desk/02.webp"
+    pause .3
+    repeat
+
+image ch_ton bj_desk_shocked:
+    zoom 0.5
+    "characters/tonks/chibis/bj_desk/shocked_01.webp"
+    pause .3
+    "characters/tonks/chibis/bj_desk/shocked_02.webp"
+    pause .3
+    repeat
+
+image ch_ton elf:
+    zoom 0.5
+    anchor (0.5, 1.0)
+
+    "characters/tonks/chibis/elf/default.webp"
+    pause 2
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause 5
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause.08
+    "characters/tonks/chibis/elf/blink.webp"
+    pause.08
+    "characters/tonks/chibis/elf/default.webp"
+    pause 3
+    repeat

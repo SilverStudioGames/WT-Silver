@@ -118,7 +118,7 @@ label end_hg_pr_flash:
         show screen blktone
         with d3
 
-        call her_main("(Stupid Slytherin...)", "angry", "narrow", "angry", "mid", flip=True, trans=d3)
+        call her_main("(Stupid Slytherin...)", "angry", "narrow", "angry", "mid", ypos="head", flip=False, trans=d3)
         call her_main("(I {b}HATE{/b} them!)", "angry", "closed", "worried", "mid")
 
         hide screen blktone
@@ -130,7 +130,7 @@ label end_hg_pr_flash:
         show screen blktone
         with d3
 
-        call her_main("(I can't believe I did that today...)", "upset", "closed", "base", "mid", flip=True, trans=d3)
+        call her_main("(I can't believe I did that today...)", "upset", "closed", "base", "mid", ypos="head", flip=False, trans=d3)
         call her_main("(What if Harry or Ron saw me like that?)", "angry", "wide", "base", "stare")
         call her_main("(Standing there...)")
         call her_main("(Pressing my breasts against that window glass...)")

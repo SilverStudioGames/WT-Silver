@@ -3,6 +3,7 @@ label cupboard:
     if game.day == 1:
         if not cupboard_examined:
             $ cupboard_examined = True
+            $ cupboard_OBJ.idle = "cupboard_idle"
             call gen_chibi("stand","behind_desk","base", flip=False)
             with d5
             pause.2
@@ -11,12 +12,17 @@ label cupboard:
             m "*Hmm*..."
             m "A cupboard..."
             m "Maybe I should rummage through this one later..."
+            call gen_chibi("sit_behind_desk")
         else:
             m "Looks like any other cupboard, maybe a bit dustier."
-        jump main_room_menu
+
+        if bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
+            jump genie_intro_E2
+        else:
+            jump main_room_menu
 
     if cupboard_searched:
-        ">You already searched the cupboard today."
+        ">You have already searched the cupboard today."
         jump main_room_menu
 
     $ cupboard_searched = True # Resets every day/night.

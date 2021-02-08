@@ -115,6 +115,20 @@ label day_start:
 
     call room(current_room, stop_sound=False, hide_screens=True)
 
+    # Equip scheduled outfits
+    if luna_outfits_schedule:
+        $ luna.equip_random_outfit()
+    if astoria_outfits_schedule:
+        $ astoria.equip_random_outfit()
+    if hermione_outfits_schedule:
+        $ hermione.equip_random_outfit()
+    if susan_outfits_schedule:
+        $ susan.equip_random_outfit()
+    if cho_outfits_schedule:
+        $ cho.equip_random_outfit()
+    if tonks_outfits_schedule:
+        $ tonks.equip_random_outfit()
+
     hide screen blkfade
     with dissolve
 
@@ -142,6 +156,15 @@ label night_start:
     $ chitchated_with_cho = False
     $ chitchated_with_astoria = False
     $ chitchated_with_susan = False
+
+    # Reset busy flags (Based on current tick)
+    $ snape_busy = bool(ss_summon_pause)
+    $ tonks_busy = bool(nt_summon_pause)
+    $ hermione_busy = bool(hg_summon_pause)
+    $ luna_busy = bool(ll_summon_pause)
+    $ cho_busy = bool(cc_summon_pause)
+    $ astoria_busy = bool(ag_summon_pause)
+    $ susan_busy = bool(sb_summon_pause)
 
     # Game flags
     $ game.weather = "random"
@@ -174,6 +197,20 @@ label night_start:
     call update_interface_color
 
     call room(current_room, stop_sound=False, hide_screens=True)
+
+    # Equip scheduled outfits
+    if luna_outfits_schedule:
+        $ luna.equip_random_outfit()
+    if astoria_outfits_schedule:
+        $ astoria.equip_random_outfit()
+    if hermione_outfits_schedule:
+        $ hermione.equip_random_outfit()
+    if susan_outfits_schedule:
+        $ susan.equip_random_outfit()
+    if cho_outfits_schedule:
+        $ cho.equip_random_outfit()
+    if tonks_outfits_schedule:
+        $ tonks.equip_random_outfit()
 
     hide screen blkfade
     with dissolve

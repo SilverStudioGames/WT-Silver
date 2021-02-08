@@ -556,7 +556,7 @@ label tonks_intro_E3:
     call gen_chibi("hide")
     show screen dumbledore
     call cast_spell("revelio")
-    call ton_main("Revelio!", "open_wide", "shocked", "annoyed", "mid", hair="angry", ypos="head")
+    call ton_main("Revelio!", "open_wide", "shocked", "annoyed", "mid", hair="angry", ypos="head", flip=False)
     call bld("hide")
     pause.6
 

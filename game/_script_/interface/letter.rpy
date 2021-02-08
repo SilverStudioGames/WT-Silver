@@ -7,13 +7,21 @@ default letter_hg_1 = Letter(
 )
 
 default letter_hg_2 = Letter(
-    text = "{size=-7}From: Hermione Granger\nTo: Professor Dumbledore\n\n{/size}{size=-4}I am sorry to disturb you again, professor. I just want to make sure that you take this problem seriously.\n\nLast night another classmate confided in me... I gave my word to keep it a secret, so I cannot go into any details.\n\nAll I can say is that one of the Professors was involved.\n\nPlease take action soon.{/size}\n\n{size=-7}With deepest respect,\nHermione Granger.{/size}"
+    text = "{size=-7}From: Hermione Granger\nTo: Professor Dumbledore\n\n{/size}{size=-4}I am sorry to disturb you again, professor. I just want to make sure that you take this problem seriously.\n\nLast night another classmate confided in me... I gave my word to keep it a secret, so I cannot go into any details.\n\nAll I can say is that one of the Professors was involved.\n\nPlease take action soon.{/size}\n\n{size=-7}With deepest respect,\nHermione Granger.{/size}",
+    label = "letter_hg_2",
+    wait = 2,
 )
+
+label letter_hg_2:
+    m "This again?"
+    m "..........."
+    return
 
 # Ministry of Magic Letters
 default letter_work_unlock = Letter(
     text = "{size=-7}From: Ministry of Magic\nTo: Professor Albus Dumbledore\n\n{/size}{size=-4}Dear professor Dumbledore,\nWe remind you that only upon providing us with a completed report will we be able to make a payment in your name.{/size}\n\n{size=-7}With deepest respect,\nThe Ministry of Magic.{/size}",
-    label = "letter_work_unlock"
+    label = "letter_work_unlock",
+    wait = 4,
 )
 
 label letter_work_unlock:
@@ -50,7 +58,8 @@ label letter_work_report:
 
 default letter_favors = Letter(
     text = "{size=-7}From:Ministry of Magic\nTo: Professor Dumbledore\n\n{/size}{size=-4}Dear professor Dumbledore,\nit has come to the ministry's attention from an anonymous letter, that there has been illicit activities going on between staff members and students within your halls.\n\nAn Auror has been dispatched and will arrive shortly to begin the investigation.{/size}\n\n{size=-7}Yours sincerely,\nAmelia Bones, Department of Magical Law Enforcement.{/size}",
-    label = "letter_favors"
+    label = "letter_favors",
+    wait = 7,
 )
 
 label letter_favors:
@@ -63,7 +72,8 @@ label letter_favors:
 # Card Game Letters
 default letter_cards_unlock = Letter(
     text = "{size=-3}Sir Albus Dumbledore{/size}\n\n{size=-7}We would like to present to you great opportunity to become a Wizard Cards champion. We've included a starter pack to our card game in the hopes that you will consider any of our resellers to stock our cards for your students to purchase and play.\n\nHere's a little bit of information about our cards:\nEvery Wizard card has an enchantment that will personalise its look just for you and show something of your own favourite interest.\n\nDo you like Quidditch? Every card will look like a famous Quidditch player or a sport related print.\nInterested in magical creatures? The cards will have magical creatures on them.\nFind out your unique illustrations today with a starter pack, we don't even know what it is!{/size}\n\n{space=110}{size=-5}Wizard cards inc{/size}",
-    label = "letter_cards_unlock"
+    label = "letter_cards_unlock",
+    wait = 24
 )
 
 label letter_cards_unlock:
@@ -159,7 +169,7 @@ init python:
         def send(self):
             self.mailed = True
 
-            if self not in self.queue:
+            if not self in self.queue:
                 self.queue.append(self)
 
         def open(self, silent=False):
@@ -182,7 +192,6 @@ label letter(text, label):
     with d3
 
     $ menu_x, menu_y = 0.5, 0.9
-    $ renpy.checkpoint()
 
     menu:
         "-Done reading-":

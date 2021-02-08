@@ -245,7 +245,7 @@ label hg_pf_admire_panties_T3_intro_E1:
     with d3
     pause.8
 
-    call her_main("..........................", "base", "base", "base", "R", cheeks="blush", ypos="head")
+    call her_main("..........................", "base", "base", "base", "R", cheeks="blush", ypos="head", flip=False)
     g4 "!!?"
 
     show screen blktone

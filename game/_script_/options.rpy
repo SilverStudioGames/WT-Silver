@@ -24,19 +24,16 @@ init python:
 
 # Pre-Release related flags and variables
 define is_release = False
-define version_stage = "" if is_release else "development"
-define bits = "{}-bit".format(renpy.bits)
 define config.autoreload = False
 define config.developer = "auto"
 
 # Game version and naming
-define config.version = "1.40"
+define config.version = "1.40.0 Alpha"
 define compatible_version = 1.40
-define title_version = config.version if len(config.version) < 5 else (config.version[:4] + "." + config.version[4:6])
-define config.name = "WT Silver" if is_release else "WT Silver {}".format(version_stage)
+define config.name = "WT Silver"
 
 # Application window settings
-define config.window_title = "Witch Trainer: Silver (v{} {}) ({})".format(title_version, version_stage, bits)
+define config.window_title = "Witch Trainer: Silver (v{}) ({}-bit)".format(config.version, renpy.bits)
 define config.window_icon = "gui/icon.webp"
 define config.screen_width = 1080
 define config.screen_height = 600
@@ -119,12 +116,11 @@ define config.say_attribute_transition = d3
 ################################################
 
 init python:
-    build.directory_name = "WT_Silver_{}".format(title_version)
+    build.directory_name = "WT Silver {}".format(config.version)
     build.executable_name = "WT Silver"
     build.include_update = False # If True, include update information into packages (allows the updater to run)
     build.exclude_empty_directories = False
 
-    build.classify("game/mods/DISABLEMODS.txt", "all")
     build.classify("game/images.whitespace", "all")
     build.classify('**~', None)
     build.classify("**.exe", None)
