@@ -304,7 +304,6 @@ label her_reaction_equip_outfit(item):
             call her_main("(Maybe this is a test of some sort...)", "clench", "squint", "base", "stare")
             call her_main("Okay then, let me change it real quick", "clench", "squint", "base", "R")
         else: #22+
-            $ random_number = renpy.random.randint(1, 10)
 
             call her_main("That old thing?", "clench", "base", "base", "mid")
             call her_main("Is this some silly joke, [genie_name]?", "annoyed", "narrow", "base", "mid")
@@ -315,26 +314,11 @@ label her_reaction_equip_outfit(item):
             m "(...)"
             call her_main("It's an insult to my breast, [genie_name]!!!", "open", "squint", "annoyed", "mid")
             g4 "*Gasps* {w=0.9}I would never... [hermione_name]!"
-            if random_number == 1:
-                g4 "Your tits are marvellous!"
-            elif random_number == 2:
-                g4 "Your tits are magnificent!"
-            elif random_number == 3:
-                g4 "Your tits are breath-taking!"
-            elif random_number == 4:
-                g4 "Your tits are wonderful!"
-            elif random_number == 5:
-                g4 "Your tits are spectacular!"
-            elif random_number == 6:
-                g4 "Your tits are sensational!"
-            elif random_number == 7:
-                g4 "Your tits are glorious!"
-            elif random_number == 8:
-                g4 "Your tits are beautiful!"
-            elif random_number == 9:
-                g4 "Your tits are lovely!"
-            elif random_number == 10:
-                g4 "Your tits are bananas!"
+
+            $ temp_word = renpy.random.choice(["marvellous", "magnificient", "breath-taking", "wonderful", "spectacular", "sensational", "glorious", "beautiful", "lovely", "bananas"])
+
+            g4 "Your tits are [temp_word]!"
+
             call her_main("And yet you want me to wear those... rags!", "annoyed", "base", "annoyed", "mid")
             m "You going to wear it or not?"
             call her_main("Ugh--Fine, let me change it real quick.", "upset", "closed", "annoyed", "mid")
