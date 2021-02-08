@@ -6,27 +6,21 @@ default upgrades_show_locked = False
 default upgrades_show_complete = True
 default item_bought = False # TEMP var - Used as a return value out of context.
 
-default her_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1])
+default her_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
 
 ###
 
-default her2_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her2_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her2_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1])
+default her2_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her2_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her2_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
 
 ###
 
-default her3_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her3_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1])
-
-default her3_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1])
+default her3_upgrade_school2 = DollOutfit([her_hair_base, her_top_school2, her_bottom_school2, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her3_upgrade_school3 = DollOutfit([her_hair_base, her_top_school3, her_bottom_school3, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
+default her3_upgrade_school4 = DollOutfit([her_hair_base, her_top_school4, her_bottom_school4, her_panties_base1, her_bra_base1, her_stockings_base1], hidden=True)
 
 label upgrades:
     python:

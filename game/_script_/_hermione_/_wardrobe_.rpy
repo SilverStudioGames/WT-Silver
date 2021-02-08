@@ -351,8 +351,6 @@ default her_stockings_pantyhose_1= DollCloth("hermione", ("legwear", "pantyhose"
 default her_stockings_pantyhose_2= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_2", [[177, 144, 131, 255]], unlocked=True, level=10)
 default her_stockings_pantyhose_3= DollCloth("hermione", ("legwear", "pantyhose"), "stockings", "pantyhose_3", [[177, 144, 131, 255]], unlocked=True, level=19)
 
-default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_bottom_winter_1, her_stockings_pantyhose_1], hidden=True)
-
 ###################
 ## Spring Outfit ##
 ###################
@@ -360,16 +358,12 @@ default her_outfit_winter = DollOutfit([her_hair_base, her_top_pullover_1, her_b
 default her_top_ruffled = DollCloth("hermione", ("upper body", "shirts"), "top", "ruffled_top", [[235, 223, 163, 255]], unlocked=True, level=4)
 default her_bottom_jeans = DollCloth("hermione", ("lower body", "trousers"), "bottom", "jeans_1", [[64, 87, 88, 255], [174, 93, 11, 255], [155, 142, 130, 255]], unlocked=True)
 
-default her_outfit_spring = DollOutfit([her_hair_base, her_top_ruffled, her_bottom_jeans])
-
 ###################
 ## Casual Outfit ## TODO: Turn into clothing event once it's been finished.
 ###################
 
 default her_top_casual1 = DollCloth("hermione", ("upper body", "sweaters"), "top", "casual_top_1", [[116, 18, 48, 255], [60, 111, 66, 255]], unlocked=True)
 default her_top_casual2 = DollCloth("hermione", ("upper body", "sweaters"), "top", "casual_top_2", [[116, 18, 48, 255]], unlocked=True, level=6)
-
-default her_outfit_casual = DollOutfit([her_hair_base, her_top_casual1])
 
 ########################
 ## Cheerleader Outfit ##
