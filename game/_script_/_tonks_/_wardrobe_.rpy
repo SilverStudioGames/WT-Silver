@@ -150,8 +150,8 @@ default ton_outfit_silky = DollOutfit([ton_hair_base_new, ton_top_silk_dress, to
 ## Skimpy Dress & Club Dress##
 ##############################
 
-default ton_top_skimpy_dress = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress", [[147, 1, 1, 255]], blacklist=["bottom"], armfix=True, level=40)
-default ton_top_skimpy_dress2 = DollCloth("tonks", ("tops", "dresses"), "top", "skimpy_dress_2", [[108, 0, 105, 255]], blacklist=["bottom"], armfix=True, level=20)
+default ton_top_skimpy_dress = DollCloth("tonks", ("upper body", "dresses"), "top", "skimpy_dress", [[147, 1, 1, 255]], blacklist=["bottom"], armfix=True, level=40)
+default ton_top_skimpy_dress2 = DollCloth("tonks", ("upper body", "dresses"), "top", "skimpy_dress_2", [[108, 0, 105, 255]], blacklist=["bottom"], armfix=True, level=20)
 
 default ton_outfit_skimpy_dress = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress, ton_stockings_long2], price=300)
 default ton_outfit_club_dress = DollOutfit([ton_hair_base_new, ton_top_skimpy_dress2, ton_stockings_long_meshed], price=300)
@@ -179,7 +179,7 @@ default ton_outfit_succubus = DollOutfit([ton_hair_base_new, ton_hat_succubus, t
 
 default ton_earring_pearls = DollCloth("tonks", ("head", "earrings"), "earrings", "pearls", [[223, 240, 255, 255]])
 default ton_neckwear_pearls = DollCloth("tonks", ("head", "neckwear"), "neckwear", "pearls_1", [[223, 240, 255, 255]], zorder=16)
-default ton_top_cavegirl = DollCloth("tonks", ("tops", "dresses"), "top", "cavegirl_dress", [[223, 240, 255, 255]], armfix=True)
+default ton_top_cavegirl = DollCloth("tonks", ("upper body", "dresses"), "top", "cavegirl_dress", [[223, 240, 255, 255]], armfix=True)
 
 default ton_outfit_cavegirl = DollOutfit([ton_hair_base_new, ton_top_cavegirl, ton_earring_pearls, ton_neckwear_pearls], price=200)
 

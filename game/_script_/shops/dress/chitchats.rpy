@@ -540,7 +540,7 @@ label purchase_outfit(item):
         maf "Okay then..."
         maf "One United states of America patterned bikini-bra coming up."
 
-    elif item == nt_cavegirl:
+    elif item == ton_outfit_cavegirl:
         m "I'm looking for something primal."
         maf "Primal, sir?"
         m "Yes... Ever watched the Flintstones?"
@@ -556,7 +556,7 @@ label purchase_outfit(item):
         maf "One... Flintstone outfit it is."
         g9 "Yabadababoob!"
 
-    elif item == nt_club_dress:
+    elif item == ton_outfit_club_dress:
         m "Have you ever been out clubbing Miss Mafkin?"
         maf "By merlin no... I wouldn't dare hurt an animal."
         m "Not that... Clubbing Is when you go to a club, listen to music whilst moving your arms around awkwardly."
@@ -570,7 +570,7 @@ label purchase_outfit(item):
         m "Wow, you really do know your craft!"
         maf "Certainly sir, I'll start working on it as soon as I can."
 
-    elif item == nt_skimpy_dress:
+    elif item == ton_outfit_skimpy_dress:
         m "Could you make me something skimpy?"
         maf "Skimpy, sir?"
         m "Yes, something with loose hanging fabric."
@@ -604,26 +604,32 @@ label purchase_outfit(item):
         m "Excellent."
         maf "I'll get it done as soon as I can."
 
-    maf "Anything else?"
-
     $ renpy.play("sounds/money.mp3")
     $ game.gold -= item.price
     $ store_cart.add(item)
     $ menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
     $ current_item = next(iter(menu_items), None)
 
+
+    if len(store_cart) >= 5:
+        maf "I'm sorry luv but that's as much as you can order for now."
+        jump purchase_outfit_parcel
+    else:
+        maf "Anything else?"
+
     return
 
 label purchase_outfit_parcel:
     if store_cart:
         $ transit_time = len(store_cart)+1
+        $ packaging_fee = 45 + ( (len(store_cart)-1) * 20 )
 
         menu:
             maf "If you pay extra, I could hire a bunch of elves to speed things up..."
-            "\"Fine. (45 gold)\"" if game.gold >= 45:
-                $ game.gold -= 45
+            "\"Fine. ([packaging_fee] gold)\"" if game.gold >= packaging_fee:
+                $ game.gold -= packaging_fee
                 $ transit_time = int(transit_time/2)
-            "\"Fine. (45 gold)\"" (style="disabled") if game.gold < 45:
+            "\"Fine. ([packaging_fee] gold)\"" (style="disabled") if game.gold < packaging_fee:
                 maf "Sorry luv, but it appears you have no gold left."
             "-No thanks-":
                 pass
