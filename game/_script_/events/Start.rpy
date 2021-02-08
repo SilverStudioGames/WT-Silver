@@ -77,9 +77,15 @@ label genie_intro_E0:
     call weather_sound
     with flashbulb
     dum3 "Oh my!"
-    dum2 "A storm at this hour? But my watch is never wrong."
-    dum1 "*Hmmm*... How curious."
-    dum2 "It begins to dawn, maybe I should--"
+    dum2 "A storm at this hour?"
+    dum2 "How peculiar... My watch usually tells me when--"
+    dum1 "Hold on..."
+    dum1 "I'm sensing--"
+    dum1 "Strange...{w=0.4} No...{w=0.4} Unfamiliar..."
+    dum3 "Magic."
+    dum1 "How curious."
+    dum2 "*Yawn*...{w=0.4} Well... It begins to dawn."
+    dum2 "Perhaps I should--"
 
     $ dumbledore_name = "Albus Dumbledore"
 
@@ -100,10 +106,9 @@ label genie_intro_E1:
     m "............................."
     m "I did it again, didn't I?"
     g4 "Teleported myself to who knows where..."
-    m "What's up with those magical ingredients?"
-    m "They seem to be way more potent than I thought."
-    m "Well, whatever this place is I have no business here..."
-    m "Better to undo the spell and return to my magic shop before princess Jasmine gets angry with me again..."
+    m "Those magical ingredients must have been way more potent than I thought..."
+    m "Well... Whatever this place is I have no business here."
+    m "Better to undo the spell and return to my magic shop before Princess Jasmine gets angry with me again..."
     m "....................."
     m "Although..."
     m "There is something odd about this place..."
@@ -160,8 +165,9 @@ label genie_intro_E4:
     call bld
     m ".............."
     m "Another boring day in the office."
-    g4 "All I can do here is sleeping or jerking off."
+    g4 "All I can do here is sleep or jerk off..."
     m "..........."
+    m "Yet still... This magic... There's something strange going on here."
     call bld("hide")
 
     $ genie_intro.E4_complete = True

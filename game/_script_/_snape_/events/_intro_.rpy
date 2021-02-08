@@ -291,12 +291,14 @@ label snape_intro_E3:
             anon "What? B-but..."
             call sna_main("","snape_06")
             anon "Well, perhaps you are right..."
-        "{size=-2}\"That owl is fetching my mail, man!\"{/size}":
-            anon "An owl? What about it?"
-            call sna_main("","snape_25")
-            anon "That's not what I mean..."
-            call sna_main("","snape_29")
-            anon "Well, never mind..."
+        "{size=-2}\"An owl is fetching my mail, man!\"{/size}":
+            anon "What about it?"
+            m "What do you mean, what about it?"
+            m "An owl...{w=0.4} Is fetching...{w=0.4} My mail..."
+            call sna_main("","snape_03")
+            anon "......"
+            call sna_main("","snape_04")
+            anon "Never mind the owl..."
         "{size=-2}\"No, not really. It's just business as usual.\"{/size}":
             anon "*Hmm*... Maybe I'm just being paranoid..."
 
@@ -555,9 +557,11 @@ label snape_intro_E4:
             call sna_main("Whoever you are, you are not from this plane of existence.","snape_01")
             call sna_main("Your very presence here upsets the natural order of things.","snape_01")
             call sna_main("And these days this school needs a proper headmaster more than ever.","snape_01")
-        "{size=-2}\"This is the worst resort I have ever visited.\"{/size}":
-            m "You don't even have a pool here."
-            m "Not to mention the attitude of the personnel..."
+        "{size=-2}\"I didn't like it here anyway....\"{/size}":
+            m "This is the worst resort I have ever visited..."
+            m "No air-conditioning, no complimentary chocolate..."
+            m "I doubt there's even a pool."
+            m "And the attitude of the personnel..."
             call sna_main("........","snape_05")
 
     call sna_main("Have a safe trip home now.","snape_01")
@@ -611,7 +615,7 @@ label snape_intro_E4:
 
     call sna_main("Why are you still here, creature?","snape_01")
     m "There's no need to be rude."
-    m "Anyway, I'm not sure... I tried to undo the spell but nothing happened..."
+    m "And I'm not sure... I tried to undo the spell but nothing happened..."
     call sna_main("Marvellous...","snape_35")
     call sna_main("What does this mean? You're staying here for good?","snape_01")
     m "Of course not..."
@@ -790,7 +794,7 @@ label snape_intro_E5:
 
     m "Intriguing..."
     call sna_chibi(flip=False)
-    call sna_main("*Hm*... Agreed","snape_37", trans=d3)
+    call sna_main("*Hmm*... I suppose that could be arranged...","snape_05", trans=d3)
     m "Oh, and I wouldn't mind if you sent me some of those Slytherin girls as well.."
     call sna_main("...............","snape_05")
     sna "........................."
