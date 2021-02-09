@@ -31,6 +31,8 @@ label setup_fireplace_hangout(char=None):
     elif char == "tonks":
         show screen with_tonks_animated
 
+    $ chair_OBJ.hidden = True
+
     hide screen bld1
     hide screen blkfade
     with fade

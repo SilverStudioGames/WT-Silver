@@ -65,12 +65,18 @@ label duel:
     $ duel_OBJ.in_progress = True
     with d1
 
+    jump duel_main
 
 label duel_main:
+    if blocking:
+        $ duel_OBJ.show("smoke",x=520, y=318,z=5)
+        $ duel_OBJ.genie = ""
+        $ blocking = False
+
     if genie_hp <= 300 and not d_flag_01:
         $ d_flag_01 = True
         call sna_main("Ready to give up yet?","snape_01", ypos="head", wand=True)
-        g4 "Tsk..."
+        g4 "*Tsk*..."
 
     if snape_hp <= 400 and not d_flag_02:
         $ d_flag_02 = True
@@ -139,7 +145,6 @@ screen duel_buttons():
 
 label main_tease:
     $ in_action = True
-    $ blocking = False #To stop the game treating Genie as being in a block stance.
 
     if not used_tease:
         $ used_tease = True
@@ -162,7 +167,7 @@ label main_tease:
 
 label main_attack:
     $ in_action = True
-    $ blocking = False #To stop the game treating Genie as being in a block stance.
+
     if snape_blocking:
         $ snape_blocking = False
         pause 1
@@ -174,7 +179,7 @@ label main_defend:
     $ in_action = True
     $ blocking = True
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318,z=5)
     $ duel_OBJ.genie = "defend"
     pause 1
     jump snapes_turn
@@ -191,7 +196,7 @@ label main_potion:
 ### SNAPE DEFENDS ### (Snape -0 HP)
 label snape_defends:
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318,z=5)
     $ duel_OBJ.show("snape_defend",x=720, y=250,z=4)
     $ duel_OBJ.snape = "block"
     pause 1
@@ -206,7 +211,7 @@ label snape_defends:
     $ duel_OBJ.genie = "barb"
     pause 1
 
-    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318, z=5)
     $ duel_OBJ.genie = ""
     pause 1
 
@@ -215,7 +220,7 @@ label snape_defends:
 ### GENIE ATTACK ### (Snape -100 HP)
 label genie_attack:
     $ renpy.play('sounds/magic4.ogg')
-    $ duel_OBJ.show("smoke",x=720,y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318, z=5)
     $ duel_OBJ.show("genie_attack",x=720,y=250,z=4)
     $ duel_OBJ.genie = "attack"
     pause 1
@@ -249,7 +254,7 @@ label genie_attack:
     if snape_hp <= 100: #Check for gameover
         jump snape_lost
 
-    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318,z=5)
     $ duel_OBJ.hide("genie_attack")
     $ duel_OBJ.genie = ""
     pause 1
@@ -268,7 +273,6 @@ label snapes_turn:
         $ renpy.play('sounds/attack_snape4.ogg')
 
         if blocking: # GENIE BLOCKS AGAINST THE HAND.(Genie -50 HP)
-            $ blocking = False
             $ duel_OBJ.hide("hand")
             $ duel_OBJ.genie = "hand"
             $ duel_OBJ.show("hand_guard",x=720, y=250,z=4)
@@ -280,16 +284,16 @@ label snapes_turn:
             if game.difficulty <= 1: #Easy
                 show screen duel_damage(0, False)
             elif game.difficulty == 2: #Normal
-                show screen duel_damage(50, False)
-                $ genie_hp -= 50
+                show screen duel_damage(100, False)
+                $ genie_hp -= 100
             else: #Hardcore #Shouldn't increase the penalty if you blocked correctly...
-                show screen duel_damage(50, False)
-                $ genie_hp -= 50
+                show screen duel_damage(100, False)
+                $ genie_hp -= 100
 
             if genie_hp < 50: #Check for gameover
                 jump genie_lost
 
-            $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+            $ duel_OBJ.show("smoke",x=520, y=318,z=5)
             $ duel_OBJ.genie = ""
             $ in_action = False
             jump duel_main
@@ -326,7 +330,6 @@ label snapes_turn:
         if snape_blocking:
             $ snape_blocking = False
             if blocking:
-                $ blocking = False
                 jump snape_attack_guard
             else:
                 jump snape_attack
@@ -495,7 +498,7 @@ screen duel_heal(value=300, player=True):
 ### SNAPE LOSES ###
 label snape_lost:
     $ pentogram = False
-    $ duel_OBJ.show("smoke",x=720, y=250,z=5)
+    $ duel_OBJ.show("smoke",x=520, y=318,z=5)
     $ duel_OBJ.hide("genie_attack")
     $ duel_OBJ.genie = ""
     $ duel_OBJ.snape = "lost"
@@ -510,38 +513,32 @@ label snape_lost:
 
 ### GENIE LOSES ###
 label genie_lost:
-    stop music
-    $ renpy.sound.play("sounds/level_failed.mp3")
+    $ renpy.music.stop(fadeout=4)
+    $ renpy.music.stop(channel="weather", fadeout=4)
+    $ renpy.play('sounds/level_failed.mp3')
 
+    call gameover(autohide=False)
     hide screen duel
     hide screen hp_bar
     hide screen duel_damage
-    $ cg_image = "images/dueling/snape/game_over.webp"
-    show screen cg
-    with flashbulb
-    with hpunch
-    call ctc
+
+    pause 3
+
     menu:
         "-Try again-":
-            stop music
             $ renpy.play('sounds/glass_break.mp3')
             play music "music/boss_battle_#2_metal_loop.mp3" fadein 1 fadeout 1
-            hide screen cg
-            if rum_times <= 1: # Give a healing potion for bad players
-                $ potions = 1
-            elif rum_times == 2:
-                $ potions = 2
-            elif rum_times == 3:
-                $ potions = 3
-
+            show screen snape_glass
+            pause 2.3
+            hide screen gameover
+            $ potions = 3 # Give healing potions to make the fight less frustrating
             $ duel_OBJ.genie = ""
             jump duel
 
         "-Give up-":
-            pass
-    $ MainMenu(confirm=False)
+            hide screen gameover
+            jump credits
 
 screen snape_glass():
-    # add Color("#000")
-    add "glass" at Position(xpos=0,ypos=0)
-    zorder 10
+    add "glass"
+    zorder 21

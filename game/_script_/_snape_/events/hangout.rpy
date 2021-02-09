@@ -71,6 +71,7 @@ label snape_hangout:
         call bld
         call notes
         ">You spend the evening hanging out with Professor Snape.\n>Your relationship with him has improved."
+        $ chair_OBJ.hidden = False
 
     label end_snape_hangout_points:
 

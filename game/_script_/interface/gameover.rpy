@@ -1,4 +1,4 @@
-label gameover(fake=False):
+label gameover(fake=False, autohide=True):
 
     # Fade to black
     $ renpy.pause(0.5, hard=True)
@@ -14,7 +14,10 @@ label gameover(fake=False):
     with hpunch
     $ renpy.pause(1.3, hard=True)
     $ renpy.play('sounds/killswitch_on.mp3')
-    $ renpy.pause(4.0, hard=True)
+
+    if autohide:
+        $ renpy.pause(4.0, hard=True)
+
     if fake:
         show screen blkfade
         with d9
@@ -33,7 +36,8 @@ label gameover(fake=False):
         hide screen credits
         with None
 
-    hide screen gameover
+    if autohide:
+        hide screen gameover
     return
 
 define fake_credits_text = "\n".join([

@@ -15,9 +15,6 @@ label quests:
 
     if game.day >= 1:
         if game.daytime:
-            if not genie_intro.E1_complete:
-                jump genie_intro_E1
-
             if not genie_intro.E2_complete and bird_examined and desk_examined and cupboard_examined and door_examined and fireplace_examined:
                 jump genie_intro_E2
         else:

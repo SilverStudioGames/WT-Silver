@@ -59,7 +59,7 @@ label letter_work_report:
 default letter_favors = Letter(
     text = "{size=-7}From:Ministry of Magic\nTo: Professor Dumbledore\n\n{/size}{size=-4}Dear professor Dumbledore,\nit has come to the ministry's attention from an anonymous letter, that there has been illicit activities going on between staff members and students within your halls.\n\nAn Auror has been dispatched and will arrive shortly to begin the investigation.{/size}\n\n{size=-7}Yours sincerely,\nAmelia Bones, Department of Magical Law Enforcement.{/size}",
     label = "letter_favors",
-    wait = 7,
+    wait = 8,
 )
 
 label letter_favors:

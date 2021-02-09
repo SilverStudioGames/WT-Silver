@@ -43,9 +43,9 @@ label start_wt:
     call screen loading
     $ enable_game_menu()
 
-    jump genie_intro_E0
+    jump genie_intro_E1
 
-label genie_intro_E0:
+label genie_intro_E1:
     $ game.weather = "clear"
     $ game.daytime = False
     $ game.day = 0
@@ -78,28 +78,31 @@ label genie_intro_E0:
     with flashbulb
     dum3 "Oh my!"
     dum2 "A storm at this hour?"
-    dum2 "How peculiar... My watch usually tells me when--"
-    dum1 "Hold on..."
-    dum1 "I'm sensing--"
+    dum2 "How peculiar... My pocket watch usually tells me when--"
+    dum1 "Hold on... I'm sensing something--"
     dum1 "Strange...{w=0.4} No...{w=0.4} Unfamiliar..."
     dum3 "Magic."
     dum1 "How curious."
     dum2 "*Yawn*...{w=0.4} Well... It begins to dawn."
+
+    # Swap to day seamlessly
+    call update_interface_color("gold")
+    $ game.daytime = True
+    $ game.day = 1
+    $ mailbox.tick()
+    with d9
+
     dum2 "Perhaps I should--"
 
     $ dumbledore_name = "Albus Dumbledore"
 
     $ renpy.play("sounds/magic4.ogg")
     $ desk_OBJ.idle = "ch_gen sit_behind_desk"
+    $ game.weather = "rain"
+    call weather_sound
     with flash
 
     pause 1.0
-
-    jump day_start
-
-label genie_intro_E1:
-    $ game.weather = "rain"
-    call weather_sound
 
     call bld
     g4 "Your majesty! Don't touch--"
@@ -190,6 +193,6 @@ label skip_to_hermione:
 label send_letters:
     $ letter_hg_2.send() # Arrives on day 2
     $ letter_work_unlock.send() # Arrives on day 4
-    $ letter_favors.send() # Arrives on day 7
+    $ letter_favors.send() # Arrives on day 8
     $ letter_cards_unlock.send() # Arrives on day 24
     return

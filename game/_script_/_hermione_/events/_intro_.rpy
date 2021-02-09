@@ -349,14 +349,20 @@ label ss_he_hermione_E1:
     call sna_main("Yeah... You're probably right...","snape_31")
     call sna_main("That bastard James Potter really did a number on me--","snape_35")
     call sna_main("Wait, how do you know this?","snape_34")
-    m "Well... I've read the books..."
-    call sna_main("What? What books?","snape_34")
-    m "Nah, never mind. I'm a genie, remember? I know things..."
-    call sna_main("*Hmm*... And yet you need me to teach you stuff...","snape_37")
-    m "Well, I told you. My magic is acting up in your world..."
-    call sna_main("Sure, sure...","snape_37")
-    m "......"
-    m "She came by the other day..."
+
+    menu:
+        "\"Well... I've read the books...\"":
+            call sna_main("What? What books?","snape_34")
+            m "Nah, never mind. I'm a genie, remember? I know things..."
+            call sna_main("*Hmm*... And yet you need me to teach you stuff...","snape_37")
+            m "Well, I told you. My magic is acting up in your world..."
+            call sna_main("Sure, sure...","snape_37")
+            m "......"
+        "\"You mentioned the potter boy earlier.\"":
+            call sna_main("I did? I don't remember.","snape_05")
+            call sna_main("No matter.","snape_09")
+
+    m "She came by the other day, by the way..."
     call sna_main("Who did?","snape_38")
     m "The Hermione girl..."
     call sna_main("What?!","snape_01")
@@ -368,21 +374,21 @@ label ss_he_hermione_E1:
 
     if jerked_off_during_hermione_intro:
         m "I'm not sure..."
-        call sna_main("??","snape_39")
+        call sna_main("...?","snape_39")
         m "I was jerking off the entire time she was talking..."
         call sna_main("You've been...","snape_31")
-        call sna_main("... doing what?","snape_31")
+        call sna_main("... doing what?","snape_14")
         m "Hey, don't judge me!"
         m "You don't know what it's like to be cooped up in this tower like a prisoner!"
-        call sna_main("You... y-you...","snape_31")
-        call sna_main("......","snape_40")
-        call sna_main("Ha.... ha-ha... HA-HA-HA!!!","snape_28")
+        call sna_main("You... y-you...","snape_12")
+        call sna_main("*snickers*......","snape_13")
+        call sna_main("*Ha*... *ha-ha*... *HA-HA-HA*!!!","snape_28")
         m "Wha--? What did I say?"
-        call sna_main("Ha-ha-ha! You are amazing!","snape_42")
-        call sna_main("Are all genies so... wonderfully nihilistic?","snape_37")
+        call sna_main("*Ha-ha-ha*! You are amazing!","snape_42")
+        call sna_main("Are all genies so... wonderfully nihilistic?","snape_42")
         m "Yeah... We immortals tend to not give a fuck."
         call sna_main("Understandable...","snape_37")
-        call sna_main("Unfortunately, us mere mortals cannot afford such a luxury...","snape_38")
+        call sna_main("Unfortunately, us mere mortals cannot afford such a luxury...","snape_39")
     else:
         m "Not sure... She was talking a lot..."
         m "Something about some {i}grief-n-door{/i} points... and..."
@@ -390,7 +396,7 @@ label ss_he_hermione_E1:
         call sna_main("Nah... Probably another load of self-righteous crap...","snape_01")
         call sna_main("She is famous for that...","snape_35")
 
-    call sna_main("I have a class early tomorrow, so let us call it a night.","snape_35")
+    call sna_main("I have a class early tomorrow, so let us call it a night.","snape_01")
     m "What about you teaching me magic and stuff?"
     call sna_main("Yeah, absolutely...","snape_38")
     call sna_main("Next time...","snape_38")
@@ -477,7 +483,7 @@ label hermione_intro_E2:
     g4 "Oh boy, this is just so typical!"
     g4 "Blame everything on--"
     stop music fadeout 1.0
-    m "Wait, did you say {w=0.5}{size=+5}MEN'S{/size}{w=0.5} rights movement?"
+    m "Wait, did you say {size=+5}MEN'S{/size} rights movement?"
     call play_music("chipper_doodle")
     call her_main("You have no idea how hard it is to be a boy in our school these days...", "open", "base", "worried", "mid")
     menu:
@@ -525,12 +531,9 @@ label hermione_intro_E2:
     m "...................."
 
     $ snape_busy = True # No point in calling him during the day.
-    $ hermione_busy = True
-
     $ hermione_intro.E2_complete = True
-    $ hg_event_pause += 1
 
-    jump main_room
+    jump end_hermione_event
 
 
 ### Snape Hangout Event 2 ###
@@ -556,24 +559,26 @@ label ss_he_hermione_E2:
     call sna_main("She must go...","snape_35")
     m "What do you mean?"
     with hpunch
-    call sna_main("{size=+6}I will have to kill her!{/size}","snape_33")
-    g4 "Like, literally kill her?"
+    call sna_main("{size=+6}We have to get rid off of her!{/size}","snape_33")
+    g4 "Like, literally?"
     call sna_main("Do I have any other choice?","snape_34")
     m "You're joking, right?"
-    call sna_main("Am I?!","snape_34")
+    call sna_main("Do I look like I'm joking?","snape_34")
     call sna_main("Can you do this for me?","snape_39")
     m "*Ehm*..."
-    m "As much I would \"enjoy\" murdering some girl..."
+    m "Even if I agreed to murdering someone..."
     m "Genies can't kill..."
     call sna_main("Rats!","snape_35")
     m "And we frown upon murderers..."
     if jerked_off_during_hermione_intro:
         call sna_main("Really? I thought you didn't give a fuck...","snape_44")
         m "to a certain degree..."
+        m "I don't mind swinging my \"sword\" in the front of the girl--"
+        m "--but stabbing her with one is another thing."
         call sna_main(".............","snape_35")
     call sna_main("Well... don't mind me then...","snape_31")
     call sna_main("I'm all talk...","snape_31")
-    call sna_main("I would never actually harm a student...","snape_31")
+    call sna_main("I would never cause harm to one of my students...","snape_31")
     call sna_main("(... permanently that is.)","snape_08")
     m "Listen, if she bugs you so much, why not just find a less radical way to deal with her?"
     call sna_main("Nah... Flogging has been outlawed for years now...","snape_35")
@@ -655,8 +660,8 @@ label ss_he_hermione_E2:
     call sna_main("Oh, I feel so alive tonight!","snape_45")
     call sna_main("Pour me another goblet!","snape_28")
     call sna_main("Potions class will start late tomorrow!","snape_45")
-    m "....."
-    m "Don't you think this is a bit too brutal though?"
+    m "Although....."
+    m "I do feel like the measures are a little severe."
     m "I mean, she's just a girl..."
     call sna_main("Just a girl?","snape_36")
     call sna_main("Oh no, no, no...","snape_36")

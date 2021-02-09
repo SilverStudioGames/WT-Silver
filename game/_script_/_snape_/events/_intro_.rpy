@@ -76,7 +76,7 @@ label snape_intro_E1:
             call sna_main("","snape_01", trans=d3)
             anon "What?"
             anon "*Hmm*...?"
-            anon "You mean the Minister for Magic?"
+            anon "You mean the Minister of Magic?"
             call sna_main("","snape_03")
             anon "I would rather avoid having to deal with that bureaucrat..."
             m "Fine, never mind... How can I be of help?"
@@ -216,7 +216,7 @@ label snape_intro_E2:
 
     menu:
         m "..."
-        "\"I'll take care of that little whore!\"":
+        "\"I'll take care of that brat!\"":
             call sna_main("","snape_05")
             anon "...?!"
             anon "Albus..."
@@ -367,8 +367,8 @@ label snape_intro_E3:
             with d3
             call nar(">You use your phenomenal cosmic powers to peek into the very fabric of the universe and get the correct answer.")
             call sna_main("","snape_03")
-            anon "!!?"
-            m "What kind of question is this, Severus?"
+            anon "...!"
+            m "What kind of question is this...{w=0.1} Severus?"
             anon "Forgive me... I'm just being paranoid I suppose..."
 
     call sna_main("","snape_06")
@@ -388,7 +388,7 @@ label snape_intro_E3:
 
     $ renpy.play('sounds/07_run.mp3')
     pause 2
-    g4 "???"
+    g4 "?!"
 
     show screen snape_defends
     hide screen bld1
@@ -424,7 +424,7 @@ label snape_intro_E3:
             $ d_flag_02 = True
             $ d_points +=1
             call sna_main("You are not going anywhere.","snape_01", wand=True)
-        "\"I work for {i}Albis Doomblebore{/i}!\"" if not d_flag_03:
+        "\"I work for {i}Alvin Dombledork{/i}!\"" if not d_flag_03:
             $ d_flag_03 = True
             $ d_points +=1
             call sna_main("It's Albus Dumbledore, you moron!","snape_01", wand=True)
@@ -452,13 +452,13 @@ label snape_intro_E3:
         "\"Stop threatening me, human!\"" if not d_flag_02:
             $ d_flag_02 = True
             $ d_points +=1
-            call sna_main("\"Human\"?","snape_01", ypos="head", wand=True)
+            call sna_main("\"Human\"?","snape_01", wand=True)
             call sna_main("Are you implying that you are {size=+5}not{/size} one?","snape_01", wand=True)
             call sna_main("What are you then?! Dispel your cloaking charm immediately or else!","snape_01", wand=True)
         "\"I mean you no harm, I swear!\"" if not d_flag_03:
             $ d_flag_03 = True
             $ d_points +=1
-            call sna_main("Is that so?","snape_01")
+            call sna_main("Is that so?","snape_01", wand=True)
             call sna_main("Prove it then. Dispel your cloaking charm now!","snape_01", wand=True)
 
     if d_points == 2:

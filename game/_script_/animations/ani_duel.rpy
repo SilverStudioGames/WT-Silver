@@ -173,45 +173,45 @@ image spell_ani:
 image ch_sna duel_01:
     zoom 0.5
     "images/dueling/snape/snape_01.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_02.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_03.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_02.webp"
-    pause.1
+    pause.13
     repeat
 
 image ch_gen duel_01:
     zoom 0.5
     "images/dueling/snape/gen_01.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/gen_02.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/gen_03.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/gen_02.webp"
-    pause.1
+    pause.13
     repeat
 
 image ch_gen guard:
     zoom 0.5
     "images/dueling/snape/guard_01.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/guard_02.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/guard_03.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/guard_02.webp"
-    pause.1
+    pause.13
     repeat
 
 image ch_gen barb:
     zoom 0.5
     "images/dueling/snape/barb_01.webp"
-    pause.15
+    pause.13
     "images/dueling/snape/barb_02.webp"
-    pause.15
+    pause.13
     repeat
 
 image genie_no_magic:
@@ -221,23 +221,23 @@ image genie_no_magic:
 image ch_sna defend:
     zoom 0.5
     "images/dueling/snape/snape_defend_01.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_defend_02.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_defend_03.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/snape_defend_02.webp"
-    pause.1
+    pause.13
     repeat
 
 image snape_attack:
     zoom 0.5
     "images/dueling/snape/sna_attack_01.webp"
-    pause.08
+    pause.13
     "images/dueling/snape/sna_attack_02.webp"
-    pause.08
+    pause.13
     "images/dueling/snape/sna_attack_03.webp"
-    pause.08
+    pause.13
     "images/dueling/snape/sna_attack_04.webp"
     pause.08
     "images/dueling/snape/sna_attack_05.webp"
@@ -418,13 +418,13 @@ image hand: #Hand appears.
 image hand_genie: #Hand attacks Genie.
     zoom 0.5
     "images/dueling/snape/hand_genie_01.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/hand_genie_02.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/hand_genie_03.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/hand_genie_04.webp"
-    pause.1
+    pause.13
     "images/dueling/snape/hand_genie_05.webp"
     pause.1
     "images/dueling/snape/hand_genie_06.webp"
