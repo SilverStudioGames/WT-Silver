@@ -484,7 +484,7 @@ label ss_he_story_intro_E10:
     call blktone
 
     ">You spend the evening by skilfully avoiding a whole variety of similar questions."
-    ">Despite your refusal to cooperate the bond of friendship between you two strengthens yet again."
+    ">Despite your refusal to co-operate the bond of friendship between you two strengthens yet again."
 
     call sly_plus
     call hide_blktone

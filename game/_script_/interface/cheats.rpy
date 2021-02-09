@@ -270,7 +270,6 @@ label .hermione_skip_intro:
 
     $ wine_ITEM.owned = 5
     $ firewhisky_ITEM.owned = 5
-    $ firewhisky_ITEM.unlocked = True
 
     $ rum_times = 6
     $ game.day = 7

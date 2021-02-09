@@ -38,7 +38,7 @@ label hermione_intro_E1:
             call bld
             femv "It's me, professor..."
             femv "Hermione Granger. Can I come in?"
-            m "{size=-4}(It's that wretched woman who's been harassing me with her letters lately...){/size}"
+            m "{size=-4}(It's that woman who's been harassing me with her letters lately...){/size}"
 
             menu:
                 m "..."
@@ -78,9 +78,9 @@ label hermione_intro_E1:
 
     call bld
     if d_flag_01:
-        m "{size=-3}(A girl?){/size}"
+        g9 "{size=-3}(This is the Granger girl? Well, well, well.){/size}"
     else:
-        m "?!!"
+        m "A girl?!!"
 
     call her_walk("mid", "base")
     pause.5
@@ -91,10 +91,10 @@ label hermione_intro_E1:
     call her_main("Good morning, professor.", "normal", "base", "base", "mid")
 
     menu:
-        "\"Good morning... girl.\"":
-            call her_main("{size=-4}(\"Girl\"?){/size}", "normal", "squint", "worried", "mid")
         "\"Good morning, Hermione.\"" if d_flag_01:
-            pass
+            call her_main("{size=-4}(At least he remembers my name.){/size}", "base", "base", "base", "mid")
+        "\"Good morning... girl.\"" if not d_flag_01:
+            call her_main("{size=-4}(\"Girl\"?){/size}", "normal", "squint", "worried", "mid")
         "\"Good morning, child.\"":
             call her_main("{size=-4}(\"Child\"...?){/size}", "upset", "narrow", "worried", "mid")
         "\"Greetings fellow human!\"":
@@ -262,10 +262,11 @@ label hermione_intro_E1:
         with d3
         pause 3
 
-        call her_main("Professor?! What is going on...?", "angry", "wide", "base", "mid")
+        call her_main("Professor?! What is going on...?", "angry", "wide", "base", "mid", trans=d3)
 
         g4 "Ah... YESSSSS.....!"
-        her "???"
+        call cum_block
+        her "...???"
         g4 "*breathing heavily* Yes! yes..."
 
         call gen_chibi("cum_behind_desk_done")
@@ -573,7 +574,7 @@ label ss_he_hermione_E2:
     if jerked_off_during_hermione_intro:
         call sna_main("Really? I thought you didn't give a fuck...","snape_44")
         m "to a certain degree..."
-        m "I don't mind swinging my \"sword\" in the front of the girl--"
+        m "I don't mind swinging my \"sword\" in front of the girl--"
         m "--but stabbing her with one is another thing."
         call sna_main(".............","snape_35")
     call sna_main("Well... don't mind me then...","snape_31")

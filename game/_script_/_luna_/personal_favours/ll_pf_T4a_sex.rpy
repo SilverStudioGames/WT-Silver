@@ -612,7 +612,7 @@ label ll_pf_sex_T1_lake_sex: # Call label
     lun "It's...{w=0.4} {size=-3}I...{/size}{w=0.4} {size=-4}I'm cumming...{/size}{w=0.4} {size=-5}{heart}again...{heart}{/size}"
     ">You keep firing cum deep inside her pussy until the last drop."
     $ lunCG(mouth='open_tongue', eye='furious', eyebrow='sad', pupil='ahegao')
-    ">You can see that Luna is still trying to thrust into you, but with multiple orgasms taking over her body, her legs refuse to cooperate."
+    ">You can see that Luna is still trying to thrust into you, but with multiple orgasms taking over her body, her legs refuse to co-operate."
 
     hide screen luncg
     show screen blkfade

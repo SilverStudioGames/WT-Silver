@@ -103,7 +103,7 @@ init python:
         if game.difficulty == 1:
             # Easy
             # Soft diminishing returns, more rubber banding. Guaranteed item drop.
-            if not firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1:
+            if firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1:
                 return firewhisky_ITEM
             elif wine_ITEM.owned < 1:
                 return wine_ITEM
@@ -117,7 +117,7 @@ init python:
         elif game.difficulty == 2:
             # Normal
             # Fair diminishing returns, soft rubber banding. High chance for item drop. (Recommended)
-            if not firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1 and random_percent <= 50:
+            if firewhisky_ITEM.unlocked and firewhisky_ITEM.owned < 1 and random_percent <= 50:
                 return firewhisky_ITEM
             elif wine_ITEM.owned < 1 and random_percent <= 50:
                 return wine_ITEM

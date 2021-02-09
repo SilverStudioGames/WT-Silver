@@ -100,7 +100,7 @@ label cc_pf_strip_T2_intro_E1:
     call cho_main("Later, Sir?", "soft", "base", "raised", "mid")
     g4 "Girl, I wouldn't be asking you this if it wasn't absolutely necessary for your training!"
     call cho_main("Of course, [cho_genie_name].", "annoyed", "base", "base", "down")
-    m "All that's required of you is to cooperate..."
+    m "All that's required of you is to co-operate..."
     call cho_main("(...)", "annoyed", "base", "worried", "mid", cheeks="blush")
     m "Now take of your top..."
     call cho_main("(...)", "annoyed", "narrow", "angry", "mid", cheeks="blush")

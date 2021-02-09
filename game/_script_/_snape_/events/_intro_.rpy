@@ -469,7 +469,7 @@ label snape_intro_E3:
     call sna_main("I've heard enough!","snape_01", wand=True)
     g4 "By the great desert sands! Would you let me explain, human?!"
     call sna_main("There is nothing left to explain!","snape_01", wand=True)
-    call sna_main("Since you refuse to cooperate, I'll be taking you \ninto custody by force!","snape_01", wand=True)
+    call sna_main("Since you refuse to co-operate, I'll be taking you \ninto custody by force!","snape_01", wand=True)
     g4 "What?! Wait!"
 
     $ renpy.choice_for_skipping()
@@ -502,7 +502,10 @@ label snape_intro_E4:
 
     stop music fadeout 2.0
 
+    $ duel_OBJ.genie = "no_magic"
     call bld
+    with d3
+
     g4 "*Panting*"
     g4 "Ready to talk now?!"
     call sna_main("(... i-impossible...)","snape_36", ypos="head")
@@ -745,7 +748,7 @@ label snape_intro_E5:
     call sna_main("Well, alright, what do you want?","snape_01")
 
     menu:
-        "\"I want another chair.\"":
+        "\"A chair.\"":
             call sna_main("What's wrong with your current chair?","snape_05")
             m "Nothing. But I want another one in case I wanted to sit by the fire."
             call sna_main("I guess that can be arranged...","snape_01")
