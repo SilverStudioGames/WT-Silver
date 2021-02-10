@@ -1,6 +1,4 @@
 label hermione_summon_setup:
-    $ hermione_wardrobe_unlocked = True
-
     $ random_number = renpy.random.randint(1, 10)
 
     # Reset doll state

@@ -85,6 +85,7 @@ label tonks_hangout:
         $ ton_friendship = 100
 
     $ tonks.wear("all")
+    $ chair_OBJ.hidden = False
 
     if game.daytime:
         jump night_start

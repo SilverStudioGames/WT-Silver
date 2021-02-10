@@ -72,7 +72,7 @@ label tonks_intro_E1:
 
     call play_music("tonks")
     call ton_main("Thank you, Professor.","base","base","base","mid", xpos="right", ypos="base", trans=d3)
-    m "(Oh shit,{w=0.1}{nw})"
+    m "(Oh shit,{w=0.1}{nw}"
     g9 "(Oh shit,{fast} she's hot...)"
     call ton_main("I apologise for arriving unannounced...{w=0.8} And a couple of days late...","open","base","base","R")
     g9 "Please, I'm glad you could make it."
@@ -225,11 +225,9 @@ label tonks_intro_E1:
     m "This can't be good..."
 
     $ snape_busy = True
-
     $ tonks_intro.E1_complete = True
-    # Don't add event pause here!
 
-    jump main_room
+    jump end_tonks_event
 
 
 label tonks_intro_E2:
@@ -327,9 +325,8 @@ label tonks_intro_E2:
     m "I better talk to Snape about this..."
 
     $ tonks_intro.E2_complete = True
-    $ nt_event_pause += 1
 
-    jump main_room
+    jump end_tonks_event
 
 
 ### Snape Hangout Event 1 ###

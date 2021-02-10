@@ -100,12 +100,12 @@ label summon_hermione:
             jump hermione_cardgame_menu
 
         # Gifts
-        "-Gifts-" (icon="interface/icons/small/gift.webp") if not gave_hermione_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp") if hermione_favors and not gave_hermione_gift:
             hide screen hermione_main with d1
             call gift_menu
             jump hermione_requests
 
-        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if gave_hermione_gift:
+        "-Gifts-" (icon="interface/icons/small/gift.webp", style="disabled") if hermione_favors and gave_hermione_gift:
             m "I already gave her a gift today. Don't want to spoil her too much..."
             jump hermione_requests
 
@@ -410,13 +410,13 @@ label update_her_requests:
 
 label hermione_talk:
     menu:
-        "-Working-" (icon="interface/icons/small/gold.webp"):
+        "-Working-" (icon="interface/icons/small/gold.webp") if hermione_favors:
             label working_menu:
             menu:
-                "-Work as a maid-" if game.daytime and hg_maid.unlocked:
+                "-Work as a maid-" if game.daytime and her_outfit_maid.unlocked:
                     jump job_1
 
-                "-Work as a maid-" (style="disabled") if game.daytime and not hg_maid.unlocked:
+                "-Work as a maid-" (style="disabled") if game.daytime and not her_outfit_maid.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     jump working_menu
 

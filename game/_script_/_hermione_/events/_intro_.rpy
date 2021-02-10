@@ -403,9 +403,11 @@ label ss_he_hermione_E1:
     call sna_main("Next time...","snape_38")
     m "Alright..."
 
+    "> Your meeting comes to an end, and you decide to go to sleep."
+
     $ ss_he.hermione_E1 = True
 
-    jump day_start
+    jump end_snape_hangout_points
 
 ### Event 2 ###
 # Second visit from Hermione. Says she sent a letter to the Minestry.
@@ -512,7 +514,7 @@ label hermione_intro_E2:
         "\"You are being ridiculous!\"":
             call her_main("Am I? Well, we'll see...", "normal", "squint", "angry", "mid")
 
-    call her_main("I already sent a letter to the ministry of magic.", "open", "closed", "angry", "mid")
+    call her_main("I have already sent a letter to the ministry of magic.", "open", "closed", "angry", "mid")
 
     $ renpy.music.set_volume(0.0, 1.0)
     pause 1.0
@@ -680,8 +682,9 @@ label ss_he_hermione_E2:
 
     $ ss_he.hermione_E2 = True
     $ ss_event_pause += 1
+    $ chair_OBJ.hidden = False
 
-    jump day_start
+    jump end_snape_hangout_points
 
 ### Event 3 ###
 # Third visit, after second special date with Snape.
@@ -725,7 +728,7 @@ label hermione_intro_E3:
         "\"That happens to students sometimes.\"":
             call her_main("To other students, yes. But not to me, sir!", "annoyed", "narrow", "angry", "R")
             call her_main("Never to me...", "soft", "base", "base", "R")
-        "\"(Way to go, Snape!)\"":
+        "{size=-5}\"Way to go, Snape!\"{/size}":
             call her_main("Excuse me?", "normal", "base", "base", "mid")
             m "What?"
             m "Oh, I said, that's too bad. How are you holding up?"
@@ -800,18 +803,22 @@ label hermione_intro_E3:
     call her_walk(action="leave")
 
     $ snape_busy = False
-    $ hermione_busy = True
-
     $ hermione_intro.E3_complete = True
-    $ hg_event_pause += 1
 
-    jump main_room
+    jump end_hermione_event
 
 ### Event 4 ###
 # Hermione complains that she did fail the test. (EVENING EVENT!)
 
 label hermione_intro_E4:
     stop music fadeout 1.0
+
+    # Gryffindor gets shafted by Snape and has 50% of Slytherin's points.
+    $ gryffindor = int(slytherin*0.5)
+    call update_ui_points
+
+    # Wear default outfit. She's in shock so she didn't change.
+    $ hermione.equip(her_outfit_default)
 
     call her_walk(action="enter", xpos="mid", ypos="base")
 
@@ -837,7 +844,7 @@ label hermione_intro_E4:
     call her_main("It seems that I did...", "angry", "happyCl", "base", "dead", tears="mascara")
     call her_main("I did... *Ehm*...", "normal", "happyCl", "base", "dead", tears="mascara")
     call her_main("... I failed that test after all.", "open", "happyCl", "base", "dead", tears="mascara")
-    call her_main("I...", "disgust", "narrow", "base", "down", tears="mascara")
+    call her_main("On top of that I... caused my house to lose a lot of points...", "disgust", "narrow", "base", "down", tears="mascara")
     call her_main("I'm sorry, professor...", "upset", "happyCl", "worried", "mid", tears="mascara_soft_blink")
     call her_main("I'm not sure why I'm here...", "upset", "happyCl", "worried", "mid", tears="tears_mascara_crying_blink")
     call her_main("I think I'd better go...", "angry", "happyCl", "worried", "mid", tears="mascara_soft_blink")
@@ -852,10 +859,8 @@ label hermione_intro_E4:
     m "I think..."
 
     $ hermione_intro.E4_complete = True
-    $ hg_event_pause += 1
-    $ hermione_busy = True
 
-    jump main_room
+    jump end_hermione_event
 
 ### Event 5 ###
 # Hermione comes after her breakdown (when she failed the test).
@@ -954,13 +959,12 @@ label hermione_intro_E5:
     $ achievement.unlock("unlockher", True)
     call popup("{size=-4}You can now summon Hermione into your office.{/size}", "Character unlocked!", "interface/icons/head/hermione.webp")
 
-    $ hermione_busy = True
     $ tutoring_hermione_unlocked = True
 
     $ hermione_intro.E5_complete = True #Allows next event to start.
     $ hg_event_pause += 2
 
-    jump main_room
+    jump end_hermione_event
 
 ### Tonks Hangout Event ###
 # Tonks will help convince Hermione to buy favours.
@@ -1362,12 +1366,11 @@ label hermione_intro_E6:
 
     stop music fadeout 1.0
 
-    call popup("You unlocked the ability to buy sexual favours from Hermione.", "Congratulations!", "interface/icons/head/hermione.webp")
+    call popup("You have unlocked the ability to buy sexual favours from Hermione.", "Congratulations!", "interface/icons/head/hermione.webp")
 
+    $ hermione_wardrobe_unlocked = True
     $ hermione_favors = True
-    $ hermione_busy = True
 
     $ hermione_intro.E6_complete = True
-    $ hg_event_pause += 1
 
-    jump main_room
+    jump end_hermione_event

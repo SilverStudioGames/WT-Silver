@@ -71,16 +71,15 @@ label snape_hangout:
         call bld
         call notes
         ">You spend the evening hanging out with Professor Snape.\n>Your relationship with him has improved."
-        $ chair_OBJ.hidden = False
 
     label end_snape_hangout_points:
 
     if sna_friendship < 100:
-        if game.weather in ("rain", "blizzard"):
+        if game.weather in {"rain", "storm"}:
             # Rain puts him in a good mood.
-            $ sna_friendship += 2
+            $ sna_friendship += 1
 
-        if game.difficulty < 2:
+        if game.difficulty == 1:
             $ sna_friendship += 5
         elif game.difficulty == 2:
             $ sna_friendship += 4
@@ -89,6 +88,8 @@ label snape_hangout:
 
     if sna_friendship > 100:
         $ sna_friendship = 100
+
+    $ chair_OBJ.hidden = False
 
     if game.daytime:
         jump night_start
