@@ -127,8 +127,7 @@ label stats_menu(xx=150, yy=90):
     if not renpy.android:
         show screen tooltip
 
-    show screen stats_menu(xx, yy)
-    show screen stats_menuitem(xx, yy)
+    show screen stats(xx, yy)
     with d3
 
     label .after_init:
@@ -151,15 +150,25 @@ label stats_menu(xx=150, yy=90):
 
     jump .after_init
 
-screen stats_menu(xx, yy):
-    tag stats_menu
+screen stats(xx, yy):
+    tag stats
     zorder 30
     modal True
 
     add "gui_fade"
 
-    use invisible_button(action=Return("Close"))
+    if renpy.mobile:
+        use close_button_background
+
     use close_button
+
+    use stats_menu(xx, yy)
+    use stats_menuitem(xx, yy)
+
+screen stats_menu(xx, yy):
+    tag stats_menu
+    zorder 30
+    modal True
 
     frame:
         style "empty"
@@ -216,9 +225,6 @@ screen stats_menu(xx, yy):
                             xysize (48, 48)
                             add image_zoom align (0.5, 0.5)
 
-transform at_zoom(zoom=1.0):
-    zoom zoom
-
 screen stats_menuitem(xx, yy):
     tag stats_menuitem
     zorder 30
@@ -230,7 +236,6 @@ screen stats_menuitem(xx, yy):
 
         use invisible_button()
 
-        #add "interface/achievements/inventory.webp"
         add gui.format("interface/achievements/{}/panel.webp")
         add "interface/achievements/markup.webp"
 
@@ -278,13 +283,7 @@ screen stats_menuitem(xx, yy):
                     add "interface/characters/cho_locked.webp" zoom 0.4 align (0.65, 1.0)
             elif current_category == "Luna":
                 if current_item["flag"]:
-                    frame:
-                        style "empty"
-                        #align (0.7, 1.0)
-                        at at_zoom(0.75)
-                        offset (-620, -44)
-
-                        use luna_main
+                    add luna.get_image() zoom 0.38 align (0.75, 1.0)
                 else:
                     add "interface/characters/luna_locked.webp" zoom 0.38 align (0.75, 1.0)
             elif current_category == "Astoria":
@@ -294,13 +293,7 @@ screen stats_menuitem(xx, yy):
                     add "interface/characters/astoria_locked.webp" zoom 0.38 align (0.7, 1.0)
             elif current_category == "Susan":
                 if current_item["flag"]:
-                    frame:
-                        style "empty"
-                        #align (0.7, 1.0)
-                        at at_zoom(0.78)
-                        offset (-350, -62)
-
-                        use susan_main
+                    add susan.get_image() zoom 0.385 align (0.65, 1.0)
                 else:
                      add "interface/characters/susan_locked.webp" zoom 0.385 align (0.65, 1.0)
 
@@ -357,8 +350,9 @@ screen stats_menuitem(xx, yy):
                         vbox:
                             yoffset 35
                             xoffset 50
-                            #style "empty"
-                            at at_zoom(0.62)
+                            at transform:
+                                zoom 0.62
+
                             if current_category == "Genie":
                                 use stat_bar(int(100/10), "-Lust-", "", 100)
                                 use stat_bar(int(0/10), "-Sanity-", "", 0)

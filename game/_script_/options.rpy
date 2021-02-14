@@ -12,8 +12,6 @@ init python:
     settings.default('text_color_day', '#402313ff')
     settings.default('text_color_night', '#341c0fff')
     settings.default('text_outline', '#00000000')
-    settings.default('autosave', False)
-    settings.default('confirm_delete', True)
     settings.default('tooltip', True)
     settings.default('tutorials', True)
     settings.default('preserve_aspect_ratio', True)
@@ -72,10 +70,11 @@ init -1:
 
 # Saving and loading
 define config.save_directory = "WT SILVER"
-define config.has_autosave = settings.get('autosave')
-define config.autosave_on_quit = settings.get('autosave')
-define config.autosave_on_choice = False
-define config.autosave_frequency = 100
+define config.has_autosave = True
+define config.autosave_on_quit = True
+define config.autosave_on_choice = True
+define config.autosave_frequency = 200
+define config.autosave_slots = 12
 
 # Sound and music
 define config.has_sound = True
@@ -116,7 +115,7 @@ define config.say_attribute_transition = d3
 ################################################
 
 init python:
-    build.directory_name = "WT Silver {}".format(config.version)
+    build.directory_name = "WTS"
     build.executable_name = "WT Silver"
     build.include_update = False # If True, include update information into packages (allows the updater to run)
     build.exclude_empty_directories = False

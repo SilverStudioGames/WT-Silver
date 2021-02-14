@@ -262,7 +262,9 @@ screen achievements(xx, yy):
 
     add "gui_fade"
 
-    use invisible_button(action=Return("Close"))
+    if renpy.mobile:
+        use close_button_background
+
     use close_button
 
     use achievement_menu(xx, yy)
@@ -297,43 +299,6 @@ screen achievement_menu(xx, yy):
             else:
                 textbutton "Show: [current_filter]" action Return("filter")
             textbutton "Sort by: [current_sorting]" action Return("sort")
-
-# Category styles
-style achievements_categories_button is empty:
-    xysize (195, 16)
-
-style dark_achievements_categories_button:
-    hover_background "interface/achievements/gray/highlight_left.webp"
-    selected_background "interface/achievements/gray/highlight_left.webp"
-
-style light_achievements_categories_button:
-    hover_background "interface/achievements/gold/highlight_left.webp"
-    selected_background "interface/achievements/gold/highlight_left.webp"
-
-style achievements_categories_button_text is text:
-    xalign 0.5
-    outlines []
-
-# style dark_achievements_categories_button_text:
-#     take dark_button_text
-
-# style light_achievements_categories_button_text:
-#     take light_button_text
-
-# Filter styles
-style achievements_filters_button is empty:
-    xysize (195, 32)
-
-style dark_achievements_filters_button:
-    hover_background "#7d75aa40"
-
-style light_achievements_filters_button:
-    hover_background "#e3ba7140"
-
-style achievements_filters_button_text is default:
-    align (0.5, 0.5)
-    size 12
-    outlines []
 
 screen achievement_menuitem(xx, yy):
     frame:
@@ -412,13 +377,6 @@ screen achievement_menuitem(xx, yy):
                         else:
                             tooltip str(menu_items[i][1][1])
 
-
-        # Add empty items
-        #for i in xrange(menu_items_length, items_shown):
-            #$ row = (i // 9) % 4
-            #$ col = i % 9
-            #button xsize 48 ysize 48 style "empty" background "#00000033" xpos 24+58*(col) ypos 113+58*(row)
-
         if current_item:
             frame:
                 style "empty"
@@ -460,3 +418,40 @@ screen achievement_menuitem(xx, yy):
                         text "???" size 12
                     else:
                         text current_item[1][2] size 12
+
+# Category styles
+style achievements_categories_button is empty:
+    xysize (195, 16)
+
+style dark_achievements_categories_button:
+    hover_background "interface/achievements/gray/highlight_left.webp"
+    selected_background "interface/achievements/gray/highlight_left.webp"
+
+style light_achievements_categories_button:
+    hover_background "interface/achievements/gold/highlight_left.webp"
+    selected_background "interface/achievements/gold/highlight_left.webp"
+
+style achievements_categories_button_text is text:
+    xalign 0.5
+    outlines []
+
+# style dark_achievements_categories_button_text:
+#     take dark_button_text
+
+# style light_achievements_categories_button_text:
+#     take light_button_text
+
+# Filter styles
+style achievements_filters_button is empty:
+    xysize (195, 32)
+
+style dark_achievements_filters_button:
+    hover_background "#7d75aa40"
+
+style light_achievements_filters_button:
+    hover_background "#e3ba7140"
+
+style achievements_filters_button_text is default:
+    align (0.5, 0.5)
+    size 12
+    outlines []

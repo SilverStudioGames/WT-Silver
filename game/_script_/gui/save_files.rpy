@@ -26,7 +26,7 @@ screen load():
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Auto Saves"), quick=_("Quick Saves"))
     default page_modifier = 0
 
     use game_menu(title):
@@ -42,15 +42,15 @@ screen file_slots(title):
 
                 key_events True
                 xalign 0.5
-                action page_name_value.Toggle()
+                action page_name.Toggle()
 
                 hbox:
                     spacing 9
                     input:
                         style gui.theme("page_label_text")
-                        value page_name_value
+                        value page_name
 
-                    if page_name_value.editable:
+                    if page_name.editable:
                         text "{size=-4}{font=[gui.glyph_font]}✎{/font}{/size}"
 
             ## The grid of file slots.
@@ -70,7 +70,6 @@ screen file_slots(title):
 
                     button:
                         action FileAction(slot)
-                        sensitive ((FileCompatible(slot) and FileLoadable(slot)) if title == "Load" else True)
 
                         has fixed
 
@@ -94,13 +93,13 @@ screen file_slots(title):
                                     text "Day: {}".format(day)
                                     text "Playtime: {}H {}M {}S".format(hours, minutes, seconds)
                                 else:
-                                    text "NOT COMPATIBLE" color "#f00"
+                                    text "INCOMPATIBLE" color "#f00"
 
                             textbutton "{font=[gui.glyph_font]}✘{/font}":
                                 style "slot_delete_button"
-                                action FileDelete(slot, settings.get('confirm_delete'))
+                                action FileDelete(slot)
 
-                            key "save_delete" action FileDelete(slot, settings.get('confirm_delete'))
+                            key "save_delete" action FileDelete(slot)
                         else:
                             text "Empty Slot {}.".format(FileSlotName(slot, gui.file_slot_cols * gui.file_slot_rows)) style "slot_button_text"
 

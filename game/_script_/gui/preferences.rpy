@@ -147,15 +147,6 @@ screen preferences_general():
         vbox:
             style_prefix gui.theme("check")
 
-            label _("Advanced")
-            textbutton _("Autosave"):
-                action [
-                    settings.Toggle("autosave"),
-                    Notify("Autosave preference will take effect after restarting the game")
-                ]
-            textbutton _("Confirm Delete"):
-                action settings.Toggle("confirm_delete")
-
 screen preferences_visuals():
     hbox:
         box_wrap True

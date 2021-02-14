@@ -114,7 +114,8 @@ screen inventory(xx, yy):
 
     add "gui_fade"
 
-    use invisible_button(action=Return("Close"))
+    if renpy.mobile:
+        use close_button_background
     use close_button
 
     use inventory_menu(xx, yy)

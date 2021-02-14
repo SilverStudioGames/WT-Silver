@@ -322,6 +322,13 @@ label .hermione_skip_intro:
     $ achievement.unlock("unlockher", True)
     $ tutoring_hermione_unlocked = True
     $ hermione_favors = True
+    $ hermione_wardrobe_unlocked = True
+
+    # Simulate points gains
+    $ slytherin = gryffindor
+    $ gryffindor = int(slytherin*0.5)
+    $ hufflepuff = int(gryffindor*1.1)
+    $ ravenclaw = int(gryffindor*1.3)
 
     return
 

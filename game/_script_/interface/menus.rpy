@@ -10,7 +10,7 @@ init python:
 screen list_menu(menu_id, title, toggle_names=tuple(), menu_groups=[]):
     zorder 5
 
-    use invisible_button(action=Return("Close"))
+    use close_button_background
     use close_button
 
     # Store screen variables while hidden
@@ -130,7 +130,7 @@ screen list_menu_item(menu_item, ypos=0):
 screen bottom_menu(menu_id, group_names, menu_groups, func_btn=None):
     zorder 30
 
-    use invisible_button(action=Return("Close"))
+    use close_button_background
     use close_button
 
     # Store screen variables while hidden

@@ -58,6 +58,8 @@ init python in gui:
         """
         Calls label in a new context with captured background.
         """
+
+        renpy.store.disable_game_menu()
         renpy.choice_for_skipping()
         renpy.pause(0.001) # Give renderer the chance to catch up with transitions
         bg = ScreenshotImage.capture()

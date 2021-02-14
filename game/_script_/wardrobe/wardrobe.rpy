@@ -235,6 +235,8 @@ screen wardrobe_menu(xx, yy):
 
     add "gui_fade"
 
+    if renpy.mobile:
+        use close_button_background
     use close_button
 
     if current_category == "outfits":

@@ -56,4 +56,4 @@ label door:
     call update_character_map_locations
 
     call play_sound("scroll")
-    jump door_menu
+    jump summon

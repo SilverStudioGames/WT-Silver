@@ -115,13 +115,10 @@ init -1 python:
         renpy.execute_default_statement(False)
 
     def disable_game_menu():
-        store._tmp_menu = store._game_menu_screen
-        store._game_menu_screen = None
+        setattr(renpy.store, "_game_menu_screen", None)
 
     def enable_game_menu():
-        if hasattr(store, "_tmp_menu"):
-            store._game_menu_screen = store._tmp_menu
-            del store._tmp_menu
+        setattr(renpy.store, "_game_menu_screen", "save_screen")
 
     def make_revertable(obj):
         if isinstance(obj, _list):
