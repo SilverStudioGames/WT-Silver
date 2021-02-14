@@ -874,59 +874,339 @@ label her_reaction_equip_outfit(item):
     ##############
     ## Swimsuit ##
     ##############
-    #elif item == her_outfit_swimsuit: #Req 13 (top)
+    elif item == her_outfit_swimsuit: #Req 13 (top)
+        m "I've got this swimsuit I'd like you to wear."
+        if her_whoring < 22:
+            call her_main("A swimsuit...", "open", "squint", "base", "mid")
+            call her_main("I guess I could put it on.", "soft", "narrow", "base", "R")
+            call her_main("Although it's a bit weird as I assume I'm not going swimming...", "disgust", "closed", "worried", "mid")
+            m "I'm sure we can find a way to get it wet no problem..."
+            call her_main("...", "angry", "wide", "base", "mid")
+            call her_main("Why I'm not quite sure what you mean by that...", "open", "closed", "base", "mid", cheeks="blush")
+            call her_main("But if I'm expected to put it on for the sake of--", "soft", "closed", "base", "mid", cheeks="blush")
+            m "Just put it on will you?"
+            call her_main("*Ahem*...{w=0.4} Okay then.", "clench", "narrow", "base", "R", cheeks="blush")
+            call her_main("Just give me a moment...", "open", "squint", "base", "mid", cheeks="blush")
+        else: #22+
+            call her_main("A swimsuit...", "open", "base", "base", "R", cheeks="blush")
+            call her_main("Are you expecting me to get wet today?", "open", "closed", "base", "mid", cheeks="blush")
+            m "Can never be too careful..."
+            call her_main("Well... If that's the case then I better put it on...", "open", "narrow", "base", "R", cheeks="blush")
 
     #####################
     ## Bioshock Outfit ##
     #####################
-    #elif item == her_outfit_bioshock: #Req 5 (no bra)
+    elif item == her_outfit_bioshock: #Req 5 (no bra)
+        m "Can you put on this Elisabeth Cosplay outfit?"
+        if her_whoring < 13:
+            call her_main("A cosplay outfit?", "open", "base", "base", "mid")
+            m "Yep... Ever heard of her?"
+            call her_main("*Hmm*... Can't say that I have.", "upset", "squint", "base", "mid")
+            m "She's from a video--"
+            call her_main("...", "normal", "narrow", "base", "mid")
+            m "I mean... She's a famous, *ugh*... Witch?"
+            call her_main("...", "base", "base", "base", "mid")
+            m "(Phew, that was close...)"
+            call her_main("A corset!", "clench", "wide", "worried", "down")
+            m "*Uh-oh*..."
+            call her_main("Aren't these supposed to make it really hard to breathe?", "angry", "closed", "base", "mid")
+            m "..."
+            m "Have you seen your waste-line?"
+            m "A corset is hardly going to hinder you from breathing..."
+            call her_main("...", "normal", "closed", "base", "mid", cheeks="blush")
+            call her_main("I guess that's true.", "open", "happy", "base", "R", cheeks="blush")
+            m "Great... So no complaints then?"
+            call her_main("*Hmm*... I suppose not...", "angry", "closed", "base", "mid")
+            call her_main("...", "normal", "base", "base", "R")
+            m "So... Are you putting it on?"
+            call her_main("*Oh*...{w=0.4} Alright...", "angry", "squint", "base", "mid")
+            call her_main("", "base", "squint", "base", "mid")
+        elif her_whoring < 22:
+            call her_main("A cosplay...", "open", "squint", "base", "mid")
+            call her_main("*Hmm*... I like the necklace.", "soft", "squint", "base", "L")
+            m "I like the corset!"
+            call her_main("Of course you do...", "normal", "closed", "base", "mid")
+            call her_main("Alright, I suppose can put it on...", "soft", "base", "base", "R")
+            m "Wait a second, they forgot the coin purse!"
+            call her_main("*Huh*?", "upset", "squint", "base", "mid")
+            m "There's supposed to be a coin purse for you to store silver coins in..."
+            call her_main("*Oh*... So you don't want me to wear it then?", "angry", "squint", "base", "mid")
+            m "Of course I do... You'll just have to store the coins in a pocket or something..."
+            call her_main("*Hmm*... There doesn't seem to be any pockets...", "upset", "narrow", "base", "down")
+            m "Well... I'm sure you'll find somewhere to put them."
+            call her_main("Right...", "disgust", "narrow", "base", "down")
+            call her_main("Well... Let's see if I can get into this corset to start with...", "angry", "squint", "base", "R", cheeks="blush")
+            call her_main("", "base", "squint", "base", "mid")
+        else: #22+
+            call her_main("A cosplay...", "open", "squint", "base", "mid")
+            m "Indeed... And she's quite the popular one as well..."
+            m "You should see what zone did with her..."
+            call her_main("Who?", "soft", "squint", "base", "mid")
+            m "*Err*... I meant, you should see the zone she's--"
+            m "What I meant to say was..."
+            m "Just... Put it on will you?"
+            call her_main("Alright.", "grin", "narrow", "base", "R")
+            call her_main("", "base", "squint", "base", "mid")
 
     #####################
     ## Yennefer Outfit ##
     #####################
-    #elif item == her_outfit_yennefer: #Req 10
+    elif item == her_outfit_yennefer: #Req 10
+        m "I got this Yennefer Cosplay that I'd like you to put on."
+        if her_whoring < 22:
+            call her_main("Who?", "normal", "squint", "base", "mid")
+            m "*Sigh*...{w=0.4}  Yennefer... {w=0.4} From the witcher."
+            call her_main("*Oh*...{w=0.4}  Her...", "open", "squint", "base", "R")
+            call her_main("(No clue who that is but I better not offend him...)", "normal", "narrow", "base", "down")
+            m "(I guess she picked Triss.)"
+            call her_main("You... Like this Yennefer character then?", "clench", "squint", "base", "mid")
+            m "(She did pick Triss!)"
+            m "I mean... Shouldn't I?"
+            m "(I only did the one playthrough... Maybe Triss was the right choice... Should I have save scummed--)"
+            call her_main("*Err*... No you definitely should...", "open", "squint", "base", "R")
+            m "..."
+            call her_main("...", "clench", "narrow", "base", "L")
+            call her_main("I'll just put it on shall I?", "angry", "closed", "base", "mid")
+            m "*Err*... Yes... You do that..."
+            call her_main("Okay then.", "base", "closed", "base", "down")
+            call her_main("", "base", "open", "base", "down")
+        else: #22+
+            call her_main("This is quite the intricate outfit...", "angry", "narrow", "base", "down")
+            m "A Classy outfit for a classy lady."
+            call her_main("*Oh*... Well, thank you...", "base", "closed", "base", "mid", cheeks="blush")
+            m "*Huh*?"
+            m "*Oh*... Yes, put it on for me will you?"
+            call her_main("As you wish.", "open", "squint", "base", "R", cheeks="blush")
+            call her_main("One moment...", "base", "squint", "base", "mid", cheeks="blush")
 
     ################
     ## Ball Dress ##
     ################
-    #elif item == her_outfit_ball: #Req 5 (no bra)
+    elif item == her_outfit_ball: #Req 5 (no bra)
+        if not ball_quest.E4_complete:
+            m "Could you put on this dress?"
+            call her_main("*Hmm*... This looks expensive...", "soft", "squint", "base", "down")
+            m "I had it custom made!"
+            m "(As if my other purchases hasn't been...)"
+            call her_main("I do like a pearl necklace...", "soft", "narrow", "base", "down")
+            m "I knew it... Well, I'm always happy to give you one as long as you don't tell anyone about it."
+            m "We wouldn't want anyone to know the headmaster gave a student a pearl necklace do we?"
+            call her_main("Of course.", "open", "closed", "base", "mid")
+            call her_main("Well, let's put it on then...", "soft", "happy", "base", "mid")
+            call her_main("", "base", "happy", "base", "mid", cheeks="blush")
+        else:
+            m "What did Hermione Granger say when she got to the ball?"
+            call her_main("{size=-4}This dress...{/size}", "soft", "narrow", "base", "down", cheeks="blush")
+            m "*Gag* *Cough* *Cough*"
+            call her_main("...", "base", "narrow", "base", "down", cheeks="blush")
+            m "..."
+            m "Well I thought it was funny..."
+            call her_main("...", "base", "narrow", "base", "down", cheeks="blush")
+            m "Miss Granger?"
+            m "(Looks like she's zoned out...)"
+            m "[hermione_name]?"
+            call her_main("*Huh*?", "angry", "squint", "base", "mid", cheeks="blush")
+            call her_main("*Oh*... Sorry sir, let me just put it on...", "open", "base", "base", "R", cheeks="blush")
+            m "Never mind the dress, what about my joke?"
+            call her_main("Sorry?", "soft", "base", "base", "mid", cheeks="blush")
+            m "...{w=0.4} What ever... Just put it on..."
+            call her_main("Alright.", "base", "base", "base", "mid", cheeks="blush")
 
     ##################
     ## Bunny Outfit ##
     ##################
-    #elif item == her_outfit_bunny: #Req 19 (top, stockings)
+    elif item == her_outfit_bunny: #Req 19 (top, stockings)
+        m "I've got this bunny costume I'd like you to wear."
+        if her_whoring < 22:
+            call her_main("A bunny costume?", "soft", "squint", "base", "mid")
+            call her_main("Where do you even get these ideas from?", "angry", "narrow", "base", "stare")
+            m "In some junk mail, showing a mansion full of attractive and scantily clad women."
+            call her_main("I see...", "soft", "closed", "base", "mid", cheeks="blush")
+            call her_main("It does look a little bit tight, but I suppose I'll wear it for you...", "open", "narrow", "base", "down", cheeks="blush")
+            g9 "(Hugh success!)" #Like Hugh Hefner
+        else: # 22+
+            call her_main("A bunny costume?", "open", "base", "base", "mid", cheeks="blush")
+            m "I thought we could get it on like rabbits."
+            call her_main("*Huh*? Get what on?", "annoyed", "squint", "base", "mid")
+            g9 "*Heh-heh*... You know..."
+            call her_main("...", "annoyed", "base", "base", "mid")
+            call her_main("...", "annoyed", "squint", "base", "stare", cheeks="blush")
+            g9 "(She knows...)"
+            call her_main("Sir, I'm--", "open", "closed", "base", "mid", cheeks="blush")
+            m "Just put the thing on."
+            call her_main("Alright...", "open", "narrow", "base", "down", cheeks="blush")
 
     ###############################
     ## Poker Outfit (token shop) ##
     ###############################
-    #elif item == her_outfit_poker: #Req 19 (panties, bra)
+    elif item == her_outfit_poker: #Req 19 (panties, bra)
+        m "I spent some tokens getting this outfit for you..."
+        if her_whoring < 22:
+            call her_main("*Whoa*...", "soft", "narrow", "base", "down", cheeks="blush")
+            m "I know... Quite intricate is it not?"
+            call her_main("You... you want me to wear this?", "normal", "closed", "base", "mid", cheeks="blush")
+            m "I mean, I am a winner after all..."
+            call her_main("*Hmm*... I'm not so sure about that...", "soft", "narrow", "base", "R", cheeks="blush")
+            m "Sounds like jealousy to--"
+            call her_main("...", "normal", "narrow", "base", "mid")
+            m "*Ahem*... Just put it on will you?"
+            call her_main("...{w=0.4} Fine.", "base", "narrow", "base", "R", cheeks="blush")
+        else: #22+
+            call her_main("You won this did you?", "open", "narrow", "base", "down")
+            m "Indeed."
+            call her_main("How do I know you didn't just have it made for me?", "open", "narrow", "base", "mid", cheeks="blush")
+            m "You think I'd be able to come up with something like this?"
+            call her_main("...", "normal", "narrow", "base", "R", cheeks="blush")
+            m "Okay... I probably would..."
+            m "You're just going to have to trust me on this one..."
+            call her_main("*Hmm*... Well then, it'd be a shame if the prize went to waste...", "base", "narrow", "base", "mid", cheeks="blush")
+            call her_main("Just give me a moment to put it on...", "open", "base", "base", "mid", cheeks="blush")
 
     #################
     ## Maid Outfit ##
     #################
-    #elif item == her_outfit_maid: #Req 4
+    elif item == her_outfit_maid: #Req 4
+        m "Could you put on this maid's outfit?"
+        if her_whoring < 13:
+            call her_main("You want me to clean your office now too?", "clench", "narrow", "base", "mid")
+            m "Well... Let's just have you wear the outfit for now..."
+            call her_main("*Ugh*... Maid's outfits are so silly...", "disgust", "narrow", "base", "mid")
+            call her_main("Well... Here it goes I guess...", "disgust", "narrow", "base", "R")
+        elif her_whoring < 22:
+            call her_main("*Hmm*...", "upset", "narrow", "base", "down")
+            call her_main("I presume your reason for wanting me to put it on isn't related to cleaning...", "open", "narrow", "base", "mid", cheeks="blush")
+            m "I mean..."
+            call her_main("Figured...", "open", "closed", "worried", "mid", cheeks="blush")
+            call her_main("*Oh* well... I guess it can't be helped...", "soft", "narrow", "base", "down", cheeks="blush")
+            call her_main("One moment please...", "open", "narrow", "base", "mid", cheeks="blush")
+        else: #22+
+            call her_main("*Hmm*... Is it one of those \"Sexy\" maid's outfits?", "soft", "narrow", "base", "down", cheeks="blush")
+            m "It depends..."
+            call her_main("What is that supposed to mean?", "clench", "squint", "base", "mid", cheeks="blush")
+            m "It depends on who wears it... I think I'd be able to make a judgement whilst seeing you with it on."
+            call her_main("Charmed...{w} Alright, just let me get changed so we can find out...", "base", "narrow", "base", "R", cheeks="blush")
+            call her_main("", "base", "squint", "base", "mid", cheeks="blush")
 
     #########################
     ## Sling Bikini Outfit ##
     #########################
-    #elif item == her_outfit_bikini3: #Req 17 (panties, bra)
+    elif item == her_outfit_bikini3: #Req 17 (panties, bra)
+        m "Put on this bikini for me will you."
+        call her_main("*Hmm*... A bikini you say?", "normal", "narrow", "base", "R")
+        m "Yep, this one right here..."
+        call her_main("Right...{w} Why would I even expect something normal...", "angry", "narrow", "base", "down", cheeks="blush")
+        m "Looks normal to me..."
+        call her_main("It's held up by chains, How is that normal to you?", "disgust", "narrow", "base", "mid", cheeks="blush")
+        m "I mean, perhaps you wouldn't see it at the beach exactly..."
+        call her_main("Then where would you?", "normal", "narrow", "base", "R", cheeks="blush")
+        m "A strip--{w=0.3} I mean... The Vegas strip!"
+        call her_main("They wear these on the Vegas strip do they?", "open", "narrow", "annoyed", "mid")
+        m "Of course, it's pretty hot there so why wouldn't--"
+        call her_main("You're lying...", "open", "closed", "annoyed", "mid")
+        g4 "What?!"
+        g4 "(She's seen through my clever ruse... Impossible!)"
+        call her_main("Give me the real reason why you want me to wear this.", "upset", "base", "annoyed", "mid", cheeks="blush")
+        m "*Huh*?"
+        call her_main("The \"real\" reason... Or I'm not putting it on...", "angry", "narrow", "base", "mid", cheeks="blush")
+        m "The--"
+        m "(Hold on... This isn't in the script...)"
+        call her_main("I'm waiting...", "annoyed", "closed", "annoyed", "mid", cheeks="blush")
+        m "One moment..."
+        $ renpy.play("sounds/pageflip.mp3")
+        m "(Alright, let's see what's going on here...)"
+        $ renpy.play("sounds/pageflip.mp3")
+        m "(\"Genie fights Snape using magic... #TODO add explanation to this later...\")"
+        m "(That's the tutorial so it must be further in...)"
+        $ renpy.play("sounds/pageflipback.mp3")
+        pause .4
+        m "(Genie fucks Hermione in the Ass...)"
+        #TODO Add check if you've not done anal favour
+            # m "(Whops... Spoilers..)"
+        #else:
+            # m "(*Heh-heh*... Why am I not doing this right now exactly?)"
+        m "(*Hmm*... I've gone to far... Well... In the script at least.)"
+        $ renpy.play("sounds/pageflip.mp3")
+        pause .3
+        $ renpy.play("sounds/pageflip.mp3")
+        pause .3
+        $ renpy.play("sounds/pageflip.mp3")
+        pause .3
+        m "(There we go... The wardrobe section...)"
+        call her_main("Still waiting... I'm going to need a real reason soon or I'm not putting it on...", "angry", "closed", "annoyed", "mid", cheeks="blush")
+        g9 "(*Aha*! I knew it!)"
+        g9 "(Genie comes up with another bullshit reason... Hermione thinks for a moment and then accepts it as the truth!)"
+        call her_main("Three...{w=1} Two--", "open", "closed", "annoyed", "mid", cheeks="blush")
+        g4 "Wait a minute, the script says--"
+        call her_main("One...", "open", "narrow", "annoyed", "mid")
+        g4 "*Err*... Your tits would look great in it!"
+        call her_main("...{w} Well then...", "base", "narrow", "annoyed", "mid")
+        m "(Ah fuck... I can't believe she's done this...)"
+        call her_main("In that case--", "open", "closed", "annoyed", "mid")
+        $ renpy.play("sounds/magic4.ogg")
+        with kissiris
+        call her_main("...", "normal", "base", "base", "stare")
+        m "What the..."
+        call her_main("They wear these on the Vegas strip do they?", "open", "base", "base", "mid", cheeks="blush")
+        m "*Huh*?"
+        call her_main("*Hmm*... Well I suppose I'll put it on then...", "grin", "closed", "base", "mid", cheeks="blush")
+        m "(What just...)"
+        m "(*Hmm*... The developers must've patched it...{w=0.4} There's my immersion ruined...)"
+        call her_main("Just give me a moment...", "open", "base", "base", "mid", cheeks="blush")
+        call her_main("", "base", "base", "base", "mid", cheeks="blush")
 
     ###########################
     ## Leather Bikini Outfit ##
     ###########################
-    #elif item == her_outfit_bikini2: #Req 16 (panties, bra)
+    elif item == her_outfit_bikini2: #Req 16 (panties, bra)
+        m "Put on this bikini for me."
+        if her_whoring < 22:
+            call her_main("What kind of bikini are we talking about?", "open", "narrow", "base", "mid")
+            m "This leather one here."
+            call her_main("Right...", "open", "narrow", "base", "down", cheeks="blush")
+            call her_main("Well I guess it has some coverage...", "normal", "narrow", "base", "down", cheeks="blush")
+            m "I'm sure I could adjust it to be smaller if you'd like."
+            call her_main("*Err*... No, it's fine... I'll just put it on as is...", "angry", "closed", "base", "mid", cheeks="blush")
+            m "You sure? Just say the word and I'll have it--"
+            call her_main("No, we're good. Just give me a moment to put it on.", "open", "squint", "worried", "R", cheeks="blush")
+        else: # 22+
+            call her_main("A bikini?", "open", "squint", "base", "R", cheeks="blush")
+            m "Yep, I've got this leather one for you to wear today."
+            call her_main("A leather bikini in the headmasters office...", "base", "narrow", "base", "down", cheeks="blush")
+            m "That's right..."
+            call her_main("*Hmm*... One moment please...", "open", "squint", "base", "mid", cheeks="blush")
+
 
     ########################
     ## Rave Bikini Outfit ##
     ########################
-    #elif item == her_outfit_bikini1: #Req 18 (panties, bra)
+    elif item == her_outfit_bikini1: #Req 18 (panties, bra)
+        m "I've got this bikini for you to wear today."
+        call her_main("A bikini?", "open", "base", "base", "mid")
+        m "Yep... This one right here."
+        call her_main("This is supposed to be a bikini is it?", "open", "narrow", "base", "down", cheeks="blush")
+        m "Should fall within that definition yes."
+        call her_main("And here I thought bikini's were supposed to protect your modesty...", "open", "closed", "base", "mid", cheeks="blush")
+        m "(Your modesty went out the window a long time ago.)"
+        call her_main("Well... I suppose it does cover the important bits...", "soft", "narrow", "base", "down", cheeks="blush")
+        m "(Is she trying to convince herself out of it or the other way around?)"
+        call her_main("Just give me a moment to put it on, [genie_name]...", "normal", "narrow", "base", "R", cheeks="blush")
 
     ################################
     ## Pizza Slut Outfit (mirror) ##
     ################################
     #elif item == her_outfit_pizza: #Req 19 (top, panties)
 
-    # TODO: Christmas outfits  her_outfit_ribbon her_outfit_xmas
+    ###################
+    ## Ribbon Outfit ##
+    ###################
+    #elif item == her_outfit_ribbon: #Req 18 (bra, panties)
+
+    ######################
+    ## Christmas Outfit ##
+    ######################
+    #elif item == her_outfit_xmas: #Req 13 (top, bottom)
+
+
     # TODO: Blacklist fallbacks have to be added.
     return
 
@@ -1354,6 +1634,324 @@ label her_reaction_equip_outfit_fail(item):
             call her_main("...", "disgust", "narrow", "base", "mid")
             call her_main("Sorry [genie_name] but this is too much...", "open", "closed", "annoyed", "mid")
             call her_main("", "normal", "base", "annoyed", "mid")
+
+    ##############
+    ## Swimsuit ##
+    ##############
+    elif item == her_outfit_swimsuit: #Req 13 (top)
+        m "I've got this swimsuit I'd like you to wear."
+        if her_whoring < 4:
+            call her_main("A swimsuit?", "angry", "happy", "base", "mid")
+            call her_main("Am I expected to go swimming with you?", "clench", "squint", "base", "mid")
+            m "I just thought you'd look good in one."
+            call her_main("What?!", "clench", "squint", "worried", "mid")
+            call her_main("You want me to wear it in here?", "disgust", "squint", "base", "mid")
+            m "Yes, I'd like you to put it on for when you're--"
+            call her_main("Why would I stand around in a swimsuit in your office?", "angry", "happy", "annoyed", "mid")
+            m "As I said, I think you'd look good in it..."
+            call her_main("Well, your opinion on how I'd look isn't going to convince me to put on a swimsuit in here...", "angry", "squint", "base", "R")
+        else: # < 13
+            call her_main("*Err*... You want me to put on a swimsuit in your office?", "angry", "squint", "base", "mid")
+            m "Yes."
+            call her_main("Wouldn't that be kind of weird?", "clench", "narrow", "base", "mid")
+            m "I don't see why it would..."
+            call her_main("I mean... There's not really a pool or anything in here...", "disgust", "base", "worried", "L")
+            m "Yeah... No complimentary chocolate either."
+            call her_main("*Huh*?", "upset", "squint", "base", "mid")
+            m "Never mind..."
+            m "Would you put it on if there was a pool in here?"
+            call her_main("*Ehm*... Maybe?", "angry", "squint", "base", "mid")
+            m "(*Hmm*... Now where would I fit a pool?)"
+            m "(Perhaps it'd be easier just to try and convince her some other time...)"
+
+    #####################
+    ## Bioshock Outfit ##
+    #####################
+    elif item == her_outfit_bioshock: #Req 5 (no bra)
+        m "Can you put on this Elisabeth Cosplay outfit?"
+        call her_main("Cosplay, [genie_name]?", "clench", "base", "worried", "mid")
+        m "Indeed!"
+        call her_main("I am not wearing it...", "open", "closed", "annoyed", "mid")
+        g4 "What? Why not?"
+        call her_main("Firstly... Why would I put on a cosplay outfit in your office?", "angry", "base", "annoyed", "mid")
+        m "I mean..."
+        call her_main("Secondly... There's not even a bra for this... Cosplay.", "open", "closed", "annoyed", "mid")
+        m "There's a corset though... Surely--"
+        call her_main("I'll stick to normal clothing thank you very much...", "open", "base", "annoyed", "R")
+
+    #####################
+    ## Yennefer Outfit ##
+    #####################
+    elif item == her_outfit_yennefer: #Req 10
+        m "I got this Yennefer Cosplay that I'd like you to put on."
+        if her_whoring < 4:
+            call her_main("Cosplay, [genie_name]?", "clench", "base", "worried", "mid")
+            m "Yep, she's from the--"
+            call her_main("I am not wearing it...", "open", "closed", "annoyed", "mid")
+            g4 "You didn't even let me finish!"
+            call her_main("I am not putting on some random cosplay for you...", "open", "narrow", "annoyed", "mid")
+            m "What ever... I picked Triss anyway."
+            call her_main("What?", "soft", "squint", "base", "mid")
+            m "Alright, I didn't..."
+        else: # < 10
+            call her_main("A Cosplay?", "normal", "base", "base", "mid")
+            m "Yep, Yennefer from the Witcher."
+            call her_main("A witch?", "soft", "squint", "base", "mid")
+            call her_main("Well, I suppose I could--", "open", "closed", "base", "mid")
+            m "That's kind of offensive actually."
+            call her_main("*Huh*?", "clench", "squint", "base", "mid")
+            m "She's a sorceress, not a witch."
+            call her_main("I see...", "angry", "narrow", "base", "R")
+            call her_main("(What is he even talking about...)", "angry", "narrow", "base", "down")
+            m "You better make up for what you just said by wearing this for me..."
+            call her_main("What?", "angry", "squint", "base", "mid")
+            m "Calling her a witch... Witches are usually old women or hags you know."
+            call her_main("Sir...", "disgust", "base", "worried", "mid")
+            m "Yes?"
+            call her_main("I'm a witch!", "angry", "base", "annoyed", "mid")
+            g4 "But the video ga-- I mean books... Yes, I've read them you know!"
+            call her_main("...", "annoyed", "base", "annoyed", "mid")
+            m "Okay I didn't..."
+            call her_main("Sir, do I have to wear this?", "open", "closed", "annoyed", "mid")
+            m "No... I don't deserve it..."
+            call her_main("...", "normal", "narrow", "base", "mid")
+            m "Don't look at me!"
+
+    ################
+    ## Ball Dress ##
+    ################
+    elif item == her_outfit_ball: #Req 5 (no bra)
+        m "Could you put on this dress?"
+        call her_main("Sir, this dress has no...{w=0.4} *Ehm*...{w=0.4} Support.", "disgust", "narrow", "base", "down")
+        m "Sorry?"
+        call her_main("You know...", "clench", "narrow", "worried", "R")
+        m "*Oh*... I see..."
+        m "Well your breasts should do shouldn't they?"
+        call her_main("What?!", "angry", "wide", "base", "mid")
+        call her_main("Sir, I'm not putting on some dress without my bra...", "angry", "squint", "annoyed", "mid")
+        m "Why not?"
+        m "It's all covered isn't it?"
+        call her_main("Yes but--", "mad", "closed", "base", "mid")
+        call her_main("Why am I explaining myself to you?", "soft", "happyCl", "annoyed", "mid")
+        call her_main("I am not wearing it...", "normal", "squint", "annoyed", "mid")
+
+    ##################
+    ## Bunny Outfit ##
+    ##################
+    elif item == her_outfit_bunny: #Req 19 (top, stockings)
+        m "I've got this bunny costume I'd like you to wear."
+        if her_whoring < 4:
+            call her_main("A what?!", "disgust", "wide", "base", "mid")
+            m "A Bunny costume."
+            call her_main("Why would you even own such a thing?", "open", "squint", "annoyed", "mid")
+            m "Own? I bought it for you, of course!"
+            call her_main("You bought me a bunny costume?", "angry", "narrow", "annoyed", "mid")
+            m "...{w=0.4} No?"
+            m "It was just a prank...{w=0.3} *Err*....{w=0.3} No!{w=0.3} Snape dared me to try and make you wear it!"
+            call her_main("Professor Snape did?", "upset", "squint", "annoyed", "mid")
+            m "...{w=0.4} Yes?"
+            call her_main("Well, that kind of humour is very much like him...", "soft", "squint", "annoyed", "R")
+            m "(When in doubt, blame Snape...)"
+        elif her_whoring < 13:
+            call her_main("*Err*... You're joking right?", "clench", "narrow", "base", "mid")
+            call her_main("Surely you don't expect me to put on something so--", "open", "closed", "annoyed", "mid")
+            m "*Hah-Ha*... Yeah, I'm a bit of a hop-timist sometimes!"
+            call her_main("What?", "clench", "squint", "base", "mid")
+            m "*Heh*...{w=0.3} Never mind."
+        else: # < 19
+            call her_main("*Ehm*...", "annoyed", "squint", "base", "R", cheeks="blush")
+            call her_main("It's a bit much don't you think?", "disgust", "narrow", "base", "down", cheeks="blush")
+            m "Don't be silly... Just hop right in."
+            call her_main("*Hmm*... I think I'll pass.", "angry", "closed", "base", "mid", cheeks="blush")
+            call her_main("", "normal", "squint", "base", "R", cheeks="blush")
+
+    ###############################
+    ## Poker Outfit (token shop) ##
+    ###############################
+    elif item == her_outfit_poker: #Req 19 (panties, bra)
+        m "I spent some tokens getting this outfit for you..."
+        if her_whoring < 4:
+            call her_main("And you're expecting me to just wear this thing because you've won it?", "open", "narrow", "annoyed", "mid")
+            call her_main("(Does he think he can play me like he plays games?)", "clench", "narrow", "base", "R")
+            g4 "But, I won... fair and square..."
+            call her_main("Well, I am not some price for you to win in a game...", "open", "narrow", "annoyed", "mid")
+            m "Actually--"
+            call her_main("...", "normal", "base", "annoyed", "mid")
+            m "Alright... Never mind then..."
+        elif her_whoring < 13:
+            call her_main("And you winning it means that I'm supposed to wear it?", "angry", "narrow", "annoyed", "mid")
+            m "Pretty sure that's how it works."
+            call her_main("*Hmm*... I don't think so...", "disgust", "narrow", "annoyed", "R")
+            call her_main("You may be a winner [genie_name] but that sure doesn't give you some privilege to make me wear--", "open", "closed", "annoyed", "mid")
+            call her_main("What ever this...{w=0.4} Thing... Is supposed to be.", "angry", "narrow", "annoyed", "mid")
+            m "(Damn it...)"
+        else: # < 19
+            call her_main("*Err*... Am I supposed to be some kind of price for you winning games?", "clench", "narrow", "base", "R")
+            m "I mean, this outfit was practically made for you..."
+            call her_main("...", "normal", "narrow", "base", "mid", cheeks="blush")
+            m "Come on... Surely you can't resist basking in my glory."
+            call her_main("...", "normal", "narrow", "base", "mid")
+            call her_main("Well, I'm sorry but looks to me as if you spent your hard earned tokens on a piece of fabric.", "open", "narrow", "base", "R")
+            m "..."
+            m "(Guess even a smidge of my fame is too much for her...)"
+
+    #################
+    ## Maid Outfit ##
+    #################
+    elif item == her_outfit_maid: #Req 4
+        m "Could you put on this maid's outfit?"
+        call her_main("A maid's outfit?", "upset", "squint", "base", "mid")
+        call her_main("Isn't cleaning part of the house elves job?", "open", "closed", "annoyed", "mid")
+        call her_main("(Not that I approve of this horrible house elf enslavement...)", "annoyed", "closed", "annoyed", "mid")
+        m "I mean, I'd be fine if you just--"
+        call her_main("I have no time to clean up your mess, you'll have to do that yourself...", "open", "happy", "annoyed", "mid")
+        m "(I don't think there's enough tissues in this world for that.)"
+        m "Very well Miss Granger..."
+
+    #########################
+    ## Sling Bikini Outfit ##
+    #########################
+    elif item == her_outfit_bikini3: #Req 17 (panties, bra)
+        m "Put on this bikini for me will you."
+        if her_whoring < 4:
+            call her_main("A bikini?!", "shock", "wide", "base", "mid")
+            g9 "Wow, excited much?"
+            g9 "Well then, here you go!"
+            call her_main("Sir!", "clench", "wide", "base", "down")
+            call her_main("What are these chains?!", "angry", "wide", "base", "down")
+            m "*Oh*, those are the straps I believe."
+            m "Pretty cool right?"
+            call her_main("Cool?!", "angry", "wide", "angry", "mid")
+            m "Is that not how you say it anymore?"
+            m "I'm not really up to date with the \"lingo\" these days."
+            call her_main("Are you crazy?!", "scream", "squint", "annoyed", "mid")
+            m "I mean... at least I didn't say \"Tubular\"."
+            call her_main("Asking me to wear normal bikini is bad enough but this...", "disgust", "closed", "angry", "mid")
+            m "*Huh*? Looks pretty normal to me... From where I'm from--"
+            g4 "I mean--"
+            call her_main("Then you probably need to get your eyes checked...", "angry", "base", "angry", "mid")
+            call her_main("Because this bikini you got me would surely never be an appropriate--", "angry", "base", "angry", "R")
+            m "Fine... What ever..."
+        elif her_whoring < 13:
+            call her_main("A bikini?", "disgust", "squint", "base", "mid")
+            m "Indeed... This one right here..."
+            call her_main("...", "normal", "wide", "base", "down")
+            call her_main("[genie_name], You can't be serious!", "open", "closed", "annoyed", "mid", cheeks="blush")
+            m "About what? It's a bikini is it not?"
+            call her_main("These straps are made of chains! Surely that wouldn't even help to keep them on...", "angry", "narrow", "annoyed", "down", cheeks="blush")
+            m "I'm sure you'll find a way..."
+            call her_main("I won't!", "scream", "closed", "annoyed", "mid")
+            m "Don't put yourself down like that... I'm sure some spell would--"
+            call her_main("I won't, because I'm not putting it on...", "angry", "narrow", "angry", "mid")
+            m "*Oh*...{w=0.4} Right..."
+        else: # < 17
+            call her_main("A bikini?", "base", "base", "base", "mid")
+            call her_main("Well I suppose that wouldn't be too--", "base", "base", "base", "mid")
+            m "This one..."
+            call her_main("That one?", "base", "base", "base", "mid")
+            call her_main("Sir, are you sure this is...", "base", "base", "base", "mid")
+            m "Yes?"
+            call her_main("*Ehm*... I mean it looks a bit...", "base", "base", "base", "mid")
+            m "A bit what?"
+            call her_main("*Ehm*...", "base", "base", "base", "mid")
+            m "Come on, it's not that bad... Just put it on."
+            call her_main("I...{w} No, I'm sorry... It's too much...", "base", "base", "base", "mid")
+
+    ###########################
+    ## Leather Bikini Outfit ##
+    ###########################
+    elif item == her_outfit_bikini2: #Req 16 (panties, bra)
+        m "Put on this bikini for me."
+        if her_whoring < 4:
+            call her_main("For you?!", "disgust", "base", "annoyed", "mid")
+            m "Yes?"
+            call her_main("Sir, I'm not some doll for you to dress up!", "scream", "closed", "annoyed", "mid")
+            call her_main("Especially not in something like a bikini!", "angry", "narrow", "angry", "mid")
+            m "(She's not? Then what the fuck is this wardrobe UI for?)"
+            m "My mistake I guess..."
+        else: # < 16
+            call her_main("You want me to put on a bikini?", "upset", "squint", "base", "mid", cheeks="blush")
+            m "Yeah, this leather one."
+            call her_main("A leather bikini?!?", "clench", "narrow", "base", "down", cheeks="blush")
+            m "I'm sure it's not real leather..."
+            call her_main("That... That's not the point!", "open", "closed", "worried", "mid", cheeks="blush")
+            m "*Oh*... I'm sorry, it usually is with this type of thing..."
+            call her_main("You actually expect me to--", "angry", "squint", "base", "mid", cheeks="blush")
+            m "I didn't ship it from anywhere, it's made locally."
+            call her_main("[genie_name], I don't care about where you got it from... It's the fact that--", "angry", "narrow", "worried", "mid", cheeks="blush")
+            m "Jeez, perhaps you need to take a good look at yourself then."
+            call her_main("What?", "clench", "squint", "base", "mid", cheeks="blush")
+            m "Spending a bit more is worth it if it supports your local community."
+            call her_main("...", "disgust", "squint", "base", "mid")
+            m "Stimulating the economy and all that stuff..."
+            if her_whoring < 13:
+                call her_main("I'm not wearing it for the fact that it's a bikini... It's weird...", "annoyed", "squint", "base", "R", cheeks="blush")
+                g9 "(*Heh-heh*... Stimulating...)"
+                m "Anyway, so you're putting it on or what?"
+                call her_main("I am not...", "normal", "narrow", "base", "mid", cheeks="blush")
+            else: # < 16:
+                call her_main("I don't want to put on a bikini in your office.", "open", "closed", "base", "mid", cheeks="blush")
+                call her_main("Standing in my underwear is weird enough...", "annoyed", "squint", "base", "R", cheeks="blush")
+                m "What ever you say [hermione_name]..."
+
+    ########################
+    ## Rave Bikini Outfit ##
+    ########################
+    elif item == her_outfit_bikini1: #Req 18 (panties, bra)
+        m "I've got this bikini for you to wear today."
+        if her_whoring < 4:
+            call her_main("A bikini?!", "clench", "wide", "worried", "mid")
+            m "Yep, this one right here."
+            call her_main("...", "angry", "squint", "base", "down")
+            m "Pretty neat isn't it?"
+            call her_main("Where's the rest of it?!", "disgust", "wide", "base", "mid", cheeks="blush")
+            m "What do you mean the rest? Isn't a bikini supposed to only come in two pieces?"
+            call her_main("Isn't a bikini supposed to... *Oh*... I don't know--", "angry", "squint", "annoyed", "mid", cheeks="blush")
+            with hpunch
+            call her_main("Cover your privates?!", "scream", "closed", "annoyed", "mid", cheeks="blush")
+            m "Doesn't it do that?"
+            call her_main("There's barely any fabric to cover anything!", "disgust", "base", "annoyed", "mid", cheeks="blush")
+            m "Very environmentally friendly isn't it?"
+            call her_main("I am not wearing this...", "mad", "base", "annoyed", "mid", cheeks="blush")
+        elif her_whoring < 13:
+            call her_main("A bikini?", "clench", "squint", "worried", "mid", cheeks="blush")
+            m "This one..."
+            call her_main("That... That one?!", "angry", "squint", "base", "down", cheeks="blush")
+            m "Yep... Now, if you could just--"
+            call her_main("I am not wearing this...", "disgust", "narrow", "base", "mid", cheeks="blush")
+            g4 "Why not?!"
+            call her_main("What do you think?", "angry", "base", "annoyed", "mid", cheeks="blush")
+            m "*Oh*... I see..."
+            call her_main("Finally you get it...", "open", "closed", "annoyed", "mid", cheeks="blush")
+            g9 "I'd gladly help you tie it around your back if you can't reach."
+            call her_main("That's not why!", "annoyed", "base", "annoyed", "mid", cheeks="blush")
+            call her_main("*Grr*... I can't believe you...", "clench", "narrow", "base", "R", cheeks="blush")
+            call her_main("I am not wearing this... This excuse of a bikini...", "annoyed", "closed", "base", "mid", cheeks="blush")
+            m "Well excuuuuuse me, princess..."
+        else: # < 18
+            call her_main("A bikini?", "open", "squint", "base", "mid", cheeks="blush")
+            m "This one."
+            call her_main("That one?", "angry", "narrow", "base", "down", cheeks="blush")
+            m "Yes, that one."
+            call her_main("Really?", "angry", "squint", "base", "mid", cheeks="blush")
+            m "Really..."
+            call her_main("Are you sure--", "angry", "squint", "base", "mid", cheeks="blush")
+            m "I am--...{w=0.4} How long are you going to keep this up?"
+            call her_main("...", "annoyed", "squint", "base", "R", cheeks="blush")
+            call her_main("Sir, surely this kind of bikini...", "normal", "closed", "base", "mid", cheeks="blush")
+            call her_main("Why it looks like something you might wear at...", "angry", "narrow", "base", "down", cheeks="blush")
+            m "At what, [hermione_name]?"
+            call her_main("*Ehm*...", "upset", "narrow", "base", "mid", cheeks="blush")
+            m "A porn shoot?"
+            call her_main("I...{w=0.4} Yes.", "angry", "narrow", "base", "mid", cheeks="blush")
+            m "You've watched porn [hermione_name]?"
+            call her_main("What?!", "clench", "squint", "base", "mid", cheeks="blush")
+            m "You just agreed with what I said... Which means you've watched porn before."
+            call her_main("I...{w=0.4} I have not!", "annoyed", "closed", "annoyed", "mid", cheeks="blush")
+            call her_main("I swear, I've never--", "open", "closed", "annoyed", "mid", cheeks="blush")
+            m "Look, I'm not judging."
+            call her_main("But...", "clench", "squint", "worried", "mid", cheeks="blush")
+            call her_main("You...{w=0.4} Sorry [genie_name], but this outfit is too much...", "open", "narrow", "worried", "R", cheeks="blush")
     else:
         $ random_number = renpy.random.randint(1, 5)
 
