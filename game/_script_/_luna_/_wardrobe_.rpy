@@ -53,7 +53,8 @@ default luna = Doll(name="luna",
 ## Schoolgirl Outfit ##
 #######################
 
-default lun_hair_base = DollCloth("luna", ("head", "hair"), "hair", "base", [[255, 228, 168, 255], [48, 144, 135, 255]], unlocked=True)
+default lun_hair_base = DollCloth("luna", ("head", "hair"), "hair", "base", [[237, 224, 195, 255], [191, 164, 107, 255], [48, 144, 135, 255]], unlocked=True)
+default lun_hair_wand = DollCloth("luna", ("head", "hair"), "hair", "wand", [[237, 224, 195, 255], [191, 164, 107, 255], [48, 144, 135, 255]], unlocked=True)
 
 ################
 ## Schoolgirl ##
