@@ -54,13 +54,6 @@ style about_name is about_text:
     color "#f9a001"
     outlines [(2, "#000", 0, 0)]
 
-define gui.about = """{=about_name}Witch Trainer: Silver{/=about_name} is an unofficial and complete rework of Akabur's popular game, Witch Trainer.
-\n\n
-The mod is developed by {a=https://www.silverstudiogames.com/}Silver Studio Games{/a} -- a group of people from around the world who work on this project in their free time.
-\n\n
-Special thanks to {a=https://www.patreon.com/akabur}Akabur{/a}
-\n
-Creator of the original Witch Trainer and other awesome games!
-\n\n
-{size=12}Witch Trainer: Silver is not affiliated with Akabur. Do not contact him for support.{/size}
-"""
+define gui.about = """{b}Witch Trainer: Silver{/b} is a complete rework of the popular game known as Witch Trainer.
+
+The mod is developed by {a=https://www.silverstudiogames.com/}Silver Studio Games{/a} -- a group of people from around the world who work on this project in their free time."""
