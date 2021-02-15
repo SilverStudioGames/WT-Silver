@@ -96,3 +96,15 @@ default lun_outfit_last = DollOutfit([lun_hair_base], hidden=True)
 #     # Layers
 #     outfit_layers = ["stockings/leggings_1","onepieces/onepiece_ball_dress","piercings/ears_starts_1"]
 # )
+
+#################
+## Accessories ##
+#################
+
+default lun_neckwear_cork = DollCloth("luna", ("head", "neckwear"), "neckwear", "cork", [[255, 255, 255, 255]], unlocked = True, zorder=16)
+default lun_accessory3_hair_bug = DollCloth("luna", ("misc", "accessory"), "accessory3", "hair_bug", [[255, 255, 255, 255]], unlocked = True, zorder=16)
+
+default lun_accessory4_wand_mouth = DollCloth("luna", ("misc", "accessory"), "accessory4", "wand_mouth", [[255, 255, 255, 255]], unlocked = True, zorder=16)
+default lun_accessory4_wand_hand = DollCloth("luna", ("misc", "accessory"), "accessory4", "wand_hand", [[255, 255, 255, 255]], unlocked = True, zorder=16)
+default lun_accessory4_wand_breasts = DollCloth("luna", ("misc", "accessory"), "accessory4", "wand_breasts", [[255, 255, 255, 255]], unlocked = True, zorder=16)
+default lun_accessory4_wand_pussy = DollCloth("luna", ("misc", "accessory"), "accessory4", "wand_pussy", [[255, 255, 255, 255]], unlocked = True, zorder=7)
