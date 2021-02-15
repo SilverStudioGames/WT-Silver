@@ -51,13 +51,14 @@ style smallcredits is about_text:
 
 style about_name is about_text:
     font gui.bold_font
-    color "#fff"
+    color "#f9a001"
+    outlines [(2, "#000", 0, 0)]
 
 define gui.about = """{=about_name}Witch Trainer: Silver{/=about_name} is an unofficial and complete rework of Akabur's popular game, Witch Trainer.
 \n\n
 The mod is developed by {a=https://www.silverstudiogames.com/}Silver Studio Games{/a} -- a group of people from around the world who work on this project in their free time.
 \n\n
-{=about_name}Special thanks{/=about_name} to {a=https://www.patreon.com/akabur}Akabur{/a}
+Special thanks to {a=https://www.patreon.com/akabur}Akabur{/a}
 \n
 Creator of the original Witch Trainer and other awesome games!
 \n\n

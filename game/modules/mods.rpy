@@ -60,18 +60,18 @@ init python:
         return
 
     def toggle_mod(mod):
-        global mods_enabled
-
         if not main_menu:
             renpy.notify("Mods can be enabled or disabled in the main menu only.")
             return
 
-        if mod in mods_enabled:
+        mods = getattr(renpy.store, "mods_enabled")
+
+        if mod in mods:
             renpy.notify("Mod disabled.")
-            mods_enabled.remove(mod)
+            mods.remove(mod)
         else:
             renpy.notify("Mod Enabled.")
-            mods_enabled.add(mod)
+            mods.add(mod)
 
     import_mods()
     config.after_load_callbacks.append(parse_mods)

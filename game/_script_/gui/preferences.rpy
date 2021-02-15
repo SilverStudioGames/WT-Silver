@@ -57,8 +57,10 @@ screen preferences_general():
 
             label _("Interface")
             textbutton "Tutorials" action settings.Toggle("tutorials")
-            textbutton _("Tooltips") action settings.Toggle("tooltip")
-            textbutton _("System Cursor") action Preference("system cursor", "toggle")
+
+            if not renpy.mobile:
+                textbutton _("Tooltips") action settings.Toggle("tooltip")
+                textbutton _("System Cursor") action Preference("system cursor", "toggle")
 
         default trans = config.intra_transition
 
@@ -178,18 +180,19 @@ screen preferences_visuals():
                 textbutton "60 fps" action [Preference("gl framerate", 60), Notify(fps_msg)]
             textbutton "30 fps" action [Preference("gl framerate", 30), Notify(fps_msg)]
 
-        vbox:
-            style_prefix gui.theme("radio")
+        if not renpy.mobile:
+            vbox:
+                style_prefix gui.theme("radio")
 
-            label "Renderer"
+                label "Renderer"
 
-            textbutton _("OpenGL"):
-                selected (preferences.renderer in ("auto", "gl2"))
-                action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "gl2"))
-            textbutton _("DirectX"):
-                sensitive renpy.windows
-                selected (preferences.renderer == "angle2")
-                action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "angle2"))
+                textbutton _("OpenGL"):
+                    selected (preferences.renderer in ("auto", "gl2"))
+                    action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "gl2"))
+                textbutton _("DirectX"):
+                    sensitive renpy.windows
+                    selected (preferences.renderer == "angle2")
+                    action Confirm("Changing renderer requires a full restart, do it now?\nUnsaved progress will be lost.", Function(set_renderer, "angle2"))
 
         vbox:
             style_prefix gui.theme("check")
@@ -199,8 +202,9 @@ screen preferences_visuals():
             textbutton _("Transitions") action Preference("transitions", "toggle")
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
-            textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
             textbutton _("Character blinking") action settings.Toggle("blinking")
+            if not renpy.mobile:
+                textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
 
 
 screen preferences_sound():
@@ -289,20 +293,21 @@ screen preferences_accessibility():
                 textbutton "Large" action Preference("font line spacing", 1.2)
                 textbutton "V. Large" action Preference("font line spacing", 1.4)
 
-        vbox:
-            style_prefix gui.theme("check")
+        if not renpy.mobile:
+            vbox:
+                style_prefix gui.theme("check")
 
-            label _("Text-to-speech")
+                label _("Text-to-speech")
 
-            textbutton _("Text-to-speech"):
-                action Preference("self voicing", "toggle")
+                textbutton _("Text-to-speech"):
+                    action Preference("self voicing", "toggle")
 
-        vbox:
-            style_prefix gui.theme("slider")
+            vbox:
+                style_prefix gui.theme("slider")
 
-            label _("Text-to-speech Accentuation")
+                label _("Text-to-speech Accentuation")
 
-            bar value Preference("self voicing volume drop")
+                bar value Preference("self voicing volume drop")
 
     vbox:
         label _("Advanced")
