@@ -35,10 +35,17 @@ screen mods():
                         #$ order = mod["LoadOrder"]
                         $ logo = mod["Logo"]
                         $ enabled = bool(name in mods_enabled)
+                        $ selected = (name == selection)
+
+                        if selected:
+                            $ action = Function(toggle_mod, name)
+                        else:
+                            $ action = SetScreenVariable("selection", name)
 
                         button:
-                            action SetScreenVariable("selection", name)
-                            selected (name == selection)
+                            action action
+                            selected selected
+                            sensitive main_menu
 
                             has fixed
 
@@ -58,13 +65,10 @@ screen mods():
                                 text "[version]":
                                     style "mods_text"
 
-                            imagebutton:
-                                if enabled:
-                                    idle checkbox_enabled
-                                else:
-                                    idle checkbox_disabled
-                                align (0.95, 0.5)
-                                action Function(toggle_mod, name)
+                            if enabled:
+                                add checkbox_enabled align (0.95, 0.5)
+                            else:
+                                add checkbox_disabled align (0.95, 0.5)
 
 
                 frame:

@@ -34,28 +34,13 @@ screen help(page='tutorials'):
         pos (25 + 15, 100)
         yanchor 0.5
 
-        textbutton _("Tutorials") action [
-            SelectedIf(page == 'tutorials'),
-            Show("help", config.intra_transition, "tutorials")
-        ]
-        textbutton _("Keyboard") action [
-            SelectedIf(page == 'keyboard'),
-            Show("help", config.intra_transition, "keyboard")
-        ]
-        textbutton _("Mouse") action [
-            SelectedIf(page == 'mouse'),
-            Show("help", config.intra_transition, "mouse")
-        ]
-        textbutton _("About") action [
-            SelectedIf(page == 'about'),
-            Show("help", config.intra_transition, "about")
-        ]
-
+        textbutton _("Tutorials") action [SelectedIf(page == 'tutorials'), Show("help", config.intra_transition, "tutorials")]
+        if not renpy.mobile:
+            textbutton _("Keyboard") action [SelectedIf(page == 'keyboard'), Show("help", config.intra_transition, "keyboard")]
+            textbutton _("Mouse") action [SelectedIf(page == 'mouse'), Show("help", config.intra_transition, "mouse")]
         if GamepadExists():
-            textbutton _("Gamepad") action [
-                SelectedIf(page == 'gamepad'),
-                Show("help", config.intra_transition, "gamepad")
-            ]
+            textbutton _("Gamepad") action [SelectedIf(page == 'gamepad'), Show("help", config.intra_transition, "gamepad")]
+        textbutton _("About") action [SelectedIf(page == 'about'), Show("help", config.intra_transition, "about")]
 
 screen tutorials_help():
     for entry, tutorial in tutorial_dict.iteritems():
@@ -191,5 +176,6 @@ style help_label is gui_label:
 style help_label_text is gui_label_text:
     xalign 1.0
     text_align 1.0
+    outlines [(2, "#000", 0, 0)]
 
 style help_text is gui_text

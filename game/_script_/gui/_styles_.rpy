@@ -21,8 +21,7 @@ style hyperlink_text:
 
 style gui_text:
     font gui.text_font
-    # size 19
-    color "#fff"
+    color "#000"
 
 style dark_gui_text:
     color settings.get('text_color_night')

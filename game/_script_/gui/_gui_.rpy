@@ -11,13 +11,11 @@ init python in gui:
     init(1080, 600)
 
     def is_dark():
-        theme = settings.get('theme')
-        if theme != 'auto':
-            return theme != 'light'
-        try:
-            return store._menu or store.interface_color == 'gray' or not store.game.daytime
-        except:
-            return store._menu
+        theme = settings.get("theme")
+
+        if theme == "auto":
+            return not renpy.store.game.daytime
+        return (theme == "dark")
 
     def is_light():
         return not is_dark()
@@ -25,17 +23,17 @@ init python in gui:
     def theme(name=None):
         """
         Returns a style name or prefix that accounts for dark/light theme.
-        The returned form is '{theme}_{name}', so styles can fall back on parent styles.
+        The returned form is "{theme}_{name}", so styles can fall back on parent styles.
         """
-        theme = 'dark' if is_dark() else 'light'
-        return '{}_{}'.format(theme, name) if name else theme
+        theme = "dark" if is_dark() else "light"
+        return "{}_{}".format(theme, name) if name else theme
 
     def format(template):
         """
         Formats a string using the current theme.
-        Note: Theme name follows folder naming, so 'gray/gold' instead of 'dark/light'.
+        Note: Theme name follows folder naming, so "gray/gold" instead of "dark/light".
         """
-        return template.format('gray' if is_dark() else 'gold')
+        return template.format("gray" if is_dark() else "gold")
 
     def rebuild_styles():
         """
@@ -66,44 +64,44 @@ init python in gui:
         renpy.call_in_new_context("gui_init_context", bg, label, *args, **kwargs)
 
 label gui_init_context(bg, label, *args , **kwargs):
-    $ renpy.show('screenshot', what=bg, at_list=[Transform(size=(config.screen_width, config.screen_height))])
+    $ renpy.show("screenshot", what=bg, at_list=[Transform(size=(config.screen_width, config.screen_height))])
     $ renpy.call(label, *args, **kwargs)
     return
 
 # Colors
-define gui.text_color = '#fff'
-define gui.interface_text_color = '#fff'
+define gui.text_color = "#fff"
+define gui.interface_text_color = "#fff"
 
 # An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#ebc275' # '#ee7700' # '#cc6600'
+define gui.accent_color = "#f9a001" # "#ee7700" # "#cc6600"
 
 # The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = Color('#000', alpha=0.5)
+define gui.idle_color = Color("#000", alpha=0.5)
 
 # The small color is used for small text, which needs to be brighter/darker to achieve the same effect.
-define gui.idle_small_color = Color('#000', alpha=0.5)
+define gui.idle_small_color = Color("#000", alpha=0.5)
 
 # The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#000'
+define gui.hover_color = "#000"
 
 # The color used for a text button when it is selected but not focused.
-define gui.selected_color = '#fff'
+define gui.selected_color = "#000"
 
 # The color used for a text button when it cannot be selected.
-define gui.insensitive_color = Color('#000', alpha=0.3)
+define gui.insensitive_color = Color("#000", alpha=0.3)
 
 # Colors used for the portions of bars that are not filled in.
-define gui.muted_color = '#88888844' # '#512800'
-define gui.hover_muted_color = '#ee770044' # '#7a3d00'
+define gui.muted_color = "#88888844" # "#512800"
+define gui.hover_muted_color = "#ee770044" # "#7a3d00"
 
 # Fonts
-define gui.text_font = 'gui/CreativeBlockRegular.ttf'
-define gui.bold_font = 'gui/CreativeBlockBold.ttf'
-define gui.glyph_font = 'DejaVuSans.ttf'
+define gui.text_font = "gui/CreativeBlockRegular.ttf"
+define gui.bold_font = "gui/CreativeBlockBold.ttf"
+define gui.glyph_font = "DejaVuSans.ttf"
 
 # Main and game menus
-define gui.main_menu_background = 'main_menu'
-define gui.game_menu_background = 'game_menu'
+define gui.main_menu_background = "main_menu"
+define gui.game_menu_background = "game_menu"
 
 # Save slot size
 define gui.slot_width = 350
@@ -138,4 +136,4 @@ define gui.thumb_size = 12
 define gui.slider_tile = False
 define gui.slider_borders = Borders(10, 10, 10, 10)
 
-define gui.unscrollable = 'hide'
+define gui.unscrollable = "hide"
