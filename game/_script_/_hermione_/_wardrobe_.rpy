@@ -384,8 +384,8 @@ default her_outfit_cheerleader_2 = DollOutfit([her_hair_base, her_top_cheerleade
 ## Xmas Stuff ###   /%\  ___&__ ###  Ho Ho Ho  ##
 #################  /% \ |=I~I=| #################
 
-default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "headgear", "antlers", [[234, 187, 170, 255]], level=4)
-default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "headgear", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=4)
+default her_hat_antlers = DollCloth("hermione", ("head", "headgear"), "headgear", "antlers", [[234, 187, 170, 255]], level=8)
+default her_hat_elf = DollCloth("hermione", ("head", "headgear"), "headgear", "elf", [[229, 0, 10, 255], [255, 239, 248, 255]], level=8)
 default her_neckwear_choker1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "choker_1", [[229, 0, 10, 255]], level=4)
 default her_neckwear_bell1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "bell_1", [[229, 0, 10, 255], [244, 181, 82, 255]], zorder=16, level=10)
 

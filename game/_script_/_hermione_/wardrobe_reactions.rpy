@@ -1194,18 +1194,80 @@ label her_reaction_equip_outfit(item):
     ################################
     ## Pizza Slut Outfit (mirror) ##
     ################################
-    #elif item == her_outfit_pizza: #Req 19 (top, panties)
+    elif item == her_outfit_pizza: #Req 19 (top, panties)
+        m "Put this pizza on."
+        call her_main("Put it--", "annoyed", "squint", "base", "mid")
+        call her_main("...", "angry", "squint", "base", "mid")
+        call her_main("Where did you even get something like this?", "disgust", "narrow", "base", "mid")
+        call her_main("It's not real pizza, right?", "angry", "narrow", "base", "mid")
+        m "It materialized from a dream."
+        call her_main("It did what?", "mad", "happy", "base", "mid")
+        m "Yeah, better not question it..."
+        call her_main("But sir, conjuring food breaks the laws of transfiguration!", "open", "squint", "base", "mid")
+        m "What counts as food, really?"
+        call her_main("What?", "disgust", "base", "base", "mid")
+        m "If you put it on your body then it's not food... it's clothes."
+        m "It's the intention of use that matters..."
+        call her_main("I'm not sure that's how it works...", "open", "narrow", "base", "R")
+        m "..."
+        call her_main("...", "annoyed", "squint", "base", "mid")
+        call her_main("Don't question it?", "open", "narrow", "base", "mid")
+        m "Don't question it."
+        m "Now, are you putting on these clothes for me or what?"
+        call her_main("*Hmm*...", "annoyed", "narrow", "base", "down")
+        call her_main("I guess I'll could do it, using a sticking charm...", "angry", "narrow", "base", "R")
+        m "What's a stick going to--"
+        call her_main("Exposimise!", "scream", "happy", "base", "mid") #TODO add flash effect (needs to go away instantly as well so clothes are changed when it does)
+        call her_main("", "normal", "happy", "base", "mid")
 
     ###################
     ## Ribbon Outfit ##
     ###################
-    #elif item == her_outfit_ribbon: #Req 18 (bra, panties)
-
+    elif item == her_outfit_ribbon: #Req 18 (bra, panties)
+        m "I've got this thing that I'd like you to wrap for me."
+        if her_whoring < 22:
+            call her_main("Is it me?", "open", "narrow", "base", "mid")
+            g4 "When did you become so good at guessing?"
+            call her_main("It wasn't exactly hard...", "annoyed", "narrow", "base", "mid")
+            g9 "It could be if you put those ribbons on."
+            call her_main("*Ugh*...", "disgust", "narrow", "base", "mid")
+            call her_main("Alright fine... Just don't tug at the ends.", "open", "narrow", "base", "R", cheeks="blush")
+            g9 "Of course..."
+            call her_main("One moment...", "open", "narrow", "base", "mid", cheeks="blush")
+        else: # 22+
+            call her_main("Alright, let me just take my clothes off...", "angry", "narrow", "base", "R", cheeks="blush")
+            g4 "I didn't say it was you!"
+            call her_main("It's not?", "clench", "squint", "base", "mid", cheeks="blush")
+            m "...{w=0.4} Alright, it is..."
+            call her_main("Okay then, just give me a--", "open", "closed", "base", "mid", cheeks="blush")
+            m "Wrap it tight!"
+            call her_main("Very well...", "open", "squint", "base", "R", cheeks="blush")
     ######################
     ## Christmas Outfit ##
     ######################
-    #elif item == her_outfit_xmas: #Req 13 (top, bottom)
-
+    elif item == her_outfit_xmas: #Req 13 (top, bottom)
+        m "I'm feeling festive today so could you put on the Christmas outfit?"
+        if her_whoring < 22:
+            call her_main("A Christmas--", "open", "squint", "base", "mid")
+            call her_main("Right...", "soft", "narrow", "base", "down", cheeks="blush")
+            m "Specifically designed to jingle some balls."
+            call her_main("Charming...", "open", "narrow", "base", "R", cheeks="blush")
+            call her_main("Is this really what you imagine a proper Christmas themed outfit is?", "angry", "narrow", "base", "down", cheeks="blush")
+            m "I mean... Mrs Claus probably doesn't wear it... Although she probably should."
+            call her_main("Why would I even ask...", "disgust", "closed", "base", "mid", cheeks="blush")
+            g9 "Because if she did then Santa would probably come more than once a--"
+            call her_main("Fine!", "clench", "narrow", "base", "mid", cheeks="blush")
+            g4 "I wasn't finished..."
+            call her_main("I'll put it on...", "open", "narrow", "base", "R", cheeks="blush")
+            m "But... My joke..."
+            call her_main("", "base", "narrow", "base", "mid", cheeks="blush")
+        else: #22+
+            call her_main("Looks a bit naughty--", "soft", "narrow", "base", "down", cheeks="blush")
+            m "Yet I'm sure Santa would put you on the good list if you wore it..."
+            call her_main("*Hmm*... I doubt that...", "base", "narrow", "base", "R", cheeks="blush")
+            call her_main("Well... I'm doing this to make my house happy so surely it'd even out.", "open", "closed", "base", "mid", cheeks="blush")
+            m "I'm sure it will."
+            call her_main("Just give me a moment to put it on...", "base", "narrow", "base", "mid", cheeks="blush")
 
     # TODO: Blacklist fallbacks have to be added.
     return
@@ -1952,6 +2014,124 @@ label her_reaction_equip_outfit_fail(item):
             m "Look, I'm not judging."
             call her_main("But...", "clench", "squint", "worried", "mid", cheeks="blush")
             call her_main("You...{w=0.4} Sorry [genie_name], but this outfit is too much...", "open", "narrow", "worried", "R", cheeks="blush")
+
+    ################################
+    ## Pizza Slut Outfit (mirror) ##
+    ################################
+    elif item == her_outfit_pizza: #Req 19 (top, panties)
+        m "Put this pizza on."
+        if her_whoring < 13:
+            call her_main("Put it on, [genie_name]?", "normal", "squint", "base", "mid")
+            m "Yes, put it on."
+            call her_main("Do you want me to heat it up?", "open", "squint", "worried", "mid")
+            m "No, I want you to put it on."
+            call her_main("*Huh*?", "annoyed", "squint", "base", "mid")
+            m "Put... it--"
+            m "You know what... Forget it."
+        else: # < 19
+            call her_main("Put it on, [genie_name]?", "normal", "squint", "base", "mid")
+            m "Yes..."
+            call her_main("...", "normal", "squint", "base", "mid")
+            call her_main("...", "normal", "squint", "base", "stare")
+            call her_main("Surely you can't be serious...", "disgust", "squint", "base", "mid")
+            call her_main("You want me to wear...{w=0.4} Pizza?", "angry", "narrow", "base", "down")
+            call her_main("Where on earth did you get an idea like this?", "open", "closed", "worried", "mid")
+            m "In a dream."
+            call her_main("...{w} Then it will stay that way...", "normal", "narrow", "base", "R")
+            m "(Such a pizza work that one...)"
+
+    ###################
+    ## Ribbon Outfit ##
+    ###################
+    elif item == her_outfit_ribbon: #Req 18 (bra, panties)
+        m "I've got this thing that I'd like you to wrap for me."
+        if her_whoring < 4:
+            call her_main("You want me to wrap a gift for you?", "annoyed", "squint", "base", "mid")
+            m "Yes..."
+            call her_main("I guess I could do that...", "open", "closed", "base", "mid")
+            m "Here's the ribbons..."
+            call her_main("Thank you.", "base", "base", "base", "mid")
+            m "Go on..."
+            call her_main("[genie_name], you've not provided me any wrapping paper...", "open", "squint", "base", "mid")
+            call her_main("Or what ever it is you wanted me to wrap.", "open", "base", "base", "mid")
+            m "My mistake... I should've been more clear."
+            m "You won't need any paper, the ribbons should do."
+            call her_main("Right... but what about--", "angry", "base", "base", "mid")
+            m "Now take your clothes off and tie those ribbons around yourself."
+            call her_main("...", "clench", "wide", "base", "mid")
+            call her_main("You want me to what?!", "disgust", "base", "annoyed", "mid")
+            m "Take your clothes--"
+            call her_main("[genie_name], are you crazy?!", "scream", "happyCl", "annoyed", "mid")
+            m "You've learnt how to tie a knot have you not?"
+            m "If it's an issue I suppose I could--"
+            call her_main("You want me to take my clothes off and only wear a ribbon?!", "clench", "base", "annoyed", "mid")
+            m "Ribbons actually... There's two of them."
+            call her_main("*Oh*... Then I suppose it's fine then!", "disgust", "narrow", "annoyed", "R")
+            m "I knew you'd come around sooner rather than--"
+            call her_main("...", "annoyed", "base", "angry", "mid")
+            m "*Ah*... Sarcasm... My most loyal friend yet also my greatest enemy..."
+        elif her_whoring < 13:
+            call her_main("And that gift is?", "open", "narrow", "base", "mid")
+            m "It's you!"
+            call her_main("*Ugh*...", "disgust", "narrow", "base", "R")
+            call her_main("You really expect me to gift wrap myself?", "annoyed", "closed", "annoyed", "mid")
+            m "Yep."
+            m "But don't worry. I'll unwrap my present myself."
+            call her_main("Gross...", "annoyed", "narrow", "base", "R")
+            m "Don't put yourself down like that."
+            call her_main("I am not putting this on...", "open", "narrow", "annoyed", "mid")
+            g4 "Why not?"
+            call her_main("I am not some gift for you to unwrap, [genie_name]...", "disgust", "narrow", "base", "mid")
+            m "Worst birthday ever..."
+        else: # < 18
+            call her_main("It's me isn't it?", "disgust", "narrow", "base", "mid")
+            g9 "It's--"
+            m "How did you know?"
+            call her_main("...", "normal", "narrow", "base", "mid")
+            m "Am I really that predicable?"
+            call her_main("Yes...", "normal", "narrow", "base", "mid")
+            m "Well... take this for predictable..."
+            m "I want you to tie it around your naked body!"
+            call her_main("...", "annoyed", "narrow", "base", "mid")
+            m "Don't tell me you knew that too?"
+            call her_main("I mean...", "open", "closed", "base", "mid")
+            m "*Hmm*... In that case I want you to..."
+            g9 "Tie it around your tits so hard it squeezes them together!"
+            call her_main("...", "clench", "wide", "base", "mid")
+            g9 "Didn't expect that one did you?"
+            call her_main("I am not doing that!", "open", "base", "annoyed", "mid")
+            m "(Aw, shit...)"
+            m "What about doing it loosely?"
+            call her_main("...", "upset", "base", "annoyed", "mid")
+            m "Yeah, yeah... Fine... Not like it's my birthday or anything..."
+
+    ######################
+    ## Christmas Outfit ##
+    ######################
+    elif item == her_outfit_xmas: #Req 13 (top, bottom)
+        m "I'm feeling festive today so could you put on the Christmas outfit?"
+        if her_whoring < 4:
+            call her_main("What is wrong with this outfit?!", "clench", "squint", "worried", "down", cheeks="blush")
+            call her_main("Surely this isn't appropriate holiday attire!", "angry", "narrow", "annoyed", "mid", cheeks="blush")
+            m "I don't know... Might jingle a couple of balls..."
+            call her_main("What did you just say?!", "clench", "squint", "base", "mid", cheeks="blush")
+            m "Bells... I said bells..."
+            m "Come on, just put the thing on. I'm sure Santa would give us a white Christmas if you did."
+            call her_main("I think I'll pass...", "open", "base", "annoyed", "R", cheeks="blush")
+            m "(Balls...)"
+        else: # < 13
+            call her_main("Are those horns?", "disgust", "narrow", "base", "down", cheeks="blush")
+            m "Antlers actually..."
+            call her_main("Antlers...", "upset", "narrow", "base", "down", cheeks="blush")
+            call her_main("And a bell...", "annoyed", "narrow", "base", "down", cheeks="blush")
+            call her_main("You trying to make me to look like some sort of reindeer?", "angry", "closed", "annoyed", "mid", cheeks="blush")
+            g9 "Cute, aren't they?"
+            call her_main("...", "disgust", "narrow", "annoyed", "mid", cheeks="blush")
+            g9 "You'd be like a sexy reindeer!"
+            m "Actually that does sound a bit--"
+            call her_main("I'm not putting this on...", "angry", "closed", "annoyed", "mid", cheeks="blush")
+
+
     else:
         $ random_number = renpy.random.randint(1, 5)
 
