@@ -2756,7 +2756,7 @@ label ball_ending_E2:
     hide screen with_snape
 
     show screen chair_right
-    show screen dumbledore
+    $ desk_OBJ.idle = "desk_dumbledore"
 
     hide screen blkfade
     with d9

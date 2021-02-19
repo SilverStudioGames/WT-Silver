@@ -469,25 +469,6 @@ image no_panties_dance_ani: # No panties
 image no_panties_dance_pause:
     "characters/hermione/chibis/dance/07_dance_01.webp"
 
-image hermione_stripper_dance:
-    "characters/hermione/chibis/dance/strip_01.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_02.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_03.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_04.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_05.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_06.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_07.webp"
-    pause.15
-    "characters/hermione/chibis/dance/strip_08.webp"
-    pause.15
-    repeat
-
 image ch_hem lift_top:
     zoom 0.92 # chibi is slightly too big
     xoffset -84

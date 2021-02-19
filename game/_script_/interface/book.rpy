@@ -151,8 +151,8 @@ screen book_menu(page, pages, title, page_title, page_text, page_overflow):
         imagebutton:
             pos (242, 100)
             ysize 400
-            idle im.Alpha(im.Flip("interface/book/hover.webp", horizontal=True), 0)
-            hover im.Flip("interface/book/hover.webp", horizontal=True)
+            idle im.Alpha(Transform("interface/book/hover.webp", xzoom=-1.0), 0)
+            hover Transform("interface/book/hover.webp", xzoom=-1.0)
             action Return("prev")
 
     use close_button
@@ -192,17 +192,17 @@ image book_page_prev:
         xoffset 40
         #"interface/book_of_secrets/book_anim_01.webp"
         #pause.1
-        im.Flip("interface/book/page_02.webp", horizontal=True)
+        Transform("interface/book/page_02.webp", xzoom=-1.0)
         pause.08
-        im.Flip("interface/book/page_03.webp", horizontal=True)
+        Transform("interface/book/page_03.webp", xzoom=-1.0)
         pause.08
-        im.Flip("interface/book/page_04.webp", horizontal=True)
+        Transform("interface/book/page_04.webp", xzoom=-1.0)
         pause.08
-        im.Flip("interface/book/page_05.webp", horizontal=True)
+        Transform("interface/book/page_05.webp", xzoom=-1.0)
         pause.08
-        im.Flip("interface/book/page_06.webp", horizontal=True)
+        Transform("interface/book/page_06.webp", xzoom=-1.0)
         pause.08
-        im.Flip("interface/book/page_07.webp", horizontal=True)
+        Transform("interface/book/page_07.webp", xzoom=-1.0)
         pause.08
         "blank"
 

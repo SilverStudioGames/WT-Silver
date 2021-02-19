@@ -26,7 +26,7 @@ screen bld1():
 
 screen bld2():
     zorder 10
-    add im.Flip("interface/bld.webp", vertical=True)
+    add Transform("interface/bld.webp", yzoom=-1.0)
 
 screen notes():
     add "notes" xpos 320+140 ypos 330

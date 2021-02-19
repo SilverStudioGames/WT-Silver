@@ -8,9 +8,9 @@ transform mirrage:
 
 screen room_of_requirement():
     zorder 0
-    add im.Flip("images/rooms/room_of_requirement/corridor.webp", horizontal=True)
+    add Transform("images/rooms/room_of_requirement/corridor.webp", xzoom=-1.0)
     if mirror_image != 0:
-        add im.Flip(mirror_bg[mirror_image], horizontal=True) xpos -540 at mirrage
+        add Transform(mirror_bg[mirror_image], xzoom=-1.0) xpos -540 at mirrage
 
     # Show a copy of chibi screen in the mirror
     $ mirror_chibi = renpy.get_screen("genie_chibi")

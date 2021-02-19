@@ -334,9 +334,9 @@ screen achievement_menuitem(xx, yy):
                         action Return("dec")
 
                 imagebutton:
-                    idle im.Flip(gui.format("interface/frames/{}/arrow_up.webp"), vertical=True)
+                    idle Transform(gui.format("interface/frames/{}/arrow_up.webp"), yzoom = -1.0)
                     if current_page < math.ceil((menu_items_length-1)/items_shown):
-                        hover im.Flip(image_hover(gui.format("interface/frames/{}/arrow_up.webp")), vertical=True)
+                        hover Transform(image_hover(gui.format("interface/frames/{}/arrow_up.webp")), yzoom = -1.0)
                         action Return("inc")
 
         # Add items

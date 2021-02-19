@@ -23,8 +23,7 @@ label prev_at_hogwarts:
     call update_interface_color
     $ game.weather = "clear"
 
-    call gen_chibi("hide")
-    show screen dumbledore
+    $ desk_OBJ.idle = "desk_dumbledore"
 
     centered "{size=+7}{color=#cbcbcb}Previously, at Hogwarts{w=1.0}\nschool of Witchcraft and Wizardry...{/color}{/size}"
 
@@ -97,8 +96,7 @@ label prev_at_hogwarts:
 
     dum2 "\"I don't think I'll ever understa--\""
 
-    hide screen dumbledore
-    call gen_chibi("sit_behind_desk")
+    $ desk_OBJ.idle = "ch_gen sit_behind_desk"
     with None
 
     call teleport("desk")

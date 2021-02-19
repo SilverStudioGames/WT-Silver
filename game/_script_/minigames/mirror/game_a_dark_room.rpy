@@ -615,8 +615,8 @@ screen DRgame_menu():
             idle "ch_gen stand"
             hover yellow_tint("ch_gen stand")
         else:
-            idle im.Flip("ch_gen stand", horizontal=True)
-            hover yellow_tint( im.Flip("ch_gen stand", horizontal=True) )
+            idle Transform("ch_gen stand", xzoom=-1.0)
+            hover yellow_tint( Transform("ch_gen stand", xzoom=-1.0) )
         action [Hide("DRgame_menu"), Jump("dark_room_player")]
 
     #Stranger
@@ -630,8 +630,8 @@ screen DRgame_menu():
                 idle "ch_sna stand"
                 hover yellow_tint("ch_sna stand")
             else:
-                idle im.Flip("ch_sna stand", horizontal=True)
-                hover yellow_tint( im.Flip("ch_sna stand", horizontal=True) )
+                idle Transform("ch_sna stand", xzoom=-1.0)
+                hover yellow_tint( Transform("ch_sna stand", xzoom=-1.0) )
             action [Hide("DRgame_menu"), Jump("dark_room_stranger")]
 
     if DRmaid in DRgame.characters and DRmaid.location in ["room","desk","fireplace"]:

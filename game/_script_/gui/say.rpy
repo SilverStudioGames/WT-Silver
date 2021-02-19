@@ -71,7 +71,7 @@ screen quick_menu():
 
     if renpy.android:
         imagebutton idle gui.format("interface/frames/{}/arrow.webp") action Rollback() xoffset -120 yalign 0.5 yanchor 0.5
-        imagebutton idle im.Flip(gui.format("interface/frames/{}/arrow.webp"), horizontal=True) action Skip(fast=True, confirm=True) xoffset 600 yalign 0.5 yanchor 0.5
+        imagebutton idle Transform(gui.format("interface/frames/{}/arrow.webp"), xzoom=-1.0) action Skip(fast=True, confirm=True) xoffset 600 yalign 0.5 yanchor 0.5
 
 style quick_button is default:
     activate_sound "sounds/click3.mp3"
