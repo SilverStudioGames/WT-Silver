@@ -58,3 +58,93 @@ init python:
         ###DISPLAY THE UPDATED SCREEEN
         renpy.show_screen("hercg")
         renpy.with_statement(Dissolve(0.1))
+
+image her_sex her pose1 ahegao:
+
+    # BG
+    contains:
+        "images/CG/her_sex/background.png"
+
+    contains:
+        "images/CG/her_sex/shadow.png"
+
+    # Characters
+    contains:
+        "images/CG/her_sex/pose1/genie_caress.png"
+
+    contains:
+        "images/CG/her_sex/pose1/body.png"
+
+    contains:
+        "images/CG/her_sex/pose1/face_ahegao.png"
+
+    contains:
+        "images/CG/her_sex/pose1/hair.png"
+
+    contains:
+        "images/CG/her_sex/pose1/skirt.png"
+
+    contains:
+        "images/CG/her_sex/pose1/vest.png"
+
+    contains:
+        "images/CG/her_sex/pose1/genie_caress_armfix.png"
+
+image her_sex her pose1 ahegao topless:
+
+    # BG
+    contains:
+        "images/CG/her_sex/background.png"
+
+    contains:
+        "images/CG/her_sex/shadow.png"
+
+    # Characters
+    contains:
+        "images/CG/her_sex/pose1/genie_caress.png"
+
+    contains:
+        "images/CG/her_sex/pose1/body.png"
+
+    contains:
+        "images/CG/her_sex/pose1/face_ahegao.png"
+
+    contains:
+        "images/CG/her_sex/pose1/hair.png"
+
+    contains:
+        "images/CG/her_sex/pose1/breastfix.png"
+
+    contains:
+        "images/CG/her_sex/pose1/skirt.png"
+
+    contains:
+        "images/CG/her_sex/pose1/genie_caress_armfix.png"
+
+image her_sex her pose1 ahegao bottomless:
+
+    # BG
+    contains:
+        "images/CG/her_sex/background.png"
+
+    contains:
+        "images/CG/her_sex/shadow.png"
+
+    # Characters
+    contains:
+        "images/CG/her_sex/pose1/genie_caress.png"
+
+    contains:
+        "images/CG/her_sex/pose1/body.png"
+
+    contains:
+        "images/CG/her_sex/pose1/face_ahegao.png"
+
+    contains:
+        "images/CG/her_sex/pose1/hair.png"
+
+    contains:
+        "images/CG/her_sex/pose1/vest.png"
+
+    contains:
+        "images/CG/her_sex/pose1/genie_caress_armfix.png"

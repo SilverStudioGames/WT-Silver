@@ -220,23 +220,21 @@ label hg_sex_1:
     with hpunch
     with kissiris
 
-    if use_cgs:
-        $ ccg_folder = "herm_sex"
-        $ ccg1 = 1
-        $ ccg2 = "blank"
-        $ ccg3 = "blank"
-        $ hermione_zorder = -1
-        hide screen hermione_main
-        show screen ccg
-        hide screen blkfade
-    else:
-        call her_chibi_scene("sex_pause", trans=d5)
-    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare")
-    hide screen bld1
-    call ctc
+    # Note: This is a bodge.
+    $ camera.set_imagepath(None)
+    $ camera.set_image("her_sex her pose1 ahegao")
+    $ camera.set(zoom=1.0, pos=(-1285, -1660), initialize=True)
+    show screen animatedCG
+    hide screen blkfade
+    with d5
 
+    #call her_chibi_scene("sex_pause", trans=d5)
     call play_music("playful_tension") # SEX THEME.
+    call her_main("*Ooooohhhhhhhhhhhh*....{heart}", "scream", "wide", "base", "stare")
 
+    $ camera.set(zoom=0.6, pos=(-555, -380), t=3.0, pause=True)
+
+    ###
     $ ccg1 = 2
     g4 "Your pussy... It's so tight."
     m "I'll start moving now."

@@ -293,6 +293,7 @@ screen editor():
 
     default minimised = False
     default minimised_history = False
+    default minimised_cg = False
     default frame_size = (250, 450)
 
     if not _menu:
@@ -420,6 +421,91 @@ screen editor():
                                 vbar value YScrollValue("editor_history") xsize 10
                     else:
                         text "No history." size 15 color "#FFF" align (0.5, 0.5) outlines [(1, "#00000080", 1, 0)]
+
+        # CG poser
+
+        if renpy.get_screen("animatedCG"):
+            drag:
+                drag_name "editor_cg"
+                draggable True
+                drag_offscreen False
+                drag_handle (0, 0, 1.0, 26)
+                pos (550, 50)
+                frame:
+                    background "#00000080"
+                    xysize (frame_size if not minimised_cg else (250, 28))
+                    button action NullAction() style "empty" xysize (frame_size if not minimised_cg else (250, 28)) ypos 18
+
+                    text "CG Poser" size 10 color "#FFF" outlines [(1, "#00000080", 1, 0)]
+
+                    textbutton "_" ysize 28 offset (-32, -7) text_size 15 text_yalign 0.5 xalign 1.0 action [ToggleScreenVariable("minimised_cg", True, False), SelectedIf(None)] tooltip ("Maximise" if minimised_history else "Minimise")
+                    textbutton "x" ysize 28 offset (6, -7) text_size 15 text_yalign 0.5 xalign 1.0 action Hide("editor") tooltip "Close editor"
+
+                    frame:
+                        style "empty"
+                        xysize (236, 2)
+                        pos (0, 18)
+                        background "#FFFFFF80"
+
+                        if not minimised_cg:
+
+                            $ x, y = camera.pos
+                            $ zoom = camera.zoom
+                            $ rotate = camera.rotate
+                            default pos_step = 5
+                            default zoom_step = 0.05
+                            default rotate_step = 5
+                            vbox:
+                                text "Pos Step ({})".format(pos_step) color "#fff"
+                                hbox:
+                                    textbutton "-":
+                                        action SetScreenVariable("pos_step", max(pos_step-5, 5))
+                                    textbutton "+":
+                                        action SetScreenVariable("pos_step", min(pos_step+5, 100))
+                                text "Pos (x={}, y={})".format(x, y) color "#fff"
+                                hbox:
+                                    textbutton "X-":
+                                        action [SetVariable("camera.pos", (x-pos_step, y)), Function(camera.redraw, 0)]
+                                    textbutton "X+":
+                                        action [SetVariable("camera.pos", (x+pos_step, y)), Function(camera.redraw, 0)]
+                                hbox:
+                                    textbutton "Y-":
+                                        action [SetVariable("camera.pos", (x, y-pos_step)), Function(camera.redraw, 0)]
+                                    textbutton "Y+":
+                                        action [SetVariable("camera.pos", (x, y+pos_step)), Function(camera.redraw, 0)]
+
+                                null height 20
+
+                                text "Zoom Step ({})".format(zoom_step) color "#fff"
+                                hbox:
+                                    textbutton "-":
+                                        action SetScreenVariable("zoom_step", max(zoom_step-0.01, 0.01))
+                                    textbutton "+":
+                                        action SetScreenVariable("zoom_step", min(zoom_step+0.01, 0.25))
+                                text "Zoom (zoom={})".format(zoom) color "#fff"
+                                hbox:
+                                    textbutton "-":
+                                        action [SetVariable("camera.zoom", zoom-zoom_step), Function(camera.redraw, 0)]
+                                    textbutton "+":
+                                        action [SetVariable("camera.zoom", zoom+zoom_step), Function(camera.redraw, 0)]
+
+                                null height 20
+
+                                text "Rotate Step ({})".format(rotate_step) color "#fff"
+                                hbox:
+                                    textbutton "-":
+                                        action SetScreenVariable("rotate_step", max(rotate_step-1, 1))
+                                    textbutton "+":
+                                        action SetScreenVariable("rotate_step", min(rotate_step+1, 1))
+                                text "Rotate ({})".format(rotate) color "#fff"
+                                hbox:
+                                    textbutton "-":
+                                        action [SetVariable("camera.rotate", rotate-rotate_step), Function(camera.redraw, 0)]
+                                    textbutton "+":
+                                        action [SetVariable("camera.rotate", rotate+rotate_step), Function(camera.redraw, 0)]
+
+                                null height 50
+                                textbutton "Copy to Clipboard" action [Function(set_clipboard, "$ camera.set(zoom={}, pos=({}, {}), rotate={}, t=1.0)".format(zoom, x, y, rotate)), Notify("Copied!")]
 
 style editor_button is empty:
     margin (3, 3)
