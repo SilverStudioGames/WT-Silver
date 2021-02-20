@@ -13,15 +13,7 @@ label summon_luna:
     call lun_chibi("stand","mid","base")
     with d3
 
-    if luna_reverted:
-        call lun_main("Hello, [lun_genie_name]!","normal","wink","base","mid",xpos="base",ypos="base")
-    elif lun_dom >= lun_sub:
-        if lun_dom >= 4:
-            call lun_main("[lun_genie_name]...","normal","suspicious","angry","R",xpos="base",ypos="base")
-        else:
-            call lun_main("[lun_genie_name]...","upset","mad","mad","R",xpos="base",ypos="base")
-    else:
-        call lun_main("[lun_genie_name]...","normal","base","sad","mid",xpos="base",ypos="base")
+    call lun_main("[lun_genie_name]...","base","base","base","mid", xpos="base", ypos="base")
 
     label luna_requests:
 
