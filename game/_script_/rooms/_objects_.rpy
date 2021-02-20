@@ -9,7 +9,7 @@ default candleR_OBJ = RoomObject(main_room, "candle_right", pos=(833, 225), idle
 default desk_OBJ = RoomObject(main_room, "desk", pos=(370, 336), idle="ch_gen sit_behind_desk", hover="ch_gen sit_behind_desk_hover", focus_mask="ch_gen sit_behind_desk", action=Jump("desk"), hovered=Show("gui_tooltip", img="emo_exclaim", xx=335, yy=210), unhovered=Hide("gui_tooltip"), tooltip="Desk", zorder=1)
 default poster_OBJ = RoomObject(main_room, "poster", pos=(364, 285), idle=Null(127, 166), action=Jump("enlarge_poster"), zorder=-1)
 default trophy_OBJ = RoomObject(main_room, "trophy", pos=(670, 164), idle=Null(), action=None, zorder=-1)
-default chair_OBJ = RoomObject(main_room, "chair", pos=(793, 300), idle="chair_right", zorder=0)
+default chair_OBJ = RoomObject(main_room, "chair", pos=(793, 300), idle="chair_right", action=None, zorder=0)
 
 default owl_OBJ = RoomObject(main_room, "owl", pos=(455, 289), idle="owl_letter", hover="owl_letter_hover", action=Jump("letter_open_all"), tooltip="Check Mail", hidden=True, anchor=(0.5, 1.0))
 default parcel_OBJ = RoomObject(main_room, "parcel", pos=(402, 290), idle="parcel", action=Jump("parcel_open_all"), tooltip="Check Parcel", hidden=True, anchor=(0.5, 1.0))

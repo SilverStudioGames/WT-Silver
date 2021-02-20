@@ -37,6 +37,8 @@ label desk:
     #Define hints variable
     $ ball_hint = None
 
+    # TODO: Refactor. Low priority.
+
     call update_character_map_locations
 
 
@@ -45,21 +47,21 @@ label desk:
     show screen desk_menu
     with d1
 
-    $_return = ui.interact()
+    $ _choice = ui.interact()
 
     hide screen desk_menu
     #Do NOT add a transition here!
 
 
     #Hermione
-    if _return == "hermione" and hermione_busy:
+    if _choice == "hermione" and hermione_busy:
         if game.daytime:
             call nar(">Hermione is taking classes.")
             jump main_room_menu
         else:
             call nar(">Hermione is already asleep.")
             jump main_room_menu
-    elif _return == "hermione" and not hermione_busy:
+    elif _choice == "hermione" and not hermione_busy:
         if her_map_location == "forest":
             call nar(">Hermione is currently at the Forbidden Forest.\n>Would you like to go there?")
             menu:
@@ -70,87 +72,79 @@ label desk:
 
         jump summon_hermione
 
-
     #Luna
-    elif luna_known and _return == "luna" and luna_busy:
+    elif luna_known and _choice == "luna" and luna_busy:
         if game.daytime:
             call nar(">Luna is taking classes.")
             jump main_room_menu
         else:
             call nar(">Luna is already asleep.")
             jump main_room_menu
-    elif luna_known and _return == "luna" and not luna_busy:
+    elif luna_known and _choice == "luna" and not luna_busy:
         jump summon_luna
 
-
     #Astoria
-    elif astoria_busy and _return == "astoria":
+    elif astoria_busy and _choice == "astoria":
         if game.daytime:
             call nar(">Astoria is taking classes.")
             jump main_room_menu
         else:
             call nar(">Astoria is already asleep.")
             jump main_room_menu
-    elif not astoria_busy and _return == "astoria": #Summoning after intro events done.
+    elif not astoria_busy and _choice == "astoria": #Summoning after intro events done.
         jump summon_astoria
 
-
     #Susan
-    elif _return == "susan" and susan_busy:
+    elif _choice == "susan" and susan_busy:
         if game.daytime:
             call nar(">Susan is taking classes.")
             jump main_room_menu
         else:
             call nar(">Susan is already asleep.")
             jump main_room_menu
-    elif _return == "susan" and not susan_busy:
+    elif _choice == "susan" and not susan_busy:
         jump summon_susan
 
-
     #Cho
-    elif _return == "cho" and cho_busy:
+    elif _choice == "cho" and cho_busy:
         if game.daytime:
             call nar(">Cho is taking classes.")
             jump main_room_menu
         else:
             call nar(">Cho is already asleep.")
             jump main_room_menu
-    elif _return == "cho" and not cho_busy:
+    elif _choice == "cho" and not cho_busy:
         jump summon_cho
 
-
     #Snape
-    elif _return == "snape" and snape_busy:
+    elif _choice == "snape" and snape_busy:
         call nar(">Professor Snape is unavailable.")
         if game.daytime:
             jump main_room_menu
         else:
             jump main_room_menu
-    elif _return == "snape" and not snape_busy:
+    elif _choice == "snape" and not snape_busy:
         jump summon_snape
 
-
     #Tonks
-    elif _return == "tonks" and tonks_busy:
+    elif _choice == "tonks" and tonks_busy:
         call nar(">Tonks is unavailable.")
         if game.daytime:
             jump main_room_menu
         else:
             jump main_room_menu
-    elif _return == "tonks" and not tonks_busy:
+    elif _choice == "tonks" and not tonks_busy:
         jump summon_tonks
 
-
     #Close
-    elif _return == "Close":
+    elif _choice == "Close":
         jump main_room_menu
+    elif _choice in {"floor_7th", "map_lake", "map_forest", "map_attic", "clothing_store", "item_store", "ravenclaw_dormitories", "gryffindor_dormitories"}:
+        call gen_chibi("stand", "desk", "base")
+        with d3
+        call gen_walk(action="leave", speed=1.5)
 
-    $ room = _return
-
-    call gen_chibi("stand", "desk", "base")
-    with d3
-    call gen_walk(action="leave", speed=1.5)
-    $ renpy.jump(room)
+    $ renpy.jump(_choice)
 
 screen desk_menu():
     tag desk_interface

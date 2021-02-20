@@ -228,7 +228,8 @@ label map_lake:
 
 
 label gryffindor_dormitories:
-    call dormitories
+    show screen blkfade
+    with d5
 
     centered "{size=+7}{color=#cbcbcb}Gryffindor's Dormitory{/color}{/size}"
 
@@ -252,7 +253,8 @@ label gryffindor_dormitories:
 
 
 label ravenclaw_dormitories:
-    call dormitories
+    show screen blkfade
+    with d5
 
     centered "{size=+7}{color=#cbcbcb}Ravenclaw's Dormitory{/color}{/size}"
 
@@ -332,18 +334,6 @@ label outskirts_of_hogwarts:
     $ ccg(layer2="172")
 
     return
-
-label dormitories:
-    call blkfade
-    call gen_chibi("stand","desk","base")
-    call hide_blkfade
-
-    call gen_walk(action="leave")
-    call blkfade
-
-    stop music fadeout 1.0
-    return
-
 
 label return_office:
     call hide_characters

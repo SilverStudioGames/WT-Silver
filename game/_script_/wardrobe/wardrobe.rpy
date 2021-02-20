@@ -98,6 +98,7 @@ label wardrobe():
                     if wardrobe_check_unequip(_choice[1]):
                         $ wardrobe_react("unequip", _choice[1])
                         $ char_active.unequip(_choice[1].type)
+                        $ current_item = None
                     else:
                         $ wardrobe_react("unequip_fail", _choice[1])
                 else:
@@ -110,6 +111,7 @@ label wardrobe():
                             $ wardrobe_react("blacklist", _choice[1])
 
                         $ char_active.equip(_choice[1])
+                        $ current_item = _choice[1]
 
                         # Lipstick Fix - Synchronize image with the current mouth after equipping.
                         if isinstance(_choice[1], DollLipstick):

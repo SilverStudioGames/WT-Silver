@@ -638,4 +638,5 @@ label purchase_outfit_parcel:
         maf "You can expect a parcel [_tmp]"
 
         $ Parcel(contents=[(k, 1) for k in store_cart], wait=transit_time).send()
-    jump clothing_store.end
+
+    $ renpy.jump_out_of_context("clothing_store.end")

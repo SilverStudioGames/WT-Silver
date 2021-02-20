@@ -69,7 +69,7 @@ screen map_buttons():
         hover "interface/map/room_office_hover.webp"
         hovered SetVariable("ball_hint", "office")
         unhovered SetVariable("ball_hint", None)
-        action Return("main_room")
+        action Return("main_room_menu")
 
     #Gryffindor
     imagebutton:
