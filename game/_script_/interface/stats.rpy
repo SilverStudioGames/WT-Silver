@@ -188,7 +188,7 @@ screen stats_menu(xx, yy):
             frame:
                 style "empty"
                 textbutton "Show locked:" action ToggleVariable("stats_show_locked", True, False)
-                add gui.format("interface/frames/{}/check_")+str(stats_show_locked).lower()+".webp" xalign 0.8 ypos 4
+                add gui.theme("check_{}").format(str(stats_show_locked).lower()) xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
             for category in stats_categories_sorted:

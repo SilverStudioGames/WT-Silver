@@ -77,14 +77,14 @@ style dropdown:
     ysize 24
 
 style light_dropdown:
-    insensitive_background "interface/frames/gold/check_none.webp"
-    selected_background "interface/frames/gold/check_true.webp"
-    background "interface/frames/gold/check_false.webp"
+    insensitive_background "light_check_none"
+    selected_background "light_check_true"
+    background "light_check_false"
 
 style dark_dropdown:
-    insensitive_background "interface/frames/gray/check_none.webp"
-    selected_background "interface/frames/gray/check_true.webp"
-    background "interface/frames/gray/check_false.webp"
+    insensitive_background "dark_check_none"
+    selected_background "dark_check_true"
+    background "dark_check_false"
 
 style dropdown_text:
     yalign 0.5

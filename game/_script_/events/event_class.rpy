@@ -121,7 +121,7 @@ init python:
             menu_text = ""
 
             if self.hint:
-                menu_text += "{image=interface/check_True.webp}"
+                menu_text += "{{image={}_check_True}}".format(gui.theme())
 
             if self.title:
                 menu_text += "\"{}\"".format(self.title)

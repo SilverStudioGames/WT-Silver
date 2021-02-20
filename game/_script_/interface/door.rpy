@@ -95,7 +95,7 @@ screen summon_menu(xx, yy):
                     text_align (0.4, 0.5)
                     text_size 12
                     action ToggleVariable("summon_show_busy", True, False)
-                add gui.format("interface/frames/{}/check_")+str(summon_show_busy).lower()+".webp" xalign 0.8 ypos 4
+                add gui.theme("check_{}").format(str(summon_show_busy).lower()) xalign 0.7 ypos 4
 
         vbox:
             pos (6, 6)

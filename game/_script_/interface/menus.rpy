@@ -70,9 +70,9 @@ screen list_menu(menu_id, title, toggle_names=tuple(), menu_groups=[]):
                 if i < len(toggle_names):
                     $ toggle_names[i]
                     if i in toggles:
-                        $ toggle_image = gui.format("interface/general/{}/check_true.webp")
+                        $ toggle_image = gui.theme("check_true")
                     else:
-                        $ toggle_image = gui.format("interface/general/{}/check_false.webp")
+                        $ toggle_image = gui.theme("check_false")
                     button:
                         style "empty"
                         xysize (110,22)

@@ -315,8 +315,8 @@ screen studio():
                                 action action
                                 selected v[1] text_color ("#009900" if active else "#f9d592")
                                 text_hover_color "#fff"
-                                text_first_indent 12
-                                background Transform("interface/icons/head/{}.webp".format(k), size=(16, 16), xoffset=12)
+                                text_first_indent 20
+                                background Transform("interface/icons/head/{}.webp".format(k), size=(16, 16), offset=(22, 3))
 
         vbox:
             align (1.0, 1.0)
@@ -380,6 +380,7 @@ style light_studio_button is light_radio_button
 style dark_studio_button is dark_radio_button
 
 style light_studio_button_text:
+    first_indent 6
     size 10
     color "#f9d592"
     hover_color "#fff"

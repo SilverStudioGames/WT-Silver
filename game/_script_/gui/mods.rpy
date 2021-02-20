@@ -7,8 +7,8 @@ screen mods():
     use game_menu("Mods"):
 
         default selection = next(iter(mods_list.iterkeys()))
-        default checkbox_enabled = gui.format("interface/frames/{}/check_true.webp")
-        default checkbox_disabled = gui.format("interface/frames/{}/check_false.webp")
+        default checkbox_enabled = gui.theme("check_true")
+        default checkbox_disabled = gui.theme("check_false")
 
         fixed:
 

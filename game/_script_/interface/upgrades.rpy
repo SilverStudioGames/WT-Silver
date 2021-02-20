@@ -136,7 +136,7 @@ screen upgrades_menu(xx, yy):
                     text_align (0.4, 0.5)
                     text_size 12
                     action ToggleVariable("upgrades_show_locked", True, False)
-                add gui.format("interface/frames/{}/check_")+str(upgrades_show_locked).lower()+".webp" xalign 0.8 ypos 4
+                add gui.theme("check_{}").format(str(upgrades_show_locked).lower()) xalign 0.8 ypos 4
         vbox:
             pos (6, 6)
             for category in upgrades_categories_sorted:

@@ -398,13 +398,18 @@ style radio_button is gui_button:
 
 style dark_radio_button is dark_gui_button:
     take radio_button
-    foreground "gui/button/dark_radio_[prefix_]foreground.png"
+    foreground "dark_radio_false"
+    selected_foreground "dark_radio_true"
+    insensitive_foreground "dark_radio_none"
 
 style light_radio_button is light_gui_button:
     take radio_button
-    foreground "gui/button/light_radio_[prefix_]foreground.png"
+    foreground "light_radio_false"
+    selected_foreground "light_radio_true"
+    insensitive_foreground "light_radio_none"
 
-style radio_button_text is gui_button_text
+style radio_button_text is gui_button_text:
+    first_indent 6
 
 # Check button
 
@@ -422,13 +427,18 @@ style check_button is gui_button:
 
 style dark_check_button is dark_gui_button:
     take check_button
-    foreground "gui/button/dark_check_[prefix_]foreground.png"
+    foreground "dark_check_false"
+    selected_foreground "dark_check_true"
+    insensitive_foreground "dark_check_none"
 
 style light_check_button is light_gui_button:
     take check_button
-    foreground "gui/button/light_check_[prefix_]foreground.png"
+    foreground "light_check_false"
+    selected_foreground "light_check_true"
+    insensitive_foreground "light_check_none"
 
-style check_button_text is gui_button_text
+style check_button_text is gui_button_text:
+    first_indent 6
 
 # Slider
 
