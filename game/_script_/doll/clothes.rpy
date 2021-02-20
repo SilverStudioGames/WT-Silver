@@ -2,7 +2,7 @@ init python:
     class DollCloth(DollMethods):
         multislots = {"makeup", "accessory", "piercing", "tattoo"}
 
-        def __init__(self, name, categories, type, id, color, zorder=None, unlocked=False, level=0, blacklist=[], parent=None, armfix=False, modpath=""):
+        def __init__(self, name, categories, type, id, color, zorder=None, unlocked=False, level=0, blacklist=[], parent=None, armfix=False, modpath=None):
             self.name = name
             self.char = eval(name)
             self.categories = categories
@@ -16,13 +16,13 @@ init python:
             self.ico = None
             self.blacklist = blacklist
             self.level = level
-            self.modpath = modpath
+            self.modpath = posixpath.normpath(modpath) if modpath else ""
             self.armfix = armfix
             self.back_outline = None
             self.front_outline = None
 
             # Inherit zorder from character if needed
-            self.zorder = zorder if zorder else self.char.clothes[type][1]
+            self.zorder = zorder or self.char.clothes[type][1]
 
             self.seen = self.unlocked
 

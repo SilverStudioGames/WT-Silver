@@ -9,20 +9,27 @@ init python:
     def import_mods():
         global mods_enabled, mods_list
 
-        mods = filter(lambda x: x.endswith(".json"), renpy.list_files())
+        all_files = renpy.list_files()
+
+        if renpy.android:
+            # Include files outside the application archive and strip the directory path.
+            # Normally it wouldn't be necessary but `renpy.list_files` does not list files outside archives on android.
+            for dir in config.searchpath:
+                all_files.extend([os.path.join(path.replace(dir, ""), name) for path, _, files in os.walk(dir) for name in files])
+
+        mods = filter(lambda x: x.endswith(".json"), all_files)
 
         for i, manifest in enumerate(mods):
             path = os.path.split(manifest)[0]
-            files = filter(lambda x: path in x, renpy.list_files())
+            files = filter(lambda x: path in x, all_files)
             scripts = filter(lambda x: x.endswith(".rpym"), files)
-            manifest = renpy.file(manifest)
             logo = "{}/logo.webp".format(path)
 
             if not renpy.loadable(logo):
                 logo = "#000"
 
             # Read manifest
-            with manifest as f:
+            with renpy.file(manifest) as f:
                 data = json.load(f)
 
             modname = data.get("Name", None)
@@ -49,11 +56,11 @@ init python:
                     continue
 
                 filename = os.path.split(file)[1]
-                fileobj = renpy.file(file)
 
-                with fileobj as s:
+                with renpy.file(file) as s:
                     data = s.read()
 
+                # Note: load_string func breaks after utter restart (Bug?)
                 renpy.load_string(data, "{}/{}".format(path, filename))
 
             mods_parsed.add(modname)

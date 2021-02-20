@@ -21,6 +21,7 @@ init python:
 # https://www.renpy.org/doc/html/config.html
 
 # Pre-Release related flags and variables
+define config.searchpath = [os.environ["ANDROID_PUBLIC"]] if renpy.android else [config.gamedir, config.commondir]
 define is_release = False
 define config.autoreload = False
 define config.developer = "auto"
@@ -65,8 +66,6 @@ define config.atl_one_frame = False
 # Disable automatic image scanning
 define config.automatic_images = None
 define config.images_directory = None
-init -1:
-    define config.late_images_scan = True
 
 # Saving and loading
 define config.save_directory = "WT SILVER"
