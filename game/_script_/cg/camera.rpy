@@ -122,10 +122,9 @@ init python:
                 self.last_type = self.type
                 self.type = 0
 
-            if self.overlay: # We're assuming the overlay is in 4k as it should be.
-                size = (int(3840/self.scale), int(2160/self.scale))
+            if self.overlay:
                 overlay = Transform("{}{}.webp".format(self.imagepath, self.overlay), zoom=1.0/self.scale)
-                d = Composite(size, (0, 0), d, (0, 0), overlay)
+                d = Fixed(d, overlay, fit_first=True)
 
             last_zoom = self.last_zoom * self.scale
             zoom = self.zoom * self.scale

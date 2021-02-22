@@ -222,7 +222,7 @@ label hg_sex_1:
 
     # Note: This is a bodge.
     $ camera.set_imagepath(None)
-    $ camera.set_image("her_sex her pose1 ahegao")
+    $ camera.set_image("her_sex pose1 ahegao")
     $ camera.set(zoom=1.0, pos=(-1285, -1660), initialize=True)
     show screen animatedCG
     hide screen blkfade

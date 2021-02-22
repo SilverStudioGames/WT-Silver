@@ -59,7 +59,20 @@ init python:
         renpy.show_screen("hercg")
         renpy.with_statement(Dissolve(0.1))
 
-image her_sex her pose1 ahegao:
+image her_sex pose1 hair:
+    contains:
+        her_hair_base.apply_color("images/CG/her_sex/pose1/hair_0.png", 0)
+
+    contains:
+        her_hair_base.apply_color("images/CG/her_sex/pose1/hair_1.png", 1)
+
+    contains:
+        her_hair_base.apply_color("images/CG/her_sex/pose1/hair_2.png", 2)
+
+    contains:
+        "images/CG/her_sex/pose1/hair_outline.png"
+
+image her_sex pose1 ahegao:
 
     # BG
     contains:
@@ -79,7 +92,7 @@ image her_sex her pose1 ahegao:
         "images/CG/her_sex/pose1/face_ahegao.png"
 
     contains:
-        "images/CG/her_sex/pose1/hair.png"
+        "her_sex pose1 hair"
 
     contains:
         "images/CG/her_sex/pose1/skirt.png"
@@ -90,7 +103,7 @@ image her_sex her pose1 ahegao:
     contains:
         "images/CG/her_sex/pose1/genie_caress_armfix.png"
 
-image her_sex her pose1 ahegao topless:
+image her_sex pose1 ahegao topless:
 
     # BG
     contains:
@@ -121,7 +134,7 @@ image her_sex her pose1 ahegao topless:
     contains:
         "images/CG/her_sex/pose1/genie_caress_armfix.png"
 
-image her_sex her pose1 ahegao bottomless:
+image her_sex pose1 ahegao bottomless:
 
     # BG
     contains:

@@ -24,8 +24,9 @@ init python:
 
                 self.rebuild_image()
 
-        def __del__(self):
-            print("Outfit with hash: {} has been garbage collected.".format(self.hash))
+        if config.developer:
+            def __del__(self):
+                print("Outfit with hash: {} has been garbage collected.".format(self.hash))
 
         def __eq__(self, obj):
             if not isinstance(obj, DollOutfit):
