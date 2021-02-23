@@ -66,6 +66,8 @@ define config.atl_one_frame = False
 # Disable automatic image scanning
 define config.automatic_images = None
 define config.images_directory = None
+init -1:
+    define config.late_images_scan = True
 
 # Saving and loading
 define config.save_directory = "WT SILVER"
