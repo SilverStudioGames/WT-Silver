@@ -141,7 +141,7 @@ label hg_ps_buttplug:
                 call play_music("chipper_doodle")
                 call her_main(".............", "angry", "base", "base", "mid")
                 call her_main("...", "angry", "narrow", "base", "down")
-                call her_main("well.... ah, I... better get to.... class... then...", "angry", "wink", "base", "mid")
+                call her_main("well... I... Better get to.... Class... Then...", "angry", "wink", "base", "mid")
                 m "See you tonight [hermione_name]."
 
             "\"You'll get seventy points.\"":
@@ -179,14 +179,14 @@ label hg_ps_buttplug:
             stop music fadeout 1.0
             call her_main("What?", "scream", "wide", "base", "mid",xpos="right",ypos="base")
             call her_main("Of course not! That thing would tear me--", "scream", "closed", "angry", "mid")
-            ">you pull out the small butt plug"
+            ">You pull out the small butt plug"
             m "How about this one then?"
             call her_main("Oh, okay then!", "smile", "happyCl", "base", "mid",emote="happy")
             m "You'll do it that easily?"
             call her_main("Well for fifty-five house points I'd be crazy not to.", "base", "closed", "base", "mid")
             call her_main("Plus I don't hate the way it feels", "open", "base", "base", "R")
             ">You hand her the butt plug."
-            m "why don't you put it in now."
+            m "Why don't you put it in now."
             call her_main("you want me to put it in now? in front of you!", "scream", "wide", "base", "mid")
             m "I don't see the harm in it."
             call her_main("well... it does save me having to visit the girls' bathroom before class...", "annoyed", "narrow", "worried", "down")
@@ -198,8 +198,8 @@ label hg_ps_buttplug:
 
             call set_hermione_plug("small")
 
-            call her_main("{heart}*ah*{heart}...", "grin", "narrow", "annoyed", "up")
-            call her_main("i better head to class...", "soft", "happy", "base", "R")
+            call her_main("{heart}*Ah*{heart}...", "grin", "narrow", "annoyed", "up")
+            call her_main("I better head to class...", "soft", "happy", "base", "R")
             m "See you tonight [hermione_name]."
             call her_main("{size=-5}({heart}it feels so good{heart}){/size}", "grin", "narrow", "annoyed", "up")
 
@@ -217,7 +217,7 @@ label hg_ps_buttplug:
 
             call set_hermione_plug("small")
 
-            call her_main("{heart}ah{heart}...", "grin", "narrow", "annoyed", "up")
+            call her_main("{heart}*Ah*{heart}...", "grin", "narrow", "annoyed", "up")
             call her_main("I will, [genie_name]. Thank you.", "base", "happyCl", "base", "mid")
 
         elif her_whoring <= 19 and buttplug_size == 2:
@@ -277,10 +277,10 @@ label hg_ps_buttplug:
 
             call set_hermione_plug("medium")
 
-            call her_main("{heart}{heart}{heart}ah{heart}{heart}{heart}...", "grin", "narrow", "annoyed", "up")
-            call her_main("i better... head to class... now...", "soft", "happy", "base", "R")
-            m "See you tonight [hermione_name]."
-            call her_main("{size=-5}({heart}it's... so... good...{heart}){/size}", "grin", "narrow", "annoyed", "up")
+            call her_main("{heart}{heart}{heart}*Ah*{heart}{heart}{heart}...", "grin", "narrow", "annoyed", "up")
+            call her_main("I better... Head to class... Now...", "soft", "happy", "base", "R")
+            m "See you tonight, [hermione_name]."
+            call her_main("{size=-5}({heart}It's... So... Good...{heart}){/size}", "grin", "narrow", "annoyed", "up")
 
         elif her_whoring >= 24 and buttplug_size == 2:
             # Medium butt plug (final part)
@@ -289,15 +289,15 @@ label hg_ps_buttplug:
             m "What do you think about wearing a butt pl--?"
             call her_main("I'll do it.", "grin", "base", "base", "R",xpos="right",ypos="base")
             m "You're eager. I haven't even said what one yet..."
-            call her_main("oh... can it be the big one... with the long tail...", "open", "narrow", "worried", "down")
+            call her_main("Oh... Can it be the big one... With the long tail?", "open", "narrow", "worried", "down")
             call her_main("please...", "soft", "happy", "base", "R")
-            m "well seeing as how you asked so nicely..."
+            m "Well, seeing as how you asked so nicely..."
             ">You hand her the butt plug."
             ">Hermione turns around and lifts her skirt giving you a full view as she inserts it."
 
             call set_hermione_plug("medium")
 
-            call her_main("{heart}ah{heart}...", "grin", "narrow", "annoyed", "up")
+            call her_main("{heart}*Ah*{heart}...", "grin", "narrow", "annoyed", "up")
             call her_main("Thank you [genie_name]!", "open", "base", "base", "R")
             call her_main("{size=-5}({heart}it feels so good... I might have to buy my own...{heart}){/size}", "grin", "narrow", "annoyed", "up")
 
@@ -355,7 +355,7 @@ label hg_ps_buttplug:
                     call her_main("*Ugh*... fine. I'll {b}try{/b} to fit it in.", "disgust", "narrow", "worried", "down")
                     call her_main("but I'm not promising anything!", "open", "closed", "base", "mid")
                     m "That's all I ask."
-                    call nar(">You hand hermione the large butt plug.")
+                    call nar(">You hand Hermione the large butt plug.")
                     call her_main("I still don't think this is going to work...", "open", "base", "base", "mid")
                     call nar(">Hermione slowly coats the massive butt plug with lube.")
                     call her_main("There's barely even enough here to cover it...", "open", "narrow", "worried", "down")
@@ -367,8 +367,8 @@ label hg_ps_buttplug:
                     m "Really?"
                     call her_main("{size=+5}*Ugh*...{/size}", "disgust", "happyCl", "worried", "mid")
                     call her_main("{size=+5}it's forcing its way inside me....{/size}", "open", "wide", "worried", "shocked")
-                    call her_main("ah...", "shock", "happyCl", "worried", "mid")
-                    call her_main("it's...{w=0.3} it's...", "open", "wide", "base", "stare")
+                    call her_main("*Ah*...", "shock", "happyCl", "worried", "mid")
+                    call her_main("It's...{w=0.3} It's...", "open", "wide", "base", "stare")
 
                     call play_sound("pop")
 
@@ -382,7 +382,7 @@ label hg_ps_buttplug:
                     call her_main(".............", "disgust", "narrow", "annoyed", "up")
                     m "Are you alright, [hermione_name]?"
                     call her_main("..........................", "soft", "narrow", "base", "up")
-                    call her_main("ah... y-yes...", "open", "narrow", "base", "mid_soft")
+                    call her_main("*Ah*... Y-yes...", "open", "narrow", "base", "mid_soft")
                     m "Fantastic! I'll see you after class then."
                     call her_main(".............", "disgust", "narrow", "worried", "down",cheeks="blush")
                     call nar(">Hermione slowly leaves your office, barely able to walk in a straight line.")
@@ -397,13 +397,13 @@ label hg_ps_buttplug:
                     $ buttplug_size = 1
                     call set_hermione_plug("small")
 
-                    call her_main("{heart}ah{heart}...", "silly", "narrow", "annoyed", "up")
+                    call her_main("{heart}*Ah*{heart}...", "silly", "narrow", "annoyed", "up")
                     call her_main("Thank you, [genie_name].", "base", "narrow", "base", "mid_soft")
                     call her_main("{size=-5}({heart}it feels so good... I might have to buy my own...{heart}){/size}", "soft", "narrow", "annoyed", "up")
                     hide screen hermione_main
                     with d3
                     pause.2
-                    m "(Maybe those Weasley boys have anything that could help me with my.. *ahem* {i}her{/i} friction problem...)"
+                    m "(Maybe those Weasley boys have anything that could help me with my... *Ahem* {i}her{/i} friction problem...)"
 
         elif buttplug_size == 3:
             # Large buttplug repeat
@@ -423,7 +423,7 @@ label hg_ps_buttplug:
 
             call set_hermione_plug("large")
 
-            call her_main("{heart}ah{heart}ah...", "grin", "narrow", "annoyed", "up")
+            call her_main("{heart}*Ah*{heart}...", "grin", "narrow", "annoyed", "up")
             call her_main("Thank you, [genie_name]!", "base", "narrow", "base", "mid_soft")
             call her_main("{size=-5}({heart}it feels so good... I might have to buy my own...{heart}){/size}", "soft", "narrow", "annoyed", "up")
 

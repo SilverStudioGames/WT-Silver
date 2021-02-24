@@ -99,13 +99,13 @@ label hg_pf_strip_T4_fingering:
             m "And masturbating in front of your headmaster is?"
             call her_main("Well...{w=0.4} this...{w=0.4} this is different.", "open", "narrow", "worried", "down")
             call her_main("I'm doing this for the honour of Gryffindor...")
-            call her_main("To help my--... *ah*", "open", "closed", "worried", "down")
+            call her_main("To help my--... *Ah*", "open", "closed", "worried", "down")
             play bg_sounds "sounds/slickloopfast.mp3"
             call nar(">You notice Hermione beginning to move her fingers a little faster.")
             #
             # TODO: Add wet layer for panties/pussy
             #
-            call her_main("ah...{heart}{heart}{heart}", "soft", "narrow", "annoyed", "up")
+            call her_main("*Ah*...{heart}{heart}{heart}", "soft", "narrow", "annoyed", "up")
             call her_main("My classmates win the house cup...", "angry", "wink", "base", "mid")
             g9 "As if that's the only reason..."
             call her_main("I..{w=0.4}*Ah*... of course it...--", "normal", "happyCl", "worried", "mid")
@@ -113,7 +113,7 @@ label hg_pf_strip_T4_fingering:
             $ hermione.set_body_zorder(armright=3)
             $ hermione.set_body(armleft="on_pussy", armright="on_tits")
 
-            call her_main("ah-a{heart}...", "open", "happyCl", "worried", "mid")
+            call her_main("*Ah-a*{heart}...", "open", "happyCl", "worried", "mid")
             call her_main("What..{w=0.4}*Ah*... other reason would there be for me to...", "angry", "narrow", "base", "down")
             m "It seems to me that you might be enjoying this a little too much..."
             call her_main("I am not, [genie_name]!", "open", "happyCl", "worried", "mid")
@@ -122,7 +122,7 @@ label hg_pf_strip_T4_fingering:
             m "Then why are your fingers moving so fast, slut?"
             call ctc
 
-            call her_main("ah...{heart}", "open", "happyCl", "worried", "mid")
+            call her_main("*Ah*...{heart}", "open", "happyCl", "worried", "mid")
             m "ha! just Admit it, you do enjoy being called a slut!"
             call her_main("I do not!", "normal", "happyCl", "worried", "mid")
             call her_main("I'm just thinking about...{w=0.4}*Ah*...{w=0.4} how happy everyone will be when we win!", "shock", "happyCl", "worried", "mid")
@@ -134,15 +134,15 @@ label hg_pf_strip_T4_fingering:
             call her_main("...", "soft", "closed", "base", "R")
             m "It would be the entire school."
             play bg_sounds "sounds/slickloopfast.mp3"
-            call her_main("The entire...*ah*...{heart}", "silly", "narrow", "base", "dead", cheeks="blush")
+            call her_main("The entire-- *Ah*...{heart}", "silly", "narrow", "base", "dead", cheeks="blush")
             m "Every...{w=0.4} single...{w=0.4} student."
             play bg_sounds "sounds/slickloopveryfast.mp3"
-            call her_main("ah...{heart}{heart}{heart}", "grin", "narrow", "annoyed", "up", cheeks="blush")
+            call her_main("*Ah*...{heart}{heart}{heart}", "grin", "narrow", "annoyed", "up", cheeks="blush")
             call her_main("[genie_name], please... {w=0.4}*mmmh*...{w=0.4} don't tell anyone...", "soft", "narrow", "base", "mid_soft", cheeks="blush")
             call nar(">Hermione continues to rub herself with even more effort...")
             call her_main("They can't...{w=0.4}*Ah*...{w=0.4} They can't find out...", "soft", "narrow", "base", "R_soft", cheeks="blush")
             call her_main("If harry and ron knew...", "open", "narrow", "base", "down", cheeks="blush")
-            call her_main("I'd... *ah*...{heart}", "soft", "closed", "annoyed", "up", cheeks="blush")
+            call her_main("I'd... *Ah*...{heart}", "soft", "closed", "annoyed", "up", cheeks="blush")
             m "You'd what [hermione_name]?"
             call her_main("I'd...", "open", "closed", "worried", "mid", cheeks="blush")
             call her_main("I'd...{heart}", "silly", "closed", "worried", "mid", cheeks="blush")
@@ -172,11 +172,11 @@ label hg_pf_strip_T4_fingering:
 
             call her_main("...{size=-5}A Slut...{/size} But only if it's not too much to ask...", "soft", "narrow", "base", "down", cheeks="blush")
             m "That's unbecoming of you to use such language, you little whore..."
-            call her_main("Ah...{heart}{heart}", "open", "closed", "annoyed", "mid")
+            call her_main("*Ah*...{heart}{heart}", "open", "closed", "annoyed", "mid")
             m "What would your parents think if they saw this?"
             call her_main("I-{heart}", "open", "narrow", "worried", "up", cheeks="blush")
             play bg_sounds "sounds/slickloopfast.mp3"
-            call her_main("Ah...{heart} I don't know...", "soft", "closed", "base", "up", cheeks="blush")
+            call her_main("*Ah*...{heart} I don't know...", "soft", "closed", "base", "up", cheeks="blush")
             call her_main("To be perfectly honest [genie_name]... I don't think I care...{heart}{heart}{heart}", "silly", "narrow", "base", "up", cheeks="blush")
             m "Really?"
 
@@ -217,38 +217,38 @@ label hg_pf_strip_T4_fingering:
             call nar(">Hermione starts fingering herself even faster.")
             m "Very good..."
             call her_main("...{heart}", "silly", "narrow", "base", "up", cheeks="blush")
-            call her_main("Ah...{heart}", "open_tongue", "narrow", "base", "up", cheeks="blush")
+            call her_main("*Ah*...{heart}", "open_tongue", "narrow", "base", "up", cheeks="blush")
             m "That's it slut... Try going a little deeper..."
             call her_main("...", "open_tongue", "narrow", "base", "up", cheeks="blush")
 
             call her_main("...{heart}", "open", "happyCl", "worried", "mid", cheeks="blush")
 
     play bg_sounds "sounds/slickloop.mp3"
-    call her_main("Ah...", "soft", "narrow", "base", "R", cheeks="blush")
+    call her_main("*Ah*...", "soft", "narrow", "base", "R", cheeks="blush")
     m "almost there [hermione_name]?"
     call her_main("a-almost...", "annoyed", "base", "worried", "L", cheeks="blush")
     call her_main("I just need a bit longer...")
     m "well you better hurry..."
-    call her_main("Ah... i know, [genie_name].", "angry", "happyCl", "worried", "mid")
+    call her_main("*Ah*...{w=0.3} I know, [genie_name].", "angry", "happyCl", "worried", "mid")
     call her_main("...........", "normal", "closed", "base", "R", cheeks="blush")
-    m "is everything alright?"
+    m "Is everything alright?"
     play bg_sounds "sounds/slickloopfast.mp3"
     call her_main("................", "annoyed", "narrow", "base", "down", cheeks="blush", tears="sweat")
     m "Why are you being so quiet [hermione_name]?"
     play bg_sounds "sounds/slickloop.mp3"
     call her_main("......", "annoyed", "base", "worried", "R_soft", cheeks="blush")
     call her_main("[genie_name]... I don't think I can...")
-    m "what?"
+    m "What?"
     stop bg_sounds
-    call her_main("... Finish...", "angry", "happyCl", "base", "down", cheeks="blush", tears="soft")
+    call her_main("...{w=0.3} Finish...", "angry", "happyCl", "base", "down", cheeks="blush", tears="soft")
 
     menu:
         "-Chastise her-":
-            m "Well then I guess Slytherin will have to win the house cup this year."
+            m "Well then, I guess Slytherin will have to win the house cup this year."
             call her_main("B-but--", "disgust", "narrow", "worried", "mid", cheeks="blush", tears="soft")
-            m "Now, now [hermione_name], a deal's a deal."
-            call her_main("but I'm trying [genie_name]...", "upset", "narrow", "worried", "down", tears="crying")
-            m "try harder..."
+            m "Now, now [hermione_name]... A deal's a deal."
+            call her_main("But I'm trying [genie_name]...", "upset", "narrow", "worried", "down", tears="crying")
+            m "Try harder..."
             play bg_sounds "sounds/slickloopveryfast.mp3"
             call her_main("", eyes="happyCl", tears="tears_soft_sweat")
             call nar(">Hermione starts grinding furiously against her hand.")
@@ -259,8 +259,8 @@ label hg_pf_strip_T4_fingering:
             $ hermione.set_pose(None)
 
             stop bg_sounds
-            call her_main("*SOB*! i can't...", "angry", "happyCl", "base", "down", cheeks="blush", tears="messy")
-            m "Well then, zero points to Gryffindor..."
+            call her_main("*SOB*!{w=0.3} I can't...", "angry", "happyCl", "base", "down", cheeks="blush", tears="messy")
+            m "Well then... Zero points to Gryffindor."
             call her_main("{size=-5}After everything I...{/size} Really [genie_name]?", "open", "base", "worried", "stare", cheeks="blush", tears="messy")
             call her_main("After I stood here and...", "scream", "base", "angry", "mid", cheeks="blush", tears="messy")
             call her_main("..........", "angry", "squint", "base", "mid", cheeks="blush", tears="messy")
@@ -353,7 +353,7 @@ label hg_pf_strip_T5_fingering:
     call her_main("*Mmhh*... {heart}", "open", "happyCl", "worried", "mid")
     call her_main("*Ah*...{w=0.4} {heart}-aha...", "open", "happyCl", "worried", "mid")
     m "..."
-    call her_main("Ah-ah...", "open", "happyCl", "worried", "mid")
+    call her_main("*Ah-ah*...", "open", "happyCl", "worried", "mid")
     m "......................"
     call her_main("*Ah*...{w=0.4} *ah*...{heart}", "open", "happyCl", "worried", "mid")
     call her_main("*Ah*...{w=0.4} [genie_name]?", "soft", "happy", "base", "R")
@@ -375,7 +375,7 @@ label hg_pf_strip_T5_fingering:
     play bg_sounds "sounds/slickloopveryfast.mp3"
     call her_main("I will... *Ah*...{w=0.4} {heart}do anything...{w=0.4} *Ah*...{heart}", "silly", "narrow", "base", "dead")
     m "Anything [hermione_name]?"
-    call her_main("Ah-a...{heart} Yessss...", "silly", "narrow", "base", "up", cheeks="blush")
+    call her_main("*Ah-a*...{heart} Yessss...", "silly", "narrow", "base", "up", cheeks="blush")
     m "Cum."
     #
     # TODO: CUM LAYERS
@@ -487,7 +487,7 @@ label hg_pf_strip_T6_fingering:
             call her_main("He refused to let me answer any questions for a week after that.", "base", "narrow", "worried", "down", cheeks="blush")
             call her_main("But it was worth it...", "soft", "happy", "base", "R", cheeks="blush")
             call her_main("The look on his face when he realised he was wrong...{heart}", "soft", "narrow", "annoyed", "up", cheeks="blush")
-            call her_main("a-ah...{heart}", cheeks="blush")
+            call her_main("*A-ah*...{heart}", cheeks="blush")
             call her_main("It just felt so good!{heart}", "grin", "narrow", "base", "dead", cheeks="blush")
             m "This is what you're thinking of when masturbating?"
             call her_main("...", "normal", "narrow", "base", "dead", cheeks="blush")
@@ -500,7 +500,7 @@ label hg_pf_strip_T6_fingering:
 
         "\"You really are a shameless slut, aren't you?\"":
             call her_main("Yes...", "soft", "narrow", "annoyed", "up")
-            call her_main("ah... {heart}", "silly", "narrow", "base", "dead")
+            call her_main("*Ah*... {heart}", "silly", "narrow", "base", "dead")
             call her_main("I don't know if has to do with the time I've spent with you...{heart}", "angry", "wink", "base", "mid")
             call her_main("Or if I've always been this way...{heart}", "angry", "narrow", "base", "down")
             call her_main("But... {heart} {w=0.4}*Ah*...{w=0.4} {heart} I'm a slut [genie_name]...{heart}", "soft", "narrow", "annoyed", "up")
@@ -541,11 +541,11 @@ label hg_pf_strip_T6_fingering:
             call her_main("I don't know why...", "base", "base", "base", "R", cheeks="blush")
             call her_main("But I love it...{heart}{heart}", "open", "narrow", "worried", "down")
             m "You nasty slut!"
-            call her_main("*Ah*...{w=0.4}{heart} ah-a...{heart}", "open_tongue", "narrow", "annoyed", "up")
+            call her_main("*Ah*...{w=0.4}{heart} *Ah-a*...{heart}", "open_tongue", "narrow", "annoyed", "up")
             call her_main("I am...")
             call her_main("A nasty slut... {w=0.4}*Ah*...{heart}", "silly", "narrow", "base", "dead")
             m "You are a disgrace, [hermione_name]!"
-            call her_main("Ah-ah...{heart}{heart}{heart}", "open_wide_tongue", "narrow", "annoyed", "up")
+            call her_main("*Ah-ah*...{heart}{heart}{heart}", "open_wide_tongue", "narrow", "annoyed", "up")
 
     m "Why don't you come down and I'll help you finish?"
     call her_main("...", "base", "narrow", "worried", "down")
@@ -666,10 +666,10 @@ label hg_pf_strip_T6_fingering:
     play bg_sounds "sounds/slickloopveryfast.mp3"
     call her_main("*Ah*...{w=0.4} yes! {heart}iloveitiloveitiloveit!{heart}", "scream", "wide", "annoyed", "dead","blush")
     m "what do you love, [hermione_name]?"
-    call her_main("ah!!{heart} I love your fingers in my pussy [genie_name]!{heart}", "open_wide_tongue", "happyCl", "annoyed", "dead","blush")
+    call her_main("Ah!!{heart} I love your fingers in my pussy [genie_name]!{heart}", "open_wide_tongue", "happyCl", "annoyed", "dead","blush")
     call nar(">Hermione's legs begin to shake slightly as you finger her with renewed vigour.")
     m "are you about to--"
-    call her_main("ah...{heart} yes!!", "mad", "narrow", "annoyed", "dead", cheeks="blush")
+    call her_main("*Ah*...{heart} yes!!", "mad", "narrow", "annoyed", "dead", cheeks="blush")
     call her_main("I'm about to cum [genie_name]!!{heart}", "grin", "narrow", "base", "dead", cheeks="blush")
     call her_main("From being fucked by your fingers!!{heart}{heart}", "open_tongue", "base", "base", "ahegao", cheeks="blush")
     m "Touch your tits [hermione_name]!"

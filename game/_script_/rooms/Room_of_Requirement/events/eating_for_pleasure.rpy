@@ -18,7 +18,7 @@ label eating_for_pleasure:
     with d5
 
     $ renpy.music.play("music/fluffing-a-duck-by-kevin-macleod.mp3")
-    m "Gah... this place is so dull..."
+    m "*Gah*... this place is so dull..."
     m "Not a single gambling den or a whore house..."
     m "And even if I don't need to eat I'd do anything for a pizza right about now..."
     hat "Just call a pizza place then..."
@@ -92,7 +92,7 @@ label eating_for_pleasure:
     m "*Cough* *Cough*"
     hat "Say the name!"
     $ renpy.play('sounds/sniff.mp3')
-    m "*ah* Piz-- *ah-a*"
+    m "*Ah* Piz-- *Ah-a*"
     $ renpy.play('sounds/sniff.mp3')
     pause 0.5
     $ renpy.play('sounds/sniff.mp3')

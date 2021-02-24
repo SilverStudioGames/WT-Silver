@@ -386,7 +386,7 @@ label slytherin_match:
     call her_main("Oh, hello, Professor Tonks!", "soft", "base", "base", "L", ypos="head", flip=False)
     pause 1.0
     $ renpy.sound.play("sounds/MaleClearThroat.mp3")
-    call sna_main("*ahem*", "snape_09", ypos="head")
+    call sna_main("*Ahem*", "snape_09", ypos="head")
     pause 2.0
     call chibi_emote("thought", "snape")
     pause 2.0

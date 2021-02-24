@@ -407,7 +407,7 @@ label tentacle_1: #Public path
     gen "Do you think you'll be able to stop your hips from bucking?"
     ">You give her another powerful thrust."
     $ renpy.sound.play("sounds/slick_02.mp3")
-    her "{size=-6}{heart}*ah*{/size}"
+    her "{size=-6}{heart}*Ah*{/size}"
     gen "Do you really think that you'll be able to stop yourself from begging me for more?"
     ">You increase the speed of the tentacles."
     play bg_sounds "sounds/slickloopfast.mp3" fadein 2 fadeout 2
@@ -585,7 +585,7 @@ label tentacle_2: # Personal path
     pause.8
     ">Professor Sprout quickly runs over."
     spo "Miss Granger are you okay? Miss Granger!"
-    her "..................*ah*"
+    her "..................*Ah*"
     spo ".... She's breathing, thank be Merlin."
     spo "You! Yes, you girls! Take her to the hospital wing at once!"
     fem "W-wha-- But..."

@@ -850,7 +850,7 @@ label hg_pf_strip_T3_masturbate:
     call bld
     call her_main("B-but...", "angry", "wide", "base", "stare", ypos="head", flip=False)
     call her_main("Your...")
-    m "Yes... Ah, yes, this is good..."
+    m "Yes...{w=0.3} *Ah*... Yes... This is good."
     call her_main("[genie_name]!!!", "scream", "happyCl", "worried", "mid")
     call her_main("I must insist that you put away your...", "angry", "happyCl", "worried", "mid")
     call her_main("... thing.")
@@ -1224,7 +1224,7 @@ label hg_pf_strip_T4_masturbate:
             call her_main("I just don't want to...")
             g9 "Yes... Those are some nice tits you have..."
             call her_main("............", "angry", "happyCl", "worried", "mid")
-            g9 "A-ah... Yes..."
+            g9 "*A-ah*... Yes..."
             call her_main("..........", "angry", "happyCl", "worried", "mid")
             call her_main("Fine! Have it your way, [genie_name]!", "angry", "happyCl", "worried", "mid")
             call her_main("{size=-5}(As usual...){/size}", "annoyed", "narrow", "angry", "R")
@@ -1324,9 +1324,9 @@ label hg_pf_strip_T4_masturbate:
         jump end_hg_pf_strip
 
     else:
-        call her_main("it's so hot...", "angry", "happyCl", "worried", "mid", ypos="head", flip=False)
+        call her_main("It's so hot...", "angry", "happyCl", "worried", "mid", ypos="head", flip=False)
         call gen_chibi("hold_dick","behind_desk","base")
-        m "Aha... Yeah... This feels great..."
+        m "*Ah-ah*... Yeah... This felt great..."
         call her_main("You came all over me...", "soft", "happy", "base", "R")
         call her_main("I am your pupil and...")
         call her_main("You just came on me...", "grin", "narrow", "annoyed", "up")

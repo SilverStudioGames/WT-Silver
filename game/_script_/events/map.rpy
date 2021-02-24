@@ -78,7 +78,7 @@ label map_attic:
         play weather "sounds/wind_long_loop.mp3" fadein 2 fadeout 2
 
         ">You find your way through the winding staircases to the attic door."
-        m "Hmm, hopefully this is the right place to use that key..."
+        m "*Hmm*... hopefully this is the right place to use that key."
         play bg_sounds "sounds/pulse.mp3"
         ">As you approach the door the lock begins to glow..."
         ">Looking down at the key in your hand you notice the same glow around the key..."

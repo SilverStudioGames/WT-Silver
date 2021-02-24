@@ -175,7 +175,7 @@ label astoria_intro_E1:
                     call ton_main("Nudes, [ton_genie_name]?", "annoyed", "base", "raised", "mid")
                     g9 "Yes! Send me some nude pictures of yourself!"
                     g9 "A poster, maybe?"
-                    call ton_main("*Oh*...","upset","base","base","down")
+                    call ton_main("Oh...","upset","base","base","down")
                     call ton_main("A poster, you say?...","horny","base","base","mid")
                     call ton_main("What are you gonna do with it? Put it on your wall and fap to it?","horny","base","angry","mid")
                     g9 "You can count on that!"

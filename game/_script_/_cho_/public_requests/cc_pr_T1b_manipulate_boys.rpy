@@ -623,7 +623,7 @@ label cc_pr_manipulate_boys_T2_intro_E3:
     m "Why not? Didn't you just do that?"
     m "They {b}have{/b} seen your tits, haven't they?"
     call cho_main("My tits?!", "soft", "wide", "base", "mid", cheeks="heavy_blush")
-    call cho_main("*Oh* I mean yes, I guess they have seen them now but...", "soft", "base", "worried", "downR", cheeks="blush")
+    call cho_main("*Ehm*... I mean-- I guess they have seen them now but...", "soft", "base", "worried", "downR", cheeks="blush")
     g4 "Remember why we are doing this, girl! You need to get into their minds!"
     m "If they want to see your breasts again, or any other part of your body, you show it to them!"
     call cho_main("But, Sir!", "mad", "closed", "worried", "mid", cheeks="blush") # Embarrassed
@@ -739,7 +739,7 @@ label cc_pr_manipulate_boys_T3_twins:
 
             g9 "{i}I'm blue, daba dee bada die, {size=-2}daba dee daba die,{/size} {size=-4}daba dee bada die,{/size} {size=-6}daba dee daba die........{/size}{/i}"
             call cho_main("*grr*.", "clench", "wide", "angry", "mid")
-            m "*Ahem*...{w=0.4} I mean... Oh, no... what happened?"
+            m "*Ahem*...{w=0.4} I mean... Oh, no... What happened?"
 
         "\"Feeling blue today?\"":
             call play_music("cho")

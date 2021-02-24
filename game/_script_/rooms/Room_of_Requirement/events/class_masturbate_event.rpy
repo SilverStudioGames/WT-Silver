@@ -70,7 +70,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
         call her_main("He might be the SECOND most senile person at Hogwarts.", "smile", "slit", "low", "stare")
         m "Who's the first?"
         call her_main("", "clench", "slit", "low", "stare")
-        m "Ahem, back to the story of flicking your flaps, [hermione_name]"
+        m "*Ahem*... Back to the story of flicking your flaps, [hermione_name]."
         call her_main("Professor Flitwick was giving the same lecture on levitation charms.", "disgust", "base", "worried", "mid")
         call her_main("For the third time this week, might I add. And no one was paying attention.", "open", "base", "base", "mid")
         call her_main("I found myself a quiet desk in the back of the room.", "soft", "base", "base", "mid_soft")
@@ -171,7 +171,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
                 call her_main("You always know just what to say to make me feel good. [genie_name]", "open", "happy", "base", "mid_soft")
                 m "Glad to be appreciated [hermione_name]"
                 call her_main("In this case I don't think I'd mind 'showing you some of that appreciate--", "soft", "base", "base", "mid_soft")
-                call her_main("Ahem. I mean... *Ehm*... It's getting time for dinner. So, goodnight [genie_name]", "open", "narrow", "worried", "down", cheeks="blush")
+                call her_main("*Ahem*... I mean... *Ehm*... It's getting time for dinner. So, goodnight [genie_name]", "open", "narrow", "worried", "down", cheeks="blush")
                 m "See you tomorrow [hermione_name]"
                 call her_main("Yes! I mean... if I must.", "open", "narrow", "base", "mid_soft")
                 call her_main("{size=-5}Totally worth it.{/size}", "smile", "happy", "base", "mid_soft")
@@ -278,7 +278,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
         call her_main("And I think the new me is starting to listen to the old me less and less.", "smile", "happy", "base", "mid_soft", cheeks="blush")
         call her_main("Does that make sense?", "open", "base", "base", "mid")
         m "Yes, I think it does. Eighty house points."
-        call her_main("{size=-5}Really?{/size} For what? Oh right masturbating during class. Hahah, I already forgot.", "silly", "happy", "base", "mid_soft")
+        call her_main("{size=-5}Really?{/size} For what? Oh right masturbating during class. *Hah-ha*, I already forgot.", "silly", "happy", "base", "mid_soft")
         m "Have a good night [hermione_name]"
         call her_main("You too [genie_name]", "open", "base", "base", "mid")
 
@@ -391,7 +391,7 @@ label class_masturbation_event: #LV.8 (Whoring = 21 - 23)
                 m "No No, you're doing fine on your own. And don't forget your story."
                 call her_main("Oh [genie_name] I really felt like a storybook witch then. Casting a charm over a whole village. Hagh Hagh, wrapping them around my finger.", "grin", "wide", "base", "stare", cheeks="blush")
                 m "Or maybe a succubus!"
-                call her_main("Yesssss. Ah I'm Cumming! {heart}{heart}{heart}", "open_tongue", "wide", "worried", "ahegao", cheeks="blush")
+                call her_main("Yesssss-- *Ah*... I'm Cumming! {heart}{heart}{heart}", "open_tongue", "wide", "worried", "ahegao", cheeks="blush")
                 $ hermione_squirt = True
                 call her_main("God, never in my whole life have I ever felt that wanted, all those eyes on me. Thinking {b}ME{/b} more important to look at then their tests. Ngh!", "grin", "narrow", "annoyed", "up", cheeks="blush")
                 call her_main("And I was sure to grab the attention of the Slytherins first.", "smile", "narrow", "annoyed", "up", cheeks="blush")

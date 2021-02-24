@@ -581,7 +581,7 @@ label hg_pf_grope_ass_T4_front:
         call nar(">You continue to massage her inner thigh and occasionally gently brush against her panties...")
     else:
         call nar(">You continue to massage her inner thigh and occasionally gently brush against her pussy...")
-    call her_main("Ah...", "soft", "narrow", "annoyed", "up", cheeks="blush")
+    call her_main("*Ah*...", "soft", "narrow", "annoyed", "up", cheeks="blush")
     call her_main("...", "clench", "narrow", "annoyed", "up", cheeks="blush")
     g9 "..."
 
@@ -678,7 +678,7 @@ label hg_pf_grope_ass_T4_back:
         call nar(">Moving your hands gently up and down, Hermione begins to relax as they occasionally brush against her panties...")
     else:
         call nar(">Moving your hands gently up and down, Hermione begins to relax as they occasionally brush against her pussy...")
-    call her_main("Ah...", "open", "narrow", "annoyed", "up", cheeks="blush")
+    call her_main("*Ah*...", "open", "narrow", "annoyed", "up", cheeks="blush")
     call her_main("...", "base", "narrow", "annoyed", "up", cheeks="blush")
     g9 "..."
 
@@ -722,7 +722,7 @@ label hg_pf_grope_ass_T4_continue:
                     ">It's very tight and warm..."
                     ">it is quite wet as well... Seems like Hermione's taking pleasure in this..."
 
-                    call her_main("Ah...", "silly", "narrow", "base", "mid_soft", cheeks="blush")
+                    call her_main("*Ah*...", "silly", "narrow", "base", "mid_soft", cheeks="blush")
                     call her_main("It's inside of me...", "disgust", "narrow", "worried", "down", cheeks="blush")
                     call her_main("No, [genie_name], you must stop now...", "disgust", "base", "base", "mid_soft", cheeks="blush")
                     m "Why? You don't like it?"
@@ -737,7 +737,7 @@ label hg_pf_grope_ass_T4_continue:
                         "-Continue rubbing her-":
                             call nar(">As you continue rubbing her, Hermione closes her eyes and goes silent...")
                             call her_main("......", "clench", "happyCl", "worried", "mid", cheeks="blush")
-                            call her_main("Ah...", "silly", "happyCl", "worried", "mid", cheeks="blush")
+                            call her_main("*Ah*...", "silly", "happyCl", "worried", "mid", cheeks="blush")
                             call nar(">With no more objections you move your index finger across her clit and begin rubbing it gently...")
                             call her_main("...", "soft", "closed", "base", "mid", cheeks="blush")
                             call nar(">Completely lost in the moment, Hermione moves around as you massage her.")
@@ -773,9 +773,9 @@ label hg_pf_grope_ass_T4_continue:
                 "-Force your thumb into her butthole-":
                     ">You force one of your thumbs into her little butthole..."
                     with hpunch
-                    call her_main("ah... your finger is up my...", "silly", "base", "worried", "mid", cheeks="blush", tears="soft")
+                    call her_main("*Ah*... your finger is up my...", "silly", "base", "worried", "mid", cheeks="blush", tears="soft")
                     ">It's very tight and warm inside..."
-                    call her_main("Ah...", "silly", "narrow", "base", "mid_soft", cheeks="blush")
+                    call her_main("*Ah*...", "silly", "narrow", "base", "mid_soft", cheeks="blush")
                     call her_main("It's inside of me...")
                     call her_main("No, [genie_name], you must stop now...", "base", "narrow", "base", "mid_soft", cheeks="blush")
                     m "Why? You don't like it?"

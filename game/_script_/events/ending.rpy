@@ -2022,7 +2022,7 @@ label ball_ending_E2:
 
         play music "music/court-of-the-queen-by-kevin-macleod.mp3" fadein 1 fadeout 1
         $ dynamic_cg("ball/speech", "background", "base", "mouth_open", "blush", "cum_mouth", "eyes_squint", "brows", "mascara", "sweat", "overlay")
-        her "Ah-a........."
+        her "*Ah-a*........."
 
         m "Is that...?"
         m "are Leftovers of my cum still in her mouth?"
@@ -2317,9 +2317,9 @@ label ball_ending_E2:
         $ dynamic_cg("ball/sex", "background", "base", "eyes_up", "mouth_open", "blush", "tears", "spank")
         her "Sir, excuse me, but you have to let me go..."
         g4 "*Ah*... Your pussy is something else!"
-        her "Sir... *Ah*... I am serious."
+        her "Sir-- *Ah*...{w=0.3} I am serious."
         her "As the queen I am expected to lead the dance."
-        g4 "Yes... Like that, just like that... *Oh*, yes."
+        g4 "Yes... Like that, just like that... Oh, yes..."
         $ dynamic_cg("ball/sex", "background", "base", "eyes_up", "mouth_open", "brows", "blush", "tears", "spank")
         her "Sir, are you even listening?"
         m "Oh, I hear you alright... But let me make you a counteroffer."
@@ -2482,12 +2482,12 @@ label ball_ending_E2:
         her "{size=+5}*Ah*!!!{/size}"
 
         $ dynamic_cg("ball/sex", "background2", "base", "mouth_open", "eyes_down", "lashes", "brows", "blush", "mascara", "spit")
-        her "{size=+5}*Oh*!!!{/size}"
+        her "{size=+5}*Ah*!!!{/size}"
         her "{size=+5}I'm a whore!!!{/size}"
         g4 "Yes you are!"
         her "{size=+5}I'm a slut!!!{/size}"
         g4 "Yes you are!"
-        g4 "*Oh*... I think I am getting close myself..."
+        g4 "*Ah*... I think I am getting close myself..."
         g4 "*Argh*!"
 
         $ menu_x = 0.5 #Menu is moved to the left side.
@@ -2528,7 +2528,7 @@ label ball_ending_E2:
                 $ dynamic_cg("ball/sex", "background2", "base", "eyes_up", "lashes", "blush", "mascara", "spit", "cum_pussy", "cum_extra")
                 her "{size=+5}I'm sorry! Your whore is sorry!!!!{/size}"
                 g4 "Yes! Much better!"
-                g4 "*Oh*......."
+                g4 "*Ah*......."
 
             "-Cum inside Hermione's butt-":
                 $ d_flag_01 = False # Came into asshole
@@ -2819,7 +2819,7 @@ label ball_ending_E2:
         call her_main("It is not?", "annoyed", "squint", "base", "mid")
         call her_main("Oh, I see...", "grin", "happyCl", "worried", "mid",emote="sweat")
         call her_main("There is no need to be so shy about this, sir. It's alright.")
-        dum1 "*ahem*... here it is."
+        dum1 "*Ahem*... here it is."
         call her_main("Thank you, sir.", "base", "base", "base", "mid")
         call her_main("Let's see...", "annoyed", "narrow", "worried", "down")
         hide screen hermione_main

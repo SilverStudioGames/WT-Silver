@@ -268,7 +268,7 @@ label hg_anal_sex_1:
             call her_main("Lubrication, [genie_name]?!", "angry", "wide", "base", "stare")
             m "*Shhh*... Just stay still."
             "*Squeeze*!"
-            call her_main("*Ahhh*! It's cold!", "scream", "happyCl", "worried", "mid")
+            call her_main("Ahhh! It's cold!", "scream", "happyCl", "worried", "mid")
             call nar(">You thoroughly lubricate her asshole.")
             m "That should do it."
             call her_main("No, [genie_name], wait! Maybe--", "angry", "base", "worried", "mid")
@@ -304,7 +304,7 @@ label hg_anal_sex_1:
             call her_main("No, you're hurting me! You are hurting me!", "scream", "happyCl", "worried", "mid")
             g4 "*Argh* Fuck, I can't pull out!"
             $ ccg1 = 11
-            call her_main("*Ah*! It hurts!", "scream", "happyCl", "worried", "mid")
+            call her_main("Ah! It hurts!", "scream", "happyCl", "worried", "mid")
             g4 "Then stop clenching on me so hard, [hermione_name]!"
             g4 "Your anus is so tight I can't even move!"
             $ ccg1 = 19
@@ -381,9 +381,9 @@ label hg_anal_sex_1:
 
             g4 "*Argh*!"
             $ ccg1 = 1
-            call her_main("No! *AH*!", "scream", "wide", "base", "stare")
+            call her_main("No! Aaah!", "scream", "wide", "base", "stare")
             call cum_block
-            g4 "{size=+15}ARGH!!!!!!!!!!!!!!!!{/size}"
+            g4 "{size=+15}*ARGH*!!!!!!!!!!!!!!!!{/size}"
 
             if not use_cgs:
                 call her_chibi_scene("sex_cum_in", trans=d5)
@@ -594,10 +594,10 @@ label hg_anal_sex_2:
     $ ccg1 = 32
     call her_main("*Ah*{heart}...", "open", "closed", "base", "mid")
     $ ccg1 = 13
-    call her_main("What I meant... *ah*{heart}... {w=0.3}to say was *ah*{heart}... {w=0.3}do you think someone would ever *ah*{heart}... {w=0.3}want to marry a girl like me?", "angry", "narrow", "base", "down")
+    call her_main("What I meant-- *Ah*{heart}... {w=0.3}to say was-- *Ah*{heart}...{w=0.3} Do you think someone would ever-- *Ah*{heart}...{w=0.3} Want to marry a girl like me?", "angry", "narrow", "base", "down")
     m "*Huh*?"
-    call her_main("I mean, with all that was happening lately... ah{heart}...", "angry", "narrow", "base", "down")
-    call her_main("I can't help but feel unclean... damaged even.")
+    call her_main("I mean, with all that was happening lately-- *Ah*{heart}...", "angry", "narrow", "base", "down")
+    call her_main("I can't help but feel unclean... Damaged even.")
     call her_main("And in a no way innocent...")
     $ ccg1 = 33
     call her_main("Who would want a wife like that?", "angry", "base", "base", "mid")
@@ -739,7 +739,7 @@ label hg_anal_sex_2:
     $ hermione_zorder = 15
 
     m "Well, this was intense..."
-    call her_main("*Ah-ha*...{heart} *ah*...{heart}", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")
+    call her_main("*Ah-ha*...{heart} *Ah*...{heart}", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")
     m "Are You alright, [hermione_name]?"
     call her_main("I think so... I'm not sure...", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")
     call her_main("I think I may still be cumming, [genie_name].", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")

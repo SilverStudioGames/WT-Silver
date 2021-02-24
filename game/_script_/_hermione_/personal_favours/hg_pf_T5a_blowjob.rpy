@@ -762,13 +762,13 @@ label hg_hidden_blowjob_snape:
     call sna_main("But she is still being a major pain in my arse!","snape_04")
     call sna_main("Her tactics have changed...")
     call sna_main("But the amount of grief she manages to bring me is the same...","snape_03")
-    m "I see... ah..."
+    m "*Ngh*... I see..."
     call sna_main("I swear, that girl is driving me crazy!","snape_10")
-    g4 "Yeah, she is driving me crazy as well... ah..."
+    g4 "Yeah, she is-- *Ah*... Driving me crazy as well..."
     call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "base", "up")
     call sna_main("Will you take care of this then?","snape_04")
     m "Yes. She'll get what she deserves."
-    call sna_main("Good. That is all I wanted to hear.","snape_06")
+    call sna_main("Good... That is all I wanted to hear.","snape_06")
 
     if game.daytime:
         m "Well, have a good day, Severus."

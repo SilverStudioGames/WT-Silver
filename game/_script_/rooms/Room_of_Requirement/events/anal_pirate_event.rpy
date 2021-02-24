@@ -680,9 +680,9 @@ label anal_pirate_event_3: # Call label
     call her_main("I would ne'er propose t' a scallywag wit' his pegleg in me arse, captain...", "angry", "happyCl", "worried", "mid",emote="sweat")
     m "Good. 'cause I don't reckon any scallywag would be able t' say \"neigh\" to you lassie."
     $ ccg1 = 32
-    call her_main("Ah{heart}...", "open", "closed", "base", "mid")
+    call her_main("*Ah*{heart}...", "open", "closed", "base", "mid")
     $ ccg1 = 13
-    call her_main("Wha' I meant... ah{heart}... {w}t' say was ah{heart}... {w}do ye reckon any pirate would ever ah{heart}... {w}leave th' sea fer a lass like me?", "angry", "narrow", "base", "down")
+    call her_main("Wha' I meant-- *Ah*{heart}... {w}t' say was-- *Ah*{heart}... {w}do ye reckon any pirate would ever-- *Ah*{heart}... {w}leave th' sea fer a lass like me?", "angry", "narrow", "base", "down")
     m "*huh*?"
     call her_main("I mean, wit' all that booty plunderin happenin' lately... *ah*{heart}...", "angry", "narrow", "base", "down")
     call her_main("I can nah help but feel like me hull is scratched... leakin even.")
@@ -762,7 +762,7 @@ label anal_pirate_event_3: # Call label
     g4 "Fine! 'ave it yer way wench!"
     with hpunch
     $ ccg1 = 7
-    call her_main("{size=+7}Ah-ah-aha!!! I'm cumming!!!{/size}", "scream", "wide", "base", "stare")
+    call her_main("{size=+7}*Ah-ah-aha*!!! I'm cumming!!!{/size}", "scream", "wide", "base", "stare")
     g4 "{size=+7}Argh!{/size}"
 
     $ renpy.play('sounds/fuse.mp3')
@@ -782,7 +782,7 @@ label anal_pirate_event_3: # Call label
             call her_main("!!!", "scream", "wide", "base", "stare", ypos="head", flip=False)
             m "Shiver me timbers! Argh!"
             $ ccg1 = 8
-            call her_main("Ah!{heart} 'tis fillin' me up!{heart} me bilge is takin in water!{heart}", "silly", "narrow", "annoyed", "up")
+            call her_main("*Ah*!{heart} 'tis fillin' me up!{heart} me bilge is takin in water!{heart}", "silly", "narrow", "annoyed", "up")
             m "'tis nah water, wench!"
             $ renpy.play('sounds/cannon.mp3')
             call cum_block
@@ -814,7 +814,7 @@ label anal_pirate_event_3: # Call label
             call ctc
 
             $ ccg1 = 17
-            call her_main("Ah-aha! Ye're cummin'! {heart}{heart}{heart}", "silly", "narrow", "base", "dead", ypos="head", flip=False)
+            call her_main("*Ah-aha*! Ye're cummin'! {heart}{heart}{heart}", "silly", "narrow", "base", "dead", ypos="head", flip=False)
             g4 "{size=+7}Aye I do, wench{/size}"
             $ ccg1 = 16
             $ hermione.set_cum(crotch="heavy")
@@ -845,7 +845,7 @@ label anal_pirate_event_3: # Call label
     $ hermione_zorder = 15
 
     m "Well, tis been intense..."
-    call her_main("*Ah-ha*...{heart} *ah*...{heart}", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy", ypos="head", flip=False)
+    call her_main("*Ah-ha*...{heart} *Ah*...{heart}", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy", ypos="head", flip=False)
     m "Ye be fine lass?"
     call her_main("I reckon so... I be nah sure...", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")
     call her_main("I reckon I may still be leakin', captain.", "grin", "narrow", "base", "dead",cheeks="blush",tears="messy")

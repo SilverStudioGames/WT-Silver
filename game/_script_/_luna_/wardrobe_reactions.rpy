@@ -126,7 +126,7 @@ label lun_reaction_touch(what):
             elif random_number == 2:
                 call lun_main("*Ah*... Are everyone this sensitive in around this spot?", "base", "base", "base", "mid")
                 m "Women are a lot more sensitive than men most of the time..."
-                call lun_main("*Oh*... That's so sad...", "base", "base", "base", "mid")
+                call lun_main("Oh... That's so sad...", "base", "base", "base", "mid")
             elif random_number == 3:
                 call lun_main("...", "base", "base", "base", "mid")
                 m "How did that feel?"
@@ -240,17 +240,17 @@ label lun_reaction_unequip_fail(item):
     elif item.type == "bra": #probably wont play since category unlocks same level as she can take them off
         call lun_main("*giggles*", "base", "base", "base", "mid")
         m "What's so funny?"
-        call lun_main("*Oh*... It's nothing...", "base", "base", "base", "mid")
+        call lun_main("Oh... It's nothing...", "base", "base", "base", "mid")
 
     elif item.type == "top":
         call lun_main("Are we going to continue the research, [lun_genie_name]?", "base", "base", "base", "mid")
         m "Not right now..."
-        call lun_main("*Oh*... Then let me know when you're ready...", "base", "base", "base", "mid")
+        call lun_main("Oh... Then let me know when you're ready...", "base", "base", "base", "mid")
 
     elif item.type == "bottom":
         call lun_main("Are we going to continue the research, [lun_genie_name]?", "base", "base", "base", "mid")
         m "Not right now..."
-        call lun_main("*Oh*... Then let me know when you're ready...", "base", "base", "base", "mid")
+        call lun_main("Oh... Then let me know when you're ready...", "base", "base", "base", "mid")
 
     return
 

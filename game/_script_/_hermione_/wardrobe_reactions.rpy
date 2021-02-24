@@ -430,7 +430,7 @@ label her_reaction_equip_outfit(item):
             call her_main("Skirt and pullover...", "normal", "squint", "base", "stare")
             call her_main("A little bit of home...", "normal", "squint", "base", "stare")
             m "[hermione_name]?"
-            call her_main("*Oh*... Sorry!", "base", "base", "base", "mid")
+            call her_main("Oh... Sorry!", "base", "base", "base", "mid")
             call her_main("One moment...", "open", "squint", "base", "mid")
 
     #####################################
@@ -919,7 +919,7 @@ label her_reaction_equip_outfit(item):
             call her_main("*Hmm*... I suppose not...", "angry", "closed", "base", "mid")
             call her_main("...", "normal", "base", "base", "R")
             m "So... Are you putting it on?"
-            call her_main("*Oh*...{w=0.4} Alright...", "angry", "squint", "base", "mid")
+            call her_main("Oh...{w=0.4} Alright...", "angry", "squint", "base", "mid")
             call her_main("", "base", "squint", "base", "mid")
         elif her_whoring < 22:
             call her_main("A cosplay...", "open", "squint", "base", "mid")
@@ -930,7 +930,7 @@ label her_reaction_equip_outfit(item):
             m "Wait a second, they forgot the coin purse!"
             call her_main("*Huh*?", "upset", "squint", "base", "mid")
             m "There's supposed to be a coin purse for you to store silver coins in..."
-            call her_main("*Oh*... So you don't want me to wear it then?", "angry", "squint", "base", "mid")
+            call her_main("Oh... So you don't want me to wear it then?", "angry", "squint", "base", "mid")
             m "Of course I do... You'll just have to store the coins in a pocket or something..."
             call her_main("*Hmm*... There doesn't seem to be any pockets...", "upset", "narrow", "base", "down")
             m "Well... I'm sure you'll find somewhere to put them."
@@ -956,7 +956,7 @@ label her_reaction_equip_outfit(item):
         if her_whoring < 22:
             call her_main("Who?", "normal", "squint", "base", "mid")
             m "*Sigh*...{w=0.4}  Yennefer... {w=0.4} From the witcher."
-            call her_main("*Oh*...{w=0.4}  Her...", "open", "squint", "base", "R")
+            call her_main("Oh...{w=0.4}  Her...", "open", "squint", "base", "R")
             call her_main("(No clue who that is but I better not offend him...)", "normal", "narrow", "base", "down")
             m "(I guess she picked Triss.)"
             call her_main("You... Like this Yennefer character then?", "clench", "squint", "base", "mid")
@@ -973,9 +973,9 @@ label her_reaction_equip_outfit(item):
         else: #22+
             call her_main("This is quite the intricate outfit...", "angry", "narrow", "base", "down")
             m "A Classy outfit for a classy lady."
-            call her_main("*Oh*... Well, thank you...", "base", "closed", "base", "mid", cheeks="blush")
+            call her_main("Oh... Well, thank you...", "base", "closed", "base", "mid", cheeks="blush")
             m "*Huh*?"
-            m "*Oh*... Yes, put it on for me will you?"
+            m "Oh... Yes, put it on for me will you?"
             call her_main("As you wish.", "open", "squint", "base", "R", cheeks="blush")
             call her_main("One moment...", "base", "squint", "base", "mid", cheeks="blush")
 
@@ -1006,7 +1006,7 @@ label her_reaction_equip_outfit(item):
             m "(Looks like she's zoned out...)"
             m "[hermione_name]?"
             call her_main("*Huh*?", "angry", "squint", "base", "mid", cheeks="blush")
-            call her_main("*Oh*... Sorry sir, let me just put it on...", "open", "base", "base", "R", cheeks="blush")
+            call her_main("Oh... Sorry sir, let me just put it on...", "open", "base", "base", "R", cheeks="blush")
             m "Never mind the dress, what about my joke?"
             call her_main("Sorry?", "soft", "base", "base", "mid", cheeks="blush")
             m "...{w=0.4} Whatever... Just put it on..."
@@ -1077,7 +1077,7 @@ label her_reaction_equip_outfit(item):
             call her_main("I presume your reason for wanting me to put it on isn't related to cleaning...", "open", "narrow", "base", "mid", cheeks="blush")
             m "I mean..."
             call her_main("Figured...", "open", "closed", "worried", "mid", cheeks="blush")
-            call her_main("*Oh* well... I guess it can't be helped...", "soft", "narrow", "base", "down", cheeks="blush")
+            call her_main("Oh... Well I guess it can't be helped...", "soft", "narrow", "base", "down", cheeks="blush")
             call her_main("One moment please...", "open", "narrow", "base", "mid", cheeks="blush")
         else: #22+
             call her_main("*Hmm*... Is it one of those \"Sexy\" maid's outfits?", "soft", "narrow", "base", "down", cheeks="blush")
@@ -1789,7 +1789,7 @@ label her_reaction_equip_outfit_fail(item):
         call her_main("Sir, this dress has no...{w=0.4} *Ehm*...{w=0.4} Support.", "disgust", "narrow", "base", "down")
         m "Sorry?"
         call her_main("You know...", "clench", "narrow", "worried", "R")
-        m "*Oh*... I see..."
+        m "Oh... I see..."
         m "Well your breasts should do shouldn't they?"
         call her_main("What?!", "angry", "wide", "base", "mid")
         call her_main("Sir, I'm not putting on some dress without my bra...", "angry", "squint", "annoyed", "mid")
@@ -1883,7 +1883,8 @@ label her_reaction_equip_outfit_fail(item):
             g9 "Well then, here you go!"
             call her_main("Sir!", "clench", "wide", "base", "down")
             call her_main("What are these chains?!", "angry", "wide", "base", "down")
-            m "*Oh*, those are the straps I believe."
+            m "Oh, those!"
+            m "They are the straps I believe."
             m "Pretty cool, right?"
             call her_main("Cool?!", "angry", "wide", "angry", "mid")
             m "Is that not how you say it anymore?"
@@ -1907,7 +1908,7 @@ label her_reaction_equip_outfit_fail(item):
             call her_main("I won't!", "scream", "closed", "annoyed", "mid")
             m "Don't put yourself down like that... I'm sure some spell would--"
             call her_main("I won't, because I'm not putting it on...", "angry", "narrow", "angry", "mid")
-            m "*Oh*...{w=0.4} Right..."
+            m "Oh...{w=0.4} Right..."
         else: # < 17
             call her_main("A bikini?", "base", "base", "base", "mid")
             call her_main("Well, I suppose that wouldn't be too--", "base", "base", "base", "mid")
@@ -1939,7 +1940,7 @@ label her_reaction_equip_outfit_fail(item):
             call her_main("A leather bikini?!?", "clench", "narrow", "base", "down", cheeks="blush")
             m "I'm sure it's not real leather..."
             call her_main("That... That's not the point!", "open", "closed", "worried", "mid", cheeks="blush")
-            m "*Oh*... I'm sorry, it usually is with this type of thing..."
+            m "Oh... I'm sorry, it usually is with this type of thing..."
             call her_main("You actually expect me to--", "angry", "squint", "base", "mid", cheeks="blush")
             m "I didn't ship it from anywhere, it's made locally."
             call her_main("[genie_name], I don't care about where you got it from... It's the fact that--", "angry", "narrow", "worried", "mid", cheeks="blush")
@@ -1970,7 +1971,7 @@ label her_reaction_equip_outfit_fail(item):
             m "Pretty neat, isn't it?"
             call her_main("Where's the rest of it?!", "disgust", "wide", "base", "mid", cheeks="blush")
             m "What do you mean the rest? Isn't a bikini supposed to only come in two pieces?"
-            call her_main("Isn't a bikini supposed to... *Oh*... I don't know--", "angry", "squint", "annoyed", "mid", cheeks="blush")
+            call her_main("Isn't a bikini supposed to-- Oh... I don't know...", "angry", "squint", "annoyed", "mid", cheeks="blush")
             with hpunch
             call her_main("Cover your privates?!", "scream", "closed", "annoyed", "mid", cheeks="blush")
             m "Doesn't it do that?"
@@ -1985,7 +1986,7 @@ label her_reaction_equip_outfit_fail(item):
             call her_main("I am not wearing this...", "disgust", "narrow", "base", "mid", cheeks="blush")
             g4 "Why not?!"
             call her_main("What do you think?", "angry", "base", "annoyed", "mid", cheeks="blush")
-            m "*Oh*... I see..."
+            m "Oh... I see..."
             call her_main("Finally, you get it...", "open", "closed", "annoyed", "mid", cheeks="blush")
             g9 "I'd gladly help you tie it around your back if you can't reach."
             call her_main("That's not why!", "annoyed", "base", "annoyed", "mid", cheeks="blush")
@@ -2068,10 +2069,10 @@ label her_reaction_equip_outfit_fail(item):
             m "If it's an issue I suppose I could--"
             call her_main("You want me to take my clothes off and only wear a ribbon?!", "clench", "base", "annoyed", "mid")
             m "Ribbons actually... There's two of them."
-            call her_main("*Oh*... Then I suppose it's fine then!", "disgust", "narrow", "annoyed", "R")
+            call her_main("Oh... Then I suppose it's fine then!", "disgust", "narrow", "annoyed", "R")
             m "I knew you'd come around sooner rather than--"
             call her_main("...", "annoyed", "base", "angry", "mid")
-            m "*Ah*... Sarcasm... My most loyal friend yet also my greatest enemy..."
+            m "Ah... Sarcasm... My most loyal friend yet also my greatest enemy..."
         elif her_whoring < 13:
             call her_main("And that gift is?", "open", "narrow", "base", "mid")
             m "It's you!"

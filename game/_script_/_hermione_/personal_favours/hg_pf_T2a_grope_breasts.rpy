@@ -166,14 +166,14 @@ label hg_pf_grope_breasts_T3_continue:
 
     call nar(">You squeeze one of the girl's tits tightly and give the other a couple of firm tugs.")
 
-    call her_main("Ah...", "open", "happyCl", "worried", "mid")
+    call her_main("*Ah*...", "open", "happyCl", "worried", "mid")
     m "Enjoying yourself, [hermione_name]?"
 
     call her_main("[genie_name], I am only doing this--", "upset", "closed", "base", "mid")
 
     call nar(">You squeeze both of her tits with force...")
 
-    call her_main("ah...", "shock", "happyCl", "worried", "mid")
+    call her_main("*Ah*...", "shock", "happyCl", "worried", "mid")
     m "Tell me you like this, [hermione_name]!"
     call her_main("[genie_name], I am only letting you do this to me because--", "open", "happyCl", "worried", "mid")
     m "I know, I know..."
@@ -314,25 +314,25 @@ label hg_pf_grope_breasts_T4_continue:
     call her_chibi_scene("grope_tits", trans=d7)
     call ctc
 
-    call her_main("Ah...", "open", "narrow", "worried", "down")
+    call her_main("*Ah*...", "open", "narrow", "worried", "down")
 
     call nar(">You squeeze her tits a few more times, then give them a firm tug...")
 
-    call her_main("Ah... [genie_name]...", "open", "base", "base", "mid")
+    call her_main("*Ah*... [genie_name]...", "open", "base", "base", "mid")
     m "What? You enjoy this, don't you?"
     call her_main("No... I...", "open", "base", "base", "mid")
     m "Don't you lie to your headmaster, [hermione_name]!"
 
     call nar(">You squeeze her tits again...")
 
-    call her_main("Ah...", "open", "narrow", "worried", "down")
+    call her_main("*Ah*...", "open", "narrow", "worried", "down")
     call her_main("I am not lying, [genie_name]...", "open", "narrow", "worried", "down")
     call her_main("Why would I enjoy this?", "open", "base", "base", "mid")
     m "I don't know [hermione_name]. You tell me."
 
     call nar(">You keep massaging her breasts...")
 
-    call her_main("Ah... I...", "open", "base", "base", "mid")
+    call her_main("*Ah*... I...", "open", "base", "base", "mid")
     m "Yes, what is it?"
     call her_main("It's... It's nothing, [genie_name]...", "angry", "base", "base", "mid")
     m "Oh, I think it's something."

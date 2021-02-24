@@ -167,7 +167,7 @@ label purchase_outfit(item):
         m "I'd like something that one of my old flames used to wear..."
         maf "An old what, sir?"
         m "Cleopatra..."
-        m "Ah... what a looker she was..."
+        m "Ah... What a looker she was..."
         maf "Sweetie, are you okay? Do you want me to fetch the nurse?"
         m "Would you be able to make me something Egyptian themed?"
         m "Like the outfits Cleopatra used to wear..."

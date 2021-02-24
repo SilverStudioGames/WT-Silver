@@ -3021,7 +3021,7 @@ label cc_pf_strip_T3_intro_E3:
         pause .8
 
         call nar("Tonks takes hold of Cho's panties and tugs them down in one swift move.")
-        call cho_main("Ah!...", "mad", "happyCl", "worried", "mid", cheeks="heavy_blush") # startled?
+        call cho_main("Ah!", "mad", "happyCl", "worried", "mid", cheeks="heavy_blush") # startled?
 
     call ton_main("*Hmm*... I can't decide which teacher has the best view now...", "horny", "narrow", "base", "mid", hair="horny", cheeks="blush")
     g9 "Looking pretty good from where I'm sitting..."

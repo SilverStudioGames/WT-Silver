@@ -825,7 +825,7 @@ label .transformations:
     call ton_main("Of course. What's it gonna be, Professor?", "grin", "base", "base", "mid")
     call ton_main("Remember I can transform into anything... or anyone.", "soft", "narrow", "base", "mid") # suggestive
     call cho_main("...", "horny", "narrow", "base", "down", cheeks="blush")
-    m "*Hmmm*... who do I want you to turn into... Let me think."
+    m "*Hmm*... who do I want you to turn into... Let me think."
 
     menu:
         g9 "Yes, I want you to shapeshift into--"
@@ -880,7 +880,7 @@ label cc_pf_strip_T3_tonks.doppler_E1:
     m "We all know those are highly edited..."
     call ton_main("So I'm smoking hot, huh?", "horny", "narrow", "base", "mid", hair="horny")
     call ton_main("You flatter me, but no... I've always looked like this.", "base", "happyCl", "base", "mid", hair="horny")
-    m "*Hmmm*..."
+    m "*Hmm*..."
     call cho_main("...", "annoyed", "base", "base", "mid", cheeks="blush") # blushing
 
     m "You can count yourself lucky that I haven't seen any bounties for a Doppler..."
@@ -1497,7 +1497,7 @@ label .end_event:
     ton "Professor, how many house points may I get for this shameless act you're asking me to do?"
     g9 "You're requesting house points for this, Miss Granger?"
     ton "Naturally."
-    m "*Hmmm*..."
+    m "*Hmm*..."
 
     menu:
         "You shall receive five points.":

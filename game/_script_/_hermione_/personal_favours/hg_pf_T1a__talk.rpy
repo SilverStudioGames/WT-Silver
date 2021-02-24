@@ -142,7 +142,7 @@ label hg_pf_talk_T1: # Call label
     call her_main("And now I sort of feel like sometimes I know more than professor Sprout herself...", "base", "base", "base", "mid")
 
     if masturbating:
-        m "{size=-4}(Yes... *ah*...){/size}"
+        m "{size=-4}(Yes... *Ah*...){/size}"
     else:
         m "(Professor Sprout... *He-he*, what a ridiculous name...)"
 
@@ -252,7 +252,7 @@ label hg_pf_talk_T2:
     call her_main("I heard that this one girl sold one of the professors some naughty pictures of herself for ten house points...", "open", "narrow", "angry", "R")
 
     if masturbating:
-        m "{size=-4}(What a slut... *ah*... Yes...){/size}"
+        m "{size=-4}(What a slut... *Ah*... Yes...){/size}"
     else:
         m "Ten points, *huh*?"
 
@@ -289,7 +289,7 @@ label hg_pf_talk_T2:
         else:
             call her_main("You were touching yourself, [genie_name]!", "angry", "base", "angry", "mid")
 
-        g4 "What? No, I was just... ah, shit, this feels good..."
+        g4 "What? No, I was just... Ah, shit, this feels good..."
 
         call hide_characters
         call gen_chibi("cum_behind_desk_done")

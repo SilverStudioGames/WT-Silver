@@ -295,7 +295,7 @@ label hg_pf_admire_breasts_T2_intro_E1:
 
     call play_music("chipper_doodle") # HERMIONE'S THEME.
     call her_main("[genie_name]!", "scream", "closed", "angry", "mid")
-    m "Hm... I thought your house could use some extra points..."
+    m "*Hmm*... I thought your house could use some extra points..."
     m "But I guess I was wrong..."
     call her_main(".........?", "open", "base", "base", "mid")
     m "Please don't mind me..."

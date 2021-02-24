@@ -468,7 +468,7 @@ label luna_intro_E2:
             $ masturbating = False
 
     if masturbating:
-        g9 "Miss *ah* Love-good... What can I do you for?"
+        g9 "Miss-- *Ah*... Love-good. What can I do you for?"
     else:
         m "Miss Lovegood... What can I help you with?"
 
@@ -636,7 +636,7 @@ label luna_intro_E2:
     lun "Yes sir. I've come across several swarms of them in a fair few places recently."
     lun "They appeared quite docile at first but recently they've started to become quite problematic..."
     m "Well I sure would love to be able to help Miss Lovegood, but as I said this is the first time I even heard about these things..."
-    lun "*Oh*... But you can help, sir!"
+    lun "Oh... But you can help, sir!"
     lun "You're the most powerful wizard there is so if anyone could deal with them it'd be you..."
     m "Well... I'm not usually the person to brag but..."
     g9 "I am known to have slung some seriously powerful spells around back in the day..."

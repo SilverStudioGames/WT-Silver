@@ -264,7 +264,7 @@ label hermione_intro_E1:
 
         call her_main("Professor?! What is going on...?", "angry", "wide", "base", "mid", trans=d3)
 
-        g4 "Ah... YESSSSS.....!"
+        g4 "*Ah*... YESSSSS.....!"
         call cum_block
         her "...???"
         g4 "*breathing heavily* Yes! yes..."
@@ -1156,7 +1156,7 @@ label hermione_intro_E6:
                 call her_main("...............", "annoyed", "narrow", "angry", "R")
                 call her_main("Alright, I will try to do better, sir...", "open", "closed", "angry", "R")
                 call her_main("How about this?", "open", "base", "worried", "mid")
-                call her_main("A-a-ah.........", "scream", "base", "base", "R")
+                call her_main("*A-a-ah*.........", "scream", "base", "base", "R")
                 call her_main("............................", "open_wide_tongue", "happy", "base", "R")
                 call her_main("......................................", "open_wide_tongue", "narrow", "base", "down")
                 her "...................................................................."

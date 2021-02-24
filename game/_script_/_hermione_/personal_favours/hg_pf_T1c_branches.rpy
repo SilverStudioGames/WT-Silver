@@ -517,7 +517,7 @@ label hg_pf_admire_breasts_T4_touch: # Call label
     call bld
     m "Relax, [hermione_name]. Just stand still!"
     call her_main("But...", "disgust", "narrow", "base", "down", cheeks="blush")
-    call her_main("ah...{heart}", "shock", "happyCl", "worried", "mid")
+    call her_main("*Ah*...{heart}", "shock", "happyCl", "worried", "mid")
     call her_main("I didn't agree to this...", "disgust", "narrow", "base", "down", cheeks="blush")
     m "But you like it, don't you?"
 
@@ -539,7 +539,7 @@ label hg_pf_admire_breasts_T4_touch: # Call label
         m "I know, I know... But it's hard to resist..."
         call her_main(".................", "angry", "base", "angry", "mid", cheeks="blush")
 
-    call her_main(".................... ah...{heart}", "base", "narrow", "base", "up", cheeks="blush")
+    call her_main(".................... *Ah*...{heart}", "base", "narrow", "base", "up", cheeks="blush")
     call her_main("[genie_name], you need to stop now...", "base", "narrow", "base", "up", cheeks="blush")
     m "Just a bit longer..."
 
@@ -553,7 +553,7 @@ label hg_pf_admire_breasts_T4_touch: # Call label
 
     call nar(">You pull the tits in opposite directions and then squish them together...")
 
-    call her_main("Ah...{heart} [genie_name], I really need to go...", "base", "narrow", "base", "up", cheeks="blush")
+    call her_main("*Ah*...{heart} [genie_name], I really need to go...", "base", "narrow", "base", "up", cheeks="blush")
     if game.daytime:
         call her_main("That's right... the classes are about to start...", "open", "base", "base", "R", cheeks="blush")
     else:
@@ -621,7 +621,7 @@ label hg_pf_admire_breasts_T4_masturbate: # Call label
         call her_main("................", "disgust", "narrow", "base", "down", cheeks="blush")
 
     else: # Different posing than above.
-        call her_main("ah...", "base", "narrow", "base", "up", cheeks="blush")
+        call her_main("*Ah*...", "base", "narrow", "base", "up", cheeks="blush")
         call her_main("It's so big...", "open", "base", "base", "R", cheeks="blush")
         call her_main("You just couldn't help yourself, could you [genie_name]?", "base", "base", "base", "R", cheeks="blush")
         call her_main("..................", "base", "narrow", "base", "up", cheeks="blush")
@@ -720,7 +720,7 @@ label hg_pf_admire_breasts_T4_masturbate: # Call label
 
             call ctc
 
-            call her_main("ah...{heart} It's so hot...{heart}", "shock", "happyCl", "worried", "mid")
+            call her_main("*Ah*...{heart} It's so hot...{heart}", "shock", "happyCl", "worried", "mid")
             call her_main("[genie_name], you promised...", "angry", "happyCl", "worried", "mid", cheeks="blush",emote="sweat")
             g4 "Oh, this is great, yes..."
 

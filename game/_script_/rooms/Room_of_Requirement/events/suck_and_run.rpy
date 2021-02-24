@@ -359,7 +359,7 @@ label suck_and_run:
         call ton_main("And now you've ruined it!", "annoyed", "closed", "worried", "mid", hair="sad")
         m "Surely it is not my fault that my semen contains such immeasurable--"
         call ton_main("...", "annoyed", "narrow", "base", "down", hair="sad") #sad
-        m "*Ahem*"
+        m "*Ahem*..."
         m "So... A Succubus... *eh*?"
         call ton_main("Obviously...", "open", "narrow", "shocked", "downR", hair="sad")
         m "A sexual deviant that can't hold in their own desires..."
