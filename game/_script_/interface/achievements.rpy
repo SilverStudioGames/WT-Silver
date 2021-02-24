@@ -186,14 +186,14 @@ label achievement_menu(xx=150, yy=90):
 
     $ items_shown = 36
     $ current_page = 0
-    $ current_item = None
     $ current_category = achievement_categories_sorted[0]
     $ current_filter = None
-    $ current_sorting = "A-z"
+    $ current_sorting = "Unlocked"
 
     $ category_items = list(persistent.achievements.iteritems())
     $ menu_items = achievement_sortfilter(category_items, current_sorting, current_filter)
     $ menu_items_length = len(menu_items)
+    $ current_item = next(iter(menu_items), None)
 
     if not renpy.android:
         show screen tooltip
@@ -218,7 +218,7 @@ label achievement_menu(xx=150, yy=90):
         $ menu_items = achievement_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+        $ current_item = next(iter(menu_items), None)
     elif _return == "inc":
         $ current_page += 1
     elif _return == "dec":
@@ -235,7 +235,7 @@ label achievement_menu(xx=150, yy=90):
         $ menu_items = achievement_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+        $ current_item = next(iter(menu_items), None)
     elif _return == "sort":
         if current_sorting == "A-z":
             $ current_sorting = "z-A"
@@ -248,7 +248,7 @@ label achievement_menu(xx=150, yy=90):
         $ menu_items = achievement_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+        $ current_item = next(iter(menu_items), None)
     else:
         hide screen achievements
         return
