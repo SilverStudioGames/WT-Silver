@@ -446,13 +446,14 @@ label hermione_talk:
                     #"This job is only available during the day."
                     #jump working_menu
 
-                "-Hidden-" (style="disabled") if game.daytime and not cardgame_work and not hg_poker.unlocked:
+                "-Hidden-" (style="disabled") if game.daytime and not cardgame_work and not her_outfit_poker.unlocked:
                     "You haven't unlocked this job opportunity yet."
                     jump working_menu
 
-                "-Work by advertising the card game-" if game.daytime and cardgame_work and hg_poker.unlocked:
+                "-Work by advertising the card game-" if game.daytime and cardgame_work and her_outfit_poker.unlocked:
                     jump job_5
-                "-Work by advertising the card game-" (style="disabled") if game.daytime and cardgame_work and not hg_poker.unlocked:
+                    
+                "-Work by advertising the card game-" (style="disabled") if game.daytime and cardgame_work and not her_outfit_poker.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     m "(Maybe the twins have something fitting for her in their stock.)"
                     jump working_menu

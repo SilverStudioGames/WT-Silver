@@ -124,7 +124,7 @@ label wardrobe():
             $ _outfit = char_active.create_outfit(temp=True)
 
             if _outfit == _choice[1]:
-                $ renpy.notify("Load failed: Outfit arleady equipped.")
+                $ renpy.notify("Load failed: Outfit already equipped.")
             else:
                 if wardrobe_check_equip_outfit(_choice[1]):
 
@@ -356,7 +356,7 @@ screen wardrobe_menuitem(xx, yy):
         use invisible_button()
 
         text "[current_category]" size 22 xalign 0.5 ypos 65
-
+        
         # Colours
         if current_item:
             hbox:

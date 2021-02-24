@@ -1,7 +1,7 @@
 default selectcard = -1
 default selectenemycard = -1
 default currentpage = 0
-#Shown Cards is a interger for how many cards should be hidden
+#Shown Cards is a integer for how many cards should be hidden
 #
 #Sudden Death is where when there is draw then a new round will begin
 #Where you take all card of you color up in you hand
@@ -497,13 +497,93 @@ default her_first_deck = [card_her_schoolgirl.clone(), card_item_girlmag.clone()
 default her_second_deck = [card_her_schoolgirl.clone(), card_item_eromag.clone(), card_item_bookgala.clone(), card_item_bookgala2.clone(), card_item_bookchairs.clone()]
 default her_third_deck = [card_her_librarian.clone(), card_item_pornmag.clone(), card_item_bookgala.clone(), card_item_bookgala2.clone(), card_item_bookchairs.clone()]
 
-define card_non_spec_char = ["I see you've been practising... so have I!", "You've activated my trap card... wait... it's in my other deck!", "You think you're so good, but this school has never seen a player of the likes of me! In this particular office...", "Aha, you've walked right into my trap. Take this!", "You'll never beat me! I will give you the reward though... in your dreams!", "That's impossible... that card is legendary... wait, it doesn't have a shimmering effect, never mind.", "I was sure my cards used to be good...", "Wait, you've got that card... I've been such a fool! This is a witchmasters deck!", "We're playing reverse rules right? Lowest amount of cards win?", "If only slight of hand was taught at Hogwarts...", "Wait, this can't be right. I must have put my good cards in my other robes.", "You should be happy that they banned one of the cards that came in a cereal box promotion... that one was overpowered.", "This one's a board sweeper!", "I'll just burn this card... oh yeah, I got better cards coming.", "This is a control deck. I'll win in the end don't you worry.", "Maybe I should have made less of a filler deck... I'll get you in the end.", "Your loss is inevitable. It's all in the heart of the cards.", "Have you been Netdecking? Did those damn spiders in the forest tell you what cards to play?", "I've been metagaming the crap out of you... I know exactly what cards you're going to play... except for that last one.", "Oh, it's my turn? I was just thinking about how I'm going to celebrate after your inevitable loss.", "I've been slowrolling you this whole time. My last card is a mega ultimate legendary.", "What kind of deck is this... don't you even care about synergy?", "I see what kind of player you are now... perhaps a more offensive approach is in order.", "I was born to play card games... you merely adopted your liking of them.", "Hahah, you don't even know that I have a card with powers that has been locked away for centuries... unfortunately I lost the key...", "Prepare for a total wipe... your tears when I beat you that is.", "You want to know what's shown on my cards? What do I like the most? Winning, which is why this card is going to guarantee my victory.", "Life is like a game of Wizard Cards. If you don't win... you lose.", "Quitters never win, winners never quit, but those who never win and never quit are idiots... I'm not sure which I am.", "Go fish...", "Do you have any spells to make you better at Wizard Cards? Didn't think so...", "You can smell the roses as much as you want, while I smell the aroma of victory", "Do you see any stars yet, because you're getting beaten pretty badly.", "Well, your performance in this round is certainly a divine comedy.", "The forecast today is calling for my victory, so I'm not worried.", "Are you out of juice already?", "Couldn't you see from your own fortune that you're bound to lose?", "Looks like you fell right into your own trap... now look at this!! KAPOW", "I don't need luck potion to beat you. That's how confident I am in my deck.", "I know my deck like the back of my hand... wait, when did that mole get there?", "Fool, you'll soon see my finishing move... but before that, UNO!", "I'm so confident in my card collection I just shuffled and picked some at random before this game.", "Great cards doesn't ensure a win. Right moves do.", "The game balance of this game has been broken for centuries... and I have the winning cards.", "The ministry of magic considered banning this game as they thought it all mattered what cards you had... something about gambling for children.", "If I said that I picked my cards blindfolded would you believe me? Yes, they're all that good.", "I tried to use transfiguration on one of my cards but it burnt up instead... I probably wasn't the first one who tried that.", "Wait! Isn't that card banned? No, the stats aren't the same... phew", "Why does that card of yours look so sticky?", "Oh nice a shiny... wait, why has it stuck to the board?", "That's nowhere near the best move you could've done. Check this out!", "Even a troll would play better than you at this point... no offence.", "Some people are half blood and some pure-blood. But I'm purely a Card playing genius.", "That must be a new card. Why haven't I seen that one before?", "Wait, my numbers must have changed. Did you put a spell on my cards?", "Hit me... I mean, give me another card.", "Ah, that one. Too bad I have the perfect counter.", "So, when do I get to draw a card again?", "Someone replaced one of my cards with a joker... I bet it was peeves.", "I was told that face cards was the best ones to get... but they were talking about poker.", "By Merlin's beard, where did you get that card?", "Next time you should let me use the cards I drew. Their numbers are a lot better than these ones."]
+define card_non_spec_char = ["I see you've been practising... so have I!",
+    "You've activated my trap card... wait... it's in my other deck!",
+    "You think you're so good, but this school has never seen a player of the likes of me! In this particular office...",
+    "Aha, you've walked right into my trap. Take this!",
+    "You'll never beat me! I will give you the reward though... in your dreams!",
+    "That's impossible... that card is legendary... wait, it doesn't have a shimmering effect, never mind.",
+    "I was sure my cards used to be good...",
+    "Wait, you've got that card... I've been such a fool! This is a witchmasters deck!",
+    "We're playing reverse rules right? Lowest amount of cards win?",
+    "If only slight of hand was taught at Hogwarts...",
+    "Wait, this can't be right. I must have put my good cards in my other robes.",
+    "You should be happy that they banned one of the cards that came in a cereal box promotion... that one was overpowered.",
+    "This one's a board sweeper!",
+    "I'll just burn this card... oh yeah, I got better cards coming.",
+    "This is a control deck. I'll win in the end don't you worry.",
+    "Maybe I should have made less of a filler deck... I'll get you in the end.",
+    "Your loss is inevitable. It's all in the heart of the cards.",
+    "Have you been Netdecking? Did those damn spiders in the forest tell you what cards to play?",
+    "I've been metagaming the crap out of you... I know exactly what cards you're going to play... except for that last one.",
+    "Oh, it's my turn? I was just thinking about how I'm going to celebrate after your inevitable loss.",
+    "I've been slowrolling you this whole time. My last card is a mega ultimate legendary.",
+    "What kind of deck is this... don't you even care about synergy?",
+    "I see what kind of player you are now... perhaps a more offensive approach is in order.",
+    "I was born to play card games... you merely adopted your liking of them.",
+    "Hahah, you don't even know that I have a card with powers that has been locked away for centuries... unfortunately I lost the key...",
+    "Prepare for a total wipe... your tears when I beat you that is.",
+    "You want to know what's shown on my cards? What do I like the most? Winning, which is why this card is going to guarantee my victory.",
+    "Life is like a game of Wizard Cards. If you don't win... you lose.",
+    "Quitters never win, winners never quit, but those who never win and never quit are idiots... I'm not sure which I am.",
+    "Go fish...",
+    "Do you have any spells to make you better at Wizard Cards? Didn't think so...",
+    "You can smell the roses as much as you want, while I smell the aroma of victory",
+    "Do you see any stars yet, because you're getting beaten pretty badly.",
+    "Well, your performance in this round is certainly a divine comedy.",
+    "The forecast today is calling for my victory, so I'm not worried.",
+    "Are you out of juice already?",
+    "Couldn't you see from your own fortune that you're bound to lose?",
+    "Looks like you fell right into your own trap... now look at this!! KAPOW",
+    "I don't need luck potion to beat you. That's how confident I am in my deck.",
+    "I know my deck like the back of my hand... wait, when did that mole get there?",
+    "Fool, you'll soon see my finishing move... but before that, UNO!",
+    "I'm so confident in my card collection I just shuffled and picked some at random before this game.",
+    "Great cards doesn't ensure a win. Right moves do.",
+    "The game balance of this game has been broken for centuries... and I have the winning cards.",
+    "The ministry of magic considered banning this game as they thought it all mattered what cards you had... something about gambling for children.",
+    "If I said that I picked my cards blindfolded would you believe me? Yes, they're all that good.",
+    "I tried to use transfiguration on one of my cards but it burnt up instead... I probably wasn't the first one who tried that.",
+    "Wait! Isn't that card banned? No, the stats aren't the same... phew",
+    "Why does that card of yours look so sticky?",
+    "Oh nice a shiny... wait, why has it stuck to the board?",
+    "That's nowhere near the best move you could've done. Check this out!",
+    "Even a troll would play better than you at this point... no offence.",
+    "Some people are half blood and some pure-blood. But I'm purely a Card playing genius.",
+    "That must be a new card. Why haven't I seen that one before?",
+    "Wait, my numbers must have changed. Did you put a spell on my cards?",
+    "Hit me... I mean, give me another card.",
+    "Ah, that one. Too bad I have the perfect counter.",
+    "So, when do I get to draw a card again?",
+    "Someone replaced one of my cards with a joker... I bet it was peeves.",
+    "I was told that face cards was the best ones to get... but they were talking about poker.",
+    "By Merlin's beard, where did you get that card?",
+    "Next time you should let me use the cards I drew. Their numbers are a lot better than these ones."]
 
-define snape_speech_card = ["You may have lived for hundreds of years but my superior intellect will outweigh your otherworldly powers.", "When this is over I think I'll celebrate my victory with one of your nice bottles of alcohol.", "You should stick to charming women... wizard cards is my game.", "You said you were from a different world, another reality? Maybe in that reality you'd beat me at cards. But not this one!", "We don't stop playing because we grow old, we grow old because we stop playing.", "Where did you even find your trash cards? In a promotional pamphlet?", "Why are my cards so much greasier than yours?"] + card_non_spec_char
+define snape_speech_card = ["You may have lived for hundreds of years but my superior intellect will outweigh your otherworldly powers.",
+    "When this is over I think I'll celebrate my victory with one of your nice bottles of alcohol.",
+    "You should stick to charming women... wizard cards is my game.",
+    "You said you were from a different world, another reality? Maybe in that reality you'd beat me at cards. But not this one!",
+    "We don't stop playing because we grow old, we grow old because we stop playing.",
+    "Where did you even find your trash cards? In a promotional pamphlet?",
+    "Why are my cards so much greasier than yours?"] + card_non_spec_char
 
-define twins_speech_card = ["Our cards are fresher than fresh. They were printed last night so they must be good.", "Giving you a percentage of our profit was an easy bet, because we know you'll never win.", "We weighed our packs before opening them so our cards must be rare.", "Activate twin psychic link.", "Some people wouldn't duel a duo because they can't maintain eye contact during play... or eye to card contact.", "We're a two player team, so we get double the cards to chose from right?", "We're not going easy on you just so you wont shut our shop down.", "What's on our cards? Sweet, sweet profit of course.", "Hey, that percentage we promised you... you mind lowering it a bit? I mean, a deal is a deal... but still.", "You better open up the trade routes a bit more if you beat us. We don't want to deal with Filch if he finds where these cards came from.", "We probably should have opened a few of our boosters but where's the fun without a bit of risk?"] + card_non_spec_char
+define twins_speech_card = ["Our cards are fresher than fresh. They were printed last night so they must be good.",
+    "Giving you a percentage of our profit was an easy bet, because we know you'll never win.",
+    "We weighed our packs before opening them so our cards must be rare.",
+    "Activate twin psychic link.",
+    "Some people wouldn't duel a duo because they can't maintain eye contact during play... or eye to card contact.",
+    "We're a two player team, so we get double the cards to chose from right?",
+    "We're not going easy on you just so you wont shut our shop down.",
+    "What's on our cards? Sweet, sweet profit of course.",
+    "Hey, that percentage we promised you... you mind lowering it a bit? I mean, a deal is a deal... but still.",
+    "You better open up the trade routes a bit more if you beat us. We don't want to deal with Filch if he finds where these cards came from.",
+    "We probably should have opened a few of our boosters but where's the fun without a bit of risk?"] + card_non_spec_char
 
-define her_speech_card = ["You should double the points you give me if I win... or at least consider it.", "I'm great at wizards chess so beating you at this shouldn't be a problem...", "I should have asked for house points if I beat you... oh well, too late now.", "Have you been looking at my deck? That's cheating, you better whip yours out..."] + card_non_spec_char
+define her_speech_card = ["You should double the points you give me if I win... or at least consider it.",
+    "I'm great at wizards chess so beating you at this shouldn't be a problem...",
+    "I should have asked for house points if I beat you... oh well, too late now.",
+    "Have you been looking at my deck? That's cheating, you better whip yours out..."] + card_non_spec_char
 
 
 init python:
