@@ -44,7 +44,7 @@ define config.layers = ["master", "transient", "screens", "interface", "overlay"
 define config.transparent_tile = False
 define config.quit_action = Quit(True)
 define config.narrator_menu = True
-define config.hard_rollback_limit = 150
+define config.hard_rollback_limit = 100
 define config.history_length = 250
 define config.mouse = {"default": [("interface/cursor.webp", 0, 0)]}
 define config.help = None
@@ -62,7 +62,8 @@ define config.load_before_transition = True
 define config.imagemap_cache = True
 define config.optimize_texture_bounds = True
 define config.debug_image_cache = False
-define config.atl_one_frame = False
+#define config.atl_one_frame = False
+define config.mipmap_movies = True
 
 # Disable automatic image scanning
 define config.automatic_images = None
@@ -91,7 +92,7 @@ define config.exit_transition = f3
 define config.intra_transition = d1
 define config.main_game_transition = f3
 define config.game_main_transition = f3
-define config.end_splash_transition = dissolve
+define config.end_splash_transition = d3
 define config.end_game_transition = fade
 define config.after_load_transition = fade
 define config.window_show_transition = d3

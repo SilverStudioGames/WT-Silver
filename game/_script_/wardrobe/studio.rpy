@@ -211,7 +211,7 @@ screen studio():
     add ov
 
     if visible:
-        use close_button
+        use close_button(action=Confirm("Exit Photo Studio?\n{size=-4}All changes will be lost.{/size}", Return("Close")))
 
         hbox:
             pos (25, 25)
@@ -387,6 +387,7 @@ style light_studio_button_text:
     outlines [ (2, "#00000080", 0, 0) ]
 
 style dark_studio_button_text:
+    first_indent 6
     size 10
     color "#9b8d84"
     hover_color "#fff"

@@ -56,7 +56,8 @@ screen preferences_general():
             style_prefix gui.theme("check")
 
             label _("Interface")
-            textbutton "Tutorials" action settings.Toggle("tutorials")
+            textbutton _("Animations") action settings.Toggle("animations")
+            textbutton _("Tutorials") action settings.Toggle("tutorials")
 
             if not renpy.mobile:
                 textbutton _("Tooltips") action settings.Toggle("tooltip")
@@ -200,7 +201,6 @@ screen preferences_visuals():
             label "Advanced"
 
             textbutton _("Transitions") action Preference("transitions", "toggle")
-            textbutton _("Animations") action settings.Toggle("animations")
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
             textbutton _("Character blinking") action settings.Toggle("blinking")
@@ -321,18 +321,14 @@ screen preferences_accessibility():
             style gui.theme("pref_button")
             action Confirm(gui.CONFIRM_DELETE_SAVES, Function(delete_saves))
 
-define gui.CONFIRM_DELETE_PERSISTENT = """{color=#7a0000}Warning!{/color}\n
-\n
-{size=-4}You are about to reset all persistent data, including\n
+define gui.CONFIRM_DELETE_PERSISTENT = """{color=#7a0000}Warning!{/color}
+{size=-4}You are about to reset all persistent data, including
 achievements, seen text, and preferences.{/size}\n
-\n
 Are you sure?"""
 
-define gui.CONFIRM_DELETE_SAVES = """{color=#7a0000}Warning!{/color}\n
-\n
-{size=-4}You are about to delete all save files, including\n
+define gui.CONFIRM_DELETE_SAVES = """{color=#7a0000}Warning!{/color}
+{size=-4}You are about to delete all save files, including
 auto saves, quick saves, and manual saves.{/size}\n
-\n
 Are you sure?"""
 
 init python:

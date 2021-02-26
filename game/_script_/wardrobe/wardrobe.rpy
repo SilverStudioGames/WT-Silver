@@ -362,6 +362,7 @@ screen wardrobe_menuitem(xx, yy):
 
     default icon_size = (72, 72)
     default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)
+    default icon_transparent = Frame("interface/color_picker/checker.webp", tile=True)
     default panel = gui.format("interface/frames/{}/panel.webp")
 
     window:
@@ -383,7 +384,7 @@ screen wardrobe_menuitem(xx, yy):
                 for i in xrange(current_item.layers):
                     button:
                         xysize (32, 32)
-                        background Fixed(Frame("interface/color_picker/checker.webp", tile=True), Color(tuple(current_item.color[i])))
+                        background Fixed(icon_transparent, Color(tuple(current_item.color[i])))
                         tooltip "Change colour ("+str(i+1)+")"
                         action Return(["setcolor", i])
                         add icon_frame

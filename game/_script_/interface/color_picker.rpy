@@ -15,6 +15,9 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
     default _alpha = 0 # Avoid name conflict with 'alpha' screen variable in other active screens
     default edit_mode = False
 
+    default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)
+    default icon_transparent = Frame("interface/color_picker/checker.webp", tile=True)
+
     # Set HSVA variables based on RGBA when screen shows
     on "show" action Function(color_picker_update_hsva)
 
@@ -27,9 +30,7 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
             pos pos_xy
         else:
             align (0.5, 0.5)
-        #xsize 500
-        # xysize (500, 450)
-        padding (12 + 6, 12 + 6)
+        padding (18, 18)
 
         vbox:
             spacing 12
@@ -48,44 +49,39 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                         textbutton "Edit":
                             yoffset -4
                             text_size 12
-                            tooltip "Remove or add colour swatches"
                             action [SelectedIf(edit_mode),ToggleScreenVariable("edit_mode", True, False)]
                     hbox:
-                        spacing 7
-                        for i in xrange(8):
-                            frame:
-                                style "empty"
-                                xysize (32, 33)
-                                if i < len(color_favorites):
-                                    add Frame("interface/color_picker/checker.webp", tile=True, ysize=31, xsize=31)
-                                    if not edit_mode:
-                                        button:
-                                            background Solid(tuple(color_favorites[i]))
-                                            tooltip "Apply this colour"
-                                            action Return(["use_swatch", color_favorites[i]])
-                                    else:
-                                        textbutton "X":
-                                            xysize (32, 33)
-                                            background Solid(tuple(color_favorites[i]))
-                                            text_color "#b20000"
-                                            text_align (0.5, 0.5)
-                                            tooltip "Remove from favourites"
-                                            action Return(["rem_swatch", i])
+                        spacing 2
+                        for i in range(8):
+                            $ is_valid = (i < len(color_favorites))
+                            $ background = Fixed(icon_transparent, Color(tuple(color_favorites[i])), icon_frame) if is_valid else icon_frame
+
+                            if edit_mode:
+                                if is_valid:
+                                    $ action = Return(["rem_swatch", i])
+                                    $ icon = Text("X", color="#b20000", align=(0.5, 0.5), outlines=[(1, "#000", 0, 0)])
                                 else:
-                                    if edit_mode:
-                                        button:
-                                            style "empty"
-                                            margin (6, 6, 6, 6)
-                                            align (0.5, 0.5)
-                                            background "interface/icons/small/star_yellow.webp"
-                                            tooltip "Add to favourites"
-                                            action Return(["add_swatch", list(rgba)])
+                                    $ action = Return(["add_swatch", list(rgba)])
+                                    $ icon = Image("interface/icons/small/star_yellow.webp", align=(0.5, 0.5))
+                            elif is_valid:
+                                $ action = Return(["use_swatch", color_favorites[i]])
+                                $ icon = None
+
+                            # TODO: Tooltips cause major performance issues inside colour picker, needs investigation.
+                            button:
+                                xysize (32, 32)
+                                background background
+                                hover_foreground "#ffffff80"
+                                #tooltip "Blurb"
+                                action action
+                                add icon
+
                 vbox:
-                    xsize 100
                     text "History"
-                    if color_history:
+                    frame:
+                        xsize 140
+                        background icon_frame
                         viewport id "history":
-                            # yinitial yinitial
                             scrollbars "vertical"
                             mousewheel True
                             draggable False
@@ -97,11 +93,13 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                                         style "empty"
                                         xfill True
                                         ysize 16
-                                        text_size 8
+                                        text_size 11
                                         text_color "#000"
                                         text_hover_color "#fff"
+                                        text_outlines [(1, "#fff", 0, 0)]
+                                        text_hover_outlines [(1, "#000", 0, 0)]
                                         text_align (0.5, 0.5)
-                                        background Solid(tuple(c))
+                                        background Color(tuple(c))
                                         action Return(["history", c])
 
             # Colour picker
@@ -110,24 +108,25 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
             hbox:
                 spacing 12
 
-                # 2D color map
-                # frame:
-                #     xysize (255, 255)
-                #     margin (-6, -6)
                 fixed:
+                    xysize (255, 255)
                     fit_first True
                     add SVGradientButton(
                         color_picker_clicked,
                         Fixed(
-                            Solid(tuple([x * 255 for x in colorsys.hsv_to_rgb(1 - hue, 1, 1)])),
+                            Color( tuple( x * 255 for x in colorsys.hsv_to_rgb(1 - hue, 1, 1) ) ),
                             Frame("interface/color_picker/saturation_value_gradient.webp")
                         ),
                         xysize=(255, 255),
                         #area=(25, 25, 255, 255),
                         focus_mask=None,
                         keyboard_focus=False,
-                        key_events=False
+                        key_events=False,
+                        nearest=True
                     )
+
+                    add icon_frame
+
                     draggroup:
                         # Allow cursor to extend 8 pixels outside map
                         area (-8, -8, 255 + 16,  255 + 16)
@@ -136,65 +135,63 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                             anchor (0, 0)
                             child gui.format("interface/color_picker/{}/cursor_sq.webp")
                             focus_mask None
-                            activated color_picker_dragged
                             dragged color_picker_dragged
 
                 # Hue slider
                 # frame:
                 #     margin (-6, -6)
-                vbar:
-                    # area (290, 25,
-                    xysize (30, 255)
-                    value ScreenVariableValue("hue", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
-                    base_bar hue_gradient_image
-                    thumb Image(gui.format("interface/color_picker/{}/cursor_h.webp"), xalign=0.5)
-                    thumb_offset 0
-                    top_gutter 0
-                    bottom_gutter 0
-
                 fixed:
-                    #xfit True
-                    xsize 110
-                    ysize 255
-                    vbox:
-                        #xalign 0.5
-                        # Text input
-                        textbutton "Red: " + str(int(rgba[0])):
-                            size_group "rgba"
-                            xsize 110
-                            text_size 12
-                            clicked Return(["input", 0])
-                        textbutton "Green: " + str(int(rgba[1])):
-                            size_group "rgba"
-                            xsize 110
-                            text_size 12
-                            clicked Return(["input", 1])
-                        textbutton "Blue: " + str(int(rgba[2])):
-                            size_group "rgba"
-                            xsize 110
-                            text_size 12
-                            clicked Return(["input", 2])
-                        if alpha:
-                            textbutton "Alpha: " + str(int(rgba[3])):
+                    fit_first True
+                    add hue_gradient_image
+                    vbar:
+                        xysize (30, 255)
+                        value ScreenVariableValue("hue", range=1.0, action=Function(color_picker_update_rgba))
+                        base_bar icon_frame
+                        thumb Image(gui.format("interface/color_picker/{}/cursor_h.webp"), xalign=0.5)
+                        thumb_offset 0
+                        top_gutter 0
+                        bottom_gutter 0
+
+                vbox:
+                    xysize (110, 255)
+                    fixed:
+                        yfill False
+                        fit_first True
+
+                        # TODO: Merge RGB(A) input into a single action, add HEX(A) and add copy/paste functionality
+                        vbox:
+                            textbutton "Red: " + str(int(rgba[0])):
+                                xfill True
                                 size_group "rgba"
-                                xsize 110
                                 text_size 12
-                                clicked Return(["input", 3])
-                        if color_default:
-                            textbutton "Reset":
+                                clicked Return(["input", 0])
+                            textbutton "Green: " + str(int(rgba[1])):
                                 size_group "rgba"
-                                xsize 110
                                 text_size 12
-                                text_xalign 0.5
-                                tooltip "Reset colour to default"
-                                clicked Return("reset")
+                                clicked Return(["input", 1])
+                            textbutton "Blue: " + str(int(rgba[2])):
+                                size_group "rgba"
+                                text_size 12
+                                clicked Return(["input", 2])
+                            if alpha:
+                                textbutton "Alpha: " + str(int(rgba[3])):
+                                    size_group "rgba"
+                                    text_size 12
+                                    clicked Return(["input", 3])
+                            if color_default:
+                                textbutton "Reset":
+                                    size_group "rgba"
+                                    text_size 12
+                                    text_xalign 0.5
+                                    clicked Return("reset")
+                        add icon_frame
 
                     # Selected color
                     fixed:
                         fit_first True
-                        #xalign 0.5
+                        xysize (110, 110)
                         yalign 1.0
-                        add Frame("interface/color_picker/checker.webp", tile=True, ysize=110, xsize=110)
+                        add Frame("interface/color_picker/checker.webp", tile=True, )
                         frame:
                             area (0, 0, 55, 110)
                             background Solid(rgba)
@@ -203,8 +200,9 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                             area (55, 0, 55, 110)
                             background Solid(rgba_old)
                             text "Old" xalign 0.5 color "#fff" outlines [(1, "#00000080", 1, 0)]
+                        add icon_frame
 
-            if alpha or True:
+            if alpha:
                 # Alpha slider
                 # frame:
                 bar:
@@ -224,10 +222,8 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
             hbox:
                 align (1.0, 1.0)
                 spacing 6
-                textbutton "Cancel":
-                    clicked Return("cancel")
-                textbutton "Apply":
-                    clicked Return(["apply", rgba])
+                textbutton "Cancel" action Return("cancel")
+                textbutton "Apply" action Return(["apply", rgba])
 
 default picking_color = None
 
@@ -236,6 +232,8 @@ define hue_gradient_image = HueGradientImage(size=(30,255))
 
 init -1 python:
     def color_picker(color=[0,0,0,0], alpha=True, title="Pick a colour", pos_xy=(240, 130), color_default=None):
+        # TODO: Remove external dependencies and utilise built-in Color class instead.
+
         global picking_color
         picking_color = color # Color object (list) to be updated live
         start_color = list(color) # Keep a copy
@@ -284,8 +282,6 @@ init -1 python:
 
     def hide_color_picker():
         renpy.hide_screen("color_picker")
-        if renpy.context_nesting_level() > 0:
-            renpy.pause(0.3)
 
     def update_picking_color(rgba):
         global picking_color
