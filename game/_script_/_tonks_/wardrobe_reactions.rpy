@@ -1,14 +1,14 @@
 define ton_requirements = {
-    "category upper undergarment": 5,
-    "category lower undergarment": 5,
-    "category piercings & tattoos": 16,
-    "touch head": 4,
-    "touch breasts": 12,
-    "touch vagina": 18,
+    "category upper undergarment": 10,
+    "category lower undergarment": 10,
+    "category piercings & tattoos": 60,
+    "touch head": 50,
+    "touch breasts": 20,
+    "touch vagina": 40,
     #"unequip panties": 6, # Tonks does not use panties unequip limits.
     #"unequip bra": 6, # Tonks does not use bra unequip limits.
-    "unequip top": 3,
-    "unequip bottom": 3,
+    "unequip top": 20,
+    "unequip bottom": 20,
     }
 
 define ton_responses = {
