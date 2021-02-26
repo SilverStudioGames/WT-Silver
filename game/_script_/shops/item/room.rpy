@@ -42,7 +42,7 @@ label item_store:
         ger "We have books, treats, and knick-knacks for sale."
         fre "Take a look."
 
-    elif ss_he.cho_E1 and quidditch_book_1_ITEM.unlocked == False and cho_quiz.complete == False:
+    elif ss_he.cho_E1 and quidditchguide_ITEM.unlocked == False and cho_quiz.complete == False:
         # After talking to Snape about Cho.
         # If you haven't yet beaten the Quiz.
         m "Boys..."
@@ -74,7 +74,7 @@ label item_store:
         fre "Of course, you can have ours. We know it off by heart at this point!"
 
         # TODO:
-        call give_gift(">You have unlocked a new book to read!", quidditch_book_1_ITEM)
+        call give_gift(">You have unlocked a new book to read!", quidditchguide_ITEM)
 
         m "Great, thanks again boys..."
         twi "Don't mention it..."

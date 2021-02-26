@@ -552,7 +552,7 @@ label ss_he_cho_E1:
             call sna_main("That's barely worth it.", "snape_04")
             call sna_main("How about two thousand gold?", "snape_13")
 
-            if gold < 2000:
+            if game.gold < 2000:
                 m "I don't have that much gold."
                 call sna_main("Well, you have plenty of time to gather that amount.", "snape_22")
             else:
