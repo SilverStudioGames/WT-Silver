@@ -37,8 +37,7 @@ label summon_susan:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if susan_wardrobe_unlocked:
             hide screen sus_main with d1
-            $ gui.in_context("wardrobe")
-            with d2
+            call wardrobe
             jump susan_requests
 
         "-Hidden-" (style="disabled") if not susan_wardrobe_unlocked:

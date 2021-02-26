@@ -72,25 +72,25 @@ label upgrades_menu(xx=150, yy=90):
     with d3
 
     label .after_init:
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "category":
-        $ current_category = _return[1]
+    if _choice[0] == "category":
+        $ current_category = _choice[1]
         $ category_items = 0
         $ menu_items = upgrades_sortfilter([], current_sorting)
         $ menu_items_length = len(menu_items)
         $ current_item = 0
-    elif _return[0] == "subcat":
-        if _return[1] != current_subcategory:
-            $ current_subcategory = _return[1]
-    elif _return[0] == "buy":
-        if game.gold >= _return[1] and ton_friendship >= _return[3]*25:
+    elif _choice[0] == "subcat":
+        if _choice[1] != current_subcategory:
+            $ current_subcategory = _choice[1]
+    elif _choice[0] == "buy":
+        if game.gold >= _choice[1] and ton_friendship >= _choice[3]*25:
             python:
                 renpy.play('sounds/money.mp3')
 
-                game.gold -= _return[1]
-                _list = _return[2]
-                _iter = _return[3]
+                game.gold -= _choice[1]
+                _list = _choice[2]
+                _iter = _choice[3]
 
                 item_bought = True
 
@@ -98,7 +98,7 @@ label upgrades_menu(xx=150, yy=90):
                     if not _list[i].unlocked:
                         _list[i].unlock()
                         ton_clothing_upgrades += 1
-        elif ton_friendship < _return[4]:
+        elif ton_friendship < _choice[4]:
             $ renpy.play('sounds/fail.mp3')
             "> Tonks doesn't like you enough."
         else:
@@ -225,7 +225,7 @@ screen upgrades_menuitem(xx, yy):
                                     if x < len(i):
                                         add Flatten(i[x].get_image()) align (1.0, 1.0) zoom 0.125 alpha (1.0 if ((game.gold >= actual_price and ton_friendship >= favor_req) or i[x].unlocked) else 0.5)
                                         if i[x].unlocked:
-                                            add "interface/topbar/icon_check.webp" zoom 0.75 align (0.85, 1.0)
+                                            add "interface/topbar/icon_check.webp" zoom 0.5 align (0.85, 1.0)
                                         else:
                                             button:
                                                 style gui.theme("overlay_button")

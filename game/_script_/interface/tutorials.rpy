@@ -23,7 +23,7 @@ label tutorial(entry):
 
     label .display(entry):
         show screen tutorial(entry)
-        $ _return = ui.interact()
+        $ _choice = ui.interact()
         return
 
 screen tutorial(entry):

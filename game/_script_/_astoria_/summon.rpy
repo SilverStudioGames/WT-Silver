@@ -44,8 +44,7 @@ label summon_astoria:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if astoria_wardrobe_unlocked:
             hide screen astoria_main with d1
-            $ gui.in_context("wardrobe")
-            with d2
+            call wardrobe
             jump astoria_requests
 
         "-Hidden-" (style="disabled") if not astoria_wardrobe_unlocked:

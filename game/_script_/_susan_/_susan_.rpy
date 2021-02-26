@@ -74,7 +74,7 @@ label sus_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, c
             if not pupils:
                 susan.set_face(pupils=renpy.random.choice(sus_face["pupils"].get(face, None)))
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         hide screen susan_main
         show screen susan_main
         show screen bld1

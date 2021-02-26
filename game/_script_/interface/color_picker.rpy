@@ -18,7 +18,7 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
     # Set HSVA variables based on RGBA when screen shows
     on "show" action Function(color_picker_update_hsva)
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         add "confirm_fade"
 
     frame:

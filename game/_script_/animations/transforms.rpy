@@ -91,3 +91,20 @@ transform pulse_hover:
     linear 1.0 matrixcolor BrightnessMatrix(value=0.2)
     linear 1.0 matrixcolor BrightnessMatrix(value=0.0)
     repeat
+
+transform gui_animation:
+    nearest True
+    events False
+
+    on show:
+        zoom 0
+        alpha 0
+        xoffset config.screen_width
+        easein_cubic 0.3 zoom 1.0 alpha 1.0 xoffset 0
+        events True
+        nearest False
+
+    on hide:
+        events False
+        nearest True
+        easeout_cubic 0.3 zoom 0.0 alpha 0.0 xoffset config.screen_width

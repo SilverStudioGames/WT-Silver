@@ -50,29 +50,28 @@ label inventory_menu(xx=150, yy=90):
         show screen tooltip
 
     show screen inventory(xx, yy)
-    with d3
 
     label .after_init:
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "select":
-        if current_item == _return[1]:
+    if _choice[0] == "select":
+        if current_item == _choice[1]:
             $ current_item = None
         else:
-            $ current_item = _return[1]
-    elif _return[0] == "category":
-        $ current_category = _return[1]
+            $ current_item = _choice[1]
+    elif _choice[0] == "category":
+        $ current_category = _choice[1]
         $ category_items = inventory_dict[current_category]
         $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = None
         pass
-    elif _return == "inc":
+    elif _choice == "inc":
         $ current_page += 1
-    elif _return == "dec":
+    elif _choice == "dec":
         $ current_page += -1
-    elif _return == "sort":
+    elif _choice == "sort":
         if current_sorting == "A-z":
             $ current_sorting = "z-A"
         elif current_sorting == "z-A":
@@ -85,7 +84,7 @@ label inventory_menu(xx=150, yy=90):
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = None
-    elif _return == "filter":
+    elif _choice == "filter":
         if current_filter == None:
             $ current_filter = "Owned"
         else:
@@ -94,13 +93,13 @@ label inventory_menu(xx=150, yy=90):
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = None
-    elif _return == "use":
+    elif _choice == "use":
         $ current_item.use()
-    elif _return == "give":
+    elif _choice == "give":
         hide screen inventory
         $ renpy.call(get_character_gift_label(active_girl), current_item)
-        show screen inventory(xx, yy)
-        with d3
+        $ enable_game_menu()
+        $ renpy.jump_out_of_context("{}_requests".format(active_girl))
     else:
         hide screen inventory
         return
@@ -118,11 +117,14 @@ screen inventory(xx, yy):
         use close_button_background
     use close_button
 
-    use inventory_menu(xx, yy)
-    use inventory_menuitem(xx, yy)
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+        use inventory_menu(xx, yy)
+        use inventory_menuitem(xx, yy)
 
 screen inventory_menu(xx, yy):
-    frame:
+    window:
         style "empty"
         style_prefix gui.theme('achievements')
         pos (xx, yy)
@@ -164,7 +166,7 @@ screen inventory_menu(xx, yy):
             textbutton "Sort by: [current_sorting]" action Return("sort")
 
 screen inventory_menuitem(xx, yy):
-    frame:
+    window:
         style "empty"
         style_prefix gui.theme()
         pos (xx+217, yy-53)
@@ -238,6 +240,9 @@ screen inventory_menuitem(xx, yy):
                     if current_category in {"Gifts", "Ingredients", "Potions"}:
                         if menu_items[i].owned > 0:
                             text str(menu_items[i].owned) size 10 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                    elif current_category == "Decorations":
+                        if menu_items[i].in_use:
+                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) zoom 0.5
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24

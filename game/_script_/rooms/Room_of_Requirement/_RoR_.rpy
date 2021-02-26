@@ -70,13 +70,13 @@ label mirror_menu:
     with d3
 
     label .interact:
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if isinstance(_return, MirrorStory):
+    if isinstance(_choice, MirrorStory):
         hide screen list_menu
-        $ renpy.jump(_return.start_label)
+        $ renpy.jump(_choice.start_label)
 
-    elif _return == "Close":
+    elif _choice == "Close":
         hide screen list_menu
         call screen room_of_requirement_menu
 

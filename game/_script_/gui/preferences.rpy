@@ -200,11 +200,12 @@ screen preferences_visuals():
             label "Advanced"
 
             textbutton _("Transitions") action Preference("transitions", "toggle")
+            textbutton _("Animations") action settings.Toggle("animations")
             textbutton _("Videos") action InvertSelected(Preference("video sprites", "toggle"))
             textbutton _("Power-saving") action Preference("gl powersave", "toggle")
             textbutton _("Character blinking") action settings.Toggle("blinking")
-            if not renpy.mobile:
-                textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
+            #if not renpy.mobile:
+                #textbutton _("Preserve Aspect Ratio") action [settings.Toggle("preserve_aspect_ratio"), _DisplayReset()]
 
 
 screen preferences_sound():

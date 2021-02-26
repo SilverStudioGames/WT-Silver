@@ -75,7 +75,7 @@ label lun_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, c
             if not pupils:
                 luna.set_face(pupils=renpy.random.choice(lun_face["pupils"].get(face, None)))
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         hide screen luna_main
         show screen luna_main
         show screen bld1

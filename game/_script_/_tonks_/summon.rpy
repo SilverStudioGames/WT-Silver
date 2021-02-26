@@ -51,8 +51,7 @@ label summon_tonks:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if tonks_wardrobe_unlocked:
             hide screen tonks_main with d1
-            $ gui.in_context("wardrobe")
-            with d2
+            call wardrobe
 
             # Hair fix
             $ tonks_haircolor = tonks.get_equipped("hair").color

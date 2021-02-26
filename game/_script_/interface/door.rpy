@@ -33,19 +33,18 @@ label summon_menu(xx=723, yy=90):
     label .after_init:
 
     show screen summon(xx, yy)
-    with d3
 
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "summon":
+    if _choice[0] == "summon":
         hide screen summon
-        if not _return[2]:
-            $ renpy.jump_out_of_context("summon_"+_return[1].lower())
+        if not _choice[2]:
+            $ renpy.jump_out_of_context("summon_"+_choice[1].lower())
         else:
-            if game.daytime or _return[1] in ["Tonks", "Snape"]:
-                call nar(">"+_return[1]+" is currently busy. Try again later.")
+            if game.daytime or _choice[1] in ["Tonks", "Snape"]:
+                call nar(">"+_choice[1]+" is currently busy. Try again later.")
             else:
-                call nar(">"+_return[1]+" is currently asleep. Try again tomorrow.")
+                call nar(">"+_choice[1]+" is currently asleep. Try again tomorrow.")
     else:
         hide screen summon
         return
@@ -63,24 +62,24 @@ screen summon(xx, yy):
         use close_button_background
     use close_button
 
-    use summon_menu(xx, yy)
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+        use summon_menu(xx, yy)
 
 screen summon_menu(xx, yy):
     tag summon_menu
     modal True
     zorder 30
 
-    frame:
+    window:
         style "empty"
         pos (xx, yy)
-        xsize 207
-        ysize 454
+        xysize (207, 454)
 
         use invisible_button()
 
         add gui.format("interface/achievements/{}/panel_left.webp")
-
-        use invisible_button # Nullifies buttons below
 
         vbox:
             pos (6, 384)

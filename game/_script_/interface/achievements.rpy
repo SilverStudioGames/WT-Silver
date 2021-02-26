@@ -199,18 +199,17 @@ label achievement_menu(xx=150, yy=90):
         show screen tooltip
 
     show screen achievements(xx, yy)
-    with d3
 
     label .after_init:
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "select":
-        if current_item == _return[1]:
+    if _choice[0] == "select":
+        if current_item == _choice[1]:
             $ current_item = None
         else:
-            $ current_item = _return[1]
-    elif _return[0] == "category":
-        $ current_category = _return[1]
+            $ current_item = _choice[1]
+    elif _choice[0] == "category":
+        $ current_category = _choice[1]
         if current_category == "All":
             $ category_items = list(persistent.achievements.iteritems())
         else:
@@ -219,11 +218,11 @@ label achievement_menu(xx=150, yy=90):
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = next(iter(menu_items), None)
-    elif _return == "inc":
+    elif _choice == "inc":
         $ current_page += 1
-    elif _return == "dec":
+    elif _choice == "dec":
         $ current_page += -1
-    elif _return == "filter":
+    elif _choice == "filter":
         if current_filter == None:
             $ current_filter = "Locked"
         elif current_filter == "Locked":
@@ -236,7 +235,7 @@ label achievement_menu(xx=150, yy=90):
         $ menu_items_length = len(menu_items)
         $ current_page = 0
         $ current_item = next(iter(menu_items), None)
-    elif _return == "sort":
+    elif _choice == "sort":
         if current_sorting == "A-z":
             $ current_sorting = "z-A"
         elif current_sorting == "z-A":
@@ -267,11 +266,14 @@ screen achievements(xx, yy):
 
     use close_button
 
-    use achievement_menu(xx, yy)
-    use achievement_menuitem(xx, yy)
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+        use achievement_menu(xx, yy)
+        use achievement_menuitem(xx, yy)
 
 screen achievement_menu(xx, yy):
-    frame:
+    window:
         style "empty"
         style_prefix gui.theme('achievements')
         pos (xx, yy)
@@ -301,7 +303,7 @@ screen achievement_menu(xx, yy):
             textbutton "Sort by: [current_sorting]" action Return("sort")
 
 screen achievement_menuitem(xx, yy):
-    frame:
+    window:
         style "empty"
         pos (xx+217, yy-53)
         xysize (560, 507)

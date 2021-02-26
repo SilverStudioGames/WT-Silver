@@ -17,7 +17,32 @@ define wardrobe_subcategories_sorted = {
 define wardrobe_categories = ("head", "piercings & tattoos", "upper body", "upper undergarment", "lower body", "lower undergarment", "legwear", "misc")
 define wardrobe_outfit_schedule = ("day", "night", "cloudy", "rainy", "snowy")
 
-label wardrobe():
+label wardrobe:
+    $ gui.in_context("wardrobe_menu")
+    return
+
+screen wardrobe(xx, yy):
+    tag wardrobe
+    zorder 30
+    modal True
+
+    add "gui_fade"
+
+    if renpy.mobile:
+        use close_button_background
+    use close_button
+
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+
+        use wardrobe_menu(xx, yy)
+        if current_category == "outfits":
+            use wardrobe_outfit_menuitem(20, 50)
+        elif current_subcategory != None:
+            use wardrobe_menuitem(20, 50)
+
+label wardrobe_menu():
     python:
         char_active = get_character_object(active_girl)
         char_outfit = get_character_outfit(active_girl, type="last")
@@ -43,7 +68,7 @@ label wardrobe():
     if not renpy.android:
         show screen tooltip
 
-    show screen wardrobe_menu(662, 50)
+    show screen wardrobe(662, 50)
 
     label .after_init:
 
@@ -222,10 +247,12 @@ label wardrobe():
                     jump .after_init
                 $ char_active.equip(char_outfit)
 
+        hide screen wardrobe
         $ char_active.wear("all")
         $ renpy.play('sounds/door2.mp3')
         if wardrobe_music:
             $ renpy.call("play_music", active_girl)
+        $ enable_game_menu()
         return
 
     jump .after_init
@@ -234,17 +261,6 @@ screen wardrobe_menu(xx, yy):
     tag wardrobe
     zorder 15
     style_prefix "wardrobe"
-
-    add "gui_fade"
-
-    if renpy.mobile:
-        use close_button_background
-    use close_button
-
-    if current_category == "outfits":
-        use wardrobe_outfit_menuitem(20, 50)
-    elif current_subcategory != None:
-        use wardrobe_menuitem(20, 50)
 
     default icon_bg = Frame(gui.format("interface/frames/{}/iconmed.webp"), 6, 6)
     default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)
@@ -356,7 +372,7 @@ screen wardrobe_menuitem(xx, yy):
         use invisible_button()
 
         text "[current_category]" size 22 xalign 0.5 ypos 65
-        
+
         # Colours
         if current_item:
             hbox:
@@ -459,7 +475,7 @@ screen wardrobe_menuitem(xx, yy):
 
                     # Bottom-Right
                     if is_equipped:
-                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
 
                     # Bottom-Right
                     if not is_seen:
@@ -581,11 +597,11 @@ screen wardrobe_outfit_menuitem(xx, yy):
                                     add Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(16, 16))
 
                     if is_equipped:
-                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.8
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
 
 screen wardrobe_schedule_menuitem(item):
     tag dropdown
-    zorder 17
+    zorder 31
     modal True
 
     default mpos = renpy.get_mouse_pos()

@@ -73,7 +73,7 @@ label ast_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, c
             if not pupils:
                 astoria.set_face(pupils=renpy.random.choice(ast_face["pupils"].get(face, None)))
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         hide screen astoria_main
         show screen astoria_main()
         show screen bld1

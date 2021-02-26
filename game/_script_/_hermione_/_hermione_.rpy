@@ -73,7 +73,7 @@ label her_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, c
             if not pupils:
                 hermione.set_face(pupils=renpy.random.choice(her_face["pupils"].get(face, None)))
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         hide screen hermione_main
         show screen hermione_main()
         show screen bld1

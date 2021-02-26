@@ -239,4 +239,4 @@ screen icon_menu_item(menu_item, xpos=0, ypos=0):
                 text "{color=#ffffff}" +str(menu_item.owned)+ "{/color}"
 
             if menu_item.active:
-                add "interface/topbar/icon_check.webp" align (1.0,1.0)
+                add "interface/topbar/icon_check.webp" align (1.0, 1.0) zoom 0.5

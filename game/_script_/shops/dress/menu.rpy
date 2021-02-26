@@ -10,7 +10,11 @@ init python:
             item = sorted(item, key=lambda x: x.price, reverse=True)
         return item
 
-label shop_dress():
+label shop_dress:
+    $ gui.in_context("shop_dress_menu")
+    return
+
+label shop_dress_menu:
 
     python:
         current_sorting = "Price (Asc)"
@@ -23,35 +27,34 @@ label shop_dress():
     if not renpy.android:
         show screen tooltip
 
-    show screen shop_dress_menu()
+    show screen shop_dress()
 
     label .after_init:
 
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    python:
-        if _return[0] == "category":
-            current_category = _return[1]
-            menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
-            current_item = next(iter(menu_items), None)
-        elif _return[0] == "buy":
-            renpy.call("purchase_outfit", _return[1])
-        elif _return == "sort":
-            if current_sorting == "Price (Asc)":
-                current_sorting = "Price (Desc)"
-            elif current_sorting == "Price (Desc)":
-                current_sorting = "Price (Asc)"
+    if _choice[0] == "category":
+        $ current_category = _choice[1]
+        $ menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+        $ current_item = next(iter(menu_items), None)
+    elif _choice[0] == "buy":
+        $ renpy.call("purchase_outfit", _choice[1])
+    elif _choice == "sort":
+        if current_sorting == "Price (Asc)":
+            $ current_sorting = "Price (Desc)"
+        elif current_sorting == "Price (Desc)":
+            $ current_sorting = "Price (Asc)"
 
-            menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
-        else: # Close
-            renpy.call("purchase_outfit_parcel")
+        $ menu_items = shop_dress_sortfilter(filter(lambda x: bool(x.unlocked == False and x.price > 0 and not x in store_cart), category_items.get(current_category, [])), current_sorting)
+    else: # Close
+        $ renpy.call("purchase_outfit_parcel")
 
     jump .after_init
 
-screen shop_dress_menu():
-    tag shop_menu
-    zorder 15
-    style_prefix "shop"
+screen shop_dress():
+    tag shop_dress
+    zorder 30
+    modal True
 
     add "gui_fade"
 
@@ -59,7 +62,17 @@ screen shop_dress_menu():
         use close_button_background
     use close_button
 
-    use shop_dress_menuitem()
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+
+        use shop_dress_menu()
+        use shop_dress_menuitem()
+
+screen shop_dress_menu():
+    tag shop_menu
+    zorder 15
+    style_prefix "shop"
 
     default icon_bg = gui.format("interface/achievements/{}/iconbox.webp")
     default icon_frame = Frame(gui.format("interface/frames/{}/iconframe.webp"), 6, 6)

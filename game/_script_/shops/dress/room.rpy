@@ -30,7 +30,7 @@ label clothing_store:
     else:
         maf "What can I get you today?"
 
-    $ gui.in_context("shop_dress")
+    call shop_dress
 
     label clothing_store.end:
 

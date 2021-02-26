@@ -156,7 +156,7 @@ label give_ton_gift(gift_item):
 
     call ton_main(xpos="base", ypos="base",trans=d5)
 
-    $ renpy.jump_out_of_context("tonks_requests")
+    return
 
 label ton_friendship(value=0):
     show screen blktone

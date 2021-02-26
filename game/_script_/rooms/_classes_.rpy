@@ -60,3 +60,8 @@ init -1 python:
             #     return Transform(Fixed(self.hover, self.decoration.room_image, fit_first=True), shader="outline_shader")
             # return Transform(self.hover, shader="outline_shader")
 
+        def set_decoration(self, decoration):
+            if not isinstance(decoration, (Decoration, NoneType)):
+                raise TypeError("Decoration must be a Decoration instance reference or a NoneType")
+
+            self.decoration = decoration

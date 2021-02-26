@@ -85,12 +85,12 @@ label magic_tutorial:
 
     $ test_sign.interactive = True
 
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "result":
+    if _choice[0] == "result":
         $ test_sign.interactive = False
         pause 3.0
-        if _return[1] >= 50.0:
+        if _choice[1] >= 50.0:
             "Magician" "Congratulations, you have passed the test with the score of [_sign_max]%%, I am proud of you!"
             menu:
                 "Magician" "Would you like to keep playing?"
@@ -116,21 +116,21 @@ label draw_magic:
 
     show screen draw_magic
 
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "result":
+    if _choice[0] == "result":
         $ test_sign.interactive = False
         pause 3.0
 
-        if _return[1] == 0.0:
+        if _choice[1] == 0.0:
             "Magician" "You suck."
-        elif 25.0 > _return[1] > 0.0:
+        elif 25.0 > _choice[1] > 0.0:
             "Magician" "You still suck."
-        elif 50.0 > _return[1] > 25.0:
+        elif 50.0 > _choice[1] > 25.0:
             "Magician" "You're average."
-        elif 75.0 > _return[1] > 50.0:
+        elif 75.0 > _choice[1] > 50.0:
             "Magician" "You're above average."
-        elif 100.0 > _return[1] > 75.0:
+        elif 100.0 > _choice[1] > 75.0:
             "Magician" "You're good."
         else:
             "Magician" "Holy shit! CRITICAL HIT!"

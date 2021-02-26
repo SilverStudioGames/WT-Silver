@@ -8,6 +8,7 @@ label book_start:
     call weather_sound
     call play_music("stop")
     call play_sound("bookopen")
+    $ chair_OBJ.hidden = True
 
     if fire_in_fireplace:
         play bg_sounds "sounds/fire02.mp3" fadeout 1.0 fadein 1.0
@@ -61,6 +62,7 @@ label galadriel1_book:
 
     m "What the fuck did I just read?"
 
+    $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start
     else:
@@ -95,6 +97,7 @@ label galadriel2_book:
 
     m "..."
 
+    $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start
     else:
@@ -132,6 +135,7 @@ label game_of_chairs1_book:
     m "The author of this book has some serious issues."
     m "I wonder if it's even worth picking up the continuation..."
 
+    $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start
     else:
@@ -156,6 +160,7 @@ label quidditch_guide_book:
     m "Bludgers and quaffles?"
     m "This is even more stupid than I imagined."
 
+    $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start
     else:

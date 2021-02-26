@@ -5,34 +5,34 @@ label deck_builder:
     label deck_builder_jump:
     show screen deck_builder_screen
     $ renpy.block_rollback()
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return in unlocked_cards:
-        $ selectcard = unlocked_cards.index(_return)
+    if _choice in unlocked_cards:
+        $ selectcard = unlocked_cards.index(_choice)
         jump deck_builder_jump
-    elif _return == "gallery":
+    elif _choice == "gallery":
         hide screen deck_builder_screen
         show screen deck_builder_gallery
-    elif _return == "back":
+    elif _choice == "back":
         hide screen deck_builder_gallery
         show screen deck_builder_screen
-    elif _return == "Close":
+    elif _choice == "Close":
         $ selectcard = -1
         hide screen deck_builder_screen
         jump main_room_menu
-    elif _return == "guide":
+    elif _choice == "guide":
         $ selectcard = -1
         hide screen deck_builder_screen
         jump deck_builder_guide
-    elif _return == "inc":
+    elif _choice == "inc":
         $ currentpage += 1
         $ selectcard = -1
         jump deck_builder_jump
-    elif _return == "dec":
+    elif _choice == "dec":
         $ currentpage -= 1
         $ selectcard = -1
         jump deck_builder_jump
-    elif _return == "unselect":
+    elif _choice == "unselect":
         $ selectcard = -1
         jump deck_builder_jump
     else:
@@ -40,8 +40,8 @@ label deck_builder:
             python:
                 if unlocked_cards[selectcard].copies > -1:
                     unlocked_cards[selectcard].copies -= 1
-                    add_card_to_deck(playerdeck[int(_return)].title)
-                    playerdeck[int(_return)] = unlocked_cards[selectcard]
+                    add_card_to_deck(playerdeck[int(_choice)].title)
+                    playerdeck[int(_choice)] = unlocked_cards[selectcard]
                     selectcard = -1
                     pass
             jump deck_builder_jump
@@ -264,9 +264,9 @@ label deck_builder_guide:
         m "\"*Shudders*\""
         m "\"Well... might as well...\""
 
-    #$ _return = ui.interact()
+    #$ _choice = ui.interact()
 
-    #if _return == "back":
+    #if _choice == "back":
     call music_block
 
     hide screen deck_builder_tutorial

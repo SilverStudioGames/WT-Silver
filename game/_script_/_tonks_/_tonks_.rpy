@@ -101,7 +101,7 @@ label ton_main(text="", mouth=False, eyes=False, eyebrows=False, pupils=False, h
             if not pupils:
                 tonks.set_face(pupils=renpy.random.choice(ton_face["pupils"].get(face, None)))
 
-    if not renpy.get_screen("wardrobe_menu"):
+    if not renpy.get_screen("wardrobe"):
         hide screen tonks_main
         show screen tonks_main()
         show screen bld1

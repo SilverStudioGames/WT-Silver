@@ -16,6 +16,7 @@ init python:
     settings.default('tutorials', True)
     settings.default('preserve_aspect_ratio', True)
     settings.default('blinking', True)
+    settings.default('animations', True)
 
 # Configuration
 # https://www.renpy.org/doc/html/config.html

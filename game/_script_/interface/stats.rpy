@@ -128,24 +128,22 @@ label stats_menu(xx=150, yy=90):
         show screen tooltip
 
     show screen stats(xx, yy)
-    with d3
 
     label .after_init:
-    $ _return = ui.interact()
+    $ _choice = ui.interact()
 
-    if _return[0] == "category":
-        $ current_category = _return[1]
+    if _choice[0] == "category":
+        $ current_category = _choice[1]
         $ category_items = stats_dict[current_category]
         $ menu_items = stats_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
         $ current_item = stats_dict[current_category]
         #$ current_subcategory = "overview"
-    elif _return[0] == "subcat":
-        if _return[1] != current_subcategory:
-            $ current_subcategory = _return[1]
+    elif _choice[0] == "subcat":
+        if _choice[1] != current_subcategory:
+            $ current_subcategory = _choice[1]
     else:
-        hide screen stats_menu
-        hide screen stats_menuitem
+        hide screen stats
         return
 
     jump .after_init
@@ -159,18 +157,20 @@ screen stats(xx, yy):
 
     if renpy.mobile:
         use close_button_background
-
     use close_button
 
-    use stats_menu(xx, yy)
-    use stats_menuitem(xx, yy)
+    fixed:
+        if settings.get("animations"):
+            at gui_animation
+        use stats_menu(xx, yy)
+        use stats_menuitem(xx, yy)
 
 screen stats_menu(xx, yy):
     tag stats_menu
     zorder 30
     modal True
 
-    frame:
+    window:
         style "empty"
         style_prefix gui.theme('achievements')
         pos (xx, yy)
@@ -228,7 +228,8 @@ screen stats_menu(xx, yy):
 screen stats_menuitem(xx, yy):
     tag stats_menuitem
     zorder 30
-    frame:
+
+    window:
         style "empty"
         style_prefix gui.theme()
         pos (xx+217, yy-53)

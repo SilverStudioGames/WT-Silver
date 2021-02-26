@@ -535,7 +535,7 @@ label give_cho_gift(gift_item):
 
     call cho_main(xpos="base", ypos="base", trans=d5)
 
-    $ renpy.jump_out_of_context("cho_requests")
+    return
 
 label cho_mood(value=0):
     show screen blktone

@@ -36,8 +36,7 @@ label summon_luna:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if luna_wardrobe_unlocked:
             hide screen astoria_main with d1
-            $ gui.in_context("wardrobe")
-            with d2
+            call wardrobe
             jump luna_requests
 
         "-Hidden-" (style="disabled") if not luna_wardrobe_unlocked:
@@ -56,10 +55,19 @@ label summon_luna:
             jump luna_requests
 
         # Dismiss
-        "-Never mind-":
+        "-Dismiss her-":
+            stop music fadeout 3.0
 
-            if luna_reverted:
-                call lun_main("Oh... alright then... Bye, [lun_genie_name]!","normal","wink","sad","down",xpos="base",ypos="base")
+            if game.daytime:
+                if lun_mood >= 3:
+                    lun "Good day......"
+                else:
+                    lun "Sure thing, [lun_genie_name]. I will head to classes."
+            else:
+                if lun_mood >= 3:
+                    lun "Good night......"
+                else:
+                    lun "Sure thing, good night [lun_genie_name]."
 
             jump end_luna_event
 

@@ -74,10 +74,33 @@ init python:
     class Decoration(Item):
         room_scale = 0.5
 
-        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default", room_image="default", givable=False):
-            super(Decoration, self).__init__(id, type, name, price, desc, unlocked, func, label, limit, image, givable)
+        def __init__(self, id, type, name, placement, price=0, desc="", unlocked=True, image="default", room_image="default"):
+            super(Decoration, self).__init__(id, type, name, price, desc, unlocked, None, None, 1, image, False)
 
             self.room_image = Transform("images/rooms/objects/decorations/{}.webp".format(self.id), zoom=self.room_scale) if room_image == "default" else Transform(room_image, zoom=self.room_scale)
+            self.usable = True
+            self.placement = placement
+            self.in_use = False
+
+            if not isinstance(self.placement, RoomObject):
+                raise TypeError("Placement must be a RoomObject instance reference.")
+
+        def use(self):
+            if self.owned == 0:
+                raise Exception("Decoration '{}' owned count is equal to zero.".format(self.name))
+
+            target = self.placement
+
+            if not target.decoration is None:
+                target.decoration.in_use = False
+
+            # Toggle
+            if not target.decoration == self:
+                target.set_decoration(self)
+                self.in_use = True
+            else:
+                target.set_decoration(None)
+                self.in_use = False
 
 init offset = -5
 

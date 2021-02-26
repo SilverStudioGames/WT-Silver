@@ -91,8 +91,7 @@ label summon_hermione:
         # Wardrobe
         "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if hermione_wardrobe_unlocked: # Unlocks after first summoning her.
             hide screen hermione_main with d1
-            $ gui.in_context("wardrobe")
-            with d2
+            call wardrobe
             jump hermione_requests
 
         # Card game
@@ -452,7 +451,7 @@ label hermione_talk:
 
                 "-Work by advertising the card game-" if game.daytime and cardgame_work and her_outfit_poker.unlocked:
                     jump job_5
-                    
+
                 "-Work by advertising the card game-" (style="disabled") if game.daytime and cardgame_work and not her_outfit_poker.unlocked:
                     m "(I'll need an outfit for hermione if I want her to work.)"
                     m "(Maybe the twins have something fitting for her in their stock.)"
