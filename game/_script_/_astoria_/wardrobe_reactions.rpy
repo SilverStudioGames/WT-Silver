@@ -5,8 +5,8 @@ define ast_requirements = {
     "touch head": 4,
     "touch breasts": 12,
     "touch vagina": 18,
-    "unequip panties": 6,
-    "unequip bra": 6,
+    "unequip panties": 15,
+    "unequip bra": 15,
     "unequip top": 3,
     "unequip bottom": 3,
     }

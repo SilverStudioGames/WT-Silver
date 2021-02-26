@@ -5,8 +5,8 @@ define cho_requirements = {
     "touch head": 4, #TODO set to fail until start of Slytherin match tier (after Hufflepuff match)
     "touch breasts": 12, #TODO set to fail until start of Gryffindor match tier (after Slytherin match)
     "touch vagina": 18, #TODO set to fail until highest level of Gryffindor match tier (after Slytherin match)
-    "unequip panties": 6,
-    "unequip bra": 6,
+    "unequip panties": 15,
+    "unequip bra": 15,
     "unequip top": 3,
     "unequip bottom": 3,
     }
