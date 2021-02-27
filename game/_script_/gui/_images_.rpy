@@ -253,37 +253,31 @@ image bar_idle_empty = Solid(gui.muted_color)
 image bar_hover_empty = Solid(gui.hover_muted_color)
 
 image light_check_true:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gold/check_true.webp"
 
 image light_check_false:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gold/check_false.webp"
 
 image light_check_none:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gold/check_none.webp"
 
 image dark_check_true:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gray/check_true.webp"
 
 image dark_check_false:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gray/check_false.webp"
 
 image dark_check_none:
-    nearest True
     zoom 0.5
     offset (2, 1)
     "interface/frames/gray/check_none.webp"
@@ -291,37 +285,31 @@ image dark_check_none:
 ### Radio
 
 image light_radio_true:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gold/radio_true.webp"
 
 image light_radio_false:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gold/radio_false.webp"
 
 image light_radio_none:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gold/radio_none.webp"
 
 image dark_radio_true:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gray/radio_true.webp"
 
 image dark_radio_false:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gray/radio_false.webp"
 
 image dark_radio_none:
-    nearest True
     zoom 0.5
     offset (2, 2)
     "interface/frames/gray/radio_none.webp"

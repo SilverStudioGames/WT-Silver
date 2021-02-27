@@ -33,8 +33,9 @@ screen wardrobe(xx, yy):
     use close_button
 
     fixed:
-        if settings.get("animations"):
-            at gui_animation
+        # TODO: Wardrobe doesn't work well with the gui animation
+        # if settings.get("animations"):
+        #     at gui_animation
 
         use wardrobe_menu(xx, yy)
         if current_category == "outfits":

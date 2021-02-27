@@ -121,8 +121,7 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                         #area=(25, 25, 255, 255),
                         focus_mask=None,
                         keyboard_focus=False,
-                        key_events=False,
-                        nearest=True
+                        key_events=False
                     )
 
                     add icon_frame
