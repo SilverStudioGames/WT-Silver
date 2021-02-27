@@ -1120,10 +1120,12 @@ label her_reaction_equip_outfit(item):
         $ renpy.play("sounds/pageflipback.mp3")
         pause .4
         m "(Genie fucks Hermione in the Ass...)"
-        #TODO Add check if you've not done anal favour
-            # m "(Whops... Spoilers..)"
-        #else:
-            # m "(*Heh-heh*... Why am I not doing this right now exactly?)"
+
+        if hg_anal.trigger:
+            m "(Whops... Spoilers..)"
+        else:
+            m "(*Heh-heh*... Why am I not doing this right now exactly?)"
+
         m "(*Hmm*... I've gone too far... Well... In the script at least.)"
         $ renpy.play("sounds/pageflip.mp3")
         pause .3
@@ -1217,7 +1219,12 @@ label her_reaction_equip_outfit(item):
         call her_main("*Hmm*...", "annoyed", "narrow", "base", "down")
         call her_main("I guess I could do it, using a sticking charm...", "angry", "narrow", "base", "R")
         m "What's a stick going to--"
-        call her_main("Exposimise!", "scream", "happy", "base", "mid") #TODO add flash effect (needs to go away instantly as well so clothes are changed when it does)
+
+        # Equips the item early.
+        call play_sound("magic")
+        $ hermione.equip(item)
+
+        call her_main("Exposimise!", "scream", "happy", "base", "mid", trans=flashbulb)
         call her_main("", "normal", "happy", "base", "mid")
 
     ###################
