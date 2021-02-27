@@ -54,7 +54,7 @@ label whose_points:
     $ renpy.play("sounds/applause01.ogg")
     call lun_main("...", "base", "wink", "base", "mid", xpos=650, ypos="base")
     $ renpy.play("sounds/giggle2_loud.mp3")
-    call lun_main("*heh*... hello.", "base", "base", "base", "mid")
+    call lun_main("*heh*... hello.", "grin", "narrow", "base", "mid")
 
     m "And the small girl with a big personality. Astoria!"
     $ renpy.play("sounds/applause01.ogg")
@@ -102,7 +102,7 @@ label whose_points:
     hide screen astoria_main
     with d3
 
-    call lun_main("Oops... I was supposed to squeeze the mucus out with my hands and not crush it.","silly","closed","raised","mid", xpos="right", ypos="base")
+    call lun_main("Oops... I was supposed to squeeze the mucus out with my hands and not crush it.", "mad", "base", "raised", "L", xpos="right", ypos="base")
 
     $ renpy.play("sounds/applause01.ogg")
     m "Sounds painful... Fifteen points to Ravenclaw."
@@ -141,7 +141,7 @@ label whose_points:
     hide screen hermione_main
     with d3
 
-    call lun_main("It's quite exciting but also a bit hard. You need to make sure not to end up with one of the balls in your throat.","grin","seductive","raised","mid")
+    call lun_main("It's quite exciting but also a bit hard. You need to make sure not to end up with one of the balls in your throat.", "angry", "closed", "low", "mid")
 
     g9 "(I don't mind having you end up with one of mine in your throat one day, if you know what I mean...)"
 
@@ -183,7 +183,7 @@ label whose_points:
 
     m "(I don't remember writing that one...)"
 
-    call lun_main("I see invisible creatures... but people don't belie... ","soft","annoyed","sad","down")
+    call lun_main("I see invisible creatures... but people don't belie... ", "upset", "closed", "worried", "downR")
     hide screen luna_main
     hide screen bld1
     with d3
@@ -197,23 +197,23 @@ label whose_points:
     $ hermione.strip("bra", "top")
 
     $ renpy.sound.play("sounds/crowd_gasp.mp3")
-    call her_main("...", "smile", "base", "worried", "mid")
+    call her_main("...", "grin", "squint", "worried", "mid", cheeks="blush")
 
     g9 "Five hundred points to Gryffindor!"
     hide screen hermione_main
     with d3
 
-    call lun_main("That's cheating, I didn't even get to finish! ","scream","mad","angry","mid")
+    call lun_main("That's cheating, I didn't even get to finish! ", "disgust", "wide", "annoyed", "mid")
     hide screen luna_main
 
     m "Well, that's all for this episode of \"whose points is it anyway?\""
 
-    call her_main("I win, all the points for me!", "smile", "base", "worried", "mid")
+    call her_main("I win, all the points for me!", "crooked_smile", "closed", "base", "mid")
     hide screen hermione_main
     with d3
 
     play music "music/Under-the-Radar by PhobyAk.mp3" fadein 1 fadeout 1
-    call lun_main("Don't end now! This game is rigged!","scream","mad","angry","mid")
+    call lun_main("Don't end now! This game is rigged!", "scream", "narrow", "annoyed", "L")
     hide screen luna_main
     with d3
 
@@ -225,8 +225,8 @@ label whose_points:
 
     call ast_main("Harlot! Harlot! Harlot!","grin","closed","base","mid", xpos="400", ypos="base")
 
-    call lun_main("How do those points taste now? ","grin","base","base","mid", xpos="600", ypos="base")
-    call lun_main("The whole wizarding world is going see your tits!","silly","base","base","mid")
+    call lun_main("How do those points taste now? ", "silly", "narrow", "annoyed", "L", xpos=600, ypos="base")
+    call lun_main("The whole wizarding world is going see your tits!", "smile", "happyCl", "base", "mid")
     hide screen luna_main
     hide screen astoria_main
     with d3

@@ -132,4 +132,4 @@ label puzzle_minigame:
     show screen chair_right
     call gen_chibi("sit_behind_desk")
     with d3
-    jump main_room
+    jump main_room_menu

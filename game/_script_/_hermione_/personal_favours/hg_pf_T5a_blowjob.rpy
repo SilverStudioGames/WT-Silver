@@ -668,7 +668,7 @@ label hg_pf_hidden_blowjob:
     elif hg_blowjob.nt_counter == 0:
         jump hg_hidden_blowjob_tonks
 
-    elif luna_unlocked and luna_reverted and hg_blowjob.ll_counter == 0:
+    elif luna_unlocked and hg_blowjob.ll_counter == 0:
         jump hg_hidden_blowjob_luna
 
     $ hg_hidden_bj_list = []
@@ -797,28 +797,24 @@ label hg_hidden_blowjob_snape:
 
     jump hg_hidden_blowjob_cumming
 
-label hg_hidden_blowjob_luna:
+label hg_hidden_blowjob_luna: #TODO Once Luna X Hermione sex scenes are added, add in dialog variations.
     call her_chibi_scene("bj_pause", trans=d5)
     pause.8
 
-    call her_main("[genie_name], what should I do?", "shock", "wide", "base", "stare")
-    m "Just keep sucking my cock, [hermione_name]. This doesn't concern you."
-    lun "[lun_genie_name]? Are you there? I need to talk to you."
-    if lun_genie_name not in ["Sir","Professor","Dumbledore"]:
-        call her_main("([lun_genie_name]?!)", "soft", "squint", "base", "mid")
-        call her_main("(Wait, it's Luna!)", "disgust", "wide", "base", "stare")
-    else:
-        call her_main("(It's Luna!)", "disgust", "wide", "base", "stare")
+    call her_main("{size=-2}[genie_name], what should I do?{size=-2}", "shock", "wide", "base", "stare")
+    m "Just keep sucking my cock, [hermione_name]. This doesn't concern you..."
+    lun "Sir? Are you there? I need to talk to you."
+    call her_main("(It's Luna!)", "disgust", "wide", "base", "stare")
     call her_main("{size=-2}Please, [genie_name], send her away, I beg you!{/size}", "shock", "happyCl", "worried", "mid")
 
     menu:
         m "..."
-        "\"Please, come on in, [luna_name].\"":
+        "\"Please, come on in, Miss Lovegood.\"":
             pass
 
-        "\"I am busy right now, [luna_name].\"":
-            call her_main("Thank you, [genie_name].", "angry", "base", "base", "mid")
-            lun "Oh... well, I'll visit you later then, [lun_genie_name]."
+        "\"I am busy right now, Miss Lovegood.\"":
+            call her_main("{size=-2}Thank you, [genie_name]{/size}.", "angry", "base", "base", "mid")
+            lun "Oh... I suppose I'll visit you later then, sir."
             if game.daytime:
                 lun "Have a good day!"
             else:
@@ -832,106 +828,127 @@ label hg_hidden_blowjob_luna:
 
     stop music fadeout 1.0
     call her_main("{size=-2}[genie_name], no! Why would you let-{/size}", "angry", "base", "angry", "mid", emote="angry")
-    m "Quiet, [hermione_name]! Unless you want to be noticed..."
+    m "{size=-2}Quiet, [hermione_name]! Unless you want to get noticed...{size=-2}"
 
     #Luna comes in
     call lun_walk("mid", action="enter")
 
-    call lun_main("Hello, [lun_genie_name].","soft","base","base","down", xpos="base", ypos="head")
+    call lun_main("Hello, [lun_genie_name].", "base", "base", "base", "mid", xpos="base", ypos="head")
+    m "{size=-4}[hermione_name]...{size=-4}"
+    call her_main("...", "soft", "happy", "worried", "up")
+    m "Miss Lovegood, you wouldn't believe what I'm--"
+    call her_main("...", "clench", "wide", "base", "mid")
     call bld("hide")
     pause.2
 
     call her_chibi_scene("bj", trans=d5)
     pause.8
 
-    call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
-    g9 "Miss Lovegood! How can I help you?"
-    call lun_main("I have a message for you, [lun_genie_name]... from Professor Sprout.","open","base","base","R")
+    call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "happyCl", "annoyed", "up")
+    g4 "*Ngh*!"
+    call lun_main("Sir?", "soft", "base", "raised", "mid")
+    g9 "*Ahem*... Miss Lovegood! How can I help you?"
+    call lun_main("I was asked to deliver you a message sir... From Professor Sprout.", "grin", "base", "base", "mid")
     m "Professor Sprout?"
     m "(Who was that again?)"
-    call lun_main("Yes, she's sent me to inform you about the school's latest yield of {i}Venomous Tentacula{/i}.","open","base","raised","mid")
+    call lun_main("Yes, she's sent me to inform you about the school's latest yield of {i}Venomous Tentacula{/i}.", "base", "base", "base", "L")
     m "(Venomous Tentacles?)"
-    call her_main("{size=-4}(Those things are nasty... *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
+    call her_main("{size=-4}(Those things are so nasty... *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "closed", "annoyed", "up")
 
-    lun "Very feisty little plants, they are. And still quite young."
-    lun "They'll wither if you don't take care of them properly..."
+    call lun_main("Such feisty little plants.", "angry", "base", "annoyed", "mid")
+    m "Ah...{w=0.4} Plants..."
+    call lun_main("Yes, we've been learning how to care for them properly...", "grin", "base", "low", "mid")
     m "So why tell me?"
-    call lun_main("They have just started sucking!","smile_large","happyCl","raised","mid")
+    call lun_main("Professor sprout wanted me to inform you that they've just started sucking!", "smile", "base", "raised", "mid")
     with hpunch
     m "What?"
-    call her_main("{size=-4}(*Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "narrow", "base", "up")
-    call lun_main("Sucking, [lun_genie_name]!","base","seductive","base","mid")
-    call lun_main("It's so cute! They suck at each other's tentacles with their little mouths!","soft","base","raised","up")
+    call her_main("{size=-4}(*Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "squint", "base", "stare")
+    call lun_main("Sucking, sir!", "base", "base", "base", "mid")
+    call her_main("", "open_wide_tongue", "narrow", "base", "up")
+    call lun_main("It's so cute! They suck at each other's tentacles with their little mouths!", "crooked_smile", "happyCl", "base", "mid")
     m "(Plants with mouths?)"
-    call lun_main("Normally they only do that shortly before they spread their spores.","open","base","base","R")
-    call lun_main("Which means they are almost ready!","grin","happyCl","raised","mid")
+    call lun_main("Normally they only do that shortly before they spread their spores.", "open", "base", "base", "L")
+    call lun_main("It's a sign that they are almost ready!", "grin", "base", "base", "mid")
     m "Ready? for what?"
-    call lun_main("Pollination!","soft","seductive","base","mid")
-    call lun_main("That's when they weave their tentacles into each other and shoot out their spores.","open_tongue","seductive","base","up")
+    call lun_main("Pollination!", "crooked_smile", "base", "base", "mid")
+    call lun_main("The way Professor Sprout described it is them weaving their tentacles around each other, squeezing the spores out.", "soft", "base", "low", "mid")
     m "(How nasty!)"
 
-    call lun_main("You won't believe how hard it is to get them to that stage...","pout","mad","mad","up")
-    call lun_main("It's quite an achievement!","base","base","base","mid")
+    call lun_main("But you won't believe how hard it actually is to get them to that stage...", "annoyed", "base", "base", "R")
 
-    m "I'm more than familiar with them!"
-    call lun_main("You are?","soft","wink","raised","mid")
-    g4 "Those young...{w=0.4} sucking...{w=0.4} *UGH*!{w=0.2} Troublemakers!"
-    g4 "Yes. I've got one right here!"
-    call lun_main("Oh! Can I see it, [lun_genie_name]?","grin","wide","raised","mid")
-    m "I'm afraid not, [luna_name]."
-    g9 "It's such a shy little thing. You'd better not get any closer!"
-    call lun_main("*Aww*... Okay.","pout","base","sad","down")
+    m "As a matter of fact, I'm quite familiar with the process."
+    call lun_main("You are?", "soft", "base", "raised", "mid")
+    g9 "Indeed! I've got one right here as a matter of fact!"
+    g9 "A trouble maker this one...{w=0.4} Sucking--{w=0.4} *UGH*...{w=0.2} Real good though!"
+    call her_main("{size=-4}(*Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "narrow", "base", "mid")
+    call lun_main("Oh! Can I see it, sir?", "smile", "base", "base", "up")
+    call her_main("", "open_wide_tongue", "squint", "annoyed", "up")
+    m "Not right now I'm afraid."
+    m "It's such a shy little thing. You'd better not get any closer!"
+    call lun_main("*Aww*... Okay.", "annoyed", "base", "base", "L")
+    call her_main("{size=-4}(*Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "closed", "base", "mid")
     m "I know everything about those little devils..."
-    m "At first there was just bitching and moaning about every tiny little thing I wanted to do..."
-    m "But now, straight down on the knees... right in front of me."
-    g4 "Sucking like crazy!"
-    call lun_main("(So they do not only have a head but also knees... I didn't even know that!)","soft","base","raised","up")
+    m "This one was especially bitchy... It would moan about every tiny little thing I wanted to do."
+    call her_main("...", "open_wide_tongue", "squint", "annoyed", "up")
+    m "But now, straight down on their knees..."
+    g9 "Sucking like crazy!"
+    call her_main("", "open_wide_tongue", "squint", "base", "R")
+    call lun_main("So they do not only have a head but also knees?", "soft", "wide", "raised", "mid")
+    call lun_main("I didn't even know that!", "angry", "base", "base", "mid")
     call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "base", "up")
+    g4 "*Ngh*...{w=0.3} Well you learn something new every day."
 
-    call lun_main("Sprout told us to be careful, [lun_genie_name]. As you probably know, they like to spit... and bite...","soft","base","base","mid")
+    call lun_main("I hope you're being careful, Sprout told us they like to spit... And bite!", "angry", "base", "low", "mid")
     m "Truly?"
-    call lun_main("Yes. If you aren't careful, they'll hit you with their saliva, or bite at your limbs!","clench","annoyed","raised","down")
-    call lun_main("Luckily, there is an easy way to make them stop such behaviour!","base","seductive","base","mid")
-    m "I'm all ears..."
-    call lun_main("They hate being spat on just as much as you, [lun_genie_name]. Maybe even more so!","soft","seductive","base","L")
+    call lun_main("She said they'll hit you with their saliva, or bite at your limbs!", "mad", "base", "base", "mid")
+    m "Maybe I should count myself lucky that you showed up and told me... I've got quite a sensitive third leg."
+    call her_main("{size=-4}(*Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "angry", "R")
+    call lun_main("Lucky indeed! Because Professor Sprout taught us an easy way to make them stop such behaviour, sir!", "smile", "wink", "base", "mid")
+    m "I'm all ears!"
+    call lun_main("They hate being spat on just as much as you, sir... Maybe even more so!", "crooked_smile", "base", "base", "L")
     m "(Those are some weird fucking plants...)"
-    call lun_main("She said that if a {i}Venomous Tentacula{/i} ever acts up--","open","closed","raised","mid")
-    call lun_main("You should show dominance by spitting on it and put it in its place!","angry","angry","angry","down")
-    call lun_main("Her words...","pout","base","raised","R")
+    call lun_main("She said that if a {i}Venomous Tentacula{/i} ever acts up--", "open", "closed", "base", "mid")
+    call lun_main("You should show dominance by spitting on it and put it in its place!", "crooked_smile", "closed", "raised", "mid")
+    call lun_main("Her words, of course.", "soft", "base", "base", "R")
     g9 "Like this?"
     call spit_on_her
 
     g4 "Take that, you nasty little slu-- *Uhh*, plant."
-    call her_main("{size=-4}(What the... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "slit", "worried", "ahegao")
-    call lun_main("That's right, [lun_genie_name]!","grin","happyCl","raised","mid")
-    g4 "This one wants more spit!"
+    call her_main("{size=-4}(What the... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "squint", "annoyed", "up", tears="sweat")
+    call lun_main("That's right, sir!", "grin", "base", "base", "mid")
+    g4 "This one's feisty!"
+    g9 "I think it might need some more spit!"
     call spit_on_her
-    call her_main("{size=-4}(Stop it! *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "base", "up")
-    call lun_main("Professor Sprout said, sometimes, a bit of tough love is the only thing that can make them behave.","clench","angry","angry","down")
-    m "She did?"
-    g9 "Oh no, mine is fighting back!"
-    call lun_main("Be careful, [lun_genie_name]! Or she'll bite you!","clench","closed","sad","mid")
+    call her_main("{size=-4}(Stop it! *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "annoyed", "up", tears="sweat")
+    m "Looks like it's working!"
+    call lun_main("Great job, sir!", "smile", "base", "base", "mid")
+    call lun_main("Professor Sprout did say that sometimes a bit of tough love is the only thing that can make them behave.", "grin", "closed", "base", "mid")
+    g9 "Hold on a moment, mine is fighting back!"
+    call lun_main("Be careful, sir! Or it will bite you!", "soft", "wide", "base", "mid")
     g4 "Don't worry, this one's getting a beating!"
     call slap_her
-    call her_main("{size=-4}(Ouch!... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
+    call her_main("{size=-4}(Ouch!... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "happyCl", "base", "up", cheeks="blush", tears="sweat")
     call slap_her
     call slap_her
     g4 "Had enough, you nasty little thing?"
+    call her_main("{size=-4}(*Mph*...{w=0.3} *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "worried", "up", cheeks="blush", tears="tears_soft_sweat")
     call slap_her
-    g4 "Want some more?"
+    g9 "Looks like it needs some more!"
     call slap_her
     call slap_her
 
-    call lun_main("You seem so well versed with plants!","grin","wide","raised","mid")
-    call lun_main("I need to tell Professor Sprout, she'll be overjoyed to hear about your training methods!","grin","happyCl","raised","mid")
-    m "Give her my thanks, [luna_name]. She's a smart lady, this Sprout!"
-    g9 "Full of great ideas!"
-    call lun_main("I will, [lun_genie_name].","smile","seductive","base","mid")
+    call her_main("{size=-4}(Ouch!... *Slurp*... *Slurp*... *Gulp*...){/size}", "open_wide_tongue", "narrow", "worried", "stare", cheeks="blush", tears="tears_soft_sweat")
+    m "There we go... It seems to have calmed down..."
+    call lun_main("Impressive! I didn't think we would see such good results this quickly, sir!", "soft", "wide", "base", "mid")
+    call lun_main("I'll have to tell Professor Sprout, she'll be overjoyed to hear about your training methods!", "crooked_smile", "base", "base", "mid")
+    g9 "Spitting on her was a great idea!"
+    g9 "Give her my thanks, Miss Lovegood."
+    call lun_main("Certainly, sir.", "base", "base", "base", "mid")
 
     if game.daytime:
-        call lun_main("Have a nice day!","smile_large","happyCl","base","mid")
+        call lun_main("Have a nice day!", "base", "base", "base", "R")
     else:
-        call lun_main("Good night!","smile_large","happyCl","base","mid")
+        call lun_main("Good night!", "base", "base", "base", "mid")
 
     #Luna leaves.
     call lun_walk(action="leave")
@@ -939,7 +956,7 @@ label hg_hidden_blowjob_luna:
     stop music fadeout 1.0
     call bld
     m "Well that wasn't too bad, was it?"
-    call her_main("{size=-4}(............................. *Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "narrow", "annoyed", "up")
+    call her_main("{size=-4}(............................. *Slurp...* *Slurp...* *Gulp...*){/size}", "open_wide_tongue", "narrow", "worried", "up", cheeks="blush")
 
     call play_music("playful_tension") # SEX THEME.
 
