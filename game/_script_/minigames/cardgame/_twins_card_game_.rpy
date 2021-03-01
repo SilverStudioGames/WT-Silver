@@ -146,7 +146,7 @@ label twins_random_duel:
     else:
         m "Ready for another wager?"
         twi "Always!"
-        ger "If you win we'll give you another 1%% from our weekly profits."
+        ger "Remember, after your first win we'll give you another 1%% from our weekly profits on your every subsequent victory."
         m "Is there a limit?"
         fre "There is... But no offence sir, I doubt you're going to reach it."
         m "(We'll see about that...)"

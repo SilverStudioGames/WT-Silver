@@ -210,12 +210,12 @@ label hermione_random_duel:
         m "So, how about it?"
         call her_main("I'll pass, [genie_name]...", "open", "base", "worried", "R")
 
-        m "\"Seem like she's a bit to pure minded to accept any kind of wager right now...\""
+        m "(Seems like she's a bit to pure minded to accept any kind of wager right now...)"
         jump hermione_requests
     else:
         call her_main("You've already challenged me though...", "open", "happy", "base", "R")
         call her_main("and I lost.", "annoyed", "narrow", "worried", "down")
-        g9 "What if we made it a wager..."
+        g9 "What if we made it a wager?"
         call her_main("Gambling you mean?", "open", "base", "worried", "mid")
         m "Not for money obviously."
         call her_main("What are you suggesting then?","base","happy", cheeks="blush")
@@ -223,11 +223,11 @@ label hermione_random_duel:
         call her_main("House points...", "normal", "happy", "base", "R")
         call her_main("How would this work then?", "open", "happy", "base", "mid")
         m "Well, if you win I'll give you ten points to Gryffindor."
-        call her_main("Only 10?", "annoyed", "narrow", "base", "mid_soft")
+        call her_main("Only ten?", "annoyed", "narrow", "base", "mid_soft")
         m "Twenty then..."
         call her_main("And if I lose?", "open", "happy", "base", "R")
         m "I'll take the same amount away."
-        m "\"As if she's going to let that happen...\""
+        m "(As if she's going to let that happen...)"
         call her_main("...","normal","happyCl", cheeks="blush")
         call her_main("Okay... In that case to make it fair, let's add these extra rules...", "open", "happy", "base", "mid_soft")
 
