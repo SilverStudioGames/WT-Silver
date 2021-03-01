@@ -106,7 +106,7 @@ label hermione_first_duel:
 
     $ tokens += 1
 
-    jump main_room
+    jump main_room_menu
 
 label hermione_second_duel:
     call play_music("grape_soda")
@@ -138,7 +138,7 @@ label hermione_second_duel:
 
     $ tokens += 1
 
-    jump main_room
+    jump main_room_menu
 
 label hermione_third_duel:
     call her_main( "I'll make my house proud, you'll see.","grin","happy")
@@ -195,7 +195,7 @@ label hermione_third_duel:
     call play_sound("door")
     $ hermione_busy = True
 
-    jump main_room
+    jump main_room_menu
 
 label hermione_random_duel:
     m "Ready for another game of cards?"
@@ -293,7 +293,7 @@ label hermione_random_duel:
     call play_sound("door")
     $ hermione_busy = True
 
-    jump main_room
+    jump main_room_menu
 
 label her_duel_draw:
     stop music fadeout 1
@@ -308,7 +308,7 @@ label her_duel_draw:
             pass
 
     her "Okay, another time then..."
-    jump main_room
+    jump main_room_menu
 
 label her_duel_lost:
     stop music fadeout 1
@@ -329,7 +329,7 @@ label her_duel_lost:
             pass
     her "Cards not in your favour [genie_name]? Maybe next time..."
 
-    jump main_room
+    jump main_room_menu
 
 label her_duel_cancel:
     show screen blkfade
@@ -340,7 +340,7 @@ label her_duel_cancel:
     with dissolve
     her "Cards not in your favour [genie_name]? Maybe next time..."
 
-    jump main_room
+    jump main_room_menu
 
 screen genie_vs_hermione():
     zorder 15
