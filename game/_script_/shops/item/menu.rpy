@@ -1,7 +1,7 @@
 init python:
     def shop_item_sortfilter(item, sortby="Price (Asc)", filtering=None):
         # Always sort alphabetically first.
-        item = sorted(item, key=lambda x: x.name)
+        item = sorted(item, key=lambda x: natsort_key(x.name))
 
         if sortby == "Price (Asc)":
             item = sorted(item, key=lambda x: x.price, reverse=False)
@@ -30,9 +30,9 @@ label shop_item_menu(xx=150, yy=90):
     $ current_sorting = "Price (Asc)"
 
     if current_category in {"Gifts", "Ingredients"}:
-        $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+        $ category_items = filter(lambda x: bool(x.price > 0 and x.unlocked), inventory_dict[current_category])
     elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
-        $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+        $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1 and x.unlocked), inventory_dict[current_category])
 
     $ menu_items = shop_item_sortfilter(category_items, current_sorting)
     $ menu_items_length = len(menu_items)
@@ -53,9 +53,9 @@ label shop_item_menu(xx=150, yy=90):
     elif _choice[0] == "category":
         $ current_category = _choice[1]
         if current_category in {"Gifts", "Ingredients"}:
-            $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.unlocked), inventory_dict[current_category])
         elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
-            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1 and x.unlocked), inventory_dict[current_category])
         $ menu_items = shop_item_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
@@ -73,20 +73,15 @@ label shop_item_menu(xx=150, yy=90):
 
         $ menu_items = shop_item_sortfilter(category_items, current_sorting)
     elif _choice == "buy":
-        if current_category == "Decorations":
-            $ tokens -= current_item.price
-        else:
-            $ game.gold -= current_item.price
-
-        $ current_item.owned += 1
-        $ renpy.play("sounds/money.mp3")
+        $ renpy.call("purchase_item", current_item)
 
         if current_category in {"Gifts", "Ingredients"}:
-            $ category_items = filter(lambda x: bool(x.price > 0), inventory_dict[current_category])
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.unlocked), inventory_dict[current_category])
         elif current_category in {"Books", "Scrolls", "Decorations", "Quest Items"}:
-            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1), inventory_dict[current_category])
+            $ category_items = filter(lambda x: bool(x.price > 0 and x.owned < 1 and x.unlocked), inventory_dict[current_category])
         $ menu_items = shop_item_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
+        $ current_item = next(iter(menu_items), None)
     else:
         hide screen inventory
         return

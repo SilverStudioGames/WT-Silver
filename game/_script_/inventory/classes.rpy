@@ -43,7 +43,9 @@ init python:
             if self.owned == 0:
                 raise Exception("Item '{}' owned count is equal to zero.".format(self.name))
 
-            self.used = True
+            if not self.type == "quest":
+                # Quest items require manual triggers, it's more convenient.
+                self.used = True
 
             if self.func:
                 self.func()

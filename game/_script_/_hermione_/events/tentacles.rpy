@@ -29,18 +29,19 @@ label tentacle_scene_intro:
             jump .spell
 
         label .after_spell:
-        m "Work you stupid scroll or I'll throw you in the fire!"
+        g4 "Work you stupid scroll or I'll throw you in the fire!"
         $ renpy.play('sounds/scribble.mp3')
+        "The scroll" "*Reveals itself*"
         m "That's what I thought..."
 
         m "Now then... Let's find out what this scroll says..."
-        m "At the highest point is where I'm hidden..."
+        m "\"At the highest point is where I'm hidden...\""
         g4 "(fuck, it's a riddle...{w=0.4} Guess I deserved that...)"
 
-        m "At the highest point is where I'm hidden--"
-        m "A place where you will need this key--"
-        m "To use this scroll that is forbidden--"
-        m "You'll need to take a piece of me..."
+        m "\"At the highest point is where I'm hidden--\""
+        m "\"A place where you will need this key--\""
+        m "\"To use this scroll that is forbidden--\""
+        m "\"You'll need to take a piece of me...\""
 
         m "Key... what k--"
         $ renpy.play('sounds/magic1.ogg')
@@ -52,7 +53,7 @@ label tentacle_scene_intro:
         g4 "ARGH!"
         g4 "(Bloody magic...)"
         m "(Oh look, a rusty key just popped out from that scroll...)"
-        m "(Convenient...)"
+        m "(How convenient...)"
         m "(Now I'll just have to find where it fits...)"
         jump main_room_menu
 
@@ -107,6 +108,7 @@ label tentacle_scene_intro:
         "\"You, the bimbo, ...\"":
             $ d_flag_01.append("You, the bimbo,\n\n")
 
+    $ renpy.play('sounds/scribble.mp3')
     "*Scribble* *Scribble*"
 
     menu:
@@ -119,6 +121,7 @@ label tentacle_scene_intro:
             $ d_flag_01.append("I have turned myself into a plant,")
             $ d_flag_02 = True
 
+    $ renpy.play('sounds/scribble.mp3')
     "*Scribble* *Scribble*"
 
     menu:
@@ -128,15 +131,16 @@ label tentacle_scene_intro:
         "\"... Just listen for once...\"":
             $ d_flag_01.append("just listen for once and")
 
+    $ renpy.play('sounds/scribble.mp3')
     "*Scribble* *Scribble*"
 
     menu:
         m "... and now..."
         "\"... take this plant with you to your class...\"" if not d_flag_02:
             $ d_flag_01.append("take this plant with you to your class.\n\n")
-        "\"... take this plant then shove it up your ass...\"" if not d_flag_02:
-            $ d_flag_01.append("take this plant then {b}{s}shove it up yo{/s}{/b} bring it to class.\n\n")
-            g9 "Shove it up yo--..."
+        "\"... take this plant then shove it up your arse...\"" if not d_flag_02:
+            $ d_flag_01.append("take this plant then {b}{s}shove it up your{/s}{/b} bring it to class.\n\n")
+            g9 "Shove it up your--..."
             call gen_chibi("sit_behind_desk")
             with d3
             g4 "I can't write that!"
@@ -146,9 +150,9 @@ label tentacle_scene_intro:
         "\"... take me to class...\"" if d_flag_02:
             $ d_flag_01.append("take me to class.\n\n")
 
-        "\"... shove me up your ass...\"" if d_flag_02:
-            $ d_flag_01.append("{b}{s}shove me up yo{/s}{/b} take me to class.\n\n")
-            g9 "Shove me up yo--..."
+        "\"... shove me up your arse...\"" if d_flag_02:
+            $ d_flag_01.append("{b}{s}shove me up your{/s}{/b} take me to class.\n\n")
+            g9 "Shove me up your--..."
             call gen_chibi("sit_behind_desk")
             with d3
             g4 "I can't write that!"
@@ -156,6 +160,7 @@ label tentacle_scene_intro:
             call gen_chibi("paperwork")
             with d3
 
+    $ renpy.play('sounds/scribble.mp3')
     "*Scribble* *Scribble*"
 
     menu:
@@ -225,27 +230,16 @@ label tentacle_scene_intro:
     $ renpy.play("sounds/pageflip.mp3")
     call her_main("Oh... It's actually addressed to me...", "soft", "base", "base", "stare")
 
-    # Read letter from Genie
-    $ letter = Letter(text=d_flag_01)
-
-    $ menu_x = 0.5
-    $ menu_y = 0.9
-
-    show screen letter
     hide screen hermione_main
-    with d5
+    with d3
 
-    menu:
-        "-Done reading-":
-            pass
+    # Read letter from Genie
+    $ Letter(text=d_flag_01).open()
 
-    call reset_menu_position
-
-    hide screen letter
     call her_main("....................................", "disgust", "narrow", "angry", "mid", trans=d3)
     call her_main("So I'm a delivery girl as well now?", "annoyed", "narrow", "angry", "stare")
-    call her_main("Well... I suppose I'm already headed there anyway...", "annoyed", "closed", "angry", "stare")
-    call her_main("Guess he must've checked my schedule for once...", "annoyed", "narrow", "worried", "R")
+    call her_main("Well... I suppose I'm already heading that way anyway...", "annoyed", "closed", "angry", "stare")
+    call her_main("I guess he must've checked my schedule for once...", "annoyed", "narrow", "worried", "R")
     g9 "(Herbology class, here I come!)"
 
     hide screen hermione_main
@@ -267,7 +261,7 @@ label tentacle_scene_intro:
     spo "Hermione Granger was kind enough to bring us a pot with an underdeveloped Devil's Snare."
     spo "It's kind of wilted and looks weak but..."
     g4 "(Oh fuck you, bitch!)"
-    her "Actually, professor that wa--"
+    her "Actually, professor that was--"
     spo "Miss Granger, please don't interrupt me."
     her "Sorry..."
     spo "Now then..."
@@ -283,7 +277,7 @@ label tentacle_scene_intro:
     spo "Now everyone, pass the samples around so that you all can get a good look."
     her "Professor Sprout, are they supposed to have mouths?"
     spo "Yes Miss Granger, it's how they consume their prey once they have asphyxiated them."
-    her "Okay, well what are the eyes for? I thought they sensed their prey by touch?"
+    her "Okay, well, what are the eyes for? I thought they sensed their prey by touch?"
     spo "What are you on about Miss Granger? Devil's Snare don't have eyes."
     her "This one d--"
     $ renpy.sound.play("sounds/crowd_gasp.mp3")
@@ -324,7 +318,7 @@ label tentacle_scene_intro:
     $ renpy.sound.play("sounds/creaking.mp3")
     ">It suddenly opens to reveal a long slender appendage with an engorged base."
     her "What the hell is that? It looks like a..."
-    ">While she is focused on the dangling limb above her you move six of your smaller tentacles towards her waist."
+    ">While she is focused on the dangling limb above her, you move six of your smaller tentacles towards her waist."
     her "Oh god no, someone please help me! Professor Sprout do something!"
     spo "Students, stand back!"
     ">Professor Sprout casts an impressive-looking spell at the mass of writhing tentacles."
@@ -363,7 +357,11 @@ label tentacle_scene_intro:
 
     call play_sound("running")
 
-    "> You dash through the castle in a flash and get back to your office where, fortunately, you find your clothes lying in a pile behind the desk."
+    "> You dash through the castle in a flash and get back to your office where, fortunately you find some spare clothes lying about."
+
+    $ desk_OBJ.foreground = None
+    $ sealed_scroll_ITEM.used = True
+    $ sealed_scroll_ITEM.owned = 0
 
     hide screen blkfade
     with d5

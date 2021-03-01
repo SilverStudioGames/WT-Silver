@@ -3,14 +3,16 @@ init python:
         if filtering == "Owned":
             item = filter(lambda x: x.owned > 0, item)
 
+        # Always sort alphabetically first.
+        item = sorted(item, key=lambda x: natsort_key(x.name))
+
         if sortby == "z-A":
-            item = sorted(item, key=lambda x: x.name, reverse=True)
+            item = sorted(item, key=lambda x: natsort_key(x.name), reverse=True)
         elif current_sorting == "Available":
             item = sorted(item, key=lambda x: x.owned, reverse=True)
         elif current_sorting == "Unavailable":
             item = sorted(item, key=lambda x: x.owned)
-        else:
-            item = sorted(item, key=lambda x: x.name)
+
         return item
 
 default inventory_mode = 0 # 0 - Inventory, 1 - gifts
@@ -37,7 +39,6 @@ label inventory_menu(xx=150, yy=90):
 
     $ items_shown = 36
     $ current_page = 0
-    $ current_item = None
     $ current_category = next(iter(inventory_dict.iterkeys()))
     $ current_filter = "Owned"
     $ current_sorting = "Available"
@@ -45,6 +46,7 @@ label inventory_menu(xx=150, yy=90):
     $ category_items = inventory_dict[current_category]
     $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
     $ menu_items_length = len(menu_items)
+    $ current_item = next(iter(menu_items), None)
 
     if not renpy.android:
         show screen tooltip
@@ -55,18 +57,14 @@ label inventory_menu(xx=150, yy=90):
     $ _choice = ui.interact()
 
     if _choice[0] == "select":
-        if current_item == _choice[1]:
-            $ current_item = None
-        else:
-            $ current_item = _choice[1]
+        $ current_item = _choice[1]
     elif _choice[0] == "category":
         $ current_category = _choice[1]
         $ category_items = inventory_dict[current_category]
         $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
-        pass
+        $ current_item = next(iter(menu_items), None)
     elif _choice == "inc":
         $ current_page += 1
     elif _choice == "dec":
@@ -83,7 +81,9 @@ label inventory_menu(xx=150, yy=90):
         $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+
+        if not current_item or not menu_items_length:
+            $ current_item = next(iter(menu_items), None)
     elif _choice == "filter":
         if current_filter == None:
             $ current_filter = "Owned"
@@ -92,8 +92,11 @@ label inventory_menu(xx=150, yy=90):
         $ menu_items = inventory_sortfilter(category_items, current_sorting, current_filter)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+
+        if not current_item or not menu_items_length:
+            $ current_item = next(iter(menu_items), None)
     elif _choice == "use":
+        $ enable_game_menu()
         $ current_item.use()
     elif _choice == "give":
         hide screen inventory
@@ -242,7 +245,10 @@ screen inventory_menuitem(xx, yy):
                             text str(menu_items[i].owned) size 10 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                     elif current_category == "Decorations":
                         if menu_items[i].in_use:
-                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) zoom 0.5
+                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-3, -3) zoom 0.5
+                    elif current_category in ("Books", "Quest Items"):
+                        if menu_items[i].used:
+                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-3, -3) zoom 0.5
 
         if menu_items_length <= 0:
             text "Nothing here yet" align (0.5, 0.5) anchor (0.5, 0.5) size 24
@@ -260,7 +266,16 @@ screen inventory_menuitem(xx, yy):
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
                 add image_zoom align (0.5, 0.5)
                 add "interface/achievements/glass_selected.webp" pos (6, 6)
-                text str(current_item.owned) size 14 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+
+                if current_category in {"Gifts", "Ingredients", "Potions"}:
+                    if current_item.owned > 0:
+                        text str(current_item.owned) size 14 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
+                elif current_category == "Decorations":
+                    if current_item.in_use:
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-6, -6)
+                elif current_category in ("Books", "Quest Items"):
+                    if current_item.used:
+                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-6, -6)
 
             add gui.format("interface/achievements/{}/highlight.webp") pos (112, 375)
             add gui.format("interface/achievements/{}/spacer.webp") pos (120, 398)

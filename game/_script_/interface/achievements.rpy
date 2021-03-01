@@ -110,14 +110,16 @@ init python:
         elif filtering == "Secret":
             item = filter(lambda x: x[1][5] is True, item)
 
+        # Always sort alphabetically first.
+        item = sorted(item, key=lambda x: natsort_key(x[1][1]))
+
         if sortby == "z-A":
-            item = sorted(item, key=lambda x: x[1][1], reverse=True)
+            item = sorted(item, key=lambda x: natsort_key(x[1][1]), reverse=True)
         elif current_sorting == "Unlocked":
             item = sorted(item, key=lambda x: x[1][3] is False)
         elif current_sorting == "Locked":
             item = sorted(item, key=lambda x: x[1][3] is True)
-        else:
-            item = sorted(item, key=lambda x: x[1][1])
+
         return item
 
     achievement = Achievements()
@@ -204,10 +206,7 @@ label achievement_menu(xx=150, yy=90):
     $ _choice = ui.interact()
 
     if _choice[0] == "select":
-        if current_item == _choice[1]:
-            $ current_item = None
-        else:
-            $ current_item = _choice[1]
+        $ current_item = _choice[1]
     elif _choice[0] == "category":
         $ current_category = _choice[1]
         if current_category == "All":

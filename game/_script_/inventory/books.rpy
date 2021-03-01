@@ -1,5 +1,4 @@
 
-default quidditchguide_ITEM = Item("quidditch_book", "book", "Quidditch Guide", 200, "This book contains the basic knowledge of Quidditch.", label="quidditch_guide_book", limit=1, image="interface/icons/generic_book.webp")
 default galadriel1_ITEM = Item("galadriel1_book", "book", "Tome 1: The Tale of Galadriel", 100, "This book tells the story of an elven princess who defies the traditions of her people and chooses to forge her own destiny.\nEffect: Improves imagination.", label="galadriel1_book", limit=1)
 default galadriel2_ITEM = Item("galadriel2_book", "book", "Tome 2: The Tale of Galadriel", 200, "This is a continuation on the story of the elven princess who defies the tradition, with a twist.\nEffect: Improves imagination.", label="galadriel2_book", limit=1)
 default gameofchairs1_ITEM = Item("game_of_chairs1_book", "book", "Tome 1: Game of Chairs", 200, "An epic tale of betrayal, murder and rape. Then some more murder, some more betrayal and some more rape.", label="game_of_chairs1_book", limit=1)
@@ -12,11 +11,9 @@ label book_start:
 
     if fire_in_fireplace:
         play bg_sounds "sounds/fire02.mp3" fadeout 1.0 fadein 1.0
-        hide screen chair_right
         call gen_chibi("read_near_fire")
         with d3
     else:
-        hide screen chair_right
         call gen_chibi("read")
         with d3
     return
@@ -160,6 +157,7 @@ label quidditch_guide_book:
     m "Bludgers and quaffles?"
     m "This is even more stupid than I imagined."
 
+    $ quidditchguide_ITEM.owned = 0
     $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start

@@ -51,8 +51,6 @@ label floor_7th:
 
 
 label map_attic:
-    with d5 # Transition from desk
-
     if tentacle_sample:
         m "(I have no reason to go there anymore.)"
 
@@ -60,15 +58,9 @@ label map_attic:
     else:
         $ tentacle_sample = True
 
+        call blkfade
         m "(The attic huh...)"
         m "(I guess I could check it out.)"
-
-        call blkfade
-        call gen_chibi("stand","desk","base")
-        call hide_blkfade
-
-        call gen_walk(action="leave")
-        call blkfade
 
         stop music fadeout 3.0
         stop weather fadeout 3.0
@@ -147,7 +139,7 @@ label map_attic:
         call gen_chibi("sit_behind_desk")
         call hide_blkfade
 
-        jump main_room
+        jump main_room_menu
 
 label map_forest:
     if game.daytime:

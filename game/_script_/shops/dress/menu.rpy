@@ -1,8 +1,8 @@
 
 init python:
     def shop_dress_sortfilter(item, sortby="Price (Asc)", filtering=None):
-        #if filtering == "Locked":
-            #item = filter(lambda x: x[1][3] is False, item)
+        # Always sort alphabetically first.
+        item = sorted(item, key=lambda x: natsort_key(x.name))
 
         if sortby == "Price (Asc)":
             item = sorted(item, key=lambda x: x.price, reverse=False)

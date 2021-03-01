@@ -24,9 +24,7 @@ image fireplace_fire: #Fireplace fire.
     pause.1
     repeat
 
-
-###Glow effect###
-image glow_effect: #Candle fire.
+image glow_effect:
     "images/animation/glow_effect/glow_1.webp"
     pause.1
     "images/animation/glow_effect/glow_2.webp"
@@ -49,7 +47,6 @@ image glow_effect: #Candle fire.
     pause.1
     repeat
 
-### Candle Fire ###
 image candle_fire_01: #Candle fire.
     "images/rooms/objects/candles/fire_01.webp"
     pause.1
@@ -73,7 +70,7 @@ image candle_fire_01: #Candle fire.
     pause.1
     repeat
 
-image candle_fire_02: #Candle fire.
+image candle_fire_02:
     "images/rooms/objects/candles/fire_01.webp"
     pause.1
     "images/rooms/objects/candles/fire_04.webp"
@@ -96,8 +93,6 @@ image candle_fire_02: #Candle fire.
     pause.1
     repeat
 
-
-### Phoenix ###
 image phoenix_idle:
     zoom 0.5
 
@@ -174,7 +169,6 @@ image phoenix_food:
 
     "images/rooms/objects/phoenix/food.webp"
 
-# Door
 image door_idle:
     zoom 0.5
 
@@ -195,13 +189,11 @@ image door_hover_night:
 
     "images/rooms/objects/doors/door_hover_night.webp"
 
-# Fireplace
 image fireplace_idle:
     zoom 0.5
 
     "images/rooms/objects/fireplace/fireplace_idle.webp"
 
-# Fireplace
 image fireplace_idle_shadow:
     zoom 0.5
 
@@ -212,7 +204,6 @@ image fireplace_hover:
 
     "images/rooms/objects/fireplace/fireplace_hover.webp"
 
-### Owl Post ###
 image owl_idle:
     zoom 0.5
 
@@ -248,8 +239,6 @@ image owl_letter_hover:
 
     "images/rooms/objects/mail/owl_hover.webp"
 
-
-#Black owl
 image owl_idle_black:
     zoom 0.5
 

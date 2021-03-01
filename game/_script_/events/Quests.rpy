@@ -114,6 +114,10 @@ label quests:
             if her_tier >= 2 and not cho_intro.E1_complete:
                 jump cho_intro_E1
 
+    if is_puzzle_box_in_fireplace():
+        $ fire_in_fireplace = False
+        $ fireplace_OBJ.foreground = Transform("glow_effect", zoom=0.5, align=(0.5, 0.5), offset=(0, 30), alpha=0.5)
+
     #
     # CARDGAME - EVENTS
     #

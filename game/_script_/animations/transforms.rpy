@@ -87,9 +87,10 @@ transform main_sprite_position(x, y, flip, scale):
 transform random_rotation(a=-45, b=45):
     rotate random.randint(a, b)
 
-transform pulse_hover:
-    linear 1.0 matrixcolor BrightnessMatrix(value=0.2)
-    linear 1.0 matrixcolor BrightnessMatrix(value=0.0)
+transform pulse_hover(t=1.0, strength=0.2, pause=0.0):
+    linear t matrixcolor BrightnessMatrix(value=strength)
+    linear t matrixcolor BrightnessMatrix(value=0.0)
+    pause pause
     repeat
 
 transform gui_animation:

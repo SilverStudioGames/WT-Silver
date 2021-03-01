@@ -20,6 +20,9 @@ label fireplace:
         call gen_chibi("stand", "fireplace", "fireplace")
         with d3
         m "(*Hmm*... There's something glimmering in the fireplace.)"
+
+        $ fireplace_OBJ.foreground = None
+
         m "(A loose brick... If only I could..{nw}{w=1.0}"
         $ renpy.play('sounds/brick_scrape.mp3')
         m "(A loose brick... If only I could..{fast} *Hhng*... There we go.)"
@@ -36,17 +39,19 @@ label fireplace:
                 $ puzzle_box_ITEM.use()
             "-Save it for later-":
                 m "I don't have time for this now."
+
         call gen_chibi("sit_behind_desk")
         with d3
 
+        jump main_room_menu
+
+    if fire_in_fireplace:
+        $ fire_in_fireplace = False
+        $ fireplace_OBJ.foreground = None
     else:
-        if fire_in_fireplace:
-            $ fire_in_fireplace = False
-            $ fireplace_OBJ.foreground = None
-        else:
-            $ fire_in_fireplace = True
-            $ fireplace_OBJ.foreground = "fireplace_fire"
-            $ stat_fireplace_counter += 1
+        $ fire_in_fireplace = True
+        $ fireplace_OBJ.foreground = "fireplace_fire"
+        $ stat_fireplace_counter += 1
 
     jump main_room_menu
 

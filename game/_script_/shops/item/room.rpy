@@ -42,7 +42,8 @@ label item_store:
         ger "We have books, treats, and knick-knacks for sale."
         fre "Take a look."
 
-    elif ss_he.cho_E1 and quidditchguide_ITEM.unlocked == False and cho_quiz.complete == False:
+    elif ss_he.cho_E1 and not quidditchguide_ITEM.unlocked and not cho_quiz.complete:
+        $ quidditchguide_ITEM.unlocked = True
         # After talking to Snape about Cho.
         # If you haven't yet beaten the Quiz.
         m "Boys..."
@@ -71,17 +72,26 @@ label item_store:
         ger "Understandable..."
         m "But, as I said, I'd like to get a run-through of the basics of Quidditch this year."
         m "You don't happen to have a Quidditch book to refresh my memories?"
-        fre "Of course, you can have ours. We know it off by heart at this point!"
-
-        # TODO:
-        call give_gift(">You have unlocked a new book to read!", quidditchguide_ITEM)
-
+        fre "Of course, you can have ours--"
+        call play_sound("kick")
+        with hpunch
+        fre "Blimey!"
+        ger "What Freddy wanted to say is--"
+        ger "You can have ours, for 200 gold coins."
+        m "......"
         m "Great, thanks again boys..."
-        twi "Don't mention it..."
-        twi "Make sure to take notes!"
+        ger "Don't mention it..."
+        fre "...Make sure to take notes!"
         m "Are you assuming your headmaster doesn't know how studying works?"
-        fre "Of course not..."
-        #ger "Anyway... if you need anything else we should have another book coming in at some point which is not just about the basics of Quidditch..."
+
+        call play_sound("kick")
+        with hpunch
+
+        fre "*Cries out like a hurt puppy*"
+        ger "Of course not, professor, Fred was just joking, right Fred?"
+        fre "....Yes sir, just kidding..."
+        m "Right..."
+        ger "We've put the book in \"Quest Items\" section, can't miss it."
 
     elif deck_unlocked and her_know_cards and not twins_know_cards:
         m "Hello boys."

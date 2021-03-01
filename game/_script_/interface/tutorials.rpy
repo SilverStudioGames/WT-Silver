@@ -19,6 +19,7 @@ label tutorial(entry):
         $ renpy.music.set_volume(0.5, 3.0)
         $ gui.in_context("tutorial.display", entry)
         $ renpy.music.set_volume(1.0, 3.0)
+        $ enable_game_menu()
     return
 
     label .display(entry):

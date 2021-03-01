@@ -187,3 +187,6 @@ init -1 python:
         total = cum_weights[-1]
         hi = len(cum_weights) - 1
         return [population[bisect(cum_weights, random() * total, 0, hi)] for i in range(k)]
+
+    def natsort_key(s, pattern=re.compile("([0-9]+)")):
+        return [int(t) if t.isdigit() else t.lower() for t in pattern.split(str(s))]
