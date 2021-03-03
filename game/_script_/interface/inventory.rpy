@@ -48,9 +48,6 @@ label inventory_menu(xx=150, yy=90):
     $ menu_items_length = len(menu_items)
     $ current_item = next(iter(menu_items), None)
 
-    if not renpy.android:
-        show screen tooltip
-
     show screen inventory(xx, yy)
 
     label .after_init:

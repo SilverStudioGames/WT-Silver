@@ -124,9 +124,6 @@ label stats_menu(xx=150, yy=90):
     $ susan_xpos = 300
     $ susan_ypos = 0
 
-    if not renpy.android:
-        show screen tooltip
-
     show screen stats(xx, yy)
 
     label .after_init:

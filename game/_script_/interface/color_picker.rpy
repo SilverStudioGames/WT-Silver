@@ -60,19 +60,21 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                                 if is_valid:
                                     $ action = Return(["rem_swatch", i])
                                     $ icon = Text("X", color="#b20000", align=(0.5, 0.5), outlines=[(1, "#000", 0, 0)])
+                                    $ tooltip = "Remove"
                                 else:
                                     $ action = Return(["add_swatch", list(rgba)])
                                     $ icon = Image("interface/icons/small/star_yellow.webp", align=(0.5, 0.5))
+                                    $ tooltip = "Add"
                             elif is_valid:
                                 $ action = Return(["use_swatch", color_favorites[i]])
                                 $ icon = None
+                                $ tooltip = "Select"
 
-                            # TODO: Tooltips cause major performance issues inside colour picker, needs investigation.
                             button:
                                 xysize (32, 32)
                                 background background
                                 hover_foreground "#ffffff80"
-                                #tooltip "Blurb"
+                                tooltip tooltip
                                 action action
                                 add icon
 

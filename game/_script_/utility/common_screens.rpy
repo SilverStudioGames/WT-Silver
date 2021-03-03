@@ -1,11 +1,11 @@
 screen blkfade():
     tag blkfade
-    zorder 20
+    zorder 25
     add Color("#000")
 
 screen whitefade():
     tag whitefade
-    zorder 20
+    zorder 25
     add Color("#fff")
 
 screen blktone(alpha=0.5):

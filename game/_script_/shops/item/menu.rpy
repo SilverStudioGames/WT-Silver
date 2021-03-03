@@ -37,9 +37,6 @@ label shop_item_menu(xx=150, yy=90):
     $ menu_items = shop_item_sortfilter(category_items, current_sorting)
     $ menu_items_length = len(menu_items)
 
-    if not renpy.android:
-        show screen tooltip
-
     show screen shop_item(xx, yy)
 
     label .after_init:

@@ -24,7 +24,7 @@ label wardrobe:
 
 screen wardrobe(xx, yy):
     tag wardrobe
-    zorder 30
+    zorder 24
     modal True
 
     add "gui_fade"
@@ -66,9 +66,6 @@ label wardrobe_menu():
 
     if wardrobe_music:
         call play_music("wardrobe")
-
-    if not renpy.android:
-        show screen tooltip
 
     show screen wardrobe(662, 50)
 
@@ -265,7 +262,7 @@ label wardrobe_menu():
 
 screen wardrobe_menu(xx, yy):
     tag wardrobe
-    zorder 15
+    zorder 24
     style_prefix "wardrobe"
 
     default icon_bg = Frame(gui.format("interface/frames/{}/iconmed.webp"), 6, 6)
@@ -363,7 +360,7 @@ screen wardrobe_menu(xx, yy):
 
 screen wardrobe_menuitem(xx, yy):
     tag wardrobe_menuitem
-    zorder 16
+    zorder 24
     style_prefix "wardrobe"
 
     default icon_size = (72, 72)
@@ -499,7 +496,7 @@ screen wardrobe_menuitem(xx, yy):
 
 screen wardrobe_outfit_menuitem(xx, yy):
     tag wardrobe_menuitem
-    zorder 16
+    zorder 24
     style_prefix "wardrobe"
 
     default icon_size = (72, 144)
@@ -618,7 +615,7 @@ screen wardrobe_outfit_menuitem(xx, yy):
 
 screen wardrobe_schedule_menuitem(item):
     tag dropdown
-    zorder 31
+    zorder 24
     modal True
 
     default mpos = renpy.get_mouse_pos()
@@ -628,7 +625,7 @@ screen wardrobe_schedule_menuitem(item):
     window:
         style "empty"
         pos mpos
-        use invisible_button(action=NullAction(), alternate=Return())
+        #use invisible_button(action=NullAction(), alternate=Return())
 
         frame:
             style "empty"

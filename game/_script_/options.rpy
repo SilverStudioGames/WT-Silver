@@ -40,7 +40,8 @@ define config.screen_height = 600
 define config.save_physical_size = True
 
 # User interface settings
-define config.layers = ["master", "transient", "screens", "interface", "overlay"]
+define config.layers = ["master", "transient", "screens", "overlay"]
+define config.top_layers = ["interface"]
 define config.transparent_tile = False
 define config.quit_action = Quit(True)
 define config.narrator_menu = True

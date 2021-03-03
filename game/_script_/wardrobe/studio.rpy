@@ -248,8 +248,8 @@ screen studio():
                     add "interface/studio/opacity.webp" size icon_size
                     bar value DictValue(studio.choices[active_girl], "alpha", 1.0, False, step=0.1, force_step=True, action=drag_update) tooltip "Character Opacity"
 
-                textbutton "Flip" action [ToggleDict(studio.choices[active_girl], "flip", -1, 1), drag_update]
-                textbutton "Reset" action drag_reset
+                textbutton "Flip" action [ToggleDict(studio.choices[active_girl], "flip", -1, 1), drag_update] xpos 4
+                textbutton "Reset" action drag_reset xpos 4
 
             vbox:
                 label "Background"
