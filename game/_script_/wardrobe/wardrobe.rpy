@@ -2,6 +2,7 @@
 default wardrobe_music = False
 default wardrobe_chitchats = True
 default wardrobe_autosave = False
+default wardrobe_loaded = False
 
 # Used as custom order for the sorting
 define wardrobe_subcategories_sorted = {
@@ -76,41 +77,44 @@ label wardrobe_menu():
     $ _choice = ui.interact()
 
     if _choice[0] == "category":
+        if not current_category == _choice[1]:
+            if wardrobe_check_category(_choice[1]):
+                $ wardrobe_loaded = False
+                $ current_category = _choice[1]
 
-        if wardrobe_check_category(_choice[1]):
-            $ current_category = _choice[1]
+                $ category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
+                $ current_subcategory = category_items.keys()[0] if category_items else ""
+                $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
 
-            $ category_items = OrderedDict(sorted(wardrobe_subcategories.get(current_category, {}).iteritems(), key=lambda x: wardrobe_subcategories_sorted.get(x[0], 0), reverse=True))
-            $ current_subcategory = category_items.keys()[0] if category_items else ""
-            $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory, []))
+                if current_category == "outfits":
+                    $ _outfit = char_active.create_outfit(temp=True)
+                    $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
+                else:
+                    $ current_item = char_active.get_equipped_item(menu_items)
+
+                $ char_active.wear("all")
+                if current_category in ("lower undergarment", "upper undergarment"):
+                    $ char_active.strip("top", "bottom", "robe", "accessory")
+                elif current_category == "piercings & tattoos":
+                    $ char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
+            else:
+                $ wardrobe_react("category_fail", _choice[1])
+
+    elif _choice[0] == "subcategory":
+        if not current_subcategory == _choice[1]:
+            $ wardrobe_loaded = False
+            $ current_subcategory = _choice[1]
+
+            if current_subcategory == "import":
+                $ menu_items = list_outfit_files()
+            else:
+                $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
 
             if current_category == "outfits":
                 $ _outfit = char_active.create_outfit(temp=True)
                 $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
             else:
                 $ current_item = char_active.get_equipped_item(menu_items)
-
-            $ char_active.wear("all")
-            if current_category in ("lower undergarment", "upper undergarment"):
-                $ char_active.strip("top", "bottom", "robe", "accessory")
-            elif current_category == "piercings & tattoos":
-                $ char_active.strip("top", "bottom", "robe", "accessory", "bra", "panties", "stockings", "gloves")
-        else:
-            $ wardrobe_react("category_fail", _choice[1])
-
-    elif _choice[0] == "subcategory":
-        $ current_subcategory = _choice[1]
-
-        if current_subcategory == "import":
-            $ menu_items = list_outfit_files()
-        else:
-            $ menu_items = filter(lambda x: x.unlocked==True, category_items.get(current_subcategory))
-
-        if current_category == "outfits":
-            $ _outfit = char_active.create_outfit(temp=True)
-            $ current_item = next( (x for x in char_active.outfits if _outfit == x), None)
-        else:
-            $ current_item = char_active.get_equipped_item(menu_items)
 
     elif _choice[0] == "equip":
         ### CLOTHING ###
@@ -254,6 +258,7 @@ label wardrobe_menu():
         if wardrobe_music:
             $ renpy.call("play_music", active_girl)
         $ enable_game_menu()
+        $ wardrobe_loaded = False
         return
 
     jump .after_init
@@ -415,77 +420,82 @@ screen wardrobe_menuitem(xx, yy):
                     action Return(["subcategory", subcategory])
 
         # Item icons
-        vpgrid:
-            cols 7
-            spacing 5
-            draggable True
-            mousewheel True
-            scrollbars "vertical"
-            pos (8, 192)
-            ysize 308
+        if not wardrobe_loaded:
+            text "Loading..." size 24 align (0.5, 0.6)
 
-            for item in menu_items:
-                $ icon = item.get_icon()
-                $ is_seen = item.seen
-                $ is_equipped = char_active.is_equipped_item(item)
-                $ is_inadequate = bool(get_character_progression(active_girl) < item.level)
-                $ is_blacklisted = char_active.is_blacklisted(item.type)
-                $ is_blacklister = any(char_active.is_equipped(x) for x in item.blacklist)
-                $ is_modded = bool(item.modpath)
-                $ is_multislot = item.is_multislot()
-                $ warnings = []
+            timer 0.001 action SetVariable("wardrobe_loaded", True)
+        else:
+            vpgrid:
+                cols 7
+                spacing 5
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                pos (8, 192)
+                ysize 308
 
-                if is_blacklisted or is_blacklister:
-                    $ blacklisted = [x for x in item.blacklist if char_active.is_equipped(x)] # Offender (List currently blacklisted clothing types by this item)
-                    $ blacklister = char_active.get_blacklister(item.type) # Victim (List clothing types blacklisting this item )
-                    $ warnings.append("Incompatible with:{size=-4}\n" + "\n".join(set(blacklisted + blacklister)) + "{/size}")
+                for item in menu_items:
+                    $ icon = item.get_icon()
+                    $ is_seen = item.seen
+                    $ is_equipped = char_active.is_equipped_item(item)
+                    $ is_inadequate = bool(get_character_progression(active_girl) < item.level)
+                    $ is_blacklisted = char_active.is_blacklisted(item.type)
+                    $ is_blacklister = any(char_active.is_equipped(x) for x in item.blacklist)
+                    $ is_modded = bool(item.modpath)
+                    $ is_multislot = item.is_multislot()
+                    $ warnings = []
 
-                if is_inadequate:
-                    $ warnings.append("Character level too low")
+                    if is_blacklisted or is_blacklister:
+                        $ blacklisted = [x for x in item.blacklist if char_active.is_equipped(x)] # Offender (List currently blacklisted clothing types by this item)
+                        $ blacklister = char_active.get_blacklister(item.type) # Victim (List clothing types blacklisting this item )
+                        $ warnings.append("Incompatible with:{size=-4}\n" + "\n".join(set(blacklisted + blacklister)) + "{/size}")
 
-                if is_modded:
-                    $ warnings.append("Item belongs to a mod:\n{size=-4}{color=#35aae2}" + item.get_modname() + "{/color}{/size}")
-
-                if is_multislot:
-                    $ slot = str(int(item.type[-1])+1)
-                    $ warnings.append("Occupies " + item.type[:-1] + " slot number " + slot)
-
-                button:
-                    xysize icon_size
-                    background Transform(icon, xsize=icon_size[0], fit="contain", anchor=(0.5, 0.5), align=(0.5, 0.5))
-                    action Return(["equip", item])
-                    tooltip ("\n".join(warnings))
                     if is_inadequate:
-                        foreground "#b2000040"
-                        hover_foreground "#CD5C5C40"
-                    if not is_seen:
-                        unhovered Function(item.mark_as_seen)
+                        $ warnings.append("Character level too low")
 
-                    add icon_frame
+                    if is_modded:
+                        $ warnings.append("Item belongs to a mod:\n{size=-4}{color=#35aae2}" + item.get_modname() + "{/color}{/size}")
 
-                    hbox:
-                        offset (5, 5)
-
-                        if is_modded:
-                            text "M" color "#00b200"
-
-                        if is_blacklisted or is_blacklister:
-                            text "!" color "#b20000"
-
-                        if config.developer:
-                            text "\nReq. {}".format(item.level) size 10 color "#00ffff" outlines [(1, "#000000", 1, 1)]
-
-                    # Bottom-Right
-                    if is_equipped:
-                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
-
-                    # Bottom-Right
-                    if not is_seen:
-                        text "NEW" style "wardrobe_item_caption" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5)
-
-                    # Bottom-Left
                     if is_multislot:
-                        text "[slot]" style "wardrobe_item_caption" anchor (0.0, 1.0) align (0.0, 1.0) offset (5, -5)
+                        $ slot = str(int(item.type[-1])+1)
+                        $ warnings.append("Occupies " + item.type[:-1] + " slot number " + slot)
+
+                    button:
+                        xysize icon_size
+                        background Transform(icon, xsize=icon_size[0], fit="contain", anchor=(0.5, 0.5), align=(0.5, 0.5))
+                        action Return(["equip", item])
+                        tooltip ("\n".join(warnings))
+                        if is_inadequate:
+                            foreground "#b2000040"
+                            hover_foreground "#CD5C5C40"
+                        if not is_seen:
+                            unhovered Function(item.mark_as_seen)
+
+                        add icon_frame
+
+                        hbox:
+                            offset (5, 5)
+
+                            if is_modded:
+                                text "M" color "#00b200"
+
+                            if is_blacklisted or is_blacklister:
+                                text "!" color "#b20000"
+
+                            if config.developer:
+                                text "\nReq. {}".format(item.level) size 10 color "#00ffff" outlines [(1, "#000000", 1, 1)]
+
+                        # Bottom-Right
+                        if is_equipped:
+                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
+
+                        # Bottom-Right
+                        if not is_seen:
+                            text "NEW" style "wardrobe_item_caption" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5)
+
+                        # Bottom-Left
+                        if is_multislot:
+                            text "[slot]" style "wardrobe_item_caption" anchor (0.0, 1.0) align (0.0, 1.0) offset (5, -5)
 
 screen wardrobe_outfit_menuitem(xx, yy):
     tag wardrobe_menuitem
@@ -522,84 +532,89 @@ screen wardrobe_outfit_menuitem(xx, yy):
                     action Return(["subcategory", subcategory])
 
         # Item icons
-        vpgrid:
-            cols 7
-            xspacing 5
-            yspacing 10
-            draggable True
-            mousewheel True
-            scrollbars "vertical"
-            pos (8, 192)
-            ysize 308
+        if not wardrobe_loaded:
+            text "Loading..." size 24 align (0.5, 0.6)
 
-            # Add empty slot
-            if current_subcategory == "save":
-                textbutton "Save":
-                    xysize icon_size
-                    idle_background "#00000033"
-                    text_align (0.5, 0.5)
-                    action Return(["addoutfit", None])
+            timer 0.001 action SetVariable("wardrobe_loaded", True)
+        else:
+            vpgrid:
+                cols 7
+                xspacing 5
+                yspacing 10
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                pos (8, 192)
+                ysize 308
 
-            for item in reversed(menu_items):
-                if current_subcategory == "import":
-                    $ icon = "/outfits/{}".format(item)
-                    $ is_modded = False
-                    $ is_equipped = False
-                else:
-                    $ icon = Crop((210, 200, 700, 1000), item.get_image())
-                    $ is_modded = item.is_modded()
-                    $ is_equipped = bool(current_item == item)
-                $ is_inadequate = (current_subcategory in {"save", "load"} and not wardrobe_check_equip_outfit(item))
+                # Add empty slot
+                if current_subcategory == "save":
+                    textbutton "Save":
+                        xysize icon_size
+                        idle_background "#00000033"
+                        text_align (0.5, 0.5)
+                        action Return(["addoutfit", None])
 
-                $ warnings = []
+                for item in reversed(menu_items):
+                    if current_subcategory == "import":
+                        $ icon = "/outfits/{}".format(item)
+                        $ is_modded = False
+                        $ is_equipped = False
+                    else:
+                        $ icon = Crop((210, 200, 700, 1000), item.get_image())
+                        $ is_modded = item.is_modded()
+                        $ is_equipped = bool(current_item == item)
+                    $ is_inadequate = (current_subcategory in {"save", "load"} and not wardrobe_check_equip_outfit(item))
 
-                if is_modded:
-                    $ warnings.append("Outfit contains items from these mods:\n{size=-4}{color=#35aae2}"+ "\n".join(item.get_modname()) + "{/color}{/size}")
+                    $ warnings = []
 
-                $ alternate = None
-                if current_subcategory == "delete":
-                    $ action = Return(["deloutfit", item])
-                elif current_subcategory == "load":
-                    $ action = Return(["equip", item])
-                elif current_subcategory == "save":
-                    $ action = Return(["addoutfit", item])
-                elif current_subcategory == "import":
-                    $ action = Return(["import", item])
-                elif current_subcategory == "export":
-                    $ action = Return(["export", item])
-                elif current_subcategory == "schedule":
-                    $ action = Return(["schedule", item])
-                    $ alternate = Return(["schedule", item])
+                    if is_modded:
+                        $ warnings.append("Outfit contains items from these mods:\n{size=-4}{color=#35aae2}"+ "\n".join(item.get_modname()) + "{/color}{/size}")
 
-                button:
-                    xysize icon_size
-                    background Transform(icon, xsize=72, ysize=144, fit="contain", anchor=(0.5, 1.0), align=(0.5, 1.0), yoffset=-6)
-                    tooltip ("\n".join(warnings))
-                    action action
-                    alternate alternate
-                    if is_inadequate:
-                        foreground "#b2000040"
-                        hover_foreground "#CD5C5C40"
-                        selected_foreground "#CD5C5C40"
+                    $ alternate = None
+                    if current_subcategory == "delete":
+                        $ action = Return(["deloutfit", item])
+                    elif current_subcategory == "load":
+                        $ action = Return(["equip", item])
+                    elif current_subcategory == "save":
+                        $ action = Return(["addoutfit", item])
+                    elif current_subcategory == "import":
+                        $ action = Return(["import", item])
+                    elif current_subcategory == "export":
+                        $ action = Return(["export", item])
+                    elif current_subcategory == "schedule":
+                        $ action = Return(["schedule", item])
+                        $ alternate = Return(["schedule", item])
 
-                    add icon_frame
+                    button:
+                        xysize icon_size
+                        background Transform(icon, xsize=72, ysize=144, fit="contain", anchor=(0.5, 1.0), align=(0.5, 1.0), yoffset=-6)
+                        tooltip ("\n".join(warnings))
+                        action action
+                        alternate alternate
+                        if is_inadequate:
+                            foreground "#b2000040"
+                            hover_foreground "#CD5C5C40"
+                            selected_foreground "#CD5C5C40"
 
-                    hbox:
-                        offset (5, 5)
+                        add icon_frame
 
-                        if is_modded:
-                            text "M" color "#00b200"
+                        hbox:
+                            offset (5, 5)
 
-                    if not current_subcategory in {"import", "export"} and getattr(renpy.store, active_girl+"_outfits_schedule"):
-                        vbox:
-                            pos (6, 6)
-                            spacing 1
-                            for i in wardrobe_outfit_schedule:
-                                if item.schedule[i]:
-                                    add Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(16, 16))
+                            if is_modded:
+                                text "M" color "#00b200"
 
-                    if is_equipped:
-                        add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
+                        if not current_subcategory in {"import", "export"} and getattr(renpy.store, active_girl+"_outfits_schedule"):
+                            vbox:
+                                pos (6, 6)
+                                spacing 1
+                                for i in wardrobe_outfit_schedule:
+                                    if item.schedule[i]:
+                                        add Transform("interface/wardrobe/icons/outfits/{}.webp".format(i), size=(16, 16))
+
+                        if is_equipped:
+                            add "interface/topbar/icon_check.webp" anchor (1.0, 1.0) align (1.0, 1.0) offset (-5, -5) zoom 0.5
 
 screen wardrobe_schedule_menuitem(item):
     tag dropdown

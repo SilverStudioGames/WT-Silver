@@ -50,26 +50,24 @@ init python:
         def get_image(self):
             if not renpy.is_skipping() or not self.cached:
                 self.cached = True
-                # TODO: Fix the math, not every sprite is centred correctly and some margins are too big.
+
+                wmax, hmax = 1010, 1200
+                wmin = hmin = 72
 
                 x, y, w, h = crop_whitespace(self.path)
+                xoffset, yoffset = w/2, h/2
 
-                xoffset = w/4
-                yoffset = h/4
+                w = h = max(w, h, wmin, hmin)
 
-                w = max(w, max(h, 72))
-                h = max(h, max(w, 72))
+                w = max(wmin, w + w/2)
+                h = max(hmin, h + h/2)
 
-                x = clamp( (x - w/2) + xoffset, 0, 1010)
-                w = max(72, w + w/2)
-
-                y = clamp( (y - h/2) + yoffset, 0, 1200)
-                h = max(72, h + h/2)
+                x = clamp( (x - w/2) + xoffset, 0, wmax)
+                y = clamp( (y - h/2) + yoffset, 0, hmax)
 
                 # Forbid exceeding the image height.
-                if y+h > 1200:
-                    y = 1200-h
+                if y+h > hmax:
+                    y = hmax-h
 
-                box = (x, y, w, h)
-                self.sprite = Crop(box, Fixed(*self.sprites))
+                self.sprite = Transform(Fixed(*self.sprites), crop=(int(x), int(y), int(w), int(h)))
             return self.sprite

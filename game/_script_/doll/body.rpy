@@ -38,7 +38,7 @@ init python:
 
         def get_mannequin(self, group=None):
             mannequin = self.build_mannequin(group)
-            return Fixed(*mannequin)
+            return DollDisplayable(Fixed(*mannequin))
 
         def get_part(self, arg):
             return self.body[arg][0]

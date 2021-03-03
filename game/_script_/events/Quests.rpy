@@ -307,12 +307,12 @@ label quests:
     if ll_event_pause == 0:
         if game.daytime:
 
-            # Intro
-            if her_whoring >= 21 and not hat_known:
-                jump hat_intro
+            # # Intro
+            # if her_whoring >= 21 and not hat_known:
+            #     jump hat_intro
 
-            if luna_reverted and luna_reverted_intro:
-                jump luna_reverted_greeting_1
+            # if luna_reverted and luna_reverted_intro:
+            #     jump luna_reverted_greeting_1
 
             # Unlock reverted favours.
             if luna_reverted:

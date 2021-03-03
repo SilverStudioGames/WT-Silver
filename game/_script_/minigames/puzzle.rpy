@@ -134,5 +134,3 @@ label puzzle_minigame:
         jump night_start
     else:
         jump day_start
-
-    jump main_room_menu

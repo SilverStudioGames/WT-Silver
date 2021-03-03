@@ -21,7 +21,7 @@ init -10 python:
             root = renpy.display.core.scene_lists().make_layer("screens", {})
             return ScreenshotImage(root)
 
-    def displayable_to_file(d, path, size=(1080, 600), crop=None, coloralpha=(0, 255, 0)):
+    def displayable_to_file(d, path, size=(config.screen_width, config.screen_height), crop=None, coloralpha=(0, 255, 0)):
         crop = crop or (0, 0, size[0], size[1])
         gl_clear = renpy.config.gl_clear_color
         renpy.config.gl_clear_color = coloralpha

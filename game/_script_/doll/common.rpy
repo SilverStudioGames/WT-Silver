@@ -44,10 +44,10 @@ init -1 python:
             if not renpy.is_skipping() or self.sprite is None:
                 if self.override:
                     sprites = self.build_image()
-                    self.sprite = Fixed(*sprites, fit_first=True)
+                    self.sprite = DollDisplayable(Fixed(*sprites, fit_first=True))
                 elif not self.cached:
                     sprites = self.build_image()
-                    self.sprite = Fixed(*sprites, fit_first=True)
+                    self.sprite = DollDisplayable(Fixed(*sprites, fit_first=True))
                     self.cached = True
             return self.sprite
 
@@ -56,6 +56,7 @@ init -1 python:
         def __init__(self, child, **kwargs):
             super(DollDisplayable, self).__init__(**kwargs)
             self.child = renpy.displayable(child)
+            self.focusable = False
 
         def render(self, w, h, st, at):
             cr = renpy.display.render.render(self.child, w, h, st, at)

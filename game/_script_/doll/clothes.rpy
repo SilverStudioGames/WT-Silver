@@ -122,7 +122,7 @@ init python:
             """Returns cropped Fixed displayable"""
             if not renpy.is_skipping() or self.ico is None:
                 sprites, bounds = self.build_icon()
-                self.ico = CroppedImage(sprites, bounds).get_image()
+                self.ico = DollDisplayable(CroppedImage(sprites, bounds).get_image())
             return self.ico
 
         def apply_color(self, img, n):

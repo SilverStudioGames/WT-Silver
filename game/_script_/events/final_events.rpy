@@ -463,7 +463,7 @@ label ball_quest_E1:
     $ hermione_busy = True
     $ ss_event_pause += 2 # Next event happens in 2 days.
 
-    jump main_room
+    jump end_hermione_event
 
 
 #Snape confronts genie about his ABOC decision
@@ -548,7 +548,6 @@ label ball_quest_E2:
 
     jump night_start
 
-
 label ball_quest_E3:
     stop music fadeout 1.0
 
@@ -598,7 +597,7 @@ label ball_quest_E3:
 
     $ ball_quest.E3_complete = True
 
-    jump main_room
+    jump end_hermione_event
 
 
 label ball_quest_E4:
@@ -647,7 +646,7 @@ label ball_quest_E4:
 
     $ ball_quest.E4_complete = True
 
-    jump main_room
+    jump end_hermione_event
 
 
 label ball_quest_E5:
@@ -714,4 +713,4 @@ label ball_quest_E5:
 
     $ ball_quest.gave_dress = True
 
-    jump main_room
+    jump end_hermione_event

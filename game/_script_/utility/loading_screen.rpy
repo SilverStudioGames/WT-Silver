@@ -106,26 +106,26 @@ screen loading():
     text ("{}%".format(int(float(step) / step_max * 100))) size 32 color "#808080" align (0.5, 0.5)
     text ("{}".format(steps[step])) size 18 color "#808080" align (0.5, 0.6)
 
-    timer 0.01 action SetScreenVariable("step", 1)
+    timer 0.001 action SetScreenVariable("step", 1)
 
     if step is 1:
         add hermione.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 2)
+        timer 0.001 action SetScreenVariable("step", 2)
     elif step is 2:
         add tonks.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 3)
+        timer 0.001 action SetScreenVariable("step", 3)
     elif step is 3:
         add cho.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 4)
+        timer 0.001 action SetScreenVariable("step", 4)
     elif step is 4:
         add astoria.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 5)
+        timer 0.001 action SetScreenVariable("step", 5)
     elif step is 5:
         add luna.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 6)
+        timer 0.001 action SetScreenVariable("step", 6)
     elif step is 6:
         add susan.get_image() alpha 0
-        timer 0.01 action SetScreenVariable("step", 7)
+        timer 0.001 action SetScreenVariable("step", 7)
     elif step is 7:
         if not renpy.predicting():
-            timer 0.01 action Return()
+            timer 0.001 action Return()
