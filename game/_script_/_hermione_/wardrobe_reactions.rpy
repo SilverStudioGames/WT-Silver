@@ -437,7 +437,7 @@ label her_reaction_equip_outfit(item):
     ## Rainy (School outfit with cloak)##
     #####################################
     elif item == her_outfit_s_rain:
-        m "Could you put on your regular school outfit, and your cloak as well."
+        m "Could you put on your regular school outfit, and your cloak as well?"
         if her_whoring < 4:
             call her_main("I wanted to talk to you about this actually...", "open", "closed", "base", "mid")
             m "(Oh, here we go...)"
@@ -1091,10 +1091,10 @@ label her_reaction_equip_outfit(item):
     ## Sling Bikini Outfit ##
     #########################
     elif item == her_outfit_bikini3: #Req 17 (panties, bra)
-        m "Put on this bikini for me will you."
+        m "Put on this bikini for me will you?"
         call her_main("*Hmm*... A bikini you say?", "normal", "narrow", "base", "R")
         m "Yep, this one right here..."
-        call her_main("Right...{w} Why would I even expect something normal...", "angry", "narrow", "base", "down", cheeks="blush")
+        call her_main("Right...{w} Why would I even expect something normal?", "angry", "narrow", "base", "down", cheeks="blush")
         m "Looks normal to me..."
         call her_main("It's held up by chains, How is that normal to you?", "disgust", "narrow", "base", "mid", cheeks="blush")
         m "I mean, perhaps you wouldn't see it at the beach exactly..."
@@ -1118,13 +1118,12 @@ label her_reaction_equip_outfit(item):
         m "(\"Genie fights Snape using magic... #TODO add explanation to this later...\")"
         m "(That's the tutorial so it must be further in...)"
         $ renpy.play("sounds/pageflipback.mp3")
-        pause .4
         m "(Genie fucks Hermione in the Ass...)"
 
         if hg_anal.trigger:
-            m "(Whops... Spoilers..)"
-        else:
             m "(*Heh-heh*... Why am I not doing this right now exactly?)"
+        else:
+            m "(Whops... Spoilers..)"
 
         m "(*Hmm*... I've gone too far... Well... In the script at least.)"
         $ renpy.play("sounds/pageflip.mp3")

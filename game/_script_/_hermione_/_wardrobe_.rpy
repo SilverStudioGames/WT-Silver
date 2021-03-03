@@ -404,7 +404,7 @@ default her_outfit_xmas   = DollOutfit([her_hair_base, her_hat_antlers, her_neck
 ## MISC ##
 ##########
 
-default her_accessory_gift_wrap = DollCloth("hermione", ("misc", "accessory"), "accessory3", "leg_wrap", [[167, 77, 42, 255], [237, 179, 14, 255]], zorder=7, unlocked=True, level=4)
+default her_accessory_gift_wrap = DollCloth("hermione", ("misc", "accessory"), "accessory3", "leg_wrap", [[167, 77, 42, 255], [237, 179, 14, 255]], zorder=7, unlocked=True, level=5)
 default her_bra_bandaids = DollCloth("hermione", ("upper undergarment", "other"), "bra", "bandaids", [[233, 187, 149, 255]], unlocked=True, level=19)
 
 #############
