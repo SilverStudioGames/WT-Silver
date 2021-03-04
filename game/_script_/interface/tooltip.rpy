@@ -16,7 +16,7 @@ screen tooltip():
             $ x, y = renpy.get_mouse_pos()
             $ flip = x > config.screen_width / 2
             $ align = (1.0, 0.0) if flip else (0.0, 0.0)
-            $ offset = (-10, 5) if flip else (10, 5)
+            $ offset = (0, 5) if flip else (10, 5)
 
             window:
                 offset offset

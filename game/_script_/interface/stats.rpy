@@ -117,13 +117,6 @@ label stats_menu(xx=150, yy=90):
     $ menu_items = category_items
     $ menu_items_length = len(menu_items)
 
-    # Reset legacy character positioning
-    # TODO: Remove it once all characters have been converted into a class.
-    $ luna_xpos = 640
-    $ luna_ypos = 0
-    $ susan_xpos = 300
-    $ susan_ypos = 0
-
     show screen stats(xx, yy)
 
     label .after_init:
@@ -240,15 +233,14 @@ screen stats_menuitem(xx, yy):
         text "Characters" size 22 xalign 0.5 ypos 65
 
         hbox:
-            pos (24, 65)
+            style_prefix gui.theme("tab")
+            pos (15, 52)
+            yanchor 0.5
+
             textbutton "Overview":
-                text_size 12
                 action [Return(["subcat", "overview"]), SelectedIf(current_subcategory=="overview")]
-                background None
             textbutton "Details":
-                text_size 12
                 action [Return(["subcat", "details"]), SelectedIf(current_subcategory=="details")]
-                background None
 
         # Character sprites
         frame:

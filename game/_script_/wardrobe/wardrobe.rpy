@@ -417,7 +417,9 @@ screen wardrobe_menuitem(xx, yy):
                     action Return(["subcategory", subcategory])
 
         # Item icons
-        if not wardrobe_loaded:
+        if not menu_items:
+            text "Nothing here yet" size 24 align (0.5, 0.6)
+        elif not wardrobe_loaded:
             text "Loading..." size 24 align (0.5, 0.6)
 
             timer 0.001 action SetVariable("wardrobe_loaded", True)

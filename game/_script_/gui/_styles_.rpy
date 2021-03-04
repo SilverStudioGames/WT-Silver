@@ -126,9 +126,11 @@ style button_text:
 
 style dark_button_text:
     color "#9b8d84"
+    hover_color "#d7d1cd"
 
 style light_button_text:
     color "#f9d592"
+    hover_color "#fefaf4"
 
 style dark_overlay_button is empty:
     hover_foreground "#7d75aa40"
@@ -168,9 +170,11 @@ style tab_button is gui_button:
 
 style dark_tab_button:
     take dark_gui_frame
+    selected_background Frame("gui/dark_frame_tab_selected.png", 8, 8)
 
 style light_tab_button:
     take light_gui_frame
+    selected_background Frame("gui/light_frame_tab_selected.png", 8, 8)
 
 style tab_button_text is gui_button_text
 
@@ -180,7 +184,7 @@ style say_label is default:
     bold False
     text_align 0.5
     align (0.5, 0.5)
-    outlines [(1, settings.get('text_outline'), 1, 0)]
+    #outlines [(1, settings.get('text_outline'), 1, 0)]
 
 style dark_say_label:
     color settings.get('text_color_night')
