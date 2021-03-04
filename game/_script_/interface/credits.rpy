@@ -17,7 +17,7 @@ define credits_text = "\n".join([
     credits_group("Asease1", "LoafyLemon", "TropeCode"),
     credits_title("Music"),
     credits_group(
-        "Kevin MacLeod\n{size=-5}{color=#808080}{k=0.7}\"Anguish\"\n\"Awkward Meeting\"\n\"Brittle Rille\"\n\"Chipper Doodle v2\"\n\"Dark Fog\"\n\"Despair\"\n\"Game Over Theme\"\n\"Boss Theme\"\n\"Hitman\"\n\"Music for Manatees\"\n\"Plaint\"\n\"Fuzzball Parade\"\n\"Teddy Bear Waltz\"\n\"Scheming Weasel (Slower version)\"\n\"Open Those Bright Eyes\"\n\"Wallpaper\"\n\"Hidden Agenda\"\n\"Aquarium\"\n\"Court of the Queen\"\n\"Machinations\"\n\"Brandenburg Concerto No. 4 in G, Movement I (Allegro), BWV 1049\"{/k}{/color}{/size}\n",
+        "Kevin MacLeod\n{size=-5}{color=#808080}{k=0.7}\"Anguish\"\n\"Awkward Meeting\"\n\"Deadly Roulette\"\n\"Brittle Rille\"\n\"Chipper Doodle v2\"\n\"Dark Fog\"\n\"Despair\"\n\"Game Over Theme\"\n\"Boss Theme\"\n\"Hitman\"\n\"Music for Manatees\"\n\"Plaint\"\n\"Fuzzball Parade\"\n\"Teddy Bear Waltz\"\n\"Scheming Weasel (Slower version)\"\n\"Open Those Bright Eyes\"\n\"Wallpaper\"\n\"Hidden Agenda\"\n\"Aquarium\"\n\"Court of the Queen\"\n\"Machinations\"\n\"Brandenburg Concerto No. 4 in G, Movement I (Allegro), BWV 1049\"{/k}{/color}{/size}\n",
         "PhobyAk\n{size=-5}{color=#808080}{k=0.7}\"Under-the-radar\"{/k}{/color}{/size}\n",
         "Shadow16nh\n{size=-5}{color=#808080}{k=0.7}\"Playful Tension (Orchestral)\"{/k}{/color}{/size}\n",
         "controllerhead\n{size=-5}{color=#808080}{k=0.7}\"Item Shop\"{/k}{/color}{/size}\n",

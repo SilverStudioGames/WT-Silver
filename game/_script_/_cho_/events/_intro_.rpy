@@ -157,9 +157,13 @@ label cho_intro_E1:
     call cho_main("Just as hard as all the other great female Quidditch players of history!", "scream", "closed", "angry", "mid")
     call cho_main("They played side by side with men... Earning their place amongst the best!", "open", "narrow", "angry", "down")
     call cho_main("It never mattered what gender they were.", "angry", "narrow", "angry", "mid")
-    call cho_main("And to be shoved aside and forced to play alongside a collection of mediocre amateurs... I won't let that happen!", "clench", "closed", "angry", "down")
-    call cho_main("It would undermine the whole sport, and I'd get even less attention as one of the few girls in the league...", "open", "narrow", "angry", "down")
-    m "Ah, so that's where the problem lies..."
+    call cho_main("To be shoved aside and forced to play alongside a collection of mediocre amateurs...", "clench", "closed", "angry", "down")
+    call cho_main("If this goes through it'd mean that I would never get a proper chance at winning the Quidditch cup!", "clench", "closed", "angry", "mid")
+    m "Right..."
+    call cho_main("Sir... This would destroy the foundations of the entire sport, traditions going back centuries...", "open", "narrow", "angry", "down")
+    m "Now, I think you're being a bit overdramatic Miss--"
+    call cho_main("I'd get even less attention as one of the few girls in the league!", "open", "narrow", "angry", "mid")
+    m "Ah... So that's where the problem lies."
 
     call cho_main("Sir, could you please talk to her? I'd be very grateful if you did.", "upset", "base", "worried", "mid")
     call cho_main("I would be forever in your debt.", "soft", "narrow", "base", "mid")
@@ -185,6 +189,7 @@ label cho_intro_E1:
     call her_chibi("stand",570,"base",flip=True)
     pause .5
 
+    play music "music/deadly-roulette-by-kevin-macleod.mp3" fadein 1 fadeout 1
     call cho_main("", "annoyed", "narrow", "angry", "downR", xpos="base", ypos="base")
     call her_main("Cho...{w=0.5} How nice to see you here...", "open", "closed", "base", "mid", xpos="mid", ypos="base", flip=True)
     call her_main("And why are you here exactly?", "annoyed", "narrow", "annoyed", "L")
@@ -223,10 +228,9 @@ label cho_intro_E1:
         "\"(I should probably listen to them.)\"":
             $ masturbating = False
 
-
     # Masturbating
     if masturbating:
-        call nar(">You pull your cock out and and begin masturbating... focusing on the now heated argument between the two girls in front of you.")
+        call nar(">You pull your cock out and begin masturbating... focusing on the now heated argument between the two girls in front of you.")
 
         show screen cho_main
         call her_main("Oh yeah, well... I bet it can't be anything good seeing how you usually act around men...", "mad", "narrow", "angry", "R")
@@ -255,7 +259,7 @@ label cho_intro_E1:
         call her_main("Unlike some other girls at this school...", "normal", "narrow", "angry", "L", cheeks="blush")
         call her_main("That doesn't mean I've never kissed anyone...", "soft", "base", "worried", "mid", cheeks="blush")
         g9 "..."
-        call her_main("And I didn't need to have my breasts enlarged to not to be confused for a boy!", "annoyed", "narrow", "annoyed", "L", cheeks="blush")
+        call her_main("And I didn't need to have my breasts enlarged so that I wouldn't be confused for a boy!", "annoyed", "narrow", "annoyed", "L", cheeks="blush")
         call cho_main("Oh yeah... Like you haven't been flaunting yours around either...", "open", "narrow", "angry", "L")
         call cho_main("Don't you try and act all innocent!", "angry", "narrow", "angry", "L")
         call her_main("As If...", "normal", "narrow", "annoyed", "mid", cheeks="blush")
@@ -278,6 +282,7 @@ label cho_intro_E1:
 
         g4 "*Argh!* {size=-4}You whores!{/size}"
 
+        stop music fadeout 2.0
         call cho_main("Sir?", "soft", "narrow", "base", "mid")
 
         m "(Shit...)"
@@ -354,6 +359,8 @@ label cho_intro_E1:
         m "Of course."
         call her_main("*Hmm*?", "normal", "squint", "base", "mid", trans=d3)
 
+        stop music fadeout 2.0
+
     hide screen cho_main
     hide screen hermione_main
     with d3
@@ -371,7 +378,7 @@ label cho_intro_E1:
     call her_main("...", "annoyed", "base", "angry", "mid", xpos="base", ypos="base", flip=False, trans=d3)
     m "..."
     call her_main("You're buying favours from her aren't you?", "soft", "narrow", "base", "mid_soft")
-    m "I'm..."
+    m "I'm--"
     call her_main("I knew it!", "angry", "base", "angry", "mid")
     g4 "Now, if you could just listen for a second!"
     call her_main("I don't want to hear it!", "open", "closed", "base", "mid")
@@ -388,12 +395,12 @@ label cho_intro_E1:
 
     m ".......{w=0.5}women..."
 
-    jump main_room
+    jump main_room_menu
 
 
 ### Event 2 ###
 # Cho complains about Hermione again.
-# You need to talk to Hermione and have her drop her Quidditch modement.
+# You need to talk to Hermione and have her drop her Quidditch movement.
 
 label cho_intro_E2:
     stop music fadeout 1.0
@@ -478,7 +485,7 @@ label cho_intro_E2:
 
     $ cho_intro.E2_complete = True
 
-    jump main_room
+    jump main_room_menu
 
 
 ### Snape Hangout Event 1 ###
@@ -502,11 +509,11 @@ label ss_he_cho_E1:
         "\"I can't remember. I got too distracted by her legs...\"":
             call sna_main("Can you describe her?", "snape_05")
             call sna_main("Hair colour, height, her uniform colour? Anything?", "snape_02")
-            m "I believe she was asian."
+            m "I believe she was Asian."
             call sna_main("Cho Chang?", "snape_10")
             m "Bless you."
             call sna_main("No. That's her name.", "snape_08")
-            call sna_main("We only have one asian girl at our school.", "snape_24")
+            call sna_main("We only have one Asian girl at our school.", "snape_24")
             call sna_main("You'd think as the only wizard school in all of Britain, our school would be more diverse...", "snape_09")
 
     call sna_main("And what did she want from you exactly?", "snape_05")
@@ -539,7 +546,7 @@ label ss_he_cho_E1:
             m "Who?"
             call sna_main("A student of mine... Rich parents, bought his way into our Quidditch team... Spoiled beyond belief.", "snape_29")
             m "Didn't you say you don't care much about Quidditch?"
-            call sna_main("Of course I don't. But a win is a win.", "snape_09")
+            call sna_main("Of course I don't... But a win is a win.", "snape_09")
             call sna_main("Besides, Ravenclaw doesn't have a chance against Slytherin.", "snape_03")
             call sna_main("They are notoriously bad at Quidditch. And they have been for years.", "snape_02")
             m "You sound very confident."
@@ -583,6 +590,12 @@ label ss_he_cho_E1:
                     m "Never underestimate the capabilities of a Genie..."
                     call sna_main("(...)", "snape_12")
 
+            #TODO If you've not picked the other option (Help her win the Quidditch cup)
+                #call sna_main("So, that's in then? You're staking both your money and the chance at getting in this girls panties on Ravenclaw winning the cup?", "snape_01")
+                #g4 "You bet I-- No wait! Of course that's not all of it!"
+                #m "*Err*..."
+                #m "Oh! I'm also planning to..."
+
             jump discuss_cho_plan
 
         "\"Have her and Hermione go at each other\"" if not d_flag_02:
@@ -618,7 +631,7 @@ label ss_he_cho_E1:
                 call sna_main("Zone out and dream of stuffing that witch's relentless mouth!", "snape_06")
                 m "I feel you..."
 
-            call sna_main("*Hmm*...{w} That reminds me of something I witnessed at the end of last year...", "snape_23")
+            call sna_main("*Hmm*... That reminds me of something I witnessed at the end of last year...", "snape_23")
             call sna_main("Granger was scolding the poor girl for kissing a boy in the hallways.", "snape_20")
             m "Hot...{w} What happened then?"
             call sna_main("They were screaming and grabbing at each other's hair before I had the chance to interfere.", "snape_18")
@@ -631,6 +644,12 @@ label ss_he_cho_E1:
             call sna_main("How should I know. I'm not her stalker.", "snape_12")
             m "Well, if what you've said is true... Training her should be a piece of cake."
             g9 "And what a delicious piece of cake it will be!"
+
+            #TODO If you've not picked the other option (Have her and Hermione go at each other)
+                #call sna_main("So, how are you planning on achieving all this exactly?", "snape_01")
+                #call sna_main("Surely you can't rely on Miss perfect to get anywhere with this girl...", "snape_04")
+                #m "No, but I'm sure she'll play her part in the next step of my plan with Miss Chang..."
+                #call sna_main("Which is?", "snape_05")
 
             jump discuss_cho_plan
 
