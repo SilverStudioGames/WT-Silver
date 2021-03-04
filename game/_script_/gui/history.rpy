@@ -29,27 +29,33 @@ screen history():
         default groups = [(k, list(g)) for k, g in itertools.groupby(_history_list, key=lambda h: h.who or h.show_args.get("icon", None))]
 
         for k, g in groups:
-            hbox:
+            vbox:
+                xfill True
                 spacing 12
 
-                $ g = list(g)
-                if "icon" in g[0].show_args:
-                    $ icon = g[0].show_args["icon"]
-                    add Transform("interface/icons/head/{}.webp".format(icon), xzoom=-1) size (50, 50)
-                elif g[0].who:
-                    label g[0].who:
-                        style "history_name"
-                        substitute False
+                add gui.format("interface/achievements/{}/spacer.webp") align (0.5, 1.0)
+                hbox:
+                    spacing 12
 
-                        if "color" in g[0].who_args:
-                            text_color g[0].who_args["color"]
-
-                vbox:
-                    spacing 6
-                    for h in g:
-                        $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                        text what:
+                    $ g = list(g)
+                    if "icon" in g[0].show_args:
+                        $ icon = g[0].show_args["icon"]
+                        add Fixed(gui.format("interface/achievements/{}/iconbox.webp"), Transform("interface/icons/head/{}.webp".format(icon), xzoom=-1, size=(40, 40), align=(0.5, 0.5)), fit_first=True)
+                    elif g[0].who:
+                        label g[0].who:
+                            style "history_name"
                             substitute False
+
+                            if "color" in g[0].who_args:
+                                text_color g[0].who_args["color"]
+
+                    vbox:
+                        spacing 6
+
+                        for h in g:
+                            $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
+                            text what:
+                                substitute False
 
         if not _history_list:
             label _("The dialogue history is empty.")
