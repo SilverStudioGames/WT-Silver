@@ -22,10 +22,9 @@ screen nvl(dialogue, items=None):
 
 screen say(who, what, side_image=None, icon=None):
     zorder 30
-    use hotkeys_say
 
-    if hkey_chat_hidden:
-        use invisible_button(action=SetVariable("hkey_chat_hidden", False))
+    if _windows_hidden:
+        use invisible_button(action=SetVariable("_windows_hidden", False))
     else:
         if not renpy.get_screen("choice"):
             use invisible_button(action=Function(ui.saybehavior), keysym="dismiss")
@@ -36,7 +35,7 @@ screen say(who, what, side_image=None, icon=None):
     window id "window":
         style gui.theme("say_window")
 
-        if hkey_chat_hidden:
+        if _windows_hidden:
             ypos 1000
 
         if _game_menu_screen:

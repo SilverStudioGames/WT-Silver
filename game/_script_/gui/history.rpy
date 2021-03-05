@@ -74,7 +74,8 @@ style history_text is gui_text
 style history_text is gui_text
 
 style history_label is gui_label
-style history_label_text is gui_label_text
+style history_label_text is gui_label_text:
+    color "#402313"
 
 style history_window is empty:
     xfill True

@@ -115,7 +115,7 @@ screen inventory(xx, yy):
 
     if renpy.mobile:
         use close_button_background
-    use close_button
+    use close_button(key=["inventory", "game_menu"])
 
     fixed:
         if settings.get("animations"):

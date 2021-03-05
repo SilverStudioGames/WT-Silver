@@ -190,3 +190,6 @@ init -1 python:
 
     def natsort_key(s, pattern=re.compile("([0-9]+)")):
         return [int(t) if t.isdigit() else t.lower() for t in pattern.split(str(s))]
+
+    def tts(s):
+        renpy.display.tts.tts(str(s))

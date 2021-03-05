@@ -459,3 +459,21 @@ style slider_button_text is gui_button_text
 
 style slider_vbox is pref_vbox:
     xsize 320
+
+screen _self_voicing():
+        zorder 1500
+
+        if _preferences.self_voicing == "clipboard":
+            $ message = _("Clipboard voicing enabled. Press 'shift+C' to disable.")
+        elif _preferences.self_voicing == "debug":
+            $ message = _("Text-to-speech would say \"[renpy.display.tts.last]\". Press 'alt+shift+V' to disable.")
+        else:
+            $ message = _("Text-to-speech enabled. Press 'shift+v' to disable.")
+
+        text message:
+            alt ""
+
+            xpos 10
+            ypos 35
+            color "#fff"
+            outlines [ (1, "#0008", 0, 0)]

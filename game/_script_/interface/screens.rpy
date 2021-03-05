@@ -31,20 +31,24 @@ screen dropdown_menu(pos=(0, 0), name="", spacing=0, items_offset=(0, 0), backgr
                     transclude
 
 #Close Button
-screen close_button(xoffset=0, yoffset=0, action=Return("Close")):
+screen close_button(xoffset=0, yoffset=0, action=Return("Close"), key=["game_menu"]):
 
     # Restore menu access if we're leaving nested context
     if renpy.context_nesting_level() == 1:
         $ action = [Function(enable_game_menu), action]
 
     imagebutton:
+        keyboard_focus False
         xalign 1.0
         xanchor 1.0
         offset (xoffset, yoffset)
         idle gui.format("interface/topbar/buttons/{}/ui_close.webp")
         hover image_hover(gui.format("interface/topbar/buttons/{}/ui_close.webp"))
         action action
-        keysym "game_menu"
+
+    key key action action
+
+
 
 screen close_button_background(action=Return("Close"), keysym=None):
 

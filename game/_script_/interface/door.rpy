@@ -39,6 +39,7 @@ label summon_menu(xx=723, yy=90):
     if _choice[0] == "summon":
         hide screen summon
         if not _choice[2]:
+            $ enable_game_menu()
             $ renpy.jump_out_of_context("summon_"+_choice[1].lower())
         else:
             if game.daytime or _choice[1] in ["Tonks", "Snape"]:
@@ -60,7 +61,7 @@ screen summon(xx, yy):
 
     if renpy.mobile:
         use close_button_background
-    use close_button
+    use close_button(key=["summon", "game_menu"])
 
     fixed:
         if settings.get("animations"):

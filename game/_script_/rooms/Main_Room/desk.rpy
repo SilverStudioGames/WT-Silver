@@ -173,9 +173,9 @@ screen desk_menu():
             idle "interface/desk/book.webp"
             hover "interface/desk/book_hover.webp"
             hovered SetVariable("ball_hint", "book")
-            keysym hkey_book
+            keysym "inventory"
             unhovered SetVariable("ball_hint", None)
-            action Return("read_book_menu")
+            action Return("inventory")
 
     #Tissue Box
     add "interface/desk/tissues.webp" xalign 1.0 xpos 1080 ypos 320
@@ -186,7 +186,7 @@ screen desk_menu():
         idle "interface/desk/tissues.webp"
         hover "interface/desk/tissues_hover.webp"
         hovered SetVariable("ball_hint", "jerk_off")
-        keysym hkey_fap
+        keysym "fap"
         unhovered SetVariable("ball_hint", None)
         action Return("jerk_off")
 
@@ -199,7 +199,7 @@ screen desk_menu():
             idle "interface/desk/work.webp"
             hover "interface/desk/work_hover.webp"
             hovered SetVariable("ball_hint", "work")
-            keysym hkey_work
+            keysym "work"
             unhovered SetVariable("ball_hint", None)
             action Return("paperwork")
 
@@ -254,13 +254,9 @@ screen watch():
         idle "interface/desk/watch.webp"
         hover "interface/desk/watch_hover.webp"
         unhovered SetVariable("ball_hint", None)
-        keysym hkey_sleep
-        if game.daytime:
-            hovered SetVariable("ball_hint", "doze_off")
-            action Return("night_start") #Skip to night
-        else:
-            hovered SetVariable("ball_hint", "sleep")
-            action Return("day_start") #Skip to next day
+        keysym "sleep"
+        hovered If(game.daytime, SetVariable("ball_hint", "doze_off"), SetVariable("ball_hint", "sleep"))
+        action If(game.daytime, Return("night_start"), Return("day_start"))
 
     $ watch_x = 603 +67
     $ watch_y = 35

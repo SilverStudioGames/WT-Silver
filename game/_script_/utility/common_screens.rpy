@@ -58,6 +58,7 @@ screen invisible_button(action=NullAction(), keysym=None, alternate=None):
 
     # Note: Actions cannot be passed as transclude, separate parameter is required.
     button style "empty":
+        keyboard_focus False
         action action
         keysym keysym
         alternate alternate

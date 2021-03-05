@@ -172,7 +172,6 @@ screen studio():
     style_prefix "studio"
     predict False
 
-    default visible = True
     default icon_size = (32, 32)
     default take_screenshot = False
 
@@ -210,7 +209,7 @@ screen studio():
 
     add ov
 
-    if visible:
+    if not _windows_hidden:
         use close_button(action=Confirm("Exit Photo Studio?\n{size=-4}All changes will be lost.{/size}", Return("Close")))
 
         hbox:
@@ -327,22 +326,19 @@ screen studio():
                 imagebutton:
                     idle Transform(image_alpha("interface/studio/screenshot.webp"), size=icon_size)
                     hover Transform("interface/studio/screenshot.webp", size=icon_size)
-                    action [SetScreenVariable("visible", False), SetScreenVariable("take_screenshot", True)]
+                    action [Function(_hide_windows), SetScreenVariable("take_screenshot", True)]
                     tooltip "Screenshot (Prnt Scrn)"
                 imagebutton:
                     idle Transform(image_alpha("interface/studio/hide.webp"), size=icon_size)
                     hover Transform("interface/studio/hide.webp", size=icon_size)
-                    action SetScreenVariable("visible", False)
+                    action Function(_hide_windows)
                     tooltip "Hide interface (H)"
 
-    if not visible:
-        use invisible_button(action=SetScreenVariable("visible", True))
-
-    key hkey_hide action ToggleScreenVariable("visible", True, False)
-    key hkey_mhide action ToggleScreenVariable("visible", True, False)
+    if _windows_hidden:
+        use invisible_button(action=Function(_hide_windows))
 
     if take_screenshot:
-        timer 0.2 action [_screenshot, SetScreenVariable("visible", True), SetScreenVariable("take_screenshot", False)]
+        timer 0.2 action [_screenshot, Function(_hide_windows), SetScreenVariable("take_screenshot", False)]
 
 style studio_hbox:
     spacing 25

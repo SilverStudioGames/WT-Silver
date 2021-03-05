@@ -1,9 +1,3 @@
-#
-# Help screen
-#
-# A screen that gives information about key and mouse bindings. It uses other
-# screens (keyboard_help, mouse_help, and gamepad_help) to display the actual
-# help.
 
 init offset = -1
 
@@ -15,15 +9,13 @@ screen help(page='tutorials'):
         style_prefix "help"
 
         vbox:
-            spacing 13
+            spacing 8
             null # Tab margin
 
             if page == 'tutorials':
                 use tutorials_help
-            elif page == "keyboard":
-                use keyboard_help
-            elif page == "mouse":
-                use mouse_help
+            elif page == "controls":
+                use controls_help
             elif page == "gamepad":
                 use gamepad_help
             elif page == "about":
@@ -36,8 +28,7 @@ screen help(page='tutorials'):
 
         textbutton _("Tutorials") action [SelectedIf(page == 'tutorials'), Show("help", config.intra_transition, "tutorials")]
         if not renpy.mobile:
-            textbutton _("Keyboard") action [SelectedIf(page == 'keyboard'), Show("help", config.intra_transition, "keyboard")]
-            textbutton _("Mouse") action [SelectedIf(page == 'mouse'), Show("help", config.intra_transition, "mouse")]
+            textbutton _("Controls") action [SelectedIf(page == 'controls'), Show("help", config.intra_transition, "controls")]
         if GamepadExists():
             textbutton _("Gamepad") action [SelectedIf(page == 'gamepad'), Show("help", config.intra_transition, "gamepad")]
         textbutton _("About") action [SelectedIf(page == 'about'), Show("help", config.intra_transition, "about")]
@@ -59,71 +50,67 @@ label tutorials_help(entry):
     $ renpy.music.set_volume(1.0, 3.0)
     return
 
-screen keyboard_help():
+screen controls_help():
 
     hbox:
-        label _("Enter")
-        text _("Advances dialogue and activates the interface.")
+        label _("Interaction")
+        text _("Space, Enter or Left Mouse Button")
 
     hbox:
-        label _("Space")
-        text _("Advances dialogue without selecting choices.")
+        label _("Navigate Interface")
+        text _("Arrow keys or mouse")
 
     hbox:
-        label _("Arrow Keys")
-        text _("Navigate the interface.")
+        label _("Cancel/Menu")
+        text _("Escape or Right Mouse Button")
 
     hbox:
-        label _("Escape")
-        text _("Accesses the game menu.")
+        label _("Skipping")
+        text _("Ctrl")
 
     hbox:
-        label _("Ctrl")
-        text _("Skips dialogue while held down.")
+        label _("Toggle Skipping")
+        text _("Tab")
 
     hbox:
-        label _("Tab")
-        text _("Toggles dialogue skipping.")
+        label _("Roll Back")
+        text _("Page Up or Mouse Wheel Up")
 
     hbox:
-        label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
+        label _("Roll Forward")
+        text _("Page Down or Mouse Wheel Down")
 
     hbox:
-        label _("Page Down")
-        text _("Rolls forward to later dialogue.")
+        label "Hide Interface"
+        text _("H or Middle Mouse Button")
 
     hbox:
-        label "H"
-        text _("Hides the user interface.")
+        label "Screenshot"
+        text _("Print Screen")
 
     hbox:
-        label "S"
-        text _("Takes a screenshot.")
-
-
-screen mouse_help():
+        label "Sleep"
+        text _("s")
 
     hbox:
-        label _("Left Click")
-        text _("Advances dialogue and activates the interface.")
+        label "Map"
+        text _("m")
 
     hbox:
-        label _("Middle Click")
-        text _("Hides the user interface.")
+        label "Stats"
+        text _("c")
 
     hbox:
-        label _("Right Click")
-        text _("Accesses the game menu.")
+        label "Inventory"
+        text _("i")
 
     hbox:
-        label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
+        label "Fap-Fap-Fap"
+        text _("f")
 
     hbox:
-        label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
-
+        label "Summon"
+        text _("d")
 
 screen gamepad_help():
 
