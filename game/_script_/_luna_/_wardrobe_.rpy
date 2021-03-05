@@ -66,7 +66,7 @@ default lun_top_school3 = DollCloth("luna", ("upper body", "shirts"), "top", "to
 default lun_top_school4 = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_4", [[183, 183, 184, 255], [89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True)
 default lun_top_school5 = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_5", [[183, 183, 184, 255], [89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True, level=4)
 default lun_top_school6 = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_6", [[183, 183, 184, 255], [89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True, level=10)
-#default lun_top_crop = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_crop", [[109, 105, 121, 255], [167, 77, 42, 255], [237, 179, 14, 255]], unlocked=True, level=10)
+default lun_top_crop = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_crop", [[183, 183, 184, 255], [89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True, level=19)
 default lun_top_vest = DollCloth("luna", ("upper body", "shirts"), "top", "top_school_vest", [[109, 105, 121, 255], [89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True, level=13)
 default lun_neckwear_tie = DollCloth("luna", ("head", "neckwear"), "neckwear", "tie", [[89, 116, 194, 255], [216, 163, 10, 255]], unlocked = True, zorder=16) # Tie Only
 
@@ -74,6 +74,16 @@ default lun_bottom_school1 = DollCloth("luna", ("lower body", "skirts"), "bottom
 default lun_bottom_school2 = DollCloth("luna", ("lower body", "skirts"), "bottom", "school_skirt_2", [[103, 90, 108, 255], [232, 177, 13, 255]], unlocked=True, level=4)
 default lun_bottom_school3 = DollCloth("luna", ("lower body", "skirts"), "bottom", "school_skirt_3", [[103, 90, 108, 255], [232, 177, 13, 255]], unlocked=True, level=10)
 default lun_bottom_school4 = DollCloth("luna", ("lower body", "skirts"), "bottom", "school_skirt_4", [[103, 90, 108, 255], [232, 177, 13, 255]], unlocked=True, level=19)
+
+default lun_stockings_school = DollCloth("luna", ("legwear", "stockings"), "stockings", "short_school_1",[[89, 116, 194, 255], [216, 163, 10, 255]], unlocked=True)
+default lun_stockings_school2 = DollCloth("luna", ("legwear", "stockings"), "stockings", "short_school_2",[[89, 116, 194, 255]], unlocked=True)
+
+
+default lun_glasses_spectrespecs = DollCloth("luna", ("head", "glasses"), "glasses", "spectrespecs", [[227, 102, 130, 255], [61, 110, 140, 255]], unlocked=True)
+default lun_accessory_pin_radish = DollCloth("luna", ("misc", "accessory"), "accessory0", "pin_radish", [[182, 23, 16, 255], [232, 190, 188, 255]], zorder=16, unlocked=True)
+
+default lun_stockings_pantyhose = DollCloth("luna", ("legwear", "pantyhose"), "stockings", "pantyhose_1",[[177, 144, 131, 255]], unlocked=True)
+default lun_stockings_pantyhose_meshed = DollCloth("luna", ("legwear", "pantyhose"), "stockings", "pantyhose_meshed",[[0, 0, 0, 255]], unlocked=True)
 
 # default ll_stewardess_ITEM = CostumeItem(
 #     id="ll_stewardess", name="Stewardess Outfit", type="outfit", items=["onepiece-top","hat","necklace","thong"],
@@ -112,8 +122,8 @@ default lun_accessory4_wand_pussy = DollCloth("luna", ("misc", "accessory"), "ac
 ## Outfits ##
 #############
 
-default lun_outfit_default_quirky = DollOutfit([lun_hair_wand, lun_accessory3_hair_bug, lun_neckwear_tie, lun_top_school3, lun_bottom_school2], unlocked=True)
-default lun_outfit_default = DollOutfit([lun_hair_base, lun_top_school1, lun_bottom_school2], unlocked=True)
-default lun_outfit_default_no_vest = DollOutfit([lun_hair_base, lun_top_school4, lun_bottom_school2], hidden=True)
+default lun_outfit_default_quirky = DollOutfit([lun_hair_wand, lun_accessory3_hair_bug, lun_glasses_spectrespecs, lun_accessory_pin_radish, lun_neckwear_tie, lun_top_school3, lun_bottom_school2, lun_stockings_school], unlocked=True)
+default lun_outfit_default = DollOutfit([lun_hair_base, lun_top_school1, lun_bottom_school2, lun_stockings_school], unlocked=True)
+default lun_outfit_default_no_vest = DollOutfit([lun_hair_base, lun_top_school4, lun_bottom_school2, lun_stockings_school], hidden=True)
 
 default lun_outfit_last = DollOutfit([lun_hair_base], hidden=True)
