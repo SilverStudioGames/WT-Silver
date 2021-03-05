@@ -190,6 +190,7 @@ label cho_intro_E1:
     pause .5
 
     play music "music/deadly-roulette-by-kevin-macleod.mp3" fadein 1 fadeout 1
+
     call cho_main("", "annoyed", "narrow", "angry", "downR", xpos="base", ypos="base")
     call her_main("Cho...{w=0.5} How nice to see you here...", "open", "closed", "base", "mid", xpos="mid", ypos="base", flip=True)
     call her_main("And why are you here exactly?", "annoyed", "narrow", "annoyed", "L")
@@ -654,7 +655,7 @@ label ss_he_cho_E1:
             jump discuss_cho_plan
 
 
-    # Ending
+    # Ending #TODO might need some reminder for the player to talk to Hermione here. How would I add that?
     label discussed_cho_plan:
 
     show screen with_snape(ani=True)
@@ -683,13 +684,13 @@ label cho_intro_E3:
         $ cho_intro.E3_intro = True
 
         m "I got some word about you that needs to be addressed..."
-        call her_main("About what? Am I in trouble for anything?", "soft", "wide", "base", "mid")
+        call her_main("About what? I'm not in any trouble or anything am I?", "soft", "wide", "base", "mid")
         m "Miss Chang..."
         call her_main("Oh...", "annoyed", "narrow", "base", "up")
-        call her_main("What about her...", "annoyed", "base", "angry", "mid")
+        call her_main("What about her?", "annoyed", "base", "angry", "mid")
         m "Well, it has come to my attention that you've been spreading false rumours about her."
         call her_main("And? It's well deserved in my opinion...", "soft", "narrow", "annoyed", "mid")
-        m "Well, don't you feel like it's unbefitting of you to publicly talk badly about another student?"
+        m "Don't you feel like it's unbefitting of you to publicly talk badly about another student?"
         call her_main("...", "annoyed", "narrow", "base", "down")
         g9 "Surely that isn't something to expect from Gryffindor's finest..."
         call her_main("Did Cho put you up to this?", "normal", "squint", "base", "mid")
@@ -698,7 +699,7 @@ label cho_intro_E3:
         m "Of course not... it was another teacher, actually."
         call her_main("Who was it?", "open", "base", "angry", "mid")
         m "Not important..."
-        call her_main("It was Snape wasn't it...", "annoyed", "narrow", "base", "mid_soft")
+        call her_main("It was Snape wasn't it?", "annoyed", "narrow", "base", "mid_soft")
         g4 "(She's good!)"
         m "Well, I'd like you to stop and that's all that matters..."
         m "And that includes the..."
@@ -767,7 +768,7 @@ label cho_intro_E3:
                 $ her_mood += 6
                 $ hermione_busy = True
 
-                jump main_room
+                jump main_room_menu
 
 
     elif her_whoring < 21:
@@ -794,7 +795,7 @@ label cho_intro_E3:
         m "(...)"
         m "I'd say fifty would be more appropriate in this instance..."
         call her_main("Sir, it took a lot of effort to gather all those records of past Quidditch matches, throughout the whole history of Quidditch.", "open", "closed", "base", "mid")
-        g4 "fifty points..."
+        m "Fifty points..."
         call her_main("(...)", "annoyed", "narrow", "angry", "R")
         call her_main("Very well then.", "soft", "closed", "base", "mid")
         m "Fifty points, to the Gryffindor house..."
@@ -805,37 +806,38 @@ label cho_intro_E3:
         call her_main("My what?", "open", "narrow", "base", "mid_soft")
         m "Your Quidditch movement."
         m "Regarding the male and female roles in Quidditch..."
-        call her_main("Oh. I barely even remember that I did that.", "annoyed", "narrow", "base", "R_soft")
+        call her_main("Oh. I barely even remember doing that.", "annoyed", "narrow", "base", "R_soft")
         m "So it wouldn't be an issue for you to drop it?"
         call her_main("I guess so...", "soft", "narrow", "worried", "down")
         call her_main("Although, if I were to drop it...", "open", "narrow", "base", "down")
         m "Yes?"
-        call her_main("I want a seat in the teacher stands during Quidditch matches though!", "grin", "narrow", "base", "mid_soft")
+        call her_main("I want a seat in the teacher stands during the Quidditch matches!", "grin", "narrow", "base", "mid_soft")
         m "I'm sure that could be arranged..."
         call her_main("Thank you, [genie_name].", "base", "narrow", "base", "mid_soft")
 
-    call her_main("[genie_name], may I ask.{w=0.6} What exactly were you and Cho talking about when I entered your office?", "open", "base", "base", "R")
+    call her_main("[genie_name], may I ask...{w=0.6} What exactly were you and Cho talking about when I entered your office?", "open", "base", "base", "R")
     m "Oh. She just wanted my help with Quidditch."
     call her_main("*Pffff*-{w=0.4} Why doesn't it surprise me that she'd need your help with it.", "grin", "narrow", "base", "R_soft")
     call her_main("How else could she possibly win that stupid Quidditch cup...", "soft", "closed", "angry", "mid")
-    m "I thought that cup was so important to you?"
+    m "I thought that cup was important to you?"
     call her_main("I couldn't care less about it, [genie_name].", "open", "closed", "base", "mid")
     call her_main("The only cup that is worth winning is the {i}house cup{/i}.", "open", "narrow", "base", "R_soft")
     call her_main("They're completely different...", "annoyed", "base", "angry", "mid")
     m "Totally different..."
 
     if her_whoring < 18:
-        call her_main("It's the most prestigious award one could earn for your school house!{w=0.6} The Quidditch cup is nothing in comparison...", "open", "closed", "base", "mid")
-        call her_main("Why are students even allowed to play this silly sport at our School?", "annoyed", "narrow", "annoyed", "mid")
+        call her_main("It's the most prestigious award one could earn for your house!{w=0.6} The Quidditch cup is nothing in comparison...", "open", "closed", "base", "mid")
+        call her_main("Surely there's better ways to spend your time than participating in this silly sports game.", "annoyed", "narrow", "annoyed", "mid")
+        m "(My irony senses are tingling...)"
 
     if her_whoring < 8:
         call her_main("They're given the privilege of attending one of the most prestigious wizarding schools in the world...", "open", "narrow", "angry", "R")
-        call her_main("And they're wasting their time with some silly sports game that will get them nowhere...", "open", "base", "angry", "mid")
+        call her_main("And what do they do? They spend their time playing some silly sports game that will get them nowhere.", "open", "base", "angry", "mid")
         m "Yes. Because why enjoy yourself when you could study instead..."
         call her_main("Exactly!", "normal", "closed", "base", "mid")
         m "(She's so predictable.)"
 
-    m "Well... The quidditch teams are none of your concern anymore..."
+    m "Well... The Quidditch teams are none of your concern anymore..."
     m "You'll tell Cho that you are sorry about your previous interferences."
     call her_main("(...)", "annoyed", "base", "angry", "mid")
     m "And that the \"Quidditch equality movement\" will be...{w} \n\"no more.\""
@@ -872,15 +874,19 @@ label cho_intro_E3:
         with d3
         pause .5
 
+    stop music fadeout 1.0
     # Cho enters the office.
     call cho_walk(580, "base", action="enter")
 
-    call cho_main("Hello, Sir.{w=0.6} You've called for me?", "base", "base", "base", "mid", xpos="base", ypos="base")
+    pause 1
+    play music "music/deadly-roulette-by-kevin-macleod.mp3" fadein 1 fadeout 1
+
+    call cho_main("Hello, Sir.{w=0.6} You've called for me?", "soft", "narrow", "raised", "L", xpos="base", ypos="base")
     call her_main("", "normal", "closed", "base", "mid", xpos="450", ypos="base")
     call cho_main("Granger...", "soft", "narrow", "angry", "L")
     call her_main("Chang...", "annoyed", "narrow", "angry", "R")
     m "Go on, girl. Tell her."
-    call cho_main("Tell me what?", "smile", "narrow", "angry", "mid")
+    call cho_main("Tell me what?", "normal", "narrow", "angry", "L")
     call her_main("...", "annoyed", "narrow", "base", "up")
     call her_main("About my \"Quidditch equality movement\"...", "normal", "closed", "base", "mid")
     call cho_main("Did our Professor finally convince you what a terrible idea it would be?", "soft", "narrow", "angry", "mid")
@@ -916,18 +922,49 @@ label cho_intro_E3:
     with d3
     pause .5
 
-    call cho_main("Thank you for getting her off my back, Professor.", "base", "base", "base", "mid")
+    stop music fadeout 1.0
+
+    call cho_main("Thank you for getting her off my back, Professor.", "soft", "narrow", "base", "mid")
     m "No problem."
-    call cho_main("Now, if you'll excuse me. I'm expected back on the Quidditch pitch.", "open", "closed", "base", "mid")
-    call cho_main("Just call me whenever I can be of service.", "soft", "narrow", "base", "mid")
-    g9 "I will."
-    call cho_main("Good day, Professor.", "smile", "base", "base", "mid")
+    call cho_main("Hopefully this means we'll have a chance at winning the cup this time around...", "base", "base", "base", "R")
+    call cho_main("However small that chance may be.", "normal", "narrow", "base", "downR")
+    m "(Time to get in there, Genie...)"
+    m "Sounds to me like you could use a coach."
+    call cho_main("Tell me about it...{w=0.4} Our current captain is hopeless...", "disgust", "narrow", "base", "down")
+    call cho_main("During our last meeting he brought up wanting to add stripes to our Quidditch Robes.", "soft", "narrow", "base", "mid")
+    call cho_main("Believing that doing so would somehow make us go faster...", "disgust", "narrow", "base", "mid")
+    m "..."
+    call cho_main("Sorry, sir... I've already taken up enough of your time... Surely you've got more important things--", "open", "narrow", "base", "R")
+
+    play music "music/fuzzball-parade-by-kevin-macleod.mp3" fadein 1 fadeout 1
+
+    m "Why don't I coach you?"
+    call cho_main("Sorry?", "clench", "narrow", "base", "mid")
+    m "I could coach you."
+    call cho_main("You want to coach me, sir?", "open", "wide", "base", "mid")
+    call cho_main("I'm sorry, but I'm a bit confused... Why would the Headmaster want to coach a Quidditch team?", "clench", "narrow", "raised", "mid")
+    m "Why there's a simple answer to that Miss Chang..."
+    m "..."
+    call cho_main("Yes?", "disgust", "narrow", "raised", "mid")
+    m "Isn't the point of a Headmaster to make sure that their students talents aren't wasted?"
+    call cho_main("I suppose so, but--", "open", "base", "base", "downR")
+    m "Well, as soon as you first stepped through that door I could tell that this girl has got what it takes to make it big."
+    call cho_main("...{w} You could tell that just by looking at me?", "angry", "narrow", "base", "mid", cheeks="blush")
+    m "Indeed, there's no doubts about it!"
+    m "Or are you telling me that I'm wrong?"
+    call cho_main("Of course not, but--", "soft", "base", "base", "R", cheeks="blush")
+    g9 "Great!"
+    g9 "Then I shall summon you shortly so we can further discuss this arrangement."
+    call cho_main("(Arrangement?)", "soft", "narrow", "base", "down", cheeks="blush")
+    g9 "That will be all for now Miss Chang, you may leave."
+    call cho_main("...{w} Alright then, sir.", "normal", "base", "base", "mid", cheeks="blush")
+    call cho_main("(He could tell just by looking at me?)", "normal", "narrow", "base", "down", cheeks="blush")
+    call cho_main("(...)", "soft", "narrow", "base", "R", cheeks="blush")
 
     # Cho leaves.
     call cho_walk(action="leave")
 
     call bld
-    m "That went better than expected."
 
     # You can now summon Cho Chang to your office.
     stop music fadeout 1.0
@@ -942,4 +979,4 @@ label cho_intro_E3:
 
     $ cho_intro.E3_complete = True
 
-    jump main_room
+    jump main_room_menu

@@ -51,11 +51,12 @@ label cho_quiz:
     if not cho_quiz.E1_complete:
         $ cho_quiz.E1_complete = True
         m "It's time to start our first lesson, Miss Chang."
-        call cho_main("Great, where do we begin?", "smile", "base", "base", "mid")
-        m "Well, first we're going to have to discuss what you'll do for me in this arrangement of ours..."
-        call cho_main("Oh, well... as I said, I'll do anything to win the cup!", "soft", "base", "base", "R")
-        g9 "That's what I want to hear!"
-        m "In that case, I'd like you to start selling favours to me for my service..."
+        call cho_main("Okay then, where do we begin?", "smile", "base", "base", "mid")
+        m "Well, first we'll need to discuss what you'll do for me in this arrangement of ours..."
+        call cho_main("You need me to do something for your assistance, professor?", "smile", "base", "base", "mid")
+        m "Yes, my time is quite a commodity these days so I want to make sure that the ones I spend it on are actually prepared to do what it takes to achieve their goals."
+        call cho_main("Right... I suppose that's fair.", "smile", "base", "base", "mid")
+        m "Great! Then I'd like you to start selling favours to me for my service."
         call cho_main("Favours? What kind of favours?", "annoyed", "narrow", "raised", "mid")
         m "Nothing that Miss Granger hasn't had any issues with."
 

@@ -114,7 +114,7 @@ label end_cho_event:
     $ renpy.stop_predict("characters/cho/face/*.webp")
 
     call music_block
-    jump main_room
+    jump main_room_menu
 
 screen cho_main():
     tag cho_main
