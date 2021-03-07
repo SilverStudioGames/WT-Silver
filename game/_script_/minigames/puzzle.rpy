@@ -73,8 +73,8 @@ screen puzzle_minigame():
         yanchor 0.0
         align (0.5, 0.85)
         textbutton "-Hint-" xalign 0.5 action ToggleScreenVariable("hint", True, False)
-        if tries >= 25:
-            textbutton "-Force it open-" xalign 0.5 action Return(False)
+        if tries >= 75:
+            textbutton "-Force it open-" xalign 0.5 action Return(False) at pulse_hover
 
 label puzzle_minigame:
     call screen puzzle_minigame()

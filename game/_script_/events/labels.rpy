@@ -10,7 +10,6 @@ label setup_fireplace_hangout(char=None):
         call gen_chibi("hide")
         call sna_chibi("hide")
         call ton_chibi("hide")
-        hide screen chair_right
 
     else: # game.daytime
         stop bg_sounds
@@ -23,7 +22,6 @@ label setup_fireplace_hangout(char=None):
         call gen_chibi("hide")
         call sna_chibi("hide")
         call ton_chibi("hide")
-        hide screen chair_right
 
     # Proceed as usual
     if char == "snape":

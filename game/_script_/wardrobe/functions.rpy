@@ -66,6 +66,11 @@ init python:
             raise KeyError("'{}' character is undefined.".format(key[:3]))
         return "give_{}_gift".format(key[:3])
 
+    def get_character_unlock(key):
+        if not key in CHARACTERS:
+            raise KeyError("'{}' character is undefined.".format(key))
+        return getattr(store, "{}_unlocked".format(key))
+
     ### Outdated, kept for reference.
     # def get_character_score(key):
     #     """Returns character outfit outrage score number"""

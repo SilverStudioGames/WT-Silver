@@ -184,7 +184,6 @@ label achievement:
 label achievement_menu(xx=150, yy=90):
 
     $ achievement_categories_sorted = ["All", "General", "Characters", "Cardgame", "Mirror"]
-    $ achievement_categories_sorted_length = len(achievement_categories_sorted)
 
     $ items_shown = 36
     $ current_page = 0

@@ -204,20 +204,20 @@ screen color_picker(color, alpha, title, pos_xy, color_default):
                         add icon_frame
 
             if alpha:
-                # Alpha slider
-                # frame:
-                bar:
-                    # area (25, 290,
+                # Opacity slider
+                fixed:
                     xysize (255, 30)
-                    value ScreenVariableValue("_alpha", range=1.0, step=0.01, action=Function(color_picker_update_rgba))
-                    base_bar Fixed(
-                        Frame("interface/color_picker/checker.webp", tile=True, ysize=30, xsize=255),
-                        Transform(alpha_gradient_image, matrixcolor=ColorizeMatrix(rgba, rgba))
-                    )
-                    thumb Image(gui.format("interface/color_picker/{}/cursor_v.webp"), xalign=0.5)
-                    thumb_offset 0
-                    top_gutter 0
-                    bottom_gutter 0
+                    fit_first True
+                    add Fixed(Frame("interface/color_picker/checker.webp", tile=True),
+                                Transform(alpha_gradient_image, matrixcolor=ColorizeMatrix(rgba, rgba)))
+                    bar:
+                        xysize (255, 30)
+                        value ScreenVariableValue("_alpha", range=1.0, action=Function(color_picker_update_rgba))
+                        base_bar icon_frame
+                        thumb Image(gui.format("interface/color_picker/{}/cursor_v.webp"), xalign=0.5)
+                        thumb_offset 0
+                        top_gutter 0
+                        bottom_gutter 0
 
             # Window buttons
             hbox:

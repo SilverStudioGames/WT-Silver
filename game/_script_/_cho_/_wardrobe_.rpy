@@ -192,7 +192,7 @@ default cho_stockings_fishnet = DollCloth("cho", ("legwear", "stockings"), "stoc
 default cho_top_sweater1 = DollCloth("cho", ("upper body", "sweaters"), "top", "top_sweater_1", [[89, 116, 194, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
 default cho_top_sweater2 = DollCloth("cho", ("upper body", "sweaters"), "top", "top_sweater_2", [[89, 116, 194, 255]], level=6, unlocked=True)
 default cho_top_tanktop1 = DollCloth("cho", ("upper body", "shirts"), "top", "top_tanktop_1", [[230, 230, 231, 255]], level=14, unlocked=True)
-default cho_robe_quidditch1 = DollCloth("cho", ("misc", "robes"), "robe", "robe_quidditch_1", [[89, 116, 194, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
+default cho_robe_quidditch1 = DollCloth("cho", ("upper body", "robes"), "robe", "robe_quidditch_1", [[89, 116, 194, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
 default cho_bottom_pants1 = DollCloth("cho", ("lower body", "trousers"), "bottom", "pants_long_1", [[230, 230, 231, 255]], armfix=True, unlocked=True)
 default cho_bottom_shorts2 = DollCloth("cho", ("lower body", "shorts"), "bottom", "pants_short_2", [[114, 168, 210, 255], [232, 177, 13, 255]], level=10, armfix=True, unlocked=True)
 default cho_bottom_pants2 = DollCloth("cho", ("lower body", "trousers"), "bottom", "pants_long_2", [[109, 105, 121, 255], [213, 161, 13, 255]], armfix=True, unlocked=True)
