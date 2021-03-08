@@ -137,6 +137,14 @@ default ton_neckwear_bunny1 = DollCloth("tonks", ("head", "neckwear"), "neckwear
 
 default ton_outfit_bunny = DollOutfit([ton_hair_base_new, ton_top_bunny1, ton_stockings_bunny1, ton_hat_bunny1, ton_neckwear_bunny1], price=350, name="Sexy bunny outfit", desc="Vewy sexy :3")
 
+###################
+## Dressing Gown ##
+###################
+
+default ton_dressing_gown = DollCloth("tonks", ("upper body", "robes"), "robe", "dressing_gown", [[13, 0, 76, 255], [31, 41, 171, 255]], armfix=True)
+
+default ton_outfit_dressing_gown = DollOutfit([ton_hair_base_new, ton_dressing_gown], unlocked=True) # Event Outfit # TODO: make outfit hidden and unlock in event instead.
+
 #################
 ## Silky Dress ##
 #################

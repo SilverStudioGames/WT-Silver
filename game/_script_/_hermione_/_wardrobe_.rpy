@@ -233,6 +233,17 @@ default her_top_latex_dress_1 = DollCloth("hermione", ("upper body", "one-piece 
 
 default her_outfit_latex_dress = DollOutfit([her_hair_base, her_top_latex_dress_1], price=350, name="Latex Dress", desc="Something you wouldn't normally find in a regular clothing store.")
 
+###################
+## Pajama Outfit ##
+###################
+
+default her_top_pajama = DollCloth("hermione", ("upper body", "shirts"), "top", "pajama_1", [[228, 216, 193, 255]])
+default her_bottom_pajama = DollCloth("hermione", ("lower body", "trousers"), "bottom", "pajama_1", [[156, 138, 116, 255], [228, 203, 153, 255], [228, 216, 193, 255]])
+default her_bottom_pajama2 = DollCloth("hermione", ("lower body", "trousers"), "bottom", "pajama_2", [[156, 138, 116, 255], [228, 203, 153, 255]], unlocked=True) # TODO: add unlock for this after outfit unlock in Luna event.
+
+default her_outfit_pajama = DollOutfit([her_hair_base, her_top_pajama, her_bottom_pajama], unlocked=True) # Event Outfit # TODO: make outfit hidden and unlock in event instead.
+
+
 ####################
 ## Nightie Outfit ##
 ####################
