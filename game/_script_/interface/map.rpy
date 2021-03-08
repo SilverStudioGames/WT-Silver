@@ -209,17 +209,12 @@ screen map_buttons():
                 action Return("map_attic")
 
     # Map animation toggle
-    text "Animation" xpos 700+21 ypos 530+10 size 10
-    imagebutton:
-        xpos 700
-        ypos 530
-        idle gui.theme("check_false")
-        selected_idle gui.theme("check_true")
+    textbutton "Animation":
+        style gui.theme("check_button")
+        pos (700, 530)
+        selected map_animated
         tooltip "Toggles map folding animation"
         action ToggleVariable("map_animated", True, False)
-
-label map_locations:
-
 
 label set_her_map_location(location=""):
 

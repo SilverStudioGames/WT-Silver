@@ -25,7 +25,6 @@ label shop_item_menu(xx=150, yy=90):
 
     $ items_shown = 36
     $ current_page = 0
-    $ current_item = None
     $ current_category = next(iter(inventory_dict.iterkeys()))
     $ current_sorting = "Price (Asc)"
 
@@ -37,16 +36,15 @@ label shop_item_menu(xx=150, yy=90):
     $ menu_items = shop_item_sortfilter(category_items, current_sorting)
     $ menu_items_length = len(menu_items)
 
+    $ current_item = next(iter(menu_items), None)
+
     show screen shop_item(xx, yy)
 
     label .after_init:
     $ _choice = ui.interact()
 
     if _choice[0] == "select":
-        if current_item == _choice[1]:
-            $ current_item = None
-        else:
-            $ current_item = _choice[1]
+        $ current_item = _choice[1]
     elif _choice[0] == "category":
         $ current_category = _choice[1]
         if current_category in {"Gifts", "Ingredients"}:
@@ -56,7 +54,7 @@ label shop_item_menu(xx=150, yy=90):
         $ menu_items = shop_item_sortfilter(category_items, current_sorting)
         $ menu_items_length = len(menu_items)
         $ current_page = 0
-        $ current_item = None
+        $ current_item = next(iter(menu_items), None)
         pass
     elif _choice == "inc":
         $ current_page += 1
@@ -150,10 +148,10 @@ screen shop_item_menuitem(xx, yy):
 
         text "Store" size 22 xalign 0.5 ypos 65
 
-        if current_category == "Decorations":
-            text "{color=#2055da}T{/color} {outlinecolor=#ffffff00}[tokens]{/outlinecolor}" size 16 pos (24, 70) outlines [ (2, "#000", 0, 0) ]
-        else:
+        if current_item is None or current_item.currency == "gold":
             text "{color=#daa520}G{/color} {outlinecolor=#ffffff00}[game.gold]{/outlinecolor}" size 16 pos (24, 70) outlines [ (2, "#000", 0, 0) ]
+        else:
+            text "{color=#2055da}T{/color} {outlinecolor=#ffffff00}[tokens]{/outlinecolor}" size 16 pos (24, 70) outlines [ (2, "#000", 0, 0) ]
 
         # Page counter
         if menu_items_length > items_shown:
@@ -197,7 +195,7 @@ screen shop_item_menuitem(xx, yy):
                     if not current_item == None and current_item.id == menu_items[i].id:
                         add "interface/achievements/glow.webp" align (0.5, 0.5) zoom 0.105 alpha 0.7 at rotate_circular
 
-                    if ((current_category == "Decorations" and tokens >= menu_items[i].price) or (menu_items[i].owned < 99 and game.gold >= menu_items[i].price)):
+                    if (menu_items[i].currency == "tokens" and tokens >= menu_items[i].price) or (menu_items[i].owned < 99 and game.gold >= menu_items[i].price):
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42)
                     else:
                         $ image_zoom = crop_image_zoom(menu_items[i].get_image(), 42, 42, True)
@@ -214,7 +212,7 @@ screen shop_item_menuitem(xx, yy):
                     if menu_items[i].owned > 0:
                         text str(menu_items[i].owned) size 10 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
-                    if current_category == "Decorations":
+                    if menu_items[i].currency == "tokens":
                         if tokens >= menu_items[i].price:
                             text "{color=#2055da}T{/color} [price]" size 10 align (0.95, 0.95) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                         else:
@@ -236,7 +234,7 @@ screen shop_item_menuitem(xx, yy):
                 pos (24, 375)
                 add gui.format("interface/achievements/{}/icon_selected.webp")
 
-                if (current_category == "Decorations" and tokens >= current_item.price) or (current_item.owned < 99 and game.gold >= current_item.price):
+                if (current_item.currency == "tokens" and tokens >= current_item.price) or (current_item.owned < 99 and game.gold >= current_item.price):
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84)
                 else:
                     $ image_zoom = crop_image_zoom(current_item.get_image(), 84, 84, True)
@@ -247,7 +245,7 @@ screen shop_item_menuitem(xx, yy):
                 if current_item.owned > 0:
                     text "[current_item.owned]" size 14 align (0.1, 0.1) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
 
-                if current_category == "Decorations":
+                if current_item.currency == "tokens":
                     if tokens >= current_item.price:
                         text "{color=#2055da}T{/color} [current_item.price]" size 14 align (0.9, 0.9) anchor (1.0, 1.0) color "#FFFFFF" outlines [ (1, "#000", 0, 0) ]
                     else:
@@ -271,7 +269,7 @@ screen shop_item_menuitem(xx, yy):
                 xoffset 45
                 ypos 374
                 text_size 16
-                sensitive ((current_category == "Decorations" and tokens >= current_item.price) or (current_item.owned < 99 and game.gold >= current_item.price))
+                sensitive ((current_item.currency == "tokens" and tokens >= current_item.price) or (current_item.owned < 99 and game.gold >= current_item.price))
                 action Return("buy")
 
             hbox:

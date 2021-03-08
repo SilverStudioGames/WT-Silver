@@ -149,7 +149,7 @@ label cheats:
                     # voldermort_unlocked = True
                     # hagrid_unlocked = True
                     jump cheats.devroom
-                "-Unlock all characters wardrobe-" (icon="interface/icons/small/wardrobe.webp"):
+                "-Unlock all wardrobes-" (icon="interface/icons/small/wardrobe.webp"):
                     $ tonks_wardrobe_unlocked = True
                     $ hermione_wardrobe_unlocked = True
                     $ cho_wardrobe_unlocked = True
@@ -164,6 +164,10 @@ label cheats:
                     python:
                         for i in {"hermione", "cho", "astoria", "tonks", "susan", "luna"}:
                             for x in getattr(renpy.store, i).outfits:
+                                if not x.hidden:
+                                    x.unlock()
+
+                            for x in getattr(renpy.store, i).wardrobe_list:
                                 x.unlock()
 
                     jump cheats.devroom

@@ -17,7 +17,7 @@ init python:
             return filter(lambda x: x.type == type, self.get_instances())
 
     class Item(object):
-        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default", givable=False):
+        def __init__(self, id, type, name, price=0, desc="", unlocked=True, func=None, label=None, limit=100, image="default", givable=False, currency="gold"):
             self.id = id
             self.type = type
             self.name = name
@@ -28,6 +28,7 @@ init python:
             self.label = label
             self.limit = limit
             self.image = "interface/icons/{}.webp".format(self.id) if image == "default" else image
+            self.currency = currency
 
             self.givable = givable
             self.usable = bool(self.func or self.label)
@@ -77,7 +78,7 @@ init python:
         room_scale = 0.5
 
         def __init__(self, id, type, name, placement, price=0, desc="", unlocked=True, image="default", room_image="default"):
-            super(Decoration, self).__init__(id, type, name, price, desc, unlocked, None, None, 1, image, False)
+            super(Decoration, self).__init__(id, type, name, price, desc, unlocked, None, None, 1, image, False, "tokens")
 
             self.room_image = Transform("images/rooms/objects/decorations/{}.webp".format(self.id), zoom=self.room_scale) if room_image == "default" else Transform(room_image, zoom=self.room_scale)
             self.usable = True

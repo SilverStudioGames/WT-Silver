@@ -140,7 +140,8 @@ default her_gloves_poker1 = DollCloth("hermione", ("upper body", "gloves"), "glo
 default her_earring_poker1 = DollCloth("hermione", ("head", "earrings"), "earrings", "poker_earring_1", [[255, 179, 3, 255]], level=4)
 default her_piercing2_poker1 = DollCloth("hermione", ("piercings & tattoos", "piercings"), "piercing2", "poker_belly_1", [[26, 26, 35, 255], [232, 232, 232, 255], [153, 22, 10, 255], [255, 179, 3, 255]])
 
-default her_outfit_poker = DollOutfit([her_hair_base, her_hat_poker1, her_hat_poker2, her_neckwear_poker1, her_stockings_poker1, her_stockings_poker2, her_panties_poker1, her_bra_poker1, her_gloves_poker1, her_earring_poker1, her_piercing2_poker1], price=450, name="Poke-her-nips Costume", desc="An outfit that doesn't leave much for the mind's desire, perfect for a lewd card loving girl.")
+# Unlockable with Tokens only
+default her_outfit_poker = DollOutfit([her_hair_base, her_hat_poker1, her_hat_poker2, her_neckwear_poker1, her_stockings_poker1, her_stockings_poker2, her_panties_poker1, her_bra_poker1, her_gloves_poker1, her_earring_poker1, her_piercing2_poker1], name="Poke-her-nips Costume", desc="An outfit that doesn't leave much for the mind's desire, perfect for a lewd card loving girl.")
 
 ##################
 ## Bunny Outfit ##

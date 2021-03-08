@@ -185,8 +185,12 @@ label skip_to_hermione:
     call screen loading
     $ enable_game_menu()
 
-    call cheats.hermione_skip_intro
     call send_letters
+    call cheats.hermione_skip_intro
+
+    python:
+        for letter in mailbox.letters:
+            letter.wait -= 7
 
     jump day_start
 

@@ -196,3 +196,9 @@ init python:
 
         def is_multislot(self):
             return any(x in self.type for x in self.multislots)
+
+        def unlock(self):
+            self.unlocked = True
+
+            if self.parent:
+                self.parent.unlock()

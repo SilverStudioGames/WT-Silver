@@ -128,7 +128,9 @@ label item_store:
         fre "Any normal game will make you one token richer and once the agreed upon winning conditions for a challenge is achieved then you'll get three tokens!"
         fre "Three challenges won will let you climb to the next tier."
         ger "Which lets you challenge even higher skilled players."
+
         call nar(">Only first tier with Snape, Hermione and Twins is available for now.")
+
         m "And by skilled you mean players with better cards?"
         fre "Something like that."
         m "I see..."

@@ -16,9 +16,7 @@ label cho_summon_setup:
     if game.weather == "clear":
 
         # Hot muggle outfit.
-        if cho_strip_complete and not cc_muggle_hot_ITEM:
-            $ cc_muggle_hot_ITEM.unlocked = True
-
+        if cho_strip_complete and not cho_outfit_trainee.unlocked:
             $ cho.unequip("all")
             $ cho.equip(cho_outfit_trainee)
 
@@ -43,16 +41,14 @@ label cho_summon_setup:
             call cho_main("Thank you.", "base", "base", "base", "mid")
 
             #Unlocks rewards.
-            call unlock_clothing(text = ">New clothing items for Cho have been unlocked!", item = cc_muggle_hot_ITEM)
+            call unlock_clothing(text = ">New clothing items for Cho have been unlocked!", item=cho_outfit_trainee)
 
             call cho_main(xpos="base", ypos="base", trans=fade)
 
             return
 
         # Party outfit.
-        elif cho_strip_complete and cho_whoring >= 14 and not cc_party_slut_ITEM.unlocked:
-            $ cc_party_slut_ITEM.unlocked = True
-
+        elif cho_strip_complete and cho_whoring >= 14 and not cho_outfit_party.unlocked:
             $ cho.unequip("all")
             $ cho.equip(cho_outfit_party)
 
@@ -79,7 +75,7 @@ label cho_summon_setup:
             g4 "*Hngh*!!!"
 
             #Unlocks rewards.
-            call unlock_clothing(text = ">New clothing items for Cho have been unlocked!", item = cc_party_slut_ITEM)
+            call unlock_clothing(text = ">New clothing items for Cho have been unlocked!", item=cho_outfit_party)
 
             call cho_main(xpos="base", ypos="base", face="horny", trans=fade)
 

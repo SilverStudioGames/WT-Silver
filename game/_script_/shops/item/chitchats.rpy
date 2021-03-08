@@ -1,6 +1,6 @@
 label purchase_item(item):
 
-    if current_category == "Decorations":
+    if item.currency == "tokens":
         if tokens < item.price:
             m "(I don't have enough tokens.)"
             return
@@ -42,8 +42,14 @@ label purchase_item(item):
         fre "Oh! I see... Yes, very unfortunate..."
         m "That is unfortunate... Well I'm sure I'll manage."
 
+    elif item == poker_outfit_ITEM:
+        $ item.used = True
+
+        call unlock_clothing(">Congratulations! You have unlocked a new outfit!", her_outfit_poker)
+
     $ renpy.play("sounds/money.mp3")
-    if current_category == "Decorations":
+
+    if item.currency == "tokens":
         $ tokens -= item.price
     else:
         $ game.gold -= item.price

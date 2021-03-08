@@ -291,7 +291,7 @@ label unlock_clothing(text="", item="interface/icons/box_blue_1.webp"):
     hide screen blktone
     with d3
 
-    $ unlock_clothing_compat(item)
+    $ item.unlock()
 
     call reset_menu_position
 

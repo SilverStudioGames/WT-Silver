@@ -104,7 +104,11 @@ default letter_cards_store = Letter(
 
 label letter_cards_store:
     $ twins_cards_stocked = True
+    $ poker_outfit_ITEM.unlocked = True
     m "Great, let's see how they're doing."
+
+    call give_reward(">New items have been unlocked in the store.", "interface/icons/gold.webp")
+
     return
 
 default letter_cards_tier2 = Letter(

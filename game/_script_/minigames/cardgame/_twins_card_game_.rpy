@@ -122,7 +122,7 @@ label twins_random_duel:
         if game.gold < 10:
             ger "Unfortunately we will have to refuse."
             g4 "Why?"
-            fre "The further extension to fractional values of your current income in the first instance on the establishment of a method of algebraical evolution which bears the same relation to arithmetical evolution that algebraical division bears to arithmetical division gives unsatisfactory results."
+            fre "{size=-2}The further extension to fractional values of your current income in the first instance on the establishment of a method of algebraical evolution which bears the same relation to arithmetical evolution that algebraical division bears to arithmetical division gives unsatisfactory results.{/size}"
             m "........... what?"
             ger "It means you're broke, sir."
             fre "Come back with your offer when you have more gold, professor."
@@ -159,7 +159,7 @@ label twins_random_duel:
             fre "Long explanation or short?"
             menu:
                 "-Long-":
-                    fre "The further extension to fractional values of your current income in the first instance on the establishment of a method of algebraical evolution which bears the same relation to arithmetical evolution that algebraical division bears to arithmetical division gives unsatisfactory results."
+                    fre "{size=-2}The further extension to fractional values of your current income in the first instance on the establishment of a method of algebraical evolution which bears the same relation to arithmetical evolution that algebraical division bears to arithmetical division gives unsatisfactory results.{/size}"
                 "-Short-":
                     ger "You are broke, sir."
             fre "Come back with your offer when you have more gold, professor."

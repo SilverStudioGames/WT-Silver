@@ -67,8 +67,6 @@ init python:
             elif response_card == "draw":
                 break
 
-
-
         return response_card
 
 

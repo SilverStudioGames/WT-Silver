@@ -1174,7 +1174,8 @@ label .succubus_E2:
     # Unlock outfit message. Should only appear once.
     if ton_top_succubus.unlocked == False:
         call unlock_clothing(text=">New clothing items for Tonks have been unlocked!", item=ton_outfit_succubus)
-        $ unlock_clothing_compat(item=ton_top_succubus2)
+
+        $ ton_top_succubus2.unlock()
 
     call cho_main("", "horny", "narrow", "worried", "L", cheeks="heavy_blush")
     call ton_main("Maybe I could dress as a Succubus for Halloween. I'm sure the boys would love it...", "base", "narrow", "base", "mid", hair="horny")

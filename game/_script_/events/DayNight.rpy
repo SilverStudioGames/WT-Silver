@@ -148,6 +148,9 @@ label night_start:
     show screen blkfade
     with dissolve
 
+    # Reset room objects
+    $ cupboard_searched = False
+
     # Reset chit-chat flags
     $ chitchated_with_snape = False
     $ chitchated_with_tonks = False

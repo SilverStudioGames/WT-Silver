@@ -158,6 +158,7 @@ label quidditch_guide_book:
     m "This is even more stupid than I imagined."
 
     $ quidditchguide_ITEM.owned = 0
+    $ quidditchguide_ITEM.used = True
     $ chair_OBJ.hidden = False
     if game.daytime:
         jump night_start
