@@ -39,6 +39,13 @@ label door:
                     hide screen blktone
                     with d3
                     m "This door could take a thousand kicks and it still wouldn't break..."
+                "-Smell the door-":
+                    show screen blktone
+                    with d3
+                    $ renpy.sound.play("sounds/sniff.mp3")
+                    m "...{w} Smells like a door..."
+                    hide screen blktone
+                    with d3
                 "-Leave it alone-":
                     m "Who knows what kind of dangers could be lurking behind that door?"
                     m "I think I'll let it be for now..."

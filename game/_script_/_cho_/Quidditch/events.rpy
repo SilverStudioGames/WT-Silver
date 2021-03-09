@@ -40,8 +40,12 @@ label cho_quid_E1:
             $ cho_name = "Eagle #2"
         "\"Cho\"":
             $ cho_name = "Cho"
+        "\"Miss Chang\"":
+            $ cho_name = "Miss Chang"
+            call cho_main("Don't you already call me that, [cho_genie_name]?", "open", "base", "raised", "mid")
+            m "Never question your [cho_genie_name], [cho_name]!"
 
-    call cho_main("Yes, Sir!", "soft", "closed", "angry", "mid")
+    call cho_main("Yes, [cho_genie_name]!", "soft", "closed", "angry", "mid")
     g4 "Let's start with your {i}Quiddesh{/i} training!"
     call cho_main("\"Quidditch\", Sir.", "annoyed", "narrow", "angry", "mid")
     g4 "Let's start with your \"Quidditch\" training, [cho_name]."
@@ -83,9 +87,9 @@ label cho_quid_E1:
     m "Saying what?"
     call cho_main("(...)", "annoyed", "narrow", "angry", "mid")
     call cho_main("{size=-4}\"Snatch.\"{/size}", "soft", "narrow", "angry", "mid")
-    g9 "*Hehehehe*{w} Now you've said it!"
+    g9 "*He-he-he*...{w} Now you've said it!"
     call cho_main("Could we please just talk about your plan, [cho_genie_name]?", "open", "narrow", "angry", "R")
-    m "Patience, Miss Chang."
+    m "Patience, [cho_name]."
     call cho_main("Tell me!", "scream", "closed", "angry", "mid", trans=hpunch)
     call cho_main("", "annoyed", "narrow", "angry", "mid")
 
@@ -95,7 +99,7 @@ label cho_quid_E1:
     call cho_main("What?!?", "mad", "wide", "raised", "mid")
     call cho_main("Sir, surely you can't be--", "clench", "base", "angry", "mid")
     m "If we entice him during the game he'll lose focus..."
-    call cho_main("Entice...{w=0.4} what are you...", "clench", "base", "base", "mid")
+    call cho_main("Entice...{w=0.4} what are you--", "clench", "base", "base", "mid")
 
     call cho_main("Sir, this is just ridiculous!", "scream", "closed", "angry", "mid", trans=hpunch)
     call cho_main("I thought a highly regarded wizard of your stature would know at least something that could help us at Quidditch.", "open", "narrow", "angry", "mid")

@@ -23,7 +23,7 @@ label desk:
             $ desk_OBJ.foreground = None
             $ letter_hg_1.open()
 
-            m "Ehm........."
+            m "*Ehm*........."
             m "What?"
             m "................................."
         else:

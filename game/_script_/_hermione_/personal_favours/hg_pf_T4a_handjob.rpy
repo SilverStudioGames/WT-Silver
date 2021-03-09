@@ -857,7 +857,7 @@ label hg_pf_handjob_2_continue:
                 call her_main("Do I really have to?")
                 m "Just say it."
                 call her_main("[tmp_name]", "scream", "closed", "angry", "mid")
-            g9 "He-he..."
+            g9 "*He-he*..."
 
         "{size=-4}\"-Manual user input-\"{/size}" if renpy.android:
             $ random_number = renpy.random.randint(1, 3)
@@ -879,7 +879,7 @@ label hg_pf_handjob_2_continue:
                 call her_main("Do I really have to?")
                 m "Just say it."
                 call her_main("Manual user input.", "scream", "closed", "angry", "mid")
-            g9 "He-he..."
+            g9 "*He-he*..."
 
     jump hg_pf_handjob_2_cumming
 

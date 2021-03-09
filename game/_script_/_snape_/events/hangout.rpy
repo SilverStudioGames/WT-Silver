@@ -477,7 +477,7 @@ label ss_he_story_intro_E10:
     m "It's to produce plastic. Simple as that."
     call sna_main("Are you fucking kidding me?!","snape_30")
     call sna_main("No, no... That can't be it...","snape_26")
-    g9 "He-he..."
+    g9 "*He-he*..."
     call sna_main("Are you pulling my leg?","snape_25")
     g9 "You should've seen your face."
     call sna_main("You really had me worried there, you bloody non-human bastard!","snape_15")

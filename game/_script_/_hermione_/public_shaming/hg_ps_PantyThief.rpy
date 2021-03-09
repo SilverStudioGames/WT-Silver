@@ -156,7 +156,7 @@ label hg_cum_on_panties_response:
             "\"An experiment went wrong\"":
                 call her_main("An experiment went wrong, [genie_name]?", "open", "base", "base", "mid")
                 m "Yes... Or maybe I should rather say..."
-                g9 "\"An experiment went very right\"? He-he..."
+                g9 "\"An experiment went very right\"? *He-he*..."
                 call her_main(".....................?", "normal", "squint", "angry", "mid")
                 her "What kind of experiment was it?"
                 m "What? Oh..."

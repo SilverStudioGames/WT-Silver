@@ -53,9 +53,9 @@ label cho_quiz:
         m "It's time to start our first lesson, Miss Chang."
         call cho_main("Okay then, where do we begin?", "smile", "base", "base", "mid")
         m "Well, first we'll need to discuss what you'll do for me in this arrangement of ours..."
-        call cho_main("You need me to do something for your assistance, professor?", "smile", "base", "base", "mid")
+        call cho_main("You need me to do something for your assistance, professor?", "soft", "base", "base", "mid")
         m "Yes, my time is quite a commodity these days so I want to make sure that the ones I spend it on are actually prepared to do what it takes to achieve their goals."
-        call cho_main("Right... I suppose that's fair.", "smile", "base", "base", "mid")
+        call cho_main("Right... I suppose that's fair.", "open", "closed", "base", "mid")
         m "Great! Then I'd like you to start selling favours to me for my service."
         call cho_main("Favours? What kind of favours?", "annoyed", "narrow", "raised", "mid")
         m "Nothing that Miss Granger hasn't had any issues with."
@@ -279,7 +279,7 @@ label cho_quiz:
         if quidditchguide_ITEM.used:
             m "(Why didn't I just follow the book? Serves me right...)"
         elif quidditchguide_ITEM.owned > 0:
-            m "(Maybe I should read that book they gave me...)"
+            m "(Maybe I should read the book I bought...)"
         elif item_store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
@@ -339,7 +339,7 @@ label cho_quiz:
 
         # Got the book but not read.
         elif quidditchguide_ITEM.owned > 0:
-            m "(Maybe I should read that book they gave me...)"
+            m "(Maybe I should read the book I bought...)"
 
         # Visited their shop before.
         elif item_store_intro_done:
@@ -347,7 +347,7 @@ label cho_quiz:
 
     $ cho_busy = True
 
-    jump main_room
+    jump main_room_menu
 
 
 
@@ -617,13 +617,13 @@ label cho_quiz_checkpoint:
 
         # Got the book but not read.
         elif quidditchguide_ITEM.owned > 0:
-            m "(Maybe I should read that book they gave me...)"
+            m "(Maybe I should read the book I bought...)"
 
         # Visited their shop before.
         elif item_store_intro_done:
             m "(Actually, perhaps the twins might be a better idea...)"
 
-    jump main_room
+    jump main_room_menu
 
 
 
