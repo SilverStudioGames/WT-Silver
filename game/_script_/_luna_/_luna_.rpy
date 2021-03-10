@@ -107,7 +107,7 @@ label end_luna_event:
     $ renpy.stop_predict("characters/luna/face/*.webp")
 
     call music_block
-    jump main_room
+    jump main_room_menu
 
 label update_luna:
     # Chibi Update

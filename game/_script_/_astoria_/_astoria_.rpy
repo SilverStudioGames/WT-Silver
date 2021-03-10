@@ -122,7 +122,7 @@ label end_astoria_event:
     $ renpy.stop_predict("characters/astoria/face/*.webp")
 
     call music_block
-    jump main_room
+    jump main_room_menu
 
 screen astoria_main():
     tag astoria_main

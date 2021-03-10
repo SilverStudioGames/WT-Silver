@@ -60,12 +60,12 @@ label summon_luna:
 
             if game.daytime:
                 if lun_mood >= 3:
-                    lun "Good day......"
+                    lun "Good day..."
                 else:
-                    lun "Sure thing, [lun_genie_name]. I will head to classes."
+                    lun "Sure thing, [lun_genie_name]. I will head to class."
             else:
                 if lun_mood >= 3:
-                    lun "Good night......"
+                    lun "Good night..."
                 else:
                     lun "Sure thing, good night [lun_genie_name]."
 

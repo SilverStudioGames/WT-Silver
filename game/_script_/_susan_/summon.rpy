@@ -67,7 +67,7 @@ label summon_susan:
 
             $ susan_busy = True
 
-            jump main_room
+            jump main_room_menu
 
 
 
