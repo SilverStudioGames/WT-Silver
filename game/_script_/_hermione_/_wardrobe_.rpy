@@ -123,7 +123,7 @@ default her_neckwear_maid1 = DollCloth("hermione", ("head", "neckwear"), "neckwe
 default her_neckwear_maid2 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "maid_choker_2", [[236, 243, 244, 255]], level=4)
 default her_gloves_maid1 = DollCloth("hermione", ("upper body", "gloves"), "gloves", "maid_gloves_1", [[40, 51, 61, 255], [236, 243, 244, 255], [53, 63, 84, 255]], level=4)
 
-default her_outfit_maid = DollOutfit([her_hair_base, her_top_maid1, her_stockings_maid1, her_hat_maid1, her_neckwear_maid1, her_neckwear_maid2, her_gloves_maid1, her_panties_base1, her_bra_base1], price=450, name="French Maid Costume", desc="A classic Maids Outfit for a classy Witch.")
+default her_outfit_maid = DollOutfit([her_hair_base, her_top_maid1, her_stockings_maid1, her_hat_maid1, her_neckwear_maid1, her_neckwear_maid2, her_gloves_maid1, her_panties_base1, her_bra_base1], price=450, name="French Maid Costume", desc="A classic Maid Outfit for a classy Witch.")
 
 ##################
 ## Poker Outfit ##

@@ -170,6 +170,15 @@ label cheats:
                             for x in getattr(renpy.store, i).wardrobe_list:
                                 x.unlock()
 
+                    # Also mark as 'used' outfit related quest items.
+
+                    $ poker_outfit_ITEM.owned = 1
+                    $ poker_outfit_ITEM.used = True
+                    $ ball_outfit_ITEM.owned = 1
+                    $ ball_outfit_ITEM.used = True
+                    $ maid_outfit_ITEM.owned = 1
+                    $ maid_outfit_ITEM.used = True
+
                     jump cheats.devroom
 
                 "-Skip character progression-":

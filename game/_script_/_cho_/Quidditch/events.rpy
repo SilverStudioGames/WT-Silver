@@ -288,6 +288,9 @@ label cho_quid_E2:
     $ cho_favors_unlocked = True
     $ cho_quid.lock_training = False
 
+    call gen_chibi("sit_behind_desk")
+    with fade
+
     jump end_cho_event
 
 label cho_quid_E3:

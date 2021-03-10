@@ -9,6 +9,9 @@ label purchase_outfit(item):
     #
 
     if item == her_outfit_maid:
+        $ maid_outfit_ITEM.owned = 1
+        $ maid_outfit_ITEM.used = True
+
         m "I'd like to order a maid outfit."
         maf "A maid outfit, what on earth for? Surely the house elves are keeping your office tidy."
         m "The what?"
@@ -37,6 +40,9 @@ label purchase_outfit(item):
         maf "As you wish sweetie, it should be ready shortly."
         m "Thank you."
     elif item == her_outfit_ball:
+        $ ball_outfit_ITEM.owned = 1
+        $ ball_outfit_ITEM.used = True
+
         if not ball_quest.E4_complete:
             m "Could you make a dress for me?"
             maf "A dress? Do you mean something like a ball dress, or more burlesque?"
